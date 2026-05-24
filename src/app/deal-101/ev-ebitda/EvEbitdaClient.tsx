@@ -201,7 +201,7 @@ export default function EvEbitdaClient({ relatedDeals }: { relatedDeals: Related
               왜 EV/EBITDA인가 — P/E가 M&A에서 쓸 수 없는 이유
             </motion.h2>
 
-            <motion.div variants={fadeUp} className="space-y-4 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+            <motion.div variants={fadeUp} className="space-y-4 text-base text-gray-600 dark:text-gray-400 leading-relaxed">
               <p>
                 인수합병 담당자가 딜 가격을 평가할 때 가장 먼저 꺼내는 질문은 이것이다.
                 <strong className="text-gray-800 dark:text-gray-200"> "이 회사, 몇 배에 사는 거야?"</strong>
@@ -238,8 +238,8 @@ export default function EvEbitdaClient({ relatedDeals }: { relatedDeals: Related
                       {d.multiple}
                     </span>
                     <div>
-                      <p className="text-xs font-bold text-gray-800 dark:text-gray-200">{d.deal}</p>
-                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{d.note}</p>
+                      <p className="text-sm font-bold text-gray-800 dark:text-gray-200">{d.deal}</p>
+                      <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">{d.note}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -267,7 +267,7 @@ export default function EvEbitdaClient({ relatedDeals }: { relatedDeals: Related
               </div>
             </motion.div>
 
-            <motion.p variants={fadeUp} className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+            <motion.p variants={fadeUp} className="text-base text-gray-500 dark:text-gray-400 leading-relaxed">
               공식 자체는 단순하다. 하지만 분자 EV와 분모 EBITDA 각각의 깊은 곳으로 들어가면,
               실무에서 딜팀 간 수천억 원의 견해 차이가 발생한다. 지금부터 하나씩 해부한다.
             </motion.p>
@@ -280,7 +280,7 @@ export default function EvEbitdaClient({ relatedDeals }: { relatedDeals: Related
             <motion.div variants={fadeUp}>
               <p className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-2">분자 (Numerator)</p>
               <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">EV — Enterprise Value 완전 해부</h2>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mb-8">
+              <p className="text-base text-gray-500 dark:text-gray-400 mb-8">
                 "기업가치"로 번역되지만, 더 정확히는 <strong className="text-gray-700 dark:text-gray-300">"이 회사를 통째로 인수하는 데 드는 총 비용"</strong>이다.
                 주식만 사는 게 아니라 부채까지 떠안는다는 개념 — 이것이 시가총액과의 차이다.
               </p>
@@ -328,8 +328,8 @@ export default function EvEbitdaClient({ relatedDeals }: { relatedDeals: Related
                     <div className="flex items-start gap-2">
                       {item.warn && <span className="text-amber-500 text-xs font-bold flex-shrink-0 mt-0.5">⚠</span>}
                       <div>
-                        <h4 className="text-xs font-bold text-gray-900 dark:text-gray-100 mb-1">{item.title}</h4>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{item.body}</p>
+                        <h4 className="text-sm font-bold text-gray-900 dark:text-gray-100 mb-1">{item.title}</h4>
+                        <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{item.body}</p>
                       </div>
                     </div>
                   </motion.div>
@@ -355,8 +355,8 @@ export default function EvEbitdaClient({ relatedDeals }: { relatedDeals: Related
                     <div className="flex items-start gap-2">
                       {item.warn && <span className="text-amber-500 text-xs font-bold flex-shrink-0 mt-0.5">⚠</span>}
                       <div>
-                        <h4 className="text-xs font-bold text-gray-900 dark:text-gray-100 mb-1">{item.title}</h4>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{item.body}</p>
+                        <h4 className="text-sm font-bold text-gray-900 dark:text-gray-100 mb-1">{item.title}</h4>
+                        <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{item.body}</p>
                       </div>
                     </div>
                   </motion.div>
@@ -372,7 +372,7 @@ export default function EvEbitdaClient({ relatedDeals }: { relatedDeals: Related
             <motion.div variants={fadeUp}>
               <p className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-widest mb-2">분모 (Denominator)</p>
               <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">EBITDA — 분모 완전 해부</h2>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mb-8">
+              <p className="text-base text-gray-500 dark:text-gray-400 mb-8">
                 EBITDA는 "Earnings Before Interest, Taxes, Depreciation &amp; Amortization"의 약자다.
                 하지만 각 항목을 <em>왜</em> 제거하는지 이해해야 숫자가 말하는 것을 읽을 수 있다.
               </p>
@@ -401,7 +401,7 @@ export default function EvEbitdaClient({ relatedDeals }: { relatedDeals: Related
             {/* D&A 심층 */}
             <motion.div variants={fadeUp}>
               <h3 className="text-base font-bold text-gray-900 dark:text-gray-100 mb-1">D&amp;A (감가상각) — 가장 오해받는 항목</h3>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mb-5">
+              <p className="text-base text-gray-500 dark:text-gray-400 mb-5">
                 D&amp;A는 EBITDA 계산의 핵심이자 가장 많은 논쟁을 낳는 항목이다.
                 '비현금 비용이니까 더해도 된다'는 단순화가 왜 위험한지, 그리고 업계에서 어떤 함정이 실제로 발생하는지 살펴본다.
               </p>
@@ -413,7 +413,7 @@ export default function EvEbitdaClient({ relatedDeals }: { relatedDeals: Related
                     className="rounded-xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-gray-900 p-5"
                   >
                     <h4 className="text-sm font-bold text-gray-900 dark:text-gray-100 mb-2">{insight.title}</h4>
-                    <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed whitespace-pre-line">{insight.body}</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed whitespace-pre-line">{insight.body}</p>
                     {insight.quote && (
                       <blockquote className="mt-3 border-l-2 border-amber-400 pl-3 text-xs text-amber-700 dark:text-amber-400 italic leading-relaxed">
                         {insight.quote}
@@ -427,7 +427,7 @@ export default function EvEbitdaClient({ relatedDeals }: { relatedDeals: Related
             {/* Interest 심층 */}
             <motion.div variants={fadeUp} className="mt-10">
               <h3 className="text-base font-bold text-gray-900 dark:text-gray-100 mb-1">Interest (이자) — 자본구조 중립화</h3>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mb-5">
+              <p className="text-base text-gray-500 dark:text-gray-400 mb-5">
                 이자를 더하는 이유는 단순하다: 같은 사업이라도 차입금 규모에 따라 순이익이 달라지기 때문.
                 하지만 이 '이자'에도 함정이 있다.
               </p>
@@ -436,8 +436,8 @@ export default function EvEbitdaClient({ relatedDeals }: { relatedDeals: Related
                   <motion.div key={item.title} variants={fadeUp}
                     className="rounded-xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-gray-900 p-4"
                   >
-                    <h4 className="text-xs font-bold text-gray-900 dark:text-gray-100 mb-1">{item.title}</h4>
-                    <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{item.body}</p>
+                    <h4 className="text-sm font-bold text-gray-900 dark:text-gray-100 mb-1">{item.title}</h4>
+                    <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{item.body}</p>
                   </motion.div>
                 ))}
               </motion.div>
@@ -446,7 +446,7 @@ export default function EvEbitdaClient({ relatedDeals }: { relatedDeals: Related
             {/* Tax 심층 */}
             <motion.div variants={fadeUp} className="mt-10">
               <h3 className="text-base font-bold text-gray-900 dark:text-gray-100 mb-1">Tax (세금) — 국가 간 비교를 가능하게</h3>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mb-5">
+              <p className="text-base text-gray-500 dark:text-gray-400 mb-5">
                 세금을 더하는 이유는 국가·세율 차이 없이 영업 효율성을 비교하기 위해서다.
                 하지만 세금 영역에도 M&A 실무자가 놓치는 포인트가 있다.
               </p>
@@ -455,8 +455,8 @@ export default function EvEbitdaClient({ relatedDeals }: { relatedDeals: Related
                   <motion.div key={item.title} variants={fadeUp}
                     className="rounded-xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-gray-900 p-4"
                   >
-                    <h4 className="text-xs font-bold text-gray-900 dark:text-gray-100 mb-1">{item.title}</h4>
-                    <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{item.body}</p>
+                    <h4 className="text-sm font-bold text-gray-900 dark:text-gray-100 mb-1">{item.title}</h4>
+                    <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{item.body}</p>
                   </motion.div>
                 ))}
               </motion.div>
@@ -467,7 +467,7 @@ export default function EvEbitdaClient({ relatedDeals }: { relatedDeals: Related
               <h3 className="text-sm font-bold text-gray-900 dark:text-gray-100 mb-2">
                 💡 COGS 안에 숨어있는 D&amp;A — 초보자가 가장 많이 틀리는 부분
               </h3>
-              <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+              <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                 손익계산서에서 D&amp;A 항목을 찾으려는 사람들이 자주 당황하는 이유가 있다.
                 <strong className="text-gray-800 dark:text-gray-200"> 제조업 기업의 공장 설비 감가상각은 COGS(매출원가) 안에 이미 녹아있다.</strong>
                 삼성전자의 반도체 팹 장비 감가상각은 웨이퍼 제조 원가의 일부로 처리되어, 손익계산서 표면에는 별도 D&amp;A 라인이 보이지 않는다.
@@ -482,7 +482,7 @@ export default function EvEbitdaClient({ relatedDeals }: { relatedDeals: Related
           {/* ══ 5. 산업별 배수 ════════════════════════════════════ */}
           <motion.section variants={stagger()} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-80px" }}>
             <motion.h2 variants={fadeUp} className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">산업별 적정 배수</motion.h2>
-            <motion.p variants={fadeUp} className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+            <motion.p variants={fadeUp} className="text-base text-gray-500 dark:text-gray-400 mb-6">
               적정 배수는 산업·성장성·금리·시장 사이클에 따라 크게 달라진다. 아래는 2020년대 초 글로벌 M&A 기준이며,
               고금리 환경(2022–2024)에서는 전 섹터 배수가 전반적으로 20~30% 수축했다.
             </motion.p>
@@ -513,7 +513,7 @@ export default function EvEbitdaClient({ relatedDeals }: { relatedDeals: Related
           {/* ══ 6. 한계 ══════════════════════════════════════════ */}
           <motion.section variants={stagger()} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-80px" }}>
             <motion.h2 variants={fadeUp} className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">EV/EBITDA의 한계</motion.h2>
-            <motion.p variants={fadeUp} className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+            <motion.p variants={fadeUp} className="text-base text-gray-500 dark:text-gray-400 mb-6">
               강력하지만 만능이 아니다. 아래 상황에서는 반드시 다른 지표를 병행해야 한다.
             </motion.p>
             <motion.div variants={stagger(0.07)} className="grid sm:grid-cols-2 gap-3">
@@ -522,8 +522,8 @@ export default function EvEbitdaClient({ relatedDeals }: { relatedDeals: Related
                   className="rounded-xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-gray-900 p-4"
                 >
                   <p className="text-rose-500 font-black text-base mb-1.5">✕</p>
-                  <h3 className="text-xs font-bold text-gray-900 dark:text-gray-100 mb-1">{l.title}</h3>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{l.body}</p>
+                  <h3 className="text-sm font-bold text-gray-900 dark:text-gray-100 mb-1">{l.title}</h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{l.body}</p>
                 </motion.div>
               ))}
             </motion.div>
@@ -590,7 +590,7 @@ export default function EvEbitdaClient({ relatedDeals }: { relatedDeals: Related
                   <span className={`text-[11px] font-black flex-shrink-0 mt-0.5 ${pt.color}`}>{pt.num}</span>
                   <div>
                     <p className="text-xs font-bold text-gray-900 dark:text-gray-100 mb-0.5">{pt.title}</p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{pt.body}</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{pt.body}</p>
                   </div>
                 </motion.div>
               ))}
@@ -627,7 +627,7 @@ export default function EvEbitdaClient({ relatedDeals }: { relatedDeals: Related
           {relatedDeals.length > 0 && (
             <motion.section variants={stagger()} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-80px" }}>
               <motion.h2 variants={fadeUp} className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">이 개념이 등장하는 딜</motion.h2>
-              <motion.p variants={fadeUp} className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+              <motion.p variants={fadeUp} className="text-base text-gray-500 dark:text-gray-400 mb-6">
                 EV/EBITDA가 핵심 밸류에이션 논거로 쓰인 실제 딜 아카이브.
               </motion.p>
               <motion.div variants={stagger(0.08)} className="grid gap-3 sm:grid-cols-2">
