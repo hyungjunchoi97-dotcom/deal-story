@@ -531,7 +531,99 @@ export default function EvEbitdaClient({ relatedDeals }: { relatedDeals: Related
 
           <div className="border-t border-gray-100 dark:border-gray-800" />
 
-          {/* ══ 7. 이 개념이 등장하는 딜 ════════════════════════ */}
+          {/* ══ 7. 핵심 요약 ═════════════════════════════════════ */}
+          <motion.section variants={stagger()} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-80px" }}>
+            <motion.div variants={fadeUp} className="flex items-center gap-2 mb-6">
+              <span className="text-xs font-bold bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded-full px-3 py-1">
+                핵심 요약
+              </span>
+              <span className="text-xs text-gray-400 dark:text-gray-500">EV/EBITDA 완전정리</span>
+            </motion.div>
+
+            {/* 한 줄 요약 */}
+            <motion.div variants={fadeUp}
+              className="rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/40 dark:to-indigo-950/30 border border-blue-100 dark:border-blue-900/50 p-6 mb-5"
+            >
+              <p className="text-[11px] font-semibold text-blue-500 dark:text-blue-400 uppercase tracking-wider mb-2">한 줄 정의</p>
+              <p className="text-base font-bold text-gray-900 dark:text-gray-100 leading-snug">
+                EV/EBITDA는 &ldquo;자본구조와 세금 차이를 제거한 뒤, 순수 영업 현금창출력 대비 인수 총비용이 몇 배인가&rdquo;를 측정하는 지표다.
+              </p>
+            </motion.div>
+
+            {/* 5가지 핵심 포인트 */}
+            <motion.div variants={stagger(0.07)} className="space-y-2.5 mb-5">
+              {[
+                {
+                  num: "01",
+                  title: "EV는 시가총액이 아니다",
+                  body: "인수자가 실제로 부담하는 총비용 — 시가총액 + 순부채(차입금 – 현금). 전환사채·IFRS 16 리스·연금 적자가 숨어있다.",
+                  color: "text-blue-500",
+                },
+                {
+                  num: "02",
+                  title: "EBITDA는 현금흐름이 아니다",
+                  body: "Capex를 반영하지 않는다. 제조업·항공·인프라처럼 설비투자가 많은 업종에서 EBITDA를 현금흐름 대리지표로 쓰면 수익성을 과대평가한다.",
+                  color: "text-amber-500",
+                },
+                {
+                  num: "03",
+                  title: "자본구조 중립화가 핵심 존재 이유",
+                  body: "무차입 기업과 고레버리지 기업을 이자 차이 없이 동등하게 비교할 수 있다. 이것이 P/E 대신 EV/EBITDA를 쓰는 가장 큰 이유다.",
+                  color: "text-emerald-500",
+                },
+                {
+                  num: "04",
+                  title: "멀티플은 업종마다 완전히 다르다",
+                  body: "소프트웨어 20×와 리테일 20×는 전혀 다른 의미다. 비교는 반드시 동일 섹터 내에서만 유효하다.",
+                  color: "text-purple-500",
+                },
+                {
+                  num: "05",
+                  title: "EBITDA 조정의 투명성을 요구하라",
+                  body: "Adjusted EBITDA는 PPA 상각·일회성 비용·SBC 등 각종 add-back을 포함한다. 무엇을 더하고 뺐는지 항상 확인해야 한다.",
+                  color: "text-rose-500",
+                },
+              ].map((pt) => (
+                <motion.div key={pt.num} variants={fadeUp}
+                  className="flex gap-4 rounded-xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900/60 px-4 py-3.5"
+                >
+                  <span className={`text-[11px] font-black flex-shrink-0 mt-0.5 ${pt.color}`}>{pt.num}</span>
+                  <div>
+                    <p className="text-xs font-bold text-gray-900 dark:text-gray-100 mb-0.5">{pt.title}</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{pt.body}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            {/* 사용 가이드 */}
+            <motion.div variants={fadeUp} className="grid sm:grid-cols-2 gap-3">
+              <div className="rounded-xl border border-emerald-200 dark:border-emerald-800/50 bg-emerald-50/60 dark:bg-emerald-950/20 p-4">
+                <p className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 mb-2.5">✓ 써도 좋은 상황</p>
+                <ul className="space-y-1.5">
+                  {["동일 섹터 기업 간 비교", "Capex 부담이 낮은 사업 (SaaS, 금융)", "글로벌 크로스보더 딜 (세율 차이 중립화)", "LBO 수익성 초기 검토"].map((t) => (
+                    <li key={t} className="text-xs text-gray-600 dark:text-gray-400 flex gap-1.5">
+                      <span className="text-emerald-500 flex-shrink-0">·</span>{t}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="rounded-xl border border-rose-200 dark:border-rose-800/50 bg-rose-50/60 dark:bg-rose-950/20 p-4">
+                <p className="text-[11px] font-bold text-rose-500 dark:text-rose-400 mb-2.5">✕ 주의해야 하는 상황</p>
+                <ul className="space-y-1.5">
+                  {["EBITDA 적자 고성장 기업 (EV/Revenue 사용)", "Capex 집중 산업 (항공·제조·통신)", "IFRS 16 적용 전후 시점 혼재 비교", "M&A 후 대규모 PPA 상각이 있는 기업"].map((t) => (
+                    <li key={t} className="text-xs text-gray-600 dark:text-gray-400 flex gap-1.5">
+                      <span className="text-rose-400 flex-shrink-0">·</span>{t}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          </motion.section>
+
+          <div className="border-t border-gray-100 dark:border-gray-800" />
+
+          {/* ══ 8. 이 개념이 등장하는 딜 ════════════════════════ */}
           {relatedDeals.length > 0 && (
             <motion.section variants={stagger()} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-80px" }}>
               <motion.h2 variants={fadeUp} className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">이 개념이 등장하는 딜</motion.h2>
@@ -579,7 +671,7 @@ export default function EvEbitdaClient({ relatedDeals }: { relatedDeals: Related
 
           <div className="border-t border-gray-100 dark:border-gray-800" />
 
-          {/* ══ 8. 관련 개념 ═════════════════════════════════════ */}
+          {/* ══ 9. 관련 개념 ═════════════════════════════════════ */}
           <motion.section variants={stagger()} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-80px" }}>
             <motion.h2 variants={fadeUp} className="text-base font-bold text-gray-900 dark:text-gray-100 mb-4">함께 알아두면 좋은 개념</motion.h2>
             <motion.div variants={fadeUp} className="flex flex-wrap gap-2">
@@ -604,7 +696,7 @@ export default function EvEbitdaClient({ relatedDeals }: { relatedDeals: Related
 
           <div className="border-t border-gray-100 dark:border-gray-800" />
 
-          {/* ══ 9. 참고 자료 ════════════════════════════════════ */}
+          {/* ══ 10. 참고 자료 ════════════════════════════════════ */}
           <motion.section variants={stagger()} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-80px" }}>
             <motion.h2 variants={fadeUp} className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">참고 자료</motion.h2>
             <motion.ol variants={stagger(0.05)} className="space-y-2">
