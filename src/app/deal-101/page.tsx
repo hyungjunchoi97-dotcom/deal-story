@@ -30,6 +30,13 @@ const CONCEPT_CATALOG = [
     published: true,
   },
   {
+    slug: "adjusted-ebitda",
+    term: "Adjusted EBITDA — 조정의 전쟁",
+    tagline: "EV = Multiple × EBITDA — EBITDA 조정이 곱셈으로 매각가에 증폭된다. 1회성 판정 기준과 이해관계자 충돌 지도",
+    category: "밸류에이션",
+    published: true,
+  },
+  {
     slug: "ev-sales",
     term: "EV/Sales 멀티플",
     tagline: "EBITDA 적자 성장기 기업을 평가할 때 쓰는 매출 기반 밸류에이션",

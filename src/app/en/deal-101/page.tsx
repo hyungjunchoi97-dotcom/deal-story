@@ -44,6 +44,13 @@ const CONCEPT_CATALOG = [
     published: true,
   },
   {
+    slug: "adjusted-ebitda",
+    term: "Adjusted EBITDA",
+    tagline: "EV = Multiple × EBITDA — why every add-back is a battle, who benefits, and how FDD teams push back",
+    category: "Valuation",
+    published: true,
+  },
+  {
     slug: "ev-sales",
     term: "EV/Sales Multiple",
     tagline: "Revenue-based valuation for high-growth companies with negative EBITDA",
