@@ -128,13 +128,20 @@ const CASES = [
     color: "border-rose-200 dark:border-rose-800/40",
     badge: "bg-rose-100 text-rose-700 dark:bg-rose-900/40 dark:text-rose-300",
     summary: "Excluded all SG&A and marketing costs to flip a -$1.93B net loss into +$467M Adj. EBITDA",
+    analogy: "Imagine a restaurant that says 'we're profitable if you don't count the waitstaff salaries and the advertising budget.' But those ARE the restaurant's core costs — you can't run the business without them.",
+    paragraphs: [
+      "WeWork's business model is simple: sign long-term leases on large floors, then sublet them as short-term flexible desks. To fill those desks, you need a sales team, marketing spend, and pre-opening costs for each new location. These were WeWork's fundamental operating costs.",
+      "In its S-1 IPO filing, WeWork defined 'Community-Adjusted EBITDA' by removing not just interest, taxes, and D&A — but also all SG&A ($933M in FY2018) and pre-opening costs, labeling them 'community investments.' The result: a GAAP net loss of -$1.93B transformed into a reported profit of +$467M. A $2.4B swing.",
+      "The problem is straightforward: to sign one more member, you need sales and marketing. Strip that cost and a mature, full location looks profitable. But the business as a whole — which requires constantly filling new locations — can never be profitable on those terms.",
+      "The IPO was pulled in September 2019. WeWork filed for Chapter 11 bankruptcy in November 2023. SoftBank's total losses reached -$9.5B.",
+    ],
+    lesson: "If the cost disappears, so does the business. Excluding a core operating expense can make any company look profitable on paper.",
     numbers: [
       { label: "GAAP Net Loss (FY2018)", value: "-$1.93B" },
       { label: "Community-Adjusted EBITDA", value: "+$467M" },
       { label: "GAAP vs. Adjusted Gap", value: "~$2.4B" },
       { label: "SoftBank Total Losses", value: "-$9.5B" },
     ],
-    detail: `WeWork's S-1 defined "Community-Adjusted EBITDA" by stripping GAAP net loss of interest, taxes, D&A, and SBC — and then also excluding all SG&A ($933M, FY2018) and pre-opening costs. The fundamental problem: SG&A was core operating expenditure for WeWork's business model. Every incremental member required sales and marketing spend. Removing it made unit economics of mature locations look attractive, but it never translated to company-wide profitability. The IPO was withdrawn in September 2019; WeWork filed for Chapter 11 in November 2023.`,
     source: "Source: WeWork S-1 filing, Aug 14, 2019 (SEC EDGAR)",
   },
   {
@@ -144,13 +151,20 @@ const CASES = [
     color: "border-amber-200 dark:border-amber-800/40",
     badge: "bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300",
     summary: "Restructuring costs labeled 'non-recurring' for 8 consecutive quarters — turning GAAP EPS -$0.18 into 'Cash EPS' +$10.17",
+    analogy: "Imagine taking your car to the mechanic eight quarters in a row, and each time telling your spouse 'don't worry, this is the last repair bill, it won't happen again.' By the eighth time, it's not a one-time expense — you just have a broken car.",
+    paragraphs: [
+      "Valeant's strategy was simple: acquire pharmaceutical companies, raise drug prices, cut R&D. Because it was constantly acquiring, it had constant integration and restructuring costs — every quarter, without fail.",
+      "Each quarter, Valeant labeled these costs 'non-recurring' and excluded them from adjusted EBITDA. The effect: GAAP earnings per share of -$0.18 became the company-reported 'Cash EPS' of +$10.17. A difference of over $10 per share.",
+      "The fatal flaw: this 'one-time' charge appeared for eight consecutive quarters between 2013 and 2015. When something happens eight times in a row, it isn't a one-time event — it's a structural cost of doing business. Academic research backs this up: Doyle, Jennings & Soliman (2013) showed that 65–70% of items companies call 'non-recurring' reappear in subsequent periods.",
+      "The SEC opened an investigation in 2016. Financial statements were restated. The stock collapsed from a peak of $262 to below $10.",
+    ],
+    lesson: "When the same 'one-time' item appears two or three quarters in a row, stop calling it one-time. It's a structural cost of that business.",
     numbers: [
       { label: "GAAP EPS (FY2015)", value: "-$0.18" },
       { label: "'Cash EPS' (adjusted)", value: "+$10.17" },
       { label: "Adjusted EBITDA (FY2015)", value: "~$5.7B" },
       { label: "Stock Peak → Trough", value: "$262 → <$10" },
     ],
-    detail: `Valeant's business model was acquire-raise prices-cut R&D. Its adjusted metrics add-backed intangible amortization from acquisitions ($2B+) and restructuring/integration costs as 'non-recurring' every single quarter — for eight quarters in a row. The fatal flaw: when a charge appears eight consecutive times, it is structurally recurring by definition. The SEC launched an investigation in 2016, financial statements were restated, and the CFO and CEO were held accountable. Doyle, Jennings & Soliman (2013, Journal of Accounting and Economics) empirically showed that 65–70% of items companies label as 'non-recurring' reappear in subsequent periods.`,
     source: "Source: Valeant Annual Report 2015; SEC Comment Letters (EDGAR); Doyle et al. (2013), JAE",
   },
   {
@@ -159,30 +173,44 @@ const CASES = [
     year: "2015–2025",
     color: "border-blue-200 dark:border-blue-800/40",
     badge: "bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300",
-    summary: "Acquired for KRW 7.2T, store real estate sale-leasebacks masked structural EBITDA erosion",
+    summary: "Sold the stores' real estate to raise cash, then leased them back — but the new rent bill never went away",
+    analogy: "Imagine selling your house to raise a lump sum of cash, then renting it back from the new owner and saying 'look how much cash we have now.' The sale proceeds are one-time. The monthly rent you now owe is permanent.",
+    paragraphs: [
+      "In 2015, MBK Partners acquired Homeplus from Tesco for KRW 7.2T — Korea's largest-ever PE buyout, largely debt-financed at roughly 9–10× EBITDA leverage.",
+      "After the acquisition, MBK raised over KRW 4T by selling Homeplus store buildings and leasing them back (sale-leaseback). The proceeds were used to pay down debt and return capital to investors. On the surface, this looked like smart financial engineering.",
+      "But here's what changed: before the leasebacks, Homeplus owned its stores and had no rent. After the leasebacks, it had permanent, ongoing rent obligations for every store it had sold. This new cost was not fully priced into the deal's EBITDA projections.",
+      "Compounding the problem, Korean discount retail was being devastated by Coupang, Naver, and convenience stores between 2015 and 2020. At 9–10× leverage, there was no buffer to absorb this structural shift. Homeplus filed for court receivership in February 2025.",
+    ],
+    lesson: "One-time sale proceeds cannot be treated as recurring EBITDA. When you sell and leaseback, a permanent rent expense is created — and it must be fully subtracted from normalized earnings.",
     numbers: [
       { label: "Acquisition Price", value: "KRW 7.2T" },
-      { label: "Store Count (2015)", value: "~140 stores" },
       { label: "Sale-Leaseback Proceeds", value: "KRW 4T+" },
-      { label: "Chapter 15 (US) Filed", value: "March 2025" },
+      { label: "Leverage at Acquisition", value: "~9–10× EBITDA" },
+      { label: "Court Receivership Filed", value: "Feb 2025" },
     ],
-    detail: `MBK Partners acquired Homeplus from Tesco in 2015 for KRW 7.2T — Korea's largest PE buyout at the time, financed with approximately KRW 4.7T in debt. Post-acquisition, MBK generated KRW 4T+ through sale-leasebacks of store real estate, using proceeds to pay down leverage and return capital. However, operating lease costs rose materially after the leasebacks, compressing store-level margins. The structural issue: EBITDA-level performance appeared more stable than it was because operating lease costs (post-IFRS 16: right-of-use asset amortization + interest) affected metrics differently depending on the accounting standard applied. As discount retailers lost market share to e-commerce, the store portfolio deteriorated faster than projected EBITDA implied. Homeplus filed for court receivership in February 2025.`,
     source: "Source: Homeplus court filing (2025); Korea Fair Trade Commission; MBK Partners press releases",
   },
   {
     title: "HDC Hyundai Development × Asiana Airlines",
     region: "🇰🇷 South Korea",
-    year: "2020",
+    year: "2019–2020",
     color: "border-purple-200 dark:border-purple-800/40",
     badge: "bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300",
-    summary: "KRW 2.5T deal collapsed mid-COVID: off-balance-sheet liabilities and operational lease obligations not fully reflected in deal EBITDA",
+    summary: "Heavy maintenance costs treated as 'one-time' — COVID pulled the trigger, but the structural vulnerability was already there",
+    analogy: "Imagine buying a car and the dealer says 'every five years you'll need a full engine overhaul.' If you then record that overhaul as a 'one-time expense,' you're fooling yourself. Five-year cycles are predictable — they're not surprises.",
+    paragraphs: [
+      "HDC Hyundai Development agreed to acquire Asiana Airlines for KRW 2.5T in December 2019. When COVID-19 grounded international flights in early 2020, HDC invoked the MAC (Material Adverse Change) clause and sought to exit. COVID was the trigger — but the structural vulnerabilities had been there from the start.",
+      "Every commercial aircraft requires a 'D-Check' (heavy maintenance) roughly every 6–8 years: a complete disassembly and inspection of every component. Cost: hundreds of millions of won per aircraft. Because these checks don't happen annually, they're often labeled 'non-recurring' and excluded from EBITDA. But for any airline that keeps flying, D-Checks are as inevitable as fuel costs — they just happen on a longer cycle.",
+      "The second issue: IFRS 16 accounting required Asiana's aircraft operating lease obligations (over KRW 2.4T) to be recognized as balance-sheet liabilities. Whether these were fully incorporated into the enterprise value calculation became a central dispute.",
+      "The deal was ultimately terminated, confirmed by court ruling. The episode became a textbook example in Korean M&A circles of the gap between adjusted EBITDA and economic reality.",
+    ],
+    lesson: "'Infrequent' is not the same as 'one-time.' If a cost is predictable and inevitable — even on a 6-year cycle — it belongs in normalized EBITDA.",
     numbers: [
       { label: "Agreed Deal Value", value: "KRW 2.5T" },
-      { label: "Asiana Net Debt (2019)", value: "~KRW 3.5T" },
+      { label: "Contract Signed", value: "Dec 2019" },
       { label: "IFRS 16 Lease Liabilities", value: "KRW 2.4T+" },
       { label: "Deal Outcome", value: "Terminated (2020)" },
     ],
-    detail: `HDC signed a KRW 2.5T deal to acquire Asiana in December 2019. When COVID-19 hit in early 2020 and international routes stopped operating, HDC invoked the MAC clause and attempted renegotiation. The fundamental issue had been visible pre-COVID: Asiana's IFRS 16 operating lease liabilities for aircraft exceeded KRW 2.4T — a figure that significantly altered the enterprise value calculation when properly incorporated. EBITDA-based leverage ratios looked more manageable when these obligations were not fully reflected. The deal was formally terminated after a prolonged legal dispute.`,
     source: "Source: Asiana Airlines SEC filings; HDC Hyundai Development press releases; FSS Korea",
   },
 ];
@@ -467,32 +495,57 @@ export default function AdjustedEbitdaClientEn({ relatedDeals }: Props) {
               <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">Case Studies</h2>
             </motion.div>
 
-            <motion.div variants={stagger(0.07)} className="space-y-6">
+            <motion.div variants={stagger(0.07)} className="space-y-8">
               {CASES.map((c) => (
-                <motion.div key={c.title} variants={fadeUp} className={`rounded-2xl border ${c.color} p-6 bg-white dark:bg-gray-900`}>
-                  <div className="flex items-start justify-between gap-3 mb-4">
+                <motion.div key={c.title} variants={fadeUp} className={`rounded-2xl border ${c.color} bg-white dark:bg-gray-900 overflow-hidden`}>
+
+                  {/* Card header */}
+                  <div className="px-6 pt-6 pb-4">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className={`text-[11px] font-semibold rounded-full px-2 py-0.5 ${c.badge}`}>{c.region}</span>
+                      <span className="text-xs text-gray-400 dark:text-gray-500">{c.year}</span>
+                    </div>
+                    <h3 className="text-base font-bold text-gray-900 dark:text-gray-100">{c.title}</h3>
+                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-1 leading-relaxed">{c.summary}</p>
+                  </div>
+
+                  {/* Analogy callout */}
+                  <div className="mx-6 mb-4 rounded-xl bg-amber-50 dark:bg-amber-950/25 border border-amber-200 dark:border-amber-700/40 px-4 py-3 flex gap-3">
+                    <span className="text-lg leading-none flex-shrink-0 mt-0.5">💡</span>
                     <div>
-                      <h3 className="text-base font-bold text-gray-900 dark:text-gray-100">{c.title}</h3>
-                      <div className="flex items-center gap-2 mt-1">
-                        <span className={`text-[11px] font-semibold rounded-full px-2 py-0.5 ${c.badge}`}>{c.region}</span>
-                        <span className="text-xs text-gray-400 dark:text-gray-500">{c.year}</span>
-                      </div>
+                      <p className="text-[11px] font-bold text-amber-600 dark:text-amber-400 mb-1 uppercase tracking-wide">Think of it this way</p>
+                      <p className="text-sm text-amber-900 dark:text-amber-200 leading-relaxed">{c.analogy}</p>
                     </div>
                   </div>
 
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 leading-relaxed italic">{c.summary}</p>
+                  {/* Number grid */}
+                  <div className="px-6 mb-5">
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                      {c.numbers.map((n) => (
+                        <div key={n.label} className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-3">
+                          <p className="text-[10px] text-gray-500 dark:text-gray-400 mb-1 leading-snug">{n.label}</p>
+                          <p className="text-sm font-bold text-gray-900 dark:text-gray-100 font-mono">{n.value}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
 
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
-                    {c.numbers.map((n) => (
-                      <div key={n.label} className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-3">
-                        <p className="text-[11px] text-gray-500 dark:text-gray-400 mb-1">{n.label}</p>
-                        <p className="text-sm font-bold text-gray-900 dark:text-gray-100">{n.value}</p>
-                      </div>
+                  {/* Body — paragraph by paragraph */}
+                  <div className="px-6 mb-5 space-y-3">
+                    {c.paragraphs.map((para, i) => (
+                      <p key={i} className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{para}</p>
                     ))}
                   </div>
 
-                  <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{c.detail}</p>
-                  <p className="mt-3 text-xs text-gray-400 dark:text-gray-500 italic">{c.source}</p>
+                  {/* Key lesson */}
+                  <div className="mx-6 mb-5 rounded-xl bg-blue-50 dark:bg-blue-950/20 border border-blue-200/70 dark:border-blue-800/40 px-4 py-3">
+                    <p className="text-[11px] font-bold text-blue-600 dark:text-blue-400 mb-1 uppercase tracking-wide">Key Takeaway</p>
+                    <p className="text-sm font-medium text-blue-800 dark:text-blue-300 leading-relaxed">{c.lesson}</p>
+                  </div>
+
+                  <div className="px-6 pb-5">
+                    <p className="text-xs text-gray-400 dark:text-gray-500 italic">{c.source}</p>
+                  </div>
                 </motion.div>
               ))}
             </motion.div>
@@ -647,7 +700,7 @@ export default function AdjustedEbitdaClientEn({ relatedDeals }: Props) {
                         <div className="flex-shrink-0 text-right">
                           <p className="text-xs font-semibold text-gray-700 dark:text-gray-300">{deal.dealValueDisplay}</p>
                           <span className="mt-1 inline-block text-[11px] bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 rounded-full px-2 py-0.5">
-                            {DEAL_CATEGORY_LABEL_EN[deal.category] ?? deal.category}
+                            {DEAL_CATEGORY_LABEL_EN[deal.category as keyof typeof DEAL_CATEGORY_LABEL_EN] ?? deal.category}
                           </span>
                         </div>
                       </div>

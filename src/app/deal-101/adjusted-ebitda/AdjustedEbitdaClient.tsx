@@ -127,61 +127,88 @@ const CASES = [
     color: "border-rose-200 dark:border-rose-800/40",
     badge: "bg-rose-100 text-rose-700 dark:bg-rose-900/40 dark:text-rose-300",
     summary: "SG&A와 마케팅 비용을 통째로 제외해 순손실 -$1.93B를 Adj. EBITDA +$467M으로 전환",
+    analogy: "식당이 '직원 인건비랑 광고비만 안 세면 우리 흑자야'라고 말하는 것과 같다. 근데 그게 바로 식당 장사의 핵심 비용이다.",
+    paragraphs: [
+      "WeWork의 사업 모델은 단순하다. 건물을 장기로 빌려서 → 작게 쪼개서 단기로 재임대한다. 이때 공간을 채우려면 영업팀, 마케팅, 신규 지점 오픈 비용이 반드시 든다. 그런데 WeWork은 이 비용($933M, FY2018)을 '커뮤니티 운영 투자'라며 EBITDA 계산에서 통째로 빼버렸다.",
+      "그러자 GAAP 기준 -$1.93B 순손실이 +$467M 흑자로 뒤바뀌었다. $2.4B 차이다. WeWork이 만들어낸 조어(造語), 'Community-Adjusted EBITDA'는 투자자들에게 '이미 자리잡은 지점들은 돈을 번다'는 인상을 줬다.",
+      "문제는 기업이 성장하거나 현상 유지를 하는 한, 그 비용은 구조적으로 계속 나간다는 점이다. 영업·마케팅비를 안 쓰면 회원도 줄어든다. 2019년 9월 IPO 철회, 2023년 11월 챕터11 파산 신청. 소프트뱅크 총 손실 -$9.5B.",
+    ],
+    lesson: "이 비용이 없으면 사업도 없다. 핵심 영업비용을 제외하면 어떤 기업도 흑자로 만들 수 있다.",
     numbers: [
       { label: "GAAP 순손실 (FY2018)", value: "-$1.93B" },
       { label: "Community-Adjusted EBITDA", value: "+$467M" },
       { label: "GAAP vs. Adj. 갭", value: "~$2.4B" },
       { label: "SoftBank 손실", value: "-$9.5B" },
     ],
-    detail: `WeWork은 S-1에서 "Community-Adjusted EBITDA"를 이렇게 정의했다: GAAP 순손실에서 이자·세금·감가상각·SBC를 제거하고, 추가로 **SG&A 전체와 Pre-opening 비용**을 제외. 문제는 SG&A($933M, FY2018)가 WeWork 비즈니스 모델의 핵심 영업비용이라는 점이다. 회원 한 명을 추가하려면 영업·마케팅 비용이 반드시 발생한다. 이를 제외하면 '성숙 위치의 단위 경제성'은 그럴듯해 보이지만 기업 전체 수익성으로는 결코 번역되지 않는다. IPO는 2019년 9월 철회됐고, 2023년 11월 챕터11 파산 신청.`,
     source: "출처: WeWork S-1 filing, Aug 14, 2019 (SEC EDGAR)",
   },
   {
-    title: "Valeant — 반복적 비반복 비용",
+    title: "Valeant — 반복되는 '비반복' 비용",
     region: "🇨🇦 캐나다/미국",
     year: "2015",
     color: "border-amber-200 dark:border-amber-800/40",
     badge: "bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300",
     summary: "8분기 연속 '비반복'으로 분류된 구조조정비 — GAAP EPS -$0.18을 Cash EPS +$10.17로",
+    analogy: "자동차를 8번 연속으로 수리하면서 매번 '이번이 진짜 마지막 수리비야'라고 하는 것과 같다. 8번 연속 '마지막'이라면, 그건 그냥 고장난 차다.",
+    paragraphs: [
+      "Valeant의 전략은 제약사를 인수 → 약값 올리기 → R&D 삭감이었다. 인수를 반복하다 보니 매 분기마다 '인수 통합 비용'과 '구조조정 비용'이 자연스럽게 발생했다.",
+      "Valeant는 이 비용들을 매 분기 '비반복·일회성'으로 분류해 조정 EBITDA에서 제외했다. 덕분에 GAAP 기준 주당순이익 -$0.18이 회사 발표 'Cash EPS' +$10.17로 뒤바뀌었다. 주당 $10 이상 차이다.",
+      "결정적 허점: 이 '비반복' 비용이 2013~2015년 사이 8분기 연속으로 등장했다. '1회성'이 매 분기 나온다면, 그건 구조적인 비용이다. 학술적으로도 검증된 사실이다 — Doyle et al.(2013)은 기업들이 '비반복'으로 분류하는 항목의 65~70%가 이후 기간에 다시 발생함을 실증했다.",
+      "2016년 SEC가 조사에 착수했고 재무제표를 재작성했다. 주가는 고점 $262에서 $10 이하로 폭락했다.",
+    ],
+    lesson: "같은 '일회성' 항목이 2~3분기 이상 연속으로 등장하면, 그때부터는 1회성이 아니라 그 회사의 구조 비용으로 봐야 한다.",
     numbers: [
       { label: "GAAP EPS (FY2015)", value: "-$0.18" },
       { label: "'Cash EPS' (조정 후)", value: "+$10.17" },
       { label: "Adjusted EBITDA (FY2015)", value: "~$5.7B" },
       { label: "주가 고점 → 저점", value: "$262 → $10 이하" },
     ],
-    detail: `Valeant의 비즈니스 모델은 기업 인수 후 약가 인상·R&D 삭감이었다. 조정 지표는 인수 관련 무형자산 상각($2B+)과 구조조정·통합 비용을 매 분기 '비반복'으로 add-back했다. 결정적 문제: 2013년부터 2015년까지 8분기 연속으로 이 비용이 발생했다. '비반복'이 반복되면 그것은 구조 비용이다. SEC 조사(2016), 재무제표 재작성, CFO·CEO 책임 추궁. Doyle, Jennings & Soliman(2013, Journal of Accounting and Economics)은 기업들이 주장하는 '비반복' 항목의 65~70%가 이후 기간에 다시 발생함을 실증했다.`,
     source: "출처: Valeant Annual Report 2015; SEC Comment Letters (EDGAR); Doyle et al. (2013), JAE",
   },
   {
-    title: "MBK Partners × 홈플러스 — 한국 최대 PE 바이아웃",
+    title: "MBK Partners × 홈플러스",
     region: "🇰🇷 한국",
     year: "2015~2025",
     color: "border-blue-200 dark:border-blue-800/40",
     badge: "bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300",
-    summary: "부동산 자산 리스백 수익을 영업 EBITDA에 포함 — 구조적 소매업 하락 할인 불충분",
+    summary: "자기 건물을 팔고 임차해 단기 현금을 만들었지만, 그 이후 내야 할 임차료는 영구적 비용",
+    analogy: "집을 팔아 목돈을 만들고, 그 집에 세 들어 살면서 '우리 집 팔아서 현금 많아'라고 하는 것과 같다. 집 판 돈은 일회성이지만, 이제 매달 내야 할 월세는 영구적이다.",
+    paragraphs: [
+      "MBK Partners는 2015년 테스코로부터 홈플러스를 KRW 7.2조에 인수했다. 당시 한국 PE 역사상 최대 규모였다. 인수 자금의 상당 부분은 차입으로 조달했고, 인수 당시 부채/EBITDA 비율은 약 9~10×였다.",
+      "인수 후 MBK는 홈플러스 매장 건물들을 팔고 다시 임차하는 '세일앤리스백'으로 KRW 4조 이상을 조달했다. 이 현금으로 차입금을 갚고 투자자에게 돌려줬다.",
+      "문제는 건물을 팔고 나면 이제 매달 임차료를 내야 한다는 점이다. 건물을 소유할 때는 없던 비용이 영구적으로 생긴 것이다. 이 임차료 부담은 딜 당시 EBITDA 계산에 충분히 반영되지 않았다는 것이 논란의 핵심이다.",
+      "설상가상으로 2015~2020년 사이 쿠팡·네이버·편의점의 급성장으로 대형마트 업황 자체가 급격히 나빠졌다. 9~10×의 높은 레버리지는 이런 업황 충격을 버틸 여유가 없었다. 2025년 2월 홈플러스는 기업회생을 신청했다.",
+    ],
+    lesson: "자산 매각 수익은 일회성이다. 팔고 나면 영구 임차료라는 새로운 비용이 생긴다. 이 비용은 반드시 정상 영업 EBITDA에서 차감해야 한다.",
     numbers: [
-      { label: "인수 규모", value: "KRW 7.2조 (~$6.1B)" },
+      { label: "인수 규모", value: "KRW 7.2조" },
+      { label: "리스백 조달 현금", value: "KRW 4조+" },
       { label: "인수 시 부채/EBITDA", value: "약 9~10×" },
-      { label: "한국 PE 역사상", value: "최대 규모 바이아웃" },
       { label: "기업회생 신청", value: "2025년 2월" },
     ],
-    detail: `테스코가 제시한 매각 EBITDA에는 부동산 자산 매각 후 리스백(Sale & Leaseback)에서 발생한 수익이 포함됐다. 이 수익은 일회성 혹은 유한한 성격이었지만 run-rate EBITDA처럼 반영됐다. 또한 Tesco 그룹 오버헤드 절감 효과는 add-back됐으나, 독립 운영을 위해 MBK가 새로 구축해야 할 비용 인프라는 충분히 차감되지 않았다. 9~10× 레버리지는 한국 리테일 구조 변화(쿠팡, 네이버, 편의점)가 가속화되는 환경에서 버퍼가 전혀 없었다. 2025년 2월 기업회생 신청, 잔존 부채 약 KRW 3조.`,
     source: "출처: 한국경제, 매일경제 공시 보도; 홈플러스 기업회생 공시 (2025. 2.)",
   },
   {
-    title: "HDC현대산업개발 × 아시아나항공 — FDD 실패",
+    title: "HDC현대산업개발 × 아시아나항공",
     region: "🇰🇷 한국",
     year: "2019~2020",
     color: "border-purple-200 dark:border-purple-800/40",
     badge: "bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300",
-    summary: "중정비비용(D-Check) add-back과 우발채무 검증 부족 — 코로나로 딜 파기",
+    summary: "항공기 대정비(D-Check)를 '1회성'으로 처리 — 코로나가 방아쇠, 취약성은 이미 내재돼 있었다",
+    analogy: "자동차를 살 때 딜러가 '5년마다 엔진 전체 오버홀이 필요해요'라고 했는데, 이걸 '아, 이번 구입할 때만 드는 1회성 비용이구나'라고 이해하는 것과 같다. 5년 주기로 반드시 발생하는 비용은 1회성이 아니다.",
+    paragraphs: [
+      "HDC현대산업개발은 2019년 12월 아시아나항공을 KRW 2.5조에 인수하기로 계약했다. 2020년 코로나19가 터지면서 국제선이 전면 중단됐고, HDC는 MAC(중대한 부정적 변화) 조항을 근거로 계약 파기를 주장했다.",
+      "그런데 코로나는 방아쇠였을 뿐이다. 딜 구조에는 이미 숨겨진 문제들이 있었다.",
+      "항공사는 비행기를 6~8년마다 완전히 분해해서 모든 부품을 점검하는 'D-Check(중정비)'를 반드시 해야 한다. 비용이 기체 한 대당 수십억 원이다. 이 비용은 매년 나오지 않는다는 이유로 종종 '비반복성' 비용으로 분류돼 EBITDA에서 제외된다. 하지만 항공사를 운영하는 한, 이 비용은 반드시 발생한다. '주기가 길 뿐 구조적으로 반복'되는 비용이다.",
+      "더불어 IFRS 16 회계기준 도입으로 항공기 운용리스 KRW 2.4조 이상이 부채로 인식됐는데, 이 부분이 딜 가치 산정에 충분히 반영됐는지가 논란이었다. 계약은 결국 법원의 해제 인정으로 종결됐다.",
+    ],
+    lesson: "'불규칙하게 발생한다'와 '1회성이다'는 다르다. 비행기 대정비처럼 주기가 길어도 예측 가능한 비용은 정상 운영 비용에 포함시켜야 한다.",
     numbers: [
       { label: "딜 사이즈 (EV)", value: "KRW 2.5조" },
       { label: "계약 체결", value: "2019년 12월" },
+      { label: "IFRS 16 운용리스 부채", value: "KRW 2.4조+" },
       { label: "딜 파기 사유", value: "MAC 조항 + 코로나" },
-      { label: "한국 법원 결정", value: "계약 해제 인정" },
     ],
-    detail: `항공사의 중정비비용(Heavy Maintenance / D-Check)은 기체당 수년 주기로 발생하지만 금액이 크다. 구조적으로 반복되는 비용임에도 FDD에서 '비반복성'으로 충분히 검증되지 않은 채 add-back됐다. 또한 IFRS 16 도입 전후의 운용리스 처리 방식 변화가 EBITDA에 미치는 영향과, 다수의 우발채무가 FDD 단계에서 제대로 포착되지 않았다. 코로나19는 방아쇠였지만 근본적 취약성은 FDD 단계에서 이미 존재했다.`,
     source: "출처: HDC현대산업개발 공시; 서울중앙지방법원 결정 (2020); 항공업계 FDD 관행 분석",
   },
 ];
@@ -209,7 +236,22 @@ const RED_FLAGS = [
   "'Adjusted' EBITDA와 현금흐름표 영업활동현금흐름 간 괴리가 지속적으로 큼",
 ];
 
-export default function AdjustedEbitdaClient() {
+// ── Props ─────────────────────────────────────────────────────
+interface RelatedDeal {
+  slug: string;
+  title: string;
+  category: string;
+  acquirer: string;
+  target: string;
+  dealValueDisplay: string;
+  conceptDescription: string;
+}
+
+interface Props {
+  relatedDeals: RelatedDeal[];
+}
+
+export default function AdjustedEbitdaClient({ relatedDeals }: Props) {
   return (
     <>
       <Header />
@@ -461,30 +503,58 @@ export default function AdjustedEbitdaClient() {
           <motion.section variants={stagger()} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-80px" }}>
             <motion.h2 variants={fadeUp} className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">케이스 스터디</motion.h2>
             <motion.p variants={fadeUp} className="text-base text-gray-500 dark:text-gray-400 mb-8">
-              이론이 실제 딜에서 어떻게 전개됐는지 — 숫자와 결과를 중심으로.
+              실제 딜에서 어떻게 전개됐는지 — 비유로 먼저 이해하고, 숫자로 확인한다.
             </motion.p>
-            <motion.div variants={stagger(0.1)} className="space-y-6">
+            <motion.div variants={stagger(0.1)} className="space-y-8">
               {CASES.map((c) => (
-                <motion.div key={c.title} variants={fadeUp} className={`rounded-2xl border ${c.color} bg-white dark:bg-gray-900 p-6`}>
-                  <div className="flex flex-wrap items-start justify-between gap-2 mb-4">
+                <motion.div key={c.title} variants={fadeUp} className={`rounded-2xl border ${c.color} bg-white dark:bg-gray-900 overflow-hidden`}>
+
+                  {/* 카드 헤더 */}
+                  <div className="px-6 pt-6 pb-4">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className={`text-[10px] font-semibold rounded-full px-2 py-0.5 ${c.badge}`}>{c.region} · {c.year}</span>
+                    </div>
+                    <h3 className="text-base font-bold text-gray-900 dark:text-gray-100">{c.title}</h3>
+                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-1 leading-relaxed">{c.summary}</p>
+                  </div>
+
+                  {/* 비유 callout */}
+                  <div className="mx-6 mb-4 rounded-xl bg-amber-50 dark:bg-amber-950/25 border border-amber-200 dark:border-amber-700/40 px-4 py-3 flex gap-3">
+                    <span className="text-lg leading-none flex-shrink-0 mt-0.5">💡</span>
                     <div>
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className={`text-[10px] font-semibold rounded-full px-2 py-0.5 ${c.badge}`}>{c.region} · {c.year}</span>
-                      </div>
-                      <h3 className="text-base font-bold text-gray-900 dark:text-gray-100">{c.title}</h3>
-                      <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{c.summary}</p>
+                      <p className="text-[11px] font-bold text-amber-600 dark:text-amber-400 mb-1 uppercase tracking-wide">비유하면</p>
+                      <p className="text-sm text-amber-900 dark:text-amber-200 leading-relaxed">{c.analogy}</p>
                     </div>
                   </div>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
-                    {c.numbers.map((n) => (
-                      <div key={n.label} className="rounded-lg bg-gray-50 dark:bg-gray-800/60 p-3">
-                        <p className="text-[10px] text-gray-400 dark:text-gray-500 mb-1">{n.label}</p>
-                        <p className="text-sm font-black text-gray-900 dark:text-gray-100 font-mono">{n.value}</p>
-                      </div>
+
+                  {/* 숫자 그리드 */}
+                  <div className="px-6 mb-5">
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                      {c.numbers.map((n) => (
+                        <div key={n.label} className="rounded-lg bg-gray-50 dark:bg-gray-800/60 p-3">
+                          <p className="text-[10px] text-gray-400 dark:text-gray-500 mb-1 leading-snug">{n.label}</p>
+                          <p className="text-sm font-black text-gray-900 dark:text-gray-100 font-mono">{n.value}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* 본문 — 문단별 분리 */}
+                  <div className="px-6 mb-5 space-y-3">
+                    {c.paragraphs.map((para, i) => (
+                      <p key={i} className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{para}</p>
                     ))}
                   </div>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-3">{c.detail}</p>
-                  <p className="text-[11px] text-gray-400 dark:text-gray-500 italic">{c.source}</p>
+
+                  {/* 핵심 교훈 */}
+                  <div className="mx-6 mb-5 rounded-xl bg-blue-50 dark:bg-blue-950/20 border border-blue-200/70 dark:border-blue-800/40 px-4 py-3">
+                    <p className="text-[11px] font-bold text-blue-600 dark:text-blue-400 mb-1 uppercase tracking-wide">핵심</p>
+                    <p className="text-sm font-medium text-blue-800 dark:text-blue-300 leading-relaxed">{c.lesson}</p>
+                  </div>
+
+                  <div className="px-6 pb-5">
+                    <p className="text-[11px] text-gray-400 dark:text-gray-500 italic">{c.source}</p>
+                  </div>
                 </motion.div>
               ))}
             </motion.div>
@@ -646,6 +716,37 @@ export default function AdjustedEbitdaClient() {
               ))}
             </motion.ol>
           </motion.section>
+
+          {/* ══ 관련 딜 ═══════════════════════════════════════════ */}
+          {relatedDeals.length > 0 && (
+            <motion.section variants={stagger()} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-80px" }}>
+              <div className="border-t border-gray-100 dark:border-gray-800 mb-10" />
+              <motion.h2 variants={fadeUp} className="text-base font-bold text-gray-900 dark:text-gray-100 mb-4">
+                이 개념이 등장한 딜
+              </motion.h2>
+              <motion.div variants={stagger(0.06)} className="space-y-3">
+                {relatedDeals.map((deal) => (
+                  <motion.div key={deal.slug} variants={fadeUp}>
+                    <Link
+                      href={`/deals/${deal.slug}`}
+                      className="group block rounded-xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-gray-900 p-5 hover:border-blue-300 dark:hover:border-blue-700 hover:shadow-md transition-all"
+                    >
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="flex-1 min-w-0">
+                          <h3 className="text-sm font-bold text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{deal.title}</h3>
+                          <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{deal.acquirer} → {deal.target}</p>
+                          {deal.conceptDescription && (
+                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-2 leading-relaxed">{deal.conceptDescription}</p>
+                          )}
+                        </div>
+                        <p className="text-xs font-semibold text-gray-700 dark:text-gray-300 flex-shrink-0">{deal.dealValueDisplay}</p>
+                      </div>
+                    </Link>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </motion.section>
+          )}
 
           {/* ══ 관련 개념 ══════════════════════════════════════════ */}
           <motion.section variants={stagger()} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-80px" }}>

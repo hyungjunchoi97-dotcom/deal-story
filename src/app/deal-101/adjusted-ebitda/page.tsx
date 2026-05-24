@@ -29,8 +29,8 @@ export default function AdjustedEbitdaPage() {
       slug: deal.slug,
       title: deal.title,
       category: deal.category,
-      acquirer: deal.acquirer,
-      target: deal.target,
+      acquirer: deal.acquirer.label,
+      target: deal.target.label,
       dealValueDisplay: deal.dealSummary.dealValueDisplay,
       conceptDescription:
         deal.concepts.find((c) => c.href === CONCEPT_SLUG)?.description ?? "",
