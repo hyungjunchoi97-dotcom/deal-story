@@ -8,9 +8,10 @@ import type { DealCategory } from "@/lib/types";
 import { motion } from "framer-motion";
 
 // ── 애니메이션 variants ──────────────────────────────────────────
+const EASE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: EASE } },
 };
 const stagger = (delay = 0.08) => ({
   hidden: {},
