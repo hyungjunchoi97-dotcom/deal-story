@@ -1,0 +1,123 @@
+/**
+ * 딜 상세 동적 라우트 — 서버 컴포넌트
+ * /deals/[slug] → generateMetadata + JSON-LD + DealPageClient
+ */
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { getDealBySlug, getAllSlugs, ALL_DEALS } from "@/data/deals";
+import DealPageClient from "./DealPageClient";
+
+// ── 정적 경로 사전 생성 ────────────────────────────────────────
+export function generateStaticParams() {
+  return getAllSlugs().map((slug) => ({ slug }));
+}
+
+// ── SEO 메타데이터 ─────────────────────────────────────────────
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const deal = getDealBySlug(slug);
+  if (!deal) return { title: "딜을 찾을 수 없습니다" };
+
+  const ogImage = deal.seo.ogImage ?? `/api/og?slug=${slug}`;
+
+  return {
+    title: deal.seo.title,
+    description: deal.seo.description,
+    keywords: deal.seo.keywords,
+    authors: [{ name: "Deal Story" }],
+    openGraph: {
+      title: deal.seo.title,
+      description: deal.seo.description,
+      type: "article",
+      publishedTime: deal.announcedAt,
+      modifiedTime: deal.closedAt ?? deal.announcedAt,
+      tags: deal.tags,
+      images: [{ url: ogImage, width: 1200, height: 630, alt: deal.seo.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: deal.seo.title,
+      description: deal.seo.description,
+      images: [ogImage],
+    },
+    alternates: {
+      canonical: `/deals/${slug}`,
+      languages: {
+        ko: `/deals/${slug}`,
+        en: `/en/deals/${slug}`,
+        "x-default": `/deals/${slug}`,
+      },
+    },
+  };
+}
+
+// ── 페이지 ─────────────────────────────────────────────────────
+export default async function DealPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const deal = getDealBySlug(slug);
+  if (!deal) notFound();
+
+  // Article + FAQPage JSON-LD (Google 리치 결과 타겟)
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        headline: deal.seo.title,
+        description: deal.seo.description,
+        keywords: deal.seo.keywords.join(", "),
+        datePublished: deal.announcedAt,
+        dateModified: deal.closedAt ?? deal.announcedAt,
+        author: { "@type": "Organization", name: "Deal Story" },
+        publisher: {
+          "@type": "Organization",
+          name: "Deal Story",
+          logo: { "@type": "ImageObject", url: "/logo.png" },
+        },
+        mainEntityOfPage: {
+          "@type": "WebPage",
+          "@id": `https://deal-story.kr/deals/${slug}`,
+        },
+        ...(deal.seo.ogImage
+          ? { image: deal.seo.ogImage }
+          : {}),
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: deal.faq.map(({ q, a }) => ({
+          "@type": "Question",
+          name: q,
+          acceptedAnswer: { "@type": "Answer", text: a },
+        })),
+      },
+    ],
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <DealPageClient
+        deal={deal}
+        relatedDeals={ALL_DEALS
+          .filter((d) => d.slug !== slug)
+          .sort((a, b) =>
+            (a.category === deal.category ? 0 : 1) - (b.category === deal.category ? 0 : 1)
+          )
+          .slice(0, 3)
+          .map(({ slug, title, category, dealSummary }) => ({ slug, title, category, dealSummary }))
+        }
+      />
+    </>
+  );
+}

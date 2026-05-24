@@ -1,0 +1,274 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
+@import "tailwindcss";
+
+/* Tailwind v4: dark: variant를 미디어쿼리가 아닌 .dark 클래스 기준으로 동작시킴 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --color-background: #ffffff;
+  --color-foreground: #0d1117;
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f2f4f6;
+  --color-gray-200: #e5e8eb;
+  --color-gray-300: #d1d6db;
+  --color-gray-400: #b0b8c1;
+  --color-gray-500: #8b95a1;
+  --color-gray-600: #6b7684;
+  --color-gray-700: #4e5968;
+  --color-gray-800: #333d4b;
+  --color-gray-900: #191f28;
+  --color-blue-50: #e8f3ff;
+  --color-blue-100: #c9e2ff;
+  --color-blue-500: #3182f6;
+  --color-blue-600: #1b64da;
+  --color-blue-700: #1957c2;
+  --color-amber-50: #fffbeb;
+  --color-amber-100: #fef3c7;
+  --color-amber-500: #f59e0b;
+  --color-amber-600: #d97706;
+  --color-emerald-50: #ecfdf5;
+  --color-emerald-100: #d1fae5;
+  --color-emerald-500: #10b981;
+  --color-emerald-700: #047857;
+  --color-rose-50: #fff1f2;
+  --color-rose-100: #ffe4e6;
+  --color-rose-500: #f43f5e;
+  --color-rose-700: #be123c;
+  --color-violet-50: #f5f3ff;
+  --color-violet-100: #ede9fe;
+  --color-violet-500: #8b5cf6;
+  --color-violet-700: #6d28d9;
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+/* 라이트모드 color-scheme (크롬 자동 다크모드 방지) */
+html {
+  color-scheme: light;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* 다크모드 */
+html.dark {
+  color-scheme: dark;
+}
+
+html.dark body {
+  background: #0d1117;
+  color: #e5e8eb;
+}
+
+/* 다크모드 유틸리티 오버라이드 */
+html.dark .bg-white { background-color: #161b22 !important; }
+html.dark .bg-white\/90 { background-color: rgba(22, 27, 34, 0.9) !important; }
+html.dark .bg-white\/80 { background-color: rgba(22, 27, 34, 0.8) !important; }
+html.dark .bg-gray-50 { background-color: #161b22 !important; }
+html.dark .bg-gray-100 { background-color: #21262d !important; }
+html.dark .bg-blue-50 { background-color: rgba(49, 130, 246, 0.1) !important; }
+html.dark .bg-amber-50 { background-color: rgba(245, 158, 11, 0.1) !important; }
+html.dark .bg-emerald-50 { background-color: rgba(16, 185, 129, 0.1) !important; }
+html.dark .bg-rose-50 { background-color: rgba(244, 63, 94, 0.1) !important; }
+html.dark .bg-violet-50 { background-color: rgba(139, 92, 246, 0.1) !important; }
+
+html.dark .text-gray-900 { color: #e5e8eb !important; }
+html.dark .text-gray-800 { color: #d1d6db !important; }
+html.dark .text-gray-700 { color: #b0b8c1 !important; }
+html.dark .text-gray-600 { color: #8b95a1 !important; }
+html.dark .text-gray-500 { color: #6b7684 !important; }
+html.dark .text-gray-400 { color: #4e5968 !important; }
+
+html.dark .border-gray-200\/80 { border-color: rgba(78, 89, 104, 0.3) !important; }
+html.dark .border-gray-200\/60 { border-color: rgba(78, 89, 104, 0.2) !important; }
+html.dark .border-gray-200 { border-color: rgba(78, 89, 104, 0.4) !important; }
+html.dark .border-gray-100 { border-color: rgba(78, 89, 104, 0.2) !important; }
+
+html.dark .hover\:border-gray-300:hover { border-color: rgba(78, 89, 104, 0.6) !important; }
+html.dark .hover\:shadow-sm:hover { box-shadow: 0 1px 3px rgba(0,0,0,0.3) !important; }
+html.dark .hover\:bg-gray-50:hover { background-color: #21262d !important; }
+html.dark .hover\:bg-gray-100:hover { background-color: #21262d !important; }
+
+html.dark .placeholder-gray-400::placeholder { color: #4e5968 !important; }
+
+html.dark input,
+html.dark select {
+  background-color: #21262d;
+  color: #e5e8eb;
+  border-color: rgba(78, 89, 104, 0.4);
+}
+
+html.dark input:focus {
+  border-color: #3182f6 !important;
+}
+
+html.dark select:focus {
+  border-color: #3182f6 !important;
+}
+
+/* ── 딜 상세 본문 prose ──────────────────────────────────── */
+.deal-prose {
+  font-size: 0.9375rem;
+  line-height: 1.8;
+  color: #4e5968;
+}
+html.dark .deal-prose {
+  color: #b0b8c1;
+}
+
+.deal-prose h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #191f28;
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e5e8eb;
+}
+html.dark .deal-prose h2 {
+  color: #e5e8eb;
+  border-color: rgba(78, 89, 104, 0.3);
+}
+
+.deal-prose h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #191f28;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+html.dark .deal-prose h3 {
+  color: #e5e8eb;
+}
+
+.deal-prose p {
+  margin-bottom: 1.25rem;
+}
+
+.deal-prose strong {
+  font-weight: 700;
+  color: #191f28;
+}
+html.dark .deal-prose strong {
+  color: #e5e8eb;
+}
+
+.deal-prose em {
+  font-style: italic;
+}
+
+.deal-prose a {
+  color: #3182f6;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.deal-prose a:hover {
+  color: #1b64da;
+}
+
+.deal-prose ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+.deal-prose ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+.deal-prose li {
+  margin-bottom: 0.4rem;
+}
+.deal-prose li::marker {
+  color: #b0b8c1;
+}
+
+.deal-prose blockquote {
+  border-left: 3px solid #3182f6;
+  padding: 0.25rem 0 0.25rem 1rem;
+  color: #6b7684;
+  margin: 1.5rem 0;
+  font-style: normal;
+}
+html.dark .deal-prose blockquote {
+  color: #8b95a1;
+}
+
+.deal-prose hr {
+  border: none;
+  border-top: 1px solid #e5e8eb;
+  margin: 2rem 0;
+}
+html.dark .deal-prose hr {
+  border-color: rgba(78, 89, 104, 0.3);
+}
+
+.deal-prose code {
+  background: #f2f4f6;
+  color: #333d4b;
+  padding: 0.15em 0.35em;
+  border-radius: 4px;
+  font-size: 0.85em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+html.dark .deal-prose code {
+  background: #21262d;
+  color: #e5e8eb;
+}
+
+.deal-prose pre {
+  background: #f2f4f6;
+  padding: 1rem 1.25rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin-bottom: 1.25rem;
+}
+html.dark .deal-prose pre {
+  background: #21262d;
+}
+.deal-prose pre code {
+  background: none;
+  padding: 0;
+  font-size: 0.875em;
+}
+
+/* 표 */
+.deal-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+}
+.deal-prose th {
+  background: #f2f4f6;
+  font-weight: 600;
+  color: #191f28;
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #e5e8eb;
+}
+.deal-prose td {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #e5e8eb;
+  vertical-align: top;
+}
+.deal-prose tr:nth-child(even) td {
+  background: #f9fafb;
+}
+html.dark .deal-prose th {
+  background: #21262d;
+  color: #e5e8eb;
+  border-color: rgba(78, 89, 104, 0.3);
+}
+html.dark .deal-prose td {
+  border-color: rgba(78, 89, 104, 0.3);
+}
+html.dark .deal-prose tr:nth-child(even) td {
+  background: rgba(33, 38, 45, 0.5);
+}
