@@ -66,6 +66,13 @@ const CONCEPT_CATALOG = [
   },
   // 딜 구조
   {
+    slug: "ma-process",
+    term: "M&A 프로세스 완전 정리",
+    tagline: "전략 수립부터 클로징까지 6단계 — 이해관계자·핵심 문서·딜이 성공하고 실패하는 이유",
+    category: "딜 구조",
+    published: true,
+  },
+  {
     slug: "lbo",
     term: "LBO (차입 인수)",
     tagline: "타깃의 자산·현금흐름을 담보로 차입해 에쿼티 투입을 최소화하는 PE 핵심 전략",

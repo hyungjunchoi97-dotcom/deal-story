@@ -82,6 +82,13 @@ const CONCEPT_CATALOG = [
   },
   // Deal Structure
   {
+    slug: "ma-process",
+    term: "The M&A Process, End to End",
+    tagline: "Six phases from strategy to closing — stakeholders, key documents, and why deals succeed or fail",
+    category: "Deal Structure",
+    published: true,
+  },
+  {
     slug: "lbo",
     term: "LBO (Leveraged Buyout)",
     tagline: "Using the target's own assets and cash flows as collateral to minimize equity outlay — the PE core strategy",

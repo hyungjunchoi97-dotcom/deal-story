@@ -13,6 +13,7 @@ const BASE = SITE_URL;
 const PUBLISHED_CONCEPTS = [
   "ev-ebitda",
   "adjusted-ebitda",
+  "ma-process",
 ] as const;
 
 function pair(
