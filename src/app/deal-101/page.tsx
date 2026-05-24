@@ -37,6 +37,20 @@ const CONCEPT_CATALOG = [
     published: true,
   },
   {
+    slug: "synergy",
+    term: "시너지 (Synergy)",
+    tagline: "M&A 프리미엄의 근거 — Cost Synergy vs Revenue Synergy, 그리고 왜 70%의 M&A가 시너지를 달성 못하는가",
+    category: "밸류에이션",
+    published: true,
+  },
+  {
+    slug: "acquisition-premium",
+    term: "인수 프리미엄",
+    tagline: "왜 시장가보다 30~40% 더 내는가 — 시너지·경영권·희소성이 만드는 프리미엄의 원천",
+    category: "밸류에이션",
+    published: true,
+  },
+  {
     slug: "ev-sales",
     term: "EV/Sales 멀티플",
     tagline: "EBITDA 적자 성장기 기업을 평가할 때 쓰는 매출 기반 밸류에이션",
@@ -47,13 +61,6 @@ const CONCEPT_CATALOG = [
     slug: "arr-multiple",
     term: "ARR 멀티플",
     tagline: "SaaS 기업 전용 — 연간반복매출 대비 기업가치 배수",
-    category: "밸류에이션",
-    published: false,
-  },
-  {
-    slug: "acquisition-premium",
-    term: "인수 프리미엄",
-    tagline: "인수 가격이 시장가 대비 얼마나 높은지 측정하는 경영권 프리미엄",
     category: "밸류에이션",
     published: false,
   },
@@ -74,10 +81,10 @@ const CONCEPT_CATALOG = [
   },
   {
     slug: "lbo",
-    term: "LBO (차입 인수)",
-    tagline: "타깃의 자산·현금흐름을 담보로 차입해 에쿼티 투입을 최소화하는 PE 핵심 전략",
+    term: "LBO (레버리지 바이아웃)",
+    tagline: "타깃의 현금흐름을 담보로 차입해 에쿼티 투입을 최소화하는 PE 핵심 전략 — KKR의 RJR 나비스코부터 현대 PE까지",
     category: "딜 구조",
-    published: false,
+    published: true,
   },
   {
     slug: "tender-offer",
@@ -101,26 +108,47 @@ const CONCEPT_CATALOG = [
     published: false,
   },
   {
+    slug: "stock-vs-asset-deal",
+    term: "주식 인수 vs 자산 인수",
+    tagline: "같은 회사를 인수해도 구조 하나로 세금·부채·리스크가 달라진다 — Stock Deal vs Asset Deal 결정 기준",
+    category: "딜 구조",
+    published: true,
+  },
+  {
+    slug: "pmi",
+    term: "PMI (인수 후 통합)",
+    tagline: "딜이 끝난 뒤 진짜 전쟁 — 조직·IT·문화 통합 실패가 M&A 가치를 갉아먹는 이유",
+    category: "딜 구조",
+    published: true,
+  },
+  {
+    slug: "ipo-vs-ma-exit",
+    term: "IPO vs M&A 엑싯",
+    tagline: "PE·VC 포트폴리오 매각의 두 갈래 — 상장과 전략적 매각 중 어떤 선택이 더 유리한가",
+    category: "딜 구조",
+    published: true,
+  },
+  {
     slug: "break-fee",
     term: "Break-up Fee",
     tagline: "딜 파기 시 일방이 지급하는 위약금 — 딜 완결 의지를 나타내는 신호",
     category: "딜 구조",
-    published: false,
+    published: true,
   },
   {
     slug: "mac-clause",
     term: "MAC 조항",
     tagline: "서명 후 대상 기업에 중대한 부정적 변화 발생 시 인수자가 계약을 파기할 수 있는 조항",
     category: "딜 구조",
-    published: false,
+    published: true,
   },
   // 규제·법률
   {
     slug: "antitrust",
-    term: "반독점 규제",
-    tagline: "M&A가 시장 경쟁을 해치는지 각국 경쟁 당국이 심사하는 절차",
+    term: "반독점 규제 (Antitrust)",
+    tagline: "M&A가 시장 경쟁을 해치는지 각국 경쟁 당국이 심사하는 절차 — Adobe×Figma 파국의 진짜 이유",
     category: "규제·법률",
-    published: false,
+    published: true,
   },
   {
     slug: "regulatory-risk",
@@ -128,6 +156,28 @@ const CONCEPT_CATALOG = [
     tagline: "M&A 완료를 막거나 조건을 부과할 수 있는 규제 당국 심사의 불확실성",
     category: "규제·법률",
     published: false,
+  },
+  // 실사 (Due Diligence)
+  {
+    slug: "fdd",
+    term: "재무 실사 (FDD)",
+    tagline: "재무제표 이면을 파헤치는 실사 — 정상화 EBITDA·운전자본·잠재부채를 검증하는 방법론",
+    category: "실사",
+    published: true,
+  },
+  {
+    slug: "cdd",
+    term: "상업 실사 (CDD)",
+    tagline: "시장·고객·경쟁 구도를 검증해 성장 가정의 현실성을 따지는 실사",
+    category: "실사",
+    published: true,
+  },
+  {
+    slug: "ldd",
+    term: "법무 실사 (LDD)",
+    tagline: "계약·소송·지식재산·규제 리스크를 발굴해 딜 파기 또는 가격 조정의 근거를 만드는 실사",
+    category: "실사",
+    published: true,
   },
   // 전략·비즈니스
   {
@@ -167,11 +217,12 @@ const CONCEPT_CATALOG = [
   },
 ];
 
-const CATEGORIES = ["밸류에이션", "딜 구조", "규제·법률", "전략"] as const;
+const CATEGORIES = ["밸류에이션", "딜 구조", "실사", "규제·법률", "전략"] as const;
 
 const CATEGORY_COLOR: Record<string, string> = {
   "밸류에이션": "bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300",
   "딜 구조":    "bg-amber-50 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300",
+  "실사":       "bg-violet-50 text-violet-700 dark:bg-violet-900/30 dark:text-violet-300",
   "규제·법률":  "bg-rose-50 text-rose-700 dark:bg-rose-900/30 dark:text-rose-300",
   "전략":       "bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300",
 };

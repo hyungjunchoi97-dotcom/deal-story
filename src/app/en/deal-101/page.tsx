@@ -53,6 +53,20 @@ const CONCEPT_CATALOG = [
     published: true,
   },
   {
+    slug: "synergy",
+    term: "Synergy",
+    tagline: "The justification for the M&A premium — Cost Synergy vs Revenue Synergy, and why 70% of deals miss their targets",
+    category: "Valuation",
+    published: true,
+  },
+  {
+    slug: "acquisition-premium",
+    term: "Acquisition Premium",
+    tagline: "Why buyers pay 30–40% above market — the sources of control, synergy, and scarcity premiums",
+    category: "Valuation",
+    published: true,
+  },
+  {
     slug: "ev-sales",
     term: "EV/Sales Multiple",
     tagline: "Revenue-based valuation for high-growth companies with negative EBITDA",
@@ -63,13 +77,6 @@ const CONCEPT_CATALOG = [
     slug: "arr-multiple",
     term: "ARR Multiple",
     tagline: "SaaS-specific valuation — enterprise value relative to annual recurring revenue",
-    category: "Valuation",
-    published: false,
-  },
-  {
-    slug: "acquisition-premium",
-    term: "Acquisition Premium",
-    tagline: "How much more the buyer pays versus the market price — the control premium",
     category: "Valuation",
     published: false,
   },
@@ -91,9 +98,9 @@ const CONCEPT_CATALOG = [
   {
     slug: "lbo",
     term: "LBO (Leveraged Buyout)",
-    tagline: "Using the target's own assets and cash flows as collateral to minimize equity outlay — the PE core strategy",
+    tagline: "Using the target's own cash flows as collateral to minimize equity — from KKR's RJR Nabisco to modern PE",
     category: "Deal Structure",
-    published: false,
+    published: true,
   },
   {
     slug: "tender-offer",
@@ -117,26 +124,47 @@ const CONCEPT_CATALOG = [
     published: false,
   },
   {
+    slug: "stock-vs-asset-deal",
+    term: "Stock Deal vs Asset Deal",
+    tagline: "Same company, different structure — one choice shifts taxes, liabilities, and risk between buyer and seller",
+    category: "Deal Structure",
+    published: true,
+  },
+  {
+    slug: "pmi",
+    term: "PMI (Post-Merger Integration)",
+    tagline: "The real war starts after signing — why org, IT, and culture failures destroy the value M&A promised",
+    category: "Deal Structure",
+    published: true,
+  },
+  {
+    slug: "ipo-vs-ma-exit",
+    term: "IPO vs M&A Exit",
+    tagline: "Two paths for PE/VC portfolio exits — when a public listing beats a strategic sale, and when it doesn't",
+    category: "Deal Structure",
+    published: true,
+  },
+  {
     slug: "break-fee",
     term: "Break-up Fee",
     tagline: "Termination fee paid if a party walks away — signals deal conviction and negotiating leverage",
     category: "Deal Structure",
-    published: false,
+    published: true,
   },
   {
     slug: "mac-clause",
     term: "MAC Clause",
     tagline: "Allows the buyer to exit if a materially adverse change occurs between signing and closing",
     category: "Deal Structure",
-    published: false,
+    published: true,
   },
   // Regulatory & Legal
   {
     slug: "antitrust",
     term: "Antitrust Review",
-    tagline: "How competition authorities assess whether a deal harms market competition",
+    tagline: "How competition authorities assess whether a deal harms market competition — the real reason Adobe×Figma collapsed",
     category: "Regulatory & Legal",
-    published: false,
+    published: true,
   },
   {
     slug: "regulatory-risk",
@@ -144,6 +172,28 @@ const CONCEPT_CATALOG = [
     tagline: "The uncertainty that regulators impose conditions, require divestitures, or block a deal outright",
     category: "Regulatory & Legal",
     published: false,
+  },
+  // Due Diligence
+  {
+    slug: "fdd",
+    term: "Financial Due Diligence (FDD)",
+    tagline: "Behind the financial statements — normalizing EBITDA, working capital, and uncovering hidden liabilities",
+    category: "Due Diligence",
+    published: true,
+  },
+  {
+    slug: "cdd",
+    term: "Commercial Due Diligence (CDD)",
+    tagline: "Market, customer, and competitive reality-testing — validating the growth story before you sign",
+    category: "Due Diligence",
+    published: true,
+  },
+  {
+    slug: "ldd",
+    term: "Legal Due Diligence (LDD)",
+    tagline: "Surfacing contract, litigation, IP, and regulatory risk — the evidence that kills deals or adjusts price",
+    category: "Due Diligence",
+    published: true,
   },
   // Strategy
   {
@@ -183,11 +233,12 @@ const CONCEPT_CATALOG = [
   },
 ];
 
-const CATEGORIES = ["Valuation", "Deal Structure", "Regulatory & Legal", "Strategy"] as const;
+const CATEGORIES = ["Valuation", "Deal Structure", "Due Diligence", "Regulatory & Legal", "Strategy"] as const;
 
 const CATEGORY_COLOR: Record<string, string> = {
   "Valuation":          "bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300",
   "Deal Structure":     "bg-amber-50 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300",
+  "Due Diligence":      "bg-violet-50 text-violet-700 dark:bg-violet-900/30 dark:text-violet-300",
   "Regulatory & Legal": "bg-rose-50 text-rose-700 dark:bg-rose-900/30 dark:text-rose-300",
   "Strategy":           "bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300",
 };

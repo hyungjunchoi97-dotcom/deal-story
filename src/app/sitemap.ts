@@ -13,7 +13,19 @@ const BASE = SITE_URL;
 const PUBLISHED_CONCEPTS = [
   "ev-ebitda",
   "adjusted-ebitda",
+  "synergy",
+  "acquisition-premium",
   "ma-process",
+  "lbo",
+  "stock-vs-asset-deal",
+  "pmi",
+  "ipo-vs-ma-exit",
+  "break-fee",
+  "mac-clause",
+  "antitrust",
+  "fdd",
+  "cdd",
+  "ldd",
 ] as const;
 
 function pair(
