@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -29,25 +28,13 @@ export default function HomePage() {
 
         {/* 마스트헤드 */}
         <section className="border-b border-gray-200/60 dark:border-gray-700/60 overflow-hidden">
-          <div className="max-w-3xl mx-auto px-5 py-10 flex items-center justify-between gap-4">
-            <div className="flex-1 min-w-0">
-              <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
-                Deal Story
-              </h1>
-              <p className="mt-3 text-base text-gray-500 dark:text-gray-400 leading-relaxed">
-                M&amp;A, PE/VC, IPO, 매각까지 — 기업 딜의 배경과 숫자를 함께 아카이빙합니다.
-              </p>
-            </div>
-            <div className="flex-shrink-0 hidden sm:block">
-              <Image
-                src="/eagle02.png"
-                alt="Eagle CED 마스코트"
-                width={220}
-                height={147}
-                className="object-contain drop-shadow-lg"
-                priority
-              />
-            </div>
+          <div className="max-w-3xl mx-auto px-5 py-10">
+            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
+              Deal Story
+            </h1>
+            <p className="mt-3 text-base text-gray-500 dark:text-gray-400 leading-relaxed">
+              M&amp;A, PE/VC, IPO, 매각까지 — 기업 딜의 배경과 숫자를 함께 아카이빙합니다.
+            </p>
           </div>
         </section>
 
