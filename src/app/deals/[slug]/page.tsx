@@ -5,6 +5,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getDealBySlug, getAllSlugs, ALL_DEALS } from "@/data/deals";
+import { SITE_URL } from "@/lib/site";
 import DealPageClient from "./DealPageClient";
 
 // ── 정적 경로 사전 생성 ────────────────────────────────────────
@@ -33,6 +34,8 @@ export async function generateMetadata({
       title: deal.seo.title,
       description: deal.seo.description,
       type: "article",
+      locale: "ko_KR",
+      alternateLocale: ["en_US"],
       publishedTime: deal.announcedAt,
       modifiedTime: deal.closedAt ?? deal.announcedAt,
       tags: deal.tags,
@@ -84,7 +87,7 @@ export default async function DealPage({
         },
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": `https://deal-story.kr/deals/${slug}`,
+          "@id": `${SITE_URL}/deals/${slug}`,
         },
         ...(deal.seo.ogImage
           ? { image: deal.seo.ogImage }

@@ -24,6 +24,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "Deal Story",
+    locale: "en_US",
+    alternateLocale: ["ko_KR"],
     images: [
       { url: "/api/og?lang=en", width: 1200, height: 630, alt: "Deal Story" },
     ],

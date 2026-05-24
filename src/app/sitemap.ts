@@ -5,8 +5,9 @@
  */
 import type { MetadataRoute } from "next";
 import { ALL_DEALS } from "@/data/deals";
+import { SITE_URL } from "@/lib/site";
 
-const BASE = "https://dealstory.kr";
+const BASE = SITE_URL;
 
 // Keep in sync with deal-101/page.tsx and en/deal-101/page.tsx CONCEPT_CATALOG
 const PUBLISHED_CONCEPTS = [

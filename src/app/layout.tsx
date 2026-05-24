@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 import { detectLang } from "@/lib/i18n";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
-const BASE = "https://dealstory.kr";
+const BASE = SITE_URL;
 
 export const metadata: Metadata = {
   title: { default: "Deal Story - 기업 딜 아카이브", template: "%s | Deal Story" },
@@ -24,6 +25,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "Deal Story",
+    // 기본 로케일 KO — EN 페이지는 각 page.tsx의 openGraph.locale에서 오버라이드
+    locale: "ko_KR",
+    alternateLocale: ["en_US"],
     images: [
       { url: "/api/og", width: 1200, height: 630, alt: "Deal Story" },
     ],

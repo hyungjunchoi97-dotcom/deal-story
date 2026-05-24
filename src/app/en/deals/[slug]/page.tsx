@@ -5,6 +5,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getDealBySlugEn, getAllSlugsEn, ALL_DEALS_EN } from "@/data/deals/en";
+import { SITE_URL } from "@/lib/site";
 import DealPageClient from "./DealPageClient";
 
 // ── Static path generation ────────────────────────────────────
@@ -33,6 +34,8 @@ export async function generateMetadata({
       title: deal.seo.title,
       description: deal.seo.description,
       type: "article",
+      locale: "en_US",
+      alternateLocale: ["ko_KR"],
       publishedTime: deal.announcedAt,
       modifiedTime: deal.closedAt ?? deal.announcedAt,
       tags: deal.tags,
@@ -84,7 +87,7 @@ export default async function DealPageEn({
         },
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": `https://deal-story.kr/en/deals/${slug}`,
+          "@id": `${SITE_URL}/en/deals/${slug}`,
         },
         ...(deal.seo.ogImage ? { image: deal.seo.ogImage } : {}),
         inLanguage: "en",

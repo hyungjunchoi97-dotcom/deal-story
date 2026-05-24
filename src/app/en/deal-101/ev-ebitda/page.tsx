@@ -18,6 +18,19 @@ export const metadata: Metadata = {
       "x-default": "/deal-101/ev-ebitda",
     },
   },
+  openGraph: {
+    type: "article",
+    siteName: "Deal Story",
+    locale: "en_US",
+    alternateLocale: ["ko_KR"],
+    images: [
+      { url: "/api/og?lang=en", width: 1200, height: 630, alt: "EV/EBITDA Multiple Explained — Deal Story" },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/api/og?lang=en"],
+  },
 };
 
 const CONCEPT_SLUG = "/deal-101/ev-ebitda";
