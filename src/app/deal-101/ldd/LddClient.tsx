@@ -234,7 +234,7 @@ export default function LddClient() {
           </motion.section>
 
           {/* ── 섹션 2: 6가지 검토 영역 ── */}
-          <section>
+          <motion.section initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
               <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">LDD 주요 검토 영역 6가지</h2>
               <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
