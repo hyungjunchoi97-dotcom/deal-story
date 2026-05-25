@@ -17,7 +17,10 @@ import { getDealBySlugEn } from "@/data/deals/en";
 import { getCategoryLabel, type Lang } from "@/lib/i18n";
 import type { DealCategory, DealData } from "@/lib/deal-data";
 
-export const runtime = "edge";
+// Edge → nodejs 런타임: 딜 수 증가로 번들이 1 MB 무료 플랜 한도를 초과해 변경.
+// Serverless Functions 한도는 50 MB 이므로 여유 있음.
+// OG 이미지는 SNS 플랫폼이 1회 크롤 후 자체 캐시하므로 Edge 성능 이점 미미.
+export const runtime = "nodejs";
 
 const SIZE = { width: 1200, height: 630 } as const;
 
