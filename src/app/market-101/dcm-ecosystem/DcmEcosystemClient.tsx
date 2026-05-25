@@ -67,6 +67,30 @@ const CHAPTERS_EN = [
   { ch:"Ch.7", title:"Structure & Regulation",topics:"Chinese Wall·MNPI·Syndicate Desk" },
 ];
 
+// ── keyTerm → Market 101 slug map ────────────────────────────────────────────
+const TERM_SLUG: Record<string, string> = {
+  "DCM (채권 자본시장)":              "dcm-overview",
+  "DCM — Debt Capital Markets":       "dcm-overview",
+  "신디케이트 (Syndicate)":           "syndicate",
+  "Syndicate":                        "syndicate",
+  "1차 시장 / 2차 시장":             "primary-secondary-market",
+  "Primary Market / Secondary Market": "primary-secondary-market",
+  "IG / HY (투자등급 / 고수익채)":   "investment-grade",
+  "IG (Investment Grade) / HY (High Yield)": "investment-grade",
+  "스프레드 (Spread)":               "spread-basis",
+  "Spread":                           "spread-basis",
+  "NIC (신규발행 프리미엄)":          "nic",
+  "NIC — New Issue Concession":       "nic",
+  "북빌딩 / O/S (오더북 / 초과청약)": "book-building",
+  "Book Building / Oversubscription (O/S)": "book-building",
+  "차이니즈 월 (Chinese Wall)":       "chinese-wall",
+  "Chinese Wall":                     "chinese-wall",
+  "OAS (옵션조정스프레드)":           "oas",
+  "OAS — Option-Adjusted Spread":     "oas",
+  "ALM (자산부채관리)":               "alm",
+  "ALM — Asset-Liability Management": "alm",
+};
+
 // ── Visual components ─────────────────────────────────────────────────────────
 
 function MarketSizeCallout({ lang }: { lang: Lang }) {
@@ -501,28 +525,44 @@ export default function DcmEcosystemClient({ concept, lang }: { concept: MarketC
               {ko ? "핵심 용어" : "Key Terms"}
             </motion.h2>
             <div className="mt-5 space-y-3">
-              {concept.keyTerms.map((term, i) => (
-                <motion.div
-                  key={i}
-                  variants={fadeUp()}
-                  className="bg-gray-50 dark:bg-gray-900 rounded-xl p-5 border border-gray-100 dark:border-gray-800"
-                >
-                  <div className="flex items-center gap-2 mb-2 flex-wrap">
-                    <span
-                      className="w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold text-white flex-shrink-0"
-                      style={{ background: accent }}
-                    >
-                      {i + 1}
-                    </span>
-                    <span className="font-bold text-gray-900 dark:text-gray-100 text-[14px]">
-                      {ko ? term.term : term.termEn}
-                    </span>
-                  </div>
-                  <p className="text-[13px] text-gray-700 dark:text-gray-300 leading-relaxed pl-7">
-                    {ko ? term.definition : term.definitionEn}
-                  </p>
-                </motion.div>
-              ))}
+              {concept.keyTerms.map((term, i) => {
+                const displayTerm = ko ? term.term : term.termEn;
+                const termSlug = TERM_SLUG[displayTerm];
+                const termHref = termSlug
+                  ? (ko ? `/market-101/${termSlug}` : `/en/market-101/${termSlug}`)
+                  : null;
+                return (
+                  <motion.div
+                    key={i}
+                    variants={fadeUp()}
+                    className="bg-gray-50 dark:bg-gray-900 rounded-xl p-5 border border-gray-100 dark:border-gray-800"
+                  >
+                    <div className="flex items-center gap-2 mb-2 flex-wrap">
+                      <span
+                        className="w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold text-white flex-shrink-0"
+                        style={{ background: accent }}
+                      >
+                        {i + 1}
+                      </span>
+                      {termHref ? (
+                        <Link
+                          href={termHref}
+                          className="font-bold text-gray-900 dark:text-gray-100 text-[14px] hover:text-teal-700 dark:hover:text-teal-300 hover:underline transition-colors"
+                        >
+                          {displayTerm} ↗
+                        </Link>
+                      ) : (
+                        <span className="font-bold text-gray-900 dark:text-gray-100 text-[14px]">
+                          {displayTerm}
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-[13px] text-gray-700 dark:text-gray-300 leading-relaxed pl-7">
+                      {ko ? term.definition : term.definitionEn}
+                    </p>
+                  </motion.div>
+                );
+              })}
             </div>
           </motion.section>
 

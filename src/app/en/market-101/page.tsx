@@ -11,7 +11,7 @@ import {
 export const metadata: Metadata = {
   title: "Market 101 — Capital Markets Concept Dictionary | Deal Story",
   description:
-    "DCM, ECM, S&T, and regulation — core capital markets concepts explained with real deal examples.",
+    "DCM, ECM, S&T, FIG, and Sovereign — core capital markets concepts explained with real deal examples.",
   alternates: {
     canonical: "/en/market-101",
     languages: { ko: "/market-101", en: "/en/market-101", "x-default": "/market-101" },
@@ -19,6 +19,14 @@ export const metadata: Metadata = {
 };
 
 export default function Market101PageEn() {
+  const articles = ALL_MARKET101_CONCEPTS.filter((c) => c.entryType === "article");
+  const terms    = ALL_MARKET101_CONCEPTS.filter((c) => c.entryType === "term" || !c.entryType);
+
+  const termsByCategory = MARKET_101_CATEGORIES.map((cat) => ({
+    ...cat,
+    items: terms.filter((t) => t.category === cat.key),
+  })).filter((cat) => cat.items.length > 0);
+
   return (
     <>
       <Header />
@@ -36,20 +44,21 @@ export default function Market101PageEn() {
             </div>
 
             <div className="inline-flex items-center px-2.5 py-1 rounded-full bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 text-[11px] font-bold mb-3">
-              DCM · ECM · S&T
+              DCM · ECM · S&T · FIG · Sovereign
             </div>
 
             <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
               Market 101
             </h1>
             <p className="mt-3 text-base text-gray-500 dark:text-gray-400 leading-relaxed">
-              Capital markets concept dictionary — DCM, ECM, S&amp;T, and regulation explained
-              with real deal examples.
+              Capital markets concept dictionary — DCM, ECM, S&amp;T, FIG, and Sovereign
+              explained with real deal examples.
             </p>
 
             <div className="flex flex-wrap gap-2 mt-5">
               {MARKET_101_CATEGORIES.map((cat) => {
                 const count = ALL_MARKET101_CONCEPTS.filter((c) => c.category === cat.key).length;
+                if (count === 0) return null;
                 return (
                   <div
                     key={cat.key}
@@ -65,44 +74,106 @@ export default function Market101PageEn() {
           </div>
         </section>
 
-        {/* ── Concept cards ── */}
-        <section className="max-w-3xl mx-auto px-5 py-10">
-          {ALL_MARKET101_CONCEPTS.length === 0 ? (
-            <div className="text-center py-20">
-              <p className="text-gray-400 dark:text-gray-500 text-sm">
-                Concepts coming soon.
-              </p>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {ALL_MARKET101_CONCEPTS.map((concept) => {
-                const catColor = CATEGORY_COLOR[concept.category];
-                return (
-                  <Link key={concept.slug} href={`/en/market-101/${concept.slug}`}>
-                    <div className="group bg-white dark:bg-gray-900 rounded-xl border border-gray-200/60 dark:border-gray-700/60 p-5 h-full flex flex-col hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer">
-                      <div className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold mb-3 self-start ${catColor.bg} ${catColor.fg}`}>
-                        {concept.categoryLabelEn}
+        <div className="max-w-3xl mx-auto px-5 py-10 space-y-14">
+
+          {/* ── Section 1: Articles ── */}
+          {articles.length > 0 && (
+            <section>
+              <div className="flex items-center gap-3 mb-5">
+                <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100">Articles</h2>
+                <span className="text-xs text-gray-400 dark:text-gray-500 font-medium">
+                  {articles.length}
+                </span>
+                <div className="flex-1 h-px bg-gray-200 dark:bg-gray-700" />
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {articles.map((concept) => {
+                  const catColor = CATEGORY_COLOR[concept.category];
+                  return (
+                    <Link key={concept.slug} href={`/en/market-101/${concept.slug}`}>
+                      <div className="group bg-white dark:bg-gray-900 rounded-xl border border-gray-200/60 dark:border-gray-700/60 p-5 h-full flex flex-col hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer">
+                        <div className="flex items-center gap-2 mb-3">
+                          <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold ${catColor.bg} ${catColor.fg}`}>
+                            {concept.categoryLabelEn}
+                          </span>
+                          <span className="text-[10px] px-2 py-0.5 rounded-full bg-teal-50 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 font-semibold">
+                            Article
+                          </span>
+                        </div>
+                        <h3 className="text-[15px] font-bold text-gray-900 dark:text-gray-100 leading-snug mb-2 group-hover:text-teal-700 dark:group-hover:text-teal-300 transition-colors">
+                          {concept.titleEn}
+                        </h3>
+                        <p className="text-[12px] text-gray-500 dark:text-gray-400 leading-relaxed flex-1 line-clamp-3 mb-3">
+                          {concept.excerptEn}
+                        </p>
+                        <div className="flex items-center justify-between text-[11px] text-gray-400 dark:text-gray-500">
+                          <span>{concept.readingMinutes} min read</span>
+                          <span className="font-medium text-teal-600 dark:text-teal-400 group-hover:underline">
+                            Read more →
+                          </span>
+                        </div>
                       </div>
-                      <h2 className="text-[15px] font-bold text-gray-900 dark:text-gray-100 leading-snug mb-2 group-hover:text-teal-700 dark:group-hover:text-teal-300 transition-colors">
-                        {concept.titleEn}
-                      </h2>
-                      <p className="text-[12px] text-gray-500 dark:text-gray-400 leading-relaxed flex-1 line-clamp-3 mb-3">
-                        {concept.excerptEn}
-                      </p>
-                      <div className="flex items-center justify-between text-[11px] text-gray-400 dark:text-gray-500">
-                        <span>{concept.readingMinutes} min read</span>
-                        <span className="font-medium text-teal-600 dark:text-teal-400 group-hover:underline">
-                          Read more →
+                    </Link>
+                  );
+                })}
+              </div>
+            </section>
+          )}
+
+          {/* ── Section 2: Glossary by category ── */}
+          {termsByCategory.length > 0 && (
+            <section>
+              <div className="flex items-center gap-3 mb-6">
+                <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100">Glossary</h2>
+                <span className="text-xs text-gray-400 dark:text-gray-500 font-medium">
+                  {terms.length} terms
+                </span>
+                <div className="flex-1 h-px bg-gray-200 dark:bg-gray-700" />
+              </div>
+
+              <div className="space-y-8">
+                {termsByCategory.map((cat) => {
+                  const catColor = CATEGORY_COLOR[cat.key];
+                  return (
+                    <div key={cat.key}>
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className={`w-2 h-2 rounded-full ${cat.dotColor}`} />
+                        <h3 className={`text-[13px] font-bold ${catColor.fg}`}>
+                          {cat.labelEn}
+                        </h3>
+                        <span className="text-[11px] text-gray-400 dark:text-gray-500">
+                          {cat.items.length}
                         </span>
                       </div>
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
-          )}
-        </section>
 
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        {cat.items.map((term) => (
+                          <Link key={term.slug} href={`/en/market-101/${term.slug}`}>
+                            <div className="group bg-white dark:bg-gray-900 rounded-lg border border-gray-200/60 dark:border-gray-700/60 p-4 h-full flex flex-col hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 cursor-pointer">
+                              <h4 className="text-[14px] font-bold text-gray-900 dark:text-gray-100 leading-snug mb-1.5 group-hover:text-teal-700 dark:group-hover:text-teal-300 transition-colors">
+                                {term.titleEn}
+                              </h4>
+                              <p className="text-[11px] text-gray-500 dark:text-gray-400 leading-relaxed flex-1 line-clamp-2 mb-2">
+                                {term.excerptEn}
+                              </p>
+                              <div className="flex items-center justify-between text-[10px] text-gray-400 dark:text-gray-500">
+                                <span>{term.readingMinutes} min</span>
+                                <span className="font-medium text-teal-600 dark:text-teal-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                                  →
+                                </span>
+                              </div>
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
+          )}
+
+        </div>
       </main>
       <Footer />
     </>

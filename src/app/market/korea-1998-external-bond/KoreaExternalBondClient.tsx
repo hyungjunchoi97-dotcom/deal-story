@@ -33,6 +33,14 @@ const stagger = {
   show:   { transition: { staggerChildren: 0.07 } },
 };
 
+// ── keyTerm → Market 101 slug map ─────────────────────────────────────────────
+const TERM_SLUG: Record<string, string> = {
+  "CAC (집단행동조항)":                  "cac",
+  "CAC — Collective Action Clause":       "cac",
+  "Reach for Yield (수익률 추구)":        "reach-for-yield",
+  "Reach for Yield":                      "reach-for-yield",
+};
+
 // ── Section 0 Visual: Crisis Context Card ─────────────────────────────────────
 function CrisisContextCard({ lang }: { lang: Lang }) {
   const ko = lang === "ko";
@@ -296,7 +304,7 @@ function SpreadComparisonChart({ lang }: { lang: Lang }) {
               width={ko ? 95 : 105}
             />
             <Tooltip
-              formatter={(value: number) => [`T+${value}bp`, ko ? "스프레드" : "Spread"]}
+              formatter={(value) => [`T+${value ?? 0}bp`, ko ? "스프레드" : "Spread"] as [string, string]}
               contentStyle={{
                 fontSize: 11,
                 borderRadius: 8,
@@ -391,7 +399,7 @@ function SpreadTimelineChart({ lang }: { lang: Lang }) {
               domain={[0, 380]}
             />
             <Tooltip
-              formatter={(value: number) => [`T+${value}bp`, ko ? "스프레드" : "Spread"]}
+              formatter={(value) => [`T+${value ?? 0}bp`, ko ? "스프레드" : "Spread"] as [string, string]}
               labelFormatter={(label) => `${label}${ko ? "년" : ""}`}
               contentStyle={{
                 fontSize: 11,
@@ -723,28 +731,44 @@ export default function KoreaExternalBondClient({
             </motion.h2>
             <div className="w-8 h-0.5 mt-3 mb-6" style={{ background: accent }} />
             <div className="space-y-3">
-              {deal.keyTerms.map((term, i) => (
-                <motion.div
-                  key={i}
-                  variants={fadeUp()}
-                  className="bg-gray-50 dark:bg-gray-900 rounded-xl p-5 border border-gray-100 dark:border-gray-800"
-                >
-                  <div className="flex items-center gap-2 mb-2 flex-wrap">
-                    <span
-                      className="w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold text-white flex-shrink-0"
-                      style={{ background: accent }}
-                    >
-                      {i + 1}
-                    </span>
-                    <span className="font-bold text-gray-900 dark:text-gray-100 text-[14px]">
-                      {ko ? term.term : term.termEn}
-                    </span>
-                  </div>
-                  <p className="text-[13px] text-gray-700 dark:text-gray-300 leading-relaxed pl-7">
-                    {ko ? term.definition : term.definitionEn}
-                  </p>
-                </motion.div>
-              ))}
+              {deal.keyTerms.map((term, i) => {
+                const displayTerm = ko ? term.term : term.termEn;
+                const termSlug = TERM_SLUG[displayTerm];
+                const termHref = termSlug
+                  ? (ko ? `/market-101/${termSlug}` : `/en/market-101/${termSlug}`)
+                  : null;
+                return (
+                  <motion.div
+                    key={i}
+                    variants={fadeUp()}
+                    className="bg-gray-50 dark:bg-gray-900 rounded-xl p-5 border border-gray-100 dark:border-gray-800"
+                  >
+                    <div className="flex items-center gap-2 mb-2 flex-wrap">
+                      <span
+                        className="w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold text-white flex-shrink-0"
+                        style={{ background: accent }}
+                      >
+                        {i + 1}
+                      </span>
+                      {termHref ? (
+                        <Link
+                          href={termHref}
+                          className="font-bold text-gray-900 dark:text-gray-100 text-[14px] hover:text-indigo-700 dark:hover:text-indigo-300 hover:underline transition-colors"
+                        >
+                          {displayTerm} ↗
+                        </Link>
+                      ) : (
+                        <span className="font-bold text-gray-900 dark:text-gray-100 text-[14px]">
+                          {displayTerm}
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-[13px] text-gray-700 dark:text-gray-300 leading-relaxed pl-7">
+                      {ko ? term.definition : term.definitionEn}
+                    </p>
+                  </motion.div>
+                );
+              })}
             </div>
           </motion.section>
 

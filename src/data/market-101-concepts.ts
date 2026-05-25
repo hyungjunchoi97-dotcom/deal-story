@@ -12,10 +12,14 @@ export { CATEGORY_COLOR } from "@/data/market-concepts";
 
 // ── 카테고리 메타 ─────────────────────────────────────────────────────────────
 export const MARKET_101_CATEGORIES = [
-  { key: "dcm"       as const, label: "DCM",      labelEn: "DCM",                    dotColor: "bg-teal-500"   },
-  { key: "ecm"       as const, label: "ECM",      labelEn: "ECM",                    dotColor: "bg-blue-500"   },
-  { key: "st"        as const, label: "S&T",      labelEn: "S&T",                    dotColor: "bg-violet-500" },
-  { key: "structure" as const, label: "구조·규제", labelEn: "Structure & Regulation", dotColor: "bg-orange-500" },
+  { key: "dcm"        as const, label: "DCM",       labelEn: "DCM",                    dotColor: "bg-teal-500"   },
+  { key: "ecm"        as const, label: "ECM",       labelEn: "ECM",                    dotColor: "bg-blue-500"   },
+  { key: "st"         as const, label: "S&T",       labelEn: "S&T",                    dotColor: "bg-violet-500" },
+  { key: "structure"  as const, label: "구조·규제",  labelEn: "Structure & Regulation", dotColor: "bg-orange-500" },
+  { key: "sales"      as const, label: "세일즈",     labelEn: "Sales",                  dotColor: "bg-sky-500"    },
+  { key: "fig"        as const, label: "FIG",       labelEn: "FIG",                    dotColor: "bg-rose-500"   },
+  { key: "sovereign"  as const, label: "소버린",     labelEn: "Sovereign",              dotColor: "bg-indigo-500" },
+  { key: "structured" as const, label: "구조화",     labelEn: "Structured",             dotColor: "bg-amber-500"  },
 ];
 
 // ── 개념 데이터 ──────────────────────────────────────────────────────────────
@@ -28,6 +32,7 @@ export const ALL_MARKET101_CONCEPTS: MarketConcept[] = [
     slug: "dcm-ecosystem",
     title: "DCM 생태계 전체 지도",
     titleEn: "The DCM Ecosystem Map",
+    entryType: "article",
     category: "dcm",
     categoryLabel: "DCM",
     categoryLabelEn: "DCM",
@@ -776,6 +781,1005 @@ The institutional aftermath involved two main dimensions. First, prospectus lang
         url: "https://www.bis.org/basel_framework/",
       },
     ],
+  },
+
+  // ══════════════════════════════════════════════════════════════════════════
+  // DCM 프로세스 — Agent 2 terms
+  // ══════════════════════════════════════════════════════════════════════════
+
+  {
+    slug: "chinese-wall",
+    title: "차이니즈 월",
+    titleEn: "Chinese Wall",
+    entryType: "term",
+    category: "dcm",
+    categoryLabel: "DCM",
+    categoryLabelEn: "DCM",
+    excerpt:
+      "IB 부서와 S&T·리서치 사이의 정보 장벽. 미공개 발행 정보가 트레이딩 데스크로 흘러들어 내부자 거래로 이어지지 않도록 막는 제도적 경계선.",
+    excerptEn:
+      "The information barrier between the IB division and S&T/Research. A regulatory and procedural boundary preventing undisclosed issuance information from leaking to trading desks.",
+    readingMinutes: 5,
+    tags: ["차이니즈 월", "정보 장벽", "MNPI", "내부자 거래", "컴플라이언스"],
+    tagsEn: ["Chinese Wall", "Information Barrier", "MNPI", "Insider Trading", "Compliance"],
+    sections: [
+      {
+        heading: "왜 '벽'이 필요한가",
+        headingEn: "Why the Wall Exists",
+        body:
+`투자은행은 한 지붕 아래 두 개의 상충하는 역할을 수행한다. IB 부서는 발행사의 자금 조달을 돕는다 — 아직 시장에 공개되지 않은 재무 계획, 발행 규모, 가격 의향을 다룬다. 반면 S&T 부서는 같은 채권이나 주식을 시장에서 사고판다.
+
+두 부서 사이에 정보가 자유롭게 흐른다면, S&T 트레이더가 미공개 발행 계획을 미리 알고 포지션을 잡는 것은 명백한 내부자 거래다. 차이니즈 월은 이 구조적 이해충돌을 관리하기 위한 제도적 장치로, 물리적(별도 층·구역), 절차적(시스템 접근 권한), 법적(서약서·교육) 세 층으로 운영된다.
+
+글로벌 규제당국은 차이니즈 월을 IB 영업의 전제 조건으로 본다. 미국 SEC Rule 10b-5, 유럽 MAR(Market Abuse Regulation) 모두 이 장벽의 존재와 실효성을 요구한다.`,
+        bodyEn:
+`An investment bank performs two structurally conflicting roles under one roof. The IB division helps issuers raise capital, handling information not yet public: financing plans, deal size, pricing intent. The S&T division trades the same bonds or equities in the market.
+
+If information flowed freely between these two, an S&T trader learning of an undisclosed issuance plan and pre-positioning would constitute clear insider trading. The Chinese Wall is the institutional mechanism managing this structural conflict, operating on three layers: physical (separate floors/zones), procedural (system access controls), and legal (NDAs, compliance training).
+
+Global regulators treat the Chinese Wall as a prerequisite for IB business. Both U.S. SEC Rule 10b-5 and Europe's Market Abuse Regulation (MAR) require this barrier to exist and be operationally effective.`,
+      },
+      {
+        heading: "벽을 넘을 때 — 'Over the Wall'",
+        headingEn: "When the Wall Comes Down — 'Over the Wall'",
+        body:
+`때로는 S&T나 리서치 담당자가 IB 딜 정보를 알아야 할 경우가 있다. 헤징 전략 논의, 발행사 실사 참여 등이 그 예다. 이때 컴플라이언스 승인을 받은 뒤 '벽을 넘어(over the wall)' IB 사이드에 들어온다.
+
+그 순간부터 해당 인물은 MNPI(중요 미공개 정보) 보유자가 되어 해당 증권의 거래가 제한된다. 딜이 완료되고 정보가 공개될 때까지 제한은 유지된다.
+
+차이니즈 월의 붕괴는 IB 역사에서 반복적으로 등장하는 스캔들의 원인이었다 — Salomon Brothers 국채 경매 스캔들, 닷컴 버블기 리서치·IB 유착 문제 등이 대표적이다.`,
+        bodyEn:
+`Sometimes S&T or Research personnel need access to IB deal information — for example, to discuss hedging strategies or participate in issuer due diligence. In such cases, after compliance approval, the person crosses "over the wall" into the IB side.
+
+From that moment, they hold MNPI and are restricted from trading the relevant securities until the deal closes and information becomes public.
+
+Wall breaches are the root of recurring IB scandals — the Salomon Brothers Treasury auction scandal, the Research/IB conflicts during the dot-com bubble, and others.`,
+      },
+    ],
+    keyTerms: [
+      {
+        term: "MNPI",
+        termEn: "MNPI",
+        definition: "Material Non-Public Information. 시장에 아직 공개되지 않은 중요 정보. 이를 이용한 거래는 법적으로 금지된다.",
+        definitionEn: "Material Non-Public Information. Significant undisclosed market information; trading on it is legally prohibited.",
+      },
+      {
+        term: "Over the Wall",
+        termEn: "Over the Wall",
+        definition: "컴플라이언스 승인을 거쳐 차이니즈 월을 넘어 IB 사이드의 미공개 정보에 접근하는 행위.",
+        definitionEn: "Crossing the Chinese Wall with compliance approval to access non-public information on the IB side.",
+      },
+    ],
+    relatedSlugs: ["dcm-ecosystem", "mnpi", "syndicate"],
+    appearsIn: [
+      { type: "market-101", slug: "dcm-ecosystem", title: "DCM 생태계 전체 지도", titleEn: "The DCM Ecosystem Map" },
+    ],
+  },
+
+  {
+    slug: "syndicate",
+    title: "신디케이트",
+    titleEn: "Syndicate",
+    entryType: "term",
+    category: "dcm",
+    categoryLabel: "DCM",
+    categoryLabelEn: "DCM",
+    excerpt:
+      "채권 발행을 공동으로 인수하는 은행 컨소시엄. Lead Manager·Bookrunner·Co-Manager 계층 구조와 각자의 역할·수수료 배분을 이해하면 DCM 딜의 핵심 역학이 보인다.",
+    excerptEn:
+      "A consortium of banks jointly underwriting a bond issuance. Understanding the Lead Manager–Bookrunner–Co-Manager hierarchy, roles, and fee splits reveals the core dynamics of any DCM deal.",
+    readingMinutes: 6,
+    tags: ["신디케이트", "북러너", "리드 매니저", "인수단", "수수료", "DCM"],
+    tagsEn: ["Syndicate", "Bookrunner", "Lead Manager", "Underwriter", "Fees", "DCM"],
+    sections: [
+      {
+        heading: "왜 혼자 하지 않는가",
+        headingEn: "Why Not Go It Alone?",
+        body:
+`대형 채권 발행 — 수천억 원에서 수조 원 규모 — 은 단일 은행이 혼자 소화하기엔 너무 크다. 만약 발행 직후 시장이 나빠져 투자자가 나타나지 않으면 은행이 전액을 떠안게 된다. 리스크 분산을 위해 여러 은행이 컨소시엄, 즉 신디케이트를 구성한다.
+
+신디케이트 구조는 세 계층으로 나뉜다. (1) Lead Manager / Joint Bookrunner — 딜 구조 설계, 투자자 로드쇼 주도, 최종 가격 결정 권한 보유. 수수료 배분의 40–60%를 가져간다. (2) Co-Lead Manager — 북빌딩에 참여하고 특정 투자자 그룹을 담당. 수수료의 20–30% 수준. (3) Co-Manager — 소규모 참여, 특정 지역·계정 접근성 제공.
+
+발행사 입장에서 신디케이트는 투자자 접근성의 확장이다. 단일 은행의 고객 네트워크를 넘어 글로벌 기관투자자에게 동시에 채권을 판매할 수 있다.`,
+        bodyEn:
+`Large bond deals — ranging from hundreds of millions to billions — are too large for a single bank to absorb alone. If the market sours after launch and investors don't show up, the bank is stuck holding the entire deal. To distribute risk, multiple banks form a consortium: the syndicate.
+
+The syndicate structure has three tiers: (1) Lead Manager / Joint Bookrunner — designs the deal structure, leads investor roadshows, has final pricing authority. Takes 40–60% of fees. (2) Co-Lead Manager — participates in bookbuilding, covers specific investor segments. Earns ~20–30% of fees. (3) Co-Manager — smaller participation, provides access to specific regions or accounts.
+
+From the issuer's perspective, a syndicate expands investor reach — simultaneously distributing bonds to global institutional investors beyond any single bank's client network.`,
+      },
+      {
+        heading: "신디케이트와 스프레드 — 수수료의 구조",
+        headingEn: "Syndicate and Spread — Fee Structure",
+        body:
+`채권 발행의 수수료는 주로 인수 스프레드(underwriting spread)로 불리며, 발행 가격과 은행들이 지불하는 가격의 차이다. 이 스프레드는 Management Fee, Underwriting Fee, Selling Concession 세 파트로 구성된다.
+
+투자등급(IG) 딜의 총 수수료는 통상 발행금액의 20–50bp(0.20–0.50%) 수준이다. 하이일드(HY)는 리스크가 높아 100–300bp까지 올라간다. 국가(소버린) 발행은 관계 유지 목적으로 수수료가 낮게 설정되는 경우가 많다.
+
+신디케이트 내에서 북러너 지위는 순수 수익뿐 아니라 '리그테이블' 순위에도 직결된다 — 블룸버그, 딜로직 등이 집계하는 이 순위는 향후 딜 수임에 직접 영향을 미친다.`,
+        bodyEn:
+`Bond issuance fees are primarily captured as the underwriting spread: the difference between the public offering price and what the banks pay. This spread is split into three components: Management Fee, Underwriting Fee, and Selling Concession.
+
+Investment grade (IG) deal fees typically run 20–50bps (0.20–0.50%) of issuance size. High-yield (HY) deals carry higher risk and fees can reach 100–300bps. Sovereign issuances are often priced with lower fees as relationship-maintenance transactions.
+
+Within a syndicate, bookrunner status matters not just for revenue but for "league table" rankings — compiled by Bloomberg and Dealogic — which directly influence future deal mandates.`,
+      },
+    ],
+    keyTerms: [
+      {
+        term: "Bookrunner",
+        termEn: "Bookrunner",
+        definition: "북빌딩을 주도하고 수요장부를 관리하는 신디케이트 내 핵심 은행. 딜 구조 결정권과 최대 수수료 배분을 갖는다.",
+        definitionEn: "The lead bank managing the order book in a syndicated offering. Holds deal structuring authority and the largest fee share.",
+      },
+      {
+        term: "인수 스프레드",
+        termEn: "Underwriting Spread",
+        definition: "발행 가격과 은행들이 지불하는 가격의 차이. Management Fee, Underwriting Fee, Selling Concession으로 구성된다.",
+        definitionEn: "The difference between public offering price and what banks pay. Consists of Management Fee, Underwriting Fee, and Selling Concession.",
+      },
+    ],
+    relatedSlugs: ["dcm-ecosystem", "book-building", "chinese-wall", "nic"],
+    appearsIn: [
+      { type: "market-101", slug: "dcm-ecosystem", title: "DCM 생태계 전체 지도", titleEn: "The DCM Ecosystem Map" },
+    ],
+  },
+
+  {
+    slug: "primary-secondary-market",
+    title: "발행시장 vs 유통시장",
+    titleEn: "Primary vs Secondary Market",
+    entryType: "term",
+    category: "dcm",
+    categoryLabel: "DCM",
+    categoryLabelEn: "DCM",
+    excerpt:
+      "채권이 처음 세상에 나오는 발행시장(1차)과, 이후 투자자들 사이에서 거래되는 유통시장(2차). 이 두 시장의 구분이 DCM 생태계 전체의 출발점이다.",
+    excerptEn:
+      "The primary market where bonds are first issued, and the secondary market where they trade afterward among investors. This distinction is the foundation of the entire DCM ecosystem.",
+    readingMinutes: 5,
+    tags: ["발행시장", "유통시장", "1차 시장", "2차 시장", "DCM", "채권"],
+    tagsEn: ["Primary Market", "Secondary Market", "Bond Issuance", "Trading", "DCM"],
+    sections: [
+      {
+        heading: "발행시장 — 채권의 탄생",
+        headingEn: "Primary Market — Where Bonds Are Born",
+        body:
+`발행시장(Primary Market)은 발행사가 처음으로 채권을 발행하는 시장이다. 기업이 공장을 짓기 위해, 정부가 재정 적자를 메우기 위해, 은행이 자본을 조달하기 위해 채권을 발행하는 모든 행위가 여기서 일어난다.
+
+DCM 뱅커의 일은 바로 이 시장을 위한 것이다. 발행 구조 설계(만기, 쿠폰, 통화), 투자자 수요 탐색(로드쇼, IOI), 가격 결정, 실제 자금 수령이 1차 시장의 프로세스다. 발행이 완료되면 발행사는 자금을 수령하고, 투자자는 새 채권을 보유하게 된다.
+
+발행시장의 특성상 모든 거래는 발행사와 투자자 사이의 직접 거래다. 이미 발행된 채권은 이 시장에서 거래되지 않는다.`,
+        bodyEn:
+`The primary market is where issuers first create bonds. Everything here — a corporation issuing bonds to build a factory, a government to fund a budget deficit, a bank to raise capital — begins in this market.
+
+DCM bankers work for this market. Deal structure design (maturity, coupon, currency), investor demand discovery (roadshows, IOIs), pricing, and actual fund receipt all happen in the primary market. When issuance completes, the issuer receives proceeds and investors hold new bonds.
+
+By definition, all primary market transactions are direct between issuer and investor. Already-issued bonds do not trade here.`,
+      },
+      {
+        heading: "유통시장 — 채권이 살아 움직이는 곳",
+        headingEn: "Secondary Market — Where Bonds Come Alive",
+        body:
+`유통시장(Secondary Market)은 이미 발행된 채권이 투자자들 사이에서 거래되는 곳이다. 주식의 거래소와 달리 채권 유통시장은 대부분 OTC(장외 거래, Over-the-Counter) 방식으로 운영된다 — 딜러(주로 IB의 S&T 데스크)가 매수·매도 호가를 제시하고 투자자와 직접 거래한다.
+
+유통시장의 유동성은 발행시장 수요에도 직결된다. 유통시장에서 특정 발행사의 채권이 활발히 거래된다는 것은 투자자가 '필요할 때 팔 수 있다'는 신뢰를 의미하고, 이는 1차 발행 시 더 낮은 금리(발행사에 유리)로 이어진다.
+
+채권 가격은 유통시장에서 실시간으로 형성된다. 이 가격이 1차 발행의 기준점(벤치마크)이 되는 것이다 — 예컨대 "기존 채권 대비 T+5bp" 같은 표현이 그 연결을 보여준다.`,
+        bodyEn:
+`The secondary market is where already-issued bonds trade among investors. Unlike equity exchanges, most bond secondary markets operate OTC (Over-the-Counter): dealers (primarily IB S&T desks) quote bid/ask prices and trade directly with investors.
+
+Secondary market liquidity directly affects primary market demand. Active secondary trading of an issuer's bonds signals that investors can sell when needed, which translates into lower interest rates (advantageous for the issuer) at primary issuance.
+
+Bond prices form in real time in the secondary market. These prices become the reference point for primary issuance — expressions like "T+5bps over existing bonds" show this connection.`,
+      },
+    ],
+    keyTerms: [
+      {
+        term: "OTC (장외 거래)",
+        termEn: "OTC (Over-the-Counter)",
+        definition: "거래소를 거치지 않고 딜러와 투자자가 직접 거래하는 방식. 채권 유통시장의 지배적 거래 형태.",
+        definitionEn: "Trading directly between dealer and investor without a formal exchange. The dominant form of bond secondary market trading.",
+      },
+      {
+        term: "벤치마크 (Benchmark)",
+        termEn: "Benchmark",
+        definition: "신규 채권 가격 결정의 기준이 되는 기존 채권. 미국 국채(UST), 독일 국채(Bund) 등이 대표적.",
+        definitionEn: "Existing bonds used as reference points for pricing new issuances. U.S. Treasuries (UST) and German Bunds are key examples.",
+      },
+    ],
+    relatedSlugs: ["dcm-ecosystem", "book-building", "spread-basis", "nic"],
+    appearsIn: [
+      { type: "market-101", slug: "dcm-ecosystem", title: "DCM 생태계 전체 지도", titleEn: "The DCM Ecosystem Map" },
+    ],
+  },
+
+  {
+    slug: "book-building",
+    title: "북빌딩",
+    titleEn: "Book-Building",
+    entryType: "term",
+    category: "dcm",
+    categoryLabel: "DCM",
+    categoryLabelEn: "DCM",
+    excerpt:
+      "투자자의 수요를 모아 발행 가격과 규모를 결정하는 프로세스. 발행사와 은행이 시장의 진짜 수요를 발견하는 핵심 메커니즘.",
+    excerptEn:
+      "The process of gathering investor orders to determine issuance price and size. The core mechanism by which issuers and banks discover real market demand.",
+    readingMinutes: 5,
+    tags: ["북빌딩", "수요 조사", "발행 가격", "IOI", "신디케이트", "DCM"],
+    tagsEn: ["Book-Building", "Demand Discovery", "Issue Price", "IOI", "Syndicate", "DCM"],
+    sections: [
+      {
+        heading: "북빌딩 — 가격 발견의 과정",
+        headingEn: "Book-Building — Price Discovery in Action",
+        body:
+`북빌딩(Book-Building)은 채권 발행 전 투자자들의 수요를 체계적으로 수집하는 프로세스다. 은행이 일방적으로 가격을 정하는 것이 아니라, 실제 시장 수요를 기반으로 발행 조건을 결정한다는 점에서 '수요 발견(demand discovery)' 메커니즘이라고도 불린다.
+
+프로세스는 대략 이렇게 진행된다. (1) 발행 의사 타진(Announcement/IOI) — 발행사와 북러너가 발행 예정을 시장에 알리고 사전 관심도를 파악한다. (2) 로드쇼(Roadshow) — 발행사 CFO와 IR팀이 주요 투자자를 직접 만나 투자 설득에 나선다. (3) 북 오픈(Book Open) — 공식 수요 접수 시작. 투자자는 희망 금리(스프레드)와 금액을 제출한다. (4) 프라이싱(Pricing) — 수요 집계 후 최종 스프레드와 발행 규모 확정.
+
+북빌딩 결과는 단순한 발행 성공·실패를 넘어 시장이 발행사를 어떻게 평가하는지를 보여주는 신호다.`,
+        bodyEn:
+`Book-building is the process of systematically gathering investor demand before a bond issuance. Rather than the bank unilaterally setting a price, issuance terms are determined based on actual market demand — hence it's also called "demand discovery."
+
+The process typically unfolds as follows: (1) Announcement/IOI — the issuer and bookrunner signal an upcoming deal and gauge preliminary interest. (2) Roadshow — the issuer's CFO and IR team meet key investors to make the investment case. (3) Book Open — official order collection begins; investors submit preferred spread levels and amounts. (4) Pricing — after order aggregation, final spread and deal size are confirmed.
+
+Book-building results signal far more than deal success or failure — they reveal how the market assesses the issuer's credit quality and investor appetite.`,
+      },
+      {
+        heading: "오버부킹과 커버리지 — 시장이 말하는 것",
+        headingEn: "Oversubscription and Coverage — What the Market Says",
+        body:
+`북빌딩에서 중요한 지표 중 하나는 커버리지 비율(coverage ratio) — 총 수요를 최종 발행 규모로 나눈 값이다. 3배 커버리지는 목표의 3배에 해당하는 수요가 몰렸다는 뜻이다.
+
+높은 커버리지는 (1) 타이트한 스프레드 실현, (2) 발행 규모 확대, (3) 이후 발행의 협상력 강화로 이어진다. 반대로 커버리지가 낮으면 스프레드를 넓혀야 하거나, 최악의 경우 발행이 취소된다.
+
+투자자 구성(investor mix)도 중요하다. 고품질 장기 투자자(보험사, 연기금)가 북을 채우면 'sticky money'로 불리며 이후 유통시장 가격 안정에 기여한다. 반면 헤지펀드 위주의 북은 단기 매도 압력이 크다.`,
+        bodyEn:
+`A key metric in book-building is the coverage ratio — total demand divided by final deal size. A 3x coverage means demand was three times the target amount.
+
+High coverage enables: (1) tighter spread pricing, (2) upsizing the deal, and (3) stronger negotiating leverage on future issuances. Low coverage forces wider spreads or, in the worst case, deal withdrawal.
+
+Investor composition also matters. High-quality long-term investors (insurers, pension funds) filling the book are called "sticky money," contributing to secondary market price stability. A hedge-fund-heavy book carries higher near-term selling pressure.`,
+      },
+    ],
+    keyTerms: [
+      {
+        term: "IOI (Indication of Interest)",
+        termEn: "IOI (Indication of Interest)",
+        definition: "발행 전 투자자가 북러너에게 전달하는 비공식 수요 의향. 구속력은 없지만 수요 파악의 핵심 도구.",
+        definitionEn: "Informal pre-deal demand indications from investors to the bookrunner. Non-binding but essential for demand discovery.",
+      },
+      {
+        term: "커버리지 비율",
+        termEn: "Coverage Ratio",
+        definition: "총 수요를 최종 발행 규모로 나눈 값. 딜의 시장 수용도를 나타내는 핵심 지표.",
+        definitionEn: "Total demand divided by final deal size. Key indicator of market receptivity to a deal.",
+      },
+    ],
+    relatedSlugs: ["dcm-ecosystem", "syndicate", "nic", "primary-secondary-market"],
+    appearsIn: [
+      { type: "market-101", slug: "dcm-ecosystem", title: "DCM 생태계 전체 지도", titleEn: "The DCM Ecosystem Map" },
+    ],
+  },
+
+  // ══════════════════════════════════════════════════════════════════════════
+  // DCM 가격 결정 — Agent 3 terms
+  // ══════════════════════════════════════════════════════════════════════════
+
+  {
+    slug: "spread-basis",
+    title: "스프레드와 베이시스",
+    titleEn: "Spread & Basis",
+    entryType: "term",
+    category: "dcm",
+    categoryLabel: "DCM",
+    categoryLabelEn: "DCM",
+    excerpt:
+      "채권 수익률이 무위험 기준금리보다 얼마나 높은가. 이 차이(스프레드)가 신용 리스크와 유동성 리스크를 포함한 시장의 신용 평가를 보여준다.",
+    excerptEn:
+      "How much higher a bond's yield is versus the risk-free benchmark. This spread encapsulates the market's credit and liquidity assessment of the issuer.",
+    readingMinutes: 6,
+    tags: ["스프레드", "베이시스", "신용 리스크", "국채", "bp", "DCM"],
+    tagsEn: ["Spread", "Basis", "Credit Risk", "Treasury", "bps", "DCM"],
+    sections: [
+      {
+        heading: "스프레드란 무엇인가",
+        headingEn: "What Is a Spread?",
+        body:
+`채권 스프레드는 특정 채권의 수익률(yield)과 같은 만기의 무위험 기준 금리의 차이다. 예컨대 삼성전자 5년물 채권이 5.00% 수익률을 제공하고, 동일 만기 한국 국채 수익률이 3.50%라면 스프레드는 150bp(basis points = 1.5%)다.
+
+이 스프레드는 두 가지 리스크의 합산이다. (1) 신용 리스크 — 발행사가 원리금을 갚지 못할 리스크. 신용등급이 낮을수록 스프레드가 크다. (2) 유동성 리스크 — 언제든지 시장에서 팔 수 있는가. 소규모·신규 발행사는 유동성 프리미엄이 붙는다.
+
+시장 전체의 신용 스프레드 수준은 경기 사이클의 가장 민감한 온도계 중 하나다. 위기 시 스프레드는 급격히 확대(widening)되고, 안정기에는 타이트(tight)해진다.`,
+        bodyEn:
+`A bond spread is the difference between a bond's yield and the risk-free benchmark rate for the same maturity. For example, if a Samsung Electronics 5-year bond yields 5.00% and the same-maturity Korean government bond yields 3.50%, the spread is 150bps (basis points = 1.5%).
+
+This spread is the sum of two risk premiums: (1) Credit risk — the risk that the issuer cannot repay principal and interest. Lower-rated issuers pay wider spreads. (2) Liquidity risk — whether the bond can be sold in the market at any time. Smaller or newer issuers carry a liquidity premium.
+
+The overall level of credit spreads is one of the most sensitive gauges of the economic cycle. Spreads widen sharply during crises and tighten during stable periods.`,
+      },
+      {
+        heading: "베이시스 — 기준 금리의 선택",
+        headingEn: "Basis — Choosing the Benchmark",
+        body:
+`스프레드를 계산하려면 기준 금리('베이시스')가 먼저 필요하다. 시장에서 쓰이는 주요 기준은 세 가지다.
+
+(1) 국채(Government Bond) 스프레드 — 미국 국채(UST), 독일 국채(Bund), 한국 국채(KTB)에 대한 스프레드. "T+150bp"처럼 표기. 소버린·SSA 발행에서 가장 일반적. (2) SOFR/LIBOR 스프레드 — 은행 간 금리 기준. 금융기관 발행에서 흔히 사용. LIBOR가 2023년 폐지되면서 SOFR로 전환. (3) 스왑 스프레드 (ASW: Asset Swap Spread) — 이자율 스왑 커브에 대한 스프레드. 상대가치 분석에서 많이 쓰임.
+
+어떤 베이시스를 쓰느냐는 투자자 유형과 발행 통화에 따라 다르다. 미국 달러 IG 채권은 대부분 UST 스프레드로 호가된다.`,
+        bodyEn:
+`To calculate a spread, a benchmark ("basis") is needed first. Three main bases are used in markets:
+
+(1) Government bond spread — spread over U.S. Treasuries (UST), German Bunds, or Korean government bonds (KTB). Quoted as "T+150bps." Most common for sovereign and SSA issuance. (2) SOFR/LIBOR spread — interbank rate basis. Common for financial institution issuance. LIBOR was replaced by SOFR in 2023. (3) Swap spread (ASW: Asset Swap Spread) — spread over the interest rate swap curve. Widely used in relative value analysis.
+
+Which basis to use depends on investor type and issuance currency. USD IG bonds are typically quoted vs. UST.`,
+      },
+    ],
+    keyTerms: [
+      {
+        term: "bp (Basis Point)",
+        termEn: "bp (Basis Point)",
+        definition: "0.01%에 해당하는 금리 단위. 100bp = 1%. 채권 스프레드와 금리 변화의 기본 표현 단위.",
+        definitionEn: "A unit of 0.01% in interest rates. 100bps = 1%. The standard unit for expressing bond spreads and rate changes.",
+      },
+      {
+        term: "스프레드 확대/축소",
+        termEn: "Spread Widening / Tightening",
+        definition: "스프레드 확대(widening)는 신용 리스크 증가 또는 유동성 악화 신호. 축소(tightening)는 시장 안정 신호.",
+        definitionEn: "Spread widening signals increasing credit risk or deteriorating liquidity. Tightening signals improving market stability.",
+      },
+    ],
+    relatedSlugs: ["dcm-ecosystem", "oas", "nic", "investment-grade", "high-yield"],
+    appearsIn: [
+      { type: "market-101", slug: "dcm-ecosystem", title: "DCM 생태계 전체 지도", titleEn: "The DCM Ecosystem Map" },
+      { type: "market-deal", slug: "korea-1998-external-bond", title: "한국 1998 외평채", titleEn: "Korea 1998 External Bond" },
+    ],
+  },
+
+  {
+    slug: "oas",
+    title: "OAS (옵션 조정 스프레드)",
+    titleEn: "OAS (Option-Adjusted Spread)",
+    entryType: "term",
+    category: "dcm",
+    categoryLabel: "DCM",
+    categoryLabelEn: "DCM",
+    excerpt:
+      "콜옵션·풋옵션 등 내재된 옵션의 가치를 제거한 뒤 측정한 채권의 순수 신용 스프레드. AT1·콜러블 채권 등 복잡한 구조 채권의 가격 비교에 필수 도구.",
+    excerptEn:
+      "The pure credit spread of a bond after stripping out embedded option value (calls, puts, etc.). An essential tool for comparing complex structured bonds like AT1s and callables.",
+    readingMinutes: 5,
+    tags: ["OAS", "옵션 조정 스프레드", "콜옵션", "AT1", "구조 채권", "DCM"],
+    tagsEn: ["OAS", "Option-Adjusted Spread", "Call Option", "AT1", "Structured Bonds", "DCM"],
+    sections: [
+      {
+        heading: "왜 '옵션을 조정'해야 하는가",
+        headingEn: "Why 'Adjust for Options'?",
+        body:
+`콜러블(callable) 채권은 발행사가 만기 전에 상환을 선택할 수 있는 옵션을 내포한다. AT1 채권(Additional Tier 1)은 대표적인 콜러블 채권이다. 이 경우 단순 Z-스프레드로 측정하면 내재 옵션의 가치가 스프레드에 섞여 들어가 순수 신용 리스크를 과대 또는 과소 평가하게 된다.
+
+OAS는 옵션의 가치를 따로 분리해 제거한 뒤 남은 '순수 신용 스프레드'다. 기술적으로는 금리 시나리오 나무(interest rate tree)를 이용해 여러 금리 경로에서 옵션 행사 확률을 시뮬레이션하고, 그 기댓값을 차감한다.
+
+실무에서 OAS는 옵션 구조가 다른 여러 채권을 사과대 사과(apples-to-apples)로 비교할 때 쓰인다. CS AT1 위기(2023) 당시 시장이 AT1 스프레드를 급격히 재평가한 것도 OAS 기준이었다.`,
+        bodyEn:
+`Callable bonds contain an embedded option allowing the issuer to redeem before maturity. AT1 bonds (Additional Tier 1) are prototypical callables. In this case, simple Z-spread measures mix option value with credit spread, overstating or understating pure credit risk.
+
+OAS separates and removes option value to isolate the "pure credit spread." Technically, it uses an interest rate tree to simulate option exercise probabilities across multiple rate paths and subtracts the expected option value.
+
+In practice, OAS enables apples-to-apples comparison across bonds with different option structures. When markets rapidly repriced AT1 spreads following the Credit Suisse crisis (2023), OAS was the reference measure.`,
+      },
+      {
+        heading: "Z-스프레드, OAS, 그리고 I-스프레드의 차이",
+        headingEn: "Z-Spread, OAS, and I-Spread — The Differences",
+        body:
+`세 스프레드 지표는 계산 방법이 달라 서로 다른 상황에서 쓰인다.
+
+I-스프레드(Interpolated Spread): 같은 만기의 스왑 금리에 대한 단순 차이. 가장 빠르게 계산되나 구조가 단순한 채권에만 적합. Z-스프레드(Zero-Volatility Spread): 전체 수익률 곡선(zero curve)에 평행 이동해 더하는 스프레드. 쿠폰 지급 시점마다 할인율을 조정. 옵션 없는 채권의 상대가치 분석에 적합. OAS(Option-Adjusted Spread): Z-스프레드에서 내재 옵션 가치를 차감. 콜러블·풋터블·AT1 등 옵션 내재 채권에 적합.
+
+FIG(금융기관) 채권, 특히 AT1·CoCo·Tier 2 채권 분석에서 OAS는 필수 도구다.`,
+        bodyEn:
+`Three spread measures use different calculation methods and suit different situations.
+
+I-Spread (Interpolated Spread): Simple difference vs. the swap rate at the same maturity. Fastest to calculate but only appropriate for plain vanilla bonds. Z-Spread (Zero-Volatility Spread): The parallel shift added to the entire zero curve. Adjusts discount rates at each coupon payment date. Suitable for relative value analysis of non-option bonds. OAS (Option-Adjusted Spread): Z-spread minus embedded option value. Appropriate for callable, puttable, AT1, and other option-embedded bonds.
+
+For FIG bonds — especially AT1, CoCo, and Tier 2 — OAS is an indispensable analytical tool.`,
+      },
+    ],
+    keyTerms: [
+      {
+        term: "Z-스프레드",
+        termEn: "Z-Spread",
+        definition: "전체 수익률 곡선에 평행 이동해 더하는 스프레드. 옵션이 없는 채권의 상대가치 비교에 사용.",
+        definitionEn: "The parallel shift added across the entire yield curve. Used for relative value comparison of non-option bonds.",
+      },
+      {
+        term: "콜러블 채권",
+        termEn: "Callable Bond",
+        definition: "발행사가 만기 전 정해진 일자(콜 날짜)에 상환을 선택할 수 있는 채권. AT1이 대표적.",
+        definitionEn: "A bond the issuer can redeem before maturity on specified call dates. AT1 is the prototypical example.",
+      },
+    ],
+    relatedSlugs: ["spread-basis", "at1-capital", "coco-bond", "dcm-ecosystem"],
+    appearsIn: [
+      { type: "market-deal", slug: "credit-suisse-at1", title: "CS AT1 전액 상각 사태", titleEn: "Credit Suisse AT1 Write-Down" },
+      { type: "market-101", slug: "at1-capital", title: "AT1 자본", titleEn: "AT1 Capital" },
+    ],
+  },
+
+  {
+    slug: "nic",
+    title: "NIC (신규발행 프리미엄)",
+    titleEn: "NIC (New Issue Concession)",
+    entryType: "term",
+    category: "dcm",
+    categoryLabel: "DCM",
+    categoryLabelEn: "DCM",
+    excerpt:
+      "신규 발행 채권이 기존 유통 채권보다 더 높은 금리를 제시해야 하는 추가 프리미엄. 발행사와 은행의 협상 핵심 변수이자 시장 상황의 바로미터.",
+    excerptEn:
+      "The extra premium a new bond must offer above existing secondary-market bonds to attract investors. A key negotiation variable between issuers and banks, and a barometer of market conditions.",
+    readingMinutes: 4,
+    tags: ["NIC", "신규발행 프리미엄", "발행 가격", "DCM", "스프레드"],
+    tagsEn: ["NIC", "New Issue Concession", "Issue Price", "DCM", "Spread"],
+    sections: [
+      {
+        heading: "NIC — 발행의 비용",
+        headingEn: "NIC — The Cost of New Issuance",
+        body:
+`투자자 입장에서 새로 발행되는 채권은 이미 유통되는 동일 발행사의 기존 채권과 비교해 이점이 없다면 살 이유가 없다. 기존 채권은 가격 추이를 관찰할 수 있고, 유동성이 어느 정도 검증된 상태다. 새 채권에는 이런 이점이 없다.
+
+이를 보상하기 위해 신규 발행 채권은 기존 채권보다 조금 더 높은 수익률(낮은 가격)을 제시한다 — 이게 NIC(New Issue Concession)다. 일반적으로 5–15bp 수준이며, 시장이 불안정하거나 발행 규모가 클수록 커진다.
+
+NIC는 북빌딩 과정에서 발행사와 은행이 치열하게 협상하는 변수다. 발행사는 NIC를 낮춰 자금 조달 비용을 줄이려 하고, 은행은 충분한 수요를 확보하기 위해 NIC를 유지하려 한다.`,
+        bodyEn:
+`From an investor's perspective, there's no reason to buy a newly issued bond over existing secondary market bonds from the same issuer unless there's a clear advantage. Existing bonds have observable price histories and established liquidity. New bonds lack these.
+
+To compensate, new issuances offer slightly higher yields (lower prices) than existing bonds — this is the NIC (New Issue Concession). Typically 5–15bps, it widens when markets are unstable or deal sizes are large.
+
+NIC is an intensely negotiated variable between issuers and banks during book-building. Issuers push to minimize NIC to reduce funding costs; banks aim to maintain sufficient NIC to attract demand.`,
+      },
+      {
+        heading: "NIC vs. OID — 발행 할인의 두 얼굴",
+        headingEn: "NIC vs. OID — Two Faces of Issuance Discount",
+        body:
+`NIC와 자주 혼동되는 개념이 OID(Original Issue Discount)다. NIC는 기존 유통 채권 대비 추가 스프레드인 반면, OID는 채권이 액면가(par) 이하로 발행될 때의 할인이다.
+
+예컨대 액면가 100인 채권이 99.5에 발행된다면 0.5의 OID가 발생한다. 이는 발행 가격과 만기 상환액(100) 사이의 차이로, 세금 처리에서도 쿠폰과 다르게 취급된다.
+
+실무에서 IG 채권 발행은 거의 항상 par 근처에서 이루어진다. OID는 HY나 신흥국 채권에서 더 자주 나타난다.`,
+        bodyEn:
+`A concept often confused with NIC is OID (Original Issue Discount). NIC is the additional spread vs. existing secondary bonds; OID is the discount when bonds are issued below par (face value).
+
+For example, if a bond with $100 face value is issued at $99.5, a $0.5 OID arises. This represents the difference between issue price and maturity redemption ($100), and is treated differently from coupon income for tax purposes.
+
+In practice, IG bond issuance almost always occurs near par. OID appears more frequently in HY or emerging market bonds.`,
+      },
+    ],
+    keyTerms: [
+      {
+        term: "NIC (New Issue Concession)",
+        termEn: "NIC (New Issue Concession)",
+        definition: "신규 발행 채권이 기존 유통 채권보다 추가로 제시하는 스프레드. 통상 5–15bp.",
+        definitionEn: "The additional spread a new bond offers above existing secondary market bonds. Typically 5–15bps.",
+      },
+      {
+        term: "OID (Original Issue Discount)",
+        termEn: "OID (Original Issue Discount)",
+        definition: "채권이 액면가 이하로 발행될 때의 할인. 발행가와 만기 상환액의 차이.",
+        definitionEn: "The discount when bonds are issued below par. The difference between issue price and maturity redemption value.",
+      },
+    ],
+    relatedSlugs: ["dcm-ecosystem", "book-building", "spread-basis", "investment-grade"],
+    appearsIn: [
+      { type: "market-101", slug: "dcm-ecosystem", title: "DCM 생태계 전체 지도", titleEn: "The DCM Ecosystem Map" },
+    ],
+  },
+
+  {
+    slug: "investment-grade",
+    title: "투자적격등급 (Investment Grade)",
+    titleEn: "Investment Grade",
+    entryType: "term",
+    category: "dcm",
+    categoryLabel: "DCM",
+    categoryLabelEn: "DCM",
+    excerpt:
+      "S&P BBB- / Moody's Baa3 이상의 신용등급. 전 세계 기관투자자 상당수는 내규상 이 등급 이상의 채권만 보유할 수 있어, IG와 HY는 단순 등급 차이 이상의 의미를 갖는다.",
+    excerptEn:
+      "BBB- (S&P) / Baa3 (Moody's) and above. Because most institutional investors are mandated to hold only IG bonds, the IG/HY divide carries implications far beyond a simple ratings boundary.",
+    readingMinutes: 5,
+    tags: ["투자적격등급", "IG", "BBB", "신용등급", "기관투자자", "DCM"],
+    tagsEn: ["Investment Grade", "IG", "BBB", "Credit Rating", "Institutional Investor", "DCM"],
+    sections: [
+      {
+        heading: "IG — 선 하나가 만드는 세계",
+        headingEn: "IG — One Line That Divides the World",
+        body:
+`S&P 기준으로 BBB- 이상이면 투자적격(Investment Grade, IG), BBB- 미만이면 투기등급(Non-Investment Grade) 혹은 '하이일드(High Yield)'다. 무디스 기준으로는 Baa3/Ba1이 경계선이다.
+
+이 선 하나가 만드는 차이는 극적이다. 전 세계 보험사, 연기금, 국부펀드의 내규 상당수에는 'IG 이상의 채권만 보유 가능'이라는 조항이 있다. 즉 BBB-에서 BB+로 강등되는 순간, 전 세계에서 가장 큰 자금이 해당 채권을 팔 수밖에 없는 구조가 된다.
+
+이를 '강제 매도(forced selling)' 혹은 '폴른 엔젤(Fallen Angel)' 효과라고 부른다. IG 등급을 유지하기 위한 기업의 재무 관리가 단순한 신용 목표를 넘어 전략적 의무가 되는 이유다.`,
+        bodyEn:
+`By S&P standards, BBB- and above is Investment Grade (IG); below BBB- is speculative or "High Yield." Moody's boundary falls at Baa3/Ba1.
+
+The difference one line makes is dramatic. A large portion of global insurer, pension fund, and sovereign wealth fund mandates restrict holdings to IG-or-above bonds. This means: the moment a bond is downgraded from BBB- to BB+, the world's largest pools of capital are structurally forced to sell it.
+
+This is called "forced selling" or the "Fallen Angel" effect. It's why maintaining IG status is not merely a credit target but a strategic imperative for many corporates.`,
+      },
+      {
+        heading: "BBB — 가장 혼잡한 등급",
+        headingEn: "BBB — The Most Crowded Rating",
+        body:
+`IG 중에서도 BBB 등급(S&P: BBB+, BBB, BBB-)은 전체 IG 시장의 약 50%를 차지할 만큼 거대하다. 이 집중도 자체가 시스템 리스크의 원천이다 — 경기 침체기에 BBB 기업들이 대거 강등되면 시장 전체가 충격을 받는다.
+
+2020년 코로나 위기 당시 Ford, Boeing 등 대형 BBB 기업들이 HY로 강등되면서 HY 스프레드가 급등했다. 이 시기 '폴른 엔젤 리스크'는 DCM 시장의 핵심 화두였다.
+
+AA·A 등급은 수가 줄어드는 추세다. 미국의 경우 현재 AAA 등급 기업은 Microsoft와 Johnson & Johnson 둘뿐이다.`,
+        bodyEn:
+`Within IG, BBB (S&P: BBB+, BBB, BBB-) accounts for roughly 50% of the entire IG market — a concentration that creates systemic risk. If BBB-rated companies are mass-downgraded in a recession, the entire market absorbs the shock.
+
+During the 2020 COVID crisis, large BBB companies like Ford and Boeing were downgraded to HY, triggering sharp spikes in HY spreads. "Fallen Angel risk" was the central DCM market theme of that period.
+
+AA and A ratings are declining in number. In the U.S., only Microsoft and Johnson & Johnson currently hold AAA ratings.`,
+      },
+    ],
+    keyTerms: [
+      {
+        term: "폴른 엔젤 (Fallen Angel)",
+        termEn: "Fallen Angel",
+        definition: "IG에서 HY로 강등된 채권. 강제 매도가 발생해 스프레드가 급등한다.",
+        definitionEn: "A bond downgraded from IG to HY. Forces mandatory selling, causing spreads to spike sharply.",
+      },
+      {
+        term: "Rising Star",
+        termEn: "Rising Star",
+        definition: "HY에서 IG로 승등된 채권. 신규 IG 투자자의 수요 유입으로 스프레드가 축소된다.",
+        definitionEn: "A bond upgraded from HY to IG. New IG mandated demand flows in, compressing spreads.",
+      },
+    ],
+    relatedSlugs: ["high-yield", "spread-basis", "dcm-ecosystem", "reach-for-yield"],
+    appearsIn: [
+      { type: "market-101", slug: "dcm-ecosystem", title: "DCM 생태계 전체 지도", titleEn: "The DCM Ecosystem Map" },
+    ],
+  },
+
+  {
+    slug: "high-yield",
+    title: "하이일드 (High Yield)",
+    titleEn: "High Yield",
+    entryType: "term",
+    category: "dcm",
+    categoryLabel: "DCM",
+    categoryLabelEn: "DCM",
+    excerpt:
+      "BB+ 이하 투기등급 채권. '정크본드'라는 별명이 붙은 이 시장이 1980년대 LBO 혁명과 기업 인수합병 생태계를 바꿔놓은 과정.",
+    excerptEn:
+      "Sub-investment-grade bonds rated BB+ and below. How the 'junk bond' market transformed leveraged buyouts and the entire corporate M&A ecosystem in the 1980s and beyond.",
+    readingMinutes: 6,
+    tags: ["하이일드", "HY", "정크본드", "BB", "LBO", "투기등급"],
+    tagsEn: ["High Yield", "HY", "Junk Bond", "BB", "LBO", "Speculative Grade"],
+    sections: [
+      {
+        heading: "정크본드 — 오해와 진실",
+        headingEn: "Junk Bonds — Myth and Reality",
+        body:
+`'정크본드(Junk Bond)'라는 이름은 1970–80년대 마이클 밀켄(Michael Milken)이 드렉셀 번햄 램버트에서 하이일드 시장을 개척했을 때 비판적 언론이 붙인 별명이다. 하지만 오늘날 글로벌 HY 시장 규모는 약 2–3조 달러로, '쓰레기' 이미지와는 거리가 멀다.
+
+HY 채권의 발행사는 크게 두 부류다. (1) 폴른 엔젤(Fallen Angel) — 과거 IG였다가 강등된 기업. 여전히 사업 규모와 브랜드가 있다. (2) 원래 HY(Born HY) — 성장 단계 기업, LBO 딜 이후 레버리지가 높은 기업, 스타트업에서 성장한 기업 등.
+
+HY 채권은 IG 대비 스프레드가 300–600bp 이상이어서 투자자에게 훨씬 높은 수익을 제공하지만, 부도 시 원금 손실 리스크도 크다. 역사적 하이일드 채권의 연간 부도율은 약 3–5%다.`,
+        bodyEn:
+`"Junk bond" is a nickname coined by critical journalists when Michael Milken pioneered the HY market at Drexel Burnham Lambert in the 1970s–80s. Yet today's global HY market is roughly $2–3 trillion in size — far from the "junk" image.
+
+HY issuers fall into two main categories: (1) Fallen Angels — former IG issuers downgraded to HY. They still have substantial operations and brand recognition. (2) Original HY (Born HY) — growth-stage companies, post-LBO highly leveraged firms, and startups that scaled.
+
+HY bonds offer spreads of 300–600bps+ vs. IG, providing much higher investor returns, but carrying significant default risk if the issuer stumbles. Historical annual default rates for HY are approximately 3–5%.`,
+      },
+      {
+        heading: "HY와 LBO — 레버리지 자본주의의 연료",
+        headingEn: "HY and LBO — Fuel for Leveraged Capitalism",
+        body:
+`하이일드 시장이 현대 자본시장에서 갖는 가장 큰 전략적 의미는 LBO(Leveraged Buyout)와의 연결이다. LBO는 인수 대상 기업의 자산 또는 현금흐름을 담보로 대규모 부채를 일으켜 기업을 인수하는 구조다. 이 부채의 상당 부분이 HY 채권 또는 레버리지드 론(Leveraged Loan) 형태로 시장에서 조달된다.
+
+KKR, Blackstone, Apollo 같은 PE 펀드들이 HY 시장 없이는 현재 규모의 딜을 실행할 수 없다. HY 시장의 스프레드 수준과 유동성이 PE 딜의 실행 가능성을 직접 결정한다.
+
+2022–2023년 금리 급등기에 HY 스프레드가 확대되면서 PE 딜 실행이 급감한 것은 이 연결의 현실을 보여준다.`,
+        bodyEn:
+`The greatest strategic significance of the HY market in modern capital markets is its connection to LBOs (Leveraged Buyouts). An LBO uses the target company's assets or cash flows as collateral to raise large amounts of debt for acquisition. Much of this debt is raised as HY bonds or leveraged loans in the capital markets.
+
+PE firms like KKR, Blackstone, and Apollo could not execute deals at their current scale without the HY market. HY spread levels and liquidity directly determine PE deal feasibility.
+
+The sharp decline in PE deal activity during the 2022–2023 rate spike — when HY spreads widened significantly — illustrated this connection in real time.`,
+      },
+    ],
+    keyTerms: [
+      {
+        term: "LBO (Leveraged Buyout)",
+        termEn: "LBO (Leveraged Buyout)",
+        definition: "인수 대상의 자산·현금흐름을 담보로 대규모 부채를 일으켜 기업을 인수하는 방식. HY 채권이 핵심 조달 수단.",
+        definitionEn: "Acquiring a company using large amounts of debt secured by target assets/cash flows. HY bonds are a primary funding tool.",
+      },
+      {
+        term: "부도율 (Default Rate)",
+        termEn: "Default Rate",
+        definition: "일정 기간 동안 원리금 지급을 이행하지 못한 HY 채권의 비율. 역사적 평균 연 3–5%.",
+        definitionEn: "The percentage of HY bonds that fail to meet payment obligations in a given period. Historically ~3–5% annually.",
+      },
+    ],
+    relatedSlugs: ["investment-grade", "spread-basis", "dcm-ecosystem", "reach-for-yield"],
+    appearsIn: [
+      { type: "market-101", slug: "dcm-ecosystem", title: "DCM 생태계 전체 지도", titleEn: "The DCM Ecosystem Map" },
+    ],
+  },
+
+  // ══════════════════════════════════════════════════════════════════════════
+  // 소버린·구조 — Agent 4 terms
+  // ══════════════════════════════════════════════════════════════════════════
+
+  {
+    slug: "cac",
+    title: "CAC (집합행동조항)",
+    titleEn: "CAC (Collective Action Clause)",
+    entryType: "term",
+    category: "sovereign",
+    categoryLabel: "소버린",
+    categoryLabelEn: "Sovereign",
+    excerpt:
+      "국채 채무조정 시 소수 채권자가 다수 합의를 막지 못하도록 하는 조항. 1998년 한국 외평채, 아르헨티나·그리스 위기를 거쳐 현대 소버린 채권의 표준이 된 역사.",
+    excerptEn:
+      "A clause preventing minority bondholders from blocking debt restructuring agreed by the majority. Its evolution from the Korea 1998 bond through Argentina and Greece crises to today's sovereign bond standard.",
+    readingMinutes: 6,
+    tags: ["CAC", "집합행동조항", "채무조정", "소버린", "국채", "아르헨티나"],
+    tagsEn: ["CAC", "Collective Action Clause", "Debt Restructuring", "Sovereign", "Government Bond", "Argentina"],
+    sections: [
+      {
+        heading: "소수의 독재 — CAC 없는 세계",
+        headingEn: "The Tyranny of the Minority — A World Without CAC",
+        body:
+`국가가 부채를 갚지 못할 위기에 처했을 때, 채무조정(debt restructuring)은 불가피한 선택이 되곤 한다. 원리금 삭감, 만기 연장, 쿠폰 인하 등의 방식으로 채무 부담을 줄이는 협상을 채권자들과 해야 한다.
+
+문제는 채권자가 수천 명이라는 점이다. 다수가 조정안에 동의해도 일부 채권자('홀드아웃'이라고 불린다)가 거부하면 법적으로 전액 상환을 청구할 수 있었다. 1990–2000년대 아르헨티나·에콰도르 위기 때, 헤지펀드들이 헐값에 채권을 사모은 뒤 전액 상환을 요구하며 소송을 제기한 것이 대표적 사례다.
+
+CAC(Collective Action Clause, 집합행동조항)는 이 문제의 해법이다. 채권자의 일정 비율(통상 75% 이상)이 채무조정에 동의하면, 나머지 소수도 그 결정에 구속된다는 조항이다.`,
+        bodyEn:
+`When a country faces the inability to repay its debts, restructuring — cutting principal, extending maturities, reducing coupons — becomes unavoidable. This requires negotiating with bondholders.
+
+The problem: bondholders number in the thousands. Even when the majority agrees to restructuring, "holdout" creditors who refuse can legally demand full repayment. During the Argentina and Ecuador crises of the 1990s–2000s, hedge funds bought bonds at deep discounts and sued for full repayment — the prototypical holdup.
+
+CAC (Collective Action Clause) is the solution. If a specified percentage of bondholders (typically 75%+) agrees to restructuring, the remaining minority is legally bound by that decision.`,
+      },
+      {
+        heading: "1998 한국에서 그리스까지 — CAC의 진화",
+        headingEn: "From Korea 1998 to Greece — The Evolution of CAC",
+        body:
+`1998년 한국 외평채(Korea 1998 External Bond)는 CAC 조항을 포함한 초기 글로벌 소버린 채권 중 하나였다. 당시 한국 정부는 IMF 위기 속에서 신속한 채무 관리 능력을 보여주기 위해 이 조항을 채택했다.
+
+2003년 멕시코가 미국 뉴욕법 준거 소버린 채권에 CAC를 도입하면서 선진국 발행의 표준이 됐다. 이후 2012년 그리스 구제금융 당시, CAC를 소급 적용해 95% 이상의 채권자를 구조조정에 동의시킨 역대 최대 규모의 CAC 발동 사례가 나왔다.
+
+현재 유로존 국채(ESM·EFSF 후속)는 단일 집합행동 메커니즘(Single Limb CAC)을 채택해, 개별 채권 시리즈가 아닌 전체 채무에 대한 다수결이 가능해졌다.`,
+        bodyEn:
+`Korea's 1998 External Bond was one of the early global sovereign bonds to include CAC provisions. The Korean government adopted this clause to demonstrate rapid debt management capacity amid the IMF crisis.
+
+When Mexico introduced CAC into New York law-governed sovereign bonds in 2003, it became standard for advanced-economy issuance. Then in 2012, during the Greek bailout, CAC was retroactively applied to bind over 95% of bondholders to restructuring — the largest CAC activation in history.
+
+Today's eurozone bonds (post-ESM/EFSF) adopt a Single Limb CAC mechanism, enabling majority voting across the entire debt stock rather than individual bond series.`,
+      },
+    ],
+    keyTerms: [
+      {
+        term: "홀드아웃 채권자",
+        termEn: "Holdout Creditor",
+        definition: "채무조정 합의에 참여하지 않고 전액 상환을 요구하는 채권자. CAC가 없으면 법적 위협이 된다.",
+        definitionEn: "A creditor refusing to participate in restructuring and demanding full repayment. Without CAC, this constitutes a legal threat.",
+      },
+      {
+        term: "슈퍼홀드아웃 문제",
+        termEn: "Super-Holdout Problem",
+        definition: "CAC가 개별 트렌치별로 적용될 때, 특정 시리즈 채권자가 블로킹 마이너리티를 형성할 수 있는 구조적 취약점.",
+        definitionEn: "A structural vulnerability where per-tranche CAC allows holders of a specific series to form a blocking minority.",
+      },
+    ],
+    relatedSlugs: ["reach-for-yield", "investment-grade", "spread-basis"],
+    appearsIn: [
+      { type: "market-deal", slug: "korea-1998-external-bond", title: "한국 1998 외평채", titleEn: "Korea 1998 External Bond" },
+    ],
+  },
+
+  {
+    slug: "alm",
+    title: "ALM (자산부채관리)",
+    titleEn: "ALM (Asset-Liability Management)",
+    entryType: "term",
+    category: "fig",
+    categoryLabel: "FIG",
+    categoryLabelEn: "FIG",
+    excerpt:
+      "은행·보험사·연기금이 자산과 부채의 만기·금리·통화 구조를 일치시켜 금리 리스크와 유동성 리스크를 관리하는 프레임워크. 채권 투자 수요의 뿌리.",
+    excerptEn:
+      "The framework by which banks, insurers, and pension funds match asset/liability maturities, rates, and currencies to manage interest rate and liquidity risk. The root driver of institutional bond investment demand.",
+    readingMinutes: 6,
+    tags: ["ALM", "자산부채관리", "금리 리스크", "듀레이션", "보험", "연기금"],
+    tagsEn: ["ALM", "Asset-Liability Management", "Interest Rate Risk", "Duration", "Insurance", "Pension"],
+    sections: [
+      {
+        heading: "왜 기관투자자는 수익률이 아닌 채권을 사는가",
+        headingEn: "Why Institutions Buy Bonds — Not for Yield",
+        body:
+`DCM 생태계의 가장 큰 역설 중 하나는 기관투자자 상당수가 수익률을 극대화하기 위해 채권을 사지 않는다는 것이다. 그들은 ALM(자산부채관리) 목적으로 채권을 산다.
+
+ALM이란 기관이 보유한 자산(채권, 주식, 대출 등)과 부채(보험 지급 의무, 연금 지급 의무, 예금 등)의 구조를 일치시키는 관리 체계다. 보험사를 예로 들면: 가입자에게 20년 후 보험금을 지급해야 하는 의무가 있다면, 20년 만기의 채권을 사서 자산과 부채의 듀레이션(금리 민감도)을 맞춘다.
+
+이 수요는 시장 상황과 무관하다. 보험사는 금리가 낮아도, 스프레드가 좁아도 ALM 목적으로 채권을 사야 한다. 이것이 DCM 시장에 구조적 수요를 만드는 기반이다.`,
+        bodyEn:
+`One of the great paradoxes of the DCM ecosystem is that a significant portion of institutional investors don't buy bonds to maximize yield — they buy bonds for ALM (Asset-Liability Management) purposes.
+
+ALM is the framework for matching the structure of an institution's assets (bonds, equities, loans) with its liabilities (insurance payment obligations, pension obligations, deposits). Take an insurer: if it has an obligation to pay policyholders in 20 years, it buys 20-year bonds to match the duration (interest rate sensitivity) of assets and liabilities.
+
+This demand is structurally independent of market conditions. Insurers must buy bonds for ALM purposes even when rates are low and spreads are tight. This is the foundation of structural demand in DCM markets.`,
+      },
+      {
+        heading: "듀레이션 매칭과 채권 시장",
+        headingEn: "Duration Matching and Bond Markets",
+        body:
+`ALM의 핵심 도구는 듀레이션(Duration)이다. 듀레이션은 채권의 현금흐름 타이밍을 가중 평균한 값으로, 금리 1% 변화 시 가격이 얼마나 변하는지를 나타낸다. 30년 채권은 듀레이션이 ~20년이면, 금리 1% 상승 시 가격이 약 20% 하락한다.
+
+보험사·연기금이 장기 부채(20–30년 지급 의무)를 가지면 장기 채권 수요가 생긴다 — 이것이 30년 국채, 30년 회사채 시장이 존재하는 이유다. 이 투자자 없이는 누가 30년짜리 채권을 살 것인가?
+
+ALM 수요는 또한 장기 채권 수익률이 단기 채권보다 항상 높지 않아도 되는 이유를 설명한다. 구조적 수요가 장기 금리를 '눌러' 수익률 곡선을 평탄하게 만들기도 한다.`,
+        bodyEn:
+`The core ALM tool is duration. Duration is the weighted-average timing of a bond's cash flows, expressing how much the price changes for a 1% move in rates. A 30-year bond with ~20-year duration falls ~20% in price when rates rise 1%.
+
+When insurers and pension funds have long-duration liabilities (20–30 year payment obligations), they create demand for long-term bonds — this is why 30-year government and corporate bond markets exist. Without these investors, who would buy 30-year bonds?
+
+ALM demand also explains why long-term bond yields don't always need to be higher than short-term rates. Structural demand "anchors" long rates, sometimes flattening the yield curve.`,
+      },
+    ],
+    keyTerms: [
+      {
+        term: "듀레이션 (Duration)",
+        termEn: "Duration",
+        definition: "채권의 금리 민감도를 나타내는 지표. 듀레이션 N년 = 금리 1% 변화 시 가격 약 N% 변동.",
+        definitionEn: "A measure of bond price sensitivity to interest rate changes. Duration N years ≈ N% price change for a 1% rate move.",
+      },
+      {
+        term: "면역 전략 (Immunization)",
+        termEn: "Immunization",
+        definition: "자산과 부채의 듀레이션을 일치시켜 금리 변화에 의한 순자산가치 변동을 최소화하는 ALM 전략.",
+        definitionEn: "An ALM strategy matching asset and liability durations to minimize net asset value sensitivity to rate changes.",
+      },
+    ],
+    relatedSlugs: ["dcm-ecosystem", "reach-for-yield", "investment-grade", "spread-basis"],
+    appearsIn: [
+      { type: "market-101", slug: "dcm-ecosystem", title: "DCM 생태계 전체 지도", titleEn: "The DCM Ecosystem Map" },
+    ],
+  },
+
+  {
+    slug: "reach-for-yield",
+    title: "Reach for Yield (수익률 추구)",
+    titleEn: "Reach for Yield",
+    entryType: "term",
+    category: "dcm",
+    categoryLabel: "DCM",
+    categoryLabelEn: "DCM",
+    excerpt:
+      "저금리 환경에서 수익률 목표를 충족하기 위해 투자자들이 더 높은 리스크를 감수하는 행동 패턴. 1998년 외평채 T+345bp의 배경이기도 하고, 위기의 씨앗이기도 하다.",
+    excerptEn:
+      "The behavioral pattern where investors take on higher risk to meet yield targets in a low-rate environment. The backdrop behind Korea 1998's T+345bp spread — and the seed of many crises.",
+    readingMinutes: 5,
+    tags: ["Reach for Yield", "수익률 추구", "저금리", "리스크", "신흥국", "채권"],
+    tagsEn: ["Reach for Yield", "Low Rate Environment", "Risk-Taking", "Emerging Markets", "Bond"],
+    sections: [
+      {
+        heading: "왜 투자자들은 리스크를 '사야' 했는가",
+        headingEn: "Why Investors Were 'Forced' to Buy Risk",
+        body:
+`2009년 글로벌 금융위기 이후 선진국 중앙은행들은 제로(혹은 마이너스) 금리를 10년 이상 유지했다. 이 환경에서 연기금, 보험사, 자산운용사들은 곤경에 처했다 — 수익률 목표(보험금 지급, 연금 약정 수익률 등)는 그대로인데 안전자산(국채)의 수익률이 너무 낮았다.
+
+해법은 리스크를 올리는 것이었다. IG 대신 HY, 선진국 대신 신흥국(EM), 단기 대신 장기 채권으로 이동하는 패턴이 반복됐다. 이를 "Reach for Yield(수익률 추구)"라고 부른다.
+
+IMF, BIS 등 국제기구는 이 행동이 시스템 전체의 리스크 농도를 높인다고 반복적으로 경고했다. 수익률 추구는 자산 가격을 자본 비용과 괴리시키고, 이후 금리 정상화 시 급격한 조정의 원인이 된다.`,
+        bodyEn:
+`After the 2008 global financial crisis, advanced-economy central banks maintained zero (or negative) rates for over a decade. Pension funds, insurers, and asset managers were caught in a bind — yield targets (insurance payout obligations, pension return commitments) were unchanged, but safe assets (government bonds) yielded too little.
+
+The solution was to take on more risk: moving from IG to HY, from developed to emerging markets (EM), from short to long duration. This pattern is called "Reach for Yield."
+
+The IMF, BIS, and other international institutions repeatedly warned that this behavior concentrates systemic risk. Reaching for yield decouples asset prices from fundamental capital costs, creating conditions for sharp corrections when rates normalize.`,
+      },
+      {
+        heading: "1998 외평채와 Reach for Yield — 위기의 씨앗",
+        headingEn: "Korea 1998 and Reach for Yield — Seeds of Crisis",
+        body:
+`1998년 한국 외평채가 T+345bp로 성공적으로 발행된 배경에는 글로벌 투자자들의 신흥국 수익률 추구 수요가 있었다. 아시아 외환위기로 한국의 리스크가 극도로 부각된 상황에서도 높은 스프레드가 투자자들을 끌어들였다.
+
+이 패턴은 위기의 두 번째 국면에서 역전된다. 투자자들이 수익률 추구로 신흥국 채권을 대거 매입하다가, 리스크 회피(risk-off) 국면이 오면 일제히 팔고 나간다. '급격한 자본 유입 → 갑작스런 자본 이탈'의 사이클이 신흥국 위기의 전형적 패턴이다.
+
+페드(Fed)의 테이퍼링 공포(2013 Taper Tantrum), 2022년 금리 인상 충격이 신흥국 자산에 미친 영향 모두 Reach for Yield의 되돌림이었다.`,
+        bodyEn:
+`The success of Korea's 1998 External Bond at T+345bp was underpinned by global investors' demand for emerging market yield. Even with Korean risk acutely elevated during the Asian financial crisis, high spreads attracted capital.
+
+This pattern reverses in the crisis's second phase. Investors who aggressively bought EM bonds via reach-for-yield behavior exit en masse when risk-off sentiment arrives. The "rapid capital inflow → sudden capital flight" cycle is the textbook pattern of emerging market crises.
+
+The 2013 Taper Tantrum, and the 2022 rate-hike shock's impact on EM assets, were both reversals of the reach-for-yield dynamic.`,
+      },
+    ],
+    keyTerms: [
+      {
+        term: "Risk-Off",
+        termEn: "Risk-Off",
+        definition: "투자자들이 리스크 자산을 팔고 안전자산(국채, 현금)으로 이동하는 시장 심리 상태.",
+        definitionEn: "A market sentiment state where investors sell risk assets and move to safe havens (government bonds, cash).",
+      },
+      {
+        term: "테이퍼 탠트럼 (Taper Tantrum)",
+        termEn: "Taper Tantrum",
+        definition: "2013년 Fed의 양적완화 축소 시사 발언 후 신흥국 자산 가격이 급락한 사건. Reach for Yield의 되돌림.",
+        definitionEn: "The 2013 EM asset selloff following Fed hints at QE tapering. A sharp reversal of reach-for-yield positioning.",
+      },
+    ],
+    relatedSlugs: ["dcm-ecosystem", "investment-grade", "high-yield", "cac", "alm"],
+    appearsIn: [
+      { type: "market-101", slug: "dcm-ecosystem", title: "DCM 생태계 전체 지도", titleEn: "The DCM Ecosystem Map" },
+      { type: "market-deal", slug: "korea-1998-external-bond", title: "한국 1998 외평채", titleEn: "Korea 1998 External Bond" },
+    ],
+  },
+
+  {
+    slug: "mnpi",
+    title: "MNPI (중요 미공개 정보)",
+    titleEn: "MNPI (Material Non-Public Information)",
+    entryType: "term",
+    category: "dcm",
+    categoryLabel: "DCM",
+    categoryLabelEn: "DCM",
+    excerpt:
+      "시장에 공개되기 전 특정인이 보유한 중요 기업·시장 정보. 이를 이용한 거래는 내부자 거래로 엄격히 금지되며, DCM 프로세스 전체가 이 정보 통제를 중심으로 설계된다.",
+    excerptEn:
+      "Significant company or market information held by specific individuals before public disclosure. Trading on it is strictly prohibited as insider trading, and the entire DCM process is designed around controlling this information.",
+    readingMinutes: 5,
+    tags: ["MNPI", "중요 미공개 정보", "내부자 거래", "컴플라이언스", "차이니즈 월", "DCM"],
+    tagsEn: ["MNPI", "Material Non-Public Information", "Insider Trading", "Compliance", "Chinese Wall", "DCM"],
+    sections: [
+      {
+        heading: "MNPI란 무엇인가",
+        headingEn: "What Is MNPI?",
+        body:
+`MNPI(Material Non-Public Information, 중요 미공개 정보)는 두 요건이 동시에 충족될 때 성립한다. (1) Material(중요) — 합리적 투자자가 투자 결정에 영향을 미칠 것으로 판단하는 정보. 실적 발표 전 순이익 수치, 아직 공개되지 않은 M&A 계획, 신규 채권 발행 계획 등. (2) Non-Public(미공개) — 아직 시장에 공표되지 않은 정보.
+
+DCM 맥락에서 MNPI는 발행 예정인 채권의 규모, 쿠폰, 발행사의 재무 상황 등이 해당된다. IB의 DCM 뱅커는 딜 진행 중 항상 MNPI를 다루며, 이것이 차이니즈 월이 필요한 근본 이유다.
+
+규제 프레임워크: 미국 SEC Rule 10b-5, 유럽 MAR(Market Abuse Regulation) Article 7–10, 한국 자본시장법 제174조 등이 MNPI 이용 거래를 금지한다.`,
+        bodyEn:
+`MNPI (Material Non-Public Information) exists when two conditions are simultaneously met: (1) Material — information that a reasonable investor would consider significant for an investment decision: pre-earnings net income figures, undisclosed M&A plans, new bond issuance plans. (2) Non-Public — information not yet disclosed to the market.
+
+In DCM contexts, MNPI includes planned bond sizes, coupon levels, and issuer financial details before announcement. DCM bankers always handle MNPI during deal execution — this is the fundamental reason the Chinese Wall exists.
+
+Regulatory framework: U.S. SEC Rule 10b-5, EU MAR Articles 7–10, and Korea's Capital Market Act Article 174 all prohibit trading on MNPI.`,
+      },
+      {
+        heading: "DCM 딜 중 MNPI 관리",
+        headingEn: "Managing MNPI During a DCM Deal",
+        body:
+`DCM 딜이 진행되는 동안 MNPI 관리는 매우 구체적인 절차를 따른다. 발행사와 IB가 초기 논의를 시작하는 순간부터 MNPI 클록이 시작된다.
+
+딜 팀 구성원들은 '신디케이트 월(syndicate wall)' 안에 있다고 표현한다 — 거래 정보에 접근이 허용된 인원의 목록(wall list)이 작성되고 관리된다. S&T 데스크는 원칙적으로 접근 불가다. 딜 발표(announcement) 이후 정보가 공개되면 MNPI가 아닌 공개 정보가 된다.
+
+'마켓 사운딩(market sounding)'이라는 프로세스에서 특히 복잡하다 — 발행 전 투자자 관심도를 탐색하는 과정에서 일부 정보를 공유해야 하는데, 이 정보를 받은 투자자도 MNPI 보유자가 된다. EU MAR는 이 경우 투자자가 MNPI임을 인지했다는 확인을 받도록 요구한다.`,
+        bodyEn:
+`During a DCM deal, MNPI management follows very specific procedures. The MNPI clock starts the moment initial discussions begin between issuer and IB.
+
+Deal team members are described as being "inside the syndicate wall" — a wall list of authorized personnel is created and managed. S&T desks are in principle excluded. Once the deal is announced (made public), the information is no longer MNPI.
+
+Complexity arises in "market sounding" — the pre-deal process of gauging investor interest requires sharing some information, making recipients MNPI holders. EU MAR requires receiving investors to acknowledge that they are receiving MNPI in such cases.`,
+      },
+    ],
+    keyTerms: [
+      {
+        term: "Wall List",
+        termEn: "Wall List",
+        definition: "DCM 딜 중 MNPI에 접근이 허용된 인원 목록. 컴플라이언스 팀이 관리하며, 명단 외 인원에 대한 정보 공유는 금지된다.",
+        definitionEn: "The list of personnel authorized to access MNPI during a DCM deal. Managed by compliance; sharing with non-listed personnel is prohibited.",
+      },
+      {
+        term: "마켓 사운딩",
+        termEn: "Market Sounding",
+        definition: "발행 전 주요 투자자에게 발행 계획을 사전 탐색하는 과정. EU MAR 하에서 엄격한 절차가 요구된다.",
+        definitionEn: "The pre-deal process of gauging key investor interest in a planned issuance. Subject to strict procedural requirements under EU MAR.",
+      },
+    ],
+    relatedSlugs: ["chinese-wall", "syndicate", "dcm-ecosystem", "book-building"],
+    appearsIn: [
+      { type: "market-101", slug: "dcm-ecosystem", title: "DCM 생태계 전체 지도", titleEn: "The DCM Ecosystem Map" },
+    ],
+  },
+
+  {
+    slug: "dcm-overview",
+    title: "DCM 개요 — 부채자본시장 입문",
+    titleEn: "DCM Overview — An Introduction to Debt Capital Markets",
+    entryType: "article",
+    category: "dcm",
+    categoryLabel: "DCM",
+    categoryLabelEn: "DCM",
+    excerpt:
+      "DCM(Debt Capital Markets)이 무엇인지, 왜 존재하는지, 누가 참여하는지에 대한 입문 가이드. IB 지원자부터 투자자까지 DCM 생태계를 처음 접하는 모든 이를 위한 출발점.",
+    excerptEn:
+      "An introductory guide to what DCM (Debt Capital Markets) is, why it exists, and who participates. The starting point for anyone — from IB candidates to investors — encountering the DCM ecosystem for the first time.",
+    readingMinutes: 8,
+    tags: ["DCM", "부채자본시장", "채권", "IB", "발행사", "투자자", "입문"],
+    tagsEn: ["DCM", "Debt Capital Markets", "Bonds", "IB", "Issuer", "Investor", "Introduction"],
+    sections: [
+      {
+        heading: "DCM이란 무엇인가",
+        headingEn: "What Is DCM?",
+        body:
+`DCM(Debt Capital Markets, 부채자본시장)은 채권(bond)과 기타 부채 증권을 통해 발행사가 자금을 조달하고 투자자가 이를 매입하는 시장 및 투자은행 업무 영역이다.
+
+기업이 새 공장을 짓거나 인수합병을 추진할 때, 국가가 예산 부족을 메울 때, 은행이 규제 자본을 보충할 때 — 이들은 모두 DCM을 통해 자금을 조달한다. 미국 국채, 삼성전자 회사채, 세계은행 그린본드, CS AT1 채권 — 이 모든 것이 DCM의 산물이다.
+
+ECM(Equity Capital Markets, 주식자본시장)이 지분(equity)을 다루는 반면, DCM은 부채(debt)를 다룬다. 지분과 달리 부채는 만기가 있고, 정해진 이자(쿠폰)를 지급하며, 상환 우선순위가 높다는 특징이 있다.`,
+        bodyEn:
+`DCM (Debt Capital Markets) encompasses both the markets and investment banking functions through which issuers raise capital via bonds and other debt securities, and investors purchase them.
+
+When a corporation builds a new factory or pursues an acquisition, when a government covers a budget shortfall, when a bank replenishes regulatory capital — all of these use DCM. U.S. Treasuries, Samsung Electronics bonds, World Bank green bonds, CS AT1 bonds — all are DCM products.
+
+While ECM (Equity Capital Markets) deals with equity (ownership), DCM deals with debt. Unlike equity, debt has a maturity, pays defined interest (coupon), and holds higher repayment priority in the capital structure.`,
+      },
+      {
+        heading: "DCM의 세 플레이어",
+        headingEn: "DCM's Three Players",
+        body:
+`DCM 생태계는 세 주요 플레이어의 삼각 관계로 작동한다.
+
+(1) 발행사(Issuer) — 자금이 필요한 주체. SSA(소버린·초국가기관·기관), 금융기관(FIG), 투자등급(IG) 기업, 하이일드(HY) 기업 등 다양하다. 각 발행사 유형에 따라 요구되는 채권 구조, 투자자층, 규제 요건이 다르다.
+
+(2) 투자자(Investor) — 채권을 매수하는 주체. 중앙은행·국부펀드(수익률 무관 수요), 보험·연기금(ALM 수요), 자산운용사·헤지펀드(수익률 추구 수요)로 구분된다. 투자자 유형별 수요 특성이 DCM 가격 결정의 핵심 변수다.
+
+(3) 투자은행(IB) — 발행사와 투자자를 연결하는 중개자. DCM 뱅커는 딜 구조 설계, 신디케이트 구성, 투자자 마케팅, 가격 결정, 발행 실행을 수행한다. S&T 데스크는 유통시장에서 채권을 매매해 유동성을 공급한다.`,
+        bodyEn:
+`The DCM ecosystem operates as a triangular relationship among three key players.
+
+(1) Issuers — entities that need capital. They span SSA (sovereign, supranational, agency), financial institutions (FIG), investment grade (IG) corporates, and high yield (HY) corporates. Each issuer type demands different bond structures, investor bases, and regulatory frameworks.
+
+(2) Investors — entities that buy bonds. Subdivided into: central banks and sovereign wealth funds (yield-agnostic demand), insurers and pension funds (ALM demand), and asset managers and hedge funds (yield-seeking demand). Investor type demand characteristics are the core variable in DCM pricing.
+
+(3) Investment Banks (IBs) — intermediaries connecting issuers and investors. DCM bankers design deal structures, assemble syndicates, market to investors, set pricing, and execute issuances. S&T desks trade bonds in secondary markets, providing liquidity.`,
+      },
+      {
+        heading: "DCM이 중요한 이유",
+        headingEn: "Why DCM Matters",
+        body:
+`DCM의 규모와 중요성은 종종 과소평가된다. 글로벌 채권시장(130조 달러)은 주식시장(110조 달러)보다 크고, 전 세계 대부분의 자금 조달은 주식 발행이 아닌 채권 발행으로 이루어진다.
+
+거시경제 관점에서 DCM은 중앙은행 통화정책의 전달 통로다. 기준금리 변화가 시장 금리에 반영되는 가장 빠른 경로가 국채 시장이며, 회사채 스프레드를 통해 실물 경제로 전파된다.
+
+IB 커리어 관점에서 DCM은 구조 설계(structuring), 가격 산정(pricing), 투자자 관계(IR), 규제 대응의 복합적 역량이 필요한 분야다. M&A와 달리 실제 자금이 이동하는 '실행' 중심의 업무이며, 시장 사이클에 민감하게 반응하는 다이나믹한 환경에서 일한다.`,
+        bodyEn:
+`DCM's scale and importance are often underappreciated. The global bond market ($130T) exceeds equities ($110T), and most global capital raising happens through bond issuance, not equity.
+
+From a macroeconomic perspective, DCM is the transmission channel for central bank monetary policy. The fastest route from rate changes to market rates runs through government bond markets, then propagates through corporate spreads to the real economy.
+
+From an IB career perspective, DCM requires a complex blend of structural design (structuring), pricing, investor relations, and regulatory navigation. Unlike M&A, it's execution-focused — capital actually moves — and operates in a dynamic environment highly sensitive to market cycles.`,
+      },
+    ],
+    keyTerms: [
+      {
+        term: "쿠폰 (Coupon)",
+        termEn: "Coupon",
+        definition: "채권 발행사가 보유자에게 주기적으로 지급하는 이자. 연 1–2회 지급이 일반적이며, 발행 시 고정된다.",
+        definitionEn: "The periodic interest payment bond issuers make to holders. Typically paid semi-annually or annually; fixed at issuance.",
+      },
+      {
+        term: "SSA",
+        termEn: "SSA",
+        definition: "Sovereign, Supranational, Agency. 국가(정부), 초국가기관(세계은행, EIB), 정부기관(KDB, 한국전력 등)의 채권 발행 분류.",
+        definitionEn: "Sovereign, Supranational, Agency. Bond issuance classification covering governments, supranationals (World Bank, EIB), and government agencies (KDB, KEPCO, etc.).",
+      },
+    ],
+    relatedSlugs: ["dcm-ecosystem", "syndicate", "investment-grade", "high-yield", "spread-basis", "book-building"],
+    appearsIn: [],
   },
 
 ];

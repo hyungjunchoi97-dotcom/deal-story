@@ -32,6 +32,7 @@ import sapQualtrics from "./sap-qualtrics";
 import zendeskPeBuyout from "./zendesk-pe-buyout";
 import danaherAcquisitions from "./danaher-acquisitions";
 import elliottSamsung from "./elliott-samsung";
+import hanjinKcgi from "./hanjin-kcgi";
 import jpmorganBearStearns from "./jpmorgan-bear-stearns";
 
 /**
@@ -52,6 +53,7 @@ export const ALL_DEALS: DealData[] = [
   nvidiaArm,             // terminated 2022-02-08
   skhynixIntelNand,      // 2021-12-30
   salesforceSlack,       // 2021-07-21
+  hanjinKcgi,            // 2021-06-30 (activism)
   lvmhTiffany,           // 2021-01-07
   danaherAcquisitions,   // multiple deals (latest: Cytiva 2020-03)
   sapQualtrics,          // 2019-01-23
