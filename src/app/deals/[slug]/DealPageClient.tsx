@@ -20,6 +20,7 @@ import Tombstone from "@/components/deal/Tombstone";
 import ShareButtons from "@/components/deal/ShareButtons";
 import MetricCard from "@/components/deal/MetricCard";
 import CompanyLogo from "@/components/deal/CompanyLogo";
+import GovernanceOverviewSection from "@/components/deal/GovernanceOverviewSection";
 import { formatDealDate } from "@/lib/format";
 import type { DealData } from "@/lib/deal-data";
 
@@ -365,6 +366,17 @@ export default function DealPageClient({
               {deal.companyOverview.revenueNote && (
                 <p className="text-[11px] text-gray-400 dark:text-gray-500 mt-1.5 mb-2">{deal.companyOverview.revenueNote}</p>
               )}
+            </>
+          )}
+
+          {/* ── 7-B. Governance Overview (activism 딜 전용) */}
+          {deal.governanceOverview && (
+            <>
+              <SectionTitle>Governance Overview</SectionTitle>
+              <GovernanceOverviewSection
+                data={deal.governanceOverview}
+                lang={lang}
+              />
             </>
           )}
 

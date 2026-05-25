@@ -90,6 +90,129 @@ const deal: DealData = {
     financialsUnit: "mn",
   },
 
+  // ── Governance Overview ──────────────────────────────────────
+  governanceOverview: {
+    body: "The Samsung C&T–Cheil merger was, at its core, a governance dispute. Lee Jae-yong controlled Cheil Industries (23.2%), which controlled Samsung Life Insurance, which controlled Samsung Electronics — but Lee's direct stake in Samsung Electronics was negligible. Samsung C&T held 4.06% of Samsung Electronics directly. Merging Samsung C&T into Cheil would dramatically strengthen Lee's indirect control over Samsung Electronics — at a price determined by a statutory formula that Elliott argued was rigged to undervalue Samsung C&T's assets.",
+    shareholders: [
+      {
+        id: "ljy",
+        label: "Lee Jae-yong & family",
+        sub: "Largest Cheil Industries shareholder",
+        stake: "23.2%",
+        stakePct: 23.2,
+        type: "controlling",
+        alignment: "pro",
+      },
+      {
+        id: "nps",
+        label: "National Pension Service (NPS)",
+        sub: "Korea's largest institutional investor",
+        stake: "11.21%",
+        stakePct: 11.21,
+        type: "government",
+        alignment: "neutral",
+      },
+      {
+        id: "kcc",
+        label: "KCC Corporation",
+        sub: "Purchased treasury shares before EGM",
+        stake: "6.71%",
+        stakePct: 6.71,
+        type: "institutional",
+        alignment: "pro",
+      },
+      {
+        id: "elliott",
+        label: "Elliott Management",
+        sub: "Paul Singer — activist hedge fund",
+        stake: "7.12%",
+        stakePct: 7.12,
+        type: "activist",
+        alignment: "anti",
+      },
+      {
+        id: "others",
+        label: "Other minority shareholders",
+        sub: "Retail, foreign, institutional mix",
+        stake: "51.76%",
+        stakePct: 51.76,
+        type: "public",
+        alignment: "neutral",
+      },
+    ],
+    board: {
+      total: 9,
+      independent: 5,
+      affiliated: 4,
+      note: "Critics noted that several of the five 'independent' directors had prior Samsung affiliations, raising doubts about the board's ability to independently evaluate the merger.",
+    },
+    issues: [
+      {
+        title: "Unfair exchange ratio",
+        description: "The statutory price of ₩55,767 ignored Samsung C&T's most valuable assets — 4.06% of Samsung Electronics and 19.3% of Samsung Life. Elliott's NAV analysis implied at least a 67% undervaluation.",
+        severity: "critical",
+      },
+      {
+        title: "Treasury share sale to KCC",
+        description: "Samsung C&T sold 6.71% treasury shares to KCC at near the statutory merger price (₩55,766) before the vote, manufacturing a friendly voting bloc and reducing Elliott's effective blocking position.",
+        severity: "critical",
+      },
+      {
+        title: "Board independence",
+        description: "All outside directors voted in favor of the merger. Critics argued that most had prior Samsung ties and could not independently represent minority shareholders.",
+        severity: "high",
+      },
+      {
+        title: "NPS political pressure",
+        description: "Subsequent investigations revealed that the Park Geun-hye administration pressured NPS leadership to vote in favor. The NPS CIO was convicted of breach of fiduciary duty in 2017.",
+        severity: "high",
+      },
+      {
+        title: "Structural flaw in Korean merger law",
+        description: "Korean law mandates VWAP-based merger pricing, which is ill-suited for holding companies whose value lies in listed subsidiaries. No NAV adjustment mechanism exists in statute.",
+        severity: "medium",
+      },
+      {
+        title: "Succession-driven transaction",
+        description: "Critics argued the merger served Lee family succession interests rather than shareholder value. The board's fiduciary duty was arguably subordinated to a controlling shareholder's personal agenda.",
+        severity: "medium",
+      },
+    ],
+    demands: [
+      {
+        demand: "Block the merger (recalculate exchange ratio on NAV basis)",
+        result: "lost",
+        note: "EGM approved at 69.53%. Exceeded the 66.67% supermajority threshold.",
+      },
+      {
+        demand: "Injunction to cancel KCC treasury share sale",
+        result: "lost",
+        note: "Seoul court rejected all injunction applications.",
+      },
+      {
+        demand: "Independent valuation of Samsung C&T (hold board accountable)",
+        result: "partial",
+        note: "2023 ISDS tribunal acknowledged NPS interference violated Korea-US FTA. Korean government ordered to pay partial compensation to Elliott.",
+      },
+      {
+        demand: "Samsung governance reform (minority shareholder protections)",
+        result: "partial",
+        note: "Korea introduced Stewardship Code (2016) and NPS independence reforms, directly traceable to this dispute.",
+      },
+      {
+        demand: "Appointment of independent outside directors",
+        result: "ongoing",
+        note: "Samsung C&T later announced board independence commitments, but full implementation remains incomplete.",
+      },
+    ],
+    stockImpact: {
+      preCampaign: "₩49,000",
+      peakDuringCampaign: "₩62,300",
+      postCampaign: "₩55,767",
+      note: "Samsung C&T's stock surged ~27% after Elliott's public campaign as the market repriced it toward NAV. The final statutory merger price of ₩55,767 settled 10.8% above pre-campaign levels — a partial vindication of Elliott's undervaluation thesis, even as the merger itself went ahead.",
+    },
+  },
+
   // ── Deal Structure ───────────────────────────────────────────
   dealStructure: {
     body: "Cheil Industries absorbed Samsung C&T in a statutory merger. The exchange ratio of 0.3500502 Cheil shares per Samsung C&T share was set using the Korean Capital Markets Act formula: arithmetic average of one-month, one-week, and single-day volume-weighted average prices before announcement. The surviving entity was Cheil Industries, which subsequently renamed itself Samsung C&T Corporation.",

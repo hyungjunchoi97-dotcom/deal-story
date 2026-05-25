@@ -107,6 +107,71 @@ export interface BarChartRow {
   amt?: string;
 }
 
+// ── 행동주의 전용: Governance Overview ───────────────────────
+
+export type ShareholderType =
+  | "controlling"   // 지배주주 / 창업주 일가
+  | "activist"      // 행동주의 펀드
+  | "institutional" // 일반 기관 (연기금, 보험사 등)
+  | "government"    // 국부펀드 / 국민연금 등 공공기관
+  | "public"        // 소수 일반주주
+  | "management";   // 경영진 보유
+
+export type ShareholderAlignment =
+  | "pro"     // 경영진 지지 / 합병 찬성
+  | "anti"    // 행동주의 지지 / 합병 반대
+  | "neutral" // 중립 / 미확정 (캐스팅보트)
+
+export type GovernanceIssueSeverity = "critical" | "high" | "medium";
+
+export type ActivismDemandResult = "won" | "partial" | "lost" | "ongoing";
+
+export interface ShareholderEntry {
+  id: string;
+  label: string;
+  sub?: string;
+  stake: string;             // "7.12%" — 표시용 문자열
+  stakePct: number;          // 7.12 — 바 차트 비율 계산용
+  type: ShareholderType;
+  alignment: ShareholderAlignment;
+}
+
+export interface GovernanceIssue {
+  title: string;
+  description: string;
+  severity: GovernanceIssueSeverity;
+}
+
+export interface ActivismDemand {
+  demand: string;
+  result: ActivismDemandResult;
+  note?: string;
+}
+
+export interface GovernanceOverview {
+  body: string;
+  /** 주요 주주 지도 — 지분율 바 차트 + 정렬 색상 */
+  shareholders: ShareholderEntry[];
+  /** 이사회 구성 */
+  board: {
+    total: number;
+    independent: number;
+    affiliated: number;
+    note?: string;
+  };
+  /** 핵심 지배구조 이슈 */
+  issues: GovernanceIssue[];
+  /** 행동주의 요구사항 & 결과 */
+  demands: ActivismDemand[];
+  /** 주가 임팩트 타임라인 */
+  stockImpact: {
+    preCampaign: string;          // e.g. "₩49,000"
+    peakDuringCampaign: string;   // e.g. "₩62,000"
+    postCampaign: string;         // e.g. "₩55,767"
+    note: string;
+  };
+}
+
 // ── 메인 DealData 인터페이스 ──────────────────────────────────
 export interface DealData {
   slug: string;
@@ -230,5 +295,11 @@ export interface DealData {
     q: string;
     a: string;
   }>;
+
+  /**
+   * 행동주의(activism) 딜 전용 — Company Overview 다음에 렌더링
+   * M&A / Restructuring 딜에는 없어도 됨
+   */
+  governanceOverview?: GovernanceOverview;
 }
 

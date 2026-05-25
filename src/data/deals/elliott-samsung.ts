@@ -90,6 +90,129 @@ const deal: DealData = {
     financialsUnit: "mn",
   },
 
+  // ── Governance Overview ──────────────────────────────────────
+  governanceOverview: {
+    body: "삼성물산-제일모직 합병의 핵심은 기업 지배구조의 구조적 문제였다. 이재용 일가는 제일모직 지분 23.2%를 통해 삼성그룹 전체를 사실상 지배했지만, 삼성전자에 대한 직접 지분은 미미했다. 이 '지배 갭'을 메우기 위해 삼성물산(삼성전자 4.06% 보유)을 합병하는 구조가 설계됐고, 합병비율은 이 목적에 맞게 책정됐다는 것이 엘리엇의 주장이었다.",
+    shareholders: [
+      {
+        id: "ljy",
+        label: "이재용 외 특수관계인",
+        sub: "제일모직 최대주주",
+        stake: "23.2%",
+        stakePct: 23.2,
+        type: "controlling",
+        alignment: "pro",
+      },
+      {
+        id: "nps",
+        label: "국민연금공단 (NPS)",
+        sub: "한국 최대 기관투자자",
+        stake: "11.21%",
+        stakePct: 11.21,
+        type: "government",
+        alignment: "neutral",
+      },
+      {
+        id: "kcc",
+        label: "KCC",
+        sub: "합병 전 삼성물산 자사주 매입",
+        stake: "6.71%",
+        stakePct: 6.71,
+        type: "institutional",
+        alignment: "pro",
+      },
+      {
+        id: "elliott",
+        label: "엘리엇 매니지먼트",
+        sub: "Paul Singer 행동주의 펀드",
+        stake: "7.12%",
+        stakePct: 7.12,
+        type: "activist",
+        alignment: "anti",
+      },
+      {
+        id: "others",
+        label: "기타 소수주주",
+        sub: "외국인·기관·개인 혼합",
+        stake: "51.76%",
+        stakePct: 51.76,
+        type: "public",
+        alignment: "neutral",
+      },
+    ],
+    board: {
+      total: 9,
+      independent: 5,
+      affiliated: 4,
+      note: "사외이사 5명 중 다수가 삼성 관련 인사로 구성됐다는 비판. 이사회 독립성에 의문이 제기됨.",
+    },
+    issues: [
+      {
+        title: "합병비율 불공정",
+        description: "법정 기준가(₩55,767)는 삼성물산의 삼성전자·삼성생명 지분 내재가치를 전혀 반영하지 않음. 엘리엇은 NAV 기준 최소 67% 저평가 주장.",
+        severity: "critical",
+      },
+      {
+        title: "자사주 우호 매각 (KCC)",
+        description: "삼성물산이 자사주 6.71%를 KCC에 시장가 수준(₩55,766)으로 매각해 우호 지분을 사전 확보. 소수주주 이익 침해 논란.",
+        severity: "critical",
+      },
+      {
+        title: "이사회 독립성 부족",
+        description: "합병 이사회 의결에서 사외이사 전원이 찬성. 다수가 삼성과 관련이 있어 실질적 독립 견제 기능 작동 미흡.",
+        severity: "high",
+      },
+      {
+        title: "국민연금 의결권 압력",
+        description: "정부(청와대)가 NPS 의결권 행사에 개입했다는 의혹. 이후 NPS 기금운용본부장 배임 유죄로 사실상 확인.",
+        severity: "high",
+      },
+      {
+        title: "합병비율 산정 기준",
+        description: "한국 상법의 가중평균 주가 기준이 지주회사형 기업에 부적합. 자산가치(NAV) 기준을 도외시하는 구조적 입법 미비.",
+        severity: "medium",
+      },
+      {
+        title: "승계 목적 합병 의혹",
+        description: "기업 시너지보다 이재용 그룹 지배력 강화를 위한 합병이라는 비판. 이사회가 주주 이익 대신 오너 이익을 우선했다는 주장.",
+        severity: "medium",
+      },
+    ],
+    demands: [
+      {
+        demand: "삼성물산-제일모직 합병 중단 (합병비율 재산정)",
+        result: "lost",
+        note: "임시 주총 69.53% 찬성으로 가결. 특별결의 기준(66.67%) 초과.",
+      },
+      {
+        demand: "KCC 자사주 매각 취소 또는 가처분",
+        result: "lost",
+        note: "법원이 가처분 신청 기각.",
+      },
+      {
+        demand: "합병비율 NAV 기준 재산정 (이사회 책임 추궁)",
+        result: "partial",
+        note: "ISDS 2023년 판정에서 국제 중재 기구가 NPS 개입의 위법성 인정, 한국 정부 배상 명령.",
+      },
+      {
+        demand: "삼성 지배구조 개선 (소수주주 권익 보호)",
+        result: "partial",
+        note: "스튜어드십 코드 도입(2016), NPS 독립성 강화 등 제도 변화로 일부 실현.",
+      },
+      {
+        demand: "독립 사외이사 선임 및 이사회 구성 개선",
+        result: "ongoing",
+        note: "삼성물산은 이후 사외이사 독립성 강화 방침을 공표했으나 완전한 개선 미완.",
+      },
+    ],
+    stockImpact: {
+      preCampaign: "₩49,000",
+      peakDuringCampaign: "₩62,300",
+      postCampaign: "₩55,767",
+      note: "엘리엇 캠페인 발표(2015년 6월) 후 삼성물산 주가는 저평가 재평가 기대로 약 27% 급등. 합병 기준가(₩55,767)는 피크 대비 하락했으나 캠페인 전 대비 13.8% 상승 수준에서 확정됐다.",
+    },
+  },
+
   // ── 딜 구조 ─────────────────────────────────────────────────
   dealStructure: {
     body: "제일모직이 삼성물산을 흡수합병하는 구조. 합병비율은 삼성물산 1주당 제일모직 0.3500502주로, 한국 자본시장법상 합병 기준일 직전 1개월·1주·최근일 가중평균 주가의 산술평균으로 산정됐다. 합병 존속법인은 제일모직이며, 사명은 합병 후 삼성물산으로 변경됐다.",

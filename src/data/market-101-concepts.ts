@@ -338,6 +338,446 @@ All of this ultimately converges in a single deal. When an issuer debates the pr
     ],
   },
 
+
+  // ────────────────────────────────────────────────────────────────────────────
+  // FIG 용어 — AT1 / PONV / CoCo / Bail-in
+  // ────────────────────────────────────────────────────────────────────────────
+  {
+    slug: "at1-capital",
+    title: "AT1 (Additional Tier 1 자본)",
+    titleEn: "AT1 — Additional Tier 1 Capital",
+    entryType: "term",
+    category: "fig",
+    categoryLabel: "FIG",
+    categoryLabelEn: "FIG",
+    excerpt:
+      "은행 자본구조에서 CET1 바로 위에 위치하는 규제자본 도구. 채권처럼 거래되지만 법적으로는 자본이다.",
+    excerptEn:
+      "A regulatory capital instrument ranking just above CET1. It trades like a bond but is legally capital.",
+    readingMinutes: 5,
+    tags: ["AT1", "바젤III", "규제자본", "은행", "자본구조", "CoCo", "쿠폰", "콜옵션", "손실흡수", "FIG"],
+    tagsEn: ["AT1", "Basel III", "Regulatory Capital", "Bank", "Capital Structure", "CoCo", "Coupon", "Call Option", "Loss Absorption", "FIG"],
+    sections: [
+      {
+        heading: "AT1이란 무엇인가",
+        headingEn: "What Is AT1?",
+        body:
+`AT1(Additional Tier 1)은 바젤 III 자본 프레임워크에서 규정하는 세 계층의 자본 중 두 번째에 해당하는 자본 도구다. 은행의 자본구조는 위에서부터 CET1(보통주 자본) → AT1 → Tier 2 → Senior 채무 순서로 쌓여 있으며, 손실이 발생하면 아래서부터 위로가 아니라 위에서부터 — 즉 주주(CET1)부터 먼저 흡수한다.
+
+AT1은 채권 시장에서 채권처럼 거래된다. 쿠폰이 있고, CUSIP이나 ISIN이 있고, 블룸버그 화면에서 가격이 뜬다. 하지만 법적으로는 자본이다 — 만기가 없고(영구채 구조), 쿠폰 지급이 의무가 아니며, 자본비율이 특정 임계치 아래로 떨어지면 자동으로 손실을 흡수한다. 이 '채권처럼 생겼지만 자본'이라는 이중적 성격이 AT1을 복잡하고 투자자 입장에서 오해하기 쉬운 도구로 만든다.
+
+왜 은행은 AT1을 발행하나? 가장 큰 이유는 비용이다. 주식(CET1)을 발행해 자본비율을 올리면 기존 주주 지분이 희석된다. AT1은 지분 희석 없이 규제자본 요건을 충족할 수 있는 수단이다. 대신 투자자에게 더 높은 쿠폰을 제공한다. 발행사(은행) 입장에서는 자본비율 관리와 주주 가치 보호를 동시에 추구하는 최적점이다. 글로벌 AT1 시장은 2024년 기준 약 2,500억 달러 이상 규모로 성장했으며, 유럽 대형 은행들과 아시아 은행들이 주요 발행 주체다.`,
+
+        bodyEn:
+`AT1 (Additional Tier 1) is the second tier in the Basel III capital framework. A bank's capital structure stacks from top to bottom: CET1 (Common Equity Tier 1) → AT1 → Tier 2 → Senior debt. When losses occur, they are absorbed from the top — shareholders (CET1) go first.
+
+AT1 trades in bond markets like a bond. It has a coupon, a CUSIP or ISIN, and a Bloomberg quote. But legally it is capital — it has no maturity (perpetual structure), coupon payments are discretionary rather than obligatory, and it automatically absorbs losses if the bank's capital ratio falls below a specified trigger. This dual nature — looking like a bond but functioning as capital — is what makes AT1 complex and easy for investors to misunderstand.
+
+Why do banks issue AT1? The primary driver is cost efficiency. Issuing common equity (CET1) dilutes existing shareholders. AT1 allows banks to meet regulatory capital requirements without diluting equity, in exchange for paying investors a higher coupon. From the issuer's perspective, it is the optimal instrument for simultaneously managing capital ratios and protecting shareholder value. The global AT1 market had grown to approximately $250 billion or more by 2024, with major European and Asian banks as the dominant issuers. The instrument became a cornerstone of post-crisis bank capital structures precisely because it accomplishes what regulators want — genuine loss absorption — while giving issuers a capital-efficient tool that sits comfortably within institutional fixed income portfolios.`,
+      },
+      {
+        heading: "구조 — 쿠폰, 콜, 트리거",
+        headingEn: "Structure — Coupon, Call, and Trigger",
+        body:
+`AT1의 구조는 세 가지 핵심 특징으로 정의된다: 쿠폰, 콜 옵션, 그리고 손실흡수 트리거.
+
+첫째, 쿠폰은 임의 지급(discretionary)이다. 일반 채권이라면 쿠폰을 지급하지 않으면 디폴트가 발생한다. AT1은 다르다. 감독당국이 쿠폰 지급을 금지하거나 발행사가 자체 판단으로 쿠폰을 취소할 수 있다. 은행의 배당가능한도(MDA, Maximum Distributable Amount)가 부족해지면 쿠폰 지급이 자동으로 제한될 수 있다. 이 쿠폰 임의 미지급 리스크는 투자자가 AT1에서 요구하는 스프레드 프리미엄의 주요 원천이다.
+
+둘째, 콜 옵션이 있다. AT1은 영구채지만 통상 발행 후 5년 또는 10년 시점에 First Call Date가 설정된다. 발행사는 이 날짜에 액면가로 상환(콜)할 권리가 있다. 시장 관행상 First Call Date에 콜을 행사하지 않으면 — 즉 채권을 연장하면 — 투자자에게 부정적 시그널이 된다. 하지만 발행사에게 의무가 아닌 '권리'다. 콜 스킵이 발생하면 해당 발행사의 AT1 스프레드는 크게 벌어진다.
+
+셋째, 손실흡수 트리거가 핵심이다. AT1에는 두 종류의 손실흡수 메커니즘이 있다. 하나는 기계적 트리거: CET1 비율이 5.125%(또는 계약서에 명시된 수준) 아래로 떨어지면 AT1이 자동으로 주식으로 전환되거나 원금이 상각된다. 다른 하나는 PONV(비존속성 판단) 트리거: 감독당국이 은행이 더 이상 존속 가능하지 않다고 판단하면 강제 손실흡수가 발생한다. 크레디트 스위스 2023년 사태가 후자의 전형적 사례다.`,
+
+        bodyEn:
+`AT1's structure is defined by three core features: the coupon, the call option, and the loss-absorption trigger.
+
+First, the coupon is discretionary. On a conventional bond, missing a coupon constitutes a default. AT1 works differently. The regulator may prohibit coupon payments, or the issuer itself may cancel them at its discretion. When a bank's Maximum Distributable Amount (MDA) becomes insufficient, coupon payments can be automatically restricted. This discretionary non-payment risk is a principal driver of the spread premium investors demand on AT1 instruments.
+
+Second, there is a call option. AT1 is perpetual in legal structure, but issuances typically set a First Call Date five or ten years after issuance. The issuer has the right — not the obligation — to redeem the bonds at par on that date. Market convention treats a First Call Date as an implied redemption commitment; if the issuer skips the call and extends the bond, it sends a strongly negative signal to the market, typically causing the issuer's AT1 spreads to widen significantly. The option remains the issuer's right, not the investor's.
+
+Third — and most critically — is the loss-absorption trigger. AT1 carries two distinct loss-absorption mechanisms. The first is a mechanical trigger: if the CET1 ratio falls below 5.125% (or whatever level is specified in the prospectus), the AT1 automatically converts to equity or its principal is written down. The second is the PONV (Point of Non-Viability) trigger: if the regulator determines the bank is no longer viable, mandatory loss absorption is imposed by regulatory action. The Credit Suisse episode of March 2023 is the definitive real-world example of the latter — CHF 16 billion of AT1 was written to zero under FINMA's PONV declaration, even as shareholders retained some residual value.`,
+      },
+      {
+        heading: "투자자의 시각 — 왜 사고 왜 조심해야 하나",
+        headingEn: "Investor View — Why Buy, and Why Be Careful",
+        body:
+`투자자들이 AT1을 사는 이유는 명확하다: 높은 쿠폰이다. 같은 은행이 발행한 Senior 채권 대비 AT1 쿠폰은 통상 200~400bp 이상 높다. 동일한 발행사에서 추가 수익을 얻기 위해 구조상 열후 지위를 받아들이는 것이다. 이 스프레드 차이는 위에서 설명한 세 가지 위험 — 쿠폰 임의 미지급, 콜 스킵, 손실흡수 — 에 대한 보상이다.
+
+하지만 투자자가 조심해야 하는 이유도 명확하다. 핵심은 PONV 조항의 비대칭 리스크다. AT1 계약서에는 감독당국이 PONV를 선언하면 원금 전액이 상각될 수 있다고 적혀 있다. 그런데 이 조항이 실제로 발동되는 상황은 곧 은행이 구제금융이나 강제 합병을 받는 상황이기도 하다. 주주는 일부 가치를 받을 수 있지만 AT1 보유자는 제로가 될 수 있다. 크레디트 스위스 사태가 정확히 이 시나리오였다.
+
+두 번째 조심 이유는 관할권 리스크다. PONV가 작동하는 방식은 나라마다 다르다. 스위스(FINMA)는 주식보다 먼저 AT1을 상각할 수 있다는 점이 계약서에 명시되어 있었다. EU와 영국은 주식 먼저 손실 흡수 원칙을 따르는 것이 일반적이다. 투자자가 어느 관할권에서 발행된 AT1을 사는지, 그 나라의 법과 계약서상 조항이 정확히 무엇인지를 반드시 확인해야 한다. '채권처럼 생겼다'는 이유만으로 산 투자자들이 CS 사태에서 가장 큰 충격을 받은 이유가 바로 이것이다. AT1은 계약서를 정독해야 하는 도구다.`,
+
+        bodyEn:
+`Investors buy AT1 for one straightforward reason: yield. AT1 coupons typically run 200–400 basis points or more above the same issuer's senior bonds. In exchange for accepting a structurally subordinated position, investors receive a meaningful additional return. This spread premium is compensation for the three risks described above — discretionary coupon cancellation, call skip, and loss absorption under trigger events.
+
+But the reasons for caution are equally clear. The central concern is the asymmetric risk embedded in PONV provisions. The prospectus states that if the regulator declares a PONV, the entire principal can be written to zero. The problem is that a PONV declaration typically occurs precisely when the bank is receiving emergency support or being forced into a merger — a moment when shareholders may still retain residual value even as AT1 holders face total loss. The Credit Suisse episode of March 2023 was exactly this scenario: equity holders received merger consideration while CHF 16 billion of AT1 was written to zero.
+
+The second risk is jurisdictional. PONV mechanics vary materially across countries. Swiss law and FINMA's mandate explicitly permit AT1 write-down ahead of equity — a provision that was clearly disclosed in Credit Suisse's prospectus but underweighted by many buyers. The EU and UK generally follow a principle of equity absorbing losses first before AT1. Investors must verify which jurisdiction's laws govern the issuance and exactly what the prospectus says about loss absorption sequencing. The investors most shocked by the CS outcome were those who bought on yield and brand name without parsing the legal terms. AT1 is a product that demands detailed prospectus analysis before any position is taken.`,
+      },
+    ],
+    keyTerms: [],
+    relatedSlugs: ["ponv", "coco-bond", "bail-in", "dcm-ecosystem"],
+    appearsIn: [
+      {
+        type: "market-deal",
+        slug: "credit-suisse-at1",
+        title: "크레디트 스위스 AT1 전액상각 (2023)",
+        titleEn: "Credit Suisse AT1 Write-Down (2023)",
+      },
+    ],
+    references: [
+      {
+        id: 1,
+        author: "Bank for International Settlements (BIS)",
+        title: "Basel III: A Global Regulatory Framework for More Resilient Banks and Banking Systems — Section on Additional Tier 1 Capital",
+        source: "BIS Basel Framework (CAP 10–CAP 60), 2010 (consolidated 2023)",
+        year: "2023",
+        url: "https://www.bis.org/basel_framework/",
+      },
+      {
+        id: 2,
+        author: "FINMA (Swiss Financial Market Supervisory Authority)",
+        title: "FINMA Approves Merger of Credit Suisse with UBS — AT1 Write-Down",
+        source: "FINMA Press Release, 19 March 2023",
+        year: "2023",
+        url: "https://www.finma.ch/en/news/2023/03/20230319-mm-ubs-cs-en/",
+      },
+    ],
+  },
+
+  {
+    slug: "ponv",
+    title: "PONV (비존속성 판단)",
+    titleEn: "PONV — Point of Non-Viability",
+    entryType: "term",
+    category: "fig",
+    categoryLabel: "FIG",
+    categoryLabelEn: "FIG",
+    excerpt:
+      "감독당국이 은행이 더 이상 정상 기능을 유지할 수 없다고 판단하는 시점. AT1·CoCo 트리거의 핵심.",
+    excerptEn:
+      "The moment a regulator determines a bank is no longer viable. The central trigger mechanism for AT1 and CoCo instruments.",
+    readingMinutes: 5,
+    tags: ["PONV", "비존속성", "감독당국", "FINMA", "AT1", "CoCo", "바젤III", "은행위기", "크레디트스위스", "FIG"],
+    tagsEn: ["PONV", "Point of Non-Viability", "Regulator", "FINMA", "AT1", "CoCo", "Basel III", "Bank Crisis", "Credit Suisse", "FIG"],
+    sections: [
+      {
+        heading: "PONV의 정의와 역할",
+        headingEn: "Definition and Role of PONV",
+        body:
+`PONV(Point of Non-Viability, 비존속성 판단)는 바젤 III 자본 프레임워크가 도입한 개념으로, 은행 감독당국이 해당 은행이 더 이상 자체 능력으로 정상 기능을 유지할 수 없다고 공식 판단하는 시점을 의미한다. 이 판단이 내려지는 순간, 은행이 발행한 AT1과 CoCo 채권의 손실흡수 조항이 즉각 발동된다.
+
+바젤 III 이전에는 은행 위기 시 손실흡수의 순서와 방아쇠가 명확히 규정되지 않았다. 2008년 글로벌 금융위기에서 대형 은행들이 납세자 돈(베일아웃)으로 구제된 이후, 국제 규제 당국들은 '민간 자본이 먼저 손실을 흡수해야 한다'는 원칙을 법제화했다. PONV 조항은 그 원칙의 핵심 집행 도구다. 감독당국이 PONV를 선언하면 공적 자금이 투입되기 전에 AT1·CoCo 보유자가 손실을 부담한다.
+
+PONV 판단 권한은 각국의 금융 감독당국에게 있다. 스위스는 FINMA, EU에서는 ECB(단일감독메커니즘, SSM)와 각국 NCA(국가 감독당국), 영국은 PRA(건전성감독청), 미국은 FDIC·연준이 해당 권한을 갖는다. 중요한 것은, PONV 선언이 반드시 은행이 이미 부실해진 후에 이루어지는 게 아니라는 점이다. '더 이상 자체 능력으로 회복할 수 없을 것'이라는 전망만으로도 PONV 선언이 가능하다. 이 전망적(forward-looking) 특성이 AT1 투자자에게 큰 불확실성 원천이 된다.`,
+
+        bodyEn:
+`PONV (Point of Non-Viability) is a concept introduced by the Basel III capital framework. It refers to the moment at which a banking regulator formally determines that a bank can no longer sustain normal operations under its own power. Once this determination is made, the loss-absorption clauses in the bank's AT1 and CoCo bonds are triggered immediately.
+
+Before Basel III, the sequence and trigger for loss absorption in a bank crisis were not clearly codified. Following the 2008 global financial crisis — during which major banks were rescued with taxpayer funds (bail-outs) — international regulators enshrined the principle that private capital must absorb losses first. The PONV clause is the central enforcement tool for that principle. When a regulator declares PONV, AT1 and CoCo holders bear the losses before any public funds are deployed.
+
+The authority to declare PONV rests with each country's financial supervisory body. In Switzerland it is FINMA; in the EU it is the ECB (Single Supervisory Mechanism) together with each country's NCA (National Competent Authority); in the UK it is the PRA (Prudential Regulation Authority); in the US the FDIC and Federal Reserve hold comparable authority. A critical nuance: PONV does not require that the bank has already failed. A forward-looking assessment that the bank will be unable to recover under its own steam is sufficient for a declaration. This prospective, judgment-based nature is a major source of uncertainty for AT1 investors — the trigger point is not a precise quantitative threshold but a supervisory call.`,
+      },
+      {
+        heading: "관할권별 차이 — 스위스 vs EU vs 영국",
+        headingEn: "Jurisdictional Differences — Switzerland vs EU vs UK",
+        body:
+`PONV 조항이 모든 나라에서 같은 방식으로 작동한다고 가정하는 것이 AT1 투자자의 가장 큰 실수 중 하나다. 관할권마다 손실흡수의 순서와 감독당국의 재량 범위가 다르기 때문에, 어느 나라에서 발행된 AT1인지가 투자 결과를 결정적으로 바꿀 수 있다.
+
+스위스는 가장 강력한 감독 재량을 갖는 체계를 운영한다. 스위스 은행법과 FINMA의 규정에 따르면, FINMA는 주주 지분이 완전히 소멸되기 전이라도 AT1을 먼저 전액 상각할 수 있다. 이 '주식보다 먼저 AT1 상각' 원칙이 크레디트 스위스 2023년 사태의 핵심이었다. FINMA는 CS-UBS 강제 합병 구조에서 주주에게 일부 UBS 주식을 제공하면서도 AT1 CHF 16B를 전액 상각했다. 이는 일반적인 도산법 원칙(주식이 먼저 소멸)에 반하는 것처럼 보였고, 시장 충격을 증폭시켰다.
+
+EU는 BRRD(은행회생·정리지침)를 기반으로 한다. BRRD의 원칙은 일반적으로 손실흡수가 자본구조의 아래에서부터(주식 → AT1 → Tier 2 순으로) 이루어져야 한다는 것이다. ECB 산하 SSM의 PONV 선언이 이루어져도 자본구조 순서를 뒤집기가 스위스보다 어렵다. 다만 '동일 순위 동일 처우(pari passu)' 원칙에도 예외가 있을 수 있다는 점은 주의가 필요하다.
+
+영국 PRA는 EU에서 독립한 이후 독자적인 정리 체계(UK SRB)를 운영하지만, 기본 원칙은 EU와 유사하게 주식 먼저 손실 흡수를 원칙으로 한다. 결론: 투자자는 동일한 'AT1'이라는 라벨이 붙어 있어도 스위스, EU, 영국, 싱가포르, 홍콩 발행 채권이 서로 다른 법적 보호 수준을 갖는다는 점을 반드시 인식해야 한다.`,
+
+        bodyEn:
+`Assuming that PONV provisions work the same way in every jurisdiction is one of the most costly mistakes an AT1 investor can make. The sequence of loss absorption and the scope of supervisory discretion vary meaningfully across countries, meaning the jurisdiction of issuance can be decisive for investment outcomes.
+
+Switzerland operates the framework with the strongest supervisory discretion. Under Swiss banking law and FINMA's mandate, FINMA can write down AT1 in full before shareholder equity has been entirely extinguished. This "AT1 write-down before equity" principle was at the heart of the Credit Suisse episode of 2023. In the forced CS-UBS merger, FINMA granted shareholders residual value in the form of UBS shares while writing CHF 16 billion of AT1 to zero. This appeared to invert the conventional insolvency hierarchy — shareholders typically go to zero before more senior creditors absorb losses — and amplified the market shock.
+
+The EU operates under BRRD (Bank Recovery and Resolution Directive). BRRD's general principle is that losses are absorbed from the bottom of the capital structure upward: equity → AT1 → Tier 2. Inverting the capital hierarchy under the ECB's SSM is structurally harder than in Switzerland. That said, exceptions to the pari passu principle do exist and investors should not treat EU protection as absolute.
+
+The UK's PRA, post-Brexit, operates its own resolution framework (UK SRR) but follows similar foundational principles to the EU, generally maintaining equity-first loss absorption. The takeaway for investors: the same "AT1" label affixed to bonds from Switzerland, the EU, the UK, Singapore, and Hong Kong carries materially different legal protection profiles. Jurisdiction and prospectus terms must be analyzed with the same rigor as the issuer's credit fundamentals.`,
+      },
+      {
+        heading: "실전 적용 — CS 2023년 3월",
+        headingEn: "Real Application — CS March 2023",
+        body:
+`2023년 3월 19일, FINMA는 크레디트 스위스(CS)에 대한 PONV를 공식 선언하고 UBS와의 강제 합병을 승인했다. 이 결정으로 CS가 발행한 AT1 채권 CHF 160억(약 17조 원)이 전액 상각되었다. 이것이 AT1 시장 역사상 가장 큰 단일 손실 사건이다.
+
+사태의 경위를 정리하면: 2022년 10월 이후 CS는 대규모 고객 자금 유출, 경영진 교체, 연이은 손실로 신뢰가 급격히 저하되었다. 2023년 3월 초 실리콘밸리은행(SVB) 붕괴가 글로벌 은행 신뢰를 흔든 이후, CS 주가가 급락하고 CDS(신용부도스왑) 스프레드가 폭등했다. 3월 15일 사우디 국립은행(최대 주주)이 추가 지원 불가를 선언하면서 유동성 위기가 가속화되었다. FINMA와 스위스 중앙은행은 시스템 리스크 방지를 위해 UBS와의 합병을 밀어붙였다.
+
+합병 조건에서 주주는 CS 22.48주당 UBS 1주를 받았다(1주당 약 CHF 0.76의 가치). AT1 보유자는 CHF 0을 받았다. 주식보다 선순위 지위를 가진 AT1이 주식 잔존 가치보다 먼저 소멸한 것이다. 이 '역전된 손실흡수 순서'가 글로벌 AT1 시장에 큰 충격을 주었고, 이후 수주간 다른 유럽 은행들의 AT1 스프레드도 크게 벌어졌다.
+
+투자자 교훈: PONV 선언은 시장이 준비되기 전에 발생한다. 계약서상 명시된 스위스 법적 체계에서는 이 결과가 법적으로 유효했다. 높은 쿠폰의 대가로 투자자가 받아들인 리스크가 현실화된 사례다. AT1 투자에서는 발행사 신용등급만큼이나 관할권 법적 리스크 분석이 중요하다는 것을 이 사태가 입증했다.`,
+
+        bodyEn:
+`On 19 March 2023, FINMA formally declared Credit Suisse (CS) to have reached the Point of Non-Viability and approved a forced merger with UBS. The decision resulted in the complete write-down of CS's outstanding AT1 bonds, totalling CHF 16 billion — the largest single loss event in the history of the AT1 market.
+
+A brief reconstruction of events: from October 2022 onward, CS suffered accelerating client outflows, serial management changes, and mounting losses that eroded confidence sharply. In early March 2023, the collapse of Silicon Valley Bank (SVB) shook global bank sentiment. CS's stock entered freefall and CDS spreads spiked. On 15 March, the Saudi National Bank — CS's largest shareholder — publicly ruled out further financial support, accelerating the liquidity spiral. FINMA and the Swiss National Bank, acting to prevent systemic contagion, engineered an emergency merger with UBS.
+
+Under the merger terms, CS shareholders received 1 UBS share for every 22.48 CS shares held — approximately CHF 0.76 per share, a residual value. AT1 holders received CHF zero. An instrument ranking structurally above equity was extinguished before equity residual value was fully wiped out. This inversion of the conventional loss-absorption hierarchy sent a shock through global AT1 markets; spreads on other European banks' AT1 instruments widened sharply in the weeks that followed as investors repriced jurisdictional risk.
+
+The lessons for investors are lasting. PONV declarations arrive before markets are positioned. Under the Swiss legal framework clearly disclosed in the prospectus, this outcome was legally valid. The high coupon AT1 investors had been earning was compensation for precisely this risk — and that risk materialized. The Credit Suisse episode established conclusively that jurisdictional legal analysis is at least as important as issuer credit analysis when investing in AT1 instruments.`,
+      },
+    ],
+    keyTerms: [],
+    relatedSlugs: ["at1-capital", "coco-bond", "bail-in"],
+    appearsIn: [
+      {
+        type: "market-deal",
+        slug: "credit-suisse-at1",
+        title: "크레디트 스위스 AT1 전액상각 (2023)",
+        titleEn: "Credit Suisse AT1 Write-Down (2023)",
+      },
+    ],
+    references: [
+      {
+        id: 1,
+        author: "Bank for International Settlements (BIS)",
+        title: "Basel III: A Global Regulatory Framework for More Resilient Banks and Banking Systems — PONV and AT1 Qualifying Criteria",
+        source: "BIS Basel Framework (CAP 10.11–10.15), 2010 (consolidated 2023)",
+        year: "2023",
+        url: "https://www.bis.org/basel_framework/",
+      },
+      {
+        id: 2,
+        author: "FINMA (Swiss Financial Market Supervisory Authority)",
+        title: "FINMA Approves Merger of Credit Suisse with UBS",
+        source: "FINMA Press Release, 19 March 2023",
+        year: "2023",
+        url: "https://www.finma.ch/en/news/2023/03/20230319-mm-ubs-cs-en/",
+      },
+      {
+        id: 3,
+        author: "European Banking Authority (EBA)",
+        title: "EBA Statement on the Recognition of AT1 Instruments Following the CS Transaction",
+        source: "EBA Press Statement, 20 March 2023",
+        year: "2023",
+        url: "https://www.eba.europa.eu/eba-statement-supervisory-and-resolution-practice-eba-jurisdiction-following-credit-suisse",
+      },
+    ],
+  },
+
+  {
+    slug: "coco-bond",
+    title: "CoCo (조건부 전환사채)",
+    titleEn: "CoCo — Contingent Convertible Bond",
+    entryType: "term",
+    category: "fig",
+    categoryLabel: "FIG",
+    categoryLabelEn: "FIG",
+    excerpt:
+      "특정 조건이 충족될 때 자동으로 손실을 흡수하도록 설계된 채권형 자본 도구. AT1이 가장 대표적인 유형.",
+    excerptEn:
+      "A bond-like capital instrument that automatically absorbs losses when a trigger is hit. AT1 is the most common type.",
+    readingMinutes: 5,
+    tags: ["CoCo", "조건부전환사채", "AT1", "바젤III", "손실흡수", "은행자본", "트리거", "원금상각", "주식전환", "FIG"],
+    tagsEn: ["CoCo", "Contingent Convertible", "AT1", "Basel III", "Loss Absorption", "Bank Capital", "Trigger", "Write-down", "Equity Conversion", "FIG"],
+    sections: [
+      {
+        heading: "CoCo의 작동 원리",
+        headingEn: "How CoCos Work",
+        body:
+`CoCo(Contingent Convertible Bond, 조건부 전환사채)의 이름에서 '조건부(Contingent)'는 핵심을 담고 있다 — 특정 조건이 충족될 때만 전환 또는 상각이 발생한다. 평상시에는 일반 채권처럼 쿠폰을 지급하고 원금을 보유하고 있다가, 미리 정해진 트리거가 발동되면 손실흡수 메커니즘이 작동한다.
+
+손실흡수 방식에는 두 가지가 있다. 첫째는 주식 전환(Equity Conversion): 트리거 발동 시 CoCo 원금이 발행사의 보통주로 전환된다. 이 경우 채권 보유자는 주주가 되고, 원금 가치는 전환 시점의 주가에 의해 결정된다. 은행이 부실해지는 시점에 주가는 일반적으로 크게 하락해 있으므로, 투자자는 상당한 가치 손실을 겪는다. 둘째는 원금 상각(Write-down): 트리거 발동 시 원금의 전부 또는 일부가 즉시 소멸된다. 크레디트 스위스 AT1이 이 방식이었다.
+
+트리거 종류도 두 가지다. 기계적(Mechanical) 트리거는 발행사의 CET1 비율이 계약서에 명시된 수준(통상 5.125% 또는 7%)으로 하락하면 자동 발동된다. 수치가 기준에 도달하면 기계적으로 작동하므로 '자동 트리거'라 부른다. PONV(비존속성) 트리거는 감독당국이 은행이 더 이상 존속 가능하지 않다고 판단할 때 발동된다. 앞서 설명한 PONV 개념이 여기서 직접 연결된다. 대부분의 AT1 CoCo는 기계적 트리거와 PONV 트리거를 모두 포함하며, 어느 쪽이든 먼저 발동되면 손실흡수가 시작된다.`,
+
+        bodyEn:
+`The word "Contingent" in CoCo (Contingent Convertible Bond) captures the instrument's essence: conversion or write-down only occurs when a specific condition is met. In normal times, a CoCo pays a coupon and maintains its principal like any bond. When a pre-defined trigger is hit, the loss-absorption mechanism activates.
+
+There are two loss-absorption methods. The first is equity conversion: when the trigger fires, the CoCo's principal converts into the issuer's common equity. The bondholder becomes a shareholder, and the value received depends on the share price at the moment of conversion. Since banks are typically distressed when triggers activate, equity prices are usually deeply depressed — meaning investors absorb substantial value loss. The second method is principal write-down: when the trigger activates, some or all of the principal is immediately extinguished. Credit Suisse's AT1 instruments used this write-down mechanism.
+
+Triggers also come in two forms. Mechanical triggers activate automatically when the issuer's CET1 ratio falls to the threshold specified in the prospectus — typically 5.125% or 7.00%. Because the trigger fires when the number hits the threshold, it is rules-based and predictable. PONV triggers activate when the regulator determines the bank is no longer viable — the PONV concept discussed in the related entry applies directly here. Most AT1 CoCo instruments include both mechanical and PONV triggers, with loss absorption initiating when whichever trigger fires first. The combination means investors face both a quantitative tripwire and an open-ended regulatory judgment call as potential activation events.`,
+      },
+      {
+        heading: "왜 은행은 CoCo를 발행하나",
+        headingEn: "Why Banks Issue CoCos",
+        body:
+`CoCo, 특히 AT1 CoCo가 바젤 III 도입 이후 급성장한 데는 명확한 경제적 논리가 있다. 은행 규제자는 은행이 충분한 손실흡수 능력을 보유하기를 원한다. 하지만 규제자의 요구를 충족하는 방법이 반드시 주식 발행일 필요는 없다 — 손실흡수 조항을 가진 자본 도구라면 규제자본으로 인정받을 수 있다.
+
+주식 대비 CoCo(AT1)의 핵심 장점은 주주 희석 방지와 세금 혜택이다. 보통주를 발행하면 기존 주주의 지분율이 낮아진다. CoCo 발행은 트리거가 발동되기 전까지는 주주 지분에 영향을 주지 않는다. 또한 대부분의 국가에서 CoCo 쿠폰은 세금 공제가 가능한 이자비용으로 처리되는 반면, 주식 배당은 세후 이익에서 지급된다. 세금 효율성 측면에서 CoCo가 주식보다 유리하다.
+
+투자자 입장에서는 고수익 채권형 도구라는 매력이 있다. 기관 투자자 중 일부 — 특히 상대적으로 유연한 투자 제한을 가진 고수익 채권 펀드, 크레딧 헤지펀드 — 는 AT1 CoCo가 제공하는 높은 쿠폰에 매력을 느낀다. 글로벌 AT1·CoCo 시장은 2024년 기준 2,500억 달러 이상 규모로 성장했다. 바클레이즈, HSBC, BNP 파리바, 도이치방크, 산탄데르 등 유럽 대형 은행들이 주요 발행 주체며, 아시아에서는 중국 대형 국영은행들과 홍콩 소재 은행들이 활발히 발행한다. 한국에서는 시중은행들이 신종자본증권이라는 명칭으로 국내에서 발행한다.`,
+
+        bodyEn:
+`The rapid growth of CoCo — particularly AT1 CoCo — after Basel III was introduced reflects clear economic logic. Bank regulators want banks to hold sufficient loss-absorbing capacity. But meeting that requirement does not necessarily require issuing common equity — any capital instrument with genuine loss-absorption provisions can qualify as regulatory capital.
+
+The core advantages of CoCo (AT1) over common equity are two-fold: no shareholder dilution, and tax efficiency. Issuing new shares reduces existing shareholders' ownership percentages. CoCo issuance leaves existing shareholder stakes untouched until a trigger fires. Additionally, in most jurisdictions CoCo coupons are treated as tax-deductible interest expenses, whereas equity dividends are paid out of after-tax earnings. On a tax-adjusted basis, CoCo financing is cheaper than common equity financing for most bank issuers.
+
+For investors, the appeal is straightforward: a bond-like instrument offering high yield. A subset of institutional investors — particularly high-yield fixed income funds and credit hedge funds with relatively flexible investment mandates — find AT1 CoCo attractive for the coupons on offer. The global AT1 and CoCo market had grown to over $250 billion by 2024. Major European banks including Barclays, HSBC, BNP Paribas, Deutsche Bank, and Santander are the primary issuers, while in Asia, large Chinese state-owned banks and Hong Kong-based lenders are active. In Korea, domestic commercial banks issue economically equivalent instruments under the domestic label of "신종자본증권" (new-type capital securities) in the local won-denominated market. The instrument has become a near-universal feature of large bank capital structures globally, cementing its role as a post-Basel III fixture.`,
+      },
+      {
+        heading: "CoCo의 리스크 — 투자자 관점",
+        headingEn: "Risks for Investors",
+        body:
+`CoCo, 특히 AT1 구조의 채권에 투자할 때 투자자가 직면하는 리스크는 크게 세 가지다.
+
+첫째, Extension Risk(연장 리스크)다. AT1은 영구채지만 통상 5년 또는 10년 후 First Call Date가 있다. 시장 관행상 발행사가 이 날짜에 콜을 행사할 것이라는 기대가 형성되어 있다. 하지만 발행사가 경제적으로 콜 행사가 불리할 경우 — 예를 들어 콜 이후 리파이낸싱 비용이 현재 쿠폰보다 훨씬 높을 경우 — 콜 행사를 생략(스킵)할 수 있다. 콜 스킵이 발생하면 투자자는 예상보다 훨씬 긴 기간 동안 AT1을 보유하게 되고, 해당 발행사 AT1의 시장 가격이 크게 하락하는 것이 일반적이다.
+
+둘째, 쿠폰 임의 미지급 위험이다. AT1 쿠폰은 발행사의 재량으로 언제든지 취소될 수 있으며, 취소가 되어도 기술적 디폴트가 아니다. 은행의 분배 가능 이익이 부족해지거나 규제 자본이 특정 요건 아래로 내려가면 쿠폰 지급이 자동으로 제한된다. 투자자는 이 쿠폰 취소 리스크를 명확히 인지해야 한다 — 특히 은행의 재정 상태가 악화되는 국면에서 이 리스크가 현실화될 가능성이 높다.
+
+셋째, 원금 전액 손실 위험이다. 트리거(기계적 또는 PONV)가 발동되면 CoCo 원금의 전부 또는 상당 부분이 영구적으로 소멸될 수 있다. 이것은 일반적인 디폴트와 다르다 — 디폴트라면 회사 정리 과정에서 잔여 가치를 회수할 기회라도 있다. CoCo 원금 상각은 계약서에 명시된 조건에 따라 즉시, 영구적으로 이루어진다. CS 2023 사태에서 AT1 보유자들이 경험한 것이 바로 이것이다. 관할권에 따라 손실흡수 순서가 다르다는 점(특히 스위스 FINMA의 재량), 그리고 계약서상 정확히 어떤 조건에서 어떤 방식으로 손실흡수가 이루어지는지를 반드시 확인해야 한다.`,
+
+        bodyEn:
+`Investors in CoCo instruments — particularly AT1-structured bonds — face three principal risk categories.
+
+First is extension risk. AT1 is legally perpetual, but standard practice embeds a First Call Date five or ten years after issuance, creating a market expectation of redemption. If the issuer finds it economically disadvantageous to call — for example, if refinancing costs post-call would be substantially higher than the current coupon — it may skip the call. When a call is skipped, investors are left holding the AT1 far longer than expected, and the market price of that issuer's AT1 typically drops sharply. Extension risk is not a tail event; several European banks have skipped AT1 calls, and each instance generated significant spread widening.
+
+Second is discretionary coupon cancellation risk. AT1 coupons can be suspended by the issuer at any time without constituting a technical default. If the bank's distributable earnings fall short or its regulatory capital falls below specified thresholds, coupon payments are automatically restricted. Investors must treat this not as a remote event but as a material risk that is most likely to crystallize precisely when the bank's financial position is deteriorating — the moment when investors would most rely on their investment continuing to perform.
+
+Third is principal loss risk. When a trigger — mechanical or PONV — activates, the CoCo's principal can be permanently extinguished in full or in substantial part. This differs from conventional default: in a normal restructuring, creditors retain some claim on residual value through the insolvency process. CoCo write-down is contractually immediate and permanent, with no residual claim remaining. This is exactly what AT1 holders experienced in the Credit Suisse episode. Investors must closely analyze the jurisdiction governing the instrument, the specific trigger levels and write-down mechanics disclosed in the prospectus, and the regulator's explicit discretionary powers — because the contractual terms, not general intuition about creditor hierarchies, determine the outcome.`,
+      },
+    ],
+    keyTerms: [],
+    relatedSlugs: ["at1-capital", "ponv", "bail-in"],
+    appearsIn: [
+      {
+        type: "market-deal",
+        slug: "credit-suisse-at1",
+        title: "크레디트 스위스 AT1 전액상각 (2023)",
+        titleEn: "Credit Suisse AT1 Write-Down (2023)",
+      },
+    ],
+    references: [
+      {
+        id: 1,
+        author: "Bank for International Settlements (BIS)",
+        title: "Basel III: A Global Regulatory Framework for More Resilient Banks and Banking Systems — Qualifying Criteria for AT1 and CoCo Instruments",
+        source: "BIS Basel Framework (CAP 10–CAP 30), 2010 (consolidated 2023)",
+        year: "2023",
+        url: "https://www.bis.org/basel_framework/",
+      },
+      {
+        id: 2,
+        author: "FINMA (Swiss Financial Market Supervisory Authority)",
+        title: "FINMA Approves Merger of Credit Suisse with UBS — AT1 Write-Down",
+        source: "FINMA Press Release, 19 March 2023",
+        year: "2023",
+        url: "https://www.finma.ch/en/news/2023/03/20230319-mm-ubs-cs-en/",
+      },
+    ],
+  },
+
+  {
+    slug: "bail-in",
+    title: "베일인 (Bail-in)",
+    titleEn: "Bail-in",
+    entryType: "term",
+    category: "fig",
+    categoryLabel: "FIG",
+    categoryLabelEn: "FIG",
+    excerpt:
+      "은행 위기 시 정부 세금(납세자)이 아닌 채권자와 주주가 손실을 부담하게 하는 메커니즘. 2008 금융위기 이후 글로벌 규제의 핵심 원칙.",
+    excerptEn:
+      "A mechanism requiring a bank's creditors and shareholders — not taxpayers — to absorb losses in a crisis. The core principle of post-2008 financial regulation.",
+    readingMinutes: 5,
+    tags: ["베일인", "bail-in", "베일아웃", "BRRD", "TLAC", "MREL", "은행정리", "AT1", "자본구조", "금융규제"],
+    tagsEn: ["Bail-in", "Bail-out", "BRRD", "TLAC", "MREL", "Bank Resolution", "AT1", "Capital Structure", "Financial Regulation", "FIG"],
+    sections: [
+      {
+        heading: "베일인 vs 베일아웃",
+        headingEn: "Bail-in vs Bail-out",
+        body:
+`2008년 글로벌 금융위기가 남긴 가장 큰 제도적 유산 하나는 '베일아웃(Bail-out)'에 대한 반성이다. 당시 미국 정부는 리먼 브라더스의 파산을 허용한 뒤 그 충격을 목도하고, AIG에 850억 달러, 씨티그룹에 450억 달러, 뱅크 오브 아메리카에 450억 달러를 투입했다. 영국은 RBS와 로이즈에 수백억 파운드를 쏟아부었다. 이 구제금융의 재원은 모두 납세자의 세금이었다.
+
+베일아웃(Bail-out)의 문제는 두 가지다. 첫째, 납세자가 민간 금융기관의 손실을 대신 부담하는 것은 형평성 문제를 야기한다. 둘째, 대형 은행들이 '망하기엔 너무 크다(Too Big to Fail)'는 암묵적 정부 보증을 기대하게 되어 과도한 리스크를 감수하는 도덕적 해이(Moral Hazard)가 발생한다.
+
+베일인(Bail-in)은 이 문제에 대한 규제적 해법이다. 은행이 위기에 처할 때 손실을 먼저 흡수해야 하는 것은 납세자가 아니라 그 은행의 주주와 채권자다 — 위험을 알고 투자한 민간 자본이 먼저 손실을 부담해야 한다는 원칙이다. 이 원칙을 법제화한 것이 EU의 BRRD(은행회생·정리지침, 2014년 도입), 글로벌 G-SIB(글로벌 시스템적으로 중요한 은행)에 대한 TLAC(총손실흡수능력) 요건, 그리고 유럽 은행들에 적용되는 MREL(최소요구자기자본·적격부채)이다. 이 모든 규제 체계가 베일인을 기본 원칙으로 설계되었다.`,
+
+        bodyEn:
+`The most significant institutional legacy of the 2008 global financial crisis is the collective reckoning with bail-outs. Following the Lehman Brothers failure — whose collapse the US government permitted before observing the resulting systemic shock — the US Treasury injected $85 billion into AIG, $45 billion into Citigroup, and $45 billion into Bank of America. The UK poured tens of billions of pounds into RBS and Lloyds. All of this was funded by taxpayers.
+
+The problems with bail-outs are structural. First, requiring taxpayers to absorb losses from private financial institutions raises fundamental fairness objections. Second, when large banks expect an implicit government guarantee — the "Too Big to Fail" assurance — they have an incentive to take on excessive risk, knowing that the downside will be socialized. This moral hazard distorts risk-taking behavior throughout the financial system.
+
+Bail-in is the regulatory response to these problems. When a bank faces insolvency, the first loss-bearers should be the bank's own shareholders and creditors — private capital that invested in the institution knowingly and was compensated for the risk it accepted. This principle was codified in the EU's BRRD (Bank Recovery and Resolution Directive, enacted 2014), the TLAC (Total Loss-Absorbing Capacity) requirements applicable to global systemically important banks (G-SIBs), and the MREL (Minimum Requirement for Own Funds and Eligible Liabilities) framework for European banks. All of these regulatory regimes were architecturally designed around the bail-in principle as their foundational logic.`,
+      },
+      {
+        heading: "베일인이 작동하는 순서",
+        headingEn: "The Bail-in Sequence",
+        body:
+`베일인이 실제로 발동되면, 손실 흡수는 자본구조상 가장 열후한 계층부터 순서대로 이루어진다. 이 순서를 이해하는 것이 은행 채권 투자자에게 핵심이다.
+
+첫 번째 손실흡수층은 CET1(보통주 자본)이다. 주주가 먼저 손실을 흡수한다. 주식 가치가 먼저 소멸된다. 두 번째는 AT1이다. CET1이 완전히 소멸되거나 감독당국이 PONV를 선언하면, AT1이 다음으로 손실을 흡수한다. AT1은 주식으로 전환되거나 원금이 상각된다. 세 번째는 Tier 2(후순위 채권)다. AT1까지도 부족하면 Tier 2 채권 보유자가 손실을 부담한다. 네 번째로는 Senior Non-Preferred(선순위 비우선) 채권이 있다 — 이는 주요 규제 목적으로 손실흡수에 사용될 수 있도록 설계된 시니어 채무의 일종이다. 일반 Senior(선순위 담보·무담보) 채권과 예금은 이론상 보호된다.
+
+이 손실흡수 능력의 최소 요건을 보장하기 위해 도입된 것이 TLAC과 MREL이다. TLAC은 G-SIB(글로벌 시스템적으로 중요한 은행 — JP모건, HSBC, BNP 파리바 등)에 적용되며, 위험가중자산 대비 최소 18%(2022년 이후) 이상의 손실흡수 능력을 보유하도록 요구한다. MREL은 EU 은행들에게 적용되며 비슷한 요건을 규정한다. 두 요건 모두 충분한 '베일인 가능 자본(bail-inable capital)'의 사전 적립을 강제함으로써, 위기 시 납세자 개입 없이 은행 구조조정이 가능하도록 설계되었다.`,
+
+        bodyEn:
+`When a bail-in is activated, losses are absorbed sequentially from the most subordinated layer of the capital structure upward. Understanding this sequence is essential for any investor in bank debt instruments.
+
+The first loss-absorption layer is CET1 (common equity). Shareholders absorb losses first; equity value is extinguished before anything else. The second layer is AT1: once CET1 is fully wiped out — or if the regulator declares PONV — AT1 absorbs losses next, through equity conversion or principal write-down. The third layer is Tier 2 (subordinated bonds): if AT1 is insufficient, Tier 2 bondholders bear losses. The fourth layer includes Senior Non-Preferred bonds — a category of senior debt specifically designed to be eligible for bail-in for resolution purposes, sitting below ordinary senior unsecured in the hierarchy. Standard Senior (secured and unsecured) bonds and deposits are protected in theory and typically the last resort.
+
+TLAC and MREL were introduced to ensure that banks maintain adequate minimum bail-in capacity at all times. TLAC applies to G-SIBs (Globally Systemically Important Banks — JPMorgan, HSBC, BNP Paribas, etc.) and requires them to hold loss-absorbing capacity of at least 18% of risk-weighted assets (from 2022 onward). MREL imposes comparable requirements on EU banks. Both frameworks achieve the same goal: by mandating a pre-positioned stack of bail-inable capital, they ensure that when a bank fails, an orderly restructuring is possible without taxpayer involvement. The bail-in mechanism is the machinery through which this theoretical pre-positioning is actually executed.`,
+      },
+      {
+        heading: "CS 2023 — 베일인의 실제 사례",
+        headingEn: "CS 2023 — Bail-in in Practice",
+        body:
+`크레디트 스위스 2023년 3월 사태는 현대 은행 규제 역사에서 가장 중요한 베일인 사례 중 하나다 — 단, 완전한 교과서적 베일인은 아니었다는 점이 흥미롭다.
+
+베일인이 부분적으로 발생한 것은 명확하다. CS AT1 채권 CHF 160억이 전액 상각되었다. 이것은 베일인의 핵심 메커니즘 — 민간 채권자(AT1 보유자)가 납세자 대신 손실을 흡수 — 이 실제로 작동한 사례다. 스위스 정부가 지원한 유동성(CHF 100B 이상의 중앙은행 대출 보증)은 베일인이 발생한 이후의 안전망이었지, 주주나 채권자보다 먼저 투입된 베일아웃이 아니었다.
+
+그런데 '비정상적' 요소가 있었다. 일반적인 베일인 원칙에서는 주식이 CoCo/AT1보다 먼저 소멸되어야 한다. 하지만 CS-UBS 합병에서 주주는 일부 가치(UBS 주식)를 받았고 AT1 보유자는 제로를 받았다. 이 손실흡수 순서의 역전이 국제 금융계에 큰 논란을 일으켰다. EU와 영국 감독당국은 즉각 성명을 통해 "우리 관할권에서는 주식이 먼저 손실을 흡수할 것"이라고 명확히 했다.
+
+제도적 보완 논의 측면에서, CS 사태 이후 AT1 계약서의 표준 문구와 관할권별 손실흡수 순서에 대한 점검이 이루어졌다. 스위스는 FINMA의 재량을 허용하는 법적 체계를 유지하되, 관련 리스크가 투자자에게 더 명확하게 전달되어야 한다는 논의가 진행되었다. 동시에 AT1 쿠폰 스프레드가 전반적으로 확대되었다 — 투자자들이 관할권 리스크와 PONV 리스크에 더 높은 가격을 요구하게 된 것이다. 베일인 원칙이 제대로 작동하려면 계약서와 법적 체계가 정확히 무엇을 규정하는지를 투자자가 사전에 이해해야 한다는 교훈이 남았다.`,
+
+        bodyEn:
+`The Credit Suisse episode of March 2023 stands as one of the most consequential bail-in events in modern banking regulatory history — though notably, it was not a textbook bail-in in the purest sense, and that distinction is precisely what generated lasting controversy.
+
+That a partial bail-in occurred is unambiguous. CHF 16 billion of CS AT1 bonds were written to zero. The core bail-in mechanism — private creditors (AT1 holders) absorbing losses rather than taxpayers — functioned as designed. The Swiss government-backed liquidity support (a central bank lending guarantee of over CHF 100 billion) served as a backstop deployed after the bail-in, not as a bail-out deployed instead of it.
+
+The "abnormal" element was the sequencing. Under standard bail-in principles, equity should be extinguished before CoCo/AT1 absorbs losses. In the CS-UBS merger, shareholders received some residual value — UBS shares — while AT1 holders received zero. This inversion of the standard loss-absorption hierarchy triggered an immediate and significant reaction from international regulators. The ECB, EBA, and PRA collectively issued statements within hours, explicitly affirming that in their jurisdictions, equity would absorb losses before AT1 in any future resolution.
+
+The institutional aftermath involved two main dimensions. First, prospectus language and jurisdiction-specific loss absorption sequencing came under fresh scrutiny. Switzerland maintained its legal framework permitting FINMA discretion, while debate continued about ensuring that the associated risks are communicated transparently to investors. Second, AT1 coupon spreads widened structurally across the market — investors repriced jurisdictional and PONV risk upward. The enduring lesson: the bail-in principle only functions as intended when investors genuinely understand, in advance, what the contractual terms and applicable law actually prescribe for every scenario. The label "bail-in compliant" is not a uniform standard — the details in each prospectus and each jurisdiction's statute book are what ultimately determine outcomes.`,
+      },
+    ],
+    keyTerms: [],
+    relatedSlugs: ["at1-capital", "ponv", "coco-bond"],
+    appearsIn: [
+      {
+        type: "market-deal",
+        slug: "credit-suisse-at1",
+        title: "크레디트 스위스 AT1 전액상각 (2023)",
+        titleEn: "Credit Suisse AT1 Write-Down (2023)",
+      },
+    ],
+    references: [
+      {
+        id: 1,
+        author: "Bank for International Settlements (BIS) / Financial Stability Board (FSB)",
+        title: "Principles on Loss-absorbing and Recapitalisation Capacity of G-SIBs in Resolution — TLAC Term Sheet",
+        source: "FSB TLAC Standard, November 2015",
+        year: "2015",
+        url: "https://www.fsb.org/2015/11/total-loss-absorbing-capacity-tlac-principles-and-term-sheet/",
+      },
+      {
+        id: 2,
+        author: "FINMA (Swiss Financial Market Supervisory Authority)",
+        title: "FINMA Approves Merger of Credit Suisse with UBS",
+        source: "FINMA Press Release, 19 March 2023",
+        year: "2023",
+        url: "https://www.finma.ch/en/news/2023/03/20230319-mm-ubs-cs-en/",
+      },
+      {
+        id: 3,
+        author: "European Banking Authority (EBA) / Single Resolution Board (SRB) / European Central Bank (ECB)",
+        title: "Joint Statement on AT1 Instruments Following Credit Suisse",
+        source: "EBA / SRB / ECB Joint Press Statement, 20 March 2023",
+        year: "2023",
+        url: "https://www.eba.europa.eu/eba-statement-supervisory-and-resolution-practice-eba-jurisdiction-following-credit-suisse",
+      },
+      {
+        id: 4,
+        author: "Bank for International Settlements (BIS)",
+        title: "Basel III: A Global Regulatory Framework for More Resilient Banks and Banking Systems",
+        source: "BIS Basel Framework, December 2010 (consolidated 2023)",
+        year: "2010",
+        url: "https://www.bis.org/basel_framework/",
+      },
+    ],
+  },
+
 ];
 
 export function getMarket101ConceptBySlug(slug: string): MarketConcept | undefined {
