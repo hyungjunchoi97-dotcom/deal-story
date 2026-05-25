@@ -9,21 +9,64 @@ import broadcomVmware from "./broadcom-vmware";
 import warnerDiscoveryMerger from "./warner-discovery-merger";
 import lvmhTiffany from "./lvmh-tiffany";
 import salesforceSlack from "./salesforce-slack";
+// New deals
+import metaInstagram from "./meta-instagram";
+import metaWhatsapp from "./meta-whatsapp";
+import microsoftLinkedin from "./microsoft-linkedin";
+import googleYoutube from "./google-youtube";
+import amazonWholeFoods from "./amazon-whole-foods";
+import microsoftGithub from "./microsoft-github";
+import microsoftNuance from "./microsoft-nuance";
+import kkrRjrNabisco from "./kkr-rjr-nabisco";
+import disneyPixar from "./disney-pixar";
+import daimlerChrysler from "./daimler-chrysler";
+import hpCompaq from "./hp-compaq";
+import nvidiaArm from "./nvidia-arm";
+import qualcommNxp from "./qualcomm-nxp";
+import illuminaGrail from "./illumina-grail";
+import ebayPaypalSpinoff from "./ebay-paypal-spinoff";
+import geBreakup from "./ge-breakup";
+import abbottAbbvieSpinoff from "./abbott-abbvie-spinoff";
+import salesforceMulesoft from "./salesforce-mulesoft";
+import sapQualtrics from "./sap-qualtrics";
+import zendeskPeBuyout from "./zendesk-pe-buyout";
+import danaherAcquisitions from "./danaher-acquisitions";
 
 /**
  * English deal registry — ordered by closedAt descending
  */
 export const ALL_DEALS_EN: DealData[] = [
-  adobeFigmaBlocked,      // 2023-12-18 (terminated)
-  broadcomVmware,         // 2023-11-22
-  microsoftActivision,    // 2023-10-13
-  blackstoneKenedix,      // 2023-10-12
-  elonMuskTwitter,        // 2022-10-27
-  warnerDiscoveryMerger,  // 2022-04-08
-  salesforceSlack,        // 2021-07-21
-  skhynixIntelNand,       // 2021-12-30
-  lvmhTiffany,            // 2021-01-07
-  mbkHomeplus,            // 2015-11-30
+  geBreakup,             // 2024-04-02
+  illuminaGrail,         // 2024 forced divestiture
+  adobeFigmaBlocked,     // 2023-12-18 (terminated)
+  broadcomVmware,        // 2023-11-22
+  microsoftActivision,   // 2023-10-13
+  blackstoneKenedix,     // 2023-10-12
+  zendeskPeBuyout,       // 2022-11-22
+  elonMuskTwitter,       // 2022-10-27
+  warnerDiscoveryMerger, // 2022-04-08
+  microsoftNuance,       // 2022-03-04
+  nvidiaArm,             // terminated 2022-02-08
+  skhynixIntelNand,      // 2021-12-30
+  salesforceSlack,       // 2021-07-21
+  lvmhTiffany,           // 2021-01-07
+  danaherAcquisitions,   // multiple deals (latest: Cytiva 2020-03)
+  sapQualtrics,          // 2019-01-23
+  microsoftGithub,       // 2018-06-04
+  salesforceMulesoft,    // 2018-05-01
+  qualcommNxp,           // terminated 2018-07-26
+  amazonWholeFoods,      // 2017-08-28
+  microsoftLinkedin,     // 2016-12-08
+  mbkHomeplus,           // 2015-11-30
+  ebayPaypalSpinoff,     // 2015-07-17
+  metaWhatsapp,          // 2014-10-06
+  abbottAbbvieSpinoff,   // 2013-01-01
+  metaInstagram,         // 2012-09-06
+  googleYoutube,         // 2006-10-31
+  disneyPixar,           // 2006-05-05
+  hpCompaq,              // 2002-05-03
+  daimlerChrysler,       // 1998-11-12
+  kkrRjrNabisco,         // 1989-02-09
 ];
 
 export function getDealBySlugEn(slug: string): DealData | undefined {
