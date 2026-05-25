@@ -5,6 +5,7 @@
  */
 import type { MetadataRoute } from "next";
 import { ALL_DEALS } from "@/data/deals";
+import { ALL_CONCEPTS } from "@/data/market-concepts";
 import { SITE_URL } from "@/lib/site";
 
 const BASE = SITE_URL;
@@ -72,6 +73,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // ── Deal 101 index ─────────────────────────────────────────
     ...pair("/deal-101", "/en/deal-101", { changeFrequency: "weekly", priority: 0.9 }),
+
+    // ── Market Story listing ───────────────────────────────────
+    ...pair("/market", "/en/market", { changeFrequency: "weekly", priority: 0.9 }),
+
+    // ── Market concept pages ───────────────────────────────────
+    ...ALL_CONCEPTS.flatMap((concept) =>
+      pair(`/market/${concept.slug}`, `/en/market/${concept.slug}`, {
+        changeFrequency: "monthly",
+        priority: 0.85,
+      })
+    ),
 
     // ── About ──────────────────────────────────────────────────
     ...pair("/about", "/en/about", { changeFrequency: "monthly", priority: 0.5 }),

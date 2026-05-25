@@ -4,79 +4,123 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import DealCard from "@/components/home/DealCard";
 import { ALL_DEALS_EN } from "@/data/deals/en";
-import { DEAL_CATEGORY_ORDER } from "@/lib/types";
-import { DEAL_CATEGORY_LABEL_EN } from "@/lib/i18n";
+import { ALL_CONCEPTS } from "@/data/market-concepts";
 
 export const metadata: Metadata = {
-  title: "Deal Story — M&A, PE/VC & IPO Archive",
+  title: "Deal Story — Deal & Capital Markets Archive",
   description:
-    "Background, structure, and key figures behind landmark M&A, PE/VC, and IPO transactions.",
+    "Deal Story (M&A·PE·IPO archive) and Market Story (DCM·ECM·S&T archive) — your financial knowledge hub.",
   alternates: {
     canonical: "/en",
-    languages: {
-      ko: "/",
-      en: "/en",
-      "x-default": "/",
-    },
+    languages: { ko: "/", en: "/en", "x-default": "/" },
   },
-  // 영문 사이트 기본 OG — 루트 layout 의 KO 기본 OG 를 오버라이드
   openGraph: {
     type: "website",
     siteName: "Deal Story",
     locale: "en_US",
     alternateLocale: ["ko_KR"],
-    images: [
-      { url: "/api/og?lang=en", width: 1200, height: 630, alt: "Deal Story" },
-    ],
+    images: [{ url: "/api/og?lang=en", width: 1200, height: 630, alt: "Deal Story" }],
   },
-  twitter: {
-    card: "summary_large_image",
-    images: ["/api/og?lang=en"],
-  },
+  twitter: { card: "summary_large_image", images: ["/api/og?lang=en"] },
 };
 
-export default function HomePageEn() {
+const SECTIONS = [
+  {
+    key: "deals",
+    href: "/en/deals",
+    badge: "M&A · PE · IPO",
+    badgeBg: "bg-blue-50 dark:bg-blue-900/30",
+    badgeFg: "text-blue-700 dark:text-blue-300",
+    accentBar: "bg-blue-500",
+    title: "Deal Story",
+    desc: "In-depth analysis of landmark M&A, PE, and IPO transactions — structure, valuation, and post-deal outcomes.",
+    count: `${ALL_DEALS_EN.length} deals`,
+    cta: "Browse deals →",
+    ctaColor: "text-blue-600 dark:text-blue-400",
+  },
+  {
+    key: "market",
+    href: "/en/market",
+    badge: "DCM · ECM · S&T",
+    badgeBg: "bg-teal-50 dark:bg-teal-900/30",
+    badgeFg: "text-teal-700 dark:text-teal-300",
+    accentBar: "bg-teal-500",
+    title: "Market Story",
+    desc: "Capital markets knowledge archive — DCM, ECM, S&T, Chinese Wall, and Syndication explained with real deal examples.",
+    count: `${ALL_CONCEPTS.length} concepts`,
+    cta: "Browse market →",
+    ctaColor: "text-teal-600 dark:text-teal-400",
+  },
+  {
+    key: "deal101",
+    href: "/en/deal-101",
+    badge: "Concept Dictionary",
+    badgeBg: "bg-violet-50 dark:bg-violet-900/30",
+    badgeFg: "text-violet-700 dark:text-violet-300",
+    accentBar: "bg-violet-500",
+    title: "Deal 101",
+    desc: "Essential M&A and PE concepts — from EV/EBITDA to LBO, syndication, and break-up fees, all in one place.",
+    count: "29 concepts",
+    cta: "Learn concepts →",
+    ctaColor: "text-violet-600 dark:text-violet-400",
+  },
+] as const;
+
+const RECENT_DEALS = ALL_DEALS_EN.slice(0, 6);
+
+export default function HubPageEn() {
   return (
     <>
       <Header />
       <main className="flex-1">
 
-        {/* Masthead */}
-        <section className="border-b border-gray-200/60 dark:border-gray-700/60 overflow-hidden">
+        {/* ── Hero ── */}
+        <section className="border-b border-gray-200/60 dark:border-gray-700/60">
           <div className="max-w-3xl mx-auto px-5 py-10">
+            <p className="text-xs font-semibold tracking-widest text-gray-400 dark:text-gray-500 uppercase mb-3">
+              Financial Knowledge Hub
+            </p>
             <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
               Deal Story
             </h1>
             <p className="mt-3 text-base text-gray-500 dark:text-gray-400 leading-relaxed">
-              In-depth analysis of landmark M&amp;A, PE/VC, and IPO transactions —
-              background, structure, valuation, and post-deal outcomes.
+              Deal Story (M&amp;A·PE·IPO archive) and Market Story (DCM·ECM·S&amp;T archive) —
+              explore landmark deals and capital markets structures in one place.
             </p>
           </div>
         </section>
 
-        {/* Category chips + recent deals */}
+        {/* ── Section cards ── */}
         <section className="max-w-3xl mx-auto px-5 py-10">
-
-          {/* Category chips */}
-          <div className="flex flex-wrap gap-2 mb-8">
-            <Link
-              href="/en/deals"
-              className="rounded-full px-3.5 py-1.5 text-xs font-medium bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900"
-            >
-              All
-            </Link>
-            {DEAL_CATEGORY_ORDER.map((cat) => (
-              <Link
-                key={cat}
-                href={`/en/deals?category=${cat}`}
-                className="rounded-full px-3.5 py-1.5 text-xs font-medium text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-              >
-                {DEAL_CATEGORY_LABEL_EN[cat]}
+          <h2 className="text-sm font-bold text-gray-900 dark:text-gray-100 mb-4">
+            Explore Archives
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
+            {SECTIONS.map((s) => (
+              <Link key={s.key} href={s.href}>
+                <div className="group relative bg-white dark:bg-gray-900 rounded-xl border border-gray-200/60 dark:border-gray-700/60 p-5 h-full flex flex-col hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer overflow-hidden">
+                  <div className={`absolute inset-x-0 top-0 h-0.5 ${s.accentBar}`} />
+                  <span className={`self-start text-[10px] font-bold px-2 py-0.5 rounded-full mb-3 ${s.badgeBg} ${s.badgeFg}`}>
+                    {s.badge}
+                  </span>
+                  <h3 className="text-[15px] font-bold text-gray-900 dark:text-gray-100 mb-1.5 leading-tight">
+                    {s.title}
+                  </h3>
+                  <p className="text-[12px] text-gray-500 dark:text-gray-400 leading-relaxed flex-1 mb-3 line-clamp-3">
+                    {s.desc}
+                  </p>
+                  <div className="flex items-center justify-between mt-auto">
+                    <span className="text-[10px] text-gray-400 dark:text-gray-500">{s.count}</span>
+                    <span className={`text-[11px] font-semibold ${s.ctaColor} group-hover:underline`}>
+                      {s.cta}
+                    </span>
+                  </div>
+                </div>
               </Link>
             ))}
           </div>
 
-          {/* Recent deals header */}
+          {/* ── Recent Deals ── */}
           <div className="flex items-baseline justify-between mb-5">
             <h2 className="text-base font-bold text-gray-900 dark:text-gray-100">
               Recent Deals
@@ -88,22 +132,11 @@ export default function HomePageEn() {
               View all →
             </Link>
           </div>
-
-          {/* Card grid */}
-          {ALL_DEALS_EN.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {ALL_DEALS_EN.map((deal) => (
-                <DealCard key={deal.slug} deal={deal} lang="en" />
-              ))}
-            </div>
-          ) : (
-            <div className="py-20 text-center">
-              <p className="text-sm text-gray-400 dark:text-gray-500">
-                No deals yet.
-              </p>
-            </div>
-          )}
-
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {RECENT_DEALS.map((deal) => (
+              <DealCard key={deal.slug} deal={deal} lang="en" />
+            ))}
+          </div>
         </section>
       </main>
       <Footer />
