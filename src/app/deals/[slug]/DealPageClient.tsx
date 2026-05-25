@@ -256,7 +256,7 @@ export default function DealPageClient({
           {/* ── 4. 딜 요약 카드 */}
           <div className="mt-8 rounded-xl border border-gray-200 dark:border-gray-700/60 bg-gray-50 dark:bg-gray-800/40 p-5">
             <p className="text-[11px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-4">{t.dealSummary}</p>
-            <dl className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-4">
+            <dl className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-3">
               <div className="col-span-2 sm:col-span-1 flex flex-col gap-0.5">
                 <dt className="text-[11px] font-medium text-gray-400 dark:text-gray-500 uppercase tracking-wide">{t.dealValue}</dt>
                 <dd className="text-base font-bold text-amber-500">{deal.dealSummary.dealValueDisplay}</dd>
@@ -371,13 +371,13 @@ export default function DealPageClient({
           {/* ── 8. 딜 구조 */}
           <SectionTitle>{t.dealStructure}</SectionTitle>
           <p className="text-[0.9375rem] text-gray-600 dark:text-gray-400 leading-relaxed mb-6">{deal.dealStructure.body}</p>
-          <div className="grid grid-cols-2 gap-6 mb-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-4">
             <OwnershipDiagram title={t.preDeal} nodes={deal.dealStructure.preOwnership.nodes} edges={deal.dealStructure.preOwnership.edges} delay={0} />
             <OwnershipDiagram title={t.postDeal} nodes={deal.dealStructure.postOwnership.nodes} edges={deal.dealStructure.postOwnership.edges} delay={0.2} />
           </div>
           <div className="mt-4 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/60 p-4 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
             <p className="font-semibold text-gray-800 dark:text-gray-200 mb-1">{t.keyTerms}</p>
-            <div className="grid grid-cols-2 gap-x-8 gap-y-1.5 text-[13px] mt-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5 text-[13px] mt-2">
               {deal.dealStructure.keyTerms.map(({ label, value, accent }) => (
                 <div key={label}>
                   <span className="text-gray-400 dark:text-gray-500">{label}</span>

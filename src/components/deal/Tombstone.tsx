@@ -30,7 +30,7 @@ function LogoBadge({
   return (
     <div className="flex flex-col items-center gap-2">
       <div
-        className={`w-16 h-16 rounded-2xl flex items-center justify-center text-white font-black text-sm tracking-tight shadow-md ${bg}`}
+        className={`w-12 h-12 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center text-white font-black text-xs sm:text-sm tracking-tight shadow-md ${bg}`}
       >
         {initials}
       </div>
@@ -67,7 +67,7 @@ export default function Tombstone({
     >
       {/* Outer border wrapper — classic tombstone feel */}
       <div className="border-2 border-gray-300 dark:border-gray-600 rounded-sm p-[3px]">
-        <div className="border border-gray-200 dark:border-gray-700 rounded-sm bg-[#fafaf8] dark:bg-gray-900 px-10 py-9 text-center">
+        <div className="border border-gray-200 dark:border-gray-700 rounded-sm bg-[#fafaf8] dark:bg-gray-900 px-4 sm:px-10 py-6 sm:py-9 text-center">
 
           {/* Record-only disclaimer */}
           <p className="text-[9.5px] tracking-[0.18em] uppercase text-gray-400 dark:text-gray-500 mb-7 font-medium">
@@ -78,7 +78,7 @@ export default function Tombstone({
           <div className="w-12 h-px bg-gray-300 dark:bg-gray-600 mx-auto mb-7" />
 
           {/* Logo badges */}
-          <div className="flex items-center justify-center gap-10 mb-7">
+          <div className="flex items-center justify-center gap-6 sm:gap-10 mb-7">
             <LogoBadge
               initials={acquirerInitials}
               bg={acquirerBg}
@@ -108,41 +108,41 @@ export default function Tombstone({
           <div className="w-12 h-px bg-gray-300 dark:bg-gray-600 mx-auto mb-7" />
 
           {/* Key metrics row */}
-          <div className="flex items-start justify-center gap-12 mb-7">
+          <div className="flex items-start justify-center gap-4 sm:gap-12 mb-7">
             {/* Deal Size */}
             <div>
               <p className="text-[9px] tracking-[0.16em] uppercase text-gray-400 dark:text-gray-500 mb-1.5">
                 Transaction Size
               </p>
-              <p className="text-[22px] font-bold text-gray-800 dark:text-gray-200 leading-none tracking-tight">
+              <p className="text-[18px] sm:text-[22px] font-bold text-gray-800 dark:text-gray-200 leading-none tracking-tight">
                 {dealSize}
               </p>
               <p className="text-[11px] text-gray-400 dark:text-gray-500 mt-1">{dealSizeUSD}</p>
             </div>
 
             {/* Divider */}
-            <div className="w-px h-14 bg-gray-200 dark:bg-gray-700 self-center" />
+            <div className="w-px h-10 sm:h-14 bg-gray-200 dark:bg-gray-700 self-center" />
 
             {/* EV/EBITDA */}
             <div>
               <p className="text-[9px] tracking-[0.16em] uppercase text-gray-400 dark:text-gray-500 mb-1.5">
                 EV / EBITDA
               </p>
-              <p className="text-[22px] font-bold text-gray-800 dark:text-gray-200 leading-none tracking-tight">
+              <p className="text-[18px] sm:text-[22px] font-bold text-gray-800 dark:text-gray-200 leading-none tracking-tight">
                 {evEbitda}
               </p>
               <p className="text-[11px] text-gray-400 dark:text-gray-500 mt-1">Multiple</p>
             </div>
 
             {/* Divider */}
-            <div className="w-px h-14 bg-gray-200 dark:bg-gray-700 self-center" />
+            <div className="w-px h-10 sm:h-14 bg-gray-200 dark:bg-gray-700 self-center" />
 
             {/* Close date */}
             <div>
               <p className="text-[9px] tracking-[0.16em] uppercase text-gray-400 dark:text-gray-500 mb-1.5">
                 Closed
               </p>
-              <p className="text-[22px] font-bold text-gray-800 dark:text-gray-200 leading-none tracking-tight">
+              <p className="text-[18px] sm:text-[22px] font-bold text-gray-800 dark:text-gray-200 leading-none tracking-tight">
                 {closeDate}
               </p>
               <p className="text-[11px] text-gray-400 dark:text-gray-500 mt-1">Deal Date</p>

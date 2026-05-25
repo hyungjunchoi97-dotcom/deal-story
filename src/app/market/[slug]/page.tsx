@@ -112,21 +112,15 @@ export default async function MarketConceptPage({
           {/* 섹션들 */}
           {concept.sections.map((section, i) => (
             <section key={i}>
-              <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-0.5">
+              <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-4">
                 {section.heading}
               </h2>
-              <p className="text-[12px] text-gray-400 dark:text-gray-500 italic mb-4">
-                {section.headingEn}
-              </p>
               <div
                 className="pl-4 border-l-2"
                 style={{ borderColor: accent + "4d" /* 30% opacity */ }}
               >
-                <p className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed mb-3">
+                <p className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">
                   {section.body}
-                </p>
-                <p className="text-[12px] text-gray-500 dark:text-gray-400 leading-relaxed">
-                  {section.bodyEn}
                 </p>
               </div>
             </section>
@@ -156,15 +150,9 @@ export default async function MarketConceptPage({
                     <span className="font-bold text-gray-900 dark:text-gray-100 text-[14px]">
                       {term.term}
                     </span>
-                    <span className="text-[11px] text-gray-400 dark:text-gray-500">
-                      {term.termEn}
-                    </span>
                   </div>
-                  <p className="text-[13px] text-gray-700 dark:text-gray-300 leading-relaxed pl-7 mb-1.5">
+                  <p className="text-[13px] text-gray-700 dark:text-gray-300 leading-relaxed pl-7">
                     {term.definition}
-                  </p>
-                  <p className="text-[12px] text-gray-500 dark:text-gray-400 leading-relaxed pl-7">
-                    {term.definitionEn}
                   </p>
                 </div>
               ))}
