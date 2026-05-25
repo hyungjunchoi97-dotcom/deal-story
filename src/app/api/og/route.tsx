@@ -12,15 +12,15 @@
  */
 import { ImageResponse } from "next/og";
 import type { NextRequest } from "next/server";
-import { getDealBySlug } from "@/data/deals";
-import { getDealBySlugEn } from "@/data/deals/en";
+import { getOgDealBySlug } from "@/data/og-data";
+import { getOgDealBySlugEn } from "@/data/en/og-data";
 import { getCategoryLabel, type Lang } from "@/lib/i18n";
-import type { DealCategory, DealData } from "@/lib/deal-data";
+import type { DealCategory } from "@/lib/deal-data";
+import type { OgDeal } from "@/data/og-data";
 
-// Edge → nodejs 런타임: 딜 수 증가로 번들이 1 MB 무료 플랜 한도를 초과해 변경.
-// Serverless Functions 한도는 50 MB 이므로 여유 있음.
-// OG 이미지는 SNS 플랫폼이 1회 크롤 후 자체 캐시하므로 Edge 성능 이점 미미.
-export const runtime = "nodejs";
+// Edge runtime — OG 전용 경량 데이터(og-data.ts)만 번들링해 1 MB 이하 유지.
+// 전체 DealData 대신 OgDeal(7개 필드)만 사용하므로 딜 수가 늘어도 번들 크기 안전.
+export const runtime = "edge";
 
 const SIZE = { width: 1200, height: 630 } as const;
 
@@ -101,10 +101,10 @@ export async function GET(req: NextRequest) {
   const slug = searchParams.get("slug") ?? undefined;
   const lang: Lang = searchParams.get("lang") === "en" ? "en" : "ko";
 
-  const deal: DealData | undefined = slug
+  const deal: OgDeal | undefined = slug
     ? lang === "en"
-      ? getDealBySlugEn(slug)
-      : getDealBySlug(slug)
+      ? getOgDealBySlugEn(slug)
+      : getOgDealBySlug(slug)
     : undefined;
 
   const fontData = await loadFont();
@@ -215,7 +215,7 @@ export async function GET(req: NextRequest) {
   const categoryLabel = getCategoryLabel(deal.category, lang);
   // ImageResponse 는 단일 폰트만 사용 → Pretendard Bold 가 갖지 않은 글리프
   // (예: 원화 ₩ U+20A9 등)는 tofu 로 보임. KRW 텍스트로 안전 치환.
-  const dealValue = deal.dealSummary.dealValueDisplay
+  const dealValue = deal.dealValueDisplay
     .split("(")[0]
     .trim()
     .replace(/[₩￦]/g, "KRW ");
@@ -298,11 +298,11 @@ export async function GET(req: NextRequest) {
             }}
           >
             <span style={{ display: "flex", fontWeight: 700 }}>
-              {deal.acquirer.label}
+              {deal.acquirerLabel}
             </span>
             <span style={{ display: "flex", color: COLOR.textSubtle }}>→</span>
             <span style={{ display: "flex", fontWeight: 700 }}>
-              {deal.target.label}
+              {deal.targetLabel}
             </span>
           </div>
 
