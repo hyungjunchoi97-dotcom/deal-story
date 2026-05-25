@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import DealCard from "@/components/home/DealCard";
 import { ALL_DEALS } from "@/data/deals";
 import { ALL_CONCEPTS } from "@/data/market-concepts";
+import { ALL_MARKET101_CONCEPTS } from "@/data/market-101-concepts";
 
 export const metadata: Metadata = {
   title: "Deal Story — 딜 & 자본시장 아카이브",
@@ -57,6 +58,19 @@ const SECTIONS = [
     cta: "개념 사전 보기 →",
     ctaColor: "text-violet-600 dark:text-violet-400",
   },
+  {
+    key: "market101",
+    href: "/market-101",
+    badge: "자본시장 개념 사전",
+    badgeBg: "bg-teal-50 dark:bg-teal-900/30",
+    badgeFg: "text-teal-700 dark:text-teal-300",
+    accentBar: "bg-teal-400",
+    title: "Market 101",
+    desc: "자본시장 개념 사전 — DCM·ECM·S&T·구조·규제까지 IB 실무 핵심 개념을 딜 사례와 함께 풀어냅니다.",
+    count: `${ALL_MARKET101_CONCEPTS.length}개 개념`,
+    cta: "마켓 101 보기 →",
+    ctaColor: "text-teal-600 dark:text-teal-400",
+  },
 ] as const;
 
 // ── 최근 딜 (홈에 6개만 표시) ──────────────────────────────────────
@@ -89,7 +103,7 @@ export default function HubPage() {
           <h2 className="text-sm font-bold text-gray-900 dark:text-gray-100 mb-4">
             아카이브 탐색
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
             {SECTIONS.map((s) => (
               <Link key={s.key} href={s.href}>
                 <div className="group relative bg-white dark:bg-gray-900 rounded-xl border border-gray-200/60 dark:border-gray-700/60 p-5 h-full flex flex-col hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer overflow-hidden">

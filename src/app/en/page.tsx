@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import DealCard from "@/components/home/DealCard";
 import { ALL_DEALS_EN } from "@/data/deals/en";
 import { ALL_CONCEPTS } from "@/data/market-concepts";
+import { ALL_MARKET101_CONCEPTS } from "@/data/market-101-concepts";
 
 export const metadata: Metadata = {
   title: "Deal Story — Deal & Capital Markets Archive",
@@ -64,6 +65,19 @@ const SECTIONS = [
     cta: "Learn concepts →",
     ctaColor: "text-violet-600 dark:text-violet-400",
   },
+  {
+    key: "market101",
+    href: "/en/market-101",
+    badge: "Markets Dictionary",
+    badgeBg: "bg-teal-50 dark:bg-teal-900/30",
+    badgeFg: "text-teal-700 dark:text-teal-300",
+    accentBar: "bg-teal-400",
+    title: "Market 101",
+    desc: "Capital markets concept dictionary — DCM, ECM, S&T, and regulation explained with real deal examples.",
+    count: `${ALL_MARKET101_CONCEPTS.length} concepts`,
+    cta: "Browse Market 101 →",
+    ctaColor: "text-teal-600 dark:text-teal-400",
+  },
 ] as const;
 
 const RECENT_DEALS = ALL_DEALS_EN.slice(0, 6);
@@ -95,7 +109,7 @@ export default function HubPageEn() {
           <h2 className="text-sm font-bold text-gray-900 dark:text-gray-100 mb-4">
             Explore Archives
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
             {SECTIONS.map((s) => (
               <Link key={s.key} href={s.href}>
                 <div className="group relative bg-white dark:bg-gray-900 rounded-xl border border-gray-200/60 dark:border-gray-700/60 p-5 h-full flex flex-col hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer overflow-hidden">
