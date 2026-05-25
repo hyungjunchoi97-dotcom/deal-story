@@ -120,9 +120,13 @@ export default async function Market101ConceptPageEn({
                 className="pl-4 border-l-2"
                 style={{ borderColor: accent + "4d" }}
               >
-                <p className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">
-                  {section.bodyEn}
-                </p>
+                <div className="space-y-3">
+                  {section.bodyEn.split("\n\n").map((para, j) => (
+                    <p key={j} className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">
+                      {para}
+                    </p>
+                  ))}
+                </div>
               </div>
             </section>
           ))}
