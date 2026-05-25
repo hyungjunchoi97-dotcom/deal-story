@@ -23,12 +23,12 @@ const stagger = {
 
 // ── Visual Data ───────────────────────────────────────────────────────────────
 const SPECTRUM = [
-  { id: "ssa",        label: "SSA",       sub: "Sovereign · Supra · Agency",  rating: "AAA~AA",  spread: "T+20–60bp",   pool: 5, poolLabel: "최대",  team: "DCM",          ex: "외평채 · KDB · EIB",  bg: "bg-teal-50 dark:bg-teal-900/30",    border: "border-teal-200 dark:border-teal-700",    dot: "bg-teal-500",    text: "text-teal-800 dark:text-teal-200"    },
-  { id: "soe",        label: "SOE",       sub: "State-Owned Enterprise",       rating: "AA~A",    spread: "T+50–120bp",  pool: 4, poolLabel: "대",    team: "DCM",          ex: "KEPCO · Aramco",       bg: "bg-emerald-50 dark:bg-emerald-900/30", border: "border-emerald-200 dark:border-emerald-700", dot: "bg-emerald-500", text: "text-emerald-800 dark:text-emerald-200" },
-  { id: "fig",        label: "FIG",       sub: "Financial Institutions",       rating: "A~BBB",   spread: "T+80–180bp",  pool: 4, poolLabel: "대",    team: "DCM",          ex: "KB · HSBC · 농협",     bg: "bg-blue-50 dark:bg-blue-900/30",     border: "border-blue-200 dark:border-blue-700",     dot: "bg-blue-500",    text: "text-blue-800 dark:text-blue-200"     },
-  { id: "ig",         label: "Corp IG",   sub: "Investment Grade Corp",        rating: "BBB",     spread: "T+80–250bp",  pool: 3, poolLabel: "중",    team: "DCM",          ex: "삼성 · Apple · Shell",  bg: "bg-violet-50 dark:bg-violet-900/30",  border: "border-violet-200 dark:border-violet-700",  dot: "bg-violet-500",  text: "text-violet-800 dark:text-violet-200"  },
-  { id: "hy",         label: "HY",        sub: "High Yield / Junk Bond",       rating: "BB~B",    spread: "T+300–700bp", pool: 2, poolLabel: "소",    team: "LevFin",       ex: "LBO 기업",              bg: "bg-orange-50 dark:bg-orange-900/30",  border: "border-orange-200 dark:border-orange-700",  dot: "bg-orange-500",  text: "text-orange-800 dark:text-orange-200"  },
-  { id: "distressed", label: "Distressed",sub: "Near Default",                 rating: "CCC~D",   spread: "T+700bp+",    pool: 1, poolLabel: "극소",  team: "Special Sits", ex: "부도 직전 기업",          bg: "bg-red-50 dark:bg-red-900/30",       border: "border-red-200 dark:border-red-700",       dot: "bg-red-500",     text: "text-red-800 dark:text-red-200"       },
+  { id: "ssa",        label: "SSA",       sub: "Sovereign · Supra · Agency",  rating: "AAA~AA",  spread: "T+20–60bp",   pool: 5, poolLabel: "최대",  team: "DCM",          ex: "외평채 · KDB · EIB",       exEn: "US Treasury · FHLB · World Bank",   bg: "bg-teal-50 dark:bg-teal-900/30",    border: "border-teal-200 dark:border-teal-700",    dot: "bg-teal-500",    text: "text-teal-800 dark:text-teal-200"    },
+  { id: "soe",        label: "SOE",       sub: "State-Owned Enterprise",       rating: "AA~A",    spread: "T+50–120bp",  pool: 4, poolLabel: "대",    team: "DCM",          ex: "KEPCO · Aramco",            exEn: "Fannie Mae · TVA · Aramco",         bg: "bg-emerald-50 dark:bg-emerald-900/30", border: "border-emerald-200 dark:border-emerald-700", dot: "bg-emerald-500", text: "text-emerald-800 dark:text-emerald-200" },
+  { id: "fig",        label: "FIG",       sub: "Financial Institutions",       rating: "A~BBB",   spread: "T+80–180bp",  pool: 4, poolLabel: "대",    team: "DCM",          ex: "KB · HSBC · 농협",          exEn: "JPMorgan · Goldman · BofA",         bg: "bg-blue-50 dark:bg-blue-900/30",     border: "border-blue-200 dark:border-blue-700",     dot: "bg-blue-500",    text: "text-blue-800 dark:text-blue-200"     },
+  { id: "ig",         label: "Corp IG",   sub: "Investment Grade Corp",        rating: "BBB",     spread: "T+80–250bp",  pool: 3, poolLabel: "중",    team: "DCM",          ex: "삼성 · Apple · Shell",      exEn: "Apple · Microsoft · Shell",         bg: "bg-violet-50 dark:bg-violet-900/30",  border: "border-violet-200 dark:border-violet-700",  dot: "bg-violet-500",  text: "text-violet-800 dark:text-violet-200"  },
+  { id: "hy",         label: "HY",        sub: "High Yield / Junk Bond",       rating: "BB~B",    spread: "T+300–700bp", pool: 2, poolLabel: "소",    team: "LevFin",       ex: "LBO 기업",                  exEn: "PE-backed LBO cos.",                bg: "bg-orange-50 dark:bg-orange-900/30",  border: "border-orange-200 dark:border-orange-700",  dot: "bg-orange-500",  text: "text-orange-800 dark:text-orange-200"  },
+  { id: "distressed", label: "Distressed",sub: "Near Default",                 rating: "CCC~D",   spread: "T+700bp+",    pool: 1, poolLabel: "극소",  team: "Special Sits", ex: "부도 직전 기업",             exEn: "Near-default cos.",                 bg: "bg-red-50 dark:bg-red-900/30",       border: "border-red-200 dark:border-red-700",       dot: "bg-red-500",     text: "text-red-800 dark:text-red-200"       },
 ];
 
 const INVESTORS = [
@@ -147,7 +147,7 @@ function CreditSpectrumViz({ lang }: { lang: Lang }) {
                   <span className="font-medium text-gray-700 dark:text-gray-300">{row.v}</span>
                 </div>
               ))}
-              <p className={`text-[9px] mt-2 pt-2 border-t leading-tight ${s.border} text-gray-400 dark:text-gray-500`}>{s.ex}</p>
+              <p className={`text-[9px] mt-2 pt-2 border-t leading-tight ${s.border} text-gray-400 dark:text-gray-500`}>{ko ? s.ex : s.exEn}</p>
             </motion.div>
           ))}
         </div>
@@ -446,7 +446,7 @@ export default function DcmEcosystemClient({ concept, lang }: { concept: MarketC
               </span>
               <span className="text-gray-300 dark:text-gray-600">·</span>
               <div className="flex gap-1.5 flex-wrap">
-                {concept.tags.slice(0, 6).map(tag => (
+                {(ko ? concept.tags : (concept.tagsEn ?? concept.tags)).slice(0, 6).map(tag => (
                   <span key={tag} className="bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 px-2 py-0.5 rounded text-[10px]">
                     {tag}
                   </span>

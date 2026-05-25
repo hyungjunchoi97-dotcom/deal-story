@@ -37,6 +37,7 @@ export const ALL_MARKET101_CONCEPTS: MarketConcept[] = [
       "The global bond market is worth over $130 trillion — larger than equities. Yet many of the biggest buyers aren't here for yield. Understanding DCM starts with this paradox: a complete map of the issuer–investor–investment bank triangle.",
     readingMinutes: 15,
     tags: ["DCM", "채권시장", "발행사", "투자자", "SSA", "IG", "HY", "차이니즈월", "신디케이트", "스프레드"],
+    tagsEn: ["DCM", "Bond Market", "Issuer", "Investor", "SSA", "IG", "HY", "Chinese Wall", "Syndicate", "Spread"],
     sections: [
       // ── 섹션 1 ──────────────────────────────────────────────────────────────
       {
@@ -52,7 +53,7 @@ DCM(Debt Capital Markets, 채권 자본시장)은 이 거대한 자금 흐름의
         bodyEn:
 `The global bond market has an outstanding balance of approximately $130 trillion as of 2024. The global equity market cap sits at around $110 trillion by comparison — meaning bonds are actually larger than stocks, which surprises many who follow financial news, since equity stories dominate headlines.
 
-The reason is straightforward. There are two fundamental ways for a company or government to raise capital: sell equity (ownership) or issue debt (borrowing). And most capital raising is done through debt. When Samsung Electronics funds a new factory, when the Korean government covers its fiscal deficit, when Germany's KfW development bank raises capital to fund infrastructure loans — all of this happens through bond issuance. Equity raises are comparatively rare.
+The reason is straightforward. There are two fundamental ways for a company or government to raise capital: sell equity (ownership) or issue debt (borrowing). And most capital raising is done through debt. When Apple funds a new data center, when the US Treasury covers a fiscal deficit, when Germany's KfW raises capital for infrastructure loans — all of this happens through bond issuance. Equity raises are comparatively rare.
 
 DCM (Debt Capital Markets) is the primary market for this enormous flow of capital — the place where new bonds are created and sold to investors. The DCM team at an investment bank bridges issuers and investors to make this happen. This series dissects that mechanism from beginning to end.`,
       },
@@ -73,9 +74,9 @@ DCM (Debt Capital Markets) is the primary market for this enormous flow of capit
         bodyEn:
 `Line up all bond issuers on a spectrum. At the far left: AAA-rated, highest-quality issuers. At the far right: distressed companies on the verge of default. Where you sit on this line determines almost everything — the size of your accessible investor pool, your coupon (interest rate), deal structure, and which IB team handles your transaction.
 
-Starting from the left: SSA (Sovereign, Supranational, Agency) occupies the top of the credit spectrum. This includes national governments (Sovereign), international institutions like the World Bank and EIB (Supranational), and policy lenders like KDB, KfW, and KEXIM (Agency). Korea's Ministry of Finance issuing external bonds (외평채) is a Sovereign issuance. These issuers carry minimal credit risk — DCM bankers spend almost no time on credit analysis, and investors already know the names.
+Starting from the left: SSA (Sovereign, Supranational, Agency) occupies the top of the credit spectrum. This includes national governments (Sovereign), international institutions like the World Bank and EIB (Supranational), and policy lenders like the FHLB, KfW, and KEXIM (Agency). The US Treasury issuing Treasuries, Germany's KfW issuing development bonds — these are classic SSA issuances. These issuers carry minimal credit risk — DCM bankers spend almost no time on credit analysis, and investors already know the names.
 
-Moving down: SOE (State-Owned Enterprises) — KEPCO in Korea, Aramco in Saudi Arabia. Government-linked credit but not sovereign. Below that, FIG (Financial Institutions Group) — bonds issued by commercial banks and insurance companies. Then IG Corporates (rated BBB- or above). The right half of the spectrum begins with HY (High Yield) at BB+ and below, ending with Distressed near default.
+Moving down: SOE (State-Owned Enterprises) — Fannie Mae and Freddie Mac in the US, Aramco in Saudi Arabia, TVA (Tennessee Valley Authority). Government-linked credit but not sovereign. Below that, FIG (Financial Institutions Group) — bonds issued by commercial banks and insurance companies. Then IG Corporates (rated BBB- or above). The right half of the spectrum begins with HY (High Yield) at BB+ and below, ending with Distressed near default.
 
 The key insight: as credit rating deteriorates, ① the investor pool narrows (due to regulatory restrictions), ② coupons must be higher, ③ the IB team shifts from DCM to LevFin, ④ covenants in the indenture get thicker, and ⑤ execution takes longer. This is why an SSA deal can price in a single day while an HY deal requires weeks of roadshows.`,
       },
@@ -100,7 +101,7 @@ The key insight: as credit rating deteriorates, ① the investor pool narrows (d
         bodyEn:
 `Ask bond investors "Why are you buying this bond?" and the honest answer is often unexpected.
 
-Central banks are managing foreign exchange reserves. They need ammunition to defend their currency — and that ammunition must be safe and liquid above all. Yield is the third priority. So central banks primarily buy US Treasuries and top-rated SSA bonds. Korean sovereign bonds (외평채) sell well to Asian central banks partly because of FX reserve diversification demand.
+Central banks are managing foreign exchange reserves. They need ammunition to defend their currency — and that ammunition must be safe and liquid above all. Yield is the third priority. So central banks primarily buy US Treasuries and top-rated SSA bonds. Sovereign bonds from stable governments sell well to Asian central banks partly because of FX reserve diversification demand.
 
 Insurance companies and pension funds practice ALM (Asset-Liability Management). An insurer must pay claims 20 years from now. Their core strategy is to cover these future liabilities with long-duration bonds whose cash flows match. The goal isn't to maximize returns — it's to match asset cash flows to liability maturities. This is why Taiwanese and Japanese insurers are enormous buyers of long-dated dollar bonds.
 
@@ -164,7 +165,7 @@ KRW — 아리랑본드(Arirang Bond)는 외국 발행사가 국내 원화 채�
         bodyEn:
 `An issuer must choose which currency, and in which market, to issue bonds. This isn't merely "dollar or euro" — it determines the accessible investor pool, swap costs, and the entire cost structure of the transaction.
 
-USD — The largest investor pool globally. Yankee Bonds are dollar-denominated bonds issued in the US under SEC registration (or Reg S/144A). Most Asian SSA issuers choose USD as their primary currency. Korean sovereign bonds (외평채) fall here.
+USD — The largest investor pool globally. Yankee Bonds are dollar-denominated bonds issued in the US under SEC registration (or Reg S/144A). Most sovereign and SSA issuers choose USD as their primary currency — it offers the deepest investor pool and the most liquid secondary market.
 
 EUR — Access to European investor bases, particularly European insurers and pension funds. Active for SSA and FIG issuers. The Eurobond market offers more regulatory flexibility than the US market.
 

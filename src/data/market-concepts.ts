@@ -31,6 +31,7 @@ export type MarketConcept = {
   excerptEn: string;
   readingMinutes: number;
   tags: string[];
+  tagsEn?: string[];
   sections: ConceptSection[];
   keyTerms: KeyTerm[];
   relatedSlugs: string[];
