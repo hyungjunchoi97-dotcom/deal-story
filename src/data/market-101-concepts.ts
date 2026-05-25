@@ -7,7 +7,7 @@
  * section.body / section.bodyEn 에서 \n\n 은 단락 구분자.
  */
 import type { MarketConcept } from "@/data/market-concepts";
-export type { MarketConcept, Reference } from "@/data/market-concepts";
+export type { MarketConcept, Reference, AppearsInRef } from "@/data/market-concepts";
 export { CATEGORY_COLOR } from "@/data/market-concepts";
 
 // ── 카테고리 메타 ─────────────────────────────────────────────────────────────

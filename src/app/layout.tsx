@@ -40,24 +40,48 @@ export const metadata: Metadata = {
   // verification: { google: "YOUR_GSC_TOKEN" },
 };
 
-// ── WebSite JSON-LD ───────────────────────────────────────────
-// Google이 사이트 이름과 검색 액션을 이해하도록 도움.
-const WEBSITE_JSONLD = {
+// ── WebSite + Organization JSON-LD ───────────────────────────
+// Google Knowledge Panel 진입 조건 + 사이트 검색 액션 등록
+const SITE_JSONLD = {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: "Deal Story",
-  url: BASE,
-  description:
-    "M&A, PE/VC, IPO 딜 아카이브 — 실제 딜 사례로 배우는 금융 개념. Archive of landmark M&A, PE, and IPO deals explained in context.",
-  inLanguage: ["ko", "en"],
-  potentialAction: {
-    "@type": "SearchAction",
-    target: {
-      "@type": "EntryPoint",
-      urlTemplate: `${BASE}/deals?q={search_term_string}`,
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${BASE}/#website`,
+      name: "Deal Story",
+      url: BASE,
+      description:
+        "M&A, PE/VC, IPO 딜 아카이브 — 실제 딜 사례로 배우는 금융 개념. Archive of landmark M&A, PE, and IPO deals explained in context.",
+      inLanguage: ["ko", "en"],
+      publisher: { "@id": `${BASE}/#organization` },
+      potentialAction: {
+        "@type": "SearchAction",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: `${BASE}/deals?q={search_term_string}`,
+        },
+        "query-input": "required name=search_term_string",
+      },
     },
-    "query-input": "required name=search_term_string",
-  },
+    {
+      "@type": "Organization",
+      "@id": `${BASE}/#organization`,
+      name: "Deal Story",
+      url: BASE,
+      logo: {
+        "@type": "ImageObject",
+        "@id": `${BASE}/#logo`,
+        url: `${BASE}/logo.png`,
+        width: 512,
+        height: 512,
+        caption: "Deal Story",
+      },
+      description:
+        "M&A, PE/VC 딜 아카이브 및 금융 교육 플랫폼. 실제 딜 사례로 배우는 금융 개념.",
+      inLanguage: ["ko", "en"],
+      sameAs: [],
+    },
+  ],
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
@@ -75,10 +99,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark')document.documentElement.classList.add('dark');}catch(e){}})();`,
           }}
         />
-        {/* WebSite structured data */}
+        {/* WebSite + Organization structured data */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(WEBSITE_JSONLD) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(SITE_JSONLD) }}
         />
       </head>
       <body className="min-h-full flex flex-col font-sans overflow-x-hidden bg-white text-gray-900">

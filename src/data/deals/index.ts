@@ -31,6 +31,8 @@ import salesforceMulesoft from "./salesforce-mulesoft";
 import sapQualtrics from "./sap-qualtrics";
 import zendeskPeBuyout from "./zendesk-pe-buyout";
 import danaherAcquisitions from "./danaher-acquisitions";
+import elliottSamsung from "./elliott-samsung";
+import jpmorganBearStearns from "./jpmorgan-bear-stearns";
 
 /**
  * 딜 레지스트리 — 새 딜 추가 시 import 후 배열에 추가
@@ -59,10 +61,12 @@ export const ALL_DEALS: DealData[] = [
   amazonWholeFoods,      // 2017-08-28
   microsoftLinkedin,     // 2016-12-08
   mbkHomeplus,           // 2015-11-30
+  elliottSamsung,        // 2015-09-01 (activism)
   ebayPaypalSpinoff,     // 2015-07-17
   metaWhatsapp,          // 2014-10-06
   abbottAbbvieSpinoff,   // 2013-01-01
   metaInstagram,         // 2012-09-06
+  jpmorganBearStearns,   // 2008-05-30 (금융위기)
   googleYoutube,         // 2006-10-31
   disneyPixar,           // 2006-05-05
   hpCompaq,              // 2002-05-03

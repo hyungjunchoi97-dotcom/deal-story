@@ -68,7 +68,7 @@ export default async function DealPageEn({
   const deal = getDealBySlugEn(slug);
   if (!deal) notFound();
 
-  // Article + FAQPage JSON-LD
+  // Article + FAQPage + BreadcrumbList JSON-LD
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -79,17 +79,18 @@ export default async function DealPageEn({
         keywords: deal.seo.keywords.join(", "),
         datePublished: deal.announcedAt,
         dateModified: deal.closedAt ?? deal.announcedAt,
-        author: { "@type": "Organization", name: "Deal Story" },
+        author: { "@type": "Organization", name: "Deal Story", url: SITE_URL },
         publisher: {
           "@type": "Organization",
           name: "Deal Story",
-          logo: { "@type": "ImageObject", url: "/logo.png" },
+          url: SITE_URL,
+          logo: { "@type": "ImageObject", url: `${SITE_URL}/logo.png`, width: 512, height: 512 },
         },
         mainEntityOfPage: {
           "@type": "WebPage",
           "@id": `${SITE_URL}/en/deals/${slug}`,
         },
-        ...(deal.seo.ogImage ? { image: deal.seo.ogImage } : {}),
+        image: deal.seo.ogImage ?? `/api/og?slug=${slug}&lang=en`,
         inLanguage: "en",
       },
       {
@@ -99,6 +100,14 @@ export default async function DealPageEn({
           name: q,
           acceptedAnswer: { "@type": "Answer", text: a },
         })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/en/` },
+          { "@type": "ListItem", position: 2, name: "Deal Archive", item: `${SITE_URL}/en/deals` },
+          { "@type": "ListItem", position: 3, name: deal.title, item: `${SITE_URL}/en/deals/${slug}` },
+        ],
       },
     ],
   };
