@@ -38,11 +38,13 @@ import pershingSquareCpRail from "./pershing-square-cp-rail";
 import valueactMicrosoft from "./valueact-microsoft";
 import thirdPointSony from "./third-point-sony";
 import trianPg from "./trian-pg";
+import koreaZincMbk from "./korea-zinc-mbk";
 
 /**
  * English deal registry — ordered by closedAt descending
  */
 export const ALL_DEALS_EN: DealData[] = [
+  koreaZincMbk,          // 2025-03-28 (control contest)
   geBreakup,             // 2024-04-02
   illuminaGrail,         // 2024 forced divestiture
   adobeFigmaBlocked,     // 2023-12-18 (terminated)

@@ -33,6 +33,7 @@ import zendeskPeBuyout from "./zendesk-pe-buyout";
 import danaherAcquisitions from "./danaher-acquisitions";
 import elliottSamsung from "./elliott-samsung";
 import hanjinKcgi from "./hanjin-kcgi";
+import koreaZincMbk from "./korea-zinc-mbk";
 import jpmorganBearStearns from "./jpmorgan-bear-stearns";
 import pershingSquareCpRail from "./pershing-square-cp-rail";
 import valueactMicrosoft from "./valueact-microsoft";
@@ -44,6 +45,7 @@ import trianPg from "./trian-pg";
  * 최신 딜이 앞에 오도록 closedAt 내림차순 정렬
  */
 export const ALL_DEALS: DealData[] = [
+  koreaZincMbk,          // 2025-03-28 (control)
   geBreakup,             // 2024-04-02
   illuminaGrail,         // 2024 forced divestiture
   adobeFigmaBlocked,     // 2023-12-18 (terminated)

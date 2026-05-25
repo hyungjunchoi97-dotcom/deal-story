@@ -9,6 +9,7 @@ import {
   getMarket101RelatedConcepts,
   CATEGORY_COLOR,
 } from "@/data/market-101-concepts";
+import { ALL_LEARNING_PATHS } from "@/data/learning-paths";
 
 export function generateStaticParams() {
   return ALL_MARKET101_CONCEPTS.map((c) => ({ slug: c.slug }));
@@ -61,6 +62,9 @@ export default async function Market101ConceptPageEn({
   const accent = CAT_ACCENT[concept.category] ?? "#14b8a6";
   const isArticle = concept.entryType === "article";
   const tagsDisplay = concept.tagsEn ?? concept.tags;
+  const relatedPaths = ALL_LEARNING_PATHS.filter(path =>
+    path.steps.some(s => s.type === "market-101" && s.slug === concept.slug)
+  );
 
   return (
     <>
@@ -209,6 +213,30 @@ export default async function Market101ConceptPageEn({
                     </Link>
                   );
                 })}
+              </div>
+            </section>
+          )}
+
+          {/* Learning Paths */}
+          {relatedPaths.length > 0 && (
+            <section className="max-w-3xl mx-auto px-5 pt-10">
+              <div className="flex items-center gap-3 mb-4">
+                <h2 className="text-base font-bold text-gray-900 dark:text-gray-100">Learning Paths</h2>
+                <div className="flex-1 h-px bg-gray-200 dark:bg-gray-700" />
+              </div>
+              <div className="flex flex-col gap-2">
+                {relatedPaths.map((path) => (
+                  <Link key={path.slug} href={`/en/learning-paths/${path.slug}`}
+                    className="flex items-center justify-between gap-3 px-4 py-3 rounded-xl border border-gray-200/60 dark:border-gray-700/60 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors group">
+                    <div>
+                      <p className="text-[13px] font-semibold text-gray-800 dark:text-gray-200 group-hover:text-teal-700 dark:group-hover:text-teal-300 transition-colors">
+                        {path.titleEn}
+                      </p>
+                      <p className="text-[11px] text-gray-400 dark:text-gray-500 mt-0.5">{path.taglineEn}</p>
+                    </div>
+                    <span className="text-teal-600 dark:text-teal-400 text-xs font-medium shrink-0">View Path →</span>
+                  </Link>
+                ))}
               </div>
             </section>
           )}

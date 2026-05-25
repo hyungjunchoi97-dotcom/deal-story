@@ -3,7 +3,7 @@
  * 모든 딜 데이터 파일은 이 인터페이스를 준수합니다.
  */
 
-export type DealCategory = "ma" | "activism" | "restructuring";
+export type DealCategory = "ma" | "activism" | "restructuring" | "control";
 export type RoleType = "financial" | "legal" | "other";
 
 // ── 재무 ──────────────────────────────────────────────────────

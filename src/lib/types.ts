@@ -1,25 +1,28 @@
 // 딜 카테고리
-export type DealCategory = "ma" | "activism" | "restructuring";
+export type DealCategory = "ma" | "activism" | "restructuring" | "control";
 
 export const DEAL_CATEGORY_LABEL: Record<DealCategory, string> = {
   ma: "M&A",
   activism: "행동주의",
   restructuring: "구조조정",
+  control: "경영권 분쟁",
 };
 
 export const DEAL_CATEGORY_SHORT: Record<DealCategory, string> = {
   ma: "M&A",
   activism: "행동주의",
   restructuring: "구조조정",
+  control: "경영권 분쟁",
 };
 
 export const DEAL_CATEGORY_COLOR: Record<DealCategory, string> = {
   ma: "bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300",
   activism: "bg-rose-50 text-rose-700 dark:bg-rose-900/30 dark:text-rose-300",
   restructuring: "bg-amber-50 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300",
+  control: "bg-purple-50 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300",
 };
 
-export const DEAL_CATEGORY_ORDER: DealCategory[] = ["ma", "activism", "restructuring"];
+export const DEAL_CATEGORY_ORDER: DealCategory[] = ["ma", "activism", "restructuring", "control"];
 
 // 딜 포스트
 export interface DealPost {

@@ -29,16 +29,18 @@ export interface NavItem {
 
 export const HEADER_NAV: Record<Lang, NavItem[]> = {
   ko: [
-    { href: "/deals",      label: "딜"      },
-    { href: "/market",     label: "마켓"    },
-    { href: "/deal-101",   label: "딜 101"  },
-    { href: "/market-101", label: "마켓 101" },
+    { href: "/deals",          label: "딜"      },
+    { href: "/market",         label: "마켓"    },
+    { href: "/deal-101",       label: "딜 101"  },
+    { href: "/market-101",     label: "마켓 101" },
+    { href: "/learning-paths", label: "러닝 패스" },
   ],
   en: [
-    { href: "/en/deals",      label: "Deals"      },
-    { href: "/en/market",     label: "Market"     },
-    { href: "/en/deal-101",   label: "Deal 101"   },
-    { href: "/en/market-101", label: "Market 101" },
+    { href: "/en/deals",              label: "Deals"      },
+    { href: "/en/market",             label: "Market"     },
+    { href: "/en/deal-101",           label: "Deal 101"   },
+    { href: "/en/market-101",         label: "Market 101" },
+    { href: "/en/learning-paths",     label: "Paths"      },
   ],
 };
 
@@ -56,6 +58,7 @@ export const DEAL_CATEGORY_LABEL_EN: Record<DealCategory, string> = {
   ma: "M&A",
   activism: "Activism",
   restructuring: "Restructuring",
+  control: "Control Contest",
 };
 
 /**
