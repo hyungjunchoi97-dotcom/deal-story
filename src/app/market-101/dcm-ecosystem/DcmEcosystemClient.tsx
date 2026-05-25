@@ -416,14 +416,16 @@ export default function DcmEcosystemClient({ concept, lang }: { concept: MarketC
             >
               {ko ? concept.title : concept.titleEn}
             </motion.h1>
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-[12px] text-gray-400 dark:text-gray-500 italic mb-4"
-            >
-              {ko ? concept.titleEn : concept.title}
-            </motion.p>
+            {ko && (
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="text-[12px] text-gray-400 dark:text-gray-500 italic mb-4"
+              >
+                {concept.titleEn}
+              </motion.p>
+            )}
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -470,9 +472,6 @@ export default function DcmEcosystemClient({ concept, lang }: { concept: MarketC
                 <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100 mb-0.5">
                   {ko ? section.heading : section.headingEn}
                 </h2>
-                <p className="text-[12px] text-gray-400 dark:text-gray-500 italic">
-                  {ko ? section.headingEn : section.heading}
-                </p>
                 <div className="w-8 h-0.5 mt-3" style={{ background: accent }} />
               </motion.div>
 
@@ -500,9 +499,6 @@ export default function DcmEcosystemClient({ concept, lang }: { concept: MarketC
           <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
             <motion.h2 variants={fadeUp()} className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">
               {ko ? "핵심 용어" : "Key Terms"}
-              <span className="text-sm text-gray-400 dark:text-gray-500 font-normal ml-2">
-                {ko ? "Key Terms" : "핵심 용어"}
-              </span>
             </motion.h2>
             <div className="mt-5 space-y-3">
               {concept.keyTerms.map((term, i) => (
@@ -520,9 +516,6 @@ export default function DcmEcosystemClient({ concept, lang }: { concept: MarketC
                     </span>
                     <span className="font-bold text-gray-900 dark:text-gray-100 text-[14px]">
                       {ko ? term.term : term.termEn}
-                    </span>
-                    <span className="text-[11px] text-gray-400 dark:text-gray-500">
-                      {ko ? term.termEn : term.term}
                     </span>
                   </div>
                   <p className="text-[13px] text-gray-700 dark:text-gray-300 leading-relaxed pl-7">
