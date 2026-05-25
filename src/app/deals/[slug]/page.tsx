@@ -68,7 +68,7 @@ export default async function DealPage({
   const deal = getDealBySlug(slug);
   if (!deal) notFound();
 
-  // Article + FAQPage JSON-LD (Google 리치 결과 타겟)
+  // Article + FAQPage + BreadcrumbList JSON-LD (Google 리치 결과 타겟)
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -79,19 +79,19 @@ export default async function DealPage({
         keywords: deal.seo.keywords.join(", "),
         datePublished: deal.announcedAt,
         dateModified: deal.closedAt ?? deal.announcedAt,
-        author: { "@type": "Organization", name: "Deal Story" },
+        author: { "@type": "Organization", name: "Deal Story", url: SITE_URL },
         publisher: {
           "@type": "Organization",
           name: "Deal Story",
-          logo: { "@type": "ImageObject", url: "/logo.png" },
+          url: SITE_URL,
+          logo: { "@type": "ImageObject", url: `${SITE_URL}/logo.png`, width: 512, height: 512 },
         },
         mainEntityOfPage: {
           "@type": "WebPage",
           "@id": `${SITE_URL}/deals/${slug}`,
         },
-        ...(deal.seo.ogImage
-          ? { image: deal.seo.ogImage }
-          : {}),
+        image: deal.seo.ogImage ?? `/api/og?slug=${slug}`,
+        inLanguage: "ko",
       },
       {
         "@type": "FAQPage",
@@ -100,6 +100,14 @@ export default async function DealPage({
           name: q,
           acceptedAnswer: { "@type": "Answer", text: a },
         })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "홈", item: `${SITE_URL}/` },
+          { "@type": "ListItem", position: 2, name: "딜 아카이브", item: `${SITE_URL}/deals` },
+          { "@type": "ListItem", position: 3, name: deal.title, item: `${SITE_URL}/deals/${slug}` },
+        ],
       },
     ],
   };

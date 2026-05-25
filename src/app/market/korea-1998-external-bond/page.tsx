@@ -1,0 +1,24 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { getMarketDealBySlug } from "@/data/market-deals";
+import KoreaExternalBondClient from "./KoreaExternalBondClient";
+
+export const metadata: Metadata = {
+  title: "한국 1998년 외평채 — Market Story | Deal Story",
+  description:
+    "IMF 직후 한국이 국제채권시장으로 복귀한 첫 딜. T+345bp에서 T+60bp까지, 한국물 30년 서사의 출발점.",
+  alternates: {
+    canonical: "/market/korea-1998-external-bond",
+    languages: {
+      ko: "/market/korea-1998-external-bond",
+      en: "/en/market/korea-1998-external-bond",
+      "x-default": "/market/korea-1998-external-bond",
+    },
+  },
+};
+
+export default function KoreaExternalBondPage() {
+  const deal = getMarketDealBySlug("korea-1998-external-bond");
+  if (!deal) notFound();
+  return <KoreaExternalBondClient deal={deal} lang="ko" />;
+}

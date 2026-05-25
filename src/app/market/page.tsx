@@ -2,26 +2,34 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ALL_CONCEPTS, CATEGORY_COLOR } from "@/data/market-concepts";
+import {
+  ALL_MARKET_DEALS,
+  DEAL_CATEGORY_META,
+  type DealCategory,
+} from "@/data/market-deals";
 
 export const metadata: Metadata = {
-  title: "Market Story — 자본시장 아카이브",
+  title: "Market Story — 시장을 바꾼 딜들",
   description:
-    "DCM·ECM·S&T·차이니즈 월·신디케이션 등 IB 자본시장 핵심 개념을 딜 사례와 함께 풀어냅니다.",
+    "그린본드 탄생, 아르헨티나 100년물, CS AT1 전액상각, 한국 1998 외평채까지 — 자본시장의 룰을 바꾼 20개 landmark 딜을 해부합니다.",
   alternates: {
     canonical: "/market",
     languages: { ko: "/market", en: "/en/market", "x-default": "/market" },
   },
 };
 
-const CATEGORY_META = {
-  dcm:       { label: "DCM",     dotColor: "bg-teal-500"   },
-  ecm:       { label: "ECM",     dotColor: "bg-blue-500"   },
-  st:        { label: "S&T",     dotColor: "bg-violet-500" },
-  structure: { label: "구조·규제", dotColor: "bg-orange-500" },
-} as const;
+const CATEGORIES: DealCategory[] = [
+  "creator",
+  "sovereign",
+  "fig",
+  "structure",
+  "corporate",
+  "crisis",
+];
 
 export default function MarketPage() {
+  const publishedCount = ALL_MARKET_DEALS.filter((d) => d.published).length;
+
   return (
     <>
       <Header />
@@ -29,8 +37,7 @@ export default function MarketPage() {
 
         {/* ── 마스트헤드 ── */}
         <section className="border-b border-gray-200/60 dark:border-gray-700/60">
-          <div className="max-w-3xl mx-auto px-5 py-10">
-            {/* 브레드크럼 */}
+          <div className="max-w-4xl mx-auto px-5 py-10">
             <div className="flex items-center gap-1.5 text-xs text-gray-400 dark:text-gray-500 mb-3">
               <Link href="/" className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
                 홈
@@ -39,66 +46,112 @@ export default function MarketPage() {
               <span className="text-gray-600 dark:text-gray-300 font-medium">Market Story</span>
             </div>
 
-            <div className="inline-flex items-center px-2.5 py-1 rounded-full bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 text-[11px] font-bold mb-3">
-              DCM · ECM · S&T
+            <div className="inline-flex items-center px-2.5 py-1 rounded-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-[11px] font-bold mb-3">
+              시장을 바꾼 딜들
             </div>
 
             <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
               Market Story
             </h1>
-            <p className="mt-3 text-base text-gray-500 dark:text-gray-400 leading-relaxed">
-              자본시장 구조 아카이브 — DCM·ECM·S&amp;T·차이니즈 월·신디케이션 등
-              IB 실무 핵심 개념을 딜 사례와 함께 풀어냅니다.
+            <p className="mt-3 text-base text-gray-500 dark:text-gray-400 leading-relaxed max-w-2xl">
+              그린본드의 탄생, 군함을 압류한 헤지펀드, AT1 전액상각, IMF 직후 한국의 첫 복귀 딜까지 —
+              자본시장의 룰을 바꾸거나, 잊어서는 안 될 교훈을 남긴 landmark 딜 20개를 해부합니다.
             </p>
 
-            {/* 카테고리 통계 */}
+            {/* 카테고리 배지 */}
             <div className="flex flex-wrap gap-2 mt-5">
-              {(Object.keys(CATEGORY_META) as (keyof typeof CATEGORY_META)[]).map((cat) => {
-                const count = ALL_CONCEPTS.filter((c) => c.category === cat).length;
+              {CATEGORIES.map((cat) => {
+                const meta = DEAL_CATEGORY_META[cat];
+                const count = ALL_MARKET_DEALS.filter((d) => d.category === cat).length;
+                const pubCount = ALL_MARKET_DEALS.filter((d) => d.category === cat && d.published).length;
                 return (
                   <div
                     key={cat}
-                    className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-[11px] font-medium text-gray-600 dark:text-gray-400"
+                    className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-medium ${meta.bg} ${meta.fg}`}
                   >
-                    <span className={`w-1.5 h-1.5 rounded-full ${CATEGORY_META[cat].dotColor}`} />
-                    {CATEGORY_META[cat].label}
-                    <span className="text-gray-400 dark:text-gray-500">{count}</span>
+                    <span className="font-black">{meta.letter}.</span>
+                    {meta.label}
+                    <span className="opacity-60">{pubCount}/{count}</span>
                   </div>
                 );
               })}
+              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-[11px] font-medium text-gray-500 dark:text-gray-400">
+                총 {publishedCount}/{ALL_MARKET_DEALS.length} 발행
+              </div>
             </div>
           </div>
         </section>
 
-        {/* ── 개념 카드 그리드 ── */}
-        <section className="max-w-3xl mx-auto px-5 py-10">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {ALL_CONCEPTS.map((concept) => {
-              const catColor = CATEGORY_COLOR[concept.category];
-              return (
-                <Link key={concept.slug} href={`/market/${concept.slug}`}>
-                  <div className="group bg-white dark:bg-gray-900 rounded-xl border border-gray-200/60 dark:border-gray-700/60 p-5 h-full flex flex-col hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer">
-                    <div className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold mb-3 self-start ${catColor.bg} ${catColor.fg}`}>
-                      {concept.categoryLabel}
-                    </div>
-                    <h2 className="text-[15px] font-bold text-gray-900 dark:text-gray-100 leading-snug mb-2 group-hover:text-teal-700 dark:group-hover:text-teal-300 transition-colors">
-                      {concept.title}
-                    </h2>
-                    <p className="text-[12px] text-gray-500 dark:text-gray-400 leading-relaxed flex-1 line-clamp-3 mb-3">
-                      {concept.excerpt}
-                    </p>
-                    <div className="flex items-center justify-between text-[11px] text-gray-400 dark:text-gray-500">
-                      <span>{concept.readingMinutes}분 읽기</span>
-                      <span className="font-medium text-teal-600 dark:text-teal-400 group-hover:underline">
-                        자세히 →
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-        </section>
+        {/* ── 카테고리별 딜 그리드 ── */}
+        <div className="max-w-4xl mx-auto px-5 py-10 space-y-12">
+          {CATEGORIES.map((cat) => {
+            const meta = DEAL_CATEGORY_META[cat];
+            const deals = ALL_MARKET_DEALS.filter((d) => d.category === cat);
+            return (
+              <section key={cat}>
+                {/* 카테고리 헤더 */}
+                <div className="flex items-center gap-3 mb-5">
+                  <span className={`w-7 h-7 rounded-lg flex items-center justify-center text-[11px] font-black text-white ${meta.dot}`}>
+                    {meta.letter}
+                  </span>
+                  <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100">
+                    {meta.label}
+                  </h2>
+                  <div className="flex-1 h-px bg-gray-200 dark:bg-gray-700" />
+                </div>
+
+                {/* 딜 카드 그리드 */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {deals.map((deal) => (
+                    deal.published ? (
+                      <Link key={deal.slug} href={`/market/${deal.slug}`}>
+                        <div className={`group relative rounded-xl border p-5 h-full flex flex-col cursor-pointer transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 ${meta.bg} border-current`}
+                          style={{ borderColor: "transparent" }}
+                        >
+                          <div className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold mb-3 self-start ${meta.bg} ${meta.fg}`}
+                            style={{ background: "rgba(0,0,0,0.06)" }}
+                          >
+                            {deal.dealYear}
+                          </div>
+                          <p className="text-[11px] text-gray-400 dark:text-gray-500 mb-1">{deal.issuer}</p>
+                          <h3 className={`text-[14px] font-bold leading-snug mb-2 transition-colors ${meta.fg} group-hover:underline`}>
+                            {deal.title}
+                          </h3>
+                          <p className="text-[12px] text-gray-500 dark:text-gray-400 leading-relaxed flex-1 line-clamp-2 mb-3">
+                            {deal.excerpt}
+                          </p>
+                          <div className="flex items-center justify-between text-[11px]">
+                            <span className="text-gray-400 dark:text-gray-500">{deal.readingMinutes}분 읽기</span>
+                            <span className={`font-medium ${meta.fg}`}>읽기 →</span>
+                          </div>
+                        </div>
+                      </Link>
+                    ) : (
+                      <div
+                        key={deal.slug}
+                        className="relative rounded-xl border border-gray-200/60 dark:border-gray-700/40 p-5 h-full flex flex-col bg-gray-50/50 dark:bg-gray-900/30 opacity-70"
+                      >
+                        {/* Coming soon overlay badge */}
+                        <div className="absolute top-3 right-3 bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400 text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">
+                          곧 업로드
+                        </div>
+                        <div className="text-[11px] text-gray-400 dark:text-gray-500 mb-1">
+                          {deal.dealYear} · {deal.issuer}
+                        </div>
+                        <h3 className="text-[13px] font-bold text-gray-500 dark:text-gray-500 leading-snug mb-2 line-clamp-2">
+                          {deal.title}
+                        </h3>
+                        <p className="text-[12px] text-gray-400 dark:text-gray-500 leading-relaxed flex-1 line-clamp-2">
+                          {deal.excerpt}
+                        </p>
+                      </div>
+                    )
+                  ))}
+                </div>
+              </section>
+            );
+          })}
+        </div>
 
       </main>
       <Footer />
