@@ -7,7 +7,7 @@
  * section.body / section.bodyEn 에서 \n\n 은 단락 구분자.
  */
 import type { MarketConcept } from "@/data/market-concepts";
-export type { MarketConcept } from "@/data/market-concepts";
+export type { MarketConcept, Reference } from "@/data/market-concepts";
 export { CATEGORY_COLOR } from "@/data/market-concepts";
 
 // ── 카테고리 메타 ─────────────────────────────────────────────────────────────
@@ -44,14 +44,14 @@ export const ALL_MARKET101_CONCEPTS: MarketConcept[] = [
         heading: "이 시장이 왜 이렇게 큰가",
         headingEn: "Why Is This Market So Large?",
         body:
-`글로벌 채권시장의 총 발행 잔액은 2024년 기준 약 130조 달러다. 같은 시기 글로벌 주식시장 시가총액이 약 110조 달러인 것과 비교하면, 채권시장이 더 크다는 게 잘 와닿지 않는 사람도 있을 것이다. 주식 뉴스가 훨씬 더 많이 들리는데.
+`글로벌 채권시장의 총 발행 잔액은 2024년 기준 약 130조 달러다.¹ 같은 시기 글로벌 주식시장 시가총액이 약 110조 달러인 것과 비교하면,² 채권시장이 더 크다는 게 잘 와닿지 않는 사람도 있을 것이다. 주식 뉴스가 훨씬 더 많이 들리는데.
 
 이유는 간단하다. 기업과 정부가 자금을 조달하는 방법은 크게 두 가지다 — 지분을 파는 것(주식)과 빚을 지는 것(채권). 그런데 대부분의 자금 조달은 빚으로 이루어진다. 삼성전자가 공장을 지을 때, 한국 정부가 재정을 충당할 때, 독일 개발은행 KfW가 인프라 대출 재원을 마련할 때 — 이 모든 게 채권 발행으로 이루어진다. 지분 발행은 상대적으로 드물다.
 
 DCM(Debt Capital Markets, 채권 자본시장)은 이 거대한 자금 흐름의 1차 시장(Primary Market)이다. 발행사가 새 채권을 만들어 투자자에게 파는 곳. IB의 DCM 팀은 이 거래가 성사될 수 있도록 발행사와 투자자 사이를 연결하는 역할을 한다. 이 시리즈는 그 연결의 구체적인 메커니즘을 처음부터 끝까지 해부한다.`,
 
         bodyEn:
-`The global bond market has an outstanding balance of approximately $130 trillion as of 2024. The global equity market cap sits at around $110 trillion by comparison — meaning bonds are actually larger than stocks, which surprises many who follow financial news, since equity stories dominate headlines.
+`The global bond market has an outstanding balance of approximately $130 trillion as of 2024.¹ The global equity market cap sits at around $110 trillion by comparison² — meaning bonds are actually larger than stocks, which surprises many who follow financial news, since equity stories dominate headlines.
 
 The reason is straightforward. There are two fundamental ways for a company or government to raise capital: sell equity (ownership) or issue debt (borrowing). And most capital raising is done through debt. When Apple funds a new data center, when the US Treasury covers a fiscal deficit, when Germany's KfW raises capital for infrastructure loans — all of this happens through bond issuance. Equity raises are comparatively rare.
 
@@ -92,9 +92,9 @@ The key insight: as credit rating deteriorates, ① the investor pool narrows (d
 
 보험사와 연기금은 ALM(Asset-Liability Management, 자산부채관리)을 한다. 보험사는 20년 후 보험금을 지급해야 한다. 이 미래 의무를 20년 장기채 현금흐름으로 덮는 게 핵심 전략이다. 수익 극대화가 아니라 부채의 만기와 현금흐름을 자산으로 매칭하는 게 목적이다. 대만과 일본 보험사가 달러 장기채의 거대한 수요처인 이유가 여기 있다.
 
-은행 Treasury는 유동성 규제(LCR, HQLA) 때문에 채권을 산다. 바젤 III 규제상 은행은 30일 스트레스 시나리오를 견딜 유동성 완충재를 보유해야 하는데, 국채와 우량 SSA 채권이 이 요건을 충족한다. 역시 수익이 1순위가 아니다.
+은행 Treasury는 유동성 규제(LCR, HQLA)⁴ 때문에 채권을 산다. 바젤 III⁵ 규제상 은행은 30일 스트레스 시나리오를 견딜 유동성 완충재를 보유해야 하는데, 국채와 우량 SSA 채권이 이 요건을 충족한다. 역시 수익이 1순위가 아니다.
 
-자산운용사는 Bloomberg Global Aggregate 같은 채권 인덱스를 추종하면서 초과수익을 낸다. 여기서부터 수익이 중요해진다. 헤지펀드는 캐리 트레이드, 상대가치, 차익거래로 수익을 극대화한다. 가장 수익 지향적인 투자자다.
+자산운용사는 Bloomberg Global Aggregate³ 같은 채권 인덱스를 추종하면서 초과수익을 낸다. 여기서부터 수익이 중요해진다. 헤지펀드는 캐리 트레이드, 상대가치, 차익거래로 수익을 극대화한다. 가장 수익 지향적인 투자자다.
 
 이 구분이 DCM 실무에서 중요한 이유: 목적이 다른 주머니들이 같은 딜에 동시에 들어오면 오더북이 탄탄해진다. 중앙은행(외환보유고 다변화) + 보험사(ALM) + 자산운용사(인덱스 편입) + 헤지펀드(캐리) — 이 네 주머니가 각자 다른 이유로 같은 채권을 살 때 오더북이 5배 초과청약이 된다. 각 투자자에게 다른 스토리를 들고 가는 것이 세일즈의 역할이고, 그 스토리를 설계하는 것이 신디케이트와 DCM의 일이다.`,
 
@@ -105,9 +105,9 @@ Central banks are managing foreign exchange reserves. They need ammunition to de
 
 Insurance companies and pension funds practice ALM (Asset-Liability Management). An insurer must pay claims 20 years from now. Their core strategy is to cover these future liabilities with long-duration bonds whose cash flows match. The goal isn't to maximize returns — it's to match asset cash flows to liability maturities. This is why Taiwanese and Japanese insurers are enormous buyers of long-dated dollar bonds.
 
-Bank treasuries buy bonds because of liquidity regulations (LCR, HQLA). Under Basel III, banks must hold high-quality liquid assets to survive a 30-day stress scenario. Government bonds and top-rated SSA bonds qualify. Again, yield isn't the primary driver.
+Bank treasuries buy bonds because of liquidity regulations (LCR, HQLA).⁴ Under Basel III,⁵ banks must hold high-quality liquid assets to survive a 30-day stress scenario. Government bonds and top-rated SSA bonds qualify. Again, yield isn't the primary driver.
 
-Asset managers track benchmarks like the Bloomberg Global Aggregate Index while trying to generate alpha. Here, returns start to matter. Hedge funds maximize yield through carry trades, relative value, and arbitrage — the most return-oriented investors in the room.
+Asset managers track benchmarks like the Bloomberg Global Aggregate Index³ while trying to generate alpha. Here, returns start to matter. Hedge funds maximize yield through carry trades, relative value, and arbitrage — the most return-oriented investors in the room.
 
 Why this matters in DCM practice: when investors with different motivations hit the same deal simultaneously, the orderbook becomes durable. Central banks (FX diversification) + insurers (ALM) + asset managers (index inclusion) + hedge funds (carry) — when all four buy the same bond for different reasons, you get a 5x oversubscribed book. Delivering a different story to each investor type is exactly what Sales does, and designing those stories is DCM and Syndicate's job.`,
       },
@@ -285,6 +285,57 @@ All of this ultimately converges in a single deal. When an issuer debates the pr
       },
     ],
     relatedSlugs: [],
+
+    references: [
+      {
+        id: 1,
+        author: "Bank for International Settlements (BIS)",
+        title: "Debt Securities Statistics",
+        source: "BIS Quarterly Review, Q4 2024",
+        year: "2024",
+        url: "https://www.bis.org/statistics/secstats.htm",
+      },
+      {
+        id: 2,
+        author: "World Federation of Exchanges (WFE)",
+        title: "Global Market Statistics — Equity Market Capitalization",
+        source: "WFE Annual Statistics, 2024",
+        year: "2024",
+        url: "https://www.world-exchanges.org/our-work/statistics",
+      },
+      {
+        id: 3,
+        author: "Bloomberg L.P.",
+        title: "Bloomberg Global Aggregate Bond Index Factsheet",
+        source: "Bloomberg Index Services, 2024",
+        year: "2024",
+        url: "https://www.bloomberg.com/professional/product/indices/bloomberg-fixed-income-indices/",
+      },
+      {
+        id: 4,
+        author: "Bank for International Settlements (BIS)",
+        title: "Basel III: The Liquidity Coverage Ratio and Liquidity Risk Monitoring Tools",
+        source: "BIS Basel Framework, January 2013",
+        year: "2013",
+        url: "https://www.bis.org/publ/bcbs238.htm",
+      },
+      {
+        id: 5,
+        author: "Bank for International Settlements (BIS)",
+        title: "Basel III: A Global Regulatory Framework for More Resilient Banks and Banking Systems",
+        source: "BIS Basel Framework, December 2010 (rev. June 2011)",
+        year: "2010",
+        url: "https://www.bis.org/publ/bcbs189.htm",
+      },
+      {
+        id: 6,
+        author: "SIFMA",
+        title: "2024 Capital Markets Fact Book",
+        source: "Securities Industry and Financial Markets Association, 2024",
+        year: "2024",
+        url: "https://www.sifma.org/resources/research/fact-book/",
+      },
+    ],
   },
 
 ];

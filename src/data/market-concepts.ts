@@ -20,6 +20,15 @@ export type KeyTerm = {
   definitionEn: string;
 };
 
+export type Reference = {
+  id: number;
+  author: string;
+  title: string;
+  source: string;
+  year: string;
+  url?: string;
+};
+
 export type MarketConcept = {
   slug: string;
   title: string;
@@ -35,6 +44,7 @@ export type MarketConcept = {
   sections: ConceptSection[];
   keyTerms: KeyTerm[];
   relatedSlugs: string[];
+  references?: Reference[];
 };
 
 // ── 카테고리 색상 매핑 ────────────────────────────────────────────────────
