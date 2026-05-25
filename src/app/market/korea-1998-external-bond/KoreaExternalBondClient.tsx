@@ -683,6 +683,35 @@ export default function KoreaExternalBondClient({
           </motion.div>
         </div>
 
+        {/* ── Executive Summary ── */}
+        {deal.executiveSummary && (
+          <motion.div
+            variants={fadeUp(0.1)}
+            initial="hidden"
+            whileInView="show"
+            viewport={VP}
+            className="max-w-3xl mx-auto px-5 pt-8"
+          >
+            <div className="rounded-xl border-l-4 px-5 py-4 bg-indigo-50 dark:bg-indigo-900/15"
+              style={{ borderColor: accent }}
+            >
+              <p className="text-[10px] font-bold uppercase tracking-widest mb-3"
+                style={{ color: accent }}
+              >
+                {ko ? "핵심 요약" : "Key Takeaways"}
+              </p>
+              <ul className="space-y-2">
+                {(ko ? deal.executiveSummary.ko : deal.executiveSummary.en).map((point, i) => (
+                  <li key={i} className="flex items-start gap-2 text-[13px] leading-relaxed text-indigo-800 dark:text-indigo-200">
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: accent }} />
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
+        )}
+
         {/* ── Body ── */}
         <div className="max-w-3xl mx-auto px-5 py-10 space-y-16">
           {deal.sections.map((section, i) => (
@@ -771,6 +800,123 @@ export default function KoreaExternalBondClient({
               })}
             </div>
           </motion.section>
+
+          {/* ── Post-Deal Assessment ── */}
+          {deal.assessment && (
+            <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
+              <motion.h2 variants={fadeUp()} className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">
+                {ko ? "딜 평가" : "Deal Assessment"}
+              </motion.h2>
+              <div className="w-8 h-0.5 mt-3 mb-6" style={{ background: accent }} />
+              <div className="grid sm:grid-cols-2 gap-4">
+                {/* Positives */}
+                <motion.div variants={fadeUp()} className="rounded-xl border border-emerald-200 dark:border-emerald-700/50 bg-emerald-50 dark:bg-emerald-900/15 p-5">
+                  <p className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-widest mb-3">
+                    {ko ? "긍정적 결과" : "Positives"}
+                  </p>
+                  <ul className="space-y-2">
+                    {(ko ? deal.assessment.positives : deal.assessment.positivesEn).map((p, i) => (
+                      <li key={i} className="flex items-start gap-2 text-[13px] text-emerald-800 dark:text-emerald-200 leading-relaxed">
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0" />
+                        {p}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+                {/* Risks */}
+                <motion.div variants={fadeUp()} className="rounded-xl border border-red-200 dark:border-red-700/50 bg-red-50 dark:bg-red-900/15 p-5">
+                  <p className="text-[11px] font-bold text-red-600 dark:text-red-400 uppercase tracking-widest mb-3">
+                    {ko ? "리스크 및 교훈" : "Risks & Lessons"}
+                  </p>
+                  <ul className="space-y-2">
+                    {(ko ? deal.assessment.risks : deal.assessment.risksEn).map((r, i) => (
+                      <li key={i} className="flex items-start gap-2 text-[13px] text-red-800 dark:text-red-200 leading-relaxed">
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0" />
+                        {r}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              </div>
+            </motion.section>
+          )}
+
+          {/* ── FAQ ── */}
+          {deal.faq && deal.faq.length > 0 && (
+            <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
+              <motion.h2 variants={fadeUp()} className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">
+                {ko ? "자주 묻는 질문" : "Frequently Asked Questions"}
+              </motion.h2>
+              <div className="w-8 h-0.5 mt-3 mb-6" style={{ background: accent }} />
+              <div className="space-y-3">
+                {deal.faq.map((item, i) => (
+                  <motion.details
+                    key={i}
+                    variants={fadeUp()}
+                    className="group rounded-xl border border-gray-200/60 dark:border-gray-700/60 bg-white dark:bg-gray-900/60 overflow-hidden"
+                  >
+                    <summary className="flex items-center justify-between gap-3 px-5 py-4 cursor-pointer list-none select-none">
+                      <span className="text-[14px] font-semibold text-gray-800 dark:text-gray-200 leading-snug">
+                        {ko ? item.q : item.qEn}
+                      </span>
+                      <svg
+                        className="w-4 h-4 text-gray-400 flex-shrink-0 transition-transform group-open:rotate-180"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+                        strokeLinecap="round" strokeLinejoin="round" aria-hidden
+                      >
+                        <polyline points="6 9 12 15 18 9" />
+                      </svg>
+                    </summary>
+                    <div className="px-5 pb-5 pt-0">
+                      <p className="text-[13px] text-gray-600 dark:text-gray-400 leading-relaxed border-t border-gray-100 dark:border-gray-800 pt-4">
+                        {ko ? item.a : item.aEn}
+                      </p>
+                    </div>
+                  </motion.details>
+                ))}
+              </div>
+            </motion.section>
+          )}
+
+          {/* ── Related Content ── */}
+          {(deal.relatedDealSlugs?.length || deal.relatedMarket101Slugs?.length) ? (
+            <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
+              <motion.h2 variants={fadeUp()} className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">
+                {ko ? "함께 읽으면 좋은 콘텐츠" : "Related Content"}
+              </motion.h2>
+              <div className="w-8 h-0.5 mt-3 mb-6" style={{ background: accent }} />
+              <div className="grid sm:grid-cols-2 gap-3">
+                {deal.relatedDealSlugs?.map((slug) => (
+                  <motion.div key={slug} variants={fadeUp()}>
+                    <Link href={ko ? `/market/${slug}` : `/en/market/${slug}`}>
+                      <div className="group flex items-center gap-3 px-4 py-3.5 rounded-xl border border-gray-200/60 dark:border-gray-700/60 hover:border-indigo-300 dark:hover:border-indigo-700 hover:bg-indigo-50/40 dark:hover:bg-indigo-900/20 transition-all">
+                        <span className="w-7 h-7 rounded-lg bg-indigo-100 dark:bg-indigo-900/40 flex items-center justify-center text-[11px] font-bold text-indigo-600 dark:text-indigo-400 flex-shrink-0">M</span>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-[10px] text-gray-400 dark:text-gray-500 font-medium">Market Story</p>
+                          <p className="text-[13px] font-semibold text-gray-800 dark:text-gray-200 group-hover:text-indigo-700 dark:group-hover:text-indigo-300 transition-colors truncate">{slug.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")}</p>
+                        </div>
+                        <span className="text-gray-300 dark:text-gray-600 group-hover:text-indigo-400 transition-colors text-sm flex-shrink-0">→</span>
+                      </div>
+                    </Link>
+                  </motion.div>
+                ))}
+                {deal.relatedMarket101Slugs?.map((slug) => (
+                  <motion.div key={slug} variants={fadeUp()}>
+                    <Link href={ko ? `/market-101/${slug}` : `/en/market-101/${slug}`}>
+                      <div className="group flex items-center gap-3 px-4 py-3.5 rounded-xl border border-gray-200/60 dark:border-gray-700/60 hover:border-teal-300 dark:hover:border-teal-700 hover:bg-teal-50/40 dark:hover:bg-teal-900/20 transition-all">
+                        <span className="w-7 h-7 rounded-lg bg-teal-100 dark:bg-teal-900/40 flex items-center justify-center text-[11px] font-bold text-teal-600 dark:text-teal-400 flex-shrink-0">101</span>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-[10px] text-gray-400 dark:text-gray-500 font-medium">Market 101</p>
+                          <p className="text-[13px] font-semibold text-gray-800 dark:text-gray-200 group-hover:text-teal-700 dark:group-hover:text-teal-300 transition-colors truncate">{slug.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")}</p>
+                        </div>
+                        <span className="text-gray-300 dark:text-gray-600 group-hover:text-teal-400 transition-colors text-sm flex-shrink-0">→</span>
+                      </div>
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.section>
+          ) : null}
 
           {/* ── References ── */}
           {deal.references && deal.references.length > 0 && (
