@@ -2108,6 +2108,40 @@ From an IB career perspective, DCM requires a complex blend of structural design
     appearsIn: [],
   },
 
+  // ── LevFin ──────────────────────────────────────────────────────────────
+  {
+    slug: "levfin-ecosystem",
+    title: "LevFin Ch.0 — 레버리지드 파이낸스 전체 지도: HY채권·레버리지드 론·LBO 생태계",
+    titleEn: "LevFin Ch.0 — Leveraged Finance Ecosystem: HY Bonds, Leveraged Loans & LBO Map",
+    entryType: "article",
+    category: "levfin",
+    categoryLabel: "LevFin",
+    categoryLabelEn: "LevFin",
+    excerpt:
+      "레버리지드 파이낸스 생태계 완전 해설: HY채권($1.4T)·레버리지드 론($1.5T)·CLO($1.1T) 시장 규모, 자본구조 워터폴(회수율 RCF~TLB 60-80%, HY 30-50%), 힐튼 LBO(2007 $26.9bn 인수 → 2018 MoM 2.6×·IRR 21% 성공) vs Toys R Us 실패 비교, 한국 PE 딜(MBK·KKR·칼라일) 심층 분석.",
+    excerptEn:
+      "Complete LevFin ecosystem guide: HY bonds ($1.4T), leveraged loans ($1.5T), CLO ($1.1T) market sizes; capital structure waterfall (recovery rates RCF–TLB 60–80%, HY 30–50%); Hilton LBO (2007 $26.9bn acquisition → 2018 MoM 2.6×, IRR 21%) vs Toys R Us failure comparison; Korean PE deals (MBK, KKR, Carlyle) deep dive.",
+    readingMinutes: 22,
+    tags: [
+      "레버리지드 파이낸스", "하이일드 채권", "레버리지드 론", "LBO",
+      "CLO", "자본구조 워터폴", "힐튼 LBO", "디폴트율", "크레딧 사이클",
+      "메자닌", "TLB", "코버넌트", "MBK", "KKR", "칼라일",
+    ],
+    tagsEn: [
+      "Leveraged Finance", "High Yield Bond", "Leveraged Loan", "LBO",
+      "CLO", "Capital Structure Waterfall", "Hilton LBO", "Default Rate", "Credit Cycle",
+      "Mezzanine", "TLB", "Covenant", "MBK Partners", "KKR", "Carlyle",
+    ],
+    sections: [],
+    keyTerms: [],
+    relatedSlugs: [
+      "levfin-hy-vs-loans", "levfin-credit-metrics", "levfin-covenants",
+      "levfin-process", "levfin-pricing", "levfin-distressed", "levfin-cases",
+      "lbo-overview",
+    ],
+    appearsIn: [],
+  },
+
 ];
 
 export function getMarket101ConceptBySlug(slug: string): MarketConcept | undefined {
