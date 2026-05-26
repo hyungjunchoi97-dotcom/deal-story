@@ -42,6 +42,8 @@ import thirdPointSony from "./third-point-sony";
 import trianPg from "./trian-pg";
 import oraclePeoplesoft from "./oracle-peoplesoft";
 import porscheVolkswagen from "./porsche-volkswagen";
+import disneyFox from "./disney-fox";
+import aolTimeWarner from "./aol-time-warner";
 
 /**
  * 딜 레지스트리 — 새 딜 추가 시 import 후 배열에 추가
@@ -65,6 +67,7 @@ export const ALL_DEALS: DealData[] = [
   hanjinKcgi,            // 2021-06-30 (activism)
   lvmhTiffany,           // 2021-01-07
   danaherAcquisitions,   // multiple deals (latest: Cytiva 2020-03)
+  disneyFox,             // 2019-03-20
   sapQualtrics,          // 2019-01-23
   microsoftGithub,       // 2018-06-04
   salesforceMulesoft,    // 2018-05-01
@@ -87,6 +90,7 @@ export const ALL_DEALS: DealData[] = [
   googleYoutube,         // 2006-10-31
   disneyPixar,           // 2006-05-05
   hpCompaq,              // 2002-05-03
+  aolTimeWarner,         // 2001-01-11
   oraclePeoplesoft,      // 2004-12-28 (control)
   daimlerChrysler,       // 1998-11-12
   kkrRjrNabisco,         // 1989-02-09

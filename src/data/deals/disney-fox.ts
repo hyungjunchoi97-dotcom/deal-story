@@ -63,7 +63,7 @@ const deal: DealData = {
       { name: "21st Century Fox", role: "피인수자, 엔터테인먼트 자산 매각 후 Fox Corporation으로 분리" },
       { name: "Comcast/NBC", role: "경쟁 입찰자, $650억 제안 후 Disney 최종가에 패배" },
       { name: "Netflix", role: "스트리밍 시장 지배자, 이 딜의 촉매 역할" },
-      { name: "Hulu", value: "Disney·Fox·NBC Universal·ABC 공동 출자 스트리밍 플랫폼, 딜의 핵심 자산 중 하나" },
+      { name: "Hulu", role: "Disney·Fox·NBC Universal·ABC 공동 출자 스트리밍 플랫폼, 딜의 핵심 자산 중 하나" },
     ],
   },
 
