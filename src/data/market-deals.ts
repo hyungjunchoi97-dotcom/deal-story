@@ -21,6 +21,20 @@ export type DealSnapshotRow = {
   value: string;
 };
 
+export type MarketDealFaq = {
+  q: string;
+  qEn: string;
+  a: string;
+  aEn: string;
+};
+
+export type MarketDealAssessment = {
+  positives: string[];
+  positivesEn: string[];
+  risks: string[];
+  risksEn: string[];
+};
+
 export type DealCategory =
   | "creator"
   | "sovereign"
@@ -49,6 +63,10 @@ export type MarketDeal = {
   sections: DealSection[];
   keyTerms: DealKeyTerm[];
   relatedMarket101Slugs: string[];
+  relatedDealSlugs?: string[];
+  executiveSummary?: { ko: string[]; en: string[] };
+  assessment?: MarketDealAssessment;
+  faq?: MarketDealFaq[];
   references?: Reference[];
 };
 
@@ -401,7 +419,80 @@ Korea's 1998 deal is not simply a survival story. It is a template for how a sov
         definitionEn: "Investor behavior in low-yield environments where buyers accept higher risk than their mandates normally allow, in pursuit of yield. Applied partially to 1998 Korean bond buyers, though the more dominant motivation was a structural bet on EM recovery. The behavior is more extreme in the Argentina century bond case.",
       },
     ],
-    relatedMarket101Slugs: ["dcm-ecosystem"],
+    relatedMarket101Slugs: ["cac", "reach-for-yield", "spread-basis", "investment-grade", "dcm-ecosystem"],
+    relatedDealSlugs: ["credit-suisse-at1"],
+    executiveSummary: {
+      ko: [
+        "1997년 외환위기 — 원/달러 900→1,900원 붕괴, 사상 최대 IMF 구제금융(210억 달러) 요청",
+        "1998년 4월 $4B 외평채 성공 — T+345bp, 위기 국가 국제 자본시장 복귀의 교과서적 사례",
+        "CAC(집합행동조항) 선제 도입 — 2003년 멕시코·2012년 그리스로 이어지는 소버린 채무 관리 표준의 원점",
+        "Reach for Yield — 글로벌 투자자들의 신흥국 수익률 추구가 한국 위기 속 발행을 가능케 한 구조적 수요",
+        "2001년 IMF 조기 상환 → 2024년 Moody's Aa2 — T+345bp에서 T+30bp로, 26년간 신용도 회복의 증거",
+      ],
+      en: [
+        "1997 FX crisis: won/dollar collapsed 900→1,900; Korea requested the largest IMF bailout in history ($21B)",
+        "April 1998: $4B external bond at T+345bp — the definitive case study in sovereign re-entry to international capital markets",
+        "CAC provisions adopted early — the origin point of the sovereign debt management standard that became global norm via Mexico (2003) and Greece (2012)",
+        "Reach for Yield: global investors' search for EM returns provided the structural demand that made issuance possible amid crisis",
+        "2001 early IMF repayment → 2024 Moody's Aa2 — from T+345bp to T+30bp: 26 years of credit rehabilitation in one number",
+      ],
+    },
+    assessment: {
+      positives: [
+        "$4B 전액 발행 성공 — IMF 지원 중 자력 시장 조달 가능성을 세계에 최초 입증",
+        "CAC 조항 선례 수립 — 홀드아웃 채권자 문제를 예방하는 현대 소버린 채무 표준의 기원",
+        "외환위기 조기 탈출 가속 — 발행 성공이 시장 신뢰를 회복시켜 2001년 IMF 조기 상환의 발판 제공",
+        "한국 신용도 재건의 출발점 — Ba1(투기)에서 Aa2(최우량)까지의 26년 여정이 이 발행에서 시작",
+      ],
+      positivesEn: [
+        "Full $4B placement — first global proof that a crisis-era sovereign can access markets while under IMF program",
+        "CAC precedent established — origin of modern sovereign debt restructuring standards preventing holdout creditor abuse",
+        "Accelerated IMF exit — restored market confidence paved the way for early IMF repayment in 2001",
+        "Starting point of Korea's 26-year credit journey — from Ba1 (speculative) to Aa2 (top-tier) sovereign",
+      ],
+      risks: [
+        "T+345bp 이자 비용 — 현재 조달 비용 대비 10배+ 프리미엄, 외환위기가 한국 납세자에게 남긴 금융 비용",
+        "Reach for Yield 구조 의존 — 글로벌 risk-off 전환 시 즉각적 자본 이탈 가능성을 내포한 취약한 자금 구조",
+        "단기적 신용 회복 불확실성 — 발행 당시 Moody's 투기등급, 추가 구조조정 가능성이 상존했던 고위험 시점",
+      ],
+      risksEn: [
+        "T+345bp interest cost — 10x+ premium over current funding costs; the financial legacy of the crisis borne by Korean taxpayers",
+        "Reach for Yield dependency — the funding structure exposed Korea to sudden capital flight on any global risk-off turn",
+        "Near-term credit uncertainty — Moody's speculative grade at issuance, with risk of further restructuring far from resolved",
+      ],
+    },
+    faq: [
+      {
+        q: "왜 한국은 T+345bp라는 높은 이자를 감수하면서 채권을 발행했나요?",
+        qEn: "Why did Korea accept such a punishing T+345bp spread?",
+        a: "외환위기 직후 한국의 신용 리스크를 시장이 그 수준으로 평가했기 때문입니다. 당시 Moody's는 한국 신용등급을 Baa2에서 Ba1(투기등급)으로 강등했고, 원화 가치는 반 토막이 났으며, IMF 구제금융을 받는 중이었습니다. 투자자 입장에서 T+345bp는 이 모든 리스크에 대한 보상이었습니다. 한국 정부 입장에서는 높은 이자를 감수하더라도 국제 자본시장에 복귀해 외화를 조달하는 것이 경제 재건의 첫 신호탄이었습니다. 시장이 '한국은 살아있다'는 것을 보는 것 자체가 IMF 구제금융만으로는 얻을 수 없는 신뢰 회복 효과였습니다.",
+        aEn: "Because that's what the market priced Korea's credit risk at. Moody's had downgraded Korea from Baa2 to Ba1 (speculative grade); the won had halved in value; the country was under IMF program. For investors, T+345bp was the compensation for all those risks combined. For the Korean government, the high cost was worth paying — returning to international capital markets was the signal that Korea was still a functioning market borrower. The symbolic value of that market access, independent of IMF funds, was exactly what investor confidence needed to see.",
+      },
+      {
+        q: "IMF 구제금융을 받고 있었는데 왜 따로 채권을 발행해야 했나요?",
+        qEn: "Korea was already receiving IMF bailout funds — why issue bonds on top of that?",
+        a: "IMF 자금과 채권 발행은 서로 다른 목적을 가집니다. IMF 자금은 정부의 대외 지급 의무를 충당하는 '최후의 보루' 성격이었습니다. 반면 외평채 발행은 두 가지를 동시에 달성했습니다. 첫째, 외환보유고를 직접 확충했습니다. 둘째, '한국은 자력으로 시장에서 자금을 조달할 수 있다'는 신호를 글로벌 투자자에게 전달했습니다. IMF 자금에만 의존하는 국가는 시장이 '이 나라는 스스로 설 수 없다'고 판단할 수 있습니다. 외평채 발행 성공은 그 인식을 바꾸는 데 결정적이었습니다.",
+        aEn: "IMF funds and bond issuance serve different purposes. IMF money was a 'lender of last resort' backstop for external payment obligations. The external bond achieved two things simultaneously: it directly built foreign exchange reserves, and it sent a signal to global investors that 'Korea can access markets on its own terms.' A country relying solely on IMF funds risks being perceived as unable to stand independently. The successful bond issuance was crucial to reversing that perception.",
+      },
+      {
+        q: "CAC가 1998년 외평채에 포함된 이유는 무엇이고, 왜 중요한가요?",
+        qEn: "Why did Korea's 1998 bond include CAC, and why does it matter?",
+        a: "CAC(집합행동조항)는 채권자의 일정 비율(통상 75%)이 채무조정에 동의하면 나머지 소수도 구속되는 조항입니다. 당시 아르헨티나·에콰도르 등에서 '홀드아웃 채권자' 문제 — 헤지펀드가 헐값에 채권을 사모아 전액 상환을 요구하며 소송을 제기하는 행위 — 가 심각한 문제로 부상하고 있었습니다. 한국은 잠재적 채무 재조정 상황에 대비해 이를 선제적으로 포함했습니다. 이 결정은 이후 멕시코(2003)가 모든 소버린 채권에 CAC를 표준 도입하는 흐름의 선례가 됐고, 2012년 그리스 구조조정에서 CAC가 대규모로 발동되는 역사로 이어집니다.",
+        aEn: "CAC (Collective Action Clause) binds minority bondholders to a restructuring agreed by a qualified majority (typically 75%). At the time, 'holdout creditor' problems were escalating — hedge funds buying bonds at deep discounts and suing for full repayment were disrupting restructurings in Argentina and Ecuador. Korea included the clause preemptively to protect against such scenarios. This decision became the precedent for Mexico's 2003 standard adoption of CAC in all sovereign bonds, and eventually led to CAC's mass activation in Greece's 2012 restructuring.",
+      },
+      {
+        q: "1998년 발행 후 한국의 신용등급과 스프레드는 어떻게 바뀌었나요?",
+        qEn: "How did Korea's credit rating and spreads change after the 1998 issuance?",
+        a: "1998년 Moody's 기준 Ba1(투기등급)에서 2002년 A3(투자적격)으로 회복했고, 2024년 현재는 Moody's Aa2, S&P AA-로 주요 선진국과 동등한 수준입니다. 달러 국채 스프레드는 T+345bp → T+30bp 수준으로 압축됐습니다. 300bp가 넘는 스프레드 개선은 발행사가 지불한 '위기 프리미엄'이 완전히 소화됐다는 의미입니다. 2001년 IMF 조기 상환이 이 회복의 가장 큰 전환점이었고, 2002년 한일 월드컵·반도체 수출 호황이 뒷받침했습니다.",
+        aEn: "Korea recovered from Moody's Ba1 (speculative) in 1998 to A3 (investment grade) by 2002, and today stands at Moody's Aa2 and S&P AA- — on par with major developed economies. Dollar sovereign spreads compressed from T+345bp to around T+30bp. A 300bp+ improvement means the 'crisis premium' paid at issuance has been fully erased. The 2001 early IMF repayment was the critical turning point; the 2002 Korea-Japan World Cup and semiconductor export boom provided the macroeconomic underpinning.",
+      },
+      {
+        q: "1998년 외평채의 주요 투자자는 누구였나요? 왜 그 상황에서 한국 채권을 샀을까요?",
+        qEn: "Who bought Korea's 1998 bonds — and why would investors buy a crisis-era sovereign?",
+        a: "주요 투자자는 글로벌 자산운용사, 헤지펀드, 일부 보험사였습니다. 동기는 두 가지였습니다. 첫째, '리커버리 베팅(recovery bet)' — 한국이 IMF 지원을 받고 강력한 구조조정을 진행 중이므로 회복 가능성이 높다는 전략적 판단. 둘째, Reach for Yield — 저금리 선진국 채권 시장에서 충분한 수익을 얻지 못하는 투자자들이 T+345bp라는 높은 스프레드에 매력을 느꼈습니다. 이 두 요소의 결합이 '위기 중 성공적 발행'을 가능하게 했습니다. 반면 중앙은행·연기금 등 보수적 투자자들은 Ba1 투기등급이라 규정상 참여할 수 없었습니다.",
+        aEn: "The primary buyers were global asset managers, hedge funds, and select insurers. Motivation split into two camps: First, 'recovery bets' — Korea was under IMF support with aggressive structural reform underway, making full recovery a credible outcome. Second, Reach for Yield — investors unable to find adequate returns in low-spread developed markets were attracted by T+345bp. The combination of these factors enabled successful issuance amid crisis. Conservative investors like central banks and pension funds were excluded by their IG-only mandates, since Korea was rated Ba1 (speculative) at the time.",
+      },
+    ],
     references: [
       {
         id: 1,
@@ -603,7 +694,80 @@ The AT1 primary market reopened after this event. Investors keep coming because 
         definitionEn: "A mechanism requiring a bank's creditors and shareholders — rather than taxpayers — to bear losses in a crisis. The CS AT1 write-down is a bail-in event in the broad sense. The opposite is a bail-out: government injection of public funds to rescue a bank. Post-2008 regulatory frameworks globally introduced a bail-in-first principle to reduce taxpayer exposure.",
       },
     ],
-    relatedMarket101Slugs: ["dcm-ecosystem"],
+    relatedMarket101Slugs: ["at1-capital", "ponv", "coco-bond", "bail-in", "oas", "dcm-ecosystem"],
+    relatedDealSlugs: ["korea-1998-external-bond"],
+    executiveSummary: {
+      ko: [
+        "172시간의 붕괴 — 2023년 3월 15–19일, 167년 역사의 크레디트 스위스가 주말 사이에 소멸",
+        "CHF 16B AT1 전액 상각 — 사상 최대 규모의 AT1 손실, 주주는 CHF 0.76/주를 받았지만 AT1 채권자는 제로",
+        "채권 위계 역전 — '채권이 주식보다 안전하다'는 자본시장의 기본 원칙이 규제당국 결정 하나로 파괴",
+        "PONV 트리거 — FINMA의 비존속 판단이 투자설명서 조항을 발동, 시장·법원이 아닌 규제당국이 손실 확정",
+        "교훈: AT1 투자자는 쿠폰뿐 아니라 발행 관할 규제당국의 PONV 해석 권한과 투자설명서 조항을 반드시 숙지해야 한다",
+      ],
+      en: [
+        "172-hour collapse: March 15–19, 2023 — 167 years of Credit Suisse history ended over a weekend",
+        "CHF 16B AT1 written to zero — the largest AT1 loss in history; equity shareholders received CHF 0.76/share while AT1 holders got nothing",
+        "Capital hierarchy inverted — the fundamental principle that 'bonds are safer than equity' was destroyed by a single regulatory decision",
+        "PONV trigger: FINMA's non-viability determination activated prospectus clauses — a regulator, not markets or courts, decided the loss",
+        "Lesson: AT1 investors must understand not just coupons but the PONV interpretation authority of the home regulator and exact prospectus language",
+      ],
+    },
+    assessment: {
+      positives: [
+        "글로벌 시스템 리스크 차단 — UBS 합병으로 아시아 시장 개장 전 패닉 확산을 막은 스위스 당국의 신속한 결단",
+        "AT1 시장 회복력 확인 — 사태 3~6개월 후 스프레드 정상화, 시장이 규제 리스크를 새로운 프리미엄으로 반영해 흡수",
+        "투자자 교육 효과 — PONV 조항과 AT1의 진짜 손실 구조에 대한 전 세계 시장의 이해도가 근본적으로 높아짐",
+        "EBA·SRB·ECB 즉각 성명 — 유럽 내 AT1은 표준 위계(주주 먼저) 적용이라는 명확한 시그널로 전염 효과 차단",
+      ],
+      positivesEn: [
+        "Global systemic risk contained — Swiss authorities' swift weekend merger prevented panic from spreading to Asian market open",
+        "AT1 market resilience confirmed — spreads normalized within 3–6 months; markets absorbed regulatory risk by repricing AT1 premiums",
+        "Investor education effect — global market understanding of PONV clauses and real AT1 loss structure fundamentally elevated",
+        "Immediate EBA/SRB/ECB statement — clear signal that EU AT1s follow standard hierarchy (equity-first) contained contagion risk",
+      ],
+      risks: [
+        "채권 위계 선례 훼손 — 규제당국 재량에 따라 AT1이 주식보다 먼저 소각될 수 있다는 법적 불확실성이 시장에 남음",
+        "규제 재량 리스크 노출 — PONV 결정이 규제당국의 손에 달려있어 투자자가 예측·통제할 수 없는 리스크",
+        "아시아 리테일 피해 — 홍콩·싱가포르 고액 자산가 피해 집중, AT1의 복잡성과 리테일 판매 적합성 논란 재점화",
+      ],
+      risksEn: [
+        "Capital hierarchy precedent damaged — legal uncertainty remains that AT1s can be written down before equity at a regulator's discretion",
+        "Regulatory discretion risk exposed — PONV decisions lie in regulatory hands, representing a risk investors cannot predict or control",
+        "Asian retail investor harm — concentrated losses among HK/SG high-net-worth clients reignited debate on AT1 suitability for retail distribution",
+      ],
+    },
+    faq: [
+      {
+        q: "왜 AT1 채권자가 주주보다 먼저 완전히 손실을 봤나요?",
+        qEn: "Why did AT1 bondholders suffer a complete loss while shareholders received something?",
+        a: "일반적인 자본구조에서는 채권자가 주주보다 상환 우선순위가 높습니다. 그러나 CS AT1 투자설명서에는 FINMA가 '비존속(non-viable)' 판단을 내릴 경우 AT1 전액이 즉시 상각된다는 조항이 명시돼 있었습니다. FINMA는 UBS 합병 과정에서 이 조항을 발동했습니다. 주주가 CHF 0.76/주를 받은 것은 UBS가 합병 대가로 지급한 것이고, AT1 상각은 그와 별개의 규제 결정이었습니다. 스위스 법원은 이후 FINMA의 권한을 최종 인정했지만, 이 결정은 '채권이 주식보다 안전하다'는 자본시장의 기본 원칙을 정면으로 위반한 사례로 역사에 남았습니다.",
+        aEn: "In standard capital structures, bondholders rank above shareholders in repayment priority. However, CS's AT1 prospectuses explicitly stated that upon FINMA determining the bank 'non-viable,' the AT1 bonds would be immediately written down to zero. FINMA triggered this clause during the UBS merger process. The CHF 0.76/share equity payment was UBS's merger consideration — a separate transaction from the AT1 write-down, which was a pure regulatory decision. Swiss courts subsequently upheld FINMA's authority, but this decision entered capital markets history as a direct violation of the fundamental principle that bonds rank senior to equity.",
+      },
+      {
+        q: "CS AT1 사태 이후 글로벌 AT1 시장은 어떻게 변했나요?",
+        qEn: "How did global AT1 markets change after the CS event?",
+        a: "직후 3일간 글로벌 AT1 스프레드가 200bp 이상 급등했습니다. EBA, SRB, ECB는 즉각 공동 성명을 발표해 '유럽 내 AT1은 스위스와 달리 표준 손실흡수 순서(주주 먼저)가 유지된다'고 강조했습니다. 이 성명이 패닉을 일부 진정시켰고, 3~6개월 후 스프레드가 정상화됐습니다. 그러나 투자자들은 이후 발행사의 본국 규제당국 성향, PONV 트리거 조건의 정확한 문구, 관할 법률을 훨씬 더 면밀히 검토하게 됐습니다. AT1 발행 프리미엄도 전반적으로 상승했습니다.",
+        aEn: "Global AT1 spreads spiked 200bps+ in the three days following the event. The EBA, SRB, and ECB issued a joint statement immediately clarifying that 'EU AT1s, unlike Switzerland, maintain standard loss absorption hierarchy (equity first).' This statement partially calmed the panic, and spreads normalized within 3–6 months. However, investors subsequently conduct much more rigorous scrutiny of the home regulator's disposition, the exact PONV trigger language in prospectuses, and governing law. AT1 issuance premiums also rose structurally.",
+      },
+      {
+        q: "PONV(비존속 판단)는 누가, 어떤 기준으로 결정하나요?",
+        qEn: "Who decides PONV and on what basis?",
+        a: "PONV는 발행사의 본국 규제당국이 결정합니다. CS의 경우 FINMA였습니다. 결정 기준은 대략 세 가지입니다: (1) 자본비율이 트리거 임계치 이하로 하락, (2) 공적 지원 없이 지급 불능 예상, (3) 시스템 리스크로 인한 규제당국의 긴급 개입 필요. 가장 중요한 점은 이 판단이 시장이나 법원이 아닌 규제당국의 '재량'에 달려있다는 것입니다. CS 사태에서 FINMA는 '월요일 아시아 시장 개장 전에 해결해야 한다'는 시간적 압박 속에서 주말 사이에 이 권한을 행사했습니다.",
+        aEn: "PONV is determined by the issuer's home regulator — in CS's case, FINMA. The criteria roughly span three grounds: (1) capital ratios falling below trigger thresholds, (2) anticipated insolvency without public support, (3) need for urgent regulatory intervention due to systemic risk. Most critically, this determination rests on the regulator's discretion — not market signals or court rulings. In the CS case, FINMA exercised this authority over a weekend under the constraint of resolving the situation before Asian markets opened Monday morning.",
+      },
+      {
+        q: "CS는 왜 자력으로 생존하지 못하고 강제 인수됐나요?",
+        qEn: "Why couldn't CS survive independently and was instead forced into a merger?",
+        a: "2022년부터 시작된 고객 자금 이탈이 2023년 3월 SVB(실리콘밸리은행) 붕괴로 촉발된 글로벌 은행 불안과 맞물리며 가속됐습니다. 결정타는 3월 15일 CS의 최대 주주인 사우디 내셔널 은행이 '추가 자본 지원 불가'를 선언한 것이었습니다. 이 발언 직후 CS 주가는 하루 만에 30% 폭락하고 CDS 스프레드가 폭발적으로 상승했습니다. 스위스 중앙은행이 1,500억 프랑 유동성 지원을 제공했음에도 뱅크런이 진정되지 않자 FINMA와 스위스 정부는 UBS 강제 합병 외에 선택지가 없다고 판단했습니다.",
+        aEn: "A customer deposit flight that began in 2022 accelerated when the SVB collapse in March 2023 triggered global banking contagion. The fatal blow came on March 15 when CS's largest shareholder, Saudi National Bank, declared it would provide no further capital support. CS shares fell 30% that day and CDS spreads exploded. Even after the Swiss National Bank provided CHF 150B in liquidity support, the bank run wouldn't stop. With depositor confidence gone and markets in panic, FINMA and the Swiss government concluded that a forced UBS merger was the only option.",
+      },
+      {
+        q: "CS AT1 사태에서 가장 큰 손실을 입은 투자자는 누구였나요?",
+        qEn: "Who suffered the biggest losses from the CS AT1 write-down?",
+        a: "CHF 16B 손실의 주요 피해자는 CS AT1 채권을 보유한 기관투자자와 일부 개인 투자자였습니다. 특히 아시아 프라이빗 뱅킹 채널을 통해 AT1을 매입한 홍콩·싱가포르의 고액 자산가들이 큰 피해를 입었습니다. 이들에게 AT1은 높은 쿠폰을 제공하는 '고급 채권'으로 판매됐지만, PONV 조항의 의미를 충분히 이해하지 못한 경우가 많았습니다. 홍콩·싱가포르 규제당국은 이후 AT1 리테일 판매에 대한 적합성 심사 강화를 요구했습니다.",
+        aEn: "The primary victims of the CHF 16B loss were institutional investors and select individual investors holding CS AT1 bonds. High-net-worth clients in Hong Kong and Singapore who purchased AT1s through private banking channels suffered particularly concentrated losses. These bonds were often sold to them as 'premium bonds' with attractive coupons, but many buyers had limited understanding of the PONV clause implications. Hong Kong and Singapore regulators subsequently tightened suitability requirements for AT1 distribution to retail investors.",
+      },
+    ],
     references: [
       {
         id: 1,
@@ -976,6 +1140,156 @@ The AT1 primary market reopened after this event. Investors keep coming because 
     keyTerms: [],
     relatedMarket101Slugs: ["dcm-ecosystem"],
     references: [],
+  },
+
+  // ── SVB 2023 ──────────────────────────────────────────────────────────────
+  {
+    slug: "svb-2023",
+    title: "실리콘밸리뱅크(SVB) 붕괴 — 48시간의 ALM 실패",
+    titleEn: "Silicon Valley Bank Collapse — 48 Hours of ALM Failure",
+    category: "fig",
+    categoryLabel: "FIG 드라마",
+    categoryLabelEn: "FIG Drama",
+    excerpt: "2023년 3월 Fed 금리 인상이 만들어낸 HTM 포트폴리오 폭탄. 94% 무보험 예금자, Twitter발 뱅크런, 48시간 만에 $2,090억 은행이 사라졌다.",
+    excerptEn: "The HTM portfolio bomb created by Fed rate hikes in March 2023. 94% uninsured depositors, a Twitter-fueled bank run — a $209B bank gone in 48 hours.",
+    dealYear: 2023,
+    issuer: "Silicon Valley Bank (SVB)",
+    issuerEn: "Silicon Valley Bank (SVB)",
+    readingMinutes: 16,
+    tags: ["ALM", "뱅크런", "HTM", "금리위기", "미국", "FDIC", "스타트업"],
+    tagsEn: ["ALM", "Bank Run", "HTM", "Rate Crisis", "US", "FDIC", "Startups"],
+    published: true,
+    snapshot: [
+      { labelKo: "은행 폐쇄일",        labelEn: "Closure Date",         value: "2023년 3월 10일" },
+      { labelKo: "총 자산",             labelEn: "Total Assets",          value: "$2,090억" },
+      { labelKo: "HTM 포트폴리오",      labelEn: "HTM Portfolio",         value: "$913억" },
+      { labelKo: "미실현 손실 (HTM)",   labelEn: "Unrealized Loss (HTM)", value: "–$152억" },
+      { labelKo: "하루 인출 시도액",    labelEn: "Single-Day Run",        value: "$420억" },
+      { labelKo: "무보험 예금 비율",    labelEn: "Uninsured Deposits",    value: "~94%" },
+    ],
+    sections: [],
+    keyTerms: [
+      {
+        term: "HTM (만기보유 채권)",
+        termEn: "HTM (Held-to-Maturity)",
+        definition: "만기까지 보유할 의도로 분류한 채권. 시가평가 없이 상각원가로 계상 — 매각 시 손실이 한꺼번에 실현됨.",
+        definitionEn: "Bonds classified as held-to-maturity, carried at amortized cost with no mark-to-market. When sold, all embedded losses are recognized at once.",
+      },
+      {
+        term: "AFS (매도가능 채권)",
+        termEn: "AFS (Available-for-Sale)",
+        definition: "시가평가 손익이 기타포괄손익(OCI)에 반영. HTM 대비 유연하지만 자기자본 변동 노출.",
+        definitionEn: "Fair-value changes flow through Other Comprehensive Income (OCI). More flexible than HTM but exposes book equity to rate moves.",
+      },
+      {
+        term: "Duration (듀레이션)",
+        termEn: "Duration",
+        definition: "금리 1% 변화 시 채권 가격의 % 변화량. SVB HTM 포트폴리오 평균 듀레이션 약 5.6년.",
+        definitionEn: "The % change in bond price for a 1% change in interest rates. SVB's HTM portfolio had ~5.6yr average duration.",
+      },
+      {
+        term: "ALM (자산부채관리)",
+        termEn: "ALM (Asset-Liability Management)",
+        definition: "자산과 부채의 만기·금리 불일치를 관리하는 은행 핵심 리스크 기능.",
+        definitionEn: "Core bank risk function managing maturity and rate mismatch between assets and liabilities.",
+      },
+      {
+        term: "BTFP",
+        termEn: "BTFP (Bank Term Funding Program)",
+        definition: "Fed가 SVB 붕괴 직후 도입한 긴급 대출 창구. HTM 채권을 액면가로 담보 접수.",
+        definitionEn: "Emergency Fed lending facility launched after SVB. Accepts HTM bonds at face value as collateral — absorbing unrealized losses instantly.",
+      },
+    ],
+    relatedMarket101Slugs: ["alm", "spread-basis", "oas"],
+    relatedDealSlugs: ["credit-suisse-at1"],
+    executiveSummary: {
+      ko: [
+        "SVB는 팬데믹 유동성 급증으로 예금이 2배 늘자 장기 MBS·국채에 $1,000억 이상을 투자, 대부분을 HTM으로 분류해 평가손을 재무제표에서 숨겼다.",
+        "Fed가 2022년 0.25%에서 5.25%로 금리를 올리자 HTM 포트폴리오에 $152억의 미실현 손실이 쌓였고, 이는 SVB 자기자본($163억)에 육박했다.",
+        "2023년 3월 8일 AFS 포트폴리오 매각 $18억 손실 공시와 증자 계획 발표가 VC 네트워크·Twitter를 통해 순식간에 퍼졌다.",
+        "3월 10일 하루에만 $420억의 인출이 몰리며 FDIC가 SVB를 폐쇄 — 미국 역사상 두 번째로 큰 은행 도산.",
+        "Fed는 이틀 뒤 BTFP를 도입해 HTM 채권을 액면가로 담보 대출, 시스템 전반의 뱅크런 전염을 차단했다.",
+      ],
+      en: [
+        "SVB's deposits doubled during the pandemic, so it deployed $100B+ into long-duration MBS and Treasuries — classifying most as HTM to hide fair-value losses from financial statements.",
+        "As the Fed hiked rates from 0.25% to 5.25% in 2022, SVB's HTM portfolio accumulated $15.2B in unrealized losses — nearly equal to its $16.3B in equity.",
+        "On March 8, SVB disclosed a $1.8B loss from selling its AFS portfolio and announced a capital raise. News spread instantly through VC networks and Twitter.",
+        "On March 10, $42B in withdrawals were attempted in a single day, forcing the FDIC to seize SVB — the second-largest US bank failure in history.",
+        "Two days later, the Fed launched BTFP, accepting HTM bonds at face value as collateral — stopping systemic contagion to other regional banks.",
+      ],
+    },
+    assessment: {
+      positives: [
+        "FDIC·연준의 신속한 대응(BTFP)으로 예금자 전액 보호 및 시스템 전이 방지 성공 — 2008년식 도미노 붕괴 없었음.",
+        "SVB 사태를 계기로 은행 HTM 포트폴리오·ALM에 대한 규제 감독이 대폭 강화됐다.",
+        "VC·스타트업 생태계가 예금보험 한도와 금융 리스크 관리의 중요성을 실감하는 계기가 됐다.",
+      ],
+      positivesEn: [
+        "Rapid FDIC/Fed BTFP response fully protected depositors and prevented systemic contagion — no 2008-style domino collapse.",
+        "SVB triggered significantly strengthened regulatory scrutiny of bank HTM portfolios and ALM frameworks.",
+        "The VC/startup ecosystem gained deep awareness of deposit insurance limits and financial risk management.",
+      ],
+      risks: [
+        "BTFP의 '액면가 담보' 원칙이 향후 HTM 분류 남용에 대한 도덕적 해이를 심화시킬 수 있다.",
+        "SNS 시대의 뱅크런은 기존 규제 프레임보다 수십 배 빠름 — 수 시간 내 대응 체계가 필요하나 규제가 이를 따라가지 못하고 있다.",
+        "특정 산업·커뮤니티에 예금이 집중된 다른 중소형 은행들에 유사 리스크가 잠재해 있다.",
+      ],
+      risksEn: [
+        "The BTFP's 'face value collateral' principle risks creating moral hazard encouraging aggressive future HTM classification.",
+        "Social media bank runs move far faster than existing regulatory frameworks assumed — response systems need to operate in hours, not days.",
+        "Other banks with similarly concentrated depositor bases face analogous latent risks.",
+      ],
+    },
+    faq: [
+      {
+        q: "HTM 채권을 만기까지 보유하면 손실이 없는 거 아닌가요?",
+        qEn: "If SVB held HTM bonds to maturity, wouldn't the losses disappear?",
+        a: "이론적으로는 맞습니다. 하지만 SVB의 부채(예금)는 단기였고 자산(HTM 채권)은 장기였습니다. 예금 인출이 몰리자 채권을 만기 전에 팔 수밖에 없었고, 그 순간 HTM에 숨어 있던 $152억 손실이 한꺼번에 실현됐습니다. ALM의 핵심 교훈 — 자산을 만기까지 보유하려면 부채도 안정적이어야 합니다.",
+        aEn: "Theoretically yes. But SVB's liabilities (deposits) were short-term while its assets (HTM bonds) were long-term. When withdrawals surged, bonds had to be sold before maturity — instantly crystallizing $15.2B in hidden losses. The core ALM lesson: you can only hold assets to maturity if your liabilities are equally stable.",
+      },
+      {
+        q: "왜 SVB 경영진은 HTM 비율을 이렇게 높게 가져갔나요?",
+        qEn: "Why did SVB management push HTM allocation so high?",
+        a: "2021년 당시 컨센서스는 '금리는 오랫동안 낮을 것'이었습니다. HTM은 OCI 변동성을 제거해 자기자본을 안정적으로 보이게 하고 규제 자기자본 비율에도 유리했습니다. 리스크팀이 경고했지만 수익성 압박 속에 무시됐고, 금리 인상 시나리오에 대한 스트레스 테스트가 충분하지 않았다는 것이 이후 규제 당국의 지적이었습니다.",
+        aEn: "In 2021, consensus was that rates would stay low for years. HTM eliminates OCI volatility and had regulatory capital advantages. Post-mortems suggest the risk team raised warnings but was overruled under profitability pressure. Regulators later criticized the lack of adequate stress testing for rate-hike scenarios.",
+      },
+      {
+        q: "SVB 사태가 CS AT1 사태와 다른 점은 무엇인가요?",
+        qEn: "How does SVB differ from the Credit Suisse AT1 event?",
+        a: "SVB는 ALM 실패 — 금리 환경 변화가 방아쇠였습니다. CS AT1은 수년간 누적된 신용 손실과 경영 불신이 원인이었습니다. 결과도 다릅니다: SVB는 예금자 전액 보호(FDIC), 주주·채권자 손실. CS AT1은 주주보다 먼저 AT1 채권자가 100% 손실. 두 사건 모두 시장 예상보다 훨씬 빠르게 전개됐다는 공통점이 있습니다.",
+        aEn: "SVB was an ALM failure triggered by the rate environment. CS AT1 resulted from years of accumulated credit losses and management distrust. The outcomes also differ: SVB's FDIC protected all depositors while shareholders lost; CS had AT1 holders take 100% losses before equity. Both events unfolded far faster than markets anticipated.",
+      },
+      {
+        q: "BTFP는 구제금융인가요?",
+        qEn: "Was BTFP a government bailout?",
+        a: "기술적으로는 담보 대출입니다 — 은행이 HTM 채권을 맡기고 빌리는 구조로, 채권이 만기 상환되면 Fed 손실이 없습니다. 다만 '액면가' 담보 원칙은 사실상 시장 손실을 정부가 흡수하는 효과가 있어 간접 지원이라는 비판도 있습니다. SVB 자체는 구제받지 못하고 폐쇄됐으며, BTFP는 전이 방지가 목적이었습니다.",
+        aEn: "Technically it's a collateralized lending facility — banks pledge HTM bonds and borrow against them; if bonds repay at par, the Fed takes no loss. However, the 'face value' collateral principle effectively absorbs market losses, which critics argue indirectly subsidizes bank shareholders. SVB itself was not bailed out — BTFP was designed to prevent contagion.",
+      },
+      {
+        q: "이런 사태가 한국 은행에서도 일어날 수 있나요?",
+        qEn: "Could something like this happen to Korean banks?",
+        a: "한국 주요 은행들도 저금리 시기 매입한 국채의 HTM 미실현 손실이 있었지만, SVB와 달리 예금자 기반이 소매 중심으로 다각화돼 있고 HTM 비중이 총 자산 대비 절대적이지 않았습니다. SVB 사태 직후 금감원은 전 은행에 HTM 포트폴리오 점검을 지시했고, 정기 ALM 스트레스 테스트 체계도 작동하고 있었습니다.",
+        aEn: "Major Korean banks also had unrealized HTM losses from bonds purchased during the low-rate era, but key differences apply: depositor bases are far more diversified toward retail, HTM concentrations were not as extreme, and the FSS conducted regular ALM stress tests. After SVB, the FSS ordered all banks to review their HTM portfolios.",
+      },
+    ],
+    references: [
+      {
+        id: 1,
+        author: "FDIC",
+        title: "Review of the FDIC's Supervision of Silicon Valley Bank",
+        source: "FDIC, April 2023",
+        year: "2023",
+        url: "https://www.fdic.gov/bank/individual/failed/silicon-valley-bank/svb-report.pdf",
+      },
+      {
+        id: 2,
+        author: "Board of Governors of the Federal Reserve System",
+        title: "Review of the Federal Reserve's Supervision of Silicon Valley Bank",
+        source: "Federal Reserve, April 2023",
+        year: "2023",
+        url: "https://www.federalreserve.gov/publications/files/svb-review-20230428.pdf",
+      },
+    ],
   },
 
 ];

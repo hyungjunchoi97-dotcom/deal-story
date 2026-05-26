@@ -3,7 +3,7 @@
  * 모든 딜 데이터 파일은 이 인터페이스를 준수합니다.
  */
 
-export type DealCategory = "ma" | "activism" | "restructuring";
+export type DealCategory = "ma" | "activism" | "restructuring" | "control";
 export type RoleType = "financial" | "legal" | "other";
 
 // ── 재무 ──────────────────────────────────────────────────────
@@ -301,5 +301,66 @@ export interface DealData {
    * M&A / Restructuring 딜에는 없어도 됨
    */
   governanceOverview?: GovernanceOverview;
+
+  /**
+   * 경영권 분쟁(control) 딜 전용 — Company Overview 다음에 렌더링
+   * 공격/방어 무브 타임라인 + 금융 무기 아스날 + 판정
+   */
+  controlBattleOverview?: ControlBattleOverview;
+}
+
+// ── 경영권 분쟁 전용: Control Battle Overview ─────────────────────
+
+/** 배틀 무브의 진영 */
+export type BattleSide = "attack" | "defense" | "neutral";
+
+/** 금융 무기의 효과 */
+export type WeaponEffectiveness = "decisive" | "effective" | "blocked" | "backfired";
+
+/** 분쟁에서 각 진영이 시도한 단일 무브(행동) */
+export interface BattleMove {
+  date: string;           // e.g. "2024-09-13"
+  actor: string;          // e.g. "MBK파트너스·영풍"
+  side: BattleSide;
+  move: string;           // 무브 타이틀 e.g. "적대적 공개매수 선언"
+  detail: string;         // 2~3줄 설명
+  financialImpact?: string; // e.g. "주가 +217%", "지분 14.17% 취득"
+  weapon?: string;        // 사용한 금융 수단 e.g. "공개매수(TOB)"
+}
+
+/** 각 진영이 꺼내든 금융 무기 */
+export interface FinancialWeapon {
+  name: string;           // e.g. "공개매수 (TOB)"
+  side: "attack" | "defense";
+  usedBy: string;
+  description: string;
+  effectiveness: WeaponEffectiveness;
+}
+
+/** control 카테고리 딜의 분쟁 오버뷰 전체 데이터 */
+export interface ControlBattleOverview {
+  body: string;           // 섹션 인트로
+  catalyst: string;       // 분쟁 발단 요약
+  attackerLabel: string;  // e.g. "MBK파트너스·영풍 연합"
+  defenderLabel: string;  // e.g. "최윤범 회장측"
+  battleMoves: BattleMove[];
+  financialWeapons: FinancialWeapon[];
+  turningPoint: {
+    date: string;
+    event: string;
+    detail: string;
+  };
+  verdict: {
+    winner: "attack" | "defense" | "draw";
+    winnerLabel: string;
+    margin: string;
+    note: string;
+  };
+  priceImpact: {
+    preContest: string;   // e.g. "515,000원"
+    peak: string;         // e.g. "1,630,000원"
+    postContest: string;  // e.g. "640,000원"
+    note: string;
+  };
 }
 
