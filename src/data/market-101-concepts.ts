@@ -1959,6 +1959,50 @@ From an IB career perspective, DCM requires a complex blend of structural design
     appearsIn: [],
   },
 
+  // ── DCM Ch.9 — Liability Management ─────────────────────────────────────
+  {
+    slug: "dcm-liability-management",
+    title: "DCM Ch.9 — 부채관리 실전: 텐더 오퍼·익스체인지 오퍼·콜 옵션",
+    titleEn: "DCM Ch.9 — Liability Management: Tender Offer, Exchange Offer & Call Options",
+    entryType: "article",
+    category: "dcm",
+    categoryLabel: "DCM",
+    categoryLabelEn: "DCM",
+    excerpt:
+      "채권 발행 후 기발행 채권의 능동적 관리 — 캐시 텐더 오퍼, 익스체인지 오퍼, Make-Whole Call, Par Call, Consent Solicitation. 만기 절벽 회피부터 금리 하락 기회 활용까지. KEXIM USD 500mn 케이스.",
+    excerptEn:
+      "Active management of outstanding bonds post-issuance — cash tender offer, exchange offer, make-whole call, par call, consent solicitation. Avoiding maturity walls to exploiting rate environments. KEXIM USD 500mn case study.",
+    readingMinutes: 16,
+    tags: ["DCM", "텐더오퍼", "익스체인지오퍼", "부채관리", "LME", "Make-Whole Call", "Par Call", "Consent Solicitation", "만기절벽"],
+    tagsEn: ["DCM", "Tender Offer", "Exchange Offer", "Liability Management", "LME", "Make-Whole Call", "Par Call", "Consent Solicitation", "Maturity Wall"],
+    sections: [],
+    keyTerms: [],
+    relatedSlugs: ["dcm-execution", "dcm-pricing", "dcm-deal-process", "dcm-bond-products"],
+    appearsIn: [],
+  },
+
+  // ── DCM Ch.10 — ESG Green Bond ────────────────────────────────────────────
+  {
+    slug: "dcm-esg-green-bond",
+    title: "DCM Ch.10 — ESG·녹색채권 실무: GBP·Greenium·SLB vs 그린본드",
+    titleEn: "DCM Ch.10 — ESG & Green Bonds in Practice: GBP, Greenium, SLB vs Green Bond",
+    entryType: "article",
+    category: "dcm",
+    categoryLabel: "DCM",
+    categoryLabelEn: "DCM",
+    excerpt:
+      "4조 달러 ESG 채권 시장의 실무 지도. GBP 4원칙, 그린본드·SLB·소셜본드·서스테이너빌리티본드·트랜지션본드 비교, Greenium 실측 데이터, SPO 제공자 분석, 그린워싱 식별법. 한국 기획재정부 최초 그린 소버린 케이스.",
+    excerptEn:
+      "Practitioner's map of the $4 trillion ESG bond market. GBP four pillars, green vs SLB vs social vs sustainability vs transition bonds, empirical greenium data by segment, SPO providers, greenwashing red flags. Korea MOEF first green sovereign case.",
+    readingMinutes: 18,
+    tags: ["DCM", "그린본드", "ESG", "SLB", "GBP", "Greenium", "SPO", "K-택소노미", "소셜본드", "그린워싱", "외평채"],
+    tagsEn: ["DCM", "Green Bond", "ESG", "SLB", "GBP", "Greenium", "SPO", "K-Taxonomy", "Social Bond", "Greenwashing", "KTB"],
+    sections: [],
+    keyTerms: [],
+    relatedSlugs: ["dcm-execution", "dcm-international-markets", "dcm-pricing", "dcm-issuers"],
+    appearsIn: [],
+  },
+
   // ── DCM Special: Rate Benchmarks ─────────────────────────────────────────
   {
     slug: "dcm-rate-benchmarks",

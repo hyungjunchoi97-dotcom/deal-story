@@ -525,7 +525,7 @@ export default function DcmLiabilityManagementClient({ concept, lang }: Props) {
           <h2 className="text-xl font-black text-gray-900 dark:text-gray-50 mb-6">
             {ko ? "자주 묻는 질문" : "Frequently Asked Questions"}
           </h2>
-          <FaqAccordion items={FAQS.map((f) => ({ q: f.q(ko), a: f.a(ko) }))} accentColor={accent} />
+          <FaqAccordion items={FAQS.map((f) => ({ q: f.q(ko), a: f.a(ko) }))} accent={accent} />
         </motion.section>
 
         {/* References */}
@@ -549,11 +549,7 @@ export default function DcmLiabilityManagementClient({ concept, lang }: Props) {
         </motion.section>
 
         <ShareButtons
-          url={pageUrl}
           title={ko ? "DCM Ch.9 — 부채관리 실전: 텐더 오퍼·익스체인지 오퍼·콜 옵션 | Deal Story" : "DCM Ch.9 — Liability Management: Tender Offer, Exchange Offer & Call Options | Deal Story"}
-          description={ko
-            ? "텐더 오퍼, 익스체인지 오퍼, Make-Whole 콜, Par Call, Consent Solicitation. KEXIM 케이스로 보는 LME 전 과정."
-            : "Tender offer, exchange offer, make-whole call, par call, consent solicitation. Full LME process via KEXIM case study."}
           lang={lang}
         />
 

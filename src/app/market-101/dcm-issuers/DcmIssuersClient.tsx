@@ -34,6 +34,8 @@ const DCM_SERIES = [
   { slug: "dcm-pricing",               ch: 6, title: (ko: boolean) => ko ? "Ch.6 프라이싱"     : "Ch.6 Pricing"    },
   { slug: "dcm-structure-regulation",  ch: 7, title: (ko: boolean) => ko ? "Ch.7 구조·제도"    : "Ch.7 Regulation" },
   { slug: "dcm-execution",             ch: 8, title: (ko: boolean) => ko ? "Ch.8 실전 발행"     : "Ch.8 Execution"  },
+  { slug: "dcm-liability-management",  ch: 9,  title: (ko: boolean) => ko ? "Ch.9 부채관리"      : "Ch.9 LM"            },
+  { slug: "dcm-esg-green-bond",        ch: 10, title: (ko: boolean) => ko ? "Ch.10 ESG·녹색채권" : "Ch.10 ESG"          },
 ];
 
 const thisCh = 1;
