@@ -2143,6 +2143,38 @@ From an IB career perspective, DCM requires a complex blend of structural design
     appearsIn: [],
   },
 
+  {
+    slug: "levfin-hy-vs-loans",
+    title: "LevFin Ch.1 — HY채권 vs 레버리지드 론: 구조·투자자·선택 기준 완전 해설",
+    titleEn: "LevFin Ch.1 — HY Bonds vs Leveraged Loans: Structure, Investors & Issuer Choice",
+    entryType: "article",
+    category: "levfin",
+    categoryLabel: "LevFin",
+    categoryLabelEn: "LevFin",
+    excerpt:
+      "하이일드 채권 vs TLB 10가지 핵심 차이: 고정 vs 변동금리, 담보 순위, Cov-Lite 85%, Call Schedule(7NC3), OID 숨겨진 비용, CLO 65% 투자자 구조, Dollar General KKR LBO($6.9bn, IRR ~40%) 케이스스터디, 한국 LevFin 구조적 부재 원인 4가지 — 발행사가 HY와 TLB를 동시에 쓰는 이유부터 LIBOR→SOFR 전환 영향까지.",
+    excerptEn:
+      "10 key HY bond vs TLB differences: fixed vs floating rate, security ranking, Cov-Lite 85%, 7NC3 call schedule, OID hidden cost, CLO 65% investor structure, Dollar General KKR LBO ($6.9bn, IRR ~40%) case study, four structural reasons Korea lacks a LevFin market — from why issuers simultaneously issue HY and TLBs to the LIBOR-to-SOFR transition impact.",
+    readingMinutes: 18,
+    tags: [
+      "하이일드 채권", "레버리지드 론", "TLB", "HY 채권", "Cov-Lite",
+      "Call Schedule", "OID", "CLO", "SOFR", "MFN",
+      "Equity Clawback", "CoC Put", "Dollar General", "KKR", "한국 레버리지드 파이낸스",
+    ],
+    tagsEn: [
+      "High Yield Bond", "Leveraged Loan", "TLB", "HY Bond", "Cov-Lite",
+      "Call Schedule", "OID", "CLO", "SOFR", "MFN",
+      "Equity Clawback", "Change of Control Put", "Dollar General", "KKR", "Korean LevFin",
+    ],
+    sections: [],
+    keyTerms: [],
+    relatedSlugs: [
+      "levfin-ecosystem", "levfin-credit-metrics", "levfin-covenants",
+      "levfin-process", "levfin-pricing", "levfin-distressed", "lbo-overview",
+    ],
+    appearsIn: [],
+  },
+
 ];
 
 export function getMarket101ConceptBySlug(slug: string): MarketConcept | undefined {
