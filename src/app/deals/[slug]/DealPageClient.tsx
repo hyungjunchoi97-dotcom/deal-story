@@ -6,13 +6,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SectionTitle from "@/components/SectionTitle";
 import { DEAL_CATEGORY_LABEL, DEAL_CATEGORY_COLOR, type DealCategory } from "@/lib/types";
-
-const EN_CATEGORY_LABEL: Record<DealCategory, string> = {
-  ma: "M&A",
-  activism: "Activism",
-  restructuring: "Restructuring",
-  control: "Control Contest",
-};
 import FinancialsChart from "@/components/deal/FinancialsChart";
 import OwnershipDiagram from "@/components/deal/OwnershipDiagram";
 import AnimatedBar from "@/components/deal/AnimatedBar";
@@ -23,8 +16,16 @@ import MetricCard from "@/components/deal/MetricCard";
 import CompanyLogo from "@/components/deal/CompanyLogo";
 import GovernanceOverviewSection from "@/components/deal/GovernanceOverviewSection";
 import ControlBattleSection from "@/components/deal/ControlBattleSection";
+import RestructuringSection from "@/components/deal/RestructuringSection";
 import { formatDealDate } from "@/lib/format";
 import type { DealData } from "@/lib/deal-data";
+
+const EN_CATEGORY_LABEL: Record<DealCategory, string> = {
+  ma: "M&A",
+  activism: "Activism",
+  restructuring: "Restructuring",
+  control: "Control Contest",
+};
 
 // ── 다국어 레이블 ─────────────────────────────────────────────
 const LABELS = {
@@ -388,10 +389,17 @@ export default function DealPageClient({
               <SectionTitle>
                 {lang === "en" ? "Control Battle Overview" : "경영권 분쟁 개요"}
               </SectionTitle>
-              <ControlBattleSection
-                data={deal.controlBattleOverview}
-                lang={lang}
-              />
+              <ControlBattleSection data={deal.controlBattleOverview} lang={lang} />
+            </>
+          )}
+
+          {/* ── 7-D. Restructuring Overview (restructuring 딜 전용) */}
+          {deal.restructuringOverview && (
+            <>
+              <SectionTitle>
+                {lang === "en" ? "Restructuring Overview" : "구조조정 개요"}
+              </SectionTitle>
+              <RestructuringSection data={deal.restructuringOverview} lang={lang} />
             </>
           )}
 
@@ -479,24 +487,26 @@ export default function DealPageClient({
           <SectionTitle>Valuation</SectionTitle>
           <p className="text-[0.9375rem] text-gray-600 dark:text-gray-400 leading-relaxed mb-5">{deal.valuation.body}</p>
           <div className="rounded-xl border border-gray-200 dark:border-gray-700/60 overflow-hidden mb-4">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="bg-gray-50 dark:bg-gray-800/60 border-b border-gray-200 dark:border-gray-700">
-                  <th className="text-left py-2.5 px-4 text-[11px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wide">{t.valuationItem}</th>
-                  <th className="text-right py-2.5 px-4 text-[11px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wide">{t.valuationValue}</th>
-                  <th className="text-right py-2.5 px-4 text-[11px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wide">{t.valuationNote}</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-100 dark:divide-gray-800">
-                {deal.valuation.rows.map(({ item, val, note, accent }) => (
-                  <tr key={item} className={accent?"bg-amber-50/50 dark:bg-amber-900/10":""}>
-                    <td className={`py-3 px-4 text-[13px] ${accent?"font-bold text-gray-800 dark:text-gray-200":"text-gray-600 dark:text-gray-400"}`}>{item}</td>
-                    <td className={`py-3 px-4 text-right text-[13px] font-bold ${accent?"text-amber-500":"text-gray-700 dark:text-gray-300"}`}>{val}</td>
-                    <td className="py-3 px-4 text-right text-[12px] text-gray-400 dark:text-gray-500">{note}</td>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-gray-50 dark:bg-gray-800/60 border-b border-gray-200 dark:border-gray-700">
+                    <th className="text-left py-2.5 px-3 sm:px-4 text-[11px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wide">{t.valuationItem}</th>
+                    <th className="text-right py-2.5 px-3 sm:px-4 text-[11px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wide">{t.valuationValue}</th>
+                    <th className="text-right py-2.5 px-3 sm:px-4 text-[11px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wide">{t.valuationNote}</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody className="divide-y divide-gray-100 dark:divide-gray-800">
+                  {deal.valuation.rows.map(({ item, val, note, accent }) => (
+                    <tr key={item} className={accent?"bg-amber-50/50 dark:bg-amber-900/10":""}>
+                      <td className={`py-3 px-3 sm:px-4 text-[13px] ${accent?"font-bold text-gray-800 dark:text-gray-200":"text-gray-600 dark:text-gray-400"}`}>{item}</td>
+                      <td className={`py-3 px-3 sm:px-4 text-right text-[13px] font-bold ${accent?"text-amber-500":"text-gray-700 dark:text-gray-300"}`}>{val}</td>
+                      <td className="py-3 px-3 sm:px-4 text-right text-[12px] text-gray-400 dark:text-gray-500">{note}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
           {deal.valuation.disclaimer && (
             <p className="text-[11px] text-gray-400 dark:text-gray-500">{deal.valuation.disclaimer}</p>
@@ -662,8 +672,14 @@ export default function DealPageClient({
             </ol>
           </div>
 
-          <div className="mt-12 pt-6 border-t border-gray-100 dark:border-gray-800">
+          <div className="mt-12 pt-6 border-t border-gray-100 dark:border-gray-800 flex flex-wrap items-center gap-4">
             <Link href={t.dealsHref} className="text-sm text-blue-500 hover:underline">{t.otherDeals}</Link>
+            <Link
+              href={lang === "en" ? "/en/market" : "/market"}
+              className="inline-flex items-center gap-1 text-sm text-teal-600 dark:text-teal-400 hover:underline"
+            >
+              {lang === "en" ? "Capital Markets → Market Story" : "자본시장 딜 → Market Story"}
+            </Link>
           </div>
 
         </article>

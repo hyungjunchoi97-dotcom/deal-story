@@ -240,6 +240,160 @@ const deal: DealData = {
     { term: "전략적 M&A (Strategic M&A)", href: "/deal-101/strategic-ma", description: "분리도 M&A만큼 전략적 — 통합보다 분리가 더 큰 가치를 만드는 경우" },
   ],
 
+  restructuringOverview: {
+    body: "eBay-PayPal 분사는 '역사상 가장 성공적인 스핀오프'로 불립니다. 한 지붕 아래 있던 커머스와 결제 두 플랫폼이 왜 갈라서야 했고, 어떻게 갈라섰으며, 그 결과 누가 얼마나 이익을 얻었는지 — Section 355 면세 분사의 교과서적 사례를 분석합니다.",
+    trigger: "행동주의 투자자 칼 아이칸 + PayPal의 eBay 의존도 급감",
+    triggerDetail: "2014년 칼 아이칸이 eBay 지분 0.82%를 매집하고 PayPal 즉각 분사를 공개 요구했습니다. 당시 PayPal은 eBay 거래에서 처리하는 비중이 2009년 52%에서 2014년 30% 이하로 떨어지고 있었습니다 — eBay 없이도 독립적으로 성장하고 있었다는 뜻입니다. 반면 PayPal을 묶어두면 경쟁 커머스 플랫폼(아마존, 알리바바)과 직접 파트너십을 맺기 어려워 성장에 걸림돌이 됐습니다. 이사회는 1년간 저항하다 2015년 1월 분사 계획을 공식 발표했습니다.",
+    method: "tax-free-spinoff",
+    methodLabel: "Section 355 면세 분사",
+    whyThisMethod: "PayPal은 이미 독립 사업으로서 완전한 운영 능력을 갖추고 있었기 때문에 현금 매각보다 주주에게 직접 배분하는 스핀오프가 최적이었습니다. Section 355 요건(5년 이상 활성 사업, 사업 목적 존재, 지배권 이전 없음)을 모두 충족했고, 이를 통해 eBay와 PayPal 주주들 모두 세금 없이 두 독립 기업의 주식을 보유할 수 있었습니다.",
+    methodVsAlternatives: [
+      {
+        method: "현금 매각 (Trade Sale)",
+        reason: "Google, Apple 등 잠재 인수자들이 관심을 보였으나, 세금 부담($50억+ 추정)과 PayPal 브랜드 독립성 상실 위험이 있었습니다. 결제 시장에서의 전략 가치 포기를 의미하기도 했습니다.",
+      },
+      {
+        method: "카브아웃 IPO (Partial IPO)",
+        reason: "eBay가 PayPal 지분 일부를 공개 상장하는 방식은 지배권을 유지할 수 있지만, PayPal의 독립 경영 능력과 파트너십 확장을 제약합니다. 칼 아이칸의 요구를 충족하지 못했습니다.",
+      },
+      {
+        method: "현 구조 유지",
+        reason: "PayPal이 아마존·알리바바 등 eBay 경쟁사와 제휴를 맺으려면 독립이 필수였습니다. 통합 구조에서는 이해 충돌로 이런 전략적 파트너십이 불가능했습니다.",
+      },
+    ],
+    theoreticalInsights: [
+      {
+        concept: "플랫폼 인접 기업 간 갈등 (Platform Conflict of Interest)",
+        explanation: "두 플랫폼이 한 기업 내에 있을 때, 한쪽의 파트너십 확장이 다른 쪽의 경쟁 상황을 악화시킬 수 있습니다. 결제 플랫폼이 커머스 플랫폼에 종속되면 범용 결제 인프라로 성장할 수 없습니다.",
+        howApplied: "eBay 산하 PayPal은 eBay 경쟁사 플랫폼 결제를 강하게 추진하기 어려웠습니다. 독립 후 PayPal은 아마존, 알리바바, 우버 등 eBay 경쟁사들과 즉시 파트너십을 체결하며 TAM(총 잠재 시장)을 폭발적으로 확장했습니다.",
+      },
+      {
+        concept: "섬머 오브 러브 (Section 355 Tax-Free Spinoff)",
+        explanation: "미국 세법 Section 355는 일정 요건을 충족하는 법인 분리를 세금 없이 허용합니다. 핵심 요건: ① 5년 이상 활성 사업 영위, ② 사업 목적(Business Purpose), ③ 지배권 이전 의도 없음. 이를 통해 모회사·주주 모두 과세 없이 분리 가능합니다.",
+        howApplied: "eBay는 PayPal을 2002년 인수(13년 보유)했고, 결제 사업의 독자 성장을 위한 명확한 사업 목적이 있었으며, 지배권 이전 없이 기존 주주에게 1:1 비율로 배분했습니다. Section 355 요건을 완벽하게 충족한 교과서적 사례입니다.",
+      },
+      {
+        concept: "역분사 프리미엄 (Reverse Conglomerate Premium)",
+        explanation: "분리 후 두 순수 플레이어의 합산 시총이 통합 상태보다 높아지는 현상입니다. 각 기업이 해당 섹터에서 최적 멀티플을 받게 되며, 투자자들도 자신의 포트폴리오 전략에 맞게 선택적으로 보유할 수 있게 됩니다.",
+        howApplied: "분사 직전 eBay+PayPal 합산 시총 약 $680억이었으나, 분사 직후 두 회사 합산은 $900억+를 기록했습니다. PayPal은 핀테크 플랫폼 멀티플을 받기 시작했고 2021년에는 시총 $3,500억을 넘었습니다.",
+      },
+    ],
+    executionSteps: [
+      {
+        phase: "Phase 1",
+        date: "2014년 1월",
+        action: "칼 아이칸 공개 캠페인 시작",
+        detail: "칼 아이칸이 eBay 지분 매집 후 PayPal 즉각 분사를 요구하는 서신을 이사회에 공개 발송. eBay 경영진은 시너지를 이유로 거부했으나 주주 압력이 지속됐습니다.",
+        financialNote: "아이칸 캠페인 발표 후 eBay 주가 +5%",
+      },
+      {
+        phase: "Phase 2",
+        date: "2015년 1월",
+        action: "분사 공식 발표 (CEO 존 도나호)",
+        detail: "eBay 이사회가 PayPal 100% 스핀오프를 공식 발표. 분리 비율: eBay 주주 1주당 PayPal 1주 배분. Section 355 면세 구조 확정. 분사 완료 목표: 2015년 하반기.",
+        financialNote: "발표 당일 eBay 주가 +7.2%",
+      },
+      {
+        phase: "Phase 3",
+        date: "2015년 7월 17일",
+        action: "PayPal 나스닥 독립 상장 (PYPL)",
+        detail: "PayPal이 나스닥에 단독 상장. 시총 $460억으로 출발. eBay 주주 1주당 PayPal 1주를 세금 없이 수령. 두 회사는 5년간 운영 서비스 계약을 유지하되 독자 파트너십을 즉시 시작할 수 있게 됐습니다.",
+        financialNote: "상장 첫날 시총 $460억 (eBay 2002년 인수가 $15억의 31배)",
+      },
+    ],
+    stakeholders: [
+      {
+        name: "eBay 주주",
+        icon: "🛒",
+        impact: "positive",
+        summary: "두 독립 기업 주식 동시 확보",
+        detail: "eBay 1주당 PayPal 1주를 세금 없이 수령. PayPal이 폭발적으로 성장하며 장기 보유자는 대규모 이익을 얻었습니다. eBay 자체도 커머스에 집중하며 StubHub, Classifieds 추가 구조조정을 진행했습니다.",
+        metric: "합산 시총 $680억 → $900억+ (분사 직후)",
+      },
+      {
+        name: "PayPal 경영진 & 직원",
+        icon: "💳",
+        impact: "positive",
+        summary: "독립 기업 주식 인센티브 확보",
+        detail: "독립 PayPal 주식 스톡옵션을 받게 돼 동기부여가 극대화됐습니다. 댄 슐만이 초대 독립 CEO로 취임하며 핀테크 전문가 영입을 가속화했습니다.",
+        metric: "PayPal PYPL 5년 후 +650%",
+      },
+      {
+        name: "칼 아이칸 (행동주의 주주)",
+        icon: "🦅",
+        impact: "positive",
+        summary: "캠페인 2년 만에 목표 달성",
+        detail: "2014년 시작한 분사 캠페인이 2015년 완전히 관철됐습니다. 아이칸은 분사 전후 지분을 매각하며 수억 달러의 이익을 실현했습니다.",
+        metric: "캠페인 기간 eBay 주가 +25%+",
+      },
+      {
+        name: "eBay 파트너 커머스 기업들",
+        icon: "🤝",
+        impact: "mixed",
+        summary: "결제 파트너 다변화 선택권 확보",
+        detail: "PayPal 독립 후 eBay는 Adyen과 새 결제 계약을 체결하며 PayPal 의존도를 낮췄습니다. 소규모 판매자들은 전환 비용이 발생했으나, 경쟁 결제 옵션이 생기며 수수료 협상력이 높아졌습니다.",
+      },
+      {
+        name: "소비자 (결제 이용자)",
+        icon: "👥",
+        impact: "positive",
+        summary: "PayPal 적용 범위 폭발적 확대",
+        detail: "독립 후 PayPal이 아마존, Airbnb, Uber 등 대형 플랫폼과 빠르게 파트너십을 맺어 사용 가능한 곳이 폭발적으로 늘었습니다. Venmo, Braintree 등 인수합병도 가속됐습니다.",
+        metric: "활성 계정 1.6억 → 4.2억 (분사 후 5년)",
+      },
+    ],
+    beforeAfter: [
+      {
+        metric: "PayPal 시가총액",
+        before: "$460억 (분사 시점)",
+        after: "$3,500억 (2021년 최고)",
+        change: "+650%",
+        isPositive: true,
+      },
+      {
+        metric: "PayPal 활성 계정",
+        before: "1.6억 명",
+        after: "4.2억 명 (5년 후)",
+        change: "+162%",
+        isPositive: true,
+      },
+      {
+        metric: "PayPal 결제 처리량(TPV)",
+        before: "$2,350억",
+        after: "$1조+ (2021)",
+        change: "+326%",
+        isPositive: true,
+      },
+      {
+        metric: "eBay 밸류에이션 멀티플",
+        before: "핀테크+커머스 혼재",
+        after: "순수 커머스 P/E",
+        change: "섹터 분리로 명확화",
+        isPositive: true,
+      },
+      {
+        metric: "PayPal eBay 의존도",
+        before: "30% (2015)",
+        after: "3% (2020)",
+        change: "-27%p (다각화 성공)",
+        isPositive: true,
+      },
+      {
+        metric: "eBay 주가 (장기)",
+        before: "$28 (분사 시점)",
+        after: "$70대 (2021)",
+        change: "+150%",
+        isPositive: true,
+      },
+    ],
+    marketImpact: {
+      announcementReturn: "발표 당일 eBay +7.2%",
+      shortTermReturn: "분사 6개월 후 합산 +15%",
+      longTermReturn: "PayPal 독립 5년 후 +650%",
+      contextNote: "eBay 2002년 PayPal 인수가 $15억 → 분사 시 시총 $460억 (31배), 2021년 최고점 $3,500억 (230배)",
+    },
+  },
+
   faq: [
     {
       q: "칼 아이칸은 왜 PayPal 분사를 요구했나요?",

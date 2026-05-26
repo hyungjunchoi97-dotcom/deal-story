@@ -241,6 +241,166 @@ const deal: DealData = {
     { term: "EV/EBITDA", href: "/deal-101/ev-ebitda", description: "혁신 제약사의 높은 EBITDA 마진과 멀티플 — Abbott 복합 기업 대비 독립 제약사의 밸류에이션 프리미엄" },
   ],
 
+  restructuringOverview: {
+    body: "Abbott-AbbVie 분사는 Humira(휴미라)라는 블록버스터 의약품이 탄생시킨 구조조정입니다. 혁신 제약이 의료기기·진단·영양제와 한 지붕 아래 있을 때 생기는 '멀티플 희석' 문제를 어떻게 해결했는지, 그리고 분사 이후 두 회사가 어떤 경로를 걸었는지를 살펴봅니다.",
+    trigger: "Humira 급성장으로 혁신 제약 멀티플이 복합기업 구조와 충돌",
+    triggerDetail: "Humira(아달리무맙)는 2002년 FDA 승인 후 자가면역 치료제 시장을 석권하며 Abbott 매출의 50%+를 차지하기 시작했습니다. 그러나 Abbott의 주가 멀티플은 혁신 제약사가 아닌 복합 의료 기업으로 분류되어 낮게 유지됐습니다. 2011년 Abbott는 Humira 매출 성장을 극대화하고 Abbott 나머지 사업의 가치도 독립적으로 인정받기 위해 완전 분사를 결정했습니다. '두 마리 토끼'를 한 기업에 담기보다 각각이 최적 멀티플을 받도록 분리한 것입니다.",
+    method: "tax-free-spinoff",
+    methodLabel: "Section 355 면세 분사 (혁신 제약 분리)",
+    whyThisMethod: "AbbVie 분사는 AbbVie가 10년 이상 활성 사업(Humira는 2003년부터 본격 판매)을 영위했고, 명확한 사업 목적(제약 포커스)이 있었으며, 기존 Abbott 주주에게 1:1 배분해 지배권 이전이 없었습니다. Section 355 요건을 완벽 충족하며 세금 부담 없이 두 독립 기업을 창출했습니다. 현금 매각보다 분사가 선택된 이유는 파이프라인의 미래 가치가 현재 현금 가치보다 훨씬 크다고 판단했기 때문입니다.",
+    methodVsAlternatives: [
+      {
+        method: "제약 사업 현금 매각 (Trade Sale)",
+        reason: "Humira 미래 가치($1,000억+ 잠재 매출)를 현재 현금으로 실현하면 주주 가치를 심하게 훼손합니다. 또한 글로벌 제약 M&A에서 반독점 규제 통과도 불확실했습니다.",
+      },
+      {
+        method: "부분 IPO (카브아웃)",
+        reason: "Abbott가 AbbVie 지분을 일부 유지하면 자본 배분 경쟁이 지속되고, 완전한 분리 효과가 나타나지 않습니다. 투자자들은 여전히 Abbott를 복합 기업으로 볼 것입니다.",
+      },
+      {
+        method: "지주회사 구조",
+        reason: "홀딩컴퍼니 할인이 지속되며 두 사업 모두 최적 멀티플을 받지 못합니다. 실질 분리 없이 구조만 바꾸는 것은 투자자들에게 설득력이 없었습니다.",
+      },
+    ],
+    theoreticalInsights: [
+      {
+        concept: "멀티플 희석 (Multiple Dilution)",
+        explanation: "한 기업에 고성장·고마진 사업과 저성장·안정적 사업이 공존하면, 투자자들이 적용하는 밸류에이션 멀티플이 '평균값'으로 수렴합니다. 혁신 제약 P/E 25~35배와 의료기기 P/E 18~22배가 혼재하면 전체 기업은 P/E 20배 수준을 받게 됩니다.",
+        howApplied: "Abbott 분사 전 P/E는 약 17~18배(복합기업 디스카운트). AbbVie는 분사 후 혁신 제약 P/E 22~30배를 받았고, Abbott는 의료기기·진단 P/E 22~28배를 받아 두 회사 모두 통합 상태보다 높은 밸류에이션을 확보했습니다.",
+      },
+      {
+        concept: "블록버스터 단일 의존 리스크 (Single-Product Concentration Risk)",
+        explanation: "하나의 의약품이 전체 매출의 50%+를 차지하면 특허 만료, 바이오시밀러 경쟁, 규제 위험이 기업 전체를 위협합니다. 독립 기업이 되면 파이프라인 다각화 M&A를 더 신속하게 집행할 수 있습니다.",
+        howApplied: "AbbVie는 독립 후 즉시 Pharmacyclics($210억, Imbruvica) 및 Allergan($630억, Botox·Juvederm)을 인수해 Humira 의존도를 낮추는 데 성공했습니다. Abbott 복합기업 구조에서는 이사회의 자원 배분 논쟁으로 훨씬 느렸을 것입니다.",
+      },
+      {
+        concept: "자본 배분의 자유 (Capital Allocation Flexibility)",
+        explanation: "독립 기업은 자체 사업에 최적화된 자본 배분 결정을 내릴 수 있습니다. 복합기업에서는 다른 사업부와의 내부 경쟁에서 자원을 따내야 하며, 이는 최적 투자 시기를 놓치게 합니다.",
+        howApplied: "AbbVie는 독립 후 R&D 예산과 M&A 예산을 면역학·종양학에 집중 배분해 2023년 기준 Skyrizi·Rinvoq로 Humira 특허 만료를 성공적으로 헤징했습니다. Abbott는 의료기기(FreeStyle Libre)·진단에 집중 투자할 수 있게 됐습니다.",
+      },
+    ],
+    executionSteps: [
+      {
+        phase: "Phase 1",
+        date: "2011년 10월",
+        action: "Abbott 이사회 분사 결정 발표",
+        detail: "Abbott CEO 마일스 화이트가 제약 사업(AbbVie)을 완전 분사하겠다고 발표. Abbott 주주 1주당 AbbVie 1주 배분 비율 확정. 분사 완료 목표: 2013년 1분기.",
+        financialNote: "발표 당일 Abbott 주가 +3.5%",
+      },
+      {
+        phase: "Phase 2",
+        date: "2012년",
+        action: "AbbVie 법인 설립 & SEC 등록",
+        detail: "AbbVie Inc. 델라웨어 법인 설립. SEC Form 10(정보 명세서) 제출 및 승인. 브랜드명 'AbbVie'(Abbott + vie 프랑스어 '삶') 확정. NYSE 상장 코드 ABBV 확정.",
+      },
+      {
+        phase: "Phase 3",
+        date: "2013년 1월 1일",
+        action: "AbbVie NYSE 독립 상장",
+        detail: "AbbVie가 NYSE에 단독 상장(ABBV). 시총 약 $540억으로 출범. Abbott 주주 1주당 AbbVie 1주를 세금 없이 수령. Humira, Lupron, Synagis 등 제품 라인 전량 이전.",
+        financialNote: "상장 시총 $540억 (Humira 연매출 당시 $105억)",
+      },
+      {
+        phase: "Phase 4",
+        date: "2014~2020년",
+        action: "AbbVie M&A 가속 (Pharmacyclics·Allergan)",
+        detail: "2015년 Pharmacyclics $210억(Imbruvica 확보), 2020년 Allergan $630억(Botox·Juvederm·Restasis 확보) 인수. Abbott 복합기업 구조였다면 이 규모의 M&A는 이사회 내부 반대에 부딪혔을 것입니다.",
+        financialNote: "AbbVie 시총 $540억 → $2,000억+ (2020)",
+      },
+    ],
+    stakeholders: [
+      {
+        name: "Abbott 주주 (기존)",
+        icon: "💊",
+        impact: "positive",
+        summary: "두 독립 기업 주식 동시 확보",
+        detail: "Abbott 1주당 AbbVie 1주를 세금 없이 수령. AbbVie의 폭발적 성장과 Abbott의 안정적 성장을 동시에 향유. 두 회사 합산 시총은 2011년 Abbott 단독 대비 5배+ 성장.",
+        metric: "합산 시총 2011년 $800억 → 2023년 $4,000억+",
+      },
+      {
+        name: "AbbVie 경영진 & 연구자",
+        icon: "🔬",
+        impact: "positive",
+        summary: "제약 집중 R&D 환경 확보",
+        detail: "독립 AbbVie 주식 인센티브 확보. 면역학·종양학 전문가 영입 가속화. Allergan 인수로 미용·안과 전문가까지 흡수. 연구자 입장에서 복합기업 관료제에서 벗어나 전문화된 환경 조성.",
+        metric: "R&D 지출 연 $60억+(독립 후 2배 증가)",
+      },
+      {
+        name: "Humira 바이오시밀러 경쟁자",
+        icon: "⚔️",
+        impact: "mixed",
+        summary: "AbbVie의 적극 방어 전략에 직면",
+        detail: "독립 AbbVie는 Humira 특허 포트폴리오를 적극 확장하고 법적 분쟁으로 바이오시밀러 진입을 지연시켰습니다. 반면 바이오시밀러 기업들은 결국 2023년 미국 시장에 진입해 가격 경쟁을 시작했습니다.",
+        metric: "Humira 2023년 미국 시장 바이오시밀러 진입",
+      },
+      {
+        name: "Abbott 사업부 직원",
+        icon: "🏥",
+        impact: "positive",
+        summary: "의료기기·진단 집중 투자 수혜",
+        detail: "FreeStyle Libre(연속혈당측정기) R&D가 대폭 강화됐습니다. 코로나19 팬데믹 때 Abbott 진단 사업이 $200억+ 매출을 기록하며 독립 집중 투자의 성과가 검증됐습니다.",
+        metric: "FreeStyle Libre 매출 $50억+(2023)",
+      },
+      {
+        name: "환자 & 의료 시스템",
+        icon: "🏨",
+        impact: "mixed",
+        summary: "혁신 가속 vs 가격 인상 우려",
+        detail: "AbbVie 독립 후 Skyrizi·Rinvoq 같은 차세대 면역치료제 개발이 빨라졌습니다. 그러나 Humira 가격이 독립 후 지속 인상되며 의료 비용 부담에 대한 비판도 받았습니다.",
+      },
+    ],
+    beforeAfter: [
+      {
+        metric: "AbbVie 시가총액",
+        before: "$540억 (2013년 상장 시)",
+        after: "$2,700억 (2023년)",
+        change: "+5배",
+        isPositive: true,
+      },
+      {
+        metric: "Humira 연매출",
+        before: "$105억 (2013년)",
+        after: "$212억 (2022년, 최고점)",
+        change: "+102%",
+        isPositive: true,
+      },
+      {
+        metric: "AbbVie R&D 지출",
+        before: "$28억 (분사 전)",
+        after: "$60억+ (독립 후)",
+        change: "+114%",
+        isPositive: true,
+      },
+      {
+        metric: "Abbott 사업 포커스",
+        before: "제약+기기+진단+영양제",
+        after: "기기+진단+영양제 (순수)",
+        change: "포커스 명확화",
+        isPositive: true,
+      },
+      {
+        metric: "양사 합산 시총",
+        before: "$800억 (2011년)",
+        after: "$4,000억+ (2023년)",
+        change: "+5배",
+        isPositive: true,
+      },
+      {
+        metric: "Humira 특허 만료 리스크",
+        before: "단일 의존 고위험",
+        after: "Skyrizi·Rinvoq로 헤징 완료",
+        change: "리스크 관리 성공",
+        isPositive: true,
+      },
+    ],
+    marketImpact: {
+      announcementReturn: "발표 당일 Abbott +3.5%",
+      shortTermReturn: "AbbVie 상장 후 1년 +15%",
+      longTermReturn: "양사 합산 10년 후 +5배",
+      contextNote: "AbbVie 시총 $540억(2013) → $2,700억(2023), Abbott도 $1,800억대 — 합산 $4,500억+로 분사 전 단독 $800억 대비 5.6배",
+    },
+  },
+
   faq: [
     {
       q: "Abbott은 왜 수익성 좋은 Humira 사업을 분사했나요?",

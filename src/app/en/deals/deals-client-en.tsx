@@ -114,7 +114,7 @@ export default function DealsClientEn({ initialDeals }: { initialDeals: DealData
       {/* Search */}
       <div className="mb-6">
         <input
-          type="text"
+          type="search"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search by deal name, company, or sector..."

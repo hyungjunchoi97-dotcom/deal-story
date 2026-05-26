@@ -307,6 +307,12 @@ export interface DealData {
    * 공격/방어 무브 타임라인 + 금융 무기 아스날 + 판정
    */
   controlBattleOverview?: ControlBattleOverview;
+
+  /**
+   * 구조조정(restructuring) 딜 전용 — Company Overview 다음에 렌더링
+   * 왜·어떻게·누가 영향받았나 + 이론 프레임워크
+   */
+  restructuringOverview?: RestructuringOverview;
 }
 
 // ── 경영권 분쟁 전용: Control Battle Overview ─────────────────────
@@ -361,6 +367,93 @@ export interface ControlBattleOverview {
     peak: string;         // e.g. "1,630,000원"
     postContest: string;  // e.g. "640,000원"
     note: string;
+  };
+}
+
+// ── 구조조정 전용: Restructuring Overview ─────────────────────
+
+/** 구조조정 방법론 타입 */
+export type RestructuringMethodType =
+  | "tax-free-spinoff"    // Section 355 면세 분사
+  | "three-way-breakup"   // 3분할 분사
+  | "carve-out-ipo"       // 카브아웃 후 IPO
+  | "divestiture"         // 사업부 현금 매각
+  | "bankruptcy-reorg"    // 파산 재구성
+  | "debt-restructuring"; // 부채 재구조화
+
+/** 이해관계자별 영향 */
+export interface RestructuringStakeholder {
+  name: string;           // "기존 주주"
+  icon: string;           // emoji "📈"
+  impact: "positive" | "negative" | "mixed" | "neutral";
+  summary: string;        // 한 줄 핵심
+  detail: string;         // 2~3줄 상세
+  metric?: string;        // 정량 수치 (e.g. "4.6배 성장")
+}
+
+/** Before/After 비교 지표 */
+export interface RestructuringBeforeAfter {
+  metric: string;         // "합산 시총"
+  before: string;         // "$1,200억"
+  after: string;          // "$3,000억+"
+  change?: string;        // "+2.5배"
+  isPositive: boolean;
+}
+
+/** 실행 단계 */
+export interface RestructuringStep {
+  phase: string;          // "Phase 1"
+  date: string;           // "2021년 11월"
+  action: string;         // "3분할 공식 발표"
+  detail: string;         // 상세 설명
+  financialNote?: string; // "발표 당일 주가 +3%"
+}
+
+/** 이론 프레임워크 블록 */
+export interface RestructuringTheoryBlock {
+  concept: string;        // "콘글로머리트 디스카운트"
+  explanation: string;    // 이론 설명 (2~3줄)
+  howApplied: string;     // 이 딜에 어떻게 적용됐나
+}
+
+/** restructuring 카테고리 딜 전용 오버뷰 */
+export interface RestructuringOverview {
+  /** 섹션 인트로 */
+  body: string;
+
+  /** 왜 구조조정했나 */
+  trigger: string;        // 핵심 촉발 원인 (1~2문장)
+  triggerDetail: string;  // 배경 상세
+
+  /** 어떤 방법론을 썼나 */
+  method: RestructuringMethodType;
+  methodLabel: string;    // "Section 355 면세 3분사"
+  whyThisMethod: string;  // 왜 이 방법을 선택했나
+
+  /** 채택하지 않은 대안들 */
+  methodVsAlternatives: {
+    method: string;       // "사업부 현금 매각"
+    reason: string;       // "이 방법을 택하지 않은 이유"
+  }[];
+
+  /** 이론 프레임워크 (학습용) */
+  theoreticalInsights: RestructuringTheoryBlock[];
+
+  /** 실행 단계 */
+  executionSteps: RestructuringStep[];
+
+  /** 이해관계자 영향 */
+  stakeholders: RestructuringStakeholder[];
+
+  /** 정량적 Before/After */
+  beforeAfter: RestructuringBeforeAfter[];
+
+  /** 시장·주가 임팩트 */
+  marketImpact: {
+    announcementReturn: string;   // "발표 당일 +3.2%"
+    shortTermReturn: string;      // "6개월 후 +28%"
+    longTermReturn: string;       // "3년 후 +186%"
+    contextNote: string;          // "S&P500 대비 +120%p 초과"
   };
 }
 

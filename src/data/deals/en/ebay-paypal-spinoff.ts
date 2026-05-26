@@ -240,6 +240,160 @@ const deal: DealData = {
     { term: "Strategic M&A", href: "/deal-101/strategic-ma", description: "Separation is as strategic as acquisition — when splitting creates more value than staying together" },
   ],
 
+  restructuringOverview: {
+    body: "The eBay-PayPal spinoff is widely called 'the most successful spinoff in history.' Here we analyze why two platforms that once shared a roof had to separate, how that separation was executed, and who benefited — and by how much — from this textbook Section 355 tax-free spinoff.",
+    trigger: "Activist investor Carl Icahn + PayPal's dependence on eBay rapidly declining",
+    triggerDetail: "In 2014, Carl Icahn accumulated 0.82% of eBay's shares and publicly demanded the immediate spinoff of PayPal. At the time, PayPal's share of transactions processed for eBay had fallen from 52% in 2009 to below 30% in 2014 — it was growing independently of eBay. Keeping PayPal tethered made it difficult to form partnerships with competing commerce platforms (Amazon, Alibaba), becoming a drag on growth. The board resisted for a year before formally announcing a spinoff plan in January 2015.",
+    method: "tax-free-spinoff",
+    methodLabel: "Section 355 Tax-Free Spinoff",
+    whyThisMethod: "PayPal already had full operational capability as an independent business, making a spinoff that distributes shares directly to shareholders preferable to a cash sale. It satisfied all Section 355 requirements (active business for 5+ years, valid business purpose, no transfer of control), enabling both eBay and PayPal shareholders to hold shares in two independent companies without any tax consequences.",
+    methodVsAlternatives: [
+      {
+        method: "Cash Sale (Trade Sale)",
+        reason: "While Google, Apple, and others expressed interest, the tax liability (estimated $5B+) and risk of losing PayPal's brand independence were prohibitive. It would also have meant surrendering strategic value in the payments market.",
+      },
+      {
+        method: "Carve-Out IPO (Partial IPO)",
+        reason: "Partially listing PayPal while eBay retained control would constrain PayPal's independent management and partnership expansion. It would not satisfy Carl Icahn's demands.",
+      },
+      {
+        method: "Maintain Current Structure",
+        reason: "For PayPal to partner with eBay competitors like Amazon and Alibaba, independence was essential. The conflict of interest in an integrated structure made such strategic partnerships impossible.",
+      },
+    ],
+    theoreticalInsights: [
+      {
+        concept: "Platform Conflict of Interest",
+        explanation: "When two platforms share a corporate parent, one platform's partnership expansion can worsen the competitive position of the other. A payment platform subordinated to a commerce platform cannot grow into a universal payment infrastructure.",
+        howApplied: "Under eBay, PayPal could not aggressively pursue payment integration with eBay competitors. After independence, PayPal immediately forged partnerships with Amazon, Alibaba, Uber, and others — previously eBay rivals — explosively expanding its total addressable market.",
+      },
+      {
+        concept: "Section 355 Tax-Free Spinoff",
+        explanation: "US tax code Section 355 allows corporate separations meeting certain criteria to occur without tax consequences. Key requirements: ① active business for 5+ years, ② valid business purpose, ③ no intent to transfer control. This allows both parent company and shareholders to separate without taxation.",
+        howApplied: "eBay had owned PayPal since 2002 (13 years), had a clear business purpose for independent payments growth, and distributed shares 1:1 to existing shareholders with no change in control. A textbook Section 355 execution.",
+      },
+      {
+        concept: "Reverse Conglomerate Premium (Sum-of-the-Parts Rerating)",
+        explanation: "After separation, the combined market cap of two pure-play companies often exceeds that of the integrated entity. Each business receives sector-optimal multiples, and investors can selectively hold whichever fits their portfolio strategy.",
+        howApplied: "Before the spinoff, the combined eBay+PayPal market cap was approximately $68B. Shortly after the split, the combined figure exceeded $90B. PayPal began receiving fintech platform multiples, and by 2021 its market cap surpassed $350B.",
+      },
+    ],
+    executionSteps: [
+      {
+        phase: "Phase 1",
+        date: "January 2014",
+        action: "Carl Icahn launches public campaign",
+        detail: "Icahn publicly sent a letter to the eBay board demanding the immediate spinoff of PayPal after accumulating shares. eBay management rebuffed the demand citing synergies, but shareholder pressure continued.",
+        financialNote: "eBay stock +5% on Icahn campaign announcement",
+      },
+      {
+        phase: "Phase 2",
+        date: "January 2015",
+        action: "Spinoff officially announced (CEO John Donahoe)",
+        detail: "eBay's board officially announced a 100% tax-free spinoff of PayPal. Distribution ratio: 1 PayPal share per eBay share. Section 355 tax-free structure confirmed. Target completion: second half of 2015.",
+        financialNote: "eBay stock +7.2% on announcement day",
+      },
+      {
+        phase: "Phase 3",
+        date: "July 17, 2015",
+        action: "PayPal listed on Nasdaq (PYPL)",
+        detail: "PayPal listed independently on Nasdaq with a market cap of $46B. eBay shareholders received 1 PayPal share per eBay share, tax-free. Both companies maintained a 5-year operating services agreement while immediately pursuing independent partnerships.",
+        financialNote: "Debut market cap $46B — 31x eBay's 2002 acquisition price of $1.5B",
+      },
+    ],
+    stakeholders: [
+      {
+        name: "eBay Shareholders",
+        icon: "🛒",
+        impact: "positive",
+        summary: "Two independent company stocks secured simultaneously",
+        detail: "eBay shareholders received 1 PayPal share per eBay share, tax-free. PayPal's explosive growth delivered massive returns for long-term holders. eBay itself continued additional restructuring (StubHub, Classifieds) focusing on commerce.",
+        metric: "Combined market cap $68B → $90B+ (immediately post-spinoff)",
+      },
+      {
+        name: "PayPal Management & Employees",
+        icon: "💳",
+        impact: "positive",
+        summary: "Independent equity incentives secured",
+        detail: "Employees gained independent PayPal stock options maximizing alignment incentives. Dan Schulman became founding independent CEO, accelerating recruitment of fintech specialists.",
+        metric: "PYPL +650% over 5 years post-listing",
+      },
+      {
+        name: "Carl Icahn (Activist Shareholder)",
+        icon: "🦅",
+        impact: "positive",
+        summary: "Campaign goal achieved within 2 years",
+        detail: "The spinoff campaign launched in 2014 was fully realized by 2015. Icahn sold positions before and after the spinoff, realizing hundreds of millions in gains.",
+        metric: "eBay stock +25%+ during campaign period",
+      },
+      {
+        name: "eBay Partner Merchants",
+        icon: "🤝",
+        impact: "mixed",
+        summary: "Gained choice in payment partners",
+        detail: "After PayPal's independence, eBay signed new payment agreements with Adyen, reducing PayPal dependence. Small sellers incurred some transition costs, but gained negotiating leverage as competing payment options emerged.",
+      },
+      {
+        name: "Consumers (Payment Users)",
+        icon: "👥",
+        impact: "positive",
+        summary: "PayPal's acceptance footprint exploded",
+        detail: "After independence, PayPal rapidly partnered with Amazon, Airbnb, Uber, and other major platforms — dramatically expanding where it could be used. M&A of Venmo and Braintree also accelerated.",
+        metric: "Active accounts 160M → 420M (5 years post-spinoff)",
+      },
+    ],
+    beforeAfter: [
+      {
+        metric: "PayPal Market Cap",
+        before: "$46B (at spinoff)",
+        after: "$350B (2021 peak)",
+        change: "+650%",
+        isPositive: true,
+      },
+      {
+        metric: "PayPal Active Accounts",
+        before: "160M",
+        after: "420M (5 years later)",
+        change: "+162%",
+        isPositive: true,
+      },
+      {
+        metric: "PayPal Total Payment Volume",
+        before: "$235B",
+        after: "$1T+ (2021)",
+        change: "+326%",
+        isPositive: true,
+      },
+      {
+        metric: "eBay Valuation Multiple",
+        before: "Fintech + Commerce blended",
+        after: "Pure commerce P/E",
+        change: "Sector clarity restored",
+        isPositive: true,
+      },
+      {
+        metric: "PayPal Dependence on eBay",
+        before: "30% (2015)",
+        after: "3% (2020)",
+        change: "-27pp (diversification succeeded)",
+        isPositive: true,
+      },
+      {
+        metric: "eBay Stock (Long-Term)",
+        before: "$28 (at spinoff)",
+        after: "$70s (2021)",
+        change: "+150%",
+        isPositive: true,
+      },
+    ],
+    marketImpact: {
+      announcementReturn: "eBay +7.2% on announcement day",
+      shortTermReturn: "+15% combined 6 months post-spinoff",
+      longTermReturn: "PayPal +650% five years post-listing",
+      contextNote: "eBay's 2002 acquisition of PayPal for $1.5B → market cap at spinoff $46B (31x), 2021 peak $350B (230x+)",
+    },
+  },
+
   faq: [
     {
       q: "Why did Carl Icahn demand the PayPal spinoff?",

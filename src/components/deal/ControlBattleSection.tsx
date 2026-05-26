@@ -323,7 +323,7 @@ function FinancialArsenal({
   const defenseWeapons = data.financialWeapons.filter((w) => w.side === "defense");
 
   return (
-    <div className="grid md:grid-cols-2 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       {/* 공격 무기 */}
       <div className="space-y-3">
         <h4 className={`text-sm font-bold flex items-center gap-2 ${SIDE.attack.header}`}>
@@ -410,8 +410,44 @@ function PriceImpact({
       <h4 className="text-sm font-bold text-gray-700 dark:text-gray-300 mb-4">
         📈 {t.priceImpact}
       </h4>
-      <div className="relative">
-        {/* 연결선 */}
+      {/* Mobile: vertical list with connecting arrows */}
+      <div className="sm:hidden flex flex-col gap-1">
+        {points.map((p, i) => (
+          <div key={i}>
+            <div className="flex items-center gap-3">
+              <div
+                className={`w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 ${
+                  i === 0
+                    ? "bg-gray-100 dark:bg-gray-800"
+                    : i === 1
+                    ? "bg-rose-100 dark:bg-rose-950/50"
+                    : "bg-indigo-100 dark:bg-indigo-950/50"
+                }`}
+              >
+                <span className="text-xs font-bold text-gray-700 dark:text-gray-300">
+                  {i === 0 ? "S" : i === 1 ? "↑" : "E"}
+                </span>
+              </div>
+              <div>
+                <div className={`font-bold text-sm ${p.color} font-mono`}>{p.value}</div>
+                <div className="text-[11px] text-gray-500 dark:text-gray-500">{p.label}</div>
+              </div>
+            </div>
+            {i < points.length - 1 && (
+              <div
+                className={`ml-[17px] w-0.5 h-4 my-0.5 bg-gradient-to-b ${
+                  i === 0
+                    ? "from-gray-300 to-rose-300 dark:from-gray-600 dark:to-rose-700"
+                    : "from-rose-300 to-indigo-400 dark:from-rose-700 dark:to-indigo-700"
+                }`}
+              />
+            )}
+          </div>
+        ))}
+      </div>
+
+      {/* Desktop (sm+): horizontal 3-column with gradient connector */}
+      <div className="hidden sm:block relative">
         <div className="absolute top-5 left-[calc(16.67%)] right-[calc(16.67%)] h-0.5 bg-gradient-to-r from-gray-300 via-rose-400 to-indigo-400 dark:from-gray-600 dark:via-rose-700 dark:to-indigo-700" />
         <div className="grid grid-cols-3 gap-2">
           {points.map((p, i) => (

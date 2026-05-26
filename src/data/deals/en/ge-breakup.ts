@@ -236,6 +236,167 @@ const deal: DealData = {
     { term: "Vertical Integration", href: "/deal-101/vertical-integration", description: "Jack Welch's vertical and horizontal integration strategy that collapsed with GE Capital risk" },
   ],
 
+  restructuringOverview: {
+    body: "GE's three-way breakup marks the end of a 130-year conglomerate empire. Here we analyze why Jack Welch's diversified empire collapsed and how Larry Culp created three pure-play companies — examining both restructuring theory and its real-world execution.",
+    trigger: "GE Capital crisis + Alstom Power acquisition failure → 89% stock price collapse",
+    triggerDetail: "The 2008 financial crisis exposed GE Capital (which contributed 40%+ of GE's profits) to massive losses, forcing a government bailout. The 2015 Alstom Power acquisition ($10.5B) resulted in a $22B impairment due to collapsing power demand forecasts. GE's stock fell 89% from its 2000 peak and was ejected from the Dow 30. Larry Culp, appointed CEO in 2018 with a background from Danaher, applied lean management principles — winding down GE Capital and divesting non-core assets — before officially announcing the three-way breakup in November 2021.",
+    method: "three-way-breakup",
+    methodLabel: "Section 355 Tax-Free Three-Way Spinoff",
+    whyThisMethod: "GE held three businesses with completely different valuation logics — aerospace engines (high P/E growth), healthcare devices (mid-growth defensive), and energy (low P/E utility) — all bundled together. A cash sale would have triggered tax liabilities and led to strategic asset loss. A two-way split would have created yet another conglomerate discount for the energy+healthcare combination. A Section 355 tax-free three-way spinoff was the only method that completely eliminated the conglomerate discount by distributing pure-play shares directly to shareholders without tax consequences.",
+    methodVsAlternatives: [
+      {
+        method: "Cash Divestiture",
+        reason: "Aerospace, healthcare, and energy are all strategic core assets difficult to sell at fair value. Tax liabilities on disposal gains would have run into the tens of billions of dollars.",
+      },
+      {
+        method: "Holding Company Structure",
+        reason: "A holding company discount would persist, failing to resolve the conglomerate discount. In an era where investors prefer direct exposure to individual businesses, this approach doesn't work.",
+      },
+      {
+        method: "Two-Way Split (Aerospace + Energy/Healthcare)",
+        reason: "Healthcare and energy have different growth and risk profiles — bundling them would have created another conglomerate discount.",
+      },
+    ],
+    theoreticalInsights: [
+      {
+        concept: "Conglomerate Discount",
+        explanation: "Diversified conglomerates fail to receive the full valuation multiples of individual business segments, converging instead to a blended 'average.' When investors can build their own portfolios, the diversification premium disappears. Academic research estimates an average discount of 13–15%.",
+        howApplied: "GE bundled aerospace (P/E 30+), healthcare (P/E 20–25), and energy (P/E 12–15) under one roof, receiving an overall multiple of 15–18x. Post-separation, GE Aerospace received 30x+ P/E and its market cap surged past $200B.",
+      },
+      {
+        concept: "Lean Manufacturing (Danaher Business System)",
+        explanation: "The kaizen-based operational efficiency system developed by Danaher — eliminating waste, standardization, and continuous improvement to maximize cash flow. Culp transplanted this as 'GE Vernova Lean.'",
+        howApplied: "Culp immediately applied lean methods to track cash flow by business unit and rapidly divested underperforming divisions. GE Vernova achieved profitability before the spinoff, proving its viability as an independent company.",
+      },
+      {
+        concept: "Core Competence Theory",
+        explanation: "Per Prahalad and Hamel's 'core competence' framework, companies should focus on businesses where they have true competitive advantage and divest the rest. GE's moat was in aero engine technology.",
+        howApplied: "GE Aerospace holds more than half the global jet engine market with LEAP and GE9X engines — a virtual duopoly. Post-separation, R&D and capital concentrated in Aerospace, and MRO/parts service revenue surged.",
+      },
+    ],
+    executionSteps: [
+      {
+        phase: "Phase 1",
+        date: "October 2018",
+        action: "Larry Culp becomes CEO & GE Capital wind-down begins",
+        detail: "The first outside CEO in GE history took charge. GE Capital was effectively wound down and non-core asset sales (GE Transportation, GE Lighting, GE Healthcare IPO preparation, etc.) commenced.",
+        financialNote: "$30B+ in assets divested and debt reduced over 3 years",
+      },
+      {
+        phase: "Phase 2",
+        date: "November 2021",
+        action: "Official announcement of GE three-way breakup",
+        detail: "GE announced it would split into aerospace (GE Aerospace), healthcare (GE HealthCare), and energy (GE Vernova). Healthcare targeted for January 2023 and energy for April 2024.",
+        financialNote: "Stock up +3.2% on announcement day",
+      },
+      {
+        phase: "Phase 3",
+        date: "January 2023",
+        action: "GE HealthCare listed on Nasdaq (GEHC)",
+        detail: "GE HealthCare listed independently on Nasdaq as a pure-play medical imaging and digital health company with MRI, CT, and ultrasound equipment. Debuted with a market cap of approximately $30B.",
+        financialNote: "Market cap ~$30B on first trading day",
+      },
+      {
+        phase: "Phase 4",
+        date: "April 2024",
+        action: "GE Vernova NYSE listing & GE Aerospace independence complete",
+        detail: "GE Vernova (energy, wind, grid) listed on NYSE, completing the three-way split. The original GE continued as GE Aerospace. The 130-year conglomerate history came to an end.",
+        financialNote: "Combined market cap of all three exceeds $300B",
+      },
+    ],
+    stakeholders: [
+      {
+        name: "Legacy GE Shareholders",
+        icon: "📈",
+        impact: "positive",
+        summary: "Direct ownership of three independent companies",
+        detail: "GE shareholders received shares in GE Aerospace, GE HealthCare, and GE Vernova upon separation. GE Aerospace's market cap surged past $200B, delivering substantial gains for long-term holders.",
+        metric: "Combined market cap 2.5x vs. integrated GE",
+      },
+      {
+        name: "GE Aerospace Employees",
+        icon: "✈️",
+        impact: "positive",
+        summary: "Focused investment & improved compensation structure",
+        detail: "Post-spinoff, resources concentrated in aerospace, improving R&D investment and stock-option-linked compensation. Growing LEAP engine production also expanded manufacturing headcount.",
+        metric: "GE Aerospace maintains ~50,000 employees",
+      },
+      {
+        name: "GE Vernova Employees & Creditors",
+        icon: "⚡",
+        impact: "mixed",
+        summary: "Turnaround to profitability, but restructuring necessary",
+        detail: "The energy business was running at a loss prior to the spinoff. Significant headcount reductions were unavoidable to achieve independence. However, surging AI data center power demand dramatically improved the outlook.",
+        metric: "Achieved profitability within 1 year of listing",
+      },
+      {
+        name: "GE HealthCare Employees",
+        icon: "🏥",
+        impact: "positive",
+        summary: "Own resources secured through independent IPO",
+        detail: "Freed from internal capital allocation competition, HealthCare secured its own R&D budget and M&A capacity. AI diagnostic software investment expanded rapidly post-independence.",
+      },
+      {
+        name: "Creditors & Credit Markets",
+        icon: "🏦",
+        impact: "positive",
+        summary: "Credit profile recovered via debt reduction",
+        detail: "$30B+ in debt reduction under Culp restored GE's credit ratings. Post-split, each entity has an independent credit profile, allowing business-specific financing cost optimization.",
+        metric: "Debt reduced from $130B+ to the $30B range",
+      },
+    ],
+    beforeAfter: [
+      {
+        metric: "Combined Market Cap",
+        before: "~$60B",
+        after: "$300B+",
+        change: "+5x",
+        isPositive: true,
+      },
+      {
+        metric: "GE Aerospace Market Cap",
+        before: "—",
+        after: "$200B+",
+        change: "Newly listed",
+        isPositive: true,
+      },
+      {
+        metric: "Net Debt",
+        before: "$130B+",
+        after: "~$30B",
+        change: "-$100B",
+        isPositive: true,
+      },
+      {
+        metric: "Business Units (Complexity)",
+        before: "7+ segments",
+        after: "1 core each",
+        change: "Pure-play transformation",
+        isPositive: true,
+      },
+      {
+        metric: "EPS (GE Aerospace)",
+        before: "Unclear (blended)",
+        after: "$4.50+ (2024)",
+        change: "Dramatically improved visibility",
+        isPositive: true,
+      },
+      {
+        metric: "Dow Jones Index Membership",
+        before: "Removed in 2018",
+        after: "Not re-included",
+        change: "Market cap would qualify",
+        isPositive: false,
+      },
+    ],
+    marketImpact: {
+      announcementReturn: "+3.2% on announcement day",
+      shortTermReturn: "+45% one year post-announcement",
+      longTermReturn: "GE Aerospace +320% over 3 years",
+      contextNote: "GE HealthCare market cap $30B, GE Vernova surpassed $100B driven by AI power demand",
+    },
+  },
+
   faq: [
     {
       q: "What was GE's biggest reason for the three-way breakup?",

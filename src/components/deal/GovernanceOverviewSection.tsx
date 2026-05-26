@@ -312,7 +312,7 @@ function StockImpactTimeline({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.15 }}
-              className={`text-base font-black tabular-nums mb-2 ${step.color}`}
+              className={`text-sm sm:text-base font-black tabular-nums mb-2 text-center leading-tight ${step.color}`}
             >
               {step.value}
             </motion.span>

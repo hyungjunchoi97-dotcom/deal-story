@@ -108,7 +108,7 @@ export default function Tombstone({
           <div className="w-12 h-px bg-gray-300 dark:bg-gray-600 mx-auto mb-7" />
 
           {/* Key metrics row */}
-          <div className="flex items-start justify-center gap-4 sm:gap-12 mb-7">
+          <div className="flex items-start justify-center flex-wrap gap-4 sm:gap-12 mb-7">
             {/* Deal Size */}
             <div>
               <p className="text-[9px] tracking-[0.16em] uppercase text-gray-400 dark:text-gray-500 mb-1.5">

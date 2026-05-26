@@ -236,6 +236,167 @@ const deal: DealData = {
     { term: "수직 통합 (Vertical Integration)", href: "/deal-101/vertical-integration", description: "잭 웰치의 수직·수평 통합 전략이 GE Capital 리스크와 함께 붕괴된 과정" },
   ],
 
+  restructuringOverview: {
+    body: "GE의 3분할은 130년 복합기업 역사의 마침표입니다. 잭 웰치가 쌓은 콘글로머리트 제국이 왜 무너졌고, 래리 컬프가 어떤 방식으로 세 개의 순수 플레이어를 탄생시켰는지 — 구조조정 이론과 실제 집행을 함께 살펴봅니다.",
+    trigger: "GE Capital 위기 + 알스톰 파워 인수 실패로 주가 89% 폭락",
+    triggerDetail: "2008년 금융위기로 GE Capital(이익 기여 40%+)이 흔들리며 정부 구제금융을 받았고, 2015년 알스톰 파워 인수($105억)는 전력 수요 붕괴로 $220억 감손을 초래했습니다. 주가는 2000년 고점 대비 89% 폭락해 다우 30 지수에서 퇴출됐습니다. 2018년 취임한 래리 컬프는 다나허 출신의 린(Lean) 경영 철학을 앞세워 GE Capital 청산 및 비핵심 자산 매각을 단행했고, 2021년 11월 3분할을 공식 선언했습니다.",
+    method: "three-way-breakup",
+    methodLabel: "Section 355 면세 3분할 분사",
+    whyThisMethod: "GE는 항공 엔진(고PER 성장주), 의료기기(중간 성장·방어주), 에너지(저PER 유틸리티)라는 세 가지 완전히 다른 밸류에이션 논리를 가진 사업을 하나에 묶고 있었습니다. 현금 매각은 세금 부담과 전략 자산 이탈 위험이 있었고, 2분할은 에너지+의료기기 묶음이 또 다른 콘글로머리트 디스카운트를 만들었을 것입니다. Section 355 면세 3분사는 세금 없이 주주들에게 각 순수 플레이어 지분을 직접 배분해 콘글로머리트 디스카운트를 완전 제거하는 유일한 방법이었습니다.",
+    methodVsAlternatives: [
+      {
+        method: "사업부 현금 매각 (Divestiture)",
+        reason: "항공·의료기기·에너지 모두 전략 핵심 자산이라 적정 가격에 팔기 어렵고, 매각 차익에 대한 법인세 부담이 수십억 달러에 달했습니다.",
+      },
+      {
+        method: "지주회사 구조 유지",
+        reason: "지주회사 할인(Holding Company Discount)이 지속되며 콘글로머리트 디스카운트를 해소하지 못합니다. 투자자들이 개별 사업에 직접 투자하는 것을 선호하는 시대에는 작동하지 않습니다.",
+      },
+      {
+        method: "2분할 (항공 + 에너지·의료기기)",
+        reason: "의료기기와 에너지 사업의 성장·리스크 프로파일이 다르기 때문에 묶으면 또 다른 복합기업 디스카운트가 발생했을 것입니다.",
+      },
+    ],
+    theoreticalInsights: [
+      {
+        concept: "콘글로머리트 디스카운트 (Conglomerate Discount)",
+        explanation: "다양한 산업에 걸친 복합기업은 각 사업 부문의 고유 밸류에이션 멀티플을 받지 못하고 '평균값'으로 할인됩니다. 투자자들이 포트폴리오를 자체 구성할 수 있는 시대에는 분산 투자의 프리미엄이 사라집니다. 학술 연구는 평균 13~15% 할인을 제시합니다.",
+        howApplied: "GE는 항공(PER 30+), 의료기기(PER 20~25), 에너지(PER 12~15)를 묶은 채 전체 멀티플 15~18배를 받았습니다. 분리 후 GE Aerospace는 PER 30배+를 받아 시총이 $2,000억+로 급등했습니다.",
+      },
+      {
+        concept: "린 경영 (Lean Manufacturing / Danaher Business System)",
+        explanation: "다나허가 개발한 카이젠(Kaizen) 기반 운영 효율화 시스템으로, 낭비 제거·표준화·지속 개선을 통해 현금 흐름을 극대화합니다. GE에서는 'GE Vernova Lean'으로 이식됐습니다.",
+        howApplied: "컬프는 취임 직후 린 방식으로 GE 사업부별 현금 흐름을 추적하고 부실 사업을 신속히 정리했습니다. GE Vernova는 분사 전 흑자 전환을 달성해 독립 기업으로서의 생존 가능성을 입증했습니다.",
+      },
+      {
+        concept: "선택과 집중 (Core Competence Theory)",
+        explanation: "프라할라드와 해멀의 '핵심역량' 이론에 따르면 기업은 진정한 경쟁 우위를 가진 핵심 사업에 집중하고 나머지는 분리해야 합니다. GE의 경쟁 해자는 항공 엔진 기술이었습니다.",
+        howApplied: "GE Aerospace는 LEAP·GE9X 엔진으로 세계 제트 엔진 시장의 절반 이상을 점유하는 실질적 과점 사업자입니다. 분리 후 Aerospace R&D와 자본이 집중되며 서비스 매출(부품·MRO)이 폭증했습니다.",
+      },
+    ],
+    executionSteps: [
+      {
+        phase: "Phase 1",
+        date: "2018년 10월",
+        action: "래리 컬프 CEO 취임 & GE Capital 청산 개시",
+        detail: "외부 인사 최초로 GE CEO에 취임. GE Capital을 실질적으로 청산하고 비핵심 자산(GE Transportation, GE Lighting, GE Healthcare IPO 준비 등) 매각을 시작했습니다.",
+        financialNote: "취임 이후 3년간 $300억+ 자산 매각 및 부채 축소",
+      },
+      {
+        phase: "Phase 2",
+        date: "2021년 11월",
+        action: "GE 3분할 공식 발표",
+        detail: "GE를 항공(GE Aerospace), 의료기기(GE HealthCare), 에너지(GE Vernova)로 3분할한다고 발표. 의료기기는 2023년 1월, 에너지는 2024년 4월 분사 예정.",
+        financialNote: "발표 당일 주가 +3.2%",
+      },
+      {
+        phase: "Phase 3",
+        date: "2023년 1월",
+        action: "GE HealthCare 나스닥 상장 (GEHC)",
+        detail: "GE HealthCare가 나스닥에 독립 상장. MRI·CT·초음파 등 의료 영상 기기와 디지털 헬스 플랫폼을 보유한 순수 의료기기 기업으로 출범. 시총 약 $300억으로 시작.",
+        financialNote: "상장 첫날 시총 약 $300억",
+      },
+      {
+        phase: "Phase 4",
+        date: "2024년 4월",
+        action: "GE Vernova NYSE 상장 & GE Aerospace 독립 완성",
+        detail: "GE Vernova(에너지·풍력·전력망)가 NYSE에 상장되며 3분할 완성. 원래 GE는 GE Aerospace로 잔존. 130년 복합기업 역사가 완전히 마무리됐습니다.",
+        financialNote: "3개사 합산 시총 $3,000억+ 달성",
+      },
+    ],
+    stakeholders: [
+      {
+        name: "기존 GE 주주",
+        icon: "📈",
+        impact: "positive",
+        summary: "3개 독립 기업 주식 직접 보유",
+        detail: "GE 주주들은 GE Aerospace·GE HealthCare·GE Vernova 3개 주식을 분리 수령했습니다. GE Aerospace 시총이 $2,000억+로 급등하며 장기 보유자들은 큰 이익을 얻었습니다.",
+        metric: "3개사 합산 시총 통합 대비 +2.5배",
+      },
+      {
+        name: "GE Aerospace 직원",
+        icon: "✈️",
+        impact: "positive",
+        summary: "집중 투자·보상 구조 개선",
+        detail: "분사 후 항공 사업에 자원이 집중되며 R&D 투자, 스톡옵션 연계 보상 구조가 개선됐습니다. LEAP 엔진 생산 증가로 제조 인력 수요도 확대됐습니다.",
+        metric: "GE Aerospace 정직원 약 5만 명 유지",
+      },
+      {
+        name: "GE Vernova 직원 & 채권단",
+        icon: "⚡",
+        impact: "mixed",
+        summary: "독립 후 흑자 전환, 구조조정 불가피",
+        detail: "에너지 사업은 분사 전 적자 상태였습니다. 독립을 위해 대규모 인력 구조조정이 불가피했습니다. 그러나 AI 데이터센터 전력 수요 급증으로 전망이 급개선됐습니다.",
+        metric: "분사 후 1년 내 흑자 전환",
+      },
+      {
+        name: "GE HealthCare 직원",
+        icon: "🏥",
+        impact: "positive",
+        summary: "독립 IPO로 자체 자원 확보",
+        detail: "복합기업 내 자원 배분 경쟁에서 벗어나 독자 R&D 예산과 M&A 여력을 확보했습니다. AI 진단 소프트웨어 투자가 독립 후 빠르게 확대됐습니다.",
+      },
+      {
+        name: "채권자 & 신용시장",
+        icon: "🏦",
+        impact: "positive",
+        summary: "부채 축소로 신용도 회복",
+        detail: "컬프 취임 후 $300억+ 부채 축소로 GE의 신용등급이 회복됐습니다. 3분할 후 각 법인은 독립 신용 프로파일을 갖게 돼 자금 조달 비용이 사업별로 최적화됐습니다.",
+        metric: "부채 $1,300억 → $300억대 축소",
+      },
+    ],
+    beforeAfter: [
+      {
+        metric: "합산 시가총액",
+        before: "약 $600억",
+        after: "$3,000억+",
+        change: "+5배",
+        isPositive: true,
+      },
+      {
+        metric: "GE Aerospace 시총",
+        before: "—",
+        after: "$2,000억+",
+        change: "독립 상장",
+        isPositive: true,
+      },
+      {
+        metric: "순부채",
+        before: "$1,300억+",
+        after: "$300억대",
+        change: "-$1,000억",
+        isPositive: true,
+      },
+      {
+        metric: "사업부 수 (복합도)",
+        before: "7개 이상",
+        after: "각 1개 핵심",
+        change: "순수 플레이어화",
+        isPositive: true,
+      },
+      {
+        metric: "EPS (GE Aerospace)",
+        before: "불분명 (혼재)",
+        after: "$4.50+(2024)",
+        change: "가시성 대폭 향상",
+        isPositive: true,
+      },
+      {
+        metric: "다우존스 지수 편입",
+        before: "2018년 퇴출",
+        after: "미편입",
+        change: "시총 기준으론 자격",
+        isPositive: false,
+      },
+    ],
+    marketImpact: {
+      announcementReturn: "발표 당일 +3.2%",
+      shortTermReturn: "1년 후 GE 주가 +45%",
+      longTermReturn: "3년 후 GE Aerospace +320%",
+      contextNote: "GE HealthCare 시총 $300억, GE Vernova AI 전력 수요로 $1,000억+ 달성",
+    },
+  },
+
   faq: [
     {
       q: "GE가 3분할을 결정한 가장 큰 이유는 무엇인가요?",

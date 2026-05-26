@@ -1782,6 +1782,160 @@ From an IB career perspective, DCM requires a complex blend of structural design
     appearsIn: [],
   },
 
+  // ── DCM 시리즈: Ch.1 — 발행사 스펙트럼 ───────────────────────────────────
+  {
+    slug: "dcm-issuers",
+    title: "DCM Ch.1 — 발행사 스펙트럼: SSA에서 Distressed까지",
+    titleEn: "DCM Ch.1 — Issuer Spectrum: From SSA to Distressed",
+    entryType: "article",
+    category: "dcm",
+    categoryLabel: "DCM",
+    categoryLabelEn: "DCM",
+    excerpt:
+      "누가 채권을 발행하는가 — SSA(소버린·초국가기관), FIG(금융기관), 투자등급 기업, 하이일드, 디스트레스드까지. 각 발행사 유형이 왜 다른 채권 구조·투자자층·스프레드를 가지는지 DCM 뱅커 시각에서 해부합니다.",
+    excerptEn:
+      "Who issues bonds — SSA, FIG, IG corporates, high yield, distressed. Why each issuer type commands different structures, investor bases, and spreads from a DCM banker's perspective.",
+    readingMinutes: 16,
+    tags: ["DCM", "발행사", "SSA", "FIG", "투자등급", "하이일드", "Distressed", "신용등급"],
+    tagsEn: ["DCM", "Issuer", "SSA", "FIG", "Investment Grade", "High Yield", "Distressed", "Credit Rating"],
+    sections: [],
+    keyTerms: [],
+    relatedSlugs: ["dcm-overview", "dcm-ecosystem", "investment-grade", "high-yield", "spread-basis", "dcm-investors"],
+    appearsIn: [],
+  },
+
+  // ── DCM 시리즈: Ch.2 — 투자자 생태계 ────────────────────────────────────
+  {
+    slug: "dcm-investors",
+    title: "DCM Ch.2 — 투자자 생태계: 왜 큰 손들은 수익률을 안 보나",
+    titleEn: "DCM Ch.2 — Investor Ecosystem: Why the Biggest Buyers Don't Chase Yield",
+    entryType: "article",
+    category: "dcm",
+    categoryLabel: "DCM",
+    categoryLabelEn: "DCM",
+    excerpt:
+      "DCM 수요를 결정하는 6가지 투자자 유형 — 중앙은행, 보험·연기금, 은행 Treasury, 자산운용사, 헤지펀드, SWF. 각 투자자가 왜 다른 동기로 채권을 사는지, 그 동기가 DCM 가격 결정에 어떤 영향을 미치는지.",
+    excerptEn:
+      "The 6 investor types that drive DCM demand. Why each buys bonds for fundamentally different reasons — and how those motives shape spreads, tenors, and deal structures.",
+    readingMinutes: 14,
+    tags: ["DCM", "투자자", "중앙은행", "연기금", "보험사", "자산운용사", "헤지펀드", "ALM"],
+    tagsEn: ["DCM", "Investor", "Central Bank", "Pension", "Insurance", "Asset Manager", "Hedge Fund", "ALM"],
+    sections: [],
+    keyTerms: [],
+    relatedSlugs: ["dcm-overview", "dcm-issuers", "alm", "reach-for-yield", "dcm-bond-products"],
+    appearsIn: [],
+  },
+
+  // ── DCM 시리즈: Ch.3 — 채권 상품 스펙트럼 ───────────────────────────────
+  {
+    slug: "dcm-bond-products",
+    title: "DCM Ch.3 — 채권 상품 스펙트럼: 선순위에서 CLO까지",
+    titleEn: "DCM Ch.3 — Bond Product Spectrum: From Senior to CLO",
+    entryType: "article",
+    category: "dcm",
+    categoryLabel: "DCM",
+    categoryLabelEn: "DCM",
+    excerpt:
+      "DCM이 다루는 채권 상품의 전체 지형 — 선순위·FRN·커버드본드·AT1/CoCo·HY 코버넌트채·ABS/CLO·그린본드·Private Credit. 각 상품의 구조·투자자·리스크를 한 번에 정리합니다.",
+    excerptEn:
+      "The full landscape of DCM bond products — senior, FRN, covered bonds, AT1/CoCo, HY covenant bonds, ABS/CLO, green bonds, private credit. Structure, investor base, and risk for each.",
+    readingMinutes: 16,
+    tags: ["DCM", "채권상품", "커버드본드", "AT1", "CoCo", "ABS", "CLO", "그린본드", "FRN"],
+    tagsEn: ["DCM", "Bond Products", "Covered Bond", "AT1", "CoCo", "ABS", "CLO", "Green Bond", "FRN"],
+    sections: [],
+    keyTerms: [],
+    relatedSlugs: ["dcm-overview", "dcm-investors", "oas", "spread-basis", "high-yield", "dcm-international-markets"],
+    appearsIn: [],
+  },
+
+  // ── DCM 시리즈: Ch.4 — 국제채 지형도 ────────────────────────────────────
+  {
+    slug: "dcm-international-markets",
+    title: "DCM Ch.4 — 국제채 지형도: Yankee·Eurobond·Samurai·Formosa·Arirang",
+    titleEn: "DCM Ch.4 — International Bond Markets: Yankee, Eurobond, Samurai, Formosa, Arirang",
+    entryType: "article",
+    category: "dcm",
+    categoryLabel: "DCM",
+    categoryLabelEn: "DCM",
+    excerpt:
+      "한국 기업·기관이 어디서 달러·유로·엔을 빌리는가 — 각 국제채 시장의 투자자 베이스·규제·비용 구조를 비교합니다. Reg S vs 144A, 통화 스왑, 시장 선택의 실무 기준.",
+    excerptEn:
+      "Where Korean corporates and institutions raise foreign currency — comparing investor base, regulatory environment, and cost for each international bond market. Reg S vs 144A, cross-currency swaps, and practical selection criteria.",
+    readingMinutes: 14,
+    tags: ["DCM", "외화채", "Yankee", "Eurobond", "사무라이", "Formosa", "Arirang", "달러채"],
+    tagsEn: ["DCM", "International Bond", "Yankee", "Eurobond", "Samurai", "Formosa", "Arirang", "Dollar Bond"],
+    sections: [],
+    keyTerms: [],
+    relatedSlugs: ["dcm-overview", "dcm-bond-products", "spread-basis", "dcm-deal-process"],
+    appearsIn: [],
+  },
+
+  // ── DCM 시리즈: Ch.5 — 딜 프로세스 ──────────────────────────────────────
+  {
+    slug: "dcm-deal-process",
+    title: "DCM Ch.5 — 딜 프로세스: Mandate부터 클로징까지",
+    titleEn: "DCM Ch.5 — Deal Process: From Mandate to Closing",
+    entryType: "article",
+    category: "dcm",
+    categoryLabel: "DCM",
+    categoryLabelEn: "DCM",
+    excerpt:
+      "DCM 딜이 어떻게 시작해서 끝나는가 — Mandate 확보, 구조 설계, 로드쇼, 북빌딩, 가격 결정, 클로징까지. IB 실무자 시각에서 각 단계의 의사결정 포인트를 해부합니다.",
+    excerptEn:
+      "How a DCM deal begins and ends — mandate, structure design, roadshow, book-building, pricing, closing. Each decision point from an IB practitioner's perspective.",
+    readingMinutes: 16,
+    tags: ["DCM", "딜프로세스", "Mandate", "로드쇼", "북빌딩", "프라이싱", "클로징", "PP"],
+    tagsEn: ["DCM", "Deal Process", "Mandate", "Roadshow", "Book Building", "Pricing", "Closing", "Private Placement"],
+    sections: [],
+    keyTerms: [],
+    relatedSlugs: ["dcm-overview", "book-building", "nic", "syndicate", "dcm-pricing", "dcm-international-markets"],
+    appearsIn: [],
+  },
+
+  // ── DCM 시리즈: Ch.6 — 프라이싱 ──────────────────────────────────────────
+  {
+    slug: "dcm-pricing",
+    title: "DCM Ch.6 — 프라이싱: G/I/Z/OAS/ASW 스프레드와 NIC",
+    titleEn: "DCM Ch.6 — Pricing: G/I/Z/OAS/ASW Spreads and NIC",
+    entryType: "article",
+    category: "dcm",
+    categoryLabel: "DCM",
+    categoryLabelEn: "DCM",
+    excerpt:
+      "채권 가격이 어떻게 결정되는가 — G·I·Z·OAS·ASW 스프레드의 차이와 사용 시점. Bloomberg YAS 화면에서 DCM 뱅커가 실제로 무엇을 보는지, NIC가 어떻게 협상되는지.",
+    excerptEn:
+      "How bond prices are set — when to use G, I, Z, OAS, and ASW spreads. What DCM bankers actually look at on Bloomberg YAS, and how NIC is negotiated in real time.",
+    readingMinutes: 15,
+    tags: ["DCM", "프라이싱", "G스프레드", "Z스프레드", "OAS", "NIC", "Bloomberg YAS"],
+    tagsEn: ["DCM", "Pricing", "G-Spread", "Z-Spread", "OAS", "NIC", "Bloomberg YAS"],
+    sections: [],
+    keyTerms: [],
+    relatedSlugs: ["dcm-overview", "spread-basis", "oas", "nic", "book-building", "dcm-deal-process"],
+    appearsIn: [],
+  },
+
+  // ── DCM 시리즈: Ch.7 — 구조와 제도 ──────────────────────────────────────
+  {
+    slug: "dcm-structure-regulation",
+    title: "DCM Ch.7 — 구조와 제도: 차이니즈 월·MNPI·신디케이트·문서화",
+    titleEn: "DCM Ch.7 — Structure & Regulation: Chinese Wall, MNPI, Syndicate, Documentation",
+    entryType: "article",
+    category: "dcm",
+    categoryLabel: "DCM",
+    categoryLabelEn: "DCM",
+    excerpt:
+      "DCM을 움직이는 제도적 인프라 — 차이니즈 월이 왜 존재하는지, MNPI가 딜 실행에 어떤 영향을 주는지, 신디케이트 데스크의 역할, Prospectus·OM·Pricing Supplement의 구조. 실무자가 반드시 알아야 할 규제 프레임워크.",
+    excerptEn:
+      "The institutional infrastructure powering DCM — why Chinese Walls exist, how MNPI shapes deal execution, the syndicate desk's role, and documentation structure (Prospectus, OM, PS). The regulatory framework every practitioner must know.",
+    readingMinutes: 14,
+    tags: ["DCM", "차이니즈월", "MNPI", "신디케이트", "Reg S", "144A", "규제", "문서화"],
+    tagsEn: ["DCM", "Chinese Wall", "MNPI", "Syndicate", "Reg S", "144A", "Regulation", "Documentation"],
+    sections: [],
+    keyTerms: [],
+    relatedSlugs: ["dcm-overview", "chinese-wall", "mnpi", "syndicate", "dcm-deal-process", "dcm-pricing"],
+    appearsIn: [],
+  },
+
 ];
 
 export function getMarket101ConceptBySlug(slug: string): MarketConcept | undefined {

@@ -241,6 +241,166 @@ const deal: DealData = {
     { term: "EV/EBITDA Multiple", href: "/deal-101/ev-ebitda", description: "Innovative pharma's high EBITDA margins and multiples — the valuation premium of independent pharma vs. diversified conglomerate" },
   ],
 
+  restructuringOverview: {
+    body: "The Abbott-AbbVie spinoff was born from Humira (adalimumab), a blockbuster drug that created a structural conflict with a diversified conglomerate. Here we analyze the 'multiple dilution' problem that arises when innovative pharma shares a corporate roof with medical devices and diagnostics — and trace what happened to both companies in the decade after separation.",
+    trigger: "Humira's rapid growth created a multiple mismatch with Abbott's conglomerate structure",
+    triggerDetail: "After receiving FDA approval in 2002, Humira dominated the autoimmune treatment market and began accounting for 50%+ of Abbott's revenue. Yet Abbott's valuation multiple remained suppressed — classified as a diversified healthcare company rather than an innovative pharma player. In 2011, Abbott decided on a full spinoff to maximize Humira's revenue growth potential while allowing the remaining Abbott businesses to be independently valued at their true worth. Rather than combining 'two rabbits' in one company, the goal was to let each receive its optimal multiple.",
+    method: "tax-free-spinoff",
+    methodLabel: "Section 355 Tax-Free Spinoff (Innovative Pharma Separation)",
+    whyThisMethod: "AbbVie's spinoff satisfied all Section 355 requirements — active business for 10+ years (Humira in full commercial scale since 2003), clear business purpose (pharma focus), and distribution to existing Abbott shareholders 1:1 with no change in control. This created two independent companies with no tax burden. The spinoff was chosen over a cash sale because the pipeline's future value far exceeded its current cash value.",
+    methodVsAlternatives: [
+      {
+        method: "Cash Sale of Pharma Business (Trade Sale)",
+        reason: "Realizing Humira's future value ($100B+ potential revenue) in today's cash would severely destroy shareholder value. Global pharma M&A also faced significant antitrust uncertainty.",
+      },
+      {
+        method: "Partial IPO (Carve-Out)",
+        reason: "Abbott retaining AbbVie equity would perpetuate capital allocation competition and fail to produce a full separation effect. Investors would still view Abbott as a conglomerate.",
+      },
+      {
+        method: "Holding Company Structure",
+        reason: "A holding company discount would persist, preventing both businesses from receiving their optimal multiples. Changing structure without actual separation lacks credibility with investors.",
+      },
+    ],
+    theoreticalInsights: [
+      {
+        concept: "Multiple Dilution",
+        explanation: "When a company houses both a high-growth, high-margin business and a slower-growth, stable business, the valuation multiple investors apply converges to a blended 'average.' Innovative pharma P/E of 25–35x and medical devices P/E of 18–22x coexisting result in an overall company receiving ~20x.",
+        howApplied: "Abbott's pre-spinoff P/E was approximately 17–18x (conglomerate discount). Post-separation, AbbVie received innovative pharma P/E of 22–30x, and Abbott received medical device/diagnostics P/E of 22–28x — both higher than in the integrated state.",
+      },
+      {
+        concept: "Single-Product Concentration Risk (Blockbuster Dependency)",
+        explanation: "When a single drug accounts for 50%+ of total revenue, patent expiry, biosimilar competition, and regulatory risk threaten the entire enterprise. As an independent company, pipeline diversification M&A can be executed much more quickly.",
+        howApplied: "AbbVie immediately pursued Pharmacyclics ($21B, Imbruvica) and Allergan ($63B, Botox/Juvederm) acquisitions post-independence — successfully reducing Humira concentration. Inside Abbott's conglomerate structure, internal resource allocation debates would have slowed these significantly.",
+      },
+      {
+        concept: "Capital Allocation Flexibility",
+        explanation: "Independent companies can make capital allocation decisions optimized for their own business. In a conglomerate, resources must be competed for against other divisions, causing optimal investment timing to be missed.",
+        howApplied: "Post-independence, AbbVie concentrated R&D and M&A budgets on immunology and oncology, successfully hedging Humira patent expiry risk with Skyrizi and Rinvoq by 2023. Abbott was able to concentrate investment in medical devices (FreeStyle Libre) and diagnostics.",
+      },
+    ],
+    executionSteps: [
+      {
+        phase: "Phase 1",
+        date: "October 2011",
+        action: "Abbott board announces spinoff decision",
+        detail: "Abbott CEO Miles White announced a full spinoff of the pharmaceutical business (AbbVie). Distribution ratio confirmed: 1 AbbVie share per Abbott share. Target spinoff completion: Q1 2013.",
+        financialNote: "Abbott stock +3.5% on announcement day",
+      },
+      {
+        phase: "Phase 2",
+        date: "2012",
+        action: "AbbVie Inc. incorporated & SEC registration",
+        detail: "AbbVie Inc. incorporated in Delaware. SEC Form 10 (information statement) filed and approved. Brand name 'AbbVie' (Abbott + vie, French for 'life') finalized. NYSE ticker ABBV confirmed.",
+      },
+      {
+        phase: "Phase 3",
+        date: "January 1, 2013",
+        action: "AbbVie lists on NYSE",
+        detail: "AbbVie debuted on NYSE (ABBV) with a market cap of approximately $54B. Abbott shareholders received 1 AbbVie share per Abbott share, tax-free. Full product line transfer including Humira, Lupron, and Synagis.",
+        financialNote: "Debut market cap $54B (Humira annual revenue then ~$10.5B)",
+      },
+      {
+        phase: "Phase 4",
+        date: "2014–2020",
+        action: "AbbVie M&A acceleration (Pharmacyclics & Allergan)",
+        detail: "Acquired Pharmacyclics for $21B in 2015 (securing Imbruvica) and Allergan for $63B in 2020 (securing Botox, Juvederm, Restasis). These M&A transactions would have faced significant internal opposition in Abbott's conglomerate structure.",
+        financialNote: "AbbVie market cap $54B → $200B+ (2020)",
+      },
+    ],
+    stakeholders: [
+      {
+        name: "Legacy Abbott Shareholders",
+        icon: "💊",
+        impact: "positive",
+        summary: "Two independent company stocks secured simultaneously",
+        detail: "Abbott shareholders received 1 AbbVie share per Abbott share, tax-free. Shareholders enjoyed AbbVie's explosive growth alongside Abbott's steady growth. Combined market cap grew 5x+ vs. standalone Abbott in 2011.",
+        metric: "Combined market cap 2011 ~$80B → 2023 $400B+",
+      },
+      {
+        name: "AbbVie Management & Researchers",
+        icon: "🔬",
+        impact: "positive",
+        summary: "Pharma-focused R&D environment secured",
+        detail: "Employees gained independent AbbVie equity incentives. Recruitment of immunology and oncology specialists accelerated. Allergan acquisition added aesthetics and ophthalmology expertise. Researchers moved from conglomerate bureaucracy to a specialized environment.",
+        metric: "R&D spending $2.8B → $6B+ annually (2x post-independence)",
+      },
+      {
+        name: "Humira Biosimilar Competitors",
+        icon: "⚔️",
+        impact: "mixed",
+        summary: "Faced AbbVie's aggressive defense strategy",
+        detail: "Independent AbbVie actively expanded the Humira patent portfolio and delayed biosimilar entry through litigation. Biosimilar companies ultimately entered the US market in 2023, initiating price competition.",
+        metric: "Humira US biosimilar market entry in 2023",
+      },
+      {
+        name: "Abbott Business Division Employees",
+        icon: "🏥",
+        impact: "positive",
+        summary: "Benefited from focused investment in devices & diagnostics",
+        detail: "FreeStyle Libre (continuous glucose monitor) R&D received dramatically increased investment. During the COVID-19 pandemic, Abbott's diagnostics business generated $20B+ in revenue, validating the impact of focused investment.",
+        metric: "FreeStyle Libre revenue $5B+ (2023)",
+      },
+      {
+        name: "Patients & Healthcare System",
+        icon: "🏨",
+        impact: "mixed",
+        summary: "Innovation accelerated vs. pricing concerns",
+        detail: "Post-independence AbbVie accelerated development of next-generation immunotherapies like Skyrizi and Rinvoq. However, Humira's price continued rising after independence, drawing criticism over healthcare cost burdens.",
+      },
+    ],
+    beforeAfter: [
+      {
+        metric: "AbbVie Market Cap",
+        before: "$54B (at 2013 listing)",
+        after: "$270B (2023)",
+        change: "+5x",
+        isPositive: true,
+      },
+      {
+        metric: "Humira Annual Revenue",
+        before: "$10.5B (2013)",
+        after: "$21.2B (2022 peak)",
+        change: "+102%",
+        isPositive: true,
+      },
+      {
+        metric: "AbbVie R&D Spending",
+        before: "$2.8B (pre-spinoff)",
+        after: "$6B+ (post-independence)",
+        change: "+114%",
+        isPositive: true,
+      },
+      {
+        metric: "Abbott Business Focus",
+        before: "Pharma + Devices + Diagnostics + Nutrition",
+        after: "Devices + Diagnostics + Nutrition (pure)",
+        change: "Focus clarified",
+        isPositive: true,
+      },
+      {
+        metric: "Combined Market Cap",
+        before: "$80B (2011)",
+        after: "$400B+ (2023)",
+        change: "+5x",
+        isPositive: true,
+      },
+      {
+        metric: "Humira Patent Expiry Risk",
+        before: "High single-product dependence",
+        after: "Hedged with Skyrizi & Rinvoq",
+        change: "Risk management successful",
+        isPositive: true,
+      },
+    ],
+    marketImpact: {
+      announcementReturn: "Abbott +3.5% on announcement day",
+      shortTermReturn: "AbbVie +15% first year post-listing",
+      longTermReturn: "Combined 5x return over 10 years",
+      contextNote: "AbbVie market cap $54B (2013) → $270B (2023), Abbott $180B+ — combined $450B+, 5.6x vs. standalone Abbott $80B pre-spinoff",
+    },
+  },
+
   faq: [
     {
       q: "Why did Abbott spin off AbbVie if Humira was so profitable?",
