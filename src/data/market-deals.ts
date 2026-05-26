@@ -1569,57 +1569,580 @@ The AT1 primary market reopened after this event. Investors keep coming because 
 
   {
     slug: "deutsche-bank-coco-shock",
-    title: "도이체방크 코코 쇼크 (2016)",
-    titleEn: "Deutsche Bank CoCo Shock (2016)",
+    title: "도이체방크 코코 쇼크 (2016) — AT1 쿠폰 공포의 탄생",
+    titleEn: "Deutsche Bank CoCo Shock (2016) — The Birth of AT1 Coupon Fear",
     category: "fig",
     categoryLabel: "FIG 드라마",
     categoryLabelEn: "FIG Drama",
-    excerpt: "AT1 쿠폰 미지급 공포가 시장을 처음 흔든 사건. CS AT1 사태의 예고편.",
-    excerptEn: "The first market scare over AT1 coupon non-payment. The preview to the CS AT1 episode.",
+    excerpt: "AT1 쿠폰 미지급 공포가 시장을 처음 흔든 사건. CS AT1 사태의 예고편이자, 계약서를 읽어야 하는 이유.",
+    excerptEn: "The first market scare over AT1 coupon non-payment. The preview to the CS AT1 episode and a lesson in reading prospectuses.",
     dealYear: 2016,
     issuer: "Deutsche Bank AG",
     issuerEn: "Deutsche Bank AG",
-    readingMinutes: 10,
-    tags: ["AT1", "CoCo", "FIG", "도이체방크", "쿠폰리스크"],
-    tagsEn: ["AT1", "CoCo", "FIG", "Deutsche Bank", "Coupon Risk"],
-    published: false,
+    readingMinutes: 11,
+    tags: ["AT1", "CoCo", "FIG", "도이체방크", "ADI", "쿠폰리스크"],
+    tagsEn: ["AT1", "CoCo", "FIG", "Deutsche Bank", "ADI", "Coupon Risk"],
+    published: true,
     snapshot: [
       { labelKo: "발행사", labelEn: "Issuer", value: "Deutsche Bank AG" },
-      { labelKo: "사건연도", labelEn: "Year", value: "2016" },
-      { labelKo: "이슈", labelEn: "Issue", value: "AT1 쿠폰 지급 가능 여부 우려" },
-      { labelKo: "스프레드 영향", labelEn: "Spread Impact", value: "AT1 +200bp+" },
+      { labelKo: "사건연도", labelEn: "Year", value: "Jan–Feb 2016" },
+      { labelKo: "이슈", labelEn: "Issue", value: "ADI 부족 → AT1 쿠폰 미지급 공포" },
+      { labelKo: "주가 낙폭", labelEn: "Stock Decline", value: "~30% (Jan 2016)" },
+      { labelKo: "AT1 가격 낙폭", labelEn: "AT1 Price Drop", value: "~100→70 (일부)" },
+      { labelKo: "결과", labelEn: "Outcome", value: "전액 쿠폰 지급 (공포 해소)" },
     ],
-    sections: [],
-    keyTerms: [],
-    relatedMarket101Slugs: [],
-    references: [],
+    sections: [
+      {
+        heading: "2015~2016년 도이체방크의 위기",
+        headingEn: "Deutsche Bank's 2015–2016 Crisis",
+        body:
+`2015년, 도이체방크는 역대 최대 규모의 손실을 발표했다. 소송 비용, 구조조정 비용, 손상차손을 합쳐 약 68억 달러의 순손실. 1850년 창립 이래 최대 적자였다.
+
+이 맥락에서 2016년 1월 시장에 질문이 떠돌기 시작했다: "도이체방크가 AT1 쿠폰을 지급할 수 있는가?"
+
+AT1 채권(Additional Tier 1)은 영구채다 — 만기가 없고, 쿠폰 지급은 발행사의 선택 사항이다. 쿠폰을 지급하지 않아도 법적 디폴트가 아니다. 더 중요한 것은 EU 자본 규정에 따른 ADI(Amount Distributable Insufficient) 조항 — 은행의 배당 가능 이익이 부족할 경우 AT1 쿠폰 지급이 의무적으로 제한된다.
+
+도이체방크의 거대한 손실은 ADI에 영향을 줄 수 있었다. 시장은 "혹시 쿠폰을 못 받는 것 아닌가?"라는 질문을 가격에 반영하기 시작했다.
+
+AT1 채권 가격은 일부 종목에서 액면가의 70%대로 추락했다. 도이체방크 주가는 1월 한 달 동안 30% 가까이 폭락했다. 투자자들의 공포는 실제였다.`,
+        bodyEn:
+`In 2015, Deutsche Bank posted its largest loss in history — approximately $6.8 billion in net losses after accounting for litigation settlements, restructuring charges, and impairments. The biggest annual loss since the bank's founding in 1850.
+
+In this context, a question began circulating in markets in January 2016: "Can Deutsche Bank pay its AT1 coupon?"
+
+AT1 bonds (Additional Tier 1) are perpetual instruments — no maturity date, and coupon payments are at the issuer's discretion. Skipping a coupon is not legally a default. More critically, EU capital regulations include an ADI (Amount Distributable Insufficient) mechanism — when a bank's distributable profits fall below a threshold, AT1 coupon payments are mandatorily restricted.
+
+Deutsche Bank's massive losses could affect its ADI. Markets began pricing in the possibility: "What if we don't receive the coupon?"
+
+Some AT1 bond prices fell into the 70s (from par of 100). Deutsche Bank's stock fell nearly 30% in January alone. The fear was real.`,
+      },
+      {
+        heading: "ADI 메커니즘 — 왜 쿠폰 리스크가 존재하나",
+        headingEn: "The ADI Mechanism — Why Coupon Risk Exists",
+        body:
+`CRD IV(자본요건지침 IV)와 CRR(자본요건규정)에 따라, 유럽 은행들의 AT1 쿠폰 지급은 ADI에 제약된다. ADI = 당기순이익 + 이월잉여금 - 배당금 및 기타 자본 분배. 이 금액이 부족하면 AT1 쿠폰은 지급되지 않는다.
+
+도이체방크의 경우 계산은 복잡했다. 독일 HGB(상법) 기준 재무제표에서 도이체방크의 이월잉여금(retained earnings)이 어느 정도인가? 2015년 대규모 손실이 HGB 기준으로 얼마나 반영됐는가?
+
+시장이 두려워한 시나리오: 도이체방크가 2016년 AT1에 쿠폰을 지급할 ADI가 부족하다.
+
+도이체방크 경영진은 적극적으로 해명에 나섰다. 2016년 2월 도이체방크 공동 CEO 존 크라이언(John Cryan)은 "우리는 2016년과 2017년 AT1 쿠폰을 지급하기에 충분한 잉여 자원을 갖고 있다"고 공식 발표했다. 이 발표 이후 시장이 진정됐다.
+
+결국 도이체방크는 모든 AT1 쿠폰을 예정대로 지급했다. 공포는 지나쳤다 — 그러나 공포 자체는 계약서에 명시된 리스크에 기반한 것이었다.`,
+        bodyEn:
+`Under CRD IV (Capital Requirements Directive IV) and CRR (Capital Requirements Regulation), AT1 coupon payments at European banks are subject to ADI constraints. ADI = current period net profit + retained earnings - dividends and other capital distributions. If this amount is insufficient, AT1 coupons are not paid.
+
+For Deutsche Bank, the calculation was complex. In financial statements prepared under German HGB (Commercial Code): what were Deutsche Bank's retained earnings? How much of the 2015 losses would be reflected under HGB accounting?
+
+The feared scenario: Deutsche Bank has insufficient ADI to pay AT1 coupons in 2016.
+
+Deutsche Bank management responded aggressively. In February 2016, co-CEO John Cryan issued a formal statement: "We have adequate resources to pay AT1 coupons in 2016 and 2017." Markets stabilized following this announcement.
+
+In the end, Deutsche Bank paid all AT1 coupons as scheduled. The fear had been excessive — but the fear itself was grounded in risk explicitly written into the bond contracts.`,
+      },
+      {
+        heading: "시장의 반응 — 가격과 스프레드의 실시간 공포",
+        headingEn: "Market Reaction — Real-Time Fear in Prices and Spreads",
+        body:
+`2016년 1월 말~2월 초 독일 AT1 채권시장은 극도로 혼란스러웠다. 도이체방크뿐 아니라 다른 유럽 은행 AT1 채권들도 함께 매도됐다.
+
+핵심 패턴:
+• 도이체방크 주가: €28 → €14 (1개월, -50%)
+• 도이체방크 6.25% AT1: ~100 → ~70 (액면 대비 30% 손실)
+• 글로벌 AT1 스프레드: +200bp 이상 확대
+• CDS(신용부도스왑) 5년: 100bp → 250bp
+
+이 가격 움직임의 의미: 시장은 도이체방크의 AT1 쿠폰 미지급을 50% 이상의 확률로 봤다는 해석이 가능하다.
+
+공포가 실제로 얼마나 과도했는지는 이후에 밝혀졌다. 도이체방크는 2016년 AT1 쿠폰을 정상 지급했다. 가격은 회복됐다. 그러나 이 에피소드는 채권시장에 중요한 교훈을 남겼다: AT1 쿠폰 리스크는 계약서에 명시된 실제 리스크다. 2023년 CS AT1 전액상각이 이 교훈을 최종적으로 각인시켰다.`,
+        bodyEn:
+`In late January through early February 2016, the European AT1 market was in extreme turmoil. Not just Deutsche Bank's bonds — other European bank AT1s were sold off simultaneously.
+
+Key price movements:
+• Deutsche Bank stock: €28 → €14 (one month, -50%)
+• Deutsche Bank 6.25% AT1: ~100 → ~70 (30% loss vs. par)
+• Global AT1 spreads: widened 200bp+
+• 5-year CDS: 100bp → 250bp
+
+What these prices implied: markets were pricing in greater than 50% probability of AT1 coupon non-payment at Deutsche Bank.
+
+How excessive the fear was became clear afterward. Deutsche Bank paid all 2016 AT1 coupons as scheduled. Prices recovered. But this episode left a critical lesson: AT1 coupon risk is real risk, explicitly written into the contract. The 2023 CS AT1 full write-down provided the ultimate confirmation of this lesson.`,
+      },
+      {
+        heading: "왜 이것이 중요한가 — CS AT1의 예고편",
+        headingEn: "Why This Matters — The Preview of CS AT1",
+        body:
+`2016년 도이체방크 에피소드가 금융시장에 남긴 유산은 세 가지다.
+
+첫째, AT1 쿠폰 리스크가 처음으로 시장 가격에 반영됐다. 2012~2015년 CoCo 붐 시절 많은 투자자들이 "어차피 은행이 쿠폰을 안 줄 리 없다"고 믿었다. 2016년 도이체방크 사태는 그 믿음에 처음으로 균열을 냈다.
+
+둘째, ADI 메커니즘이 투자자 커뮤니티에서 광범위하게 이해되기 시작했다. 단순히 발행사가 선택하는 것이 아니라, 규제상 ADI가 부족하면 쿠폰 지급이 제한된다는 구조적 리스크가 실체화됐다.
+
+셋째, CS AT1 사태(2023)의 예고편이었다. 2016년 DB 쇼크는 "공포로 끝났다." 그러나 2023년 CS는 공포가 현실이 됐다 — 170억 달러 AT1 전액상각. 두 사건을 연결하면 AT1 투자의 핵심 교훈이 완성된다: "계약서를 읽어야 한다. 쿠폰이 취소될 수 있다. 원금이 사라질 수 있다. 이것은 위험 자산이다."`,
+        bodyEn:
+`Deutsche Bank's 2016 episode left three lasting legacies in financial markets.
+
+First, AT1 coupon risk was priced into markets for the first time. During the 2012–2015 CoCo boom, many investors implicitly believed "banks will never actually skip coupons." The 2016 DB episode created the first cracks in that belief.
+
+Second, the ADI mechanism began to be widely understood in the investor community. The structural risk was made concrete: not just issuer discretion, but regulatory ADI constraints can restrict coupon payment — a feature explicitly in the contract.
+
+Third, it was the preview to the CS AT1 episode (2023). The 2016 DB shock "ended as fear." But 2023's CS turned fear into reality — $17 billion in AT1 written to zero. Connecting the two events completes the core lesson of AT1 investing: "Read the prospectus. Coupons can be cancelled. Principal can disappear. This is a risk asset."`,
+      },
+      {
+        heading: "도이체방크 이후 — AT1 시장의 구조 변화",
+        headingEn: "After Deutsche Bank — Structural Change in the AT1 Market",
+        body:
+`2016년 에피소드 이후 AT1 시장은 어떻게 변했나?
+
+투자자 행동 변화: 기관 투자자들이 AT1 계약서 조항 — 특히 ADI 계산 방식, PONV(Point of Non-Viability) 트리거, 손실흡수 방식 — 을 더 꼼꼼히 분석하기 시작했다. '은행은 알아서 잘 하겠지'의 시대가 끝났다.
+
+스프레드 구조 변화: AT1과 Tier 2 채권 사이의 스프레드 차이가 확대됐다. 쿠폰 취소 가능성이 가격에 좀 더 적절히 반영되기 시작했다.
+
+그러나 2016년 위기가 진짜 위기로 전환되지 않았기 때문에 많은 투자자들은 "도이체방크가 공포를 이겨냈으니 다음에도 괜찮을 것"이라는 안도감을 갖게 됐다. 이것이 2023년 CS AT1 사태에서 또 다시 시장이 충격을 받은 이유이기도 하다 — 상당수 투자자들이 "이번에도 결국 지급되겠지"라고 기대했던 것이다.
+
+역사는 반복된다. 다만 그 강도가 점점 세진다.`,
+        bodyEn:
+`How did the AT1 market change after 2016?
+
+Investor behavior shift: Institutional investors began analyzing AT1 contract terms more rigorously — ADI calculation mechanics, PONV (Point of Non-Viability) triggers, loss absorption structures. The era of "the bank will sort it out" was ending.
+
+Spread structure change: The spread differential between AT1 and Tier 2 widened. Coupon cancellation risk began to be more appropriately reflected in pricing.
+
+However, because the 2016 episode didn't become a real crisis, many investors drew an overly comforting conclusion: "DB overcame the fear, so it'll be fine next time too." This contributed to why markets were shocked again in the 2023 CS AT1 episode — many investors had again expected "ultimately they'll pay this time too."
+
+History repeats. But each iteration tends to be more severe.`,
+      },
+    ],
+    keyTerms: [
+      {
+        term: "ADI (배당가능이익, Amount Distributable Insufficient)",
+        termEn: "ADI (Amount Distributable Insufficient)",
+        definition: "CRD IV/CRR에 따라 유럽 은행의 AT1 쿠폰 지급 가능 여부를 결정하는 배당 가능 이익 지표. 당기순이익 + 이월잉여금 - 기타 자본 분배로 계산. ADI가 부족하면 AT1 쿠폰 지급이 의무적으로 제한된다. 2016년 DB 쇼크의 핵심 메커니즘이었다.",
+        definitionEn: "Under CRD IV/CRR, the distributable profit metric that determines whether a European bank can pay AT1 coupons. Calculated as current period net profit + retained earnings - other capital distributions. If ADI is insufficient, AT1 coupon payments are mandatorily restricted. This was the core mechanism behind the 2016 DB shock.",
+      },
+      {
+        term: "쿠폰 취소 가능성 (Coupon Discretionality)",
+        termEn: "Coupon Discretionality",
+        definition: "AT1 채권의 핵심 특성. 발행사는 ADI 부족 시 의무적으로, 기타 상황에서는 선택적으로 쿠폰 지급을 취소할 수 있다. 취소되더라도 누적되지 않으며(non-cumulative), 법적 디폴트가 되지 않는다. 많은 투자자들이 이 조항을 간과하고 AT1을 일반 회사채처럼 대했다.",
+        definitionEn: "A core feature of AT1 bonds. The issuer can skip coupon payments — mandatorily when ADI is insufficient, optionally in other circumstances. Cancelled coupons are non-cumulative and do not constitute legal default. Many investors overlooked this provision and treated AT1 like ordinary corporate bonds.",
+      },
+      {
+        term: "PONV (존속불가점, Point of Non-Viability)",
+        termEn: "PONV (Point of Non-Viability)",
+        definition: "규제당국이 은행이 존속불가 상태에 도달했다고 판단하는 시점. 이 시점에서 AT1은 자동으로 손실을 흡수한다 — 주식으로 전환되거나 원금이 전액 상각된다. 2023년 FINMA는 CS에 대해 PONV를 결정했고, AT1 전액상각이 발동됐다. 2016년 DB 사태는 PONV에 근접하지 않았지만, 이 개념이 실제 리스크임을 시장에 각인시켰다.",
+        definitionEn: "The point at which a regulator determines a bank has become non-viable. At this point, AT1 absorbs losses automatically — either converting to equity or writing down principal to zero. In 2023, FINMA made this determination for CS, triggering full AT1 write-down. The 2016 DB episode never approached PONV, but it cemented in market consciousness that this risk is real.",
+      },
+      {
+        term: "CoCo (조건부전환증권, Contingent Convertible)",
+        termEn: "CoCo (Contingent Convertible)",
+        definition: "특정 트리거 조건(자본비율 하락, PONV 결정 등)이 발생하면 주식으로 전환되거나 원금이 상각되는 채권. AT1 채권은 CoCo의 대표적 형태다. 2012~2015년 저금리 환경에서 유럽 은행들이 대규모로 발행했고, 이를 'CoCo 붐'이라고 한다. 이 시기에 매입한 투자자들 중 일부가 2016년 DB 쇼크와 2023년 CS AT1 사태로 큰 손실을 입었다.",
+        definitionEn: "A bond that converts to equity or writes down principal when specific trigger conditions are met (capital ratio breach, PONV determination, etc.). AT1 bonds are the canonical form of CoCo. European banks issued them massively during the 2012–2015 low-rate environment — the 'CoCo boom.' Investors who accumulated positions during this boom faced significant losses in the 2016 DB shock and 2023 CS AT1 episode.",
+      },
+    ],
+    relatedMarket101Slugs: ["dcm-ecosystem"],
+    relatedDealSlugs: ["credit-suisse-at1", "santander-at1-no-call"],
+    executiveSummary: {
+      ko: [
+        "2015년 독일 역사상 최대 손실(약 68억 달러) 발표 후 2016년 1월 DB AT1 쿠폰 미지급 공포 시작",
+        "ADI(배당가능이익) 부족 시 쿠폰이 의무적으로 차단되는 EU 자본규정 메커니즘이 처음으로 시장 가격에 반영",
+        "DB 주가 한 달 -50%, AT1 채권 100→70 급락, 글로벌 AT1 스프레드 +200bp — 시장 공포의 실시간 가격화",
+        "2016년 2월 CEO 공식 발표 후 공포 해소 — 모든 AT1 쿠폰 정상 지급",
+        "CS AT1 사태(2023)의 직접적 예고편: 쿠폰 취소 공포(2016) → 실제 전액상각(2023)으로 이어지는 AT1 리스크 인식의 진화",
+      ],
+      en: [
+        "After 2015's record ~$6.8B loss, January 2016 saw the first market scare over DB AT1 coupon non-payment",
+        "EU capital regulation's ADI mechanism — mandatory coupon restriction when distributable profits are insufficient — priced into markets for the first time",
+        "DB stock -50% in one month, AT1 bonds 100→70, global AT1 spreads +200bp — fear priced in real time",
+        "February 2016 CEO announcement resolved the scare — all AT1 coupons paid as scheduled",
+        "Direct preview to CS AT1 (2023): coupon cancellation fear (2016) → actual full write-down (2023): the evolution of AT1 risk perception",
+      ],
+    },
+    assessment: {
+      positives: [
+        "공포 해소 후 AT1 투자자들은 쿠폰을 정상 수취 — 위기가 실제로 발생하지 않아 당시 투자자들은 손실을 피함",
+        "ADI 메커니즘에 대한 시장 이해도 급상승 — 이후 AT1 계약 조항 분석이 표준 투자 프로세스로 정착",
+        "DB 경영진의 신속한 커뮤니케이션이 시스템 위기로의 전이를 막음 — 중앙은행 개입 없이 해소",
+        "FIG 시장 전반의 리스크 재평가 계기 — 단기적 공포가 장기적 시장 구조 개선으로 연결",
+      ],
+      positivesEn: [
+        "After fear resolved, AT1 investors received coupons as scheduled — no actual losses as the crisis did not materialize",
+        "Market understanding of ADI mechanism improved sharply — AT1 contract analysis became standard investment process afterward",
+        "Swift CEO communication prevented contagion to a systemic crisis — resolved without central bank intervention",
+        "Catalyst for risk repricing across FIG markets — short-term fear led to long-term market structure improvement",
+      ],
+      risks: [
+        "AT1 비례적 가격 급락 — 실제 쿠폰 지급이 이뤄졌음에도 단기 보유자들은 30%+ 평가 손실 경험",
+        "전염 효과 — DB 우려가 유럽 전체 은행주와 AT1에 퍼져 발행 시장 일시 마비",
+        "ADI 계산 불투명성 — HGB vs IFRS 기준 차이로 시장 참여자들이 실제 ADI를 정확히 계산하기 어려움",
+        "2023년 CS AT1 사태 예고 — '이번에는 지급됐으니 다음에도 괜찮다'는 잘못된 안도감 형성",
+      ],
+      risksEn: [
+        "Proportionate price crash — short-term holders experienced 30%+ mark-to-market losses even though coupons were ultimately paid",
+        "Contagion effect — DB concerns spread to all European bank stocks and AT1s, temporarily paralyzing the primary market",
+        "ADI calculation opacity — HGB vs IFRS accounting differences made it difficult for market participants to precisely calculate actual ADI",
+        "2023 CS AT1 preview — created false sense of security ('it was fine this time, so it'll be fine next time') that contributed to the 2023 shock",
+      ],
+    },
+    faq: [
+      {
+        q: "AT1 채권의 쿠폰이 취소되면 투자자는 법적으로 대응할 수 있나요?",
+        qEn: "Can investors take legal action if an AT1 coupon is cancelled?",
+        a: "아니오. AT1 쿠폰 취소는 계약서에 명시된 조건이기 때문에 법적 대응이 불가능합니다. AT1 계약서에는 명확히 적혀 있습니다: 쿠폰은 발행사의 선택 사항이며, ADI가 부족할 경우 의무적으로 취소됩니다. 이것은 채권이 아닌 영구 우선주에 가까운 성격입니다. 2016년 DB 사태 당시에도, 2023년 CS AT1 사태에서도, 이 조항이 법적 보호막이 됐습니다. 이것이 AT1이 일반 채권보다 높은 수익률을 제공하는 이유입니다 — 더 높은 리스크에 대한 보상.",
+        aEn: "No. AT1 coupon cancellation is an explicitly contracted condition, so no legal recourse is available. The AT1 prospectus states clearly: coupons are at issuer discretion and are mandatorily cancelled when ADI is insufficient. This makes AT1s closer to perpetual preferred equity than conventional bonds. In both the 2016 DB episode and the 2023 CS AT1 write-down, this provision provided the legal shield. This is why AT1s offer higher yields than regular bonds — compensation for higher risk.",
+      },
+      {
+        q: "도이체방크가 2016년에 실제로 쿠폰을 지급하지 않을 가능성이 있었나요?",
+        qEn: "Was there actually a realistic possibility that Deutsche Bank would skip the 2016 coupon?",
+        a: "시장이 두려워했던 것과 달리, 실제 가능성은 낮았던 것으로 사후 평가됩니다. DB의 HGB 기준 잉여금은 AT1 쿠폰을 커버할 만큼 충분했습니다. 그러나 이 계산이 시장에 불투명했고, 투자자들이 IFRS 기준 손실만 보고 HGB 기준을 제대로 분석하지 않은 것이 공포를 증폭시켰습니다. DB 경영진이 2월에 명확한 숫자를 공개하자 공포는 빠르게 해소됐습니다. 교훈: AT1 투자에서는 HGB 기준 재무제표까지 읽어야 한다.",
+        aEn: "In retrospect, the actual probability was lower than the market feared. Deutsche Bank's retained earnings under HGB accounting were sufficient to cover AT1 coupon payments. However, this calculation was opaque to markets — investors saw the IFRS-basis losses without properly analyzing the HGB-basis figures, which amplified fear. Once management publicly disclosed the specific numbers in February, fear dissipated quickly. Lesson: AT1 investing requires reading HGB-basis financial statements, not just IFRS.",
+      },
+      {
+        q: "2016년 DB 사태와 2023년 CS AT1 사태의 차이점은 무엇인가요?",
+        qEn: "What is the key difference between the 2016 DB episode and the 2023 CS AT1 write-down?",
+        a: "2016년 DB: 공포로 끝났습니다. 은행은 살아남았고, 쿠폰이 지급됐고, 가격이 회복됐습니다. 2023년 CS: 공포가 현실이 됐습니다. FINMA가 PONV를 결정했고, 170억 달러 AT1 전액상각이 발동됐습니다. 차이는 두 가지입니다. 첫째, DB는 리스크가 일시적이었던 반면 CS는 구조적·근본적 신뢰 상실이었습니다. 둘째, DB는 ADI 부족이 실제로 발생하지 않았지만, CS는 PONV 결정 자체가 내려졌습니다. 두 사건을 이어 보면: AT1 리스크는 계약서에 적힌 그대로 현실이 된다 — 다만 그 시점이 언제인지 모를 뿐이다.",
+        aEn: "2016 DB: ended as fear. The bank survived, coupons were paid, prices recovered. 2023 CS: fear became reality. FINMA made the PONV determination; $17 billion in AT1 was fully written down. The difference is twofold. First, DB's risk was temporary while CS faced structural, fundamental loss of confidence. Second, DB never actually had insufficient ADI; CS received an actual PONV determination. Connecting both events: AT1 risk materializes exactly as written in the contract — you just don't know exactly when.",
+      },
+      {
+        q: "AT1 채권 투자 시 어떤 것을 확인해야 하나요?",
+        qEn: "What should investors check before investing in AT1 bonds?",
+        a: "최소 5가지를 확인해야 합니다. ① ADI 계산 방식: 해당 은행의 모국 회계 기준(독일은 HGB, 스위스는 Swiss GAAP 등)에서 ADI가 어떻게 계산되는지. ② 쿠폰 취소 조건: 임의적(discretionary) vs. 의무적(mandatory) 취소가 어떤 상황에서 발동되는지. ③ 손실흡수 방식: 전환(conversion)인지 상각(write-down)인지, 전환 시 전환 가격은. ④ PONV 트리거: 어떤 규제당국이 결정하며, 그 기준은 무엇인지. ⑤ 콜 날짜와 리셋: 첫 콜 날짜 이후 쿠폰이 어떻게 리셋되는지, 발행사가 콜을 하지 않을 경제적 인센티브가 있는지.",
+        aEn: "At minimum five things: ① ADI calculation: how ADI is calculated under the bank's home-country accounting standard (HGB for Germany, Swiss GAAP for Switzerland, etc.). ② Coupon cancellation conditions: when discretionary vs. mandatory cancellation triggers apply. ③ Loss absorption mechanism: conversion or write-down; if conversion, at what conversion price. ④ PONV trigger: which regulator makes the determination, and on what basis. ⑤ Call date and reset: how the coupon resets after the first call date; whether the issuer has economic incentive to skip the call.",
+      },
+      {
+        q: "왜 도이체방크는 그렇게 큰 손실을 봤나요?",
+        qEn: "Why did Deutsche Bank suffer such massive losses?",
+        a: "2015년 DB의 약 68억 달러 순손실은 세 가지 요인의 합산이었습니다. 첫째, 소송 비용 — LIBOR 조작, 모기지 증권 판매 관련 미국 당국과의 합의금. 수십억 달러 규모였습니다. 둘째, 구조조정 비용 — 고비용 구조를 가진 DB가 직원 수 감축, 사업 부문 정리 등 대규모 구조조정을 단행하면서 발생한 비용. 셋째, 손상차손 — 투자은행 사업 부문 등 특정 자산의 장부가치를 낮춘 일회성 상각. 이 손실들의 상당 부분이 '일회성'이었고, DB는 이후 수익성을 회복했습니다.",
+        aEn: "Deutsche Bank's ~$6.8B net loss in 2015 combined three factors. First, litigation costs — settlements with US authorities related to LIBOR manipulation and mortgage securities sales, amounting to billions of dollars. Second, restructuring charges — Deutsche Bank undertook massive restructuring (headcount reduction, business line exits) to address its high-cost structure, generating substantial one-time charges. Third, impairments — write-downs on certain asset values, particularly in investment banking divisions. Much of these losses were 'one-time' in nature, and Deutsche Bank subsequently recovered profitability.",
+      },
+    ],
+    references: [
+      {
+        id: 1,
+        author: "Deutsche Bank AG",
+        title: "Press Release: Q4 and FY 2015 Results — AT1 Coupon Capacity Statement",
+        source: "Deutsche Bank Investor Relations, February 2016",
+        year: "2016",
+      },
+      {
+        id: 2,
+        author: "European Banking Authority (EBA)",
+        title: "Guidelines on the Maximum Distributable Amount (MDA)",
+        source: "EBA/GL/2021/22",
+        year: "2021",
+        url: "https://www.eba.europa.eu/regulation-and-policy/own-funds-and-eligible-liabilities",
+      },
+      {
+        id: 3,
+        author: "Financial Stability Board (FSB)",
+        title: "Total Loss-Absorbing Capacity (TLAC) Principles and Term Sheet",
+        source: "FSB, November 2015",
+        year: "2015",
+        url: "https://www.fsb.org/2015/11/total-loss-absorbing-capacity-tlac-principles-and-term-sheet/",
+      },
+      {
+        id: 4,
+        author: "Flannery, Mark J.",
+        title: "Contingent Capital Instruments for Large Financial Institutions",
+        source: "Annual Review of Financial Economics, Vol. 6",
+        year: "2014",
+      },
+    ],
   },
 
   {
     slug: "santander-at1-no-call",
-    title: "산탄데르 AT1 콜 스킵 (2019)",
-    titleEn: "Santander AT1 No-Call (2019)",
+    title: "산탄데르 AT1 콜 스킵 (2019) — 관행을 깬 순간",
+    titleEn: "Santander AT1 No-Call (2019) — When Convention Broke",
     category: "fig",
     categoryLabel: "FIG 드라마",
     categoryLabelEn: "FIG Drama",
     excerpt: "당연히 콜에 갚겠지라는 시장 관행을 깬 첫 사례. Extension risk가 FIG 자본채에서 실제로 터진 케이스.",
-    excerptEn: "The first case to break the market convention that AT1s will always be called. Extension risk materializing in FIG capital instruments.",
+    excerptEn: "The first case to break the market convention that AT1s will always be called. Extension risk materializing for the first time in FIG capital instruments.",
     dealYear: 2019,
     issuer: "Banco Santander S.A.",
     issuerEn: "Banco Santander S.A.",
-    readingMinutes: 9,
-    tags: ["AT1", "콜옵션", "Extension Risk", "산탄데르", "FIG"],
-    tagsEn: ["AT1", "Call Option", "Extension Risk", "Santander", "FIG"],
-    published: false,
+    readingMinutes: 10,
+    tags: ["AT1", "콜옵션", "Extension Risk", "산탄데르", "FIG", "쿠폰리셋"],
+    tagsEn: ["AT1", "Call Option", "Extension Risk", "Santander", "FIG", "Coupon Reset"],
+    published: true,
     snapshot: [
       { labelKo: "발행사", labelEn: "Issuer", value: "Banco Santander S.A." },
-      { labelKo: "사건연도", labelEn: "Year", value: "2019" },
-      { labelKo: "이슈", labelEn: "Issue", value: "€1.5B AT1 첫 콜 미행사" },
+      { labelKo: "사건일", labelEn: "Event Date", value: "12 February 2019" },
+      { labelKo: "해당 채권", labelEn: "Bond", value: "€1.5B 6.25% AT1 (2014 발행)" },
+      { labelKo: "첫 콜 날짜", labelEn: "First Call Date", value: "12 February 2019" },
+      { labelKo: "결정", labelEn: "Decision", value: "콜 미행사 (No-Call)" },
+      { labelKo: "리셋 쿠폰", labelEn: "Reset Coupon", value: "5.435% (하락)" },
     ],
-    sections: [],
-    keyTerms: [],
-    relatedMarket101Slugs: [],
-    references: [],
+    sections: [
+      {
+        heading: "AT1 채권과 콜 옵션 — 암묵적 관행의 탄생",
+        headingEn: "AT1 Bonds and Call Options — The Birth of an Implicit Convention",
+        body:
+`AT1(Additional Tier 1) 채권은 만기가 없는 영구채다. 그러나 발행사는 보통 5년 후 첫 콜 날짜에 채권을 조기 상환할 수 있는 옵션을 갖는다. 이것은 권리이지 의무가 아니다.
+
+그럼에도 2010년대 초반부터 형성된 시장 관행은 "은행은 첫 콜 날짜에 무조건 콜을 행사한다"는 것이었다. 이 관행이 형성된 이유:
+
+1. 평판 리스크: 콜을 하지 않으면 향후 자본 조달이 어려워진다는 우려
+2. 경제적 논리: 금리가 낮을 때 기존 고쿠폰 채권을 콜하고 낮은 금리로 재발행하면 이자 비용이 절감된다
+3. 투자자 기대: 투자자들은 AT1을 "5년물처럼 거래했다" — 영구채이지만 콜 날짜에 상환될 것으로 가정
+
+이 관행이 너무 견고해져서 많은 투자자들이 AT1을 분석할 때 콜 날짜를 만기로 간주했다. 수익률도 만기수익률(YTM) 대신 콜 기준 수익률(YTC, Yield to Call)로 계산했다. Extension risk — 콜이 행사되지 않아 기간이 연장되는 리스크 — 는 이론상 존재하지만 현실에서는 발생하지 않는다고 여겨졌다.
+
+2019년 2월 12일, 그 전제가 무너졌다.`,
+        bodyEn:
+`AT1 (Additional Tier 1) bonds are perpetual — no maturity date. However, issuers typically hold a call option to redeem the bonds at the first call date, usually five years after issuance. This is a right, not an obligation.
+
+Yet from the early 2010s, a market convention crystallized: "banks will always exercise the call on the first call date." This convention formed for several reasons:
+
+1. Reputational risk: not calling was thought to make future capital raising more difficult
+2. Economic logic: in declining rate environments, calling expensive old bonds and re-issuing at lower rates reduces interest costs
+3. Investor expectation: investors effectively traded AT1s "like 5-year bonds" — perpetual instruments assumed to be redeemed at the call date
+
+This convention became so entrenched that many investors treated the call date as the effective maturity, calculating yields as Yield to Call (YTC) rather than to perpetuity. Extension risk — the risk of call non-exercise and resulting term extension — existed in theory but was considered practically non-existent.
+
+On February 12, 2019, that premise collapsed.`,
+      },
+      {
+        heading: "왜 산탄데르는 콜을 하지 않았나",
+        headingEn: "Why Santander Didn't Call",
+        body:
+`2014년 산탄데르는 €15억 규모의 AT1을 쿠폰 6.25%로 발행했다. 이 채권에는 2019년 2월 첫 콜 옵션이 있었다. 콜이 행사되지 않으면 쿠폰은 5년 스왑 금리 + 스프레드로 리셋된다.
+
+2019년 2월, 유럽 금리가 낮았다. 5년 EUR 스왑 금리가 약 -0.05%에서 0.1% 수준이었다. 산탄데르의 AT1 계약에 따르면 쿠폰은 스왑 금리 + 초기 스프레드(약 5.36%)로 리셋될 예정이었다 — 결과적으로 약 5.4~5.5% 수준.
+
+판단의 핵심: 6.25%를 내고 있는 채권을 콜하고 새로운 AT1을 발행하면, 새 쿠폰이 6.25%보다 낮아야 경제적으로 의미가 있다. 2019년 2월 AT1 시장의 새 발행 쿠폰이 약 6%대 초반이었다.
+
+리셋 후 쿠폰: ~5.4%
+새 발행 예상 쿠폰: ~6%+
+
+결론: 콜하지 않는 편이 경제적으로 더 저렴하다. 산탄데르는 이 계산을 실행에 옮겼다.
+
+이것은 완전히 합법적이고, 계약서에도 명시된 결정이었다. 그러나 시장은 충격을 받았다.`,
+        bodyEn:
+`In 2014, Santander issued €1.5 billion in AT1 bonds at a 6.25% coupon, with a first call option in February 2019. If not called, the coupon would reset to a 5-year swap rate plus spread.
+
+In February 2019, European rates were low. The 5-year EUR swap rate was approximately -0.05% to 0.1%. Under Santander's AT1 contract, the coupon would reset to the swap rate plus an initial spread (~5.36%) — resulting in approximately 5.4–5.5%.
+
+The key calculation: to make calling the bond economically rational, a new AT1 issuance would need to be cheaper than 6.25%. In February 2019, new AT1 issuance in the market was pricing at approximately 6%+.
+
+Post-reset coupon: ~5.4%
+Expected new issuance coupon: ~6%+
+
+Conclusion: not calling is economically cheaper. Santander acted on this calculation.
+
+This was entirely legal, and contractually explicit. But markets were shocked.`,
+      },
+      {
+        heading: "시장의 충격 — Extension Risk의 실체화",
+        headingEn: "Market Shock — Extension Risk Materializes",
+        body:
+`산탄데르의 콜 미행사 발표 직후 AT1 시장은 급락했다.
+
+산탄데르 6.25% AT1 채권 가격은 약 101~102에서 98 이하로 떨어졌다 — 콜 수익률 기준으로 가격이 형성됐던 채권이 이제 연장된 기간 기준으로 재가격화됐다.
+
+더 큰 문제는 전염 효과: 다른 은행들의 AT1 채권도 동반 하락했다. "다음 콜 날짜에 콜을 하지 않을 은행이 또 있는가?"라는 질문이 시장에 퍼졌다.
+
+Extension risk — 콜이 행사되지 않아 투자 기간이 연장되는 리스크 — 는 이제 이론이 아닌 현실이 됐다. 영구채를 5년물처럼 거래하던 관행은 재검토됐다.
+
+AT1 투자자들이 배운 핵심 교훈:
+1. 콜 날짜는 만기가 아니다
+2. 발행사는 경제적으로 불합리할 때 콜을 행사하지 않을 수 있다
+3. 리셋 쿠폰 수준에 따라 extension이 발행사에게 유리할 수 있다
+4. AT1 투자 분석에서 리셋 메커니즘과 콜 행사 인센티브를 반드시 계산해야 한다`,
+        bodyEn:
+`Immediately after Santander's no-call announcement, the AT1 market sold off sharply.
+
+Santander's 6.25% AT1 bond price fell from approximately 101–102 to below 98 — the bond had been priced on a call basis, and now needed to be repriced on an extension basis.
+
+The larger problem was contagion: other banks' AT1 bonds also fell. The question spread through markets: "Which other bank might skip its next call date?"
+
+Extension risk — the risk that a call is not exercised and the investment term extends — had moved from theory to reality. The convention of trading perpetual bonds like 5-year instruments was now subject to fundamental re-examination.
+
+Core lessons AT1 investors absorbed:
+1. The call date is not a maturity date
+2. Issuers may rationally not call when it's economically suboptimal
+3. Reset coupon levels can make extension advantageous for the issuer
+4. AT1 analysis must explicitly calculate reset mechanisms and call exercise incentives`,
+      },
+      {
+        heading: "산탄데르 이후 — AT1 시장의 재구조화",
+        headingEn: "After Santander — Restructuring the AT1 Market",
+        body:
+`산탄데르 콜 스킵 이후 AT1 시장에는 구조적 변화가 일어났다.
+
+가격 방법론 변화: 투자자들이 AT1 채권의 만기수익률(YTM, 연장 가정) vs. 콜 수익률(YTC) 두 가지를 모두 계산하기 시작했다. 더 낮은 쪽(Yield to Worst, YTW)을 기준으로 투자 결정을 내리는 것이 표준이 됐다.
+
+리셋 스프레드 분석 심화: 리셋 날짜에 예상되는 쿠폰이 현재 새 발행 금리 대비 얼마나 되는지를 분석해 콜 행사 확률을 추정하는 프레임워크가 발전했다.
+
+발행 구조 변화: 일부 발행사들이 콜 인센티브를 강화하는 조건으로 AT1을 발행하기 시작했다 — 스텝업 쿠폰(콜 이후 급격히 높아지는 쿠폰) 등.
+
+이후에도 일부 은행들이 AT1 콜을 스킵하는 사례들이 있었다. 그러나 이 사건들은 더 이상 충격으로 받아들여지지 않았다 — 산탄데르 2019가 '콜 스킵은 가능하다'는 규범을 정착시킨 것이다.`,
+        bodyEn:
+`After Santander's no-call, structural changes rippled through the AT1 market.
+
+Pricing methodology shift: Investors began calculating both Yield to Maturity (YTM, assuming extension) and Yield to Call (YTC). Making investment decisions based on the lower of the two — Yield to Worst (YTW) — became standard practice.
+
+Deeper reset spread analysis: Frameworks developed for estimating call exercise probability by analyzing expected reset coupon levels versus current new issuance rates.
+
+Issuance structure changes: Some issuers began structuring AT1s with stronger call incentives — step-up coupons (coupons that increase sharply after the call date) as a de facto commitment mechanism.
+
+Subsequent call skips by other banks occurred but were no longer treated as shocks — Santander 2019 had normalized "call skipping is possible" as market convention.`,
+      },
+      {
+        heading: "교훈 — 관행은 계약서가 아니다",
+        headingEn: "Lesson — Convention Is Not Contract",
+        body:
+`산탄데르 AT1 콜 스킵 사건에서 배울 수 있는 가장 중요한 교훈은 단순하다: 시장 관행은 계약서가 아니다.
+
+투자자들은 "은행은 항상 첫 콜에 상환한다"는 관행을 사실상 계약 조항처럼 가격에 반영했다. 그러나 계약서에는 "은행은 선택적으로 콜을 행사할 수 있다"고만 적혀 있었다.
+
+관행이 유지되는 이유는 경제적 인센티브가 그 방향으로 작동할 때만이다. 금리 환경이 변하면 — 즉, 리셋 쿠폰이 새 발행 금리보다 낮아지면 — 발행사의 합리적 결정은 바뀐다.
+
+이것은 AT1만의 이슈가 아니다. 금융시장의 많은 '관행'들이 계약서가 아닌 경제적 인센티브에 의존한다. 그 인센티브가 바뀌면 관행도 바뀐다. 투자자는 항상 계약서 상의 권리(what the contract says)와 실제 인센티브(what the issuer will rationally do)를 구분해야 한다.`,
+        bodyEn:
+`The most important lesson from Santander's AT1 no-call is simple: market convention is not contractual obligation.
+
+Investors had effectively priced in "banks always call at first opportunity" as if it were a contractual term. But the contract only said: "the issuer may call, at its option."
+
+Convention holds only as long as economic incentives align with it. When the rate environment changes — when the reset coupon falls below new issuance rates — the issuer's rational decision changes accordingly.
+
+This is not an AT1-specific issue. Many market 'conventions' depend not on contracts but on economic incentives. When incentives change, conventions change. Investors must always distinguish between contractual rights (what the contract says) and economic behavior (what the issuer will rationally do).`,
+      },
+    ],
+    keyTerms: [
+      {
+        term: "Extension Risk (연장 리스크)",
+        termEn: "Extension Risk",
+        definition: "AT1과 같은 영구채에서 발행사가 콜 날짜에 채권을 상환하지 않아 투자 기간이 예상보다 연장되는 리스크. 산탄데르 사태 이전에는 이론적 리스크였으나, 2019년 이후 실제 가격 반영이 필수가 됐다. 콜 미행사 시 쿠폰이 리셋되고, 리셋 수준에 따라 투자자 수익률이 변동한다.",
+        definitionEn: "In perpetual instruments like AT1, the risk that the issuer does not call the bond at the call date, causing the investment term to extend beyond expectation. Before the Santander episode, this was a theoretical risk; after 2019, pricing it became mandatory. When the call is not exercised, the coupon resets, and the reset level determines investor yield going forward.",
+      },
+      {
+        term: "콜 수익률 (YTC, Yield to Call)",
+        termEn: "YTC (Yield to Call)",
+        definition: "채권이 첫 콜 날짜에 상환된다고 가정했을 때의 수익률. AT1 투자자들은 전통적으로 YTC를 기준으로 가격을 산정했다. 산탄데르 사태 이후 YTC만이 아니라 연장 가정 시의 YTM도 함께 계산하는 것이 표준이 됐다. Yield to Worst(최악 수익률, 두 값 중 낮은 것)를 기준으로 투자 결정을 내리는 것이 권고된다.",
+        definitionEn: "The yield assuming the bond is redeemed at the first call date. AT1 investors traditionally priced on a YTC basis. After the Santander episode, calculating both YTC and YTM (assuming extension) became standard. Basing investment decisions on Yield to Worst (lower of the two values) is now recommended.",
+      },
+      {
+        term: "쿠폰 리셋 (Coupon Reset)",
+        termEn: "Coupon Reset",
+        definition: "AT1 채권의 콜 날짜 이후 쿠폰이 변동하는 구조. 일반적으로 해당 통화의 스왑 금리(예: 5년 EUR 스왑 금리) + 최초 발행 시 결정된 스프레드로 새 쿠폰이 설정된다. 리셋 후 쿠폰이 현재 신규 발행 금리보다 낮으면 발행사가 콜을 하지 않을 인센티브가 생긴다. 산탄데르 사태가 바로 이 메커니즘이 작동한 사례다.",
+        definitionEn: "The mechanism by which an AT1 bond's coupon changes after the call date. Typically reset to the relevant swap rate (e.g., 5-year EUR swap rate) plus the spread fixed at original issuance. If the reset coupon is lower than the current new issuance rate, the issuer has incentive to not call. The Santander episode was precisely this mechanism in action.",
+      },
+      {
+        term: "AT1 (추가 기본자본, Additional Tier 1)",
+        termEn: "AT1 (Additional Tier 1)",
+        definition: "바젤 III 자본 체계에서 보통주 자본(CET1) 다음 순위의 자본 수단. 영구채로 발행되며, 자본비율 하락이나 PONV 결정 시 손실을 흡수한다. 쿠폰은 발행사 재량(및 ADI 제약)에 따라 취소 가능하다. 은행 자본 구조에서 주식 다음으로 높은 리스크를 부담하지만, 순위상 Tier 2·채권 아래에 있어 주식보다 높은 수익률을 제공한다.",
+        definitionEn: "In the Basel III capital framework, the capital instrument ranking below Common Equity Tier 1 (CET1). Issued as perpetual bonds; absorbs losses when capital ratios breach triggers or upon PONV determination. Coupons can be cancelled at issuer discretion (subject to ADI constraints). Carries higher risk than Tier 2 and senior bonds in a bank's capital structure, but provides higher yields than those instruments as compensation.",
+      },
+    ],
+    relatedMarket101Slugs: ["dcm-ecosystem"],
+    relatedDealSlugs: ["credit-suisse-at1", "deutsche-bank-coco-shock"],
+    executiveSummary: {
+      ko: [
+        "2019년 2월 산탄데르, €15억 6.25% AT1의 첫 콜 미행사 — '은행은 항상 콜한다'는 10년 시장 관행을 깨뜨림",
+        "이유: 콜 후 리셋 쿠폰(~5.4%)이 신규 발행 금리(~6%+)보다 낮아 콜 미행사가 경제적으로 합리적",
+        "AT1 가격 즉각 하락, 전염 효과로 유럽 전체 AT1 시장 충격 — Extension Risk의 첫 현실화",
+        "투자자들이 YTC 단독 분석에서 YTW(Yield to Worst) 분석으로 전환하는 방법론 혁신 촉발",
+        "핵심 교훈: 시장 관행은 계약서가 아니다 — 경제적 인센티브가 바뀌면 관행도 바뀐다",
+      ],
+      en: [
+        "February 2019: Santander skipped the call on its €1.5B 6.25% AT1 — breaking 10 years of market convention that 'banks always call'",
+        "Reason: post-reset coupon (~5.4%) was lower than new issuance rates (~6%+), making the no-call decision economically rational",
+        "AT1 prices fell immediately; contagion effect shocked the entire European AT1 market — first real materialization of extension risk",
+        "Triggered methodological shift: investors moved from YTC-only analysis to YTW (Yield to Worst) framework",
+        "Core lesson: market convention is not contract — when economic incentives change, so does the convention",
+      ],
+    },
+    assessment: {
+      positives: [
+        "경제적 합리성의 증명 — 발행사가 투자자 눈치보다 합리적 경제 계산에 따라 행동할 수 있음을 보여줌",
+        "AT1 시장 가격 메커니즘 개선 — 콜 리스크가 제대로 가격화되면서 장기적으로 더 효율적인 시장 형성",
+        "산탄데르 이자 비용 절감 — 6.25% 대신 ~5.4% 쿠폰으로 수년간 이자 절감. 발행사 재무 최적화 성공",
+        "투자자 분석 방법론 선진화 — YTC 단독에서 YTW 기반으로의 전환이 더 정확한 리스크 평가로 이어짐",
+      ],
+      positivesEn: [
+        "Demonstration of economic rationality — showed issuers act on rational economic calculation rather than investor optics",
+        "AT1 market pricing improvement — call risk properly priced, creating a more efficient market long-term",
+        "Santander interest cost reduction — ~5.4% vs 6.25% coupon saved years of interest expense. Successful issuer financial optimization",
+        "Investor analysis methodology advancement — shift from YTC-only to YTW-based analysis led to more accurate risk assessment",
+      ],
+      risks: [
+        "AT1 시장 전반 충격 — 전염 효과로 다른 은행들의 AT1도 동반 하락, 단기적 시장 기능 저하",
+        "산탄데르 발행 평판 손상 — 향후 산탄데르 AT1 발행 시 투자자들이 추가 스프레드를 요구하는 '관행 위반 프리미엄' 발생",
+        "Extension risk 일반화 — 모든 AT1 발행사에게 '혹시 콜을 안 할 수도 있다'는 의구심이 지속적으로 반영",
+        "리셋 쿠폰 의존성 — 금리 환경에 따라 발행사의 콜 인센티브가 달라져 AT1 투자의 예측 가능성 하락",
+      ],
+      risksEn: [
+        "AT1 market-wide shock — contagion effect pulled down other banks' AT1s; short-term market function deterioration",
+        "Santander reputational damage — subsequent Santander AT1 issuances face a 'convention breach premium' as investors demand additional spread",
+        "Extension risk generalization — persistent doubt spread to all AT1 issuers: 'maybe they won't call either'",
+        "Reset coupon dependency — issuer call incentives now vary with interest rate environment, reducing AT1 investment predictability",
+      ],
+    },
+    faq: [
+      {
+        q: "산탄데르는 왜 콜을 행사하지 않았나요? 투자자를 신경 쓰지 않았나요?",
+        qEn: "Why didn't Santander call the bond? Did they not care about investors?",
+        a: "산탄데르의 결정은 순수하게 경제적 계산이었습니다. 콜을 행사하려면 €15억을 상환하고 새 AT1을 발행해야 합니다. 2019년 2월 시장에서 새 AT1 쿠폰은 약 6%+였습니다. 반면 콜을 하지 않으면 리셋 후 쿠폰이 약 5.4%로 낮아집니다. 발행사 입장에서 콜을 하지 않으면 연간 수천만 유로의 이자 비용을 절감할 수 있었습니다. 이것은 완전히 합법적이고 계약서에 명시된 권리입니다. 투자자를 배려하지 않은 것이 아니라, 발행사가 자신의 권리를 행사한 것입니다. 투자자들이 이 리스크를 계약서에서 인지하고 가격에 반영했어야 했습니다.",
+        aEn: "Santander's decision was purely economic calculation. Exercising the call requires redeeming €1.5B and re-issuing new AT1. In February 2019, new AT1 coupon rates were approximately 6%+. Not calling would reset the coupon to approximately 5.4% — saving tens of millions of euros annually in interest costs. This was entirely legal and an explicitly contracted right. Santander was not ignoring investors — it was exercising its contractual right. Investors should have recognized and priced this risk from the prospectus.",
+      },
+      {
+        q: "AT1 콜 스킵이 이전에는 왜 발생하지 않았나요?",
+        qEn: "Why hadn't AT1 call-skipping happened before?",
+        a: "2010년대 전반 내내 금리가 지속적으로 하락했습니다. 이 환경에서는 콜을 행사하고 새로운 저쿠폰 AT1을 발행하는 것이 항상 경제적으로 유리했습니다. 콜 날짜에 새 발행 금리 < 리셋 쿠폰이라는 조건이 항상 성립했기 때문에, 발행사는 콜을 행사해야 이자 비용이 절감됐습니다. 2019년 산탄데르 사태는 이 조건이 역전되는 첫 사례였습니다. 리셋 후 쿠폰이 신규 발행보다 낮아졌기 때문에 콜 미행사가 처음으로 경제적으로 합리적이 됐습니다. 즉, 관행이 유지된 것은 계약서 때문이 아니라 경제적 인센티브가 지속적으로 같은 방향을 가리켰기 때문입니다.",
+        aEn: "Throughout the 2010s, interest rates were in continuous decline. In this environment, calling bonds and re-issuing at lower coupon rates was always economically advantageous. The condition — new issuance rate < reset coupon at call date — always held, so calling was always cheaper. The 2019 Santander episode was the first case where this condition reversed. With the reset coupon falling below new issuance rates, not calling became economically rational for the first time. The convention held not because of contractual obligation but because economic incentives consistently pointed the same way.",
+      },
+      {
+        q: "이 사건이 AT1 투자자들의 실제 손실로 이어졌나요?",
+        qEn: "Did this event result in actual losses for AT1 investors?",
+        a: "산탄데르의 AT1 채권을 콜 날짜 전후에 팔았다면 손실이 실현됐습니다. 채권 가격이 101~102에서 98 이하로 하락했기 때문입니다. 그러나 장기 보유한 투자자들에게는 쿠폰이 리셋된 후에도 계속 지급됐습니다 — 다만 6.25% 대신 5.4% 수준으로. 더 큰 문제는 기회 비용과 평가 손실이었습니다. 또한 '콜이 이루어질 것을 가정한 YTC로 사들인' 투자자들은 기대 수익률이 하락했습니다. 결정적 손실보다는 기대 위반(disappointed expectations)이 핵심이었습니다.",
+        aEn: "Investors who sold around the call date suffered realized losses — the bond fell from 101–102 to below 98. Long-term holders continued to receive coupons after the reset, albeit at approximately 5.4% instead of 6.25%. The more significant issue was mark-to-market losses and opportunity cost. Investors who bought pricing on YTC (assuming call) saw their expected returns fall. The core was 'disappointed expectations' rather than catastrophic principal loss — a different character from the 2023 CS AT1 full write-down.",
+      },
+      {
+        q: "산탄데르 이후 비슷한 콜 스킵 사례가 있었나요?",
+        qEn: "Were there similar call-skipping cases after Santander?",
+        a: "산탄데르 2019 이후 AT1 콜 스킵이 간헐적으로 발생했습니다. 예를 들어, 일부 아시아 은행과 유럽 중소형 은행들이 금리 환경에 따라 콜을 행사하지 않는 사례들이 있었습니다. 그러나 이러한 사례들은 산탄데르 사태만큼 충격을 주지 않았습니다 — 관행이 이미 바뀌었기 때문입니다. 투자자들이 YTW를 기준으로 가격을 산정하기 때문에 콜 스킵이 발생해도 시장 충격이 크지 않게 됐습니다. 이것이 산탄데르 사태가 시장 구조를 영구적으로 바꾼 방식입니다.",
+        aEn: "After Santander 2019, AT1 call-skipping occurred intermittently. Some Asian and European mid-sized banks also declined to call at first opportunity depending on the rate environment. But these cases caused less shock — because the convention had already changed. With investors now pricing on YTW, a call skip no longer creates a market shock of the same magnitude. This is how the Santander episode permanently changed market structure: not by making call-skipping acceptable, but by making investors price for it correctly.",
+      },
+      {
+        q: "AT1 투자에서 콜 리스크를 어떻게 평가해야 하나요?",
+        qEn: "How should investors assess call risk in AT1 investments?",
+        a: "세 가지 계산을 해야 합니다. 첫째, 콜 가정 YTC: 콜이 행사된다고 가정했을 때의 수익률. 둘째, 연장 가정 YTM(또는 5~10년 연장 YTC): 콜이 행사되지 않고 리셋 쿠폰으로 n년 더 간다고 가정했을 때의 수익률. 셋째, 콜 행사 인센티브 분석: 첫 콜 날짜에 예상되는 리셋 쿠폰이 당시 예상 신규 발행 금리보다 높은지 낮은지. 리셋 쿠폰 < 신규 발행 예상 금리이면 발행사의 콜 인센티브가 있고, 반대면 콜 미행사 가능성을 고려해야 합니다. 최종적으로 YTC와 YTM 중 낮은 쪽인 YTW를 기준 수익률로 사용하는 것을 권장합니다.",
+        aEn: "Three calculations are required. First, YTC (assuming call): the yield assuming the call is exercised. Second, YTM assuming extension (or YTC for n more years post-reset): yield assuming no call with reset coupon. Third, call exercise incentive analysis: is the expected reset coupon on the first call date higher or lower than the expected new issuance rate at that time? If reset coupon < expected new issuance rate, the issuer has incentive to call. The reverse creates no-call incentive. Ultimately, using the lower of YTC and YTM — Yield to Worst — as the reference yield is the recommended approach.",
+      },
+    ],
+    references: [
+      {
+        id: 1,
+        author: "Banco Santander S.A.",
+        title: "Regulatory Press Release: AT1 No-Call Decision",
+        source: "Santander Investor Relations, February 2019",
+        year: "2019",
+      },
+      {
+        id: 2,
+        author: "Barclays Research",
+        title: "AT1 No-Call Risk: Repricing Extension in the AT1 Market",
+        source: "Barclays Fixed Income Research, February 2019",
+        year: "2019",
+      },
+      {
+        id: 3,
+        author: "Basel Committee on Banking Supervision (BCBS)",
+        title: "Basel III: A Global Regulatory Framework for More Resilient Banks and Banking Systems",
+        source: "Bank for International Settlements",
+        year: "2011",
+        url: "https://www.bis.org/publ/bcbs189.pdf",
+      },
+      {
+        id: 4,
+        author: "EBA",
+        title: "Report on the Impact of CRD IV-CRR on Financial Stability",
+        source: "EBA",
+        year: "2020",
+        url: "https://www.eba.europa.eu/sites/default/documents/files/document_library/Publications/Reports/2020/961452/EBA%20report%20on%20the%20cumulative%20impact%20of%20regulatory%20requirements.pdf",
+      },
+    ],
   },
 
   // ── D: 구조·통화 ──────────────────────────────────────────────────────────────

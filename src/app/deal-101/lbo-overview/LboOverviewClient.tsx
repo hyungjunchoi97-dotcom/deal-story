@@ -42,7 +42,7 @@ const THIS_CH = 0;
 // ── Chapter Nav Component ─────────────────────────────────────────────────────
 function ChapterNav({ lang }: { lang: Lang }) {
   const ko = lang === "ko";
-  const base = ko ? "/market-101" : "/en/market-101";
+  const base = ko ? "/deal-101" : "/en/deal-101";
   return (
     <div className="max-w-3xl mx-auto px-5 mb-8">
       <div className="flex gap-1.5 flex-wrap">
@@ -489,8 +489,8 @@ export default function LboOverviewClient({ concept, lang }: Props) {
                 {ko ? "홈" : "Home"}
               </Link>
               <span>›</span>
-              <Link href={ko ? "/market-101" : "/en/market-101"} className="hover:text-indigo-600 transition-colors">
-                Market 101
+              <Link href={ko ? "/deal-101" : "/en/deal-101"} className="hover:text-indigo-600 transition-colors">
+                {ko ? "딜 101" : "Deal 101"}
               </Link>
               <span>›</span>
               <span className="text-gray-600 dark:text-gray-300 font-medium">
@@ -565,7 +565,7 @@ export default function LboOverviewClient({ concept, lang }: Props) {
               className="mt-4 flex items-center gap-2"
             >
               <Link
-                href="/market-101/lbo-overview"
+                href="/deal-101/lbo-overview"
                 className={`text-[11px] px-2.5 py-1 rounded-full font-medium transition-colors ${
                   ko
                     ? "text-white"
@@ -576,7 +576,7 @@ export default function LboOverviewClient({ concept, lang }: Props) {
                 한국어
               </Link>
               <Link
-                href="/en/market-101/lbo-overview"
+                href="/en/deal-101/lbo-overview"
                 className={`text-[11px] px-2.5 py-1 rounded-full font-medium transition-colors ${
                   !ko
                     ? "text-white"
@@ -1222,7 +1222,7 @@ export default function LboOverviewClient({ concept, lang }: Props) {
               ].map((ch) => (
                 <motion.div key={ch.ch} variants={fadeUp()}>
                   <Link
-                    href={`${ko ? "/market-101" : "/en/market-101"}/${ch.slug}`}
+                    href={`${ko ? "/deal-101" : "/en/deal-101"}/${ch.slug}`}
                     className={`block rounded-xl border p-4 transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 ${
                       ch.current
                         ? "border-indigo-300 dark:border-indigo-700 bg-indigo-50 dark:bg-indigo-900/20"

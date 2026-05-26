@@ -35,7 +35,7 @@ const THIS_CH = 3;
 
 function ChapterNav({ lang }: { lang: Lang }) {
   const ko = lang === "ko";
-  const base = ko ? "/market-101" : "/en/market-101";
+  const base = ko ? "/deal-101" : "/en/deal-101";
   return (
     <div className="max-w-3xl mx-auto px-5 mb-8">
       <div className="flex gap-1.5 flex-wrap">
@@ -288,9 +288,9 @@ export default function LboDealProcessClient({ concept, lang }: Props) {
             >
               <Link href={ko ? "/" : "/en"} className="hover:text-indigo-600 transition-colors">{ko ? "홈" : "Home"}</Link>
               <span>›</span>
-              <Link href={ko ? "/market-101" : "/en/market-101"} className="hover:text-indigo-600 transition-colors">Market 101</Link>
+              <Link href={ko ? "/deal-101" : "/en/deal-101"} className="hover:text-indigo-600 transition-colors">딜 101</Link>
               <span>›</span>
-              <Link href={ko ? "/market-101/lbo-overview" : "/en/market-101/lbo-overview"} className="hover:text-indigo-600 transition-colors">LBO</Link>
+              <Link href={ko ? "/deal-101/lbo-overview" : "/en/deal-101/lbo-overview"} className="hover:text-indigo-600 transition-colors">LBO</Link>
               <span>›</span>
               <span className="text-gray-600 dark:text-gray-300 font-medium">{ko ? "딜 프로세스" : "Deal Process"}</span>
             </motion.div>
@@ -320,8 +320,8 @@ export default function LboDealProcessClient({ concept, lang }: Props) {
             </motion.div>
 
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4, delay: 0.25 }} className="mt-4 flex items-center gap-2">
-              <Link href="/market-101/lbo-deal-process" className={`text-[11px] px-2.5 py-1 rounded-full font-medium transition-colors ${ko ? "text-white" : "text-gray-400 hover:text-gray-600"}`} style={ko ? { background: ACCENT } : {}}>한국어</Link>
-              <Link href="/en/market-101/lbo-deal-process" className={`text-[11px] px-2.5 py-1 rounded-full font-medium transition-colors ${!ko ? "text-white" : "text-gray-400 hover:text-gray-600"}`} style={!ko ? { background: ACCENT } : {}}>English</Link>
+              <Link href="/deal-101/lbo-deal-process" className={`text-[11px] px-2.5 py-1 rounded-full font-medium transition-colors ${ko ? "text-white" : "text-gray-400 hover:text-gray-600"}`} style={ko ? { background: ACCENT } : {}}>한국어</Link>
+              <Link href="/en/deal-101/lbo-deal-process" className={`text-[11px] px-2.5 py-1 rounded-full font-medium transition-colors ${!ko ? "text-white" : "text-gray-400 hover:text-gray-600"}`} style={!ko ? { background: ACCENT } : {}}>English</Link>
             </motion.div>
           </div>
         </section>
@@ -737,10 +737,10 @@ export default function LboDealProcessClient({ concept, lang }: Props) {
                   style={{ background: ACCENT }}>
                   🏨 {ko ? "Hilton LBO 딜 상세 분석 →" : "Hilton LBO Full Deal Analysis →"}
                 </Link>
-                <Link href={ko ? "/market-101" : "/en/market-101"}
+                <Link href={ko ? "/deal-101" : "/en/deal-101"}
                   className="inline-flex items-center gap-1.5 text-[12px] font-semibold px-4 py-2 rounded-full border transition-colors hover:bg-gray-50"
                   style={{ borderColor: ACCENT, color: ACCENT }}>
-                  {ko ? "← Market 101 목록으로" : "← Back to Market 101"}
+                  {ko ? "← 딜 101 목록으로" : "← Back to Deal 101"}
                 </Link>
               </div>
             </motion.div>
@@ -760,11 +760,11 @@ export default function LboDealProcessClient({ concept, lang }: Props) {
           {/* ══ Series Nav ════════════════════════════════════════════════════════ */}
           <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
             <div className="flex flex-wrap gap-3">
-              <Link href={ko ? "/market-101/lbo-returns" : "/en/market-101/lbo-returns"}
+              <Link href={ko ? "/deal-101/lbo-returns" : "/en/deal-101/lbo-returns"}
                 className="text-[12px] px-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-indigo-300 hover:text-indigo-600 transition-colors">
                 ← {ko ? "Ch.2 — 리턴 분석" : "Ch.2 — Return Analysis"}
               </Link>
-              <Link href={ko ? "/market-101/lbo-overview" : "/en/market-101/lbo-overview"}
+              <Link href={ko ? "/deal-101/lbo-overview" : "/en/deal-101/lbo-overview"}
                 className="text-[12px] px-4 py-2 rounded-full border border-indigo-200 dark:border-indigo-700 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 transition-colors">
                 {ko ? "↩ Ch.0 — LBO의 본질 (처음으로)" : "↩ Ch.0 — What Is LBO? (Start over)"}
               </Link>

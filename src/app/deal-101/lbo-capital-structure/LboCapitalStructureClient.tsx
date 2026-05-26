@@ -41,7 +41,7 @@ const THIS_CH = 1;
 
 function ChapterNav({ lang }: { lang: Lang }) {
   const ko = lang === "ko";
-  const base = ko ? "/market-101" : "/en/market-101";
+  const base = ko ? "/deal-101" : "/en/deal-101";
   return (
     <div className="max-w-3xl mx-auto px-5 mb-8">
       <div className="flex gap-1.5 flex-wrap">
@@ -322,11 +322,11 @@ export default function LboCapitalStructureClient({ concept, lang }: Props) {
                 {ko ? "홈" : "Home"}
               </Link>
               <span>›</span>
-              <Link href={ko ? "/market-101" : "/en/market-101"} className="hover:text-indigo-600 transition-colors">
-                Market 101
+              <Link href={ko ? "/deal-101" : "/en/deal-101"} className="hover:text-indigo-600 transition-colors">
+                {ko ? "딜 101" : "Deal 101"}
               </Link>
               <span>›</span>
-              <Link href={ko ? "/market-101/lbo-overview" : "/en/market-101/lbo-overview"} className="hover:text-indigo-600 transition-colors">
+              <Link href={ko ? "/deal-101/lbo-overview" : "/en/deal-101/lbo-overview"} className="hover:text-indigo-600 transition-colors">
                 {ko ? "LBO의 본질" : "What Is LBO?"}
               </Link>
               <span>›</span>
@@ -389,11 +389,11 @@ export default function LboCapitalStructureClient({ concept, lang }: Props) {
               transition={{ duration: 0.4, delay: 0.25 }}
               className="mt-4 flex items-center gap-2"
             >
-              <Link href="/market-101/lbo-capital-structure"
+              <Link href="/deal-101/lbo-capital-structure"
                 className={`text-[11px] px-2.5 py-1 rounded-full font-medium transition-colors ${ko ? "text-white" : "text-gray-400 hover:text-gray-600"}`}
                 style={ko ? { background: ACCENT } : {}}
               >한국어</Link>
-              <Link href="/en/market-101/lbo-capital-structure"
+              <Link href="/en/deal-101/lbo-capital-structure"
                 className={`text-[11px] px-2.5 py-1 rounded-full font-medium transition-colors ${!ko ? "text-white" : "text-gray-400 hover:text-gray-600"}`}
                 style={!ko ? { background: ACCENT } : {}}
               >English</Link>
@@ -902,11 +902,11 @@ export default function LboCapitalStructureClient({ concept, lang }: Props) {
               </h3>
             </motion.div>
             <div className="flex flex-wrap gap-3">
-              <Link href={ko ? "/market-101/lbo-overview" : "/en/market-101/lbo-overview"}
+              <Link href={ko ? "/deal-101/lbo-overview" : "/en/deal-101/lbo-overview"}
                 className="text-[12px] px-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-indigo-300 hover:text-indigo-600 transition-colors">
                 ← {ko ? "Ch.0 — LBO의 본질" : "Ch.0 — What Is LBO?"}
               </Link>
-              <Link href={ko ? "/market-101/lbo-returns" : "/en/market-101/lbo-returns"}
+              <Link href={ko ? "/deal-101/lbo-returns" : "/en/deal-101/lbo-returns"}
                 className="text-[12px] px-4 py-2 rounded-full border text-white transition-opacity hover:opacity-80"
                 style={{ background: ACCENT, borderColor: ACCENT }}>
                 {ko ? "Ch.2 — 리턴 분석 →" : "Ch.2 — Return Analysis →"}

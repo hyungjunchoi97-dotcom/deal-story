@@ -86,6 +86,35 @@ const CONCEPT_CATALOG = [
     category: "딜 구조",
     published: true,
   },
+  // LBO 101 시리즈 (4챕터)
+  {
+    slug: "lbo-overview",
+    term: "LBO 101 Ch.0 — LBO의 본질",
+    tagline: "레버리지로 기업을 사는 수학: 수익 증폭 메커니즘, 7가지 타겟 기준, GP/LP Carry Waterfall, Blackstone/Hilton·TXU 케이스",
+    category: "LBO 시리즈",
+    published: true,
+  },
+  {
+    slug: "lbo-capital-structure",
+    term: "LBO 101 Ch.1 — 자본구조 완전 해부",
+    tagline: "TLA·TLB·Senior Notes·Mezz·PIK Toggle·Equity — 부채 피라미드, Covenant-Lite, DSCR, Hilton 2007 실제 구조",
+    category: "LBO 시리즈",
+    published: true,
+  },
+  {
+    slug: "lbo-returns",
+    term: "LBO 101 Ch.2 — 리턴 분석",
+    tagline: "MOIC·IRR 충돌 시나리오, J-커브, 가치창출 3대 드라이버(EBITDA·멀티플·부채상환), Vintage Year 효과",
+    category: "LBO 시리즈",
+    published: true,
+  },
+  {
+    slug: "lbo-deal-process",
+    term: "LBO 101 Ch.3 — 딜 프로세스 & 리스크",
+    tagline: "6단계 딜 타임라인, Sources & Uses, Maturity Wall, TXU·Toys'R'Us·Caesars 실패 / Alliance Boots 성공 해부",
+    category: "LBO 시리즈",
+    published: true,
+  },
   {
     slug: "tender-offer",
     term: "공개매수 (Tender Offer)",
@@ -217,7 +246,7 @@ const CONCEPT_CATALOG = [
   },
 ];
 
-const CATEGORIES = ["밸류에이션", "딜 구조", "실사", "규제·법률", "전략"] as const;
+const CATEGORIES = ["밸류에이션", "딜 구조", "실사", "규제·법률", "전략", "LBO 시리즈"] as const;
 
 const CATEGORY_COLOR: Record<string, string> = {
   "밸류에이션": "bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300",
@@ -225,6 +254,7 @@ const CATEGORY_COLOR: Record<string, string> = {
   "실사":       "bg-violet-50 text-violet-700 dark:bg-violet-900/30 dark:text-violet-300",
   "규제·법률":  "bg-rose-50 text-rose-700 dark:bg-rose-900/30 dark:text-rose-300",
   "전략":       "bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300",
+  "LBO 시리즈": "bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300",
 };
 
 export default function Deal101IndexPage() {

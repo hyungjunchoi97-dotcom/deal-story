@@ -20,7 +20,8 @@ export const MARKET_101_CATEGORIES = [
   { key: "fig"        as const, label: "FIG",       labelEn: "FIG",                    dotColor: "bg-rose-500"   },
   { key: "sovereign"  as const, label: "소버린",     labelEn: "Sovereign",              dotColor: "bg-indigo-500" },
   { key: "structured" as const, label: "구조화",     labelEn: "Structured",             dotColor: "bg-amber-500"  },
-  { key: "lbo"        as const, label: "LBO",        labelEn: "LBO",                    dotColor: "bg-indigo-500" },
+  // LBO 시리즈는 /deal-101 로 이관됨 — market-101에서 제거
+  // { key: "lbo" as const, label: "LBO", labelEn: "LBO", dotColor: "bg-indigo-500" },
   { key: "levfin"     as const, label: "LevFin",    labelEn: "LevFin",                 dotColor: "bg-yellow-500" },
 ];
 
