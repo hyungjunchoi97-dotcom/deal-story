@@ -11,6 +11,7 @@ const EN_CATEGORY_LABEL: Record<DealCategory, string> = {
   ma: "M&A",
   activism: "Activism",
   restructuring: "Restructuring",
+  control: "Control Contest",
 };
 import FinancialsChart from "@/components/deal/FinancialsChart";
 import OwnershipDiagram from "@/components/deal/OwnershipDiagram";
