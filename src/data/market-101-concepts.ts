@@ -22,7 +22,8 @@ export const MARKET_101_CATEGORIES = [
   { key: "structured" as const, label: "구조화",     labelEn: "Structured",             dotColor: "bg-amber-500"  },
   // LBO 시리즈는 /deal-101 로 이관됨 — market-101에서 제거
   // { key: "lbo" as const, label: "LBO", labelEn: "LBO", dotColor: "bg-indigo-500" },
-  { key: "levfin"     as const, label: "LevFin",    labelEn: "LevFin",                 dotColor: "bg-yellow-500" },
+  { key: "levfin"     as const, label: "LevFin",          labelEn: "LevFin",                 dotColor: "bg-yellow-500" },
+  { key: "syndloan"   as const, label: "신디케이티드론", labelEn: "Syndicated Loans",       dotColor: "bg-cyan-500"   },
 ];
 
 // ── 개념 데이터 ──────────────────────────────────────────────────────────────
@@ -2307,9 +2308,9 @@ From an IB career perspective, DCM requires a complex blend of structural design
     title: "신디케이티드론 Ch.0 — 왜 은행들은 뭉치는가",
     titleEn: "Syndicated Loans Ch.0 — Why Banks Pool Together",
     entryType: "article",
-    category: "dcm",
-    categoryLabel: "DCM",
-    categoryLabelEn: "DCM",
+    category: "syndloan",
+    categoryLabel: "신디케이티드론",
+    categoryLabelEn: "Syndicated Loans",
     excerpt:
       "삼성전자가 100조를 빌리려 하면 한 은행이 다 빌려줄 수 있을까? BIS 자기자본 규제·집중 리스크·관계 관리 — 세 가지 이유로 은행들은 뭉친다. 연간 $4조+ 신디케이티드론 시장 전체 지도: IG와 레버리지드 두 세계의 차이, MLA·에이전트·참여은행의 역할과 수익구조, 언더라이트 vs 베스트에포트, Analyst가 밤새 만드는 IM의 실체까지.",
     excerptEn:
@@ -2320,6 +2321,241 @@ From an IB career perspective, DCM requires a complex blend of structural design
     sections: [],
     keyTerms: [],
     relatedSlugs: ["syndicated-loan-players", "syndicated-loan-process", "syndicated-loan-docs", "syndicated-loan-cases", "levfin-ecosystem"],
+    appearsIn: [],
+  },
+
+  // ────────────────────────────────────────────────────────────────────────────
+  // ECM 시리즈 — Overview + IPO 핵심 6챕터 + 상품 5챕터
+  // ────────────────────────────────────────────────────────────────────────────
+
+  {
+    slug: "ecm-overview",
+    title: "ECM 개요 — 주식자본시장 완전 입문",
+    titleEn: "ECM Overview — The Complete Introduction to Equity Capital Markets",
+    entryType: "article",
+    category: "ecm",
+    categoryLabel: "ECM",
+    categoryLabelEn: "ECM",
+    excerpt:
+      "IPO는 회사의 데뷔 무대가 아니다 — 소유권 구조, 지배구조, 자금 조달 방식이 영구적으로 바뀌는 사건이다. 글로벌 ECM 시장 $9조+, IPO·팔로우온·전환사채 세 축, 발행사·투자자·ECM 뱅커 삼각구조, 그리고 WeWork 철회부터 Ant Group 48시간 전 취소까지 — ECM의 전체 지도.",
+    excerptEn:
+      "An IPO isn't a company's debut party — it's a permanent transformation of ownership structure, governance, and capital access. Global ECM market $9T+, three pillars of IPO / follow-on / convertibles, the issuer–investor–ECM banker triangle, and from WeWork's withdrawal to Ant Group's cancellation 48 hours before listing — the complete ECM map.",
+    readingMinutes: 16,
+    tags: ["ECM", "IPO", "주식자본시장", "공모", "팔로우온", "전환사채", "그린슈", "북빌딩", "밸류에이션", "WeWork", "Ant Group"],
+    tagsEn: ["ECM", "IPO", "Equity Capital Markets", "Public Offering", "Follow-on", "Convertible", "Greenshoe", "Book Building", "Valuation", "WeWork", "Ant Group"],
+    sections: [],
+    keyTerms: [],
+    relatedSlugs: ["ecm-ipo-issuers", "ecm-ipo-investors", "ecm-ipo-valuation", "ecm-ipo-process", "ecm-ipo-bookbuilding", "ecm-ipo-post"],
+    appearsIn: [],
+  },
+
+  {
+    slug: "ecm-ipo-issuers",
+    title: "ECM Ch.1 — 발행사: 누가, 왜 IPO를 하는가",
+    titleEn: "ECM Ch.1 — Issuers: Who IPOs and Why",
+    entryType: "article",
+    category: "ecm",
+    categoryLabel: "ECM",
+    categoryLabelEn: "ECM",
+    excerpt:
+      "VC 백 스타트업, PE 엑싯, 국영기업 민영화, 계열사 분리상장, 성숙 성장기업 — 5가지 발행사 유형의 IPO 동기는 완전히 다르다. PE 펀드 만기가 다 됐거나, 창업자가 현금이 필요하거나, 정부가 재정 충당이 필요하거나. 뱅커는 그 동기를 파악하는 것부터 시작한다. IPO 타이밍 3요소, 18개월 체크리스트, Coupang·크래프톤·LG에너지솔루션 케이스.",
+    excerptEn:
+      "VC-backed startups, PE exits, SOE privatizations, conglomerate spin-offs, mature growth companies — five issuer types with completely different IPO motivations. PE fund approaching maturity, founder liquidity, government funding needs. The banker's first job is diagnosing the real motive. Three timing factors, the 18-month checklist, and the Coupang, Krafton, and LG Energy Solution cases.",
+    readingMinutes: 14,
+    tags: ["IPO 발행사", "PE 엑싯", "SOE 민영화", "VC 백 스타트업", "쿠팡", "크래프톤", "LG에너지솔루션", "IPO 타이밍", "계열사 분리상장"],
+    tagsEn: ["IPO Issuers", "PE Exit", "SOE Privatization", "VC-backed", "Coupang", "Krafton", "LG Energy Solution", "IPO Timing", "Spin-off"],
+    sections: [],
+    keyTerms: [],
+    relatedSlugs: ["ecm-overview", "ecm-ipo-investors", "ecm-ipo-valuation", "ecm-ipo-process"],
+    appearsIn: [],
+  },
+
+  {
+    slug: "ecm-ipo-investors",
+    title: "ECM Ch.2 — 투자자: 앵커·QIB·리테일의 삼층 구조",
+    titleEn: "ECM Ch.2 — Investors: The Anchor–QIB–Retail Three-Layer Structure",
+    entryType: "article",
+    category: "ecm",
+    categoryLabel: "ECM",
+    categoryLabelEn: "ECM",
+    excerpt:
+      "IPO 투자자는 DCM과 완전히 다른 생태계다. 상장 전 확약하는 앵커(Temasek·GIC·국민연금), 북빌딩 오더를 제출하는 QIB(자산운용사·헤지펀드), 공모 물량 30%를 받는 리테일 — 세 층위의 역할·락업·배분 전략이 다르다. 오더 유형 4가지, High Quality Book의 조건, NIC 협상까지.",
+    excerptEn:
+      "IPO investors are a completely different ecosystem from DCM. Anchors who commit before listing (Temasek, GIC, NPS), QIBs submitting orders during book-building (asset managers, hedge funds), and retail receiving 30% of the float — three layers with different roles, lock-ups, and allocation strategies. Four order types, High Quality Book criteria, and NIC negotiation.",
+    readingMinutes: 13,
+    tags: ["IPO 투자자", "앵커 투자자", "QIB", "기관투자자", "리테일 공모", "오더북", "락업", "배분 전략", "Temasek", "GIC", "국민연금"],
+    tagsEn: ["IPO Investors", "Anchor Investor", "QIB", "Institutional", "Retail Offering", "Order Book", "Lock-up", "Allocation", "Temasek", "GIC", "NPS"],
+    sections: [],
+    keyTerms: [],
+    relatedSlugs: ["ecm-overview", "ecm-ipo-issuers", "ecm-ipo-bookbuilding", "ecm-ipo-post"],
+    appearsIn: [],
+  },
+
+  {
+    slug: "ecm-ipo-valuation",
+    title: "ECM Ch.3 — 밸류에이션: Football Field와 5가지 방법론",
+    titleEn: "ECM Ch.3 — Valuation: The Football Field and Five Methodologies",
+    entryType: "article",
+    category: "ecm",
+    categoryLabel: "ECM",
+    categoryLabelEn: "ECM",
+    excerpt:
+      "IPO 가격은 과학이 아닌 협상이다. P/E·EV/EBITDA·EV/Revenue·DCF·선행 거래 5가지 방법론이 서로 다른 가격을 도출하고, 뱅커는 어떤 Comp를 포함하고 어떤 것을 제외할지로 Football Field를 설계한다. Rivian이 어떻게 매출 없이 $660억 밸류를 받았나, 크래프톤 53조→36조 하향 협상, Leave Money on the Table 논쟁까지.",
+    excerptEn:
+      "IPO pricing is negotiation, not science. P/E, EV/EBITDA, EV/Revenue, DCF, and precedent transactions each produce different valuations — the banker's skill is designing the Football Field by choosing which comps to include and exclude. How Rivian got a $66B valuation with almost no revenue, Krafton's ₩53T→₩36T negotiation, and the Leave Money on the Table debate.",
+    readingMinutes: 17,
+    tags: ["IPO 밸류에이션", "Football Field", "Comparable Analysis", "DCF", "EV/EBITDA", "PER", "크래프톤", "Rivian", "Leave Money on the Table", "Comps"],
+    tagsEn: ["IPO Valuation", "Football Field", "Comparable Analysis", "DCF", "EV/EBITDA", "P/E", "Krafton", "Rivian", "Leave Money on the Table", "Comps"],
+    sections: [],
+    keyTerms: [],
+    relatedSlugs: ["ecm-overview", "ecm-ipo-issuers", "ecm-ipo-process", "ecm-ipo-bookbuilding"],
+    appearsIn: [],
+  },
+
+  {
+    slug: "ecm-ipo-process",
+    title: "ECM Ch.4 — IPO 프로세스: S-1부터 첫날 거래까지",
+    titleEn: "ECM Ch.4 — IPO Process: From S-1 Filing to Day One Trading",
+    entryType: "article",
+    category: "ecm",
+    categoryLabel: "ECM",
+    categoryLabelEn: "ECM",
+    excerpt:
+      "IPO는 18개월 프로젝트다. Bake-off에서 IB를 선발하고, 실사와 S-1 작성, SEC Comment Letter 전쟁, Quiet Period, Pre-deal 마케팅, 글로벌 로드쇼 50–80개 미팅, 프라이싱 나이트 — 각 단계에서 Analyst·Associate·MD가 실제로 무엇을 하는지. S-1 해부학: Risk Factors가 어떻게 투자자를 보호하면서 동시에 발행사를 노출시키는가.",
+    excerptEn:
+      "An IPO is an 18-month project. Bank selection through Bake-off, due diligence and S-1 drafting, SEC Comment Letter battles, Quiet Period rules, pre-deal marketing, global roadshow with 50–80 investor meetings, and Pricing Night — what Analysts, Associates, and MDs actually do at each stage. S-1 anatomy: how Risk Factors protect investors while simultaneously exposing the issuer.",
+    readingMinutes: 18,
+    tags: ["IPO 프로세스", "S-1", "SEC", "로드쇼", "Quiet Period", "프라이싱 나이트", "Comment Letter", "Bake-off", "투자설명서", "Due Diligence"],
+    tagsEn: ["IPO Process", "S-1", "SEC", "Roadshow", "Quiet Period", "Pricing Night", "Comment Letter", "Bake-off", "Prospectus", "Due Diligence"],
+    sections: [],
+    keyTerms: [],
+    relatedSlugs: ["ecm-overview", "ecm-ipo-valuation", "ecm-ipo-bookbuilding", "ecm-ipo-post"],
+    appearsIn: [],
+  },
+
+  {
+    slug: "ecm-ipo-bookbuilding",
+    title: "ECM Ch.5 — 북빌딩·프라이싱: 수요 곡선과 그린슈의 메커니즘",
+    titleEn: "ECM Ch.5 — Book-Building & Pricing: Demand Curve and Greenshoe Mechanics",
+    entryType: "article",
+    category: "ecm",
+    categoryLabel: "ECM",
+    categoryLabelEn: "ECM",
+    excerpt:
+      "IPO 북빌딩은 DCM과 근본적으로 다르다 — 가격이 고정되지 않은 상태에서 수요를 모은다. 수요 곡선에서 '어디서 자르느냐'가 뱅커의 기술이다. 그린슈(Greenshoe) 3단계: 과배정→안정화 기간→옵션 행사 또는 시장 매입. '15–20% 첫날 팝이 이상적인 이유', '30% 팝이면 오히려 실패인 이유', 한국 의무보유 확약과 공모가 결정 메커니즘.",
+    excerptEn:
+      "IPO book-building fundamentally differs from DCM — demand is gathered before the price is set. 'Where to cut' the demand curve is the banker's core skill. Greenshoe in three steps: over-allotment → stabilization window → option exercise or market purchase. Why a 15–20% first-day pop is ideal, why a 30% pop is actually a failure, and Korea's mandatory lock-up commitment mechanism.",
+    readingMinutes: 15,
+    tags: ["북빌딩", "그린슈", "Greenshoe", "수요 곡선", "과배정 옵션", "공모가", "첫날 팝", "안정화", "의무보유 확약", "IPO 프라이싱"],
+    tagsEn: ["Book Building", "Greenshoe", "Over-allotment", "Demand Curve", "IPO Price", "First Day Pop", "Stabilization", "Lock-up Commitment", "IPO Pricing"],
+    sections: [],
+    keyTerms: [],
+    relatedSlugs: ["ecm-ipo-process", "ecm-ipo-investors", "ecm-ipo-post", "ecm-ipo-valuation"],
+    appearsIn: [],
+  },
+
+  {
+    slug: "ecm-ipo-post",
+    title: "ECM Ch.6 — 포스트-IPO: 락업·오버행·상장 이후가 진짜 시작",
+    titleEn: "ECM Ch.6 — Post-IPO: Lock-up, Overhang, and Why the Real Story Starts After Listing",
+    entryType: "article",
+    category: "ecm",
+    categoryLabel: "ECM",
+    categoryLabelEn: "ECM",
+    excerpt:
+      "상장은 끝이 아니다. 락업 만료 오버행 차트: D+90일(앵커 해제)·D+180일(PE+창업자, 최대 물량 폭탄)·D+365일(스톡옵션). LG에너지솔루션(성공)·WeWork 철회→파산·카카오뱅크 -70%·Rivian -80%·DiDi 상장 후 48시간 만에 앱 삭제 — 5가지 실패 유형으로 해부한 글로벌 IPO 케이스스터디.",
+    excerptEn:
+      "Listing isn't the end. Lock-up overhang chart: D+90 (anchor release), D+180 (PE + founder — the maximum supply bomb), D+365 (stock options). LG Energy Solution (success), WeWork withdrawal→bankruptcy, Kakao Bank -70%, Rivian -80%, DiDi's app deleted 48 hours after listing — global IPO case studies dissected into five failure types.",
+    readingMinutes: 20,
+    tags: ["포스트-IPO", "락업 만료", "오버행", "WeWork", "카카오뱅크", "Rivian", "DiDi", "Ant Group", "LG에너지솔루션", "SPAC 붕괴", "IPO 실패"],
+    tagsEn: ["Post-IPO", "Lock-up Expiry", "Overhang", "WeWork", "Kakao Bank", "Rivian", "DiDi", "Ant Group", "LG Energy Solution", "SPAC Collapse", "IPO Failure"],
+    sections: [],
+    keyTerms: [],
+    relatedSlugs: ["ecm-overview", "ecm-ipo-bookbuilding", "ecm-followon", "ecm-spac-direct"],
+    appearsIn: [],
+  },
+
+  {
+    slug: "ecm-followon",
+    title: "ECM Ch.7 — 팔로우온: ABB·블록 트레이드·유상증자",
+    titleEn: "ECM Ch.7 — Follow-on Offerings: ABB, Block Trades, and Rights Issues",
+    entryType: "article",
+    category: "ecm",
+    categoryLabel: "ECM",
+    categoryLabelEn: "ECM",
+    excerpt:
+      "상장 이후의 자본 조달 — ABB(하룻밤, 3–5% 할인)·블록 트레이드(수시간, 2–3% 할인)·유상증자(3–6주, 30–40% 할인)·ATM(상시) 4가지의 속도-가격-희석 트레이드오프. PE 엑싯 패턴, 삼성물산 블록 트레이드, 글로벌 팔로우온 시장 구조.",
+    excerptEn:
+      "Post-listing capital raising — ABB (overnight, 3–5% discount), block trade (hours, 2–3% discount), rights issue (3–6 weeks, 30–40% discount), ATM (ongoing) — the speed-price-dilution trade-off. PE exit patterns, Samsung C&T block trade, and global follow-on market structure.",
+    readingMinutes: 13,
+    tags: ["팔로우온", "ABB", "블록 트레이드", "유상증자", "ATM", "PE 엑싯", "희석", "삼성물산"],
+    tagsEn: ["Follow-on", "ABB", "Block Trade", "Rights Issue", "ATM", "PE Exit", "Dilution"],
+    sections: [],
+    keyTerms: [],
+    relatedSlugs: ["ecm-ipo-post", "ecm-convertible", "ecm-overview"],
+    appearsIn: [],
+  },
+
+  {
+    slug: "ecm-convertible",
+    title: "ECM Ch.8 — 전환사채: 채권인가 주식인가",
+    titleEn: "ECM Ch.8 — Convertible Bonds: Debt or Equity?",
+    entryType: "article",
+    category: "ecm",
+    categoryLabel: "ECM",
+    categoryLabelEn: "ECM",
+    excerpt:
+      "전환사채는 채권의 안전벨트에 주식의 가속기를 단 차다. 주가가 오르면 주식처럼, 떨어지면 채권처럼. 전환가격·전환프리미엄·페이오프 다이어그램·델타 헤징. ECM과 DCM의 경계에 있는 하이브리드 상품 — 왜 성장 기업이 낮은 쿠폰에 이 구조를 선택하는가.",
+    excerptEn:
+      "A convertible bond is a car with a seatbelt (bond) and an accelerator (equity). Rises like a stock when the price climbs, protects like a bond when it falls. Conversion price, conversion premium, payoff diagram, delta hedging. The hybrid instrument at the ECM–DCM boundary — why growth companies choose this structure at a low coupon.",
+    readingMinutes: 12,
+    tags: ["전환사채", "CB", "전환프리미엄", "델타 헤징", "하이브리드", "페이오프", "ECM 상품"],
+    tagsEn: ["Convertible Bond", "CB", "Conversion Premium", "Delta Hedging", "Hybrid", "Payoff", "ECM Products"],
+    sections: [],
+    keyTerms: [],
+    relatedSlugs: ["ecm-followon", "ecm-overview", "ecm-ipo-valuation"],
+    appearsIn: [],
+  },
+
+  {
+    slug: "ecm-international-listing",
+    title: "ECM Ch.9 — 국제 상장: ADR·GDR·해외 직상장",
+    titleEn: "ECM Ch.9 — International Listings: ADR, GDR, and Overseas Direct Listing",
+    entryType: "article",
+    category: "ecm",
+    categoryLabel: "ECM",
+    categoryLabelEn: "ECM",
+    excerpt:
+      "한국 기업이 NYSE에, 외국 기업이 KRX에 상장하는 구조 — ADR·GDR·이중상장·해외 직상장의 메커니즘. 쿠팡이 왜 국내 대신 뉴욕을 택했나, 144A/Reg S 구조, 예탁증서의 작동 방식, 해외 상장의 비용·편익 분석.",
+    excerptEn:
+      "How Korean companies list on NYSE and foreign companies list on KRX — ADR, GDR, dual listing, and overseas direct listing mechanics. Why Coupang chose New York over Seoul, 144A/Reg S structure, how depositary receipts work, and cost-benefit analysis of overseas listing.",
+    readingMinutes: 13,
+    tags: ["ADR", "GDR", "국제 상장", "쿠팡 NYSE", "이중상장", "예탁증서", "144A", "Reg S", "해외 직상장"],
+    tagsEn: ["ADR", "GDR", "International Listing", "Coupang NYSE", "Dual Listing", "Depositary Receipt", "144A", "Reg S"],
+    sections: [],
+    keyTerms: [],
+    relatedSlugs: ["ecm-overview", "ecm-ipo-process", "ecm-spac-direct"],
+    appearsIn: [],
+  },
+
+  {
+    slug: "ecm-spac-direct",
+    title: "ECM Ch.10 — SPAC과 직상장: 전통 IPO를 대체하는 경로",
+    titleEn: "ECM Ch.10 — SPAC & Direct Listing: Alternatives to the Traditional IPO",
+    entryType: "article",
+    category: "ecm",
+    categoryLabel: "ECM",
+    categoryLabelEn: "ECM",
+    excerpt:
+      "전통 IPO(18개월·7% 수수료)·SPAC 합병(3–6개월·Due Diligence 없음)·직상장(자본 조달 없음) — 세 경로의 속도·비용·리스크 비교. Nikola 사기·Grab -71%·Bird 상장폐지로 해부하는 2020–22 SPAC 거품. 에어비앤비 직상장이 왜 성공했나. 2023년 이후 IPO 시장 정상화.",
+    excerptEn:
+      "Traditional IPO (18 months, 7% fee), SPAC merger (3–6 months, no due diligence), direct listing (no capital raise) — speed, cost, and risk comparison of three paths. Nikola fraud, Grab -71%, Bird delisted: the 2020–22 SPAC bubble dissected. Why Airbnb's direct listing succeeded. Post-2023 IPO market normalization.",
+    readingMinutes: 15,
+    tags: ["SPAC", "직상장", "Direct Listing", "에어비앤비", "Nikola", "Grab", "Bird", "SPAC 거품", "전통 IPO 비교", "De-SPAC"],
+    tagsEn: ["SPAC", "Direct Listing", "Airbnb", "Nikola", "Grab", "Bird", "SPAC Bubble", "De-SPAC", "IPO Comparison"],
+    sections: [],
+    keyTerms: [],
+    relatedSlugs: ["ecm-overview", "ecm-ipo-post", "ecm-international-listing"],
     appearsIn: [],
   },
 

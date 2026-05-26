@@ -47,7 +47,7 @@ export type MarketConcept = {
    *  "term"    — 용어 사전 개별 페이지 (e.g. 신디케이트, AT1)
    */
   entryType?: "article" | "term";
-  category: "dcm" | "ecm" | "st" | "structure" | "sales" | "fig" | "sovereign" | "structured" | "lbo" | "levfin";
+  category: "dcm" | "ecm" | "st" | "structure" | "sales" | "fig" | "sovereign" | "structured" | "lbo" | "levfin" | "syndloan";
   categoryLabel: string;
   categoryLabelEn: string;
   excerpt: string;
@@ -76,7 +76,8 @@ export const CATEGORY_COLOR: Record<
   sovereign:  { bg: "bg-indigo-50 dark:bg-indigo-900/20",fg: "text-indigo-700 dark:text-indigo-300",border: "border-indigo-200 dark:border-indigo-700",dot: "bg-indigo-500",  accent: "#6366f1" },
   structured: { bg: "bg-amber-50 dark:bg-amber-900/20",  fg: "text-amber-700 dark:text-amber-300",  border: "border-amber-200 dark:border-amber-700",  dot: "bg-amber-500",   accent: "#f59e0b" },
   lbo:        { bg: "bg-indigo-50 dark:bg-indigo-900/20",fg: "text-indigo-700 dark:text-indigo-300",border: "border-indigo-200 dark:border-indigo-700",dot: "bg-indigo-500",  accent: "#6366f1" },
-  levfin:     { bg: "bg-yellow-50 dark:bg-yellow-900/20", fg: "text-yellow-700 dark:text-yellow-300", border: "border-yellow-200 dark:border-yellow-700", dot: "bg-yellow-500",  accent: "#eab308" },
+  levfin:     { bg: "bg-yellow-50 dark:bg-yellow-900/20",  fg: "text-yellow-700 dark:text-yellow-300",  border: "border-yellow-200 dark:border-yellow-700",  dot: "bg-yellow-500",   accent: "#eab308" },
+  syndloan:   { bg: "bg-cyan-50 dark:bg-cyan-900/20",     fg: "text-cyan-700 dark:text-cyan-300",      border: "border-cyan-200 dark:border-cyan-700",      dot: "bg-cyan-500",     accent: "#06b6d4" },
 };
 
 // ── 개념 데이터 (현재 비어있음 — Market 101로 이관) ─────────────────────────

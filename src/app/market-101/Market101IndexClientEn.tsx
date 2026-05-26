@@ -20,6 +20,7 @@ const CAT_META: Record<string, { icon: string; desc: string }> = {
   sovereign:  { icon: "🌐", desc: "Sovereign — government bonds, EM debt, century bonds" },
   structured: { icon: "🧩", desc: "Structured Finance — ABS, CLO, CDO, CMBS" },
   levfin:     { icon: "💰", desc: "Leveraged Finance — HY bonds, leveraged loans, LBO" },
+  syndloan:   { icon: "🏦", desc: "Syndicated Loans — MLA, agent bank, IG vs leveraged loans" },
 };
 
 const EASE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];

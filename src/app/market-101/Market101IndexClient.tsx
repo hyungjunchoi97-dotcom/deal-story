@@ -21,6 +21,7 @@ const CAT_META: Record<string, { icon: string; desc: string; descEn: string }> =
   sovereign:  { icon: "🌐", desc: "소버린 — 국채·EM 채권·세기채", descEn: "Sovereign — government bonds, EM debt, century bonds" },
   structured: { icon: "🧩", desc: "구조화금융 — ABS·CLO·CDO·CMBS", descEn: "Structured Finance — ABS, CLO, CDO, CMBS" },
   levfin:     { icon: "💰", desc: "레버리지드 파이낸스 — HY채권·레버드론·LBO", descEn: "Leveraged Finance — HY bonds, leveraged loans, LBO" },
+  syndloan:   { icon: "🤝", desc: "신디케이티드론 — MLA·에이전트은행·IG론 vs 레버리지드론", descEn: "Syndicated Loans — MLA, agent bank, IG vs leveraged loans" },
 };
 
 // ── 애니메이션 ─────────────────────────────────────────────────────────────
