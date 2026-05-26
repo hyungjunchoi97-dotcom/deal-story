@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ShareButtons from "@/components/deal/ShareButtons";
+import FaqAccordion from "@/components/FaqAccordion";
 
 import type { MarketConcept } from "@/data/market-101-concepts";
 
@@ -769,38 +770,7 @@ function CaseStudyCards({ ko }: { ko: boolean }) {
   );
 }
 
-function FaqAccordion({ ko }: { ko: boolean }) {
-  return (
-    <div className="mt-8 space-y-2">
-      {FAQS.map((faq, i) => (
-        <details
-          key={i}
-          className="group rounded-xl border border-gray-200/60 dark:border-gray-700/60 bg-white dark:bg-gray-900 overflow-hidden"
-        >
-          <summary className="flex items-center justify-between gap-3 px-5 py-4 cursor-pointer list-none select-none">
-            <span className="text-[13px] font-semibold text-gray-800 dark:text-gray-200 leading-snug">
-              {faq.q(ko)}
-            </span>
-            <svg
-              className="w-4 h-4 flex-shrink-0 text-gray-400 transition-transform duration-200 group-open:rotate-180"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-            </svg>
-          </summary>
-          <div className="px-5 pb-5 pt-1 border-t border-gray-100 dark:border-gray-800">
-            <p className="text-[13px] text-gray-600 dark:text-gray-300 leading-relaxed">
-              {faq.a(ko)}
-            </p>
-          </div>
-        </details>
-      ))}
-    </div>
-  );
-}
+
 
 // ── Main Export ───────────────────────────────────────────────────────────────
 export default function DcmOverviewClient({
@@ -1260,7 +1230,7 @@ export default function DcmOverviewClient({
             </motion.div>
 
             <motion.div variants={fadeUp(0.05)}>
-              <FaqAccordion ko={ko} />
+              <FaqAccordion items={FAQS.map(f => ({ q: f.q(ko), a: f.a(ko) }))} />
             </motion.div>
           </motion.section>
 

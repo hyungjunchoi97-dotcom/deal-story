@@ -1,10 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   AreaChart, Area,
-  BarChart, Bar,
+  BarChart, Bar, Cell,
   LineChart, Line,
   ComposedChart,
   XAxis, YAxis, Tooltip, CartesianGrid,
@@ -528,7 +529,7 @@ function ArchegosBody({ ko, story, accent, accentLight, accentDark }: {
                 />
                 <Bar dataKey="loss" radius={[6, 6, 0, 0]}>
                   {pbLossData.map((entry, i) => (
-                    <rect key={i} fill={entry.color} />
+                    <Cell key={i} fill={entry.color} />
                   ))}
                 </Bar>
               </BarChart>
@@ -783,6 +784,87 @@ function BuffettBody({ ko, story, accent, accentLight, accentDark }: {
   );
 }
 
+// ── FAQ Accordion ─────────────────────────────────────────────────────────────
+
+function FaqAccordion({
+  faq,
+  ko,
+  accent,
+  accentLight,
+}: {
+  faq: { q: string; a: string; qEn: string; aEn: string }[];
+  ko: boolean;
+  accent: string;
+  accentLight: string;
+}) {
+  const [openIdx, setOpenIdx] = useState<number | null>(null);
+
+  return (
+    <motion.section variants={fadeUp()} initial="hidden" whileInView="show" viewport={VP} className="mt-14">
+      <h2 className="text-[11px] font-bold uppercase tracking-widest mb-4" style={{ color: accent }}>FAQ</h2>
+      <div className="space-y-2">
+        {faq.map((item, i) => {
+          const isOpen = openIdx === i;
+          return (
+            <div
+              key={i}
+              className="rounded-xl border overflow-hidden transition-colors"
+              style={{
+                borderColor: isOpen ? accent + "60" : "#e5e7eb",
+                background: isOpen ? accentLight : "white",
+              }}
+            >
+              {/* Question row — clickable */}
+              <button
+                onClick={() => setOpenIdx(isOpen ? null : i)}
+                className="w-full flex items-center justify-between gap-3 px-5 py-4 text-left"
+              >
+                <span className="text-[13px] font-bold text-gray-900 leading-snug">
+                  <span className="mr-2" style={{ color: accent }}>Q.</span>
+                  {ko ? item.q : item.qEn}
+                </span>
+                {/* Chevron */}
+                <motion.span
+                  animate={{ rotate: isOpen ? 180 : 0 }}
+                  transition={{ duration: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center"
+                  style={{ background: isOpen ? accent : "#f3f4f6" }}
+                >
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                    <path d="M2 3.5L5 6.5L8 3.5" stroke={isOpen ? "white" : "#9ca3af"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </motion.span>
+              </button>
+
+              {/* Answer — animated expand */}
+              <AnimatePresence initial={false}>
+                {isOpen && (
+                  <motion.div
+                    key="answer"
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+                    className="overflow-hidden"
+                  >
+                    <div className="px-5 pb-5 pt-0">
+                      <div className="border-t pt-4" style={{ borderColor: accent + "30" }}>
+                        <p className="text-[13px] text-gray-600 leading-relaxed">
+                          {ko ? item.a : item.aEn}
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          );
+        })}
+      </div>
+    </motion.section>
+  );
+}
+
 // ── Generic body (fallback for future stories) ─────────────────────────────────
 
 function GenericBody({ story, ko, accent }: { story: InvestorStory; ko: boolean; accent: string }) {
@@ -1025,23 +1107,9 @@ export default function StoriesClient({ story, lang }: { story: InvestorStory; l
               </motion.section>
             )}
 
-            {/* ── FAQ ── */}
+            {/* ── FAQ accordion ── */}
             {story.faq && story.faq.length > 0 && (
-              <motion.section variants={fadeUp()} initial="hidden" whileInView="show" viewport={VP} className="mt-14">
-                <h2 className="text-[11px] font-bold uppercase tracking-widest mb-4" style={{ color: accent }}>FAQ</h2>
-                <div className="space-y-4">
-                  {story.faq.map((item, i) => (
-                    <div key={i} className="rounded-xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-gray-900 p-5">
-                      <p className="text-[13px] font-bold text-gray-900 dark:text-gray-100 mb-2">
-                        Q. {ko ? item.q : item.qEn}
-                      </p>
-                      <p className="text-[13px] text-gray-600 dark:text-gray-400 leading-relaxed">
-                        {ko ? item.a : item.aEn}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </motion.section>
+              <FaqAccordion faq={story.faq} ko={ko} accent={accent} accentLight={accentLight} />
             )}
 
             {/* ── References ── */}

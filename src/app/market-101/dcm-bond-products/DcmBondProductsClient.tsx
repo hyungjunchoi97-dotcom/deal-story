@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ShareButtons from "@/components/deal/ShareButtons";
+import FaqAccordion from "@/components/FaqAccordion";
 
 import type { MarketConcept } from "@/data/market-101-concepts";
 
@@ -754,8 +755,7 @@ export default function DcmBondProductsClient({ concept, lang }: Props) {
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
             {ko ? "자주 묻는 질문" : "Frequently Asked Questions"}
           </h2>
-          <div className="space-y-3">
-            {[
+          <FaqAccordion items={[
               {
                 q: (ko: boolean) => ko
                   ? "커버드본드는 왜 Senior Unsecured보다 스프레드가 낮나요?"
@@ -796,21 +796,7 @@ export default function DcmBondProductsClient({ concept, lang }: Props) {
                   ? "실질 이점이 있습니다. ① 그린피엄(Greenium): 일반 채권 대비 스프레드 2–5bp 절감으로 이자비용 직접 감소. ② 투자자 다변화: ESG 위임 펀드가 추가되어 오더북 두께가 증가합니다. ③ 기관 투자자·연기금과의 관계 강화. 단, 프레임워크 수립·SPO(Second Party Opinion)·연간 리포팅 비용 1–2bp도 발생합니다. 발행 규모가 클수록 그린피엄이 비용을 상회해 순이익입니다."
                   : "Real benefits exist. ① Greenium: 2-5bp spread savings directly reduce interest costs. ② Investor diversification: ESG-mandated funds added to the order book increase demand depth. ③ Relationship building with institutional investors and pensions. However, framework setup, SPO (Second Party Opinion), and annual reporting costs ~1-2bp. At scale, the greenium more than covers these costs.",
               },
-            ].map((item, i) => (
-              <details
-                key={i}
-                className="group rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 overflow-hidden"
-              >
-                <summary className="flex items-center justify-between px-5 py-4 cursor-pointer list-none font-semibold text-gray-800 dark:text-gray-100 text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                  {item.q(ko)}
-                  <span className="ml-3 shrink-0 text-gray-400 group-open:rotate-180 transition-transform">▾</span>
-                </summary>
-                <div className="px-5 pb-5 pt-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-gray-800">
-                  {item.a(ko)}
-                </div>
-              </details>
-            ))}
-          </div>
+            ].map(f => ({ q: f.q(ko), a: f.a(ko) }))} />
         </motion.section>
 
         {/* ── Related Articles ── */}

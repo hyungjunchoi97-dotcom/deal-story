@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ShareButtons from "@/components/deal/ShareButtons";
+import FaqAccordion from "@/components/FaqAccordion";
 
 import type { MarketConcept } from "@/data/market-101-concepts";
 
@@ -866,8 +867,7 @@ export default function DcmInternationalMarketsClient({ concept, lang }: Props) 
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
             {ko ? "자주 묻는 질문" : "Frequently Asked Questions"}
           </h2>
-          <div className="space-y-3">
-            {[
+          <FaqAccordion items={[
               {
                 q: (ko: boolean) => ko
                   ? "유로본드와 Eurobond는 다른 건가요? 유로화 채권을 의미하나요?"
@@ -908,21 +908,7 @@ export default function DcmInternationalMarketsClient({ concept, lang }: Props) 
                   ? "뱅커와 발행사가 함께 '올인클루시브 비용(all-in cost)'을 비교합니다. ① 각 시장의 스프레드 레벨(T+Xbp) ② CCS/이자율스왑 비용 ③ 규제·법무 비용 ④ 실행 시간 ⑤ 투자자 다변화 가치 — 이 다섯 가지를 동시에 고려합니다. 결과적으로 순 자금 조달 비용이 가장 낮고, 전략적 투자자 기반을 넓힐 수 있는 시장을 선택합니다. 발행 빈도가 높은 기업은 여러 시장을 동시에 활용해 투자자를 분산합니다."
                   : "Bankers and issuers jointly compare 'all-in cost': ① spread level in each market (T+Xbp) ② CCS/interest rate swap cost ③ regulatory/legal cost ④ execution timeline ⑤ value of investor diversification. They select the market offering the lowest net funding cost while broadening the strategic investor base. Frequent issuers tap multiple markets simultaneously to avoid concentration.",
               },
-            ].map((item, i) => (
-              <details
-                key={i}
-                className="group rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 overflow-hidden"
-              >
-                <summary className="flex items-center justify-between px-5 py-4 cursor-pointer list-none font-semibold text-gray-800 dark:text-gray-100 text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                  {item.q(ko)}
-                  <span className="ml-3 shrink-0 text-gray-400 group-open:rotate-180 transition-transform">▾</span>
-                </summary>
-                <div className="px-5 pb-5 pt-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-gray-800">
-                  {item.a(ko)}
-                </div>
-              </details>
-            ))}
-          </div>
+            ].map(f => ({ q: f.q(ko), a: f.a(ko) }))} />
         </motion.section>
 
         {/* ── Related Articles ── */}

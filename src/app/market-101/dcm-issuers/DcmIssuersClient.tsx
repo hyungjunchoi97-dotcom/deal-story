@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ShareButtons from "@/components/deal/ShareButtons";
+import FaqAccordion from "@/components/FaqAccordion";
 
 import type { MarketConcept } from "@/data/market-101-concepts";
 
@@ -749,24 +750,7 @@ export default function DcmIssuersClient({ concept, lang }: Props) {
           </h2>
 
           <div className="space-y-3">
-            {FAQS.map((faq, i) => (
-              <details
-                key={i}
-                className="group rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 overflow-hidden"
-              >
-                <summary className="flex items-start justify-between gap-3 px-5 py-4 cursor-pointer list-none select-none hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-                  <span className="font-semibold text-gray-800 dark:text-gray-100 text-sm leading-relaxed">
-                    {faq.q(ko)}
-                  </span>
-                  <span className="flex-shrink-0 text-gray-400 group-open:rotate-180 transition-transform duration-200 mt-0.5">
-                    ▼
-                  </span>
-                </summary>
-                <div className="px-5 pb-5 pt-1 text-sm text-gray-600 dark:text-gray-400 leading-relaxed border-t border-gray-100 dark:border-gray-800">
-                  {faq.a(ko)}
-                </div>
-              </details>
-            ))}
+            <FaqAccordion items={FAQS.map(f => ({ q: f.q(ko), a: f.a(ko) }))} />
           </div>
         </motion.section>
 

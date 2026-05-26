@@ -260,30 +260,36 @@ export default function DealPageClient({
           {/* ── 4. 딜 요약 카드 */}
           <div className="mt-8 rounded-xl border border-gray-200 dark:border-gray-700/60 bg-gray-50 dark:bg-gray-800/40 p-5">
             <p className="text-[11px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-4">{t.dealSummary}</p>
-            <dl className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-3">
-              <div className="col-span-2 sm:col-span-1 flex flex-col gap-0.5">
+            <dl className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-4">
+              {/* 딜 금액 — 항상 전체 너비 */}
+              <div className="col-span-2 lg:col-span-1 flex flex-col gap-0.5">
                 <dt className="text-[11px] font-medium text-gray-400 dark:text-gray-500 uppercase tracking-wide">{t.dealValue}</dt>
-                <dd className="text-base font-bold text-amber-500">{deal.dealSummary.dealValueDisplay}</dd>
+                <dd className="text-base font-bold text-amber-500 break-words">{deal.dealSummary.dealValueDisplay}</dd>
               </div>
-              <div className="flex flex-col gap-0.5">
+              {/* 인수자 */}
+              <div className="flex flex-col gap-0.5 min-w-0">
                 <dt className="text-[11px] font-medium text-gray-400 dark:text-gray-500 uppercase tracking-wide">{t.acquirer}</dt>
-                <dd className="text-sm font-semibold text-gray-800 dark:text-gray-200">{deal.dealSummary.acquirerName}</dd>
+                <dd className="text-xs sm:text-sm font-semibold text-gray-800 dark:text-gray-200 break-words leading-snug">{deal.dealSummary.acquirerName}</dd>
               </div>
-              <div className="flex flex-col gap-0.5">
+              {/* 피인수자 */}
+              <div className="flex flex-col gap-0.5 min-w-0">
                 <dt className="text-[11px] font-medium text-gray-400 dark:text-gray-500 uppercase tracking-wide">{t.target}</dt>
-                <dd className="text-sm font-semibold text-gray-800 dark:text-gray-200">{deal.dealSummary.targetName}</dd>
+                <dd className="text-xs sm:text-sm font-semibold text-gray-800 dark:text-gray-200 break-words leading-snug">{deal.dealSummary.targetName}</dd>
               </div>
-              <div className="flex flex-col gap-0.5">
+              {/* 발표일 */}
+              <div className="flex flex-col gap-0.5 min-w-0">
                 <dt className="text-[11px] font-medium text-gray-400 dark:text-gray-500 uppercase tracking-wide">{t.announced}</dt>
-                <dd className="text-sm font-semibold text-gray-800 dark:text-gray-200">{deal.dealSummary.announcedDisplay}</dd>
+                <dd className="text-xs sm:text-sm font-semibold text-gray-800 dark:text-gray-200 break-words">{deal.dealSummary.announcedDisplay}</dd>
               </div>
-              <div className="flex flex-col gap-0.5">
+              {/* 클로징 */}
+              <div className="flex flex-col gap-0.5 min-w-0">
                 <dt className="text-[11px] font-medium text-gray-400 dark:text-gray-500 uppercase tracking-wide">{t.closed}</dt>
-                <dd className="text-sm font-semibold text-gray-800 dark:text-gray-200">{deal.dealSummary.closedDisplay}</dd>
+                <dd className="text-xs sm:text-sm font-semibold text-gray-800 dark:text-gray-200 break-words">{deal.dealSummary.closedDisplay}</dd>
               </div>
-              <div className="flex flex-col gap-0.5">
+              {/* 국가 */}
+              <div className="flex flex-col gap-0.5 min-w-0">
                 <dt className="text-[11px] font-medium text-gray-400 dark:text-gray-500 uppercase tracking-wide">{t.country}</dt>
-                <dd className="text-sm font-semibold text-gray-800 dark:text-gray-200">{deal.dealSummary.country}</dd>
+                <dd className="text-xs sm:text-sm font-semibold text-gray-800 dark:text-gray-200 break-words">{deal.dealSummary.country}</dd>
               </div>
             </dl>
           </div>

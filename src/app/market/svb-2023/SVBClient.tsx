@@ -17,6 +17,8 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ShareButtons from "@/components/deal/ShareButtons";
+import FaqAccordion from "@/components/FaqAccordion";
+import FaqAccordion from "@/components/FaqAccordion";
 
 import type { MarketDeal } from "@/data/market-deals";
 
@@ -1113,38 +1115,7 @@ export default function SVBClient({
                 {ko ? "자주 묻는 질문" : "Frequently Asked Questions"}
               </motion.h2>
               <div className="w-8 h-0.5 mt-3 mb-6" style={{ background: accent }} />
-              <div className="space-y-3">
-                {deal.faq.map((item, i) => (
-                  <motion.details
-                    key={i}
-                    variants={fadeUp()}
-                    className="group rounded-xl border border-gray-200/60 dark:border-gray-700/60 bg-white dark:bg-gray-900/60 overflow-hidden"
-                  >
-                    <summary className="flex items-center justify-between gap-3 px-5 py-4 cursor-pointer list-none select-none">
-                      <span className="text-[14px] font-semibold text-gray-800 dark:text-gray-200 leading-snug">
-                        {ko ? item.q : item.qEn}
-                      </span>
-                      <svg
-                        className="w-4 h-4 text-gray-400 flex-shrink-0 transition-transform group-open:rotate-180"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        aria-hidden
-                      >
-                        <polyline points="6 9 12 15 18 9" />
-                      </svg>
-                    </summary>
-                    <div className="px-5 pb-5 pt-0">
-                      <p className="text-[13px] text-gray-600 dark:text-gray-400 leading-relaxed border-t border-gray-100 dark:border-gray-800 pt-4">
-                        {ko ? item.a : item.aEn}
-                      </p>
-                    </div>
-                  </motion.details>
-                ))}
-              </div>
+              <FaqAccordion items={deal.faq.map(f => ({ q: ko ? f.q : f.qEn, a: ko ? f.a : f.aEn }))} accent={accent} />
             </motion.section>
           )}
 

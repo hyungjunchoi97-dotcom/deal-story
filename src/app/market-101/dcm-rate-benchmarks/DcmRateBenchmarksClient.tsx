@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ShareButtons from "@/components/deal/ShareButtons";
+import FaqAccordion from "@/components/FaqAccordion";
 import type { MarketConcept } from "@/data/market-101-concepts";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
@@ -1629,40 +1630,7 @@ export default function DcmRateBenchmarksClient({ concept, lang }: Props) {
             {ko ? "자주 묻는 질문" : "Frequently Asked Questions"}
           </h2>
 
-          <div className="space-y-3">
-            {FAQ.map((item, i) => (
-              <details
-                key={i}
-                className="group rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden"
-              >
-                <summary className="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer select-none bg-white dark:bg-gray-900 hover:bg-gray-50 dark:hover:bg-gray-800/60 transition-colors list-none">
-                  <span className="font-semibold text-sm text-gray-900 dark:text-white leading-snug">
-                    {item.q(ko)}
-                  </span>
-                  <span
-                    className="shrink-0 w-6 h-6 rounded-full flex items-center justify-center transition-transform group-open:rotate-180"
-                    style={{ background: accentLight, color: accent }}
-                  >
-                    <svg
-                      width="10"
-                      height="10"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <polyline points="6 9 12 15 18 9" />
-                    </svg>
-                  </span>
-                </summary>
-                <div className="px-5 pb-5 pt-1 bg-gray-50 dark:bg-gray-800/40 text-[14px] text-gray-700 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-gray-700">
-                  {item.a(ko)}
-                </div>
-              </details>
-            ))}
-          </div>
+          <FaqAccordion items={FAQ.map(f => ({ q: f.q(ko), a: f.a(ko) }))} accent={accent} />
         </motion.section>
 
         {/* ── Share BOTTOM ──────────────────────────────────────────────────── */}

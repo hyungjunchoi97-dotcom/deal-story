@@ -221,15 +221,16 @@ function BattleTimeline({
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.4 }}
                 variants={variants}
-                className="relative grid grid-cols-[1fr_56px_1fr]"
+                className="grid grid-cols-[1fr_56px_1fr]"
               >
+                {/* 행 1: 빈칸 | 중심점 | 빈칸 */}
                 <div />
-                {/* 중심 점 */}
-                <div className="flex flex-col items-center z-10">
+                <div className="flex justify-center z-10 pt-1">
                   <div className={`w-3 h-3 rounded-full ring-2 ring-white dark:ring-zinc-900 ${SIDE.neutral.dot}`} />
                 </div>
-                {/* 중앙 카드 — 두 컬럼 걸침 */}
-                <div className="absolute inset-x-10 top-0">
+                <div />
+                {/* 행 2: 3컬럼 전체 걸치는 카드 */}
+                <div className="col-span-3 px-10 mt-2">
                   <MoveCard move={move} side="neutral" />
                 </div>
               </motion.div>
