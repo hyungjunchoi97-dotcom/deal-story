@@ -21,6 +21,7 @@ export const MARKET_101_CATEGORIES = [
   { key: "sovereign"  as const, label: "소버린",     labelEn: "Sovereign",              dotColor: "bg-indigo-500" },
   { key: "structured" as const, label: "구조화",     labelEn: "Structured",             dotColor: "bg-amber-500"  },
   { key: "lbo"        as const, label: "LBO",        labelEn: "LBO",                    dotColor: "bg-indigo-500" },
+  { key: "levfin"     as const, label: "LevFin",    labelEn: "LevFin",                 dotColor: "bg-yellow-500" },
 ];
 
 // ── 개념 데이터 ──────────────────────────────────────────────────────────────
