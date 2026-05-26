@@ -427,7 +427,7 @@ export default function LevFinEcosystemClient({ concept, lang }: Props) {
                     <p className="font-black text-base text-gray-900 dark:text-gray-50 mb-3">{p.name(ko)}</p>
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-2 text-xs mb-3">
                       {[
-                        { k: ko ? "신용등급" : "Rating", v: p.rating },
+                        { k: ko ? "신용등급" : "Rating", v: typeof p.rating === "function" ? p.rating(ko) : p.rating },
                         { k: ko ? "금리 구조" : "Rate", v: p.rate(ko) },
                         { k: ko ? "만기" : "Tenor", v: p.tenor(ko) },
                         { k: ko ? "담보" : "Security", v: p.security(ko) },
@@ -732,7 +732,7 @@ export default function LevFinEcosystemClient({ concept, lang }: Props) {
                   {TOYS_VS_HILTON.map((row, i) => (
                     <tr key={i} className="border-t border-gray-100 dark:border-gray-800">
                       <td className="px-4 py-3 font-semibold text-gray-600 dark:text-gray-400 text-xs">{row.item(ko)}</td>
-                      <td className="px-4 py-3 text-xs text-gray-700 dark:text-gray-300">{typeof row.hilton === "string" ? row.hilton : row.hilton}</td>
+                      <td className="px-4 py-3 text-xs text-gray-700 dark:text-gray-300">{typeof row.hilton === "function" ? row.hilton(ko) : row.hilton}</td>
                       <td className="px-4 py-3 text-xs text-gray-700 dark:text-gray-300">{typeof row.toys === "function" ? row.toys(ko) : row.toys}</td>
                     </tr>
                   ))}
