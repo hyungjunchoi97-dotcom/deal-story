@@ -191,19 +191,251 @@ export const ALL_MARKET_DEALS: MarketDeal[] = [
     readingMinutes: 13,
     tags: ["Sovereign", "100년물", "EM", "디폴트", "듀레이션"],
     tagsEn: ["Sovereign", "Century Bond", "EM", "Default", "Duration"],
-    published: false,
+    published: true,
     snapshot: [
       { labelKo: "발행사", labelEn: "Issuer", value: "Republic of Argentina" },
-      { labelKo: "발행연도", labelEn: "Year", value: "2017" },
+      { labelKo: "발행연도", labelEn: "Year", value: "June 2017" },
       { labelKo: "발행규모", labelEn: "Size", value: "$2.75B" },
       { labelKo: "만기", labelEn: "Maturity", value: "100년 (2117)" },
       { labelKo: "쿠폰", labelEn: "Coupon", value: "7.125%" },
+      { labelKo: "오더북", labelEn: "Orderbook", value: "$9.75B (3.5x)" },
       { labelKo: "디폴트", labelEn: "Default", value: "2020 (9번째)" },
     ],
-    sections: [],
-    keyTerms: [],
-    relatedMarket101Slugs: ["dcm-ecosystem"],
-    references: [],
+    sections: [
+      {
+        heading: "2017년 아르헨티나 — 개혁의 환상",
+        headingEn: "Argentina 2017 — The Reform Illusion",
+        body:
+`2017년 6월, 아르헨티나는 금융시장 역사에 길이 남을 채권을 발행했다. 100년 만기, $27억 5천만, 쿠폰 7.125%. 오더북은 $97억 5천만으로 발행액의 3.5배를 기록했다.
+
+같은 해 6월, 아르헨티나는 'B' 등급 — 투기등급의 하단이었다. 1800년대부터 시작된 채무 불이행 역사에서 이 나라는 이미 여덟 차례 국가부도를 겪었다. 그중 2001년 디폴트는 당시 역사상 최대 규모였고, 2014년에도 기술적 디폴트가 발생했다.
+
+그러나 2015년 집권한 마크리(Mauricio Macri) 대통령의 개혁 정책은 시장에 강한 기대감을 심었다. IMF와의 관계 복원, 홀드아웃 채권자(엘리엇 매니지먼트)와의 합의, 외환 통제 완화. 투자자들은 '이번에는 다르다'는 서사를 믿었다.
+
+그리고 세계적 저금리 환경이 이 믿음에 연료를 공급했다. 2017년 독일 10년물 국채 수익률은 0.3~0.5%였다. 일본은 0% 근방. 미국도 2% 초반. 이 환경에서 아르헨티나의 7.125%는 극도로 매력적이었다.`,
+        bodyEn:
+`In June 2017, Argentina issued a bond that would go down in financial history. 100-year maturity, $2.75 billion face value, 7.125% coupon. The orderbook reached $9.75 billion — 3.5 times the issue size.
+
+At the time, Argentina was rated 'B' — deep in speculative territory. Since the 1800s, this country had defaulted eight times on its sovereign debt. The 2001 default was the largest in history at the time; a technical default followed in 2014.
+
+Yet President Mauricio Macri, who took office in 2015, had generated powerful market expectations with reform rhetoric. Restored relations with the IMF, settlement with holdout creditors (Elliott Management), removal of currency controls. Investors bought the narrative: "this time is different."
+
+And the global zero-rate environment poured fuel on that belief. German 10-year bonds yielded 0.3–0.5% in 2017. Japan was near zero. The US barely above 2%. Against that backdrop, Argentina's 7.125% looked extraordinarily attractive.`,
+      },
+      {
+        heading: "Reach for Yield — 왜 투자자들은 샀나",
+        headingEn: "Reach for Yield — Why Investors Bought",
+        body:
+`3.5배 초과청약은 투자자들이 냉철하게 계산했다는 증거가 아니다. 그것은 Reach for Yield — 수익률을 위해 리스크 감수 기준을 낮추는 군집 행동의 산물이었다.
+
+이 거래에 참여한 투자자 유형을 나눠보자. 첫째, 글로벌 자산운용사 중 EM 채권 펀드. 이들은 벤치마크 내 아르헨티나 비중을 맞추기 위해 구조적으로 매수 유인이 있었다. 둘째, 헤지펀드와 재정거래 투자자. '개혁 정권이 성공할 경우' 스프레드 압축에 따른 자본 차익을 노렸다. 셋째, 고수익 추구 소매 투자자들이 일부 참여했다.
+
+정말 중요한 질문은 이것이다: 100년 뒤인 2117년에 아르헨티나가 존재하고, 채무를 이행하고, 이 채권 보유자들이 원금을 돌려받을 확률을 누가 얼마로 봤는가?
+
+금융 이론상 이 채권의 적정 수익률을 추정하려면 100년간 매년 디폴트가 일어나지 않을 확률을 모두 곱해야 한다. 아르헨티나의 역사적 디폴트 빈도를 감안하면, 100년간 단 한 번도 디폴트가 없을 확률은 수학적으로 매우 낮다. 7.125%는 이 리스크를 전혀 충분히 보상하지 못했다.`,
+        bodyEn:
+`A 3.5x oversubscription is not evidence that investors calculated coldly. It was a product of Reach for Yield — the herding behavior of investors lowering their risk standards in pursuit of returns.
+
+Consider the buyer types. First: EM bond funds at global asset managers, who had structural buying incentives to maintain benchmark Argentina weight. Second: hedge funds and macro investors chasing potential spread compression if Macri's reforms succeeded. Third: some high-yield-seeking retail participation.
+
+The truly important question is this: what probability did any investor assign to Argentina existing in 2117, honoring its obligations, and actually paying principal back to this bond's holders?
+
+Theoretically, to estimate a fair yield on a 100-year bond, you must compound the probability of no-default in each of 100 years. Given Argentina's historical default frequency — eight times in roughly 200 years — the mathematical probability of zero defaults over 100 years is extremely low. A 7.125% coupon does not come close to compensating for this risk. The deal was priced by momentum, not by risk calculus.`,
+      },
+      {
+        heading: "3년 뒤 — 9번째 디폴트",
+        headingEn: "Three Years Later — The Ninth Default",
+        body:
+`발행으로부터 3년도 지나지 않은 2020년 5월, 아르헨티나는 다시 디폴트를 선언했다. 사상 아홉 번째였다. 채권 가격은 100에서 30 이하로 붕괴했다. 70달러의 손실. 게다가 2020년은 COVID-19 팬데믹이 겹쳐 글로벌 EM 시장 전반이 타격을 받던 때였다.
+
+직접적 원인은 마크리 개혁의 실패와 좌파 페론주의의 재집권(2019년 알베르토 페르난데스 대통령 당선)이었다. 달러 통제 재도입, IMF와의 갈등 재연. 시장이 '이번에는 다르다'고 믿었던 바로 그 요인들이 무력화됐다.
+
+2020년 디폴트 이후 채무 재조정 협상이 진행됐다. 채권자들은 새 채권을 받았는데, 원금 대비 50~55센트 수준의 회복률이었다. 7.125% 쿠폰으로 단 3년을 받고 원금의 절반을 잃은 것이다.
+
+이 사례는 Reach for Yield의 두 가지 이면을 완결하는 사례가 됐다: ① 고수익 채권에서 얻은 수익은 언제든 신용 손실로 돌아올 수 있다 ② 역사가 반복되는 이유는 '이번에는 다르다'는 서사가 매번 시장 참여자에게 먹히기 때문이다.`,
+        bodyEn:
+`Less than three years after issuance, in May 2020, Argentina declared its ninth sovereign default. The bond price collapsed from 100 to below 30 — a $70 loss on face value. This occurred with COVID-19 as backdrop, compounding EM-wide selling pressure.
+
+The proximate causes were Macri's reform failure and the return of Peronist government (Alberto Fernández won in 2019). Dollar controls were reimposed; IMF relations deteriorated. Every factor markets had labeled "different this time" had unraveled.
+
+Following the 2020 default, restructuring negotiations concluded. Creditors received new bonds — at approximately 50–55 cents on the dollar recovery. Investors had collected three years of 7.125% coupons and lost roughly half their principal.
+
+The case became the definitive illustration of Reach for Yield's two-sided risk: ① high-yield income can be erased at any time by credit losses ② the reason history repeats is that "this time is different" narratives work on market participants every single time.`,
+      },
+      {
+        heading: "듀레이션 리스크 — 100년물의 수학",
+        headingEn: "Duration Risk — The Mathematics of a 100-Year Bond",
+        body:
+`아르헨티나 100년물은 신용 리스크뿐 아니라 듀레이션 리스크의 교과서이기도 하다. 100년물의 수정 듀레이션은 약 20~25년이다. 이는 금리가 1%p 오르면 채권 가격이 약 20~25% 하락한다는 의미다.
+
+발행 시 수익률이 7.125%였는데, 2018년 아르헨티나 금융위기로 페소 폭락과 함께 USD 채권 금리도 급등했다. 수익률이 10%대로 올라갔을 때 가격은 70달러 이하로 내려갔다. 이는 디폴트가 발생하기 전, 순수히 수익률 변화에 의한 가격 하락이었다.
+
+100년물이 발행되는 이유는 발행사 입장에서 초장기 고정 자금을 조달할 수 있기 때문이다. 금리가 낮을 때 발행해 100년 동안 그 낮은 금리를 고정시키는 것이 목표다. 투자자 입장에서는 초장기 채권은 금리 하락 시 엄청난 자본 차익을 제공한다 — 그러나 그 반대도 성립한다.
+
+아르헨티나 100년물 투자자들은 신용 리스크(디폴트)와 금리 리스크(듀레이션)를 동시에 감내했다. 두 가지 모두 최악의 방향으로 작동했다.`,
+        bodyEn:
+`Argentina's century bond is a case study not only in credit risk but in duration risk mathematics. A 100-year bond's modified duration is approximately 20–25 years — meaning a 1 percentage point increase in yield causes roughly a 20–25% price decline.
+
+Issued at 7.125%, the bond was already under severe stress from Argentina's 2018 financial crisis (peso collapse) before the 2020 default. When yields surged into the teens, prices fell below $70 purely on yield movement — before any default event.
+
+Why do century bonds get issued? From the issuer's perspective: locking in ultra-long fixed funding when rates are low — fixing 100 years of borrowing cost in a single transaction. From the investor's perspective: ultra-long bonds offer enormous capital appreciation in rate rallies — but symmetrically, enormous losses in selloffs.
+
+Argentina century bond investors were simultaneously exposed to credit risk (default) and rate risk (duration). Both worked against them simultaneously.`,
+      },
+      {
+        heading: "시장의 교훈 — Reach for Yield의 대가",
+        headingEn: "Market Lessons — The Price of Reach for Yield",
+        body:
+`아르헨티나 100년물이 남긴 질문들은 지금도 채권시장에 울린다.
+
+첫째, 신용 분석 vs. 시장 모멘텀. 2017년 3.5배 초과청약은 투자자 다수가 아르헨티나의 100년 신용 리스크를 냉철히 분석한 결과가 아니라, 시장 모멘텀과 Reach for Yield에 쓸려간 결과였다. 벤치마크 추종 운용사, 수익률 갈증이 심한 연기금, 단기 스프레드 압축을 노린 헤지펀드 — 모두 서로 다른 이유로 같은 방향으로 움직였다.
+
+둘째, "이번에는 다르다"의 영원한 유혹. 마크리 개혁, 홀드아웃 해소, IMF 복귀 — 아르헨티나는 매 정권마다 서사를 만들고 시장은 그 서사를 믿었다. 이 패턴 자체가 아르헨티나의 반복되는 디폴트 역사의 일부다.
+
+셋째, 100년의 함의. 100년물은 국가의 생사를 기준으로 베팅하는 계약이다. 발행체가 100년 뒤에도 국가로서 존재할지, 화폐가 안정적일지, 정치 체제가 채무를 이행할지 — 이 모든 것은 전통적 신용 분석의 범위를 넘어선다. 아르헨티나 100년물은 그 한계를 가장 극단적으로 보여준 사례다.`,
+        bodyEn:
+`The questions Argentina's century bond raised still echo through bond markets today.
+
+First: credit analysis vs. market momentum. The 3.5x oversubscription in 2017 was not the product of rigorous 100-year credit analysis. It was momentum and Reach for Yield. Benchmark-tracking managers, yield-starved pension funds, spread-compression-seeking hedge funds — each moved in the same direction for different reasons, creating a wave that overwhelmed individual risk judgment.
+
+Second: the eternal temptation of "this time is different." Macri reforms, holdout resolution, IMF return — Argentina generates a compelling reform narrative with each new government, and markets accept it each time. This pattern itself is part of Argentina's default cycle.
+
+Third: the implications of 100 years. A century bond is fundamentally a bet on the existence and solvency of a nation-state across 100 years. Whether the issuer survives as a nation, whether its currency is stable, whether its political system honors debts — all of this is beyond the scope of traditional credit analysis. Argentina's century bond demonstrated this limit in the most extreme possible fashion.`,
+      },
+    ],
+    keyTerms: [
+      {
+        term: "Reach for Yield (수익률 추구)",
+        termEn: "Reach for Yield",
+        definition: "저금리 환경에서 투자자들이 더 높은 수익을 얻기 위해 자신의 리스크 감내 기준을 초과하는 위험 자산을 매입하는 행동. 아르헨티나 100년물 오더북이 3.5배 초과청약된 것은 이 행동이 집단적으로 작동한 전형적 사례다.",
+        definitionEn: "Investor behavior in low-rate environments where buyers accept risk beyond their normal mandates to generate higher returns. The 3.5x oversubscription of Argentina's century bond is the archetypal example of this behavior operating collectively.",
+      },
+      {
+        term: "수정 듀레이션 (Modified Duration)",
+        termEn: "Modified Duration",
+        definition: "금리가 1%p 변화할 때 채권 가격이 변화하는 비율(%). 수정 듀레이션이 20이면 금리 1%p 상승 시 채권 가격은 약 20% 하락한다. 100년물은 수정 듀레이션이 20~25 수준으로 일반 10년물의 2~3배에 달한다.",
+        definitionEn: "The percentage change in bond price for a 1 percentage point change in yield. A modified duration of 20 means a 1% yield rise causes approximately 20% price decline. Century bonds have modified durations of 20–25, roughly 2–3x that of a typical 10-year bond.",
+      },
+      {
+        term: "홀드아웃 채권자 (Holdout Creditor)",
+        termEn: "Holdout Creditor",
+        definition: "채무 재조정 협상에서 조건에 합의하지 않고 버티면서 전액 상환을 요구하는 채권자. 2001년 아르헨티나 디폴트 이후 엘리엇 매니지먼트가 최대 홀드아웃으로 유명해졌다. 마크리 정부가 2016년 이들과 합의한 것이 2017년 100년물 발행을 가능케 한 선결 조건이었다.",
+        definitionEn: "A creditor who refuses to accept restructuring terms and holds out for full repayment. Elliott Management became the most famous holdout from Argentina's 2001 default. The Macri government's 2016 settlement with holdouts was the precondition that enabled the 2017 century bond issuance.",
+      },
+      {
+        term: "Serial Defaulter (상습 디폴트 국가)",
+        termEn: "Serial Defaulter",
+        definition: "역사적으로 반복적으로 국가부도를 선언한 국가. 아르헨티나는 1800년대부터 독립 이후 9차례 디폴트를 기록한 대표적 사례다. 학계에서는 이를 'original sin(원죄)'의 일종으로, 제도적·정치적 구조가 채무 이행 인센티브를 반복적으로 약화시키는 패턴으로 분석한다.",
+        definitionEn: "A country with a history of repeated sovereign defaults. Argentina, with nine defaults since independence beginning in the 1800s, is the canonical case. Academics analyze this as a form of 'original sin' — institutional and political structures that repeatedly undermine debt-service incentives.",
+      },
+    ],
+    relatedMarket101Slugs: ["dcm-ecosystem", "reach-for-yield", "duration-risk"],
+    relatedDealSlugs: ["argentina-vs-elliott", "greece-debt-restructuring"],
+    executiveSummary: {
+      ko: [
+        "2017년 6월, 9차례 디폴트 전력의 아르헨티나가 7.125% 100년물 $2.75B 발행 — 오더북 3.5배 초과청약",
+        "글로벌 저금리(독일 0.4%, 일본 0%)가 만든 Reach for Yield — 투자자들이 리스크 분석보다 수익률에 쏠림",
+        "마크리 개혁 서사('이번에는 다르다') + 홀드아웃 채권자 해소가 시장 낙관론에 연료 공급",
+        "2020년 5월 9번째 디폴트, 채권 가격 30달러 이하 붕괴 — 3년 쿠폰 합산해도 원금 절반 손실",
+        "역사상 가장 완벽한 Reach for Yield 교과서: 수익률 추구가 신용 분석을 압도할 때 무슨 일이 벌어지는가",
+      ],
+      en: [
+        "June 2017: Argentina — 9-time defaulter — issued $2.75B in 100-year bonds at 7.125%; 3.5x oversubscribed",
+        "Global zero-rate environment (Germany 0.4%, Japan 0%) created Reach for Yield: investors chasing returns over risk analysis",
+        "Macri reform narrative ('this time is different') + holdout creditor resolution fueled market optimism",
+        "May 2020: ninth default; bond price collapsed below $30 — even with 3 years of coupons, investors lost half their principal",
+        "The most complete Reach for Yield case study in history: what happens when yield-seeking overwhelms credit discipline",
+      ],
+    },
+    assessment: {
+      positives: [
+        "$2.75B 전액 발행 성공 + 3.5배 초과청약 — 마크리 개혁 기대감에 힘입어 당시 시장 접근성 완전 회복",
+        "7.125% 고금리 3년간 수취 — 발행 직후 3년간 투자자들은 쿠폰 수익을 얻었으나 이는 최종 손실로 상쇄됨",
+        "아르헨티나의 국제 자본시장 복귀 신호 — 2001년 디폴트 이후 가장 대담한 장기 자금 조달 성공",
+        "Reach for Yield 현상 실물 교재 — 이 딜 자체가 이후 투자 교육과 리스크 관리 논의에서 핵심 사례가 됨",
+      ],
+      positivesEn: [
+        "Full $2.75B placement + 3.5x oversubscription — complete restoration of market access under Macri reform expectations",
+        "7.125% coupon received for 3 years — investors earned income in the short term, subsequently offset by principal loss",
+        "Signal of Argentina's return to international capital markets — boldest long-term financing since the 2001 default",
+        "Living textbook of Reach for Yield — the deal itself became a core case study in investment education and risk management",
+      ],
+      risks: [
+        "2020년 9번째 디폴트 — 원금 대비 회복률 50~55센트, 총 손실 40~45% 이상",
+        "수정 듀레이션 20~25년 — 금리 1%p 상승 시 가격 20~25% 하락, 신용리스크에 금리리스크 중첩",
+        "'이번에는 다르다' 서사의 재활용 — 아르헨티나는 매 정권마다 개혁 기대감을 만들고 그 서사는 반복적으로 붕괴",
+        "100년 지평의 본질적 불확실성 — 국가 존속·통화 안정성·정치 체제 이행 의지를 100년 범위로 분석하는 것은 불가능",
+      ],
+      risksEn: [
+        "2020 ninth default — 50–55 cent recovery on principal; total loss of 40–45%+ even counting coupon income",
+        "Modified duration 20–25 years — a 1% yield rise causes 20–25% price decline; credit risk stacked on rate risk",
+        "Recycled 'this time is different' narrative — Argentina generates reform expectations each administration; each collapses",
+        "Fundamental 100-year uncertainty — analyzing sovereign solvency, currency stability, and political debt-service will over 100 years is analytically impossible",
+      ],
+    },
+    faq: [
+      {
+        q: "왜 투자자들은 아르헨티나가 과거에 여러 번 디폴트했음에도 불구하고 100년물을 샀나요?",
+        qEn: "Why did investors buy Argentina's 100-year bond despite its history of multiple defaults?",
+        a: "세 가지 이유가 복합적으로 작용했습니다. 첫째, Reach for Yield — 2017년 독일 국채 수익률이 0.4%, 일본은 0%였습니다. 어딘가에서 수익을 내야 하는 투자자들에게 7.125%는 거부하기 어려운 숫자였습니다. 둘째, '이번에는 다르다' 서사 — 마크리 정부의 개혁, 홀드아웃 채권자 해결, IMF와의 관계 복원이 '아르헨티나가 변했다'는 기대를 만들었습니다. 셋째, 벤치마크 강제 매수 — 아르헨티나가 EM 채권 인덱스에 편입되어 있어 벤치마크를 추종하는 운용사들은 구조적으로 매수해야 했습니다.",
+        aEn: "Three factors combined. First, Reach for Yield: German bonds yielded 0.4%, Japan near zero. For investors needing to generate returns, 7.125% was difficult to refuse. Second, the 'this time is different' narrative: Macri reforms, holdout resolution, IMF restoration all built expectations that Argentina had changed. Third, benchmark-forced buying: Argentina's inclusion in EM bond indices meant tracking managers had structural buying requirements regardless of individual view.",
+      },
+      {
+        q: "100년물 채권은 어떻게 가격이 책정되나요? 실질적인 가치 계산이 가능한가요?",
+        qEn: "How are century bonds priced? Is it possible to calculate their actual value?",
+        a: "이론적으로는 모든 미래 쿠폰과 원금 상환을 할인해 현재 가치를 계산합니다. 그러나 100년물의 경우 현재 가치의 대부분이 최초 20~30년 현금 흐름에 집중됩니다 — 수익률이 7%라면 100년 뒤 원금의 현재 가치는 1달러 미만입니다. 실질적 가격 결정 요소는 ① 현재 수익률 곡선의 초장기 구간 ② 발행체 신용 스프레드 ③ 수요-공급입니다. 아르헨티나의 경우 '100년간 아르헨티나가 연속으로 지급할 확률'은 아무도 진지하게 계산하지 않았고, 단기 수익률 갈증과 시장 모멘텀이 가격을 결정했습니다.",
+        aEn: "In theory, you discount all future coupons and principal repayment to present value. But for century bonds, the present value is overwhelmingly concentrated in the first 20–30 years of cash flows — at a 7% yield, the present value of principal repaid in 100 years is less than $1. The practical pricing drivers are: (1) the ultra-long end of the current yield curve, (2) the issuer's credit spread, and (3) supply and demand. For Argentina, nobody seriously calculated 'the probability Argentina makes 100 consecutive payments' — short-term yield hunger and market momentum determined the price.",
+      },
+      {
+        q: "2020년 디폴트 이후 채권자들은 결국 얼마를 회수했나요?",
+        qEn: "How much did bondholders ultimately recover after the 2020 default?",
+        a: "2020년 8월 완료된 채무 재조정에서 채권자들은 액면가 기준 약 54.8센트에 해당하는 새 채권 패키지를 받았습니다. 정확히는 2030년, 2035년, 2038년, 2041년 만기의 신규 채권들로 구성됐습니다. 여기에 미지급 이자 일부가 포함됐습니다. 세 차례 쿠폰(2017~2020년 약 21%) 수취를 감안해도, 총 원리금 기준 회복률은 75~80센트 수준이었습니다. 투자자들은 3년 간 7.125%를 받았지만 원금의 45%를 잃었습니다.",
+        aEn: "In the restructuring completed in August 2020, bondholders received a package of new bonds worth approximately 54.8 cents on the dollar in face value — structured as new bonds maturing in 2030, 2035, 2038, and 2041. Including accrued interest, total recovery was roughly 75–80 cents on the dollar in combined coupon plus new bond value. Investors had collected three years of 7.125% coupons but lost approximately 45% of principal.",
+      },
+      {
+        q: "아르헨티나 100년물 사태에서 DCM 뱅커들의 역할과 책임은 무엇인가요?",
+        qEn: "What was the role and responsibility of DCM bankers in the Argentina century bond story?",
+        a: "주관사인 씨티그룹, HSBC, 노무라, 산탄데르는 구조 설계, 투자자 모집, 가격 결정을 담당했습니다. DCM 뱅커의 역할은 발행사(아르헨티나 정부)를 대리해 최선의 조건으로 시장에서 자금을 조달하는 것입니다. 법적으로 뱅커는 투자자의 이익을 보호할 의무가 없습니다 — 그것은 투자자 스스로의 책임입니다. 그러나 이 딜은 DCM 업계에서 도덕적 논쟁을 불러일으켰습니다: 발행사가 성공적으로 자금을 조달했지만 투자자들이 대규모 손실을 입은 경우, 뱅커의 시장 평판과 장기적 관계 관리에는 어떤 함의가 있는가?",
+        aEn: "The lead managers — Citigroup, HSBC, Nomura, and Santander — handled structuring, investor solicitation, and pricing. A DCM banker's mandate is to raise capital for the issuer (the Argentine government) on the best possible terms. Legally, bankers have no duty to protect investor interests — that is the investor's own responsibility. However, this deal sparked ethical debate within DCM: when an issuer successfully raises capital but investors suffer massive losses, what are the implications for bankers' market reputation and long-term relationship management?",
+      },
+      {
+        q: "아르헨티나 100년물 이후 다른 나라들도 100년물을 발행했나요?",
+        qEn: "Did other countries issue century bonds after Argentina's experience?",
+        a: "아르헨티나 사태에도 불구하고 100년물 발행은 계속됐습니다. 오스트리아는 2017년 AA+ 등급으로 100년물을 발행해 이후 가격이 230까지 올랐다가 2022년 금리 급등으로 46까지 추락했습니다. 멕시코는 2010년 최초 EM 100년물 발행 이후 여러 차례 추가 발행했습니다. 아일랜드(2016), 미국 대학교(MIT, 조지아텍 등)도 100년물을 발행했습니다. 발행이 계속되는 이유는 발행사 입장에서 초장기 고정 자금을 확보하는 이점이 크고, 투자자 중에도 장기 부채를 매칭해야 하는 연기금·보험사 등 진정한 수요가 있기 때문입니다.",
+        aEn: "Despite Argentina's experience, century bond issuance continued. Austria issued a AAA-rated century bond in 2017 whose price surged to 230 before crashing to 46 in the 2022 rate spike. Mexico issued the first EM century bond in 2010 and has tapped it multiple times. Ireland (2016) and US universities (MIT, Georgia Tech) also issued century bonds. Issuance continues because issuers genuinely benefit from locking in ultra-long fixed funding, and real demand exists among pension funds and insurers that need to match long-duration liabilities.",
+      },
+    ],
+    references: [
+      {
+        id: 1,
+        author: "Republic of Argentina",
+        title: "Final Prospectus Supplement — 7.125% Notes due 2117",
+        source: "SEC Filing, June 2017",
+        year: "2017",
+      },
+      {
+        id: 2,
+        author: "IMF",
+        title: "Argentina: Stand-By Arrangement — Third Review",
+        source: "IMF Country Report No. 19/25",
+        year: "2019",
+        url: "https://www.imf.org/en/Publications/CR/Issues/2019/01/25/Argentina-Stand-By-Arrangement-Third-Review-46526",
+      },
+      {
+        id: 3,
+        author: "Cruces, Juan J. and Trebesch, Christoph",
+        title: "Sovereign Defaults: The Price of Haircuts",
+        source: "American Economic Journal: Macroeconomics, Vol. 5, No. 3",
+        year: "2013",
+      },
+      {
+        id: 4,
+        author: "Reinhart, Carmen M. and Rogoff, Kenneth S.",
+        title: "This Time Is Different: Eight Centuries of Financial Folly",
+        source: "Princeton University Press",
+        year: "2009",
+      },
+    ],
   },
 
   {
@@ -221,19 +453,289 @@ export const ALL_MARKET_DEALS: MarketDeal[] = [
     readingMinutes: 11,
     tags: ["Sovereign", "100년물", "듀레이션", "금리리스크", "오스트리아"],
     tagsEn: ["Sovereign", "Century Bond", "Duration", "Rate Risk", "Austria"],
-    published: false,
+    published: true,
     snapshot: [
       { labelKo: "발행사", labelEn: "Issuer", value: "Republic of Austria" },
-      { labelKo: "발행연도", labelEn: "Year", value: "2017" },
-      { labelKo: "발행규모", labelEn: "Size", value: "€3.5B (총)" },
+      { labelKo: "발행연도", labelEn: "Year", value: "Sept 2017" },
+      { labelKo: "발행규모", labelEn: "Size", value: "€3.5B (총 tap 포함)" },
       { labelKo: "만기", labelEn: "Maturity", value: "100년 (2117)" },
       { labelKo: "쿠폰", labelEn: "Coupon", value: "2.1%" },
-      { labelKo: "등급", labelEn: "Rating", value: "AA+" },
+      { labelKo: "등급", labelEn: "Rating", value: "AA+/Aa1" },
+      { labelKo: "최고가", labelEn: "Peak Price", value: "230 (2020)" },
+      { labelKo: "최저가", labelEn: "Trough Price", value: "~46 (2022)" },
     ],
-    sections: [],
-    keyTerms: [],
-    relatedMarket101Slugs: ["dcm-ecosystem"],
-    references: [],
+    sections: [
+      {
+        heading: "AA+ 국가가 100년물을 발행한 이유",
+        headingEn: "Why a AA+ Sovereign Issued a Century Bond",
+        body:
+`2017년 9월, 오스트리아 공화국은 역사에서 가장 극단적인 듀레이션 실험 중 하나를 시작했다. €20억 규모의 100년 만기 국채 — 쿠폰 2.1%, 2117년 만기.
+
+오스트리아는 왜 100년물을 발행했는가? 이유는 단순하다: 2017년은 유럽 금리 역사상 가장 낮은 수준이었고, 오스트리아 정부는 이 낮은 금리를 100년 동안 고정시킬 기회를 포착했다. 오스트리아의 일반 10년물 수익률은 당시 1% 미만이었다. 100년물은 2.1%에 발행됐다 — 발행사 입장에서 매우 저렴한 자금 조달이었다.
+
+투자자 수요도 강했다. 오더북은 약 €115억으로 발행액의 5.7배였다. AA+/Aa1 등급의 유럽 AAA권 국가 채권에서 2.1%는 ECB 마이너스 금리 환경에서 매력적이었다. 특히 장기 부채를 가진 생명보험사, 연기금이 초장기 자산으로 매칭 수요를 갖고 있었다.
+
+발행 성공 이후 오스트리아는 이 채권을 여러 차례 탭(tap)해 총 발행 잔액을 €35억으로 늘렸다.`,
+        bodyEn:
+`In September 2017, the Republic of Austria launched one of the most extreme duration experiments in bond market history: €2 billion in 100-year government bonds, 2.1% coupon, maturing 2117.
+
+Why did Austria issue a century bond? The reason is straightforward: 2017 was a historically low-rate environment in Europe, and the Austrian government seized the opportunity to lock in that cheap funding for 100 years. Austria's standard 10-year bond yield was below 1% at the time. The century bond priced at 2.1% — extraordinarily cheap long-term funding by any historical standard.
+
+Investor demand was fierce. The orderbook reached approximately €11.5 billion — 5.7x the initial issue size. In an ECB negative-rate environment, 2.1% from a AA+/Aa1-rated eurozone sovereign was attractive. Life insurers and pension funds with long-duration liabilities in particular had genuine matching demand for ultra-long assets.
+
+Following the initial placement, Austria tapped the bond multiple times, growing total outstanding to €3.5 billion.`,
+      },
+      {
+        heading: "2020년 — 100년물의 황금기",
+        headingEn: "2020 — The Century Bond's Golden Moment",
+        body:
+`발행 3년 뒤인 2020년, 오스트리아 100년물 가격은 230을 넘었다. 발행가 대비 130% 이상의 가격 상승.
+
+이유는 단순하다: COVID-19 팬데믹으로 유럽중앙은행(ECB)이 금리를 추가 인하하고 자산 매입 프로그램(PEPP)을 대폭 확대했다. 독일 10년물 수익률이 -0.7%까지 떨어졌다. 금리가 내려갈수록 기존에 발행된 채권의 가격은 올라간다 — 특히 듀레이션이 긴 채권일수록 더 크게.
+
+오스트리아 100년물의 수정 듀레이션은 약 47~50년 수준이다(쿠폰 2.1%, 만기 100년 기준). 수익률이 1%p 하락하면 가격이 47~50% 상승한다는 의미다. 2017년 발행 시 수익률 약 2.1%에서 2020년 최저점 0.6%대로 약 1.5%p 하락했다 — 그 결과가 130%의 가격 상승이었다.
+
+이 시점에서 오스트리아 100년물을 보유한 투자자들은 짧은 기간에 엄청난 수익을 얻었다. 특히 2017년 발행 시 매입한 후 2020년에 매도한 투자자들은 채권에서 주식 같은 수익률을 경험했다.`,
+        bodyEn:
+`Three years after issuance, in 2020, Austria's century bond price exceeded 230 — more than 130% above par.
+
+The reason is simple: the COVID-19 pandemic prompted the ECB to further cut rates and massively expand its asset purchase program (PEPP). German 10-year yields fell to -0.7%. The lower rates fall, the higher existing bond prices rise — especially bonds with long duration.
+
+Austria's century bond has a modified duration of approximately 47–50 years (at a 2.1% coupon, 100-year maturity). A 1 percentage point decline in yield produces roughly a 47–50% price increase. The yield fell approximately 1.5 percentage points from the 2017 issuance level (~2.1%) to the 2020 low (~0.6%) — producing the 130% price surge.
+
+Investors holding the century bond at this point had earned equity-like returns from a government bond in a short period. Those who bought at issuance in 2017 and sold in 2020 experienced a remarkable outcome that almost no bond market participant had anticipated when the deal was originally priced.`,
+      },
+      {
+        heading: "2022년 — 금리 상승의 역습",
+        headingEn: "2022 — The Rate Reversal",
+        body:
+`그러나 듀레이션은 양날의 검이다. 2022년 러시아의 우크라이나 침공과 인플레이션 급등으로 ECB는 사상 최대 속도의 금리 인상에 나섰다. 2022년 한 해에만 ECB 기준금리가 0%에서 2.5%로 급등했다.
+
+오스트리아 100년물의 수익률은 2020년 저점 0.6%에서 2022년 말 2.5~3%로 약 2%p 급등했다. 수정 듀레이션 50 기준으로 2%p 수익률 상승 = 약 100%의 가격 하락 압력. 실제로 가격은 2020년 고점 230에서 2022년 말 46까지 추락했다. 80% 가까운 가격 하락.
+
+이 숫자를 맥락에 놓아 보자. 2022년 글로벌 금융시장에서 S&P 500 지수가 약 19% 하락했다. 나스닥은 약 33% 하락했다. '안전 자산'이라 불리는 AA+ 등급 오스트리아 국채는 80% 하락했다. 주식 시장보다 훨씬 더 떨어진 것이다.
+
+이 현상의 본질은: 신용 리스크가 없어도, 듀레이션 리스크만으로 채권은 주식보다 더 큰 변동성을 가질 수 있다. 100년물은 금리 1%p 변화에 50%p 가격 변화가 따른다 — 이것은 레버리지 상품과 유사한 금리 감도다.`,
+        bodyEn:
+`But duration is a double-edged sword. Russia's invasion of Ukraine in 2022 and surging inflation prompted the ECB to hike rates at its fastest pace in history. The ECB base rate went from 0% to 2.5% in a single year.
+
+Austria's century bond yield surged from its 2020 low of ~0.6% to roughly 2.5–3% by end-2022 — an approximately 2 percentage point increase. With a modified duration of ~50, a 2% yield rise translates to roughly 100% downward price pressure. The bond fell from its 2020 peak of 230 to approximately 46 by end-2022 — nearly an 80% price decline.
+
+Put this in context: In 2022, the S&P 500 fell approximately 19%. The Nasdaq fell roughly 33%. AA+-rated Austrian government bonds — categorized as "safe assets" — fell 80%. Far more than the stock market.
+
+The core insight: even without any credit risk, duration risk alone can make bonds more volatile than equities. A century bond carries approximately 50% price sensitivity per 1% yield move — comparable to the rate sensitivity of leveraged instruments.`,
+      },
+      {
+        heading: "듀레이션 수학 — 100년물을 이해하는 방정식",
+        headingEn: "Duration Mathematics — The Equation Behind Century Bonds",
+        body:
+`듀레이션을 숫자로 이해해야 100년물이 왜 이렇게 움직이는지 알 수 있다.
+
+맥컬리 듀레이션(Macaulay Duration): 채권의 현금 흐름(쿠폰과 원금)을 각 시점의 가중치로 평균한 값. 쉽게 말해, 채권에 투자한 돈을 회수하는 데 걸리는 평균 시간(연).
+
+수정 듀레이션(Modified Duration) = 맥컬리 듀레이션 ÷ (1 + YTM). 이것이 금리 1%p 변화에 대한 가격 변화율(%)이다.
+
+오스트리아 100년물 계산:
+• 쿠폰: 2.1%, 발행 수익률: 2.1% (at par)
+• 맥컬리 듀레이션: 약 48년
+• 수정 듀레이션: 48 ÷ 1.021 ≈ 47년
+
+금리 1%p 상승 → 가격 약 47% 하락
+금리 1%p 하락 → 가격 약 47% 상승
+
+반면 일반 10년물(쿠폰 1%, 수익률 1%):
+• 수정 듀레이션: 약 9.5년
+• 금리 1%p 변화 → 가격 9.5% 변화
+
+100년물은 10년물 대비 약 5배의 금리 감도를 갖는다. 이것이 230→46의 움직임을 만든 메커니즘이다.`,
+        bodyEn:
+`Understanding duration mathematics is essential to grasping why century bonds move so violently.
+
+Macaulay Duration: the weighted average time until a bond's cash flows (coupons and principal) are received. In plain terms: how many years until you've collected, on average, the money you invested.
+
+Modified Duration = Macaulay Duration ÷ (1 + YTM). This is the percentage price change for a 1 percentage point change in yield.
+
+Austria century bond calculation:
+• Coupon: 2.1%, issue yield: 2.1% (at par)
+• Macaulay Duration: approximately 48 years
+• Modified Duration: 48 ÷ 1.021 ≈ 47 years
+
+1% rate rise → ~47% price decline
+1% rate fall → ~47% price rise
+
+Compare to a standard 10-year bond (1% coupon, 1% yield):
+• Modified Duration: approximately 9.5 years
+• 1% yield change → 9.5% price change
+
+A century bond has approximately 5x the rate sensitivity of a 10-year bond. That is the mechanism that produced the 230→46 journey.`,
+      },
+      {
+        heading: "투자자 유형과 교훈",
+        headingEn: "Investor Types and Market Lessons",
+        body:
+`오스트리아 100년물을 산 투자자들은 누구이고, 그들은 무엇을 경험했나?
+
+생명보험사와 연기금: 이들은 장기 부채를 보유하고 있어 초장기 자산으로 매칭해야 한다. 100년물은 이 목적에 부합한다. 이들 투자자들은 가격 변동성보다 현금 흐름 매칭을 중요시하므로, 가격 등락 자체가 운용상 핵심 이슈가 아닐 수 있다.
+
+헤지펀드와 매크로 펀드: 금리 하락 방향에 배팅해 자본 차익을 노렸다. 2020년에 매도했다면 엄청난 수익을 거뒀다. 타이밍이 중요했고, 성공한 투자자도 많았다.
+
+패시브 인덱스 펀드: 유로존 국채 인덱스를 추종하는 펀드는 구조적으로 이 채권을 보유해야 한다. 2022년 금리 급등 시 이 펀드들은 시가 기준 대규모 손실을 기록했다.
+
+오스트리아 100년물이 남긴 교훈:
+① 신용 품질 ≠ 안전성: AA+ 등급도 듀레이션이 극단적이면 80% 손실이 가능
+② 금리 방향성 베팅의 양날: 2020년 성공이 2022년 실패의 대칭
+③ 발행체 입장: 역사적 저금리에 100년을 고정시켰고, 이는 발행체에게는 성공적 전략
+④ 투자자 운용 지평의 중요성: 진정한 초장기 투자자(연기금)에게는 적합, 단기 투자자에게는 부적합`,
+        bodyEn:
+`Who bought Austria's century bond, and what did they experience?
+
+Life insurers and pension funds: holding long-duration liabilities, they need ultra-long assets for matching. The century bond serves this purpose precisely. These investors prioritize cash flow matching over mark-to-market volatility — price swings may not be an operational concern for them.
+
+Hedge funds and macro traders: positioned for rate declines to capture capital appreciation. Those who sold in 2020 made extraordinary returns. Timing was critical, and many succeeded.
+
+Passive index funds: funds tracking eurozone government bond indices must hold this bond structurally. In the 2022 rate spike, these funds recorded massive mark-to-market losses.
+
+Key lessons from Austria's century bond:
+① Credit quality ≠ safety: AA+ rating does not prevent 80% losses when duration is extreme
+② Two-sided rate directional bet: 2020 success and 2022 failure are the same trade's two faces
+③ Issuer perspective: locking in 100 years of historically cheap funding was a successful strategic decision
+④ Investment horizon matters: suited for true long-duration investors (pension funds); unsuited for short-horizon investors`,
+      },
+    ],
+    keyTerms: [
+      {
+        term: "수정 듀레이션 (Modified Duration)",
+        termEn: "Modified Duration",
+        definition: "금리 1%p 변화에 대한 채권 가격의 변화율(%). 오스트리아 100년물의 수정 듀레이션은 약 47년 — 금리가 1%p 오르면 가격이 약 47% 하락한다. 일반 10년물(약 9~10년)의 5배에 달하는 수준이다.",
+        definitionEn: "The percentage change in bond price for a 1 percentage point change in yield. Austria's century bond has a modified duration of approximately 47 years — a 1% yield rise causes ~47% price decline. About 5x the duration of a standard 10-year bond (~9–10 years).",
+      },
+      {
+        term: "볼록성 (Convexity)",
+        termEn: "Convexity",
+        definition: "듀레이션이 금리 변화에 따라 자체적으로 변하는 성질. 볼록성이 클수록 금리 하락 시 가격 상승 폭이 수학적으로 예측한 것보다 크고, 금리 상승 시 가격 하락 폭은 예측보다 작다. 초장기채는 볼록성이 매우 높아 금리 방향이 유리할 때 기대 이상의 수익을 제공한다.",
+        definitionEn: "The property by which a bond's duration itself changes as yields change. Higher convexity means price gains on rate declines exceed the duration-predicted amount, while price losses on rate rises are smaller than predicted. Ultra-long bonds have very high convexity, providing above-expected returns when rate direction is favorable.",
+      },
+      {
+        term: "자산-부채 매칭 (ALM)",
+        termEn: "Asset-Liability Matching (ALM)",
+        definition: "생명보험사·연기금이 장기 부채(보험금 지급 의무, 연금 지급 의무)와 동일한 만기·현금 흐름 구조의 자산을 보유해 금리 리스크를 헤지하는 전략. 이 관점에서 100년물은 부채 듀레이션이 긴 기관들에게 구조적으로 적합한 투자 수단이다.",
+        definitionEn: "A strategy used by life insurers and pension funds to hedge interest rate risk by holding assets with cash flows that match their long-duration liabilities (insurance payouts, pension obligations). From this perspective, century bonds are structurally appropriate for institutions with long-duration liabilities.",
+      },
+      {
+        term: "금리 리스크 (Interest Rate Risk)",
+        termEn: "Interest Rate Risk",
+        definition: "금리 변화로 인해 채권 가격 또는 포트폴리오 가치가 변동하는 리스크. 신용 리스크(발행체 부도)와 다른 독립적 리스크 요인이다. 오스트리아 100년물 사례는 신용 리스크가 전혀 없어도 금리 리스크만으로 80% 손실이 가능함을 보여주는 가장 강력한 실증 사례다.",
+        definitionEn: "The risk that bond prices or portfolio values change due to interest rate movements. A separate and independent risk factor from credit risk (issuer default). Austria's century bond is the most powerful empirical demonstration that credit-risk-free bonds can still lose 80% through interest rate risk alone.",
+      },
+    ],
+    relatedMarket101Slugs: ["dcm-ecosystem", "duration-risk", "rate-risk"],
+    relatedDealSlugs: ["argentina-100yr", "mexico-century-bond"],
+    executiveSummary: {
+      ko: [
+        "2017년 9월 오스트리아 AA+ 등급 100년물 €20억 발행 — 쿠폰 2.1%, 수정 듀레이션 약 47년",
+        "발행 성공 배경: ECB 마이너스 금리 환경, 생보사·연기금의 ALM 수요, 5.7배 초과청약",
+        "2020년 COVID 금리 하락으로 가격 230 돌파 — 3년 만에 130% 자본 차익, 채권의 주식화",
+        "2022년 ECB 금리 인상으로 가격 46까지 폭락 — 80% 손실, S&P500(-19%)보다 4배 이상 하락",
+        "핵심 교훈: 신용등급 AA+도 듀레이션이 50년이면 레버리지 투자와 동등한 금리 감도를 가진다",
+      ],
+      en: [
+        "Sept 2017: Austria AA+ issued €2B in 100-year bonds at 2.1% coupon; modified duration ~47 years; 5.7x oversubscribed",
+        "Issuance drivers: ECB negative rates, life insurer/pension fund ALM demand for ultra-long assets",
+        "2020: COVID rate decline pushed price past 230 — 130% capital gain in 3 years; bond behaving like equity",
+        "2022: ECB rate hikes collapsed price to ~46 — 80% loss; far worse than S&P500 (-19%) in the same period",
+        "Core lesson: AA+ credit quality does not prevent 80% losses when duration is ~50 years; century bonds have leveraged rate sensitivity",
+      ],
+    },
+    assessment: {
+      positives: [
+        "오스트리아 발행사 관점: 역사적 저금리(2.1%)를 100년 고정 — 향후 수십 년간 저비용 장기 자금 확보",
+        "2020년 투자자 성과: 발행가 대비 130% 이상 가격 상승, 금리 하락 방향 베팅 성공 시 탁월한 수익",
+        "생보·연기금 ALM 수단: 장기 부채 매칭에 적합한 초장기 국채로서 포트폴리오 금리 리스크 감소",
+        "유럽 초장기물 시장 선도: 유로존에서 가장 성공적인 국채 100년물로 이 시장의 기준가 형성",
+      ],
+      positivesEn: [
+        "Issuer perspective: locked in historically cheap funding (2.1%) for 100 years — ultra-low cost long-term capital",
+        "2020 investor returns: 130%+ price appreciation from par; outstanding performance for those correctly positioned on rate direction",
+        "Life insurer/pension ALM instrument: ultra-long government bond suitable for matching long-duration liabilities",
+        "Eurozone ultra-long benchmark: most successful eurozone sovereign century bond, setting the pricing reference for this market segment",
+      ],
+      risks: [
+        "2022년 80% 가격 손실 — 단일 연도 금리 상승만으로 주식 시장의 4배 이상 하락, 단기 보유자에게 치명적",
+        "수정 듀레이션 47년 — 금리 1%p 상승 시 가격 47% 하락, 레버리지 금융 상품과 동등한 금리 감도",
+        "재투자 리스크: 100년물에서 받는 2.1% 쿠폰을 미래에 어떤 금리로 재투자하는지에 따라 실질 수익 크게 변동",
+        "유동성 리스크: €35억 발행 잔액은 일반 국채 대비 소규모, 시장 스트레스 시 bid-ask 스프레드 급등 가능",
+      ],
+      risksEn: [
+        "80% price loss in 2022 — a single year's rate rise caused 4x worse decline than equities; devastating for short-horizon holders",
+        "Modified duration 47 years — equivalent to a leveraged financial instrument's rate sensitivity; 1% yield rise causes 47% price loss",
+        "Reinvestment risk: the 2.1% coupon received from a century bond must be reinvested at future unknown rates, materially affecting realized total return",
+        "Liquidity risk: €3.5B outstanding is small relative to standard government bonds; bid-ask spreads may widen sharply under market stress",
+      ],
+    },
+    faq: [
+      {
+        q: "오스트리아 100년물은 발행사인 오스트리아 정부 입장에서 좋은 거래였나요?",
+        qEn: "Was the century bond a good deal for Austria as the issuer?",
+        a: "발행사 관점에서는 탁월한 거래였습니다. 2017년 2.1%라는 역사적 저금리로 100년의 자금 조달을 고정했습니다. 이 채권의 쿠폰을 매년 지불하는 비용은 오스트리아가 단기·중기물을 반복 발행하는 것보다 훨씬 저렴합니다. 2022년 이후 유럽 금리가 2~4%대로 올라간 현재, 오스트리아는 2.1% 고정 비용의 이점을 누리고 있습니다. 발행 당시의 낮은 금리를 100년간 고정시키는 것은 재무부 관점에서 완벽한 자금 관리입니다.",
+        aEn: "From the issuer's perspective, it was an excellent deal. Austria locked in 100 years of funding at a historically cheap 2.1% in 2017. Paying this coupon annually is far cheaper than rolling short-to-medium term bonds repeatedly. With European rates now at 2–4% after 2022, Austria enjoys a significant cost-of-funds advantage from that 2.1% fixed rate. Locking in historically low rates for 100 years is optimal liability management from a treasury perspective.",
+      },
+      {
+        q: "수정 듀레이션 47년이란 실질적으로 어떤 의미인가요?",
+        qEn: "What does a modified duration of 47 years mean in practical terms?",
+        a: "금리가 1%p 오르면 채권 가격이 약 47% 하락하고, 금리가 1%p 내리면 약 47% 상승한다는 의미입니다. 비교를 위해: 미국 30년 국채의 수정 듀레이션은 약 18~20년, 10년 국채는 약 9년입니다. 오스트리아 100년물의 듀레이션은 미국 30년물의 2.5배, 10년물의 5배 이상입니다. 이것은 단순한 채권이 아닙니다 — 금리에 고도로 레버리지된 상품과 수학적으로 동일한 감도를 가집니다. 2022년 금리 2%p 상승 × 듀레이션 47 = 약 94% 이론적 가격 하락이었고, 실제로 80% 하락이 발생했습니다.",
+        aEn: "A 1 percentage point yield rise causes approximately a 47% price decline; a 1% yield fall causes approximately a 47% price rise. For comparison: a US 30-year Treasury has a modified duration of about 18–20 years; a 10-year Treasury about 9 years. Austria's century bond duration is 2.5x that of a 30-year bond, 5x+ that of a 10-year. This is not a simple bond — it has mathematically equivalent rate sensitivity to a highly leveraged financial instrument. In 2022: 2% yield rise × 47 duration = approximately 94% theoretical price decline; the actual decline was approximately 80%.",
+      },
+      {
+        q: "연기금이나 생명보험사는 이 채권을 왜 샀고, 2022년 손실에 어떻게 대처했나요?",
+        qEn: "Why did pension funds and life insurers buy this bond, and how did they handle the 2022 losses?",
+        a: "생명보험사와 연기금은 장기 부채를 보유합니다 — 30~50년 후 지급할 연금, 보험금이 있습니다. 이들은 자산과 부채의 듀레이션을 매칭해야 합니다. 부채 듀레이션이 30~40년이라면, 그에 맞는 자산이 필요합니다. 100년물은 이 목적에 부합합니다. 이들 투자자들에게 2022년의 가격 하락은 운용 목적에 따라 다르게 해석됩니다. 만기까지 보유해 ALM 목적으로 사용하는 투자자라면 시가 손실은 장부상 숫자일 뿐입니다. 반면 매도해야 하거나 시가 기준 운용 성과를 측정받는 투자자는 실제 손실이 됩니다.",
+        aEn: "Life insurers and pension funds hold long-duration liabilities — pensions and insurance payouts due 30–50 years out. They must match the duration of assets to liabilities. If liability duration is 30–40 years, they need assets with matching characteristics. Century bonds serve this purpose. For these investors, the 2022 price decline is interpreted differently depending on objective. For investors holding to maturity as ALM instruments, mark-to-market losses are accounting figures only. For investors who need to sell or are evaluated on mark-to-market performance, the losses are real and significant.",
+      },
+      {
+        q: "오스트리아 100년물과 아르헨티나 100년물의 근본적 차이는 무엇인가요?",
+        qEn: "What is the fundamental difference between Austria's and Argentina's century bonds?",
+        a: "리스크의 본질이 다릅니다. 오스트리아 100년물은 신용 리스크가 극히 낮지만(AA+, 유로존 핵심 국가), 금리 리스크가 극단적으로 높습니다(듀레이션 47년). 아르헨티나 100년물은 금리 리스크에 더해 신용 리스크(B등급, 상습 디폴트국)까지 중첩됐습니다. 오스트리아 투자자들은 금리가 어떻게 움직일지에 베팅했고, 아르헨티나 투자자들은 금리 방향과 아르헨티나의 100년 신용 건전성에 동시에 베팅했습니다. 오스트리아는 '방향성 리스크'를, 아르헨티나는 '방향성 + 신용' 이중 리스크를 가진 상품이었습니다.",
+        aEn: "The nature of risk is fundamentally different. Austria's century bond has negligible credit risk (AA+, eurozone core), but extreme duration risk (47-year modified duration). Argentina's century bond stacked credit risk (B-rated, serial defaulter) on top of duration risk. Austria bond investors bet on interest rate direction. Argentina bond investors simultaneously bet on rate direction and Argentina's 100-year creditworthiness. Austria was a pure rate directional risk; Argentina was a combined rate + credit double risk product.",
+      },
+      {
+        q: "볼록성(Convexity)은 100년물 투자에서 어떤 역할을 하나요?",
+        qEn: "What role does convexity play in century bond investing?",
+        a: "볼록성은 가격-수익률 관계가 선형이 아닌 곡선임을 나타냅니다. 볼록성이 높을수록 금리 하락 시 기대보다 더 많이 가격이 오르고, 금리 상승 시 기대보다 덜 가격이 내립니다. 100년물은 볼록성이 매우 높습니다. 2020년 오스트리아 100년물이 수정 듀레이션 수학적 예측치(47년 × 1.5%p 하락 = 70.5% 상승)를 넘어 130% 상승한 것은 볼록성 효과가 더해진 결과입니다. 볼록성은 금리 변동성이 클 때 추가 이익을 제공합니다 — 즉, 금리 방향이 유리하면 예상보다 더 크게 버는 구조입니다. 반면 금리 방향이 불리할 때의 손실도 볼록성 덕분에 이론치보다 약간 낮습니다.",
+        aEn: "Convexity reflects that the price-yield relationship is curved rather than linear. Higher convexity means price gains when rates fall exceed the duration-predicted amount, and price losses when rates rise are less than duration-predicted. Century bonds have very high convexity. The fact that Austria's 2020 price surge exceeded the theoretical duration-based prediction (47yr × 1.5% decline = ~70.5% rise) to reach 130% reflects the convexity contribution. Convexity provides bonus returns when rate volatility is high — meaning when rate direction is favorable, you earn more than expected. Conversely, convexity slightly dampens losses when rates move against you relative to the duration-only prediction.",
+      },
+    ],
+    references: [
+      {
+        id: 1,
+        author: "Republic of Austria",
+        title: "2.1% Federal Bond due 2117 — Prospectus",
+        source: "Oesterreichische Bundesfinanzierungsagentur (OeBFA), September 2017",
+        year: "2017",
+      },
+      {
+        id: 2,
+        author: "BIS Working Papers",
+        title: "The term structure of interest rates and its implications for very long-dated bonds",
+        source: "Bank for International Settlements, Working Paper No. 657",
+        year: "2017",
+        url: "https://www.bis.org/publ/work657.htm",
+      },
+      {
+        id: 3,
+        author: "Fabozzi, Frank J.",
+        title: "Fixed Income Mathematics: Analytical and Statistical Techniques",
+        source: "McGraw-Hill, 4th Edition",
+        year: "2006",
+      },
+      {
+        id: 4,
+        author: "ECB",
+        title: "Asset Purchase Programme (APP) and Pandemic Emergency Purchase Programme (PEPP)",
+        source: "European Central Bank Statistical Data Warehouse",
+        year: "2020",
+        url: "https://www.ecb.europa.eu/mopo/implement/app/html/index.en.html",
+      },
+    ],
   },
 
   {
@@ -251,18 +753,279 @@ export const ALL_MARKET_DEALS: MarketDeal[] = [
     readingMinutes: 9,
     tags: ["Sovereign", "EM", "100년물", "멕시코", "달러채"],
     tagsEn: ["Sovereign", "EM", "Century Bond", "Mexico", "Dollar Bond"],
-    published: false,
+    published: true,
     snapshot: [
       { labelKo: "발행사", labelEn: "Issuer", value: "United Mexican States" },
-      { labelKo: "발행연도", labelEn: "Year", value: "2010" },
+      { labelKo: "발행연도", labelEn: "Year", value: "Oct 2010" },
       { labelKo: "발행규모", labelEn: "Size", value: "$1B" },
       { labelKo: "만기", labelEn: "Maturity", value: "100년 (2110)" },
       { labelKo: "쿠폰", labelEn: "Coupon", value: "5.75%" },
+      { labelKo: "발행 스프레드", labelEn: "Issue Spread", value: "T+175bp" },
+      { labelKo: "주관사", labelEn: "Lead Managers", value: "Barclays, Deutsche Bank, HSBC" },
     ],
-    sections: [],
-    keyTerms: [],
-    relatedMarket101Slugs: [],
-    references: [],
+    sections: [
+      {
+        heading: "EM 100년물 시장의 탄생 — 2010년의 선택",
+        headingEn: "Birth of EM Century Bonds — Mexico's 2010 Choice",
+        body:
+`2010년 10월, 멕시코 재무부는 채권시장 역사의 한 페이지를 새로 썼다. $10억 규모, 쿠폰 5.75%, 2110년 만기 — 신흥국 중 최초의 달러 100년물이었다.
+
+멕시코가 이 딜을 선택할 수 있었던 이유는 2010년 당시 EM 국가 중 상대적으로 건전한 신용 기반이 있었기 때문이다. BBB/Baa1 등급 — 투자등급 하단이었지만 투자등급이었다. 1994년 '테킬라 위기' 이후 꾸준히 신용도를 쌓아온 결과였다.
+
+발행 배경에는 미국 양적완화(QE1)가 만든 저금리 환경이 있었다. 미국 연준이 2008년 금융위기 이후 대규모 자산 매입을 시작하면서 미국 국채 수익률이 역사적 저점에 근접했다. 이 환경에서 T+175bp, 절대 수익률 5.75%는 매력적인 숫자였다.
+
+오더북은 $40억을 넘어 발행액의 4배 이상을 기록했다. EM 국가에서 나온 100년물 채권임에도 불구하고, 투자자들의 수요는 압도적이었다.`,
+        bodyEn:
+`In October 2010, Mexico's Ministry of Finance wrote a new page in bond market history: $1 billion face value, 5.75% coupon, maturing 2110 — the first dollar-denominated century bond from an emerging market country.
+
+Mexico could execute this deal because it had, by 2010, built a relatively solid credit foundation among EM countries. Rated BBB/Baa1 — investment grade, albeit at the lower end. A steady accumulation of creditworthiness since the 1994 'Tequila Crisis.'
+
+The macroeconomic backdrop was the Federal Reserve's first quantitative easing (QE1), which had pushed US Treasury yields near historic lows after the 2008 financial crisis. In that environment, T+175bp and an absolute yield of 5.75% was genuinely attractive to yield-hungry investors.
+
+The orderbook exceeded $4 billion — more than 4x the deal size. Despite being a century bond from an emerging market sovereign, investor demand was overwhelming.`,
+      },
+      {
+        heading: "멕시코의 신용 여정 — 왜 EM 최초가 될 수 있었나",
+        headingEn: "Mexico's Credit Journey — Why It Could Be the EM First",
+        body:
+`EM 국가가 100년물을 발행하려면 일반 국채보다 훨씬 더 높은 신인도가 필요하다. 투자자들이 100년의 지평에서 채무 이행을 신뢰해야 하기 때문이다. 멕시코는 왜 이 신뢰를 얻을 수 있었나?
+
+1994년 테킬라 위기: 페소 폭락과 대규모 자본 유출. 멕시코는 미국·IMF의 구제금융을 받았지만, 이후 빠르게 상환했다. 이 경험이 멕시코의 재정 및 통화 정책을 보수적 방향으로 전환시켰다.
+
+2000년대: NAFTA 효과로 수출 경쟁력 강화, 재정 건전화. 부채/GDP 비율을 낮추고, 외환보유고를 쌓았다. 2000년 민주화(PRI 70년 집권 종식)가 제도적 안정성 신호를 줬다.
+
+2010년 발행 시점: 멕시코의 신용등급은 S&P BBB, Moody's Baa1. 브라질(BB)나 아르헨티나(B)와 달리 투자등급을 유지하고 있었다. NAFTA로 연결된 미국 경제와의 통합이 안정성 프리미엄을 제공했다.
+
+이러한 배경이 '최초 EM 100년물' 발행을 가능하게 했다. 신용 여정과 제도적 안정성이 결합된 결과였다.`,
+        bodyEn:
+`For an EM country to issue a century bond, it requires substantially higher credibility than for standard government bonds — investors must trust debt service over a 100-year horizon. Why could Mexico earn that trust?
+
+1994 Tequila Crisis: peso collapse and massive capital outflow. Mexico received US-IMF emergency support, then repaid it quickly. This experience pushed Mexican fiscal and monetary policy in a conservative direction.
+
+2000s: NAFTA-driven export competitiveness gains, fiscal consolidation. Mexico reduced its debt/GDP ratio, built foreign exchange reserves. The 2000 democratic transition (ending 70 years of PRI dominance) signaled institutional stability.
+
+At the 2010 issuance: Mexico was rated S&P BBB, Moody's Baa1 — investment grade. Unlike Brazil (BB) or Argentina (B), Mexico maintained IG status. Its NAFTA-linked economic integration with the US provided a structural stability premium.
+
+This combination of credit journey and institutional stability enabled the 'first EM century bond' — an achievement built on decades of policy discipline.`,
+      },
+      {
+        heading: "딜 구조와 투자자 기반",
+        headingEn: "Deal Structure and Investor Base",
+        body:
+`멕시코 100년물은 SEC 등록 공모채로 미국 달러화 표시였다. Rule 144A/Reg S 구조 — 미국 내 기관 투자자와 미국 외 투자자 모두에게 판매됐다.
+
+발행 조건:
+• 발행일: 2010년 10월 5일
+• 만기일: 2110년 10월 5일
+• 쿠폰: 5.75% (반기 지급)
+• 발행가: 99.519 (발행 수익률 5.780%)
+• 미국 국채 대비 스프레드: T+175bp
+• 주관사: Barclays Capital, Deutsche Bank, HSBC
+
+투자자 분포는 지역별로 미주(미국 포함) 60%, 유럽 25%, 아시아 15% 수준이었다. 유형별로는 자산운용사 40%, 연기금·보험사 30%, 헤지펀드 20%, 기타 10% 정도로 알려졌다.
+
+$10억이라는 규모는 의도적으로 보수적으로 설정됐다. 멕시코는 '최초 EM 100년물'이라는 역사적 의미에 더해, 시장을 테스트하는 성격의 발행을 원했다. 향후 수요가 확인되면 탭 발행을 통해 규모를 늘릴 수 있는 구조였다.`,
+        bodyEn:
+`Mexico's century bond was issued as a SEC-registered public bond, dollar-denominated. Structure: Rule 144A/Reg S — sold to both US institutional investors and non-US investors.
+
+Issue terms:
+• Issue date: October 5, 2010
+• Maturity: October 5, 2110
+• Coupon: 5.75% (semi-annual)
+• Issue price: 99.519 (yield to maturity: 5.780%)
+• Spread vs. US Treasuries: T+175bp
+• Lead managers: Barclays Capital, Deutsche Bank, HSBC
+
+Investor distribution was roughly: Americas (including US) 60%, Europe 25%, Asia 15% by geography. By type: asset managers ~40%, pension funds/insurance ~30%, hedge funds ~20%, other ~10%.
+
+The $1 billion size was intentionally conservative. Mexico wanted to combine the historic significance of 'first EM century bond' with a market-testing exercise. If demand proved strong, tap issuances could increase the outstanding amount — which subsequently occurred in 2014 and 2015.`,
+      },
+      {
+        heading: "선구자의 유산 — 이후 EM 100년물의 계보",
+        headingEn: "Pioneer's Legacy — The EM Century Bond Lineage",
+        body:
+`멕시코 100년물의 성공은 EM 초장기물 시장의 문을 열었다. 이후 다른 EM 국가들이 멕시코의 선례를 참조했다.
+
+멕시코 자체: 2014년 €1.5B 유로화 100년물(쿠폰 4%), 2015년 추가 탭 발행. 미국 달러와 유로화 100년물을 모두 갖춘 유일한 EM 발행체가 됐다.
+
+아르헨티나(2017): 멕시코 선례를 참조해 $2.75B 100년물 발행. 쿠폰 7.125% — 멕시코의 5.75%보다 높은 신용 프리미엄 반영. 3년 뒤 디폴트.
+
+칠레(2022): $1.5B 100년물 발행. 라틴아메리카에서 상대적으로 건전한 재정의 칠레가 멕시코 모델을 따랐다.
+
+멕시코 100년물이 가장 중요한 이유: 아르헨티나 사례와 달리, 멕시코는 발행 이후 14년(2024년 기준)이 지나도록 디폴트하지 않았다. 이것이 '신용 기반이 충분히 갖춰진 EM도 100년물을 성공적으로 발행·유지할 수 있다'는 실증이다. 아르헨티나와의 대비가 EM 100년물 발행의 전제 조건을 이해하는 데 핵심적이다.`,
+        bodyEn:
+`Mexico's century bond success opened the door to the EM ultra-long bond market. Subsequent EM issuers referenced Mexico's precedent.
+
+Mexico itself: issued a €1.5B euro-denominated century bond in 2014 (4% coupon), with further taps in 2015. Mexico became the only EM country with both dollar and euro century bonds outstanding.
+
+Argentina (2017): referenced Mexico's precedent for its $2.75B century bond issuance at 7.125% — reflecting a higher credit premium than Mexico's 5.75%. Defaulted three years later.
+
+Chile (2022): issued $1.5B in century bonds. Chile, with relatively sound fiscal finances in Latin America, followed the Mexico model.
+
+Why Mexico's century bond matters most: unlike Argentina, Mexico has not defaulted in the 14 years since issuance (as of 2024). This is the empirical proof that 'EM issuers with sufficient credit foundations can successfully issue and sustain century bonds.' The contrast with Argentina is essential for understanding the prerequisites for successful EM century bond issuance.`,
+      },
+      {
+        heading: "스프레드 진화와 시장 평가",
+        headingEn: "Spread Evolution and Market Assessment",
+        body:
+`멕시코 100년물의 스프레드는 발행 이후 어떻게 움직였나? 이것이 멕시코의 신용 여정을 반영하는 지표다.
+
+발행 시(2010년): T+175bp. 이는 BBB 등급 EM 국가에 대한 당시 시장 평가를 반영했다. 미국 투자등급 회사채 BBB와 비슷한 스프레드 수준이었다.
+
+2017~2019년: 미국이 금리 인상 사이클에 들어서면서 EM 채권 스프레드가 전반적으로 확대됐다. 멕시코 100년물도 스프레드가 T+200~250bp로 확대됐다.
+
+2020년 COVID: 전반적 EM 위기. 멕시코 100년물 스프레드는 T+350bp 이상으로 급확대됐다가, 연준의 대규모 유동성 공급으로 빠르게 회복됐다.
+
+2023~2024년: 미국 금리 인상 사이클(2022~2023)으로 수익률 자체가 높아졌지만, 스프레드 측면에서는 T+200bp 내외를 유지했다.
+
+멕시코 100년물의 스프레드 진화는 아르헨티나 100년물과 극명히 대비된다. 아르헨티나는 T+750bp를 넘어 디폴트됐지만, 멕시코는 발행 이후 14년간 스프레드가 300bp 이내에서 관리됐다. 신용의 차이가 스프레드의 차이를 만들었다.`,
+        bodyEn:
+`How have Mexico's century bond spreads evolved since issuance? This is the lens through which Mexico's credit journey is reflected.
+
+At issuance (2010): T+175bp, reflecting the market's assessment of a BBB-rated EM sovereign — comparable to US BBB investment-grade corporates at the time.
+
+2017–2019: As the US entered a rate hike cycle, EM spreads widened broadly. Mexico's century bond widened to T+200–250bp.
+
+2020 COVID: EM-wide stress. Mexico's century bond spreads spiked to T+350bp+ before recovering quickly as the Fed's massive liquidity injection stabilized markets.
+
+2023–2024: Absolute yields rose with the 2022–2023 US rate hike cycle, but Mexico's spread remained broadly within T+200bp.
+
+Mexico's spread evolution stands in stark contrast to Argentina's century bond. Argentina's spreads exceeded T+750bp before the 2020 default. Mexico has remained within 300bp over 14 years. Credit quality difference created spread difference — the fundamental lesson of comparing these two EM century bond issuers.`,
+      },
+    ],
+    keyTerms: [
+      {
+        term: "Rule 144A / Reg S",
+        termEn: "Rule 144A / Reg S",
+        definition: "미국 SEC 규제 하에 외국 발행사가 미국 및 해외 기관 투자자들에게 채권을 판매할 수 있는 대표적인 두 가지 발행 방식. Rule 144A는 미국 내 적격 기관 투자자(QIB)에게, Reg S는 미국 외 투자자에게 판매하는 구조다. 두 가지를 함께 사용하면 글로벌 기관 투자자 기반 전체에 접근할 수 있다.",
+        definitionEn: "The two primary SEC-regulated frameworks for foreign issuers to sell bonds to US and non-US institutional investors. Rule 144A targets US Qualified Institutional Buyers (QIBs); Reg S targets non-US investors. Using both in combination provides access to the entire global institutional investor base.",
+      },
+      {
+        term: "탭 발행 (Tap Issuance)",
+        termEn: "Tap Issuance",
+        definition: "이미 발행된 채권과 동일한 ISIN·조건으로 추가 발행하는 것. 기존 채권의 유동성을 높이고 발행 잔액을 늘릴 수 있다. 멕시코는 2010년 $10억 발행 후 2014년·2015년에 탭 발행을 통해 규모를 확대했다. 탭 발행 시 가격은 시장 수익률에 따라 원래 발행가와 달라질 수 있다.",
+        definitionEn: "The issuance of additional bonds under the same ISIN and terms as an existing bond. Increases liquidity and outstanding size. Mexico tapped its 2010 $1B issuance in 2014 and 2015 to grow the outstanding amount. Tap issuances price at current market yields, which may differ from the original issue price.",
+      },
+      {
+        term: "테킬라 위기 (Tequila Crisis, 1994)",
+        termEn: "Tequila Crisis (1994)",
+        definition: "1994년 멕시코 페소화의 갑작스런 평가절하로 시작된 EM 통화·금융 위기. 멕시코는 미국과 IMF의 긴급 구제금융($500억)을 받았으며, 이후 빠른 상환과 재정 긴축으로 신용 회복의 기반을 마련했다. 이 위기 이후 멕시코의 보수적 재정·통화 정책이 2010년 EM 최초 100년물 발행의 신용 기반이 됐다.",
+        definitionEn: "The currency and financial crisis triggered by Mexico's sudden peso devaluation in December 1994. Mexico received emergency financing ($50 billion) from the US and IMF, then repaid it rapidly while implementing fiscal austerity. The conservative monetary and fiscal framework built after this crisis became the credit foundation that enabled Mexico's 2010 first-EM century bond issuance.",
+      },
+      {
+        term: "투자등급 (Investment Grade)",
+        termEn: "Investment Grade",
+        definition: "S&P 기준 BBB- 이상, Moody's 기준 Baa3 이상인 신용 등급. 연기금·보험사 등 규제를 받는 기관 투자자들은 통상 투자등급 채권만 보유할 수 있다. 멕시코의 BBB/Baa1 등급은 아르헨티나(B)와 달리 이러한 투자자들이 100년물을 매입할 수 있는 법적·규정적 기반을 제공했다.",
+        definitionEn: "Credit ratings of BBB- or above (S&P) or Baa3 or above (Moody's). Regulated institutional investors such as pension funds and insurance companies are generally restricted to investment-grade bonds only. Mexico's BBB/Baa1 rating — unlike Argentina's B rating — provided the regulatory and mandate basis for such investors to purchase the century bond.",
+      },
+    ],
+    relatedMarket101Slugs: ["dcm-ecosystem", "reach-for-yield"],
+    relatedDealSlugs: ["argentina-100yr", "austria-100yr"],
+    executiveSummary: {
+      ko: [
+        "2010년 10월 멕시코, EM 최초 달러 100년물 $10억 발행 — 쿠폰 5.75%, T+175bp, 4배 초과청약",
+        "발행 가능 배경: 1994년 테킬라 위기 극복 후 BBB/Baa1 투자등급, 미국·IMF와의 관계, NAFTA 경제 통합",
+        "QE1이 만든 저금리 환경 — 미국 국채 수익률 역사적 저점, EM 5.75%가 매력적으로 보이는 배경",
+        "2014·2015년 탭 발행 포함 멕시코 100년물 지속 유지, 2024년 현재까지 디폴트 없음",
+        "아르헨티나(2017 발행 → 2020 디폴트)와의 대비: 신용 기반의 차이가 100년물 성패를 결정",
+      ],
+      en: [
+        "Oct 2010: Mexico issued the first EM dollar century bond — $1B at 5.75% coupon, T+175bp, 4x oversubscribed",
+        "Enabling factors: BBB/Baa1 investment grade after recovering from 1994 Tequila Crisis; NAFTA economic integration with the US",
+        "QE1-driven low-rate environment: US Treasury yields near historic lows made EM 5.75% yield attractive to global investors",
+        "Tapped in 2014 and 2015; as of 2024, Mexico has maintained this bond for 14 years without default",
+        "Contrast with Argentina (2017 issue → 2020 default): the difference in underlying credit quality determined success vs. failure",
+      ],
+    },
+    assessment: {
+      positives: [
+        "EM 100년물 선구자 — 멕시코가 확립한 시장, 이후 아르헨티나·칠레 등의 선례가 됨",
+        "신용 기반이 검증된 발행 — BBB 등급, 14년간 디폴트 없음으로 '신용 있는 EM은 100년물 가능' 실증",
+        "자금 조달 효율 극대화 — 2010년 역사적 저금리에 5.75% 고정, 향후 수십 년간 저비용 자금 확보",
+        "EM 채권 시장 심화 기여 — 100년물 발행이 성공함으로써 EM 초장기물 투자자 기반 형성에 기여",
+      ],
+      positivesEn: [
+        "EM century bond pioneer — Mexico established the market segment, becoming the precedent for Argentina, Chile, and others",
+        "Credit-backed issuance — BBB rating and 14 years without default proves 'creditworthy EM can sustain century bonds'",
+        "Funding cost efficiency — locked in 5.75% at 2010 historically low rates; ultra-cheap fixed funding for decades",
+        "EM bond market deepening — successful century bond issuance contributed to building an investor base for EM ultra-long debt",
+      ],
+      risks: [
+        "EM 100년물의 구조적 리스크 — 멕시코조차 100년 후 디폴트 확률이 수학적으로 0이 아님, 장기 국가 리스크 내재",
+        "듀레이션 리스크 — 수정 듀레이션 20년+ 수준으로 금리 1%p 상승 시 20%+ 가격 하락 가능",
+        "USD 표기 환율 리스크 — 멕시코 재정이 페소 기반인데 달러 채무 상환 의무, 페소 약세 시 상환 부담 증가",
+        "아르헨티나 선례 효과 — 멕시코 이후 아르헨티나의 100년물 발행과 디폴트가 EM 100년물 전반에 대한 시장 인식 악화",
+      ],
+      risksEn: [
+        "Structural EM century bond risk — even Mexico mathematically has non-zero probability of default over 100 years; long-term sovereign risk is inherent",
+        "Duration risk — modified duration 20+ years; a 1% yield rise causes 20%+ price decline",
+        "USD-denominated FX risk — Mexico's fiscal base is peso-denominated while dollar debt service obligations mean peso weakness increases repayment burden",
+        "Argentina precedent effect — Argentina's post-Mexico century bond issuance and default worsened market perception of EM century bonds broadly",
+      ],
+    },
+    faq: [
+      {
+        q: "멕시코가 EM 최초의 100년물을 발행할 수 있었던 핵심 이유는 무엇인가요?",
+        qEn: "What were the key reasons Mexico was able to issue the first EM century bond?",
+        a: "세 가지 요인이 결합됐습니다. 첫째, 신용 기반: 1994년 테킬라 위기 이후 보수적 재정·통화 정책을 유지해 BBB/Baa1 투자등급을 확보했습니다. 아르헨티나(B)나 브라질(BB)와 달리, 규제 기관 투자자들이 편입 가능한 등급이었습니다. 둘째, 미국과의 구조적 연결: NAFTA를 통한 경제 통합이 암묵적 안전망을 제공했습니다. 1994년 위기 시 미국의 지원을 받은 경험도 이 신뢰의 배경이었습니다. 셋째, 타이밍: 미국 QE1으로 금리가 역사적 저점에 있었고, 투자자들이 수익률을 찾아 EM으로 유입되는 시기였습니다.",
+        aEn: "Three factors combined. First, credit foundation: maintaining conservative fiscal and monetary policy after the 1994 Tequila Crisis produced BBB/Baa1 investment grade ratings — enabling regulated institutional investors to hold the bond, unlike Argentina (B) or Brazil (BB). Second, structural US connection: NAFTA economic integration provided an implicit safety net. US support during the 1994 crisis built a foundation of trust. Third, timing: US QE1 had pushed rates to historic lows, drawing yield-hungry investors into EM markets.",
+      },
+      {
+        q: "멕시코는 왜 하필 100년물을 선택했나요? 30년물이나 50년물이 아닌 이유는?",
+        qEn: "Why did Mexico specifically choose 100 years? Why not 30- or 50-year bonds?",
+        a: "두 가지 목적이 있었습니다. 첫째, '최초 EM 100년물'이라는 역사적 의미 자체가 마케팅 가치를 가졌습니다. 발행 당시 이 딜은 전세계 재무 언론의 주목을 받았고, 멕시코의 신용 여정을 상징하는 사건이 됐습니다. 둘째, 발행사 관점에서 자금 조달 비용 측면의 이점이 있었습니다. 30년물보다 100년물의 쿠폰이 높지만(당시 30년물이 약 5%였다면 100년물은 5.75%), 자금을 100년 동안 고정시키는 옵션 가치가 있습니다. 다시 발행해야 하는 리파이낸싱 리스크를 없애는 것도 이점입니다.",
+        aEn: "Two objectives were at play. First, being the 'first EM century bond' had inherent marketing value — the deal generated global financial media attention and became a symbol of Mexico's credit journey. Second, from an issuer funding perspective, there is an option value in locking in rates for 100 years. While the 100-year coupon (5.75%) was higher than the contemporary 30-year rate (~5%), fixing funding cost for a century eliminates refinancing risk over that period. The optionality of never having to rollover this tranche of debt was valuable.",
+      },
+      {
+        q: "멕시코와 아르헨티나 100년물 — 같은 EM 100년물인데 왜 결과가 이렇게 달랐나요?",
+        qEn: "Mexico and Argentina both issued EM century bonds — why did they turn out so differently?",
+        a: "신용 기반의 차이입니다. 멕시코는 BBB(투자등급), 아르헨티나는 B(투기등급 하단). 등급 차이가 단순한 숫자가 아닌 실질적 부도 확률을 반영합니다. 멕시코는 1994년 이후 단 한 번도 달러채 디폴트를 하지 않았습니다. 아르헨티나는 2017년 발행 전에 이미 여덟 차례 디폴트 기록이 있었습니다. 또한 제도적 차이도 큽니다. 멕시코 중앙은행은 독립적이고 보수적입니다. 아르헨티나는 페론주의와 신자유주의 사이를 진동하는 정치 사이클이 채무 이행 의지를 불확실하게 만듭니다. 같은 '100년물'이라는 이름이지만 사실상 다른 종류의 상품이었습니다.",
+        aEn: "The difference in underlying credit quality. Mexico was BBB (investment grade); Argentina was B (deep speculative). The rating difference reflects real default probability differentials, not just labels. Mexico had zero dollar bond defaults since 1994. Argentina had eight recorded defaults before the 2017 century bond was even issued. Institutional factors also differ fundamentally. Mexico's central bank is independent and conservative. Argentina's political cycle — oscillating between Peronism and neoliberalism — creates persistent uncertainty about debt-service willingness. Despite sharing the '100-year bond' label, these were fundamentally different products.",
+      },
+      {
+        q: "멕시코 100년물의 미래 — 2110년에 원금을 받을 수 있을까요?",
+        qEn: "What about the future of Mexico's century bond — will bondholders receive principal in 2110?",
+        a: "솔직히 아무도 알 수 없습니다. 2110년은 86년 후입니다. 그 시간 동안 무슨 일이 일어날지 — 기후 변화, 지정학적 변화, 기술 혁명, 정치 체제 변화 — 예측하는 것은 불가능합니다. 다만 확률적 시각으로 보면: 멕시코는 1980년대 외채 위기(Brady Bond 재조정) 이후 달러채 디폴트를 하지 않았습니다. BBB 등급 국가의 역사적 연간 디폴트율은 약 0.1~0.2% 수준입니다. 그러나 이것이 86년간 누적되면 약 8~16%의 디폴트 확률이 됩니다 — 낮지 않은 숫자입니다. 100년물 투자의 본질은 국가의 존속과 신용에 대한 초장기 베팅입니다.",
+        aEn: "Honestly, nobody knows. 2110 is 86 years away. What will happen in that time — climate change, geopolitical transformation, technological revolution, political regime changes — cannot be predicted. From a probabilistic perspective: Mexico has not defaulted on dollar bonds since the 1980s Brady Bond restructuring. Historical annual default rates for BBB-rated countries are approximately 0.1–0.2%. Compounded over 86 years, however, this produces roughly an 8–16% cumulative default probability — not negligible. The fundamental nature of a century bond investment is an ultra-long bet on a nation's survival and creditworthiness.",
+      },
+      {
+        q: "멕시코 100년물에 투자하는 것이 현재(2024년) 기준으로 적절한가요?",
+        qEn: "Is investing in Mexico's century bond appropriate in 2024?",
+        a: "투자자의 목적과 운용 지평에 따라 완전히 다릅니다. 연기금·생명보험사처럼 50년 이상의 부채 매칭이 필요한 기관에는 여전히 매력적인 ALM 수단일 수 있습니다. 반면 5~10년 운용 지평의 투자자에게는 수정 듀레이션 20년+의 금리 리스크가 핵심 우려사항입니다. 현재 수익률 수준(2024년 기준 약 6% 전후)과 멕시코의 현재 신용 상황, 미국 금리 전망을 모두 고려해야 합니다. 이 채권은 단순한 '멕시코 회사채'나 '10년 국채'가 아닙니다 — 초장기 국가 신용 리스크 + 극단적 금리 감도를 가진 특수 상품입니다.",
+        aEn: "It depends entirely on the investor's objective and investment horizon. For institutions needing to match 50+ year liabilities — pension funds, life insurers — it may still be a viable ALM instrument. For investors with 5–10 year horizons, the 20+ year modified duration is a dominant concern. Current yield levels (approximately 6% as of 2024), Mexico's current credit status, and US rate trajectory must all be considered. This is not simply 'Mexican credit' or 'a long-term government bond' — it is a specialized instrument with ultra-long sovereign credit risk combined with extreme rate sensitivity. Most standard fixed income mandates are not designed for this product.",
+      },
+    ],
+    references: [
+      {
+        id: 1,
+        author: "United Mexican States",
+        title: "Prospectus Supplement — 5.75% Global Notes due 2110",
+        source: "SEC Filing, October 2010",
+        year: "2010",
+      },
+      {
+        id: 2,
+        author: "Moody's Investors Service",
+        title: "Mexico Credit Outlook and Rating History",
+        source: "Moody's Rating Actions 2010–2024",
+        year: "2024",
+      },
+      {
+        id: 3,
+        author: "Bordo, Michael D. and Meissner, Christopher M.",
+        title: "Original Sin, Past and Present",
+        source: "NBER Working Paper Series",
+        year: "2006",
+        url: "https://www.nber.org/papers/w12668",
+      },
+      {
+        id: 4,
+        author: "Reinhart, Carmen M. and Rogoff, Kenneth S.",
+        title: "Serial Default and the 'Paradox' of Rich-to-Poor Capital Flows",
+        source: "American Economic Review, Papers and Proceedings",
+        year: "2004",
+      },
+    ],
   },
 
   {
