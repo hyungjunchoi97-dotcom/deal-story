@@ -2925,17 +2925,221 @@ This is not an AT1-specific issue. Many market 'conventions' depend not on contr
     readingMinutes: 12,
     tags: ["커버드본드", "Pfandbrief", "독일", "이중청구권", "구조화"],
     tagsEn: ["Covered Bond", "Pfandbrief", "Germany", "Dual Recourse", "Structured"],
-    published: false,
+    published: true,
     snapshot: [
       { labelKo: "기원", labelEn: "Origin", value: "1769 (프리드리히 대왕)" },
       { labelKo: "현재 잔액", labelEn: "Current Outstanding", value: "€400B+" },
       { labelKo: "구조", labelEn: "Structure", value: "이중청구권 (Dual Recourse)" },
       { labelKo: "등급", labelEn: "Rating", value: "주로 AAA" },
     ],
-    sections: [],
-    keyTerms: [],
+    sections: [
+      {
+        heading: "1769년, 전쟁 폐허에서 탄생한 채권",
+        headingEn: "1769: A Bond Born from the Ruins of War",
+        body:
+`7년전쟁(1756~1763)이 끝난 뒤, 프리드리히 2세(프리드리히 대왕)는 전쟁으로 황폐해진 실레지아 지방의 재건이라는 과제에 직면했다. 귀족과 지주들은 토지는 있었지만 현금이 없었고, 재건 자금을 빌릴 체계적 수단이 없었다.
+
+1769년 8월 29일, 프리드리히는 칙령(Kabinettsorder)을 내려 'Pfandbrief'를 창설했다. 독일어로 '담보 편지(pledge letter)'를 뜻하는 이 채권은 인류 최초의 커버드본드였다. 토지신용조합(Landschaft)이 귀족 토지를 담보로 채권을 발행하고, 그 채권을 투자자에게 판매하는 구조였다.
+
+핵심은 단순했다. 담보(토지)와 채권이 분리되지 않고 하나의 구조 안에 묶여 있었다. 발행자와 담보가 함께 책임지는 이 구조는 250년 이상 지속되며 오늘날 유럽 커버드본드 시장(€3T+)의 원형이 됐다.`,
+        bodyEn:
+`After the Seven Years' War (1756–1763), Frederick II faced the challenge of rebuilding the devastated province of Silesia. Nobles and landowners had estates but no cash, and lacked systematic means to borrow reconstruction funds.
+
+On August 29, 1769, Frederick issued a royal cabinet order (Kabinettsorder) creating the Pfandbrief. The name means 'pledge letter' in German — and it was the world's first covered bond. Land Credit Societies (Landschaften) issued bonds backed by noble estates and sold them to investors.
+
+The core was simple: collateral (land) and bond were not separated but bound together in one structure. Issuer and collateral bearing joint responsibility — this structure has endured for over 250 years and became the prototype for today's European covered bond market (€3T+).`,
+      },
+      {
+        heading: "이중청구권: 왜 다른 채권보다 안전한가",
+        headingEn: "Dual Recourse: Why It's Safer Than Other Bonds",
+        body:
+`Pfandbrief의 핵심 강점은 이중청구권(Dual Recourse)이다. 일반 은행채 투자자는 발행 은행이 파산하면 일반 채권자 지위가 되어 채무 조정 대상이 된다. 그러나 Pfandbrief 투자자는 두 개의 청구권을 동시에 갖는다.
+
+① 발행 은행에 대한 일반 채권자 청구권
+② 법적으로 ring-fence(분리 보호)된 커버풀(Cover Pool)에 대한 직접 청구권
+
+커버풀은 발행 은행의 재무상태표에 유지된다. 하지만 법적으로 완전히 격리되어 있어, 은행이 파산해도 커버풀 자산은 일반 파산 재단에 편입되지 않는다. 오직 Pfandbrief 투자자를 위해서만 존재하며, 별도로 지정된 독립 감시자(Treuhänder)가 상시 관리한다.
+
+실제로 독일 Pfandbrief 역사 250년 동안 원리금이 불이행된 사례는 없다. 이는 커버드본드 구조가 지닌 이중 안전망의 강력함을 보여준다.`,
+        bodyEn:
+`The defining strength of Pfandbrief is dual recourse. Ordinary bank bond investors become general creditors subject to debt restructuring if the bank fails. But Pfandbrief investors simultaneously hold two claims:
+
+① A general creditor claim against the issuing bank
+② A direct claim against the legally ring-fenced cover pool
+
+The cover pool remains on the issuing bank's balance sheet — but is completely legally segregated. Even if the bank fails, the cover pool assets are not folded into the general bankruptcy estate. They exist solely for Pfandbrief investors, managed continuously by a designated independent monitor (Treuhänder).
+
+In 250+ years of German Pfandbrief history, there has never been a principal or interest default. This testifies to the power of the covered bond structure's dual safety net.`,
+      },
+      {
+        heading: "2008년 MBS는 무너졌고 Pfandbrief는 살아남은 이유",
+        headingEn: "Why MBS Collapsed in 2008 While Pfandbrief Survived",
+        body:
+`2008년 금융위기는 미국 MBS(주택저당증권) 구조의 붕괴에서 촉발됐다. MBS는 은행이 모기지를 originate하고 SPV에 진정 양도(true sale)해 off-balance-sheet으로 내보내는 구조다. 리스크가 이전되자 대출 기준이 무너졌다 — 은행은 부실 모기지를 팔고 나면 그 결과에 무관심해졌다.
+
+Pfandbrief는 정반대 구조다. 담보 자산이 은행 장부에 남는다(on-balance-sheet). 커버풀에 담긴 모기지가 부실화되면 은행이 직접 손실을 입는다. 이 구조가 역설적으로 인센티브를 정렬시켰다. 은행이 스스로 커버풀 자산 품질에 이해관계를 가지기 때문이다.
+
+또 다른 차이는 투명성이다. MBS는 복잡한 트랜치 구조와 CDS/CDO로 정보 비대칭이 극심했다. Pfandbrief는 커버풀 구성이 법으로 엄격히 규정되고, Treuhänder가 적격성을 상시 검증했다. 2008년 최악의 위기에서도 독일 Pfandbrief 시장은 스프레드가 확대됐지만 거래는 지속됐다.`,
+        bodyEn:
+`The 2008 financial crisis was triggered by the collapse of the U.S. MBS structure. MBS involved banks originating mortgages, selling them via true sale to SPVs, and removing them off-balance-sheet. Once risk was transferred, lending standards collapsed — banks became indifferent to the quality of mortgages they originated.
+
+Pfandbrief operates in the opposite direction. Collateral assets remain on-balance-sheet. If mortgages in the cover pool sour, the bank directly absorbs the loss. This structure paradoxically aligned incentives: banks retain a direct stake in cover pool asset quality.
+
+Another difference is transparency. MBS suffered extreme information asymmetry through complex tranching and CDS/CDO layering. Pfandbrief cover pool composition is strictly regulated by law, and the Treuhänder verifies eligibility continuously. Even during the worst of the 2008 crisis, while Pfandbrief spreads widened, the market continued to function.`,
+      },
+      {
+        heading: "Pfandbrief법 2005: 현대화와 세 가지 유형",
+        headingEn: "Pfandbrief Act 2005: Modernization and Three Types",
+        body:
+`2005년 Pfandbriefgesetz(Pfandbrief법)는 분산돼 있던 기존 법령들을 통합하며 현대적 기준을 확립했다. 이 법은 Pfandbrief의 세 가지 유형을 공식화했다.
+
+① Hypothekenpfandbrief (주택·상업용 부동산 담보): 가장 일반적인 유형. LTV 60% 한도 규정. 주거·상업용 모기지가 커버풀 구성.
+② Öffentlicher Pfandbrief (공공기관 대출 담보): 연방·주정부·지방자치단체에 대한 대출이 커버풀을 구성.
+③ Schiffspfandbrief (선박 담보): 선박 금융 전용. LTV 60% 한도.
+
+법은 또한 Treuhänder(커버풀 감시자) 제도를 명문화했다. BaFin이 임명하는 독립 감시자가 커버풀 자산 적격성, 법정 과잉담보(overcollateralization) 비율 준수를 상시 검증한다. Pfandbrief 발행 자체에도 BaFin의 별도 인가가 필요하다.
+
+과잉담보(OC)는 커버풀 자산 총액이 Pfandbrief 잔액 대비 2% 이상 초과하도록 의무화한다. 이 추가 완충장치가 투자자 보호를 한층 강화한다.`,
+        bodyEn:
+`The 2005 Pfandbriefgesetz (Pfandbrief Act) consolidated previously scattered legislation and established modern standards. The law formalized three types of Pfandbrief:
+
+① Hypothekenpfandbrief (residential/commercial mortgage-backed): the most common type, with a 60% LTV cap. Residential and commercial mortgages form the cover pool.
+② Öffentlicher Pfandbrief (public-sector backed): loans to federal, state, and municipal governments form the cover pool.
+③ Schiffspfandbrief (ship-backed): specialized for maritime finance, with a 60% LTV cap.
+
+The law also codified the Treuhänder (cover pool monitor) institution. An independent monitor appointed by BaFin continuously verifies cover pool asset eligibility and compliance with the statutory overcollateralization ratio. Issuing Pfandbrief also requires separate BaFin authorization.
+
+Overcollateralization (OC) requires total cover pool assets to exceed Pfandbrief outstanding by at least 2%. This additional buffer further strengthens investor protection.`,
+      },
+      {
+        heading: "현대 시장: 유럽 커버드본드의 벤치마크",
+        headingEn: "Modern Market: The Benchmark of European Covered Bonds",
+        body:
+`현재 독일 Pfandbrief 잔액은 €400B+에 달하며, 유럽 커버드본드 전체 시장(€3T+ 추산)의 핵심 벤치마크다.
+
+스프레드 수준은 독일 국채(Bund) 대비 통상 10~40bp. 동일 발행 은행의 무담보 선순위채(senior unsecured)보다 압도적으로 타이트하다. 생명보험사·연기금 등 고품질 담보채 수요가 스프레드를 지탱한다. 등급은 대부분 AAA 수준을 유지한다.
+
+2019년 EU는 커버드본드 지침(Covered Bond Directive, ECBD)을 도입해 회원국 법령을 조화시켰다. 독일 Pfandbrief 모델이 유럽 표준으로 확산되는 흐름이 가속됐다. 프랑스(Obligations Foncières), 스페인(Cédulas Hipotecarias), 덴마크(Realkreditobligationer) 등이 유사한 커버드본드 시장을 갖고 있다.
+
+한국에서도 2014년 커버드본드법이 통과됐고, 국내 은행들이 이 구조를 활용해 해외 자금을 조달하는 사례가 늘었다. Pfandbrief의 250년 생존은 단순하고 검증된 안전망 구조가 얼마나 강력한지를 보여준다.`,
+        bodyEn:
+`Current German Pfandbrief outstanding stands at €400B+, serving as the key benchmark for the broader European covered bond market (estimated €3T+).
+
+Spreads typically run 10–40bp over German Bunds, dramatically tighter than the same bank's unsecured senior bonds. Life insurer and pension fund demand for high-quality collateralized debt underpins spreads. Most issuance carries AAA ratings.
+
+In 2019, the EU introduced the Covered Bond Directive (ECBD), harmonizing member-state legislation. The German Pfandbrief model's adoption as the European standard accelerated. France (Obligations Foncières), Spain (Cédulas Hipotecarias), and Denmark (Realkreditobligationer) all operate similar covered bond markets.
+
+In South Korea, a Covered Bond Act was passed in 2014, and domestic banks increasingly use the structure to raise overseas funding. The 250-year survival of the Pfandbrief demonstrates how powerful a simple, battle-tested safety net structure can be.`,
+      },
+    ],
+    keyTerms: [
+      {
+        term: "커버드본드 (Covered Bond)",
+        termEn: "Covered Bond",
+        definition: "투자자가 발행 은행과 법적으로 분리된 커버풀 자산 모두에 청구권을 갖는 이중청구권 구조의 담보부 채권. Pfandbrief가 전형적 사례로, 250년 이상의 역사를 가진다.",
+        definitionEn: "A secured bond in which investors hold dual recourse against both the issuing bank and a legally segregated cover pool of assets. The Pfandbrief is the archetypal example, with a history spanning 250+ years.",
+      },
+      {
+        term: "이중청구권 (Dual Recourse)",
+        termEn: "Dual Recourse",
+        definition: "커버드본드 투자자가 ① 발행 은행에 대한 일반 채권자 청구권과 ② 법적으로 ring-fence된 커버풀에 대한 직접 청구권을 동시에 보유하는 구조. 발행자 파산 시에도 커버풀 자산에서 원리금 회수 가능.",
+        definitionEn: "A structure where covered bond investors simultaneously hold ① a general creditor claim against the issuing bank and ② a direct claim against the legally ring-fenced cover pool. Even in issuer insolvency, investors can recover from cover pool assets.",
+      },
+      {
+        term: "커버풀 (Cover Pool)",
+        termEn: "Cover Pool",
+        definition: "Pfandbrief 투자자 보호를 위해 법적으로 ring-fence된 담보 자산 집합. 발행 은행 장부에 유지되지만 파산 절차에서 격리 관리된다. 모기지(LTV 60% 이하), 공공기관 대출, 선박 대출 등으로 구성.",
+        definitionEn: "A legally ring-fenced pool of collateral assets maintained for the protection of Pfandbrief investors. Kept on the issuing bank's balance sheet but isolated from insolvency proceedings. Composed of mortgages (LTV ≤60%), public-sector loans, and ship loans.",
+      },
+      {
+        term: "Treuhänder (커버풀 감시자)",
+        termEn: "Treuhänder (Cover Pool Monitor)",
+        definition: "BaFin이 임명하는 독립적 커버풀 감시자. 커버풀 자산 적격성, 법정 과잉담보(OC) 비율 준수 여부를 상시 검증한다. Pfandbrief의 투명성과 신뢰성의 핵심 제도적 장치.",
+        definitionEn: "An independent cover pool monitor appointed by BaFin. Continuously verifies cover pool asset eligibility and compliance with the statutory overcollateralization ratio. The key institutional mechanism underpinning Pfandbrief transparency and trustworthiness.",
+      },
+    ],
     relatedMarket101Slugs: [],
-    references: [],
+    relatedDealSlugs: ["santander-at1-no-call", "eu-ngeu-bonds"],
+    executiveSummary: {
+      ko: [
+        "1769년 프리드리히 대왕 칙령으로 탄생 — 7년전쟁 후 실레지아 재건 자금 조달 수단으로 인류 최초의 커버드본드 창설",
+        "이중청구권(Dual Recourse): 투자자가 발행 은행 + ring-fence된 커버풀 양쪽에 청구 — 250년 역사에서 단 한 번도 원리금 불이행 없음",
+        "2008년 금융위기 생존 비결: on-balance-sheet 구조로 은행 인센티브 정렬, 단순 투명한 커버풀 구성, Treuhänder 상시 감시",
+        "2005년 Pfandbrief법으로 현대화 — 모기지·공공기관·선박 3가지 유형, BaFin 인가, 법정 OC 의무",
+        "현재 €400B+ 잔액, Bund 대비 10~40bp 스프레드, 대부분 AAA — 유럽 전역 커버드본드 표준 모델",
+      ],
+      en: [
+        "Born from Frederick the Great's 1769 edict — created as a reconstruction financing tool after the Seven Years' War; the world's first covered bond",
+        "Dual recourse: investors claim against both the bank and ring-fenced cover pool — in 250+ years of history, zero principal or interest defaults",
+        "2008 crisis survival: on-balance-sheet structure aligned bank incentives, simple transparent cover pool, continuous Treuhänder monitoring",
+        "2005 Pfandbrief Act modernization — three types (mortgage, public sector, ship), BaFin authorization, mandatory OC",
+        "Currently €400B+ outstanding, 10–40bp spread over Bunds, mostly AAA — the standard model for European covered bonds",
+      ],
+    },
+    assessment: {
+      positives: [
+        "250년 무결점 이력 — 단 한 번도 원리금 불이행 없이 세계 최장 기간 신용 기록을 유지",
+        "이중청구권 구조 — 발행사 파산에도 커버풀에서 회수 가능, 일반 은행채 대비 월등한 투자자 보호",
+        "2008년 금융위기에서 커버드본드의 구조적 우월성 실증 — off-balance-sheet MBS 대비 인센티브 정렬",
+        "높은 유동성과 좁은 스프레드 — AAA 등급과 규격화된 구조로 안정적 기관 투자자 수요 확보",
+      ],
+      positivesEn: [
+        "250-year spotless record — longest unbroken credit history in the world with zero principal or interest defaults",
+        "Dual recourse structure — recoverable from cover pool even in issuer insolvency; superior investor protection vs unsecured bank bonds",
+        "Proved structural superiority during 2008 crisis — incentive alignment vs off-balance-sheet MBS",
+        "High liquidity and tight spreads — stable institutional investor demand secured by AAA rating and standardized structure",
+      ],
+      risks: [
+        "커버풀 자산 가치 하락 리스크 — 부동산 가격 급락 시 LTV 60% 한도도 불충분할 수 있음",
+        "발행 은행 건전성과의 연계 — 이중청구권 구조이지만, 은행 파산 시 커버풀 관리가 복잡해짐",
+        "금리 리스크 — 장기 고정 금리 커버드본드는 금리 급등 시 커버풀 자산과의 듀레이션 불일치 발생",
+        "Greenium 유사 현상 — 규제 자본 완화 혜택으로 발행사가 유리해지는 반면 투자자 수익률 압박",
+      ],
+      risksEn: [
+        "Cover pool asset value risk — even the 60% LTV cap may be insufficient in severe real estate price crashes",
+        "Linkage to bank health — despite dual recourse, cover pool management becomes complex in actual bank insolvency",
+        "Interest rate risk — long-duration fixed-rate covered bonds can face duration mismatches with cover pool assets in rapid rate rises",
+        "Greenium-analog effect — regulatory capital relief benefits issuers while compressing investor yields",
+      ],
+    },
+    faq: [
+      {
+        q: "Pfandbrief와 일반 은행채의 가장 큰 차이는 무엇인가요?",
+        qEn: "What is the biggest difference between a Pfandbrief and an ordinary bank bond?",
+        a: "이중청구권(Dual Recourse) 구조입니다. 일반 은행채는 발행 은행이 파산하면 투자자가 일반 채권자 지위로 채무 조정 대상이 됩니다. Pfandbrief는 발행 은행이 파산해도 법적으로 ring-fence된 커버풀 자산에 직접 청구할 수 있습니다. 250년 역사에서 원리금 불이행이 단 한 번도 없었습니다.",
+        aEn: "The dual recourse structure. With ordinary bank bonds, if the issuing bank fails, investors become general creditors subject to debt restructuring. With Pfandbrief, even if the bank fails, investors can claim directly against the legally ring-fenced cover pool. In 250+ years of history, there has never been a single principal or interest default.",
+      },
+      {
+        q: "2008년 금융위기에서 MBS는 무너졌는데 Pfandbrief는 어떻게 살아남았나요?",
+        qEn: "MBS collapsed in 2008 but Pfandbrief survived — how?",
+        a: "핵심 차이는 on-balance-sheet 구조입니다. MBS는 담보 자산을 off-balance-sheet으로 매각해 은행이 위험을 제거했고, 그 결과 대출 기준이 무너졌습니다. Pfandbrief는 담보가 은행 장부에 남아 은행 스스로 자산 품질에 이해관계를 가집니다. 또한 독립 감시자(Treuhänder)와 엄격한 법적 요건이 커버풀 품질을 상시 관리했습니다.",
+        aEn: "The key difference is the on-balance-sheet structure. MBS transferred collateral assets off-balance-sheet, removing bank risk and causing lending standards to collapse. Pfandbrief keeps collateral on the bank's books, so the bank retains a direct stake in asset quality. Additionally, the independent Treuhänder and strict legal requirements continuously managed cover pool quality.",
+      },
+      {
+        q: "커버풀에는 어떤 자산이 편입될 수 있나요?",
+        qEn: "What assets can be included in the cover pool?",
+        a: "유형에 따라 다릅니다. Hypothekenpfandbrief: 주택·상업 모기지(LTV 60% 한도). Öffentlicher Pfandbrief: 연방·주·지방정부 대출. Schiffspfandbrief: 선박 금융 대출(LTV 60% 한도). 모든 자산은 법정 적격성 기준을 충족해야 하며, 커버풀 전체는 법정 과잉담보(OC) 비율 이상을 유지해야 합니다.",
+        aEn: "It depends on the type. Hypothekenpfandbrief: residential/commercial mortgages (60% LTV cap). Öffentlicher Pfandbrief: loans to federal, state, and municipal governments. Schiffspfandbrief: ship finance loans (60% LTV cap). All assets must meet statutory eligibility criteria, and the overall pool must maintain the required overcollateralization ratio.",
+      },
+      {
+        q: "Pfandbrief의 금리 수준은 어느 정도인가요?",
+        qEn: "What are Pfandbrief yield levels like?",
+        a: "독일 국채(Bund) 대비 통상 10~40bp 가산 수준입니다. 동일 은행의 무담보 선순위채보다는 훨씬 낮습니다(50~150bp 이상 차이 가능). 대부분 AAA 등급을 유지하며, 생명보험사·연기금·중앙은행 등 고품질 자산을 선호하는 기관 투자자들에게 선호받습니다.",
+        aEn: "Typically 10–40bp above German Bunds. This is dramatically tighter than the same bank's unsecured senior bonds (which might be 50–150bp+ wider). Most carry AAA ratings and are favored by institutional investors requiring high-quality assets — life insurers, pension funds, and central banks.",
+      },
+      {
+        q: "독일 외 다른 나라에도 Pfandbrief 같은 커버드본드가 있나요?",
+        qEn: "Are there Pfandbrief-like covered bonds in countries other than Germany?",
+        a: "네, 많습니다. 프랑스(Obligations Foncières), 스페인(Cédulas Hipotecarias), 덴마크(Realkreditobligationer), 스웨덴, 노르웨이 등이 유사한 시장을 운영합니다. 2019년 EU는 커버드본드 지침(ECBD)으로 회원국 법령을 조화시켰습니다. 한국에서도 2014년 커버드본드법이 통과됐습니다. 전 세계적으로 독일 Pfandbrief 모델이 표준으로 인정받고 있습니다.",
+        aEn: "Yes, many. France (Obligations Foncières), Spain (Cédulas Hipotecarias), Denmark (Realkreditobligationer), Sweden, Norway, and others operate similar markets. The EU's 2019 Covered Bond Directive (ECBD) harmonized member-state legislation. South Korea also passed a Covered Bond Act in 2014. Globally, the German Pfandbrief model is recognized as the standard.",
+      },
+    ],
+    references: [
+      { id: 1, author: "Verband deutscher Pfandbriefbanken (vdp)", title: "The Pfandbrief: Facts and Figures", source: "vdp Annual Publication", year: "2023", url: "https://www.pfandbrief.de/site/en/vdp/pfandbrief/facts.html" },
+      { id: 2, author: "European Covered Bond Council (ECBC)", title: "ECBC European Covered Bond Fact Book", source: "ECBC", year: "2023", url: "https://www.ecbc.eu/resources/covered-bond-fact-book" },
+      { id: 3, author: "BaFin", title: "Pfandbrief Banks — Supervision and Regulation", source: "Federal Financial Supervisory Authority", year: "2023", url: "https://www.bafin.de/EN/Aufsicht/BankenFinanzdienstleister/Pfandbrief/pfandbrief_node.html" },
+      { id: 4, author: "European Parliament & Council", title: "Directive 2019/2162 on the Issue of Covered Bonds (ECBD)", source: "Official Journal of the European Union", year: "2019", url: "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32019L2162" },
+    ],
   },
 
   {
@@ -2953,17 +3157,239 @@ This is not an AT1-specific issue. Many market 'conventions' depend not on contr
     readingMinutes: 11,
     tags: ["마이너스금리", "독일", "Bund", "금리정책", "ECB"],
     tagsEn: ["Negative Yield", "Germany", "Bund", "Rate Policy", "ECB"],
-    published: false,
+    published: true,
     snapshot: [
       { labelKo: "발행사", labelEn: "Issuer", value: "Federal Republic of Germany" },
       { labelKo: "기간", labelEn: "Period", value: "2016–2019" },
       { labelKo: "최저 수익률", labelEn: "Lowest Yield", value: "-0.71% (2019)" },
       { labelKo: "잔액 (최대)", labelEn: "Peak Outstanding", value: "~$17T 글로벌 음수익률채" },
     ],
-    sections: [],
-    keyTerms: [],
+    sections: [
+      {
+        heading: "마이너스 금리의 탄생: ECB의 비상 실험",
+        headingEn: "The Birth of Negative Yields: The ECB's Emergency Experiment",
+        body:
+`2014년 6월, 유럽중앙은행(ECB)은 전례 없는 결정을 내렸다. 예금금리를 -0.1%로 인하한 것이다. 은행이 ECB에 돈을 맡기면 이자를 받는 것이 아니라 오히려 보관료를 내야 했다. ZIRP(제로 금리 정책)를 넘어 NIRP(마이너스 금리 정책)의 시대가 열렸다.
+
+배경은 유로존 위기 이후의 디플레이션 공포였다. 그리스·스페인·이탈리아 위기가 진정됐지만 경제 성장은 더뎠고, 물가는 0%에 수렴했다. ECB는 일본식 '잃어버린 20년'을 막기 위해 모든 수단을 동원했다.
+
+2015년 3월, ECB는 QE(자산매입 프로그램)까지 가동했다. 매월 €600억 이상의 국채를 매입했다. 독일 국채(Bund) 매입 수요가 급증하자 10년물 금리가 0%를 향해 내려갔다. 2016년에 처음으로 독일 10년물 금리가 마이너스 영역에 진입했다. 이후 ECB 예금금리는 -0.5%까지 낮아졌다.`,
+        bodyEn:
+`In June 2014, the European Central Bank (ECB) made an unprecedented decision: it cut its deposit rate to -0.1%. Banks depositing money with the ECB would now pay rather than receive interest. The era had moved beyond ZIRP (Zero Interest Rate Policy) into NIRP (Negative Interest Rate Policy).
+
+The backdrop was deflation fear following the Eurozone crisis. Greece, Spain, and Italy had stabilized, but economic growth was sluggish and inflation was approaching zero. The ECB deployed every tool available to prevent a Japanese-style 'lost decade.'
+
+In March 2015, the ECB also launched QE (Asset Purchase Programme), purchasing €60B+ in government bonds monthly. Surging demand for German Bunds pushed 10-year yields toward zero. By 2016, German 10-year yields entered negative territory for the first time. ECB deposit rates were eventually cut to -0.5%.`,
+      },
+      {
+        heading: "마이너스 금리 채권을 왜 샀나: 여섯 가지 이유",
+        headingEn: "Why Anyone Bought Negative Yield Bonds: Six Reasons",
+        body:
+`"확실히 돈 잃는 채권을 왜 사나?"라는 질문은 상식적으로 당연하다. 그러나 채권시장에는 단순한 수익률 추구 이상의 매수 이유가 존재한다.
+
+① 규제 의무: 보험사·은행은 규제상 안전자산(국채)을 일정 비율 보유해야 한다. 금리가 마이너스여도 대안이 없다.
+
+② 자본차익 기대: 금리가 더 낮아지면 채권 가격이 오른다. -0.3%에 매수해 -0.5%에 팔면 자본차익이 발생한다.
+
+③ FX 헤지 후 플러스 전환: 미국 달러 투자자가 유로 채권을 사고 USD/EUR를 헤지하면, 금리 차이(크로스커런시 베이시스)로 인해 실제 수익률이 플러스가 되는 경우가 있었다.
+
+④ 디플레이션 헤지: 명목 금리가 -0.5%여도 실질 인플레이션이 -1%라면 실질 수익률은 +0.5%다.
+
+⑤ 안전자산 도피처: 위기 시 자본 보존이 최우선인 투자자에게는 소폭 손실을 감수한 안전이 중요하다.
+
+⑥ TINA(There Is No Alternative): 전 세계 마이너스 수익률 채권이 $17T에 달했던 시기에는, 마이너스여도 Bund가 최선이었다.`,
+        bodyEn:
+`"Why buy a bond guaranteed to lose money?" is a commonsense question. But bond markets contain buying motivations beyond simple yield pursuit.
+
+① Regulatory mandate: insurers and banks must hold a certain proportion of safe assets (government bonds) by regulation. No alternative exists even if yields are negative.
+
+② Capital gain expectation: if rates fall further, bond prices rise. Buying at -0.3% and selling at -0.5% generates capital gains.
+
+③ FX-hedged positive yield: U.S. dollar investors buying euro bonds and hedging USD/EUR sometimes ended up with positive returns due to cross-currency basis effects.
+
+④ Deflation hedge: even at -0.5% nominal yield, if real inflation is -1%, real yield is +0.5%.
+
+⑤ Safe-haven flight: for investors prioritizing capital preservation in a crisis, slight losses are acceptable for safety.
+
+⑥ TINA (There Is No Alternative): when $17T in global bonds carried negative yields, Bunds were the best option even at negative rates.`,
+      },
+      {
+        heading: "마이너스 금리의 정점: 10년물 -0.71% (2019년 8월)",
+        headingEn: "The Apex: 10-Year Bund at -0.71% (August 2019)",
+        body:
+`2019년 8월, 독일 10년물 국채 금리는 사상 최저점인 -0.71%를 기록했다. 30년물도 잠시 마이너스 영역에 진입했다.
+
+촉발 요인은 복합적이었다. 미-중 무역전쟁 격화(트럼프 8월 추가 관세), 글로벌 제조업 경기 침체, 브렉시트 불확실성, 홍콩 시위 확대, 아르헨티나 채권 급락. 안전자산 수요가 폭발했다.
+
+그 시점 전 세계에서 마이너스 수익률로 거래되는 채권은 약 $17T(17조 달러)에 달했다. 독일·일본·스위스·프랑스·네덜란드 국채는 거의 모든 만기에서 마이너스였다. 덴마크에서는 마이너스 금리 주택담보대출도 등장했다.
+
+이 시기는 금융 이론의 기본 가정이 무너진 시대였다. 화폐 시간가치(time value of money)는 항상 플러스여야 한다는 전제 — 이 가정이 채권시장에서 명백히 기각됐다.`,
+        bodyEn:
+`In August 2019, the German 10-year Bund yield hit an all-time low of -0.71%. The 30-year Bund briefly entered negative territory as well.
+
+The triggers were multiple: U.S.-China trade war escalation (Trump's August additional tariffs), global manufacturing recession, Brexit uncertainty, Hong Kong protests, Argentine bond collapse. Demand for safe assets exploded.
+
+At that point, global bonds trading at negative yields totaled approximately $17 trillion. German, Japanese, Swiss, French, and Dutch government bonds were negative across nearly all maturities. In Denmark, negative-rate mortgages even emerged.
+
+This period represented an era when a basic assumption of financial theory broke down. The time value of money — always positive in theory — was demonstrably refuted in bond markets.`,
+      },
+      {
+        heading: "2022년: 마이너스 금리의 종말",
+        headingEn: "2022: The End of Negative Yields",
+        body:
+`2022년 2월, 러시아의 우크라이나 침공이 모든 것을 바꿨다. 에너지 공급 쇼크와 공급망 붕괴가 겹치면서 유로존 인플레이션이 10%를 향해 치솟았다. ECB는 더 이상 금리를 낮게 유지할 수 없었다.
+
+ECB는 2022년 7월부터 2023년 9월까지 450bp의 금리 인상을 단행했다. 450bp — 단 14개월 만에 4.5%포인트 인상. 역사상 가장 빠른 유럽 긴축 사이클이었다.
+
+독일 10년물 금리는 -0.71%에서 불과 18개월 만에 +2.5%를 넘어섰다. 약 3.2%포인트의 금리 상승은 채권 가격의 폭락을 의미했다. $17T 규모의 마이너스 금리 채권 풀은 사실상 증발했다.
+
+그 과정에서 마이너스 금리 채권을 보유했던 투자자들은 큰 평가 손실을 입었다. 만기까지 보유하면 원리금은 보장되지만, 시장가치 기준으로는 역대급 채권 시장 하락이었다. 미국에서는 이 과정이 SVB 붕괴(2023)의 직접적 원인이 됐다.`,
+        bodyEn:
+`In February 2022, Russia's invasion of Ukraine changed everything. Energy supply shocks combined with supply chain disruptions sent Eurozone inflation toward 10%. The ECB could no longer keep rates low.
+
+The ECB hiked 450bp between July 2022 and September 2023 — 4.5 percentage points in just 14 months. The fastest European tightening cycle in history.
+
+German 10-year yields went from -0.71% to above +2.5% in just 18 months — a roughly 3.2 percentage point rise, meaning bond prices collapsed. The $17T pool of negative-yield bonds essentially evaporated.
+
+In the process, investors holding negative-yield bonds suffered massive mark-to-market losses. Principal is guaranteed to maturity, but on a market-value basis, it was one of the greatest bond market selloffs in history. In the U.S., this process was a direct cause of the SVB collapse (2023).`,
+      },
+      {
+        heading: "마이너스 금리 시대의 유산과 교훈",
+        headingEn: "Legacy and Lessons of the Negative Yield Era",
+        body:
+`마이너스 금리 시대는 여러 왜곡과 교훈을 남겼다.
+
+**좀비 기업 문제**: 초저금리가 지속되면서 이자도 못 내는 기업들이 '연명 자금조달'로 살아남았다. 유럽·일본에서 생산성 낮은 기업들이 자본을 묶어두며 경제 활력을 낮췄다.
+
+**은행 수익성 압박**: 은행은 예금 금리를 마이너스로 가져가기 어려웠다(예금자 이탈 우려). NIM(순이자마진)이 압박받아 은행 수익성이 악화됐다.
+
+**자산 거품**: 채권 수익률이 마이너스인 환경에서 위험자산(주식·부동산)으로의 자금 흐름이 가속됐다. 독일·스웨덴·노르웨이 등에서 부동산 버블 형성.
+
+**채권 투자자 교훈**: 만기까지 보유 전제로 매입한 마이너스 채권도 금리 급등 시 중간 과정의 시장 손실이 엄청날 수 있다. 듀레이션 리스크(duration risk)의 실질적 교훈.
+
+결국 마이너스 금리 시대는 "채권 수익률은 항상 플러스"라는 상식이 얼마나 취약한 가정이었는지를 증명했다.`,
+        bodyEn:
+`The negative yield era left behind several distortions and lessons.
+
+**Zombie company problem**: with ultra-low rates persisting, companies unable to even pay interest survived through 'life-support financing.' In Europe and Japan, low-productivity companies tied up capital and reduced economic vitality.
+
+**Bank profitability pressure**: banks struggled to pass negative rates to depositors (fearing deposit flight). Net interest margins (NIM) were squeezed, impairing bank profitability.
+
+**Asset bubbles**: with bond yields negative, capital flows accelerated into risk assets (equities, real estate). Property bubbles formed in Germany, Sweden, Norway, and elsewhere.
+
+**Bond investor lesson**: even negative-yield bonds held to maturity guarantee principal repayment, but intermediate market losses from a sudden rate spike can be enormous. The real-world lesson in duration risk.
+
+Ultimately, the negative yield era proved how fragile the assumption that 'bond yields are always positive' actually was.`,
+      },
+    ],
+    keyTerms: [
+      {
+        term: "NIRP (마이너스 금리 정책)",
+        termEn: "NIRP (Negative Interest Rate Policy)",
+        definition: "중앙은행 기준금리를 0% 이하로 설정하는 비전통적 통화 정책. ECB(2014), 일본은행(2016), 스위스 국립은행 등이 채택. 은행의 ECB 예치금에 '보관료'를 부과해 대출·소비 유도가 목적.",
+        definitionEn: "An unconventional monetary policy setting the central bank policy rate below zero. Adopted by the ECB (2014), Bank of Japan (2016), Swiss National Bank, and others. The goal is to charge banks a 'storage fee' on ECB deposits, incentivizing lending and spending.",
+      },
+      {
+        term: "마이너스 수익률 채권",
+        termEn: "Negative Yield Bond",
+        definition: "만기까지 보유 시 원금보다 적은 금액을 회수하는 채권. 발행 시 마이너스 쿠폰이거나, 이차 시장에서 액면가 이상으로 거래되어 수익률이 마이너스가 된 채권. 2019년 8월 전 세계 잔액 $17T 최고점.",
+        definitionEn: "A bond where the investor receives less than the principal at maturity. Either issued with a negative coupon, or trading above par in the secondary market such that the yield is negative. Global outstanding peaked at $17T in August 2019.",
+      },
+      {
+        term: "듀레이션 리스크 (Duration Risk)",
+        termEn: "Duration Risk",
+        definition: "금리 변동에 따른 채권 가격 변동 위험. 만기가 길수록, 쿠폰이 낮을수록 듀레이션이 높아 금리 상승 시 가격 하락이 크다. 마이너스 금리 채권은 쿠폰이 0에 가까워 듀레이션이 극도로 높고, 금리 정상화 시 막대한 손실이 발생한다.",
+        definitionEn: "The risk of bond price changes due to interest rate movements. The longer the maturity and lower the coupon, the higher the duration and the larger the price decline on rate rises. Negative-yield bonds have near-zero coupons and extremely high duration, generating massive losses when rates normalize.",
+      },
+      {
+        term: "TINA (There Is No Alternative)",
+        termEn: "TINA (There Is No Alternative)",
+        definition: "다른 투자 대안이 없어 어쩔 수 없이 해당 자산에 투자하는 현상을 설명하는 약어. 마이너스 금리 시대에는 마이너스여도 독일 국채가 최선의 안전자산이었다. 초저금리 시대에는 주식에도 같은 논리가 적용됐다.",
+        definitionEn: "An acronym describing the phenomenon of investing in an asset because no better alternative exists. In the negative yield era, even negative Bunds were the best safe-haven asset available. In ultra-low rate environments, the same logic was applied to equities.",
+      },
+    ],
     relatedMarket101Slugs: [],
-    references: [],
+    relatedDealSlugs: ["german-pfandbrief", "svb-2023"],
+    executiveSummary: {
+      ko: [
+        "2014년 ECB NIRP(-0.1%) → 2015년 QE 개시 → 2016년 독일 10년물 첫 마이너스 진입 — 비전통적 통화정책이 채권시장 상식을 깼다",
+        "2019년 8월 최저점 -0.71% 기록 / 전 세계 $17T 마이너스 수익률 채권 — 화폐 시간가치 전제가 채권시장에서 실증적으로 기각",
+        "마이너스 채권을 산 6가지 이유: 규제 의무·자본차익·FX 헤지·디플레이션 헤지·안전자산·TINA",
+        "2022년 러시아-우크라이나 → 에너지 인플레이션 → ECB 14개월 450bp 인상 → 10년물 -0.71%에서 +2.5%로 폭등",
+        "교훈: 듀레이션 리스크의 실질적 위험성, 좀비 기업 양산, 자산 버블, SVB류 ALM 실패의 구조적 원인",
+      ],
+      en: [
+        "2014 ECB NIRP (-0.1%) → 2015 QE launch → 2016 German 10-year yields turn negative — unconventional monetary policy broke bond market common sense",
+        "August 2019 all-time low of -0.71% / $17T in global negative yield bonds — the time value of money premise empirically refuted in bond markets",
+        "Six reasons to buy negative bonds: regulatory mandate, capital gains, FX hedging, deflation hedge, safe-haven flight, TINA",
+        "2022 Russia-Ukraine → energy inflation → ECB 450bp in 14 months → 10-year yield surges from -0.71% to +2.5%",
+        "Lessons: real duration risk dangers, zombie company proliferation, asset bubbles, structural cause of SVB-type ALM failures",
+      ],
+    },
+    assessment: {
+      positives: [
+        "디플레이션 방지 효과 — ECB NIRP·QE 조합이 유로존의 일본식 장기 디플레이션 진입을 막는 데 기여",
+        "정부 재정 부담 경감 — 마이너스 금리로 이탈리아·스페인 등 남유럽 국가 부채비용 대폭 절감, 재정 안정화",
+        "주택·부동산 공급 자극 — 초저금리가 신규 건설 및 투자를 유도, 일부 지역 주택 부족 완화",
+        "금융위기 재발 방지 — 유로존 위기 이후 급격한 긴축 대신 완화적 통화정책으로 시스템 붕괴 방지",
+      ],
+      positivesEn: [
+        "Deflation prevention — ECB NIRP and QE combination helped prevent Eurozone from entering Japanese-style long-term deflation",
+        "Government debt burden relief — negative rates dramatically cut borrowing costs for southern European countries (Italy, Spain), stabilizing public finances",
+        "Housing and construction stimulus — ultra-low rates incentivized new construction and investment, partially alleviating housing shortages",
+        "Post-crisis stability — expansionary monetary policy instead of sharp tightening prevented systemic collapse after the Eurozone crisis",
+      ],
+      risks: [
+        "좀비 기업 양산 — 초저금리로 퇴출되어야 할 비효율 기업이 살아남아 생산성 저하, 자원 배분 왜곡",
+        "은행 수익성 악화 — NIM 압박으로 유럽 은행의 수익성 장기 훼손, 자본 적정성 문제 잠재",
+        "자산 버블 형성 — 안전자산 수익률 부재가 위험자산(주식·부동산)으로 과도한 자금 이동 유발",
+        "2022년 급격한 정상화 충격 — 14개월 450bp 인상 과정에서 장기 듀레이션 자산 보유자 막대한 손실",
+      ],
+      risksEn: [
+        "Zombie company proliferation — ultra-low rates kept inefficient companies that should have exited alive, reducing productivity and distorting resource allocation",
+        "Bank profitability damage — NIM pressure long-term impaired European bank earnings, creating latent capital adequacy concerns",
+        "Asset bubble formation — absence of safe-asset yields triggered excessive capital flows into risk assets (equities, real estate)",
+        "2022 normalization shock — 450bp over 14 months caused massive losses for holders of long-duration assets",
+      ],
+    },
+    faq: [
+      {
+        q: "마이너스 금리 채권을 사면 항상 돈을 잃나요?",
+        qEn: "Do you always lose money buying negative yield bonds?",
+        a: "만기까지 보유하면 원리금 약속대로 손실이 확정됩니다 — 예를 들어 -0.5% 수익률로 매입하면 연 0.5%씩 손실. 하지만 두 가지 방법으로 이익이 가능합니다. 첫째, 자본차익: 이후 수익률이 더 낮아지면(예: -0.5% → -0.7%) 채권 가격이 올라 매각 시 이익. 둘째, FX 헤지: 달러 투자자가 유로 채권을 사고 USD/EUR를 헤지하면 크로스커런시 베이시스로 실질 달러 수익률이 플러스가 되는 구간이 있었습니다.",
+        aEn: "Held to maturity, yes — losses are locked in. For example, buying at -0.5% yields means losing 0.5% per year. But there are two paths to profit. First, capital gain: if yields fall further (e.g., -0.5% → -0.7%), bond prices rise, generating profit on sale. Second, FX hedging: U.S. dollar investors buying euro bonds and hedging USD/EUR sometimes achieved positive dollar yields through cross-currency basis effects.",
+      },
+      {
+        q: "ECB는 왜 마이너스 금리를 도입했나요?",
+        qEn: "Why did the ECB introduce negative rates?",
+        a: "유로존 위기(2010~2012) 이후 경제 회복이 더딘 가운데 인플레이션이 0%에 수렴하면서 디플레이션 공포가 커졌습니다. ECB의 물가 목표는 '2% 근방'인데 실제 물가가 0%에 머물면 이를 벗어나기 위해 모든 수단을 동원해야 했습니다. 마이너스 금리는 은행이 ECB에 현금을 쌓아두는 대신 대출·투자로 내보내도록 유도하는 '벌금' 메커니즘이었습니다.",
+        aEn: "After the Eurozone crisis (2010–2012), economic recovery remained slow while inflation converged toward zero, deepening deflation fears. The ECB's price target is 'close to 2%'; with actual inflation stuck at 0%, it had to deploy every tool available. Negative rates were a 'penalty' mechanism designed to discourage banks from hoarding cash at the ECB and instead push them into lending and investment.",
+      },
+      {
+        q: "2022년 금리 인상이 왜 이렇게 빨랐나요?",
+        qEn: "Why was the 2022 rate hike so rapid?",
+        a: "공급 충격이 수요 충격과 동시에 발생했기 때문입니다. 2022년 초 러시아의 우크라이나 침공은 유럽의 에너지 공급을 타격했습니다. 가스·전기 가격이 수배 폭등하면서 생산자 물가와 소비자 물가가 동반 급등했습니다. 동시에 팬데믹 이후 공급망 병목이 해소되지 않았습니다. ECB는 초기에 '일시적 인플레이션'이라며 긴축을 미뤘고, 뒤늦게 인플레이션이 구조적임을 인식한 후 빠른 속도로 금리를 올려야 했습니다.",
+        aEn: "Supply and demand shocks occurred simultaneously. Russia's invasion of Ukraine in early 2022 disrupted European energy supplies. Gas and electricity prices surged several-fold, sending producer and consumer prices soaring together. Meanwhile, post-pandemic supply chain bottlenecks persisted. The ECB initially labeled it 'transient inflation' and delayed tightening; when it recognized the structural nature of inflation, it had to hike aggressively to make up for lost time.",
+      },
+      {
+        q: "독일 국채가 마이너스 금리일 때 독일 정부는 이익인가요?",
+        qEn: "When German Bunds carry negative yields, is that beneficial for the German government?",
+        a: "네, 매우 유리했습니다. 독일 정부는 10년물 국채를 발행하면서 오히려 투자자에게서 이자를 '받는' 셈이었습니다. 예를 들어 -0.5%로 €1000억을 발행하면 매년 €5억씩 투자자가 독일 정부에 지불하는 구조입니다. 이 기간 독일 정부는 역사적으로 가장 낮은 부채비용으로 재정을 운용할 수 있었고, 재정 흑자(Schwarze Null) 정책도 이 환경이 아니었다면 훨씬 어려웠을 것입니다.",
+        aEn: "Yes, it was extremely favorable. When Germany issued 10-year bonds at negative yields, investors were effectively paying the German government interest. For example, issuing €100B at -0.5% means investors pay Germany €500M per year. During this period, the German government operated with historically the lowest debt costs ever; the fiscal surplus (Schwarze Null) policy would have been far more difficult without this environment.",
+      },
+      {
+        q: "마이너스 금리 시대가 다시 올 수 있나요?",
+        qEn: "Could the negative yield era return?",
+        a: "가능성을 완전히 배제할 수는 없지만, 현재 환경에서는 낮습니다. 인플레이션이 중앙은행 목표 수준(2%)에 정착하는 상황이 지속된다면 금리는 낮아질 것입니다. 그러나 2022~2023년의 에너지·식품 인플레이션 경험, 지정학 리스크, 탈탄소화 비용, 인구 고령화에 따른 의료비 지출 증가 등이 중기적으로 인플레이션 압력을 지속시킬 것이라는 견해가 많습니다. 일본은 2024년 마이너스 금리를 종료했습니다.",
+        aEn: "Impossible to fully exclude, but unlikely in the current environment. If inflation settles at central bank targets (2%), rates will fall. However, many argue that the 2022–2023 energy and food inflation experience, geopolitical risks, decarbonization costs, and rising healthcare spending from aging populations will sustain medium-term inflationary pressure. Japan ended negative rates in 2024.",
+      },
+    ],
+    references: [
+      { id: 1, author: "European Central Bank", title: "Negative Interest Rates in the Euro Area", source: "ECB Economic Bulletin", year: "2021", url: "https://www.ecb.europa.eu/pub/economic-bulletin/html/index.en.html" },
+      { id: 2, author: "BIS", title: "Negative Rates: The Challenges from a Financial Stability Perspective", source: "BIS Quarterly Review", year: "2020", url: "https://www.bis.org/publ/qtrpdf/r_qt2003b.htm" },
+      { id: 3, author: "Deutsche Bundesbank", title: "German Government Bond Yield Historical Data", source: "Deutsche Bundesbank Statistics", year: "2024", url: "https://www.bundesbank.de/en/statistics/money-and-capital-markets/yields-and-interest-rates" },
+      { id: 4, author: "Brunnermeier, M. & Koby, Y.", title: "The Reversal Interest Rate", source: "American Economic Review", year: "2019", url: "https://www.aeaweb.org/articles?id=10.1257/aer.20171011" },
+    ],
   },
 
   {
@@ -2981,16 +3407,222 @@ This is not an AT1-specific issue. Many market 'conventions' depend not on contr
     readingMinutes: 10,
     tags: ["포모사", "대만", "ALM", "콜옵션", "Extension Risk"],
     tagsEn: ["Formosa", "Taiwan", "ALM", "Call Option", "Extension Risk"],
-    published: false,
+    published: true,
     snapshot: [
       { labelKo: "시장", labelEn: "Market", value: "대만 (TWD/USD)" },
       { labelKo: "주요 수요층", labelEn: "Key Buyers", value: "대만 보험사 (ALM)" },
       { labelKo: "전성기", labelEn: "Peak", value: "2013–2018" },
     ],
-    sections: [],
-    keyTerms: [],
+    sections: [
+      {
+        heading: "포모사본드란: 대만 보험사가 만들어낸 시장",
+        headingEn: "What Are Formosa Bonds: A Market Created by Taiwanese Insurers",
+        body:
+`포모사본드(Formosa Bond)는 외국 발행사가 대만 현지에서 주로 달러(USD)로 발행하는 채권이다. 대만 증권거래소에 상장되며, 주된 수요처는 대만 생명보험사들이다. '포모사(Formosa)'는 포르투갈어로 '아름다운 섬' — 대만의 별칭에서 따왔다.
+
+이 시장이 탄생한 이유는 단순하다. 대만 생명보험사들은 달러 표시 장기 부채(보험증권)를 보유하고 있는데, 이를 매칭할 장기 달러 자산이 필요했다. 대만 국내 채권시장은 규모가 작고 만기가 짧다. 해외 달러 채권은 규제 제약이 있었다.
+
+포모사본드가 해결책이었다. 외국 발행사(은행·SSA·기업)가 대만 현지법으로 발행하고, 대만 생명보험사가 직접 투자할 수 있었다. 발행사 입장에서는 대만 투자자 기반 접근, 생명보험사 입장에서는 장기 달러 자산 확보. 양측 모두에게 좋은 거래였다.`,
+        bodyEn:
+`A Formosa Bond is a bond issued by a foreign issuer in Taiwan's local market, typically denominated in USD. Listed on the Taiwan Stock Exchange, the primary demand comes from Taiwanese life insurers. 'Formosa' is Portuguese for 'beautiful island' — a traditional name for Taiwan.
+
+The market's origin is straightforward: Taiwanese life insurers hold long-dated dollar-denominated liabilities (insurance policies), requiring matching long-dated dollar assets. Taiwan's domestic bond market is small and short-dated. Offshore dollar bonds faced regulatory constraints.
+
+Formosa bonds were the solution. Foreign issuers (banks, SSAs, corporates) issued under Taiwanese local law, and Taiwanese life insurers could invest directly. For issuers: access to Taiwanese investor base. For insurers: long-dated dollar asset acquisition. A beneficial trade for both sides.`,
+      },
+      {
+        heading: "대만 생명보험사의 ALM 딜레마",
+        headingEn: "Taiwanese Life Insurers' ALM Dilemma",
+        body:
+`대만 생명보험 산업의 구조적 문제는 자산-부채 만기 불일치(ALM 미스매치)다.
+
+1980~2000년대에 판매된 보험 상품들은 높은 보증 수익률(guaranteed return)을 약속했다 — 일부는 연 6~7%까지. 하지만 대만 금리가 하락하면서 이 약속을 이행하기 위한 자산 운용이 극도로 어려워졌다.
+
+생명보험사는 20~30년 만기의 장기 부채를 갖고 있다. 이를 매칭하려면 동일한 장기 달러 자산이 필요하다. 그러나 대만 국내 채권시장에는 장기 채권이 부족하다. 해외 달러 채권은 외화투자 한도 규제와 환 리스크가 문제였다.
+
+포모사본드는 이 딜레마를 해결했다. 국내 발행이므로 외화투자 한도를 소진하지 않고, 달러 표시로 ALM 수요를 충족하며, 30년 만기(콜 구조 포함)로 장기 매칭이 가능했다. 카타이생명(Cathay Life), 푸본생명(Fubon Life), 중국생명보험(China Life Taiwan) 등 대만 대형 생명사들이 주된 투자자였다.`,
+        bodyEn:
+`The structural problem of Taiwan's life insurance industry is an asset-liability maturity mismatch (ALM mismatch).
+
+Insurance products sold in the 1980s–2000s promised high guaranteed returns — some as high as 6–7% annually. But as Taiwanese interest rates fell, meeting these obligations through asset management became extremely difficult.
+
+Life insurers hold long-dated liabilities of 20–30 year maturities. Matching these requires equivalent long-dated dollar assets. But Taiwan's domestic bond market lacks long-dated instruments. Offshore dollar bonds faced foreign investment quota regulations and currency risk.
+
+Formosa bonds resolved this dilemma. Issued domestically, they didn't consume foreign investment quotas; denominated in USD, they met ALM needs; with 30-year maturities (including callable structures), long-dated matching was possible. Cathay Life, Fubon Life, and China Life Taiwan were among the major investors.`,
+      },
+      {
+        heading: "붐: 2013~2018년 구조와 발행 폭발",
+        headingEn: "The Boom: 2013–2018 Structure and Issuance Explosion",
+        body:
+`2013~2018년 포모사본드 시장은 폭발적으로 성장했다. 누적 발행액은 $150B+를 넘어섰다.
+
+대표적 구조는 30NC5 또는 30NC10이다. '30년 만기, 5년 후 콜 가능(이후 매 5년마다)'. 투자자는 30년 만기를 보유하지만, 발행사가 5년 후 콜을 행사하면 상환된다는 전제로 매수했다. 표면적으로는 30년 채권이지만, 시장은 사실상 5년 또는 10년 채권처럼 가격을 매겼다.
+
+주요 발행사는 다양했다. HSBC, Deutsche Bank, Société Générale, Barclays, ABN AMRO 등 글로벌 은행들이 AT1·Tier 2 자본 조달에 포모사를 활용했다. ADB(아시아개발은행), IADB(미주개발은행) 등 SSA도 발행했다. 발행 스프레드는 발행사에게 유리한 경우가 많았고, 대만 생명보험사들의 압도적 수요가 시장을 지탱했다.
+
+전성기에는 포모사본드가 대만 생명보험사 달러 자산의 20~30%를 차지하는 시장으로 성장했다.`,
+        bodyEn:
+`Between 2013 and 2018, the Formosa bond market grew explosively, with cumulative issuance exceeding $150B+.
+
+The typical structure was 30NC5 or 30NC10: '30-year maturity, callable after 5 years (every 5 years thereafter).' Investors bought knowing the tenor was technically 30 years, but under the assumption the issuer would call at year 5. In form a 30-year bond, but priced by the market as though it were a 5- or 10-year instrument.
+
+Issuers were diverse. Global banks — HSBC, Deutsche Bank, Société Générale, Barclays, ABN AMRO — used Formosa bonds for AT1 and Tier 2 capital issuance. SSA issuers including ADB and IADB also participated. Issuance spreads were often favorable for issuers, supported by overwhelming demand from Taiwanese life insurers.
+
+At its peak, Formosa bonds grew to account for 20–30% of Taiwanese life insurer dollar assets.`,
+      },
+      {
+        heading: "2018년 이후: 규제 변화와 콜 스킵 충격",
+        headingEn: "Post-2018: Regulatory Changes and the No-Call Wave",
+        body:
+`두 가지 충격이 2018년 이후 포모사본드 시장을 뒤흔들었다.
+
+첫 번째는 대만 금융감독원(FSC) 규제 강화다. 2018년 FSC는 생명보험사의 포모사본드 투자 한도를 제한했다. 수십조 원 규모의 수요 엔진이 갑자기 제한됐다. 신규 발행 수요가 급감했다.
+
+두 번째는 콜 스킵(Call Skip) 파동이었다. ECB의 NIRP 정책으로 유럽 금리가 마이너스 영역에 진입하면서, 콜 시점에 새로 발행하면 기존 쿠폰보다 낮은 금리로 발행 가능한 경우가 생겼다. 이론적으로 콜하지 않아도 됐다.
+
+2019년 2월 산탄데르의 AT1 콜 스킵이 결정타였다. 6.25% 쿠폰이 약 5.4%로 리셋될 것으로 예상되자, 산탄데르는 콜을 포기하고 연장했다. 당연히 콜하겠지라는 시장 관행이 무너지는 순간이었다.
+
+포모사본드 투자자들도 직격탄을 맞았다. 5~10년 후 콜될 것으로 예상하고 매수한 30년 만기 채권이 그대로 연장됐다. Extension risk가 현실화됐다. 2차시장 유동성도 급격히 악화됐다.`,
+        bodyEn:
+`Two shocks rocked the Formosa bond market after 2018.
+
+The first was tightened FSC regulation. In 2018, Taiwan's Financial Supervisory Commission capped life insurer Formosa bond investment limits. The demand engine driving tens of billions in issuance was suddenly constrained. New issuance demand collapsed.
+
+The second was a no-call wave. With the ECB's NIRP pushing European rates into negative territory, reset rates at call dates often fell below original coupons — theoretically removing the incentive to call.
+
+Santander's AT1 no-call in February 2019 was the coup de grâce. With the 6.25% coupon expected to reset to approximately 5.4%, Santander forewent the call and let the bond extend. The market convention that 'callables are always called' collapsed in that moment.
+
+Formosa bond investors took a direct hit. Bonds bought with the expectation of a 5–10 year call were extended to their full 30-year tenor. Extension risk had materialized. Secondary market liquidity deteriorated sharply.`,
+      },
+      {
+        heading: "포모사본드의 교훈: Extension Risk와 수요 집중 리스크",
+        headingEn: "Formosa Bond Lessons: Extension Risk and Concentrated Demand Risk",
+        body:
+`포모사본드 시장은 채권 투자자들에게 두 가지 핵심 교훈을 남겼다.
+
+첫째, **YTC vs YTW**: 투자자들은 콜 옵션이 행사될 것을 전제로 YTC(콜 기준 수익률)로 채권을 분석했다. 포모사 붐 당시 30NC5를 산 투자자 대부분은 YTM(만기 기준 수익률)이 얼마인지 제대로 따지지 않았다. 산탄데르 이후, 시장은 YTW(최악 기준 수익률 — YTC와 YTM 중 낮은 것)로 분석하는 것이 기본이 됐다.
+
+둘째, **수요 집중 리스크**: 특정 투자자군(대만 생명보험사)의 수요가 시장을 지탱하는 구조는 취약하다. 규제 한 줄이 시장 자체를 변화시켰다. 발행사도 투자자 기반 다양성의 중요성을 체감했다.
+
+2020년 이후 포모사본드 신규 발행은 급감했다. 글로벌 AT1·Tier 2 발행이 홍콩·싱가포르 등 다른 아시아 센터로 이동하고, 대만 생명보험사들은 포모사 대신 다른 경로를 모색하고 있다. 하나의 구조적 수요가 하나의 시장을 만들었다가 사라진 전형적 사례다.`,
+        bodyEn:
+`The Formosa bond market left bond investors with two core lessons.
+
+First, **YTC vs YTW**: investors analyzed bonds on a YTC (Yield to Call) basis, assuming call options would be exercised. Most investors who bought 30NC5 Formosa bonds during the boom didn't properly consider what the YTM (Yield to Maturity) was. After Santander, analyzing on a YTW (Yield to Worst — the lower of YTC and YTM) basis became standard.
+
+Second, **concentrated demand risk**: a market structure sustained by one investor group (Taiwanese life insurers) is fragile. A single regulatory change transformed the market itself. Issuers also experienced firsthand the importance of investor base diversification.
+
+After 2020, new Formosa bond issuance plummeted. Global AT1 and Tier 2 issuance migrated to other Asian centers like Hong Kong and Singapore, while Taiwanese life insurers sought alternative channels. A classic case of structural demand creating — and then disappearing from — a market.`,
+      },
+    ],
+    keyTerms: [
+      {
+        term: "포모사본드 (Formosa Bond)",
+        termEn: "Formosa Bond",
+        definition: "외국 발행사가 대만 현지 시장에서 발행하는 외화(주로 USD) 채권. 대만 증권거래소 상장, 대만 생명보험사의 ALM 수요를 주된 수요 기반으로 발전. 30NC5·30NC10 구조가 대표적.",
+        definitionEn: "Foreign-currency (mainly USD) bonds issued by foreign issuers in Taiwan's local market. Listed on the Taiwan Stock Exchange, developed primarily on the ALM demand of Taiwanese life insurers. 30NC5 and 30NC10 structures are representative.",
+      },
+      {
+        term: "ALM (자산부채관리)",
+        termEn: "ALM (Asset-Liability Management)",
+        definition: "금융기관이 자산과 부채의 만기·금리·통화 특성을 일치시켜 금리·유동성 위험을 관리하는 기법. 대만 생명보험사는 달러 장기 부채를 달러 장기 자산으로 매칭하기 위해 포모사본드를 활용했다.",
+        definitionEn: "A technique for financial institutions to manage interest rate and liquidity risk by matching the maturity, interest rate, and currency characteristics of assets and liabilities. Taiwanese life insurers used Formosa bonds to match long-dated dollar liabilities with long-dated dollar assets.",
+      },
+      {
+        term: "30NC5 / 30NC10",
+        termEn: "30NC5 / 30NC10",
+        definition: "30년 만기이되 5년 후(또는 10년 후) 최초 콜 옵션이 있는 구조. 이후 매 5년마다 콜 가능. 투자자는 30년 채권을 매수하지만 5~10년 후 콜될 것으로 기대. 콜 스킵 시 최대 30년까지 연장되는 extension risk가 내재.",
+        definitionEn: "A 30-year maturity bond with a first call option at year 5 (or year 10), callable every 5 years thereafter. Investors buy 30-year bonds but expect a call in 5–10 years. If the call is skipped, extension risk can extend holding to the full 30-year maturity.",
+      },
+      {
+        term: "YTW (최악 기준 수익률)",
+        termEn: "YTW (Yield to Worst)",
+        definition: "콜 가능 채권에서 YTC(콜 기준 수익률)와 YTM(만기 기준 수익률) 중 더 낮은 수익률. 투자자 관점에서 최악의 경우 실현될 수익률. 산탄데르 콜 스킵 이후 포모사본드 및 AT1 분석의 기본 지표로 자리잡았다.",
+        definitionEn: "For callable bonds, the lower of YTC (Yield to Call) and YTM (Yield to Maturity). The yield that will be realized in the worst case from the investor's perspective. After Santander's no-call, it became the baseline metric for Formosa bond and AT1 analysis.",
+      },
+    ],
     relatedMarket101Slugs: ["dcm-ecosystem"],
-    references: [],
+    relatedDealSlugs: ["santander-at1-no-call", "deutsche-bank-coco-shock"],
+    executiveSummary: {
+      ko: [
+        "포모사본드 = 외국 발행사가 대만에서 발행하는 USD 채권 — 대만 생명보험사의 ALM 수요(달러 장기 자산 부족)가 만들어낸 시장",
+        "30NC5·30NC10 구조: 30년 만기이지만 5~10년 후 콜을 전제로 YTC 기준으로 거래 — 시장은 사실상 단기처럼 가격 책정",
+        "2013~2018년 $150B+ 누적 발행 붐 — HSBC·Deutsche·SocGen 등 글로벌 은행 AT1/Tier 2 조달의 핵심 채널",
+        "2018년 대만 FSC 규제 강화 + 2019년 산탄데르 콜 스킵 → extension risk 현실화, 시장 급냉각",
+        "교훈: YTC만 보고 YTW를 무시하면 안 된다 / 단일 수요층 집중 시장의 취약성",
+      ],
+      en: [
+        "Formosa bonds = USD bonds issued by foreign issuers in Taiwan — a market created by Taiwanese life insurer ALM demand (shortage of long-dated dollar assets)",
+        "30NC5/30NC10 structure: 30-year maturity but priced assuming a 5–10 year call on YTC basis — market effectively treating them as short-dated instruments",
+        "$150B+ cumulative issuance boom 2013–2018 — key channel for global bank AT1/Tier 2 capital from HSBC, Deutsche, SocGen, and others",
+        "2018 Taiwan FSC regulatory tightening + 2019 Santander no-call → extension risk materialized, market rapidly cooled",
+        "Lessons: YTC analysis without YTW is dangerous; vulnerability of markets dependent on a single investor base",
+      ],
+    },
+    assessment: {
+      positives: [
+        "대만 생명보험사 ALM 문제 효율적 해결 — 달러 장기 자산 공급 부족을 포모사 구조로 해결, 투자 적격 장기 달러채 공급 창출",
+        "글로벌 은행 자본 다각화 — 홍콩·싱가포르 외 대만 투자자 기반 접근, 발행 비용 절감 및 수요 분산",
+        "아시아 달러 채권 시장 다양성 기여 — 단일 센터 의존을 낮추고 아시아 달러 채권 생태계를 풍부하게",
+        "포모사 구조가 AT1·Tier 2 시장 발전을 앞당김 — 대만 투자자들이 FIG 자본채 시장의 글로벌 확산을 지원",
+      ],
+      positivesEn: [
+        "Efficient resolution of Taiwanese insurer ALM problem — Formosa structure addressed dollar long-dated asset shortage, creating supply of investment-grade long-dated dollar bonds",
+        "Global bank capital diversification — access to Taiwanese investor base beyond Hong Kong/Singapore, with issuance cost savings and demand spread",
+        "Contribution to Asian dollar bond market diversity — reduced single-center dependence and enriched the Asian dollar bond ecosystem",
+        "Formosa accelerated AT1/Tier 2 market development — Taiwanese investors supported global expansion of FIG capital markets",
+      ],
+      risks: [
+        "Extension risk 내재화 — 30NC5를 5년 채권처럼 가격 책정하는 관행이 콜 스킵 시 막대한 손실로 귀결",
+        "단일 수요층 집중 리스크 — 대만 생명보험사 규제 변경 하나로 시장 전체가 냉각되는 구조적 취약성",
+        "2차시장 유동성 부재 — 대만 생명보험사가 매수 후 보유하는 경향이 강해 2차시장 거래 극히 제한적",
+        "환율 리스크 관리 복잡성 — 달러 자산이지만 대만 규제하에 있어 FX 헤지 전략 복잡화",
+      ],
+      risksEn: [
+        "Embedded extension risk — pricing 30NC5 bonds as 5-year instruments led to massive losses when calls were skipped",
+        "Single investor base concentration risk — structural vulnerability where one regulatory change to Taiwanese insurer rules cooled the entire market",
+        "Secondary market illiquidity — strong buy-and-hold tendency among Taiwanese insurers made secondary market trading extremely limited",
+        "FX risk management complexity — dollar assets under Taiwanese regulation complicated hedging strategies",
+      ],
+    },
+    faq: [
+      {
+        q: "포모사본드는 일반 달러채권과 어떻게 다른가요?",
+        qEn: "How do Formosa bonds differ from ordinary dollar bonds?",
+        a: "발행 장소와 규제 틀이 다릅니다. 일반 달러채는 뉴욕·런던 등 주요 금융 센터에서 발행되고 글로벌 투자자에게 판매됩니다. 포모사본드는 대만 현지 법령에 따라 발행되고 대만 증권거래소에 상장되며, 주로 대만 생명보험사가 매수합니다. 대만 생명보험사 입장에서는 외화 한도를 소진하지 않아도 되는 점이 큰 장점이었습니다.",
+        aEn: "They differ in issuance venue and regulatory framework. Regular dollar bonds are issued in major financial centers (New York, London) and sold to global investors. Formosa bonds are issued under Taiwanese local regulations, listed on the Taiwan Stock Exchange, and primarily purchased by Taiwanese life insurers. A key advantage for Taiwanese insurers was that Formosa bonds didn't consume their foreign investment quotas.",
+      },
+      {
+        q: "30NC5 구조에서 발행사가 콜을 안 하면 어떻게 되나요?",
+        qEn: "What happens if the issuer doesn't call on a 30NC5 structure?",
+        a: "채권은 콜 행사 없이 원래 30년 만기로 연장됩니다. 쿠폰은 발행 당시 약정된 리셋 공식(예: LIBOR/SOFR + 스프레드)에 따라 조정됩니다. 대부분의 경우 리셋된 쿠폰이 원래 쿠폰보다 낮아지기 때문에 — 즉 발행사에게 유리해지기 때문에 — 콜을 건너뜁니다. 투자자는 예상보다 25년을 더 기다려야 하는 상황이 됩니다.",
+        aEn: "The bond extends to its full 30-year maturity without the call being exercised. The coupon is adjusted according to the pre-agreed reset formula (e.g., LIBOR/SOFR + spread). In most no-call cases, the reset coupon falls below the original coupon — meaning it becomes economically favorable for the issuer not to call. The investor faces waiting an additional 25 years beyond expectations.",
+      },
+      {
+        q: "대만 FSC 규제 변경이 왜 그렇게 큰 영향을 미쳤나요?",
+        qEn: "Why did Taiwan FSC regulatory changes have such a large impact?",
+        a: "포모사본드 시장의 수요 기반이 대만 생명보험사 2~3개 그룹에 극도로 집중되어 있었기 때문입니다. 카타이생명, 푸본생명 등 대형 생명보험사들이 신규 발행의 70~80%를 흡수했습니다. 이 수요가 규제로 제한되자 신규 발행 수요가 갑자기 사라졌습니다. 특정 투자자 기반에 의존하는 시장의 구조적 취약성을 잘 보여주는 사례입니다.",
+        aEn: "Because the Formosa bond market's demand base was extremely concentrated in 2–3 groups of Taiwanese life insurers. Major firms like Cathay Life and Fubon Life absorbed 70–80% of new issuance. When this demand was capped by regulation, new issuance demand vanished overnight. It clearly illustrates the structural vulnerability of markets that depend on a specific investor base.",
+      },
+      {
+        q: "산탄데르 콜 스킵이 포모사본드 시장에 미친 영향은?",
+        qEn: "What impact did Santander's no-call have on the Formosa bond market?",
+        a: "콜 스킵 이전, 포모사본드 투자자 대부분은 콜이 반드시 행사될 것으로 믿고 YTC 기준으로만 채권을 분석했습니다. 산탄데르 사건 이후, 시장에서 콜 스킵 가능성을 진지하게 재평가하기 시작했습니다. YTW(최악 기준 수익률) 분석이 필수적 기준으로 자리잡았고, 콜 스킵을 고려한 리스크 프리미엄이 가산되면서 발행사의 포모사 발행 비용이 상승했습니다.",
+        aEn: "Before the no-call, most Formosa bond investors believed calls would always be exercised and analyzed bonds exclusively on YTC. After Santander, the market began seriously reassessing no-call risk. YTW (Yield to Worst) analysis became mandatory, and the added risk premium for potential no-calls raised Formosa issuance costs for issuers.",
+      },
+      {
+        q: "포모사본드 시장은 앞으로도 존재할까요?",
+        qEn: "Will the Formosa bond market continue to exist?",
+        a: "시장 자체는 사라지지 않겠지만, 전성기로 돌아가기 어렵습니다. 대만 FSC 규제 제한, 콜 스킵 경험으로 인한 투자자 신중도 증가, 글로벌 AT1/Tier 2 발행의 다른 아시아 센터 이동이 맞물려 있습니다. 다만 대만 생명보험사의 ALM 수요는 구조적으로 지속되므로, 규제 완화나 시장 환경 변화에 따라 일부 부활 가능성은 열려 있습니다.",
+        aEn: "The market itself won't disappear, but returning to its heyday seems difficult. Taiwan FSC regulatory caps, increased investor caution from no-call experiences, and the migration of global AT1/Tier 2 issuance to other Asian centers are all working against it. However, the structural ALM demand of Taiwanese life insurers persists, leaving open the possibility of a partial revival with regulatory easing or market condition changes.",
+      },
+    ],
+    references: [
+      { id: 1, author: "Taiwanese FSC", title: "Rules Governing the Use of Foreign Currency by Insurance Enterprises", source: "Financial Supervisory Commission, Taiwan", year: "2018", url: "https://www.fsc.gov.tw/en/" },
+      { id: 2, author: "Fitch Ratings", title: "Formosa Bonds: Investor Guide to Taiwan's Foreign Currency Bond Market", source: "Fitch Ratings", year: "2019", url: "https://www.fitchratings.com" },
+      { id: 3, author: "BIS", title: "Credit Risk Transfer and Finance in Asia-Pacific", source: "BIS Working Papers", year: "2020", url: "https://www.bis.org" },
+      { id: 4, author: "ICMA", title: "AT1/Tier 2 Capital Instruments — Market Practice and Documentation", source: "ICMA", year: "2020", url: "https://www.icmagroup.org" },
+    ],
   },
 
   {
@@ -3008,15 +3640,225 @@ This is not an AT1-specific issue. Many market 'conventions' depend not on contr
     readingMinutes: 10,
     tags: ["판다본드", "사무라이본드", "중국", "일본", "지정학"],
     tagsEn: ["Panda Bond", "Samurai Bond", "China", "Japan", "Geopolitics"],
-    published: false,
+    published: true,
     snapshot: [
       { labelKo: "시장 1", labelEn: "Market 1", value: "판다본드 (CNY, 중국 역내)" },
       { labelKo: "시장 2", labelEn: "Market 2", value: "사무라이본드 (JPY, 일본)" },
     ],
-    sections: [],
-    keyTerms: [],
+    sections: [
+      {
+        heading: "두 시장의 기원: 사무라이와 판다",
+        headingEn: "Origins of Two Markets: Samurai and Panda",
+        body:
+`외국 발행사가 현지 통화로 현지 시장에서 발행하는 채권은 독특한 명칭을 가진다. 일본에서 발행하는 엔화 채권은 사무라이본드, 중국에서 발행하는 위안화 채권은 판다본드다.
+
+**사무라이본드**: 역사는 1970년으로 거슬러 올라간다. 아시아개발은행(ADB)이 최초로 발행하며 시장이 시작됐다. 이후 세계은행·KfW·독일 연방, 그리고 글로벌 대형 은행들이 일본 투자자에게 JPY 채권을 판매하기 위해 이 시장을 활용했다. 일본의 저금리(ZIRP/NIRP) 환경이 엔화 조달 비용을 극적으로 낮추면서 2010년대 이후 사무라이 발행이 급증했다.
+
+**판다본드**: 중국 본토(역내) 시장에서 외국 발행사가 CNY(인민폐)로 발행하는 채권이다. 2005년 10월, 국제금융공사(IFC)와 ADB가 동시에 최초 판다본드를 발행했다 — 중국 자본시장 개방의 상징적 첫 걸음. 이후 중국이 자본시장을 점진적으로 개방하면서 발행사와 규모가 함께 늘었다.
+
+두 시장은 같은 구조(외국 발행사 + 현지 통화)를 공유하지만, 경제적 동기·지정학적 맥락·투자자 기반이 완전히 다르다.`,
+        bodyEn:
+`Bonds issued by foreign issuers in local currency in local markets carry unique names. Yen bonds issued in Japan are Samurai bonds; yuan bonds issued in China are Panda bonds.
+
+**Samurai bonds**: the history goes back to 1970, when the Asian Development Bank (ADB) made the first issuance. The World Bank, KfW, Germany, and global major banks subsequently used this market to sell JPY bonds to Japanese investors. Japan's low-rate environment (ZIRP/NIRP) dramatically lowered yen funding costs, and Samurai issuance surged after 2010.
+
+**Panda bonds**: bonds issued by foreign issuers in CNY (renminbi) in China's onshore market. In October 2005, the International Finance Corporation (IFC) and ADB simultaneously issued the first Panda bonds — a symbolic first step in China's capital market opening. As China gradually opened its capital markets, both issuer count and issuance volume grew.
+
+The two markets share the same structure (foreign issuer + local currency), but differ entirely in economic motivation, geopolitical context, and investor base.`,
+      },
+      {
+        heading: "사무라이본드: 일본 저금리와 엔화 조달의 경제학",
+        headingEn: "Samurai Bonds: Japan's Low Rates and the Economics of Yen Funding",
+        body:
+`발행사가 사무라이본드를 발행하는 이유는 경제적이다. JPY 금리가 0% 근방이거나 마이너스인 환경에서, 엔화 조달 비용이 달러나 유로 조달보다 훨씬 낮을 수 있다.
+
+**크로스커런시 스왑(Cross-Currency Swap)**: 발행사는 JPY 조달 후 이를 달러/유로로 교환한다. 금리 차이(USD-JPY 스프레드)와 크로스커런시 베이시스에 따라 달러로 직접 발행하는 것보다 올인코스트(all-in cost)가 낮을 수 있다.
+
+2016~2021년 일본 마이너스 금리 시기에 이 효과가 극대화됐다. 세계은행·IADB 등 SSA 발행사들이 사무라이 시장을 적극 활용했다. 한국 KDB(산업은행), 중국국가개발은행(CDB)도 사무라이 발행을 통해 저비용 자금을 조달했다.
+
+투자자 측면에서, 일본 생명보험사·연기금은 국내 채권 수익률이 너무 낮아 외국 발행사 채권이라도 수익률을 조금 더 받고 싶었다. 사무라이본드는 JPY로 표시되어 환 리스크 없이 소폭 상위 수익률을 제공했다.`,
+        bodyEn:
+`Issuers access the Samurai market for economic reasons. In a near-zero or negative JPY rate environment, yen funding costs can be dramatically lower than dollar or euro funding.
+
+**Cross-currency swap**: issuers raise JPY then exchange it into dollars or euros. Depending on the USD-JPY interest rate differential and cross-currency basis, the all-in cost may be lower than direct dollar issuance.
+
+This effect was maximized during Japan's negative rate period (2016–2021). SSA issuers like the World Bank and IADB actively used the Samurai market. Korea Development Bank (KDB) and China Development Bank (CDB) also accessed the Samurai market for low-cost funding.
+
+On the investor side, Japanese life insurers and pension funds were starved for yield by ultra-low domestic bond rates. Samurai bonds, denominated in JPY (no currency risk), provided slightly higher yields than domestic government bonds.`,
+      },
+      {
+        heading: "판다본드: 중국 자본시장 개방과 위안화 국제화",
+        headingEn: "Panda Bonds: China's Capital Market Opening and RMB Internationalization",
+        body:
+`판다본드 시장은 중국의 두 가지 정책 목표를 반영한다. 첫째, 자본시장 개방(외국 발행사 유치). 둘째, 위안화 국제화(RMB 국제결제·투자 확대).
+
+2005년 IFC·ADB 최초 발행 후, 시장은 제한적이었다. 2010년대 중반 들어 중국 정부가 Bond Connect(채권통)·RQFII 등 개방 정책을 확대하면서 판다본드 발행이 급증했다.
+
+2016~2019년 붐 시기에는 헝가리·한국·영국·캐나다 정부(sovereign panda)와 세계은행·아프리카개발은행(AfDB), 독일 자동차 기업(다임러), 글로벌 은행 등이 발행했다. 다임러는 2018년 최초의 독일 기업 판다본드를 발행했다.
+
+발행사 입장에서의 장점: ① 중국 내 사업 자금 조달(현지화 매칭), ② 중국 투자자 관계 다양화, ③ CNY 조달 비용이 크로스커런시 스왑을 통해 경쟁력 있을 때.
+
+단, 절차가 복잡하다. PBOC(중국인민은행) 또는 NAFMII(중국 장외파생상품시장) 등록, 중국 신용등급사 평가, 자금 사용처 규정 등을 준수해야 한다.`,
+        bodyEn:
+`The Panda bond market reflects two Chinese policy objectives: first, capital market opening (attracting foreign issuers); second, RMB internationalization (expanding yuan use in global settlement and investment).
+
+After IFC and ADB's inaugural issuance in 2005, the market remained limited. As China expanded opening policies like Bond Connect and RQFII in the mid-2010s, Panda issuance surged.
+
+During the 2016–2019 boom, sovereigns (Hungary, South Korea, the UK, Canada), multilaterals (World Bank, African Development Bank), German corporates (Daimler), and global banks all issued. Daimler issued the first German corporate Panda bond in 2018.
+
+Advantages for issuers: ① funding China operations in local currency (natural hedging), ② diversifying Chinese investor relationships, ③ competitive CNY funding costs when cross-currency swap economics are favorable.
+
+However, procedures are complex: PBOC or NAFMII registration, Chinese credit rating agency assessment, and compliance with use-of-proceeds rules are all required.`,
+      },
+      {
+        heading: "지정학: 미중 갈등이 시장을 바꾸다",
+        headingEn: "Geopolitics: US-China Tensions Reshaping the Markets",
+        body:
+`판다본드 시장은 경제 논리만큼이나 지정학 논리에 의해 움직인다.
+
+2018년 미-중 무역전쟁 이후, 미국·유럽 기업과 은행들은 대중(對中) 노출 확대에 신중해졌다. 일부 서구 금융기관은 OFAC 제재 리스크와 평판 리스크를 이유로 신규 판다본드 발행을 줄였다.
+
+그 공백을 '벨트앤로드 이니셔티브(BRI)' 참여국들이 채웠다. 카자흐스탄·파키스탄·헝가리·폴란드 등이 판다본드를 적극 발행했다. 이들에게 판다본드는 중국 투자자에게 접근하고, 중국과의 경제 관계를 강화하는 수단이었다.
+
+2022년 러시아의 우크라이나 침공 이후 가장 극적인 변화가 나타났다. 달러 결제 시스템에서 배제된 러시아 국영기업들이 판다본드를 통해 CNY를 조달하기 시작했다. 중국-러시아 탈달러화(de-dollarization) 내러티브의 일환이다.
+
+사무라이 시장은 지정학보다는 금리 정책이 더 큰 영향을 미친다. 2024년 일본은행(BOJ)이 마이너스 금리를 종료하면서 JPY 금리가 오르기 시작했다. 크로스커런시 스왑 경제성이 변하면서 사무라이 발행 비용 우위가 축소될 수 있다.`,
+        bodyEn:
+`The Panda bond market is shaped as much by geopolitical as economic logic.
+
+After the 2018 U.S.-China trade war, Western companies and banks grew cautious about expanding China exposure. Some Western financial institutions reduced new Panda issuance citing OFAC sanctions risk and reputational concerns.
+
+'Belt and Road Initiative (BRI)' countries filled the void. Kazakhstan, Pakistan, Hungary, Poland, and others became active Panda issuers. For them, Panda bonds were a tool to access Chinese investors and strengthen economic ties with China.
+
+The most dramatic shift came after Russia's 2022 invasion of Ukraine. Russian SOEs, cut off from dollar settlement systems, began raising CNY through Panda bonds — part of the China-Russia de-dollarization narrative.
+
+The Samurai market is shaped more by interest rate policy than geopolitics. When the Bank of Japan (BOJ) ended negative rates in 2024, JPY interest rates began rising. Changing cross-currency swap economics may erode the Samurai market's cost advantage.`,
+      },
+      {
+        heading: "두 시장의 미래: 정상화와 국제화",
+        headingEn: "The Future of Both Markets: Normalization and Internationalization",
+        body:
+`사무라이본드 시장: 일본 금리 정상화가 진행될수록 JPY 조달 비용 우위가 줄어든다. 2024년 BOJ 금리 인상 이후 사무라이 시장의 발행 경제성이 약화됐다. 그러나 일본 투자자들의 외국 발행사 채권 수요는 구조적으로 존재한다 — 국내 금리가 올라도 다변화 수요는 지속된다.
+
+판다본드 시장: 중국은 위안화 국제화를 장기 정책으로 추진하고 있다. 판다본드는 그 핵심 채널 중 하나다. 단기적으로는 미중 관계 불확실성이 서구 발행사들의 신규 진입을 제한하지만, BRI 국가·개발도상국 발행사들의 판다본드 접근은 계속 늘 것으로 전망된다.
+
+두 시장 모두 공통적인 메시지를 준다: 채권시장에서 통화 패권은 고정되지 않는다. JPY·CNY 모두 특정 시기·특정 발행사에게 달러 대안이 될 수 있다. 발행사들은 정기적으로 다중 통화 조달(multi-currency funding) 전략을 검토해야 하며, 지정학 시대에 이 선택지 자체가 전략 자산이 됐다.`,
+        bodyEn:
+`**Samurai bond market**: as Japan's rate normalization progresses, the JPY funding cost advantage narrows. Following the BOJ's 2024 rate hike, Samurai market issuance economics have weakened. However, Japanese investors' structural demand for foreign issuer bonds persists — even as domestic rates rise, diversification demand continues.
+
+**Panda bond market**: China is pursuing RMB internationalization as a long-term policy, with Panda bonds as a key channel. Short-term, U.S.-China relationship uncertainty limits new Western issuer entry, but BRI countries and emerging market issuers are expected to continue expanding Panda bond access.
+
+Both markets share a common message: currency hegemony in bond markets is not fixed. JPY and CNY can both serve as dollar alternatives for certain issuers at certain times. Issuers should regularly review multi-currency funding strategies, and in an era of geopolitics, having these options has itself become a strategic asset.`,
+      },
+    ],
+    keyTerms: [
+      {
+        term: "사무라이본드 (Samurai Bond)",
+        termEn: "Samurai Bond",
+        definition: "외국 발행사가 일본 국내 시장에서 일본 엔(JPY)으로 발행하는 채권. 1970년 ADB 최초 발행. 일본의 저금리 환경 하에서 크로스커런시 스왑을 통해 달러/유로보다 낮은 올인코스트 조달이 가능할 때 활용된다.",
+        definitionEn: "Bonds issued by foreign issuers in Japan's domestic market, denominated in Japanese yen (JPY). First issued by ADB in 1970. Used when cross-currency swap economics make all-in cost lower than dollar/euro issuance under Japan's low-rate environment.",
+      },
+      {
+        term: "판다본드 (Panda Bond)",
+        termEn: "Panda Bond",
+        definition: "외국 발행사가 중국 역내(본토) 시장에서 인민폐(CNY/RMB)로 발행하는 채권. 2005년 IFC·ADB 최초 발행. 중국 자본시장 개방 및 위안화 국제화 정책의 핵심 채널.",
+        definitionEn: "Bonds issued by foreign issuers in China's onshore (mainland) market, denominated in renminbi (CNY/RMB). First issued by IFC and ADB in 2005. A key channel for China's capital market opening and RMB internationalization policies.",
+      },
+      {
+        term: "크로스커런시 스왑 (Cross-Currency Swap)",
+        termEn: "Cross-Currency Swap",
+        definition: "두 통화 간 원금과 이자를 교환하는 파생상품. 엔화 발행사가 JPY 원금을 받고 USD 원금을 지급하며, 금리 차이와 기준 스프레드(베이시스)에 따라 경제성이 결정된다. 사무라이·판다 발행사들이 현지 통화 조달을 자국 통화로 전환하는 핵심 수단.",
+        definitionEn: "A derivative instrument exchanging principal and interest between two currencies. Yen-funded issuers receive JPY principal and pay USD principal, with economics determined by interest rate differentials and basis spreads. The key mechanism for Samurai and Panda bond issuers to convert local currency proceeds into their home currency.",
+      },
+      {
+        term: "위안화 국제화 (RMB Internationalization)",
+        termEn: "RMB Internationalization",
+        definition: "중국 위안화(CNY/RMB)를 무역결제·외환보유고·국제금융 거래에서 더 많이 사용하게 하려는 중국 정부의 장기 정책. 판다본드·딤섬본드·CIPS(위안화 결제 시스템) 등이 주요 채널. 탈달러화(de-dollarization) 맥락에서 지정학적 중요성이 커지고 있다.",
+        definitionEn: "China's long-term policy goal of expanding CNY use in trade settlement, foreign exchange reserves, and international financial transactions. Key channels include Panda bonds, Dim Sum bonds, and CIPS (Cross-border Interbank Payment System). Growing geopolitical significance in the context of de-dollarization.",
+      },
+    ],
     relatedMarket101Slugs: ["dcm-ecosystem"],
-    references: [],
+    relatedDealSlugs: ["eu-ngeu-bonds", "saudi-aramco-debut"],
+    executiveSummary: {
+      ko: [
+        "사무라이본드(JPY, 1970 ADB 첫 발행)와 판다본드(CNY, 2005 IFC/ADB 첫 발행) — 외국 발행사가 현지 통화로 발행하는 두 대표 시장",
+        "사무라이 발행 동기: 일본 저금리·ZIRP/NIRP 환경에서 크로스커런시 스왑을 통해 달러보다 낮은 올인코스트 조달 가능",
+        "판다 발행 동기: 중국 내 사업 현지화 자금 + 위안화 국제화 정책의 채널 + 중국 투자자 관계 다양화",
+        "지정학 영향: 미중 갈등 → 서구 발행사 신중론 / 러시아·BRI 국가 판다 활용 → 탈달러화 내러티브",
+        "미래: 일본 금리 정상화로 사무라이 경제성 약화 vs 중국 위안화 국제화로 판다본드 지속 성장",
+      ],
+      en: [
+        "Samurai bonds (JPY, first issued 1970 by ADB) and Panda bonds (CNY, first issued 2005 by IFC/ADB) — the two representative markets where foreign issuers borrow in local currencies",
+        "Samurai motivation: cross-currency swap in Japan's ZIRP/NIRP environment can achieve lower all-in costs than direct dollar issuance",
+        "Panda motivation: local currency funding for China operations + channel for RMB internationalization policy + diversifying Chinese investor relationships",
+        "Geopolitical impact: US-China tensions → Western issuer caution / Russia and BRI countries using Panda bonds → de-dollarization narrative",
+        "Future: Japan rate normalization weakening Samurai economics vs China's RMB internationalization driving continued Panda bond growth",
+      ],
+    },
+    assessment: {
+      positives: [
+        "조달 통화 다양화 — 달러·유로 단일 의존 탈피, 시장 환경에 따라 최저비용 통화 선택 가능",
+        "현지 투자자 기반 확보 — 일본·중국 기관투자자에게 직접 접근, 장기적 투자자 관계 다양화",
+        "판다본드의 자연 헤지 — 중국 내 사업 수익(CNY)으로 CNY 부채 상환, 환 리스크 자연 소멸",
+        "위안화 국제화 기여 — 판다본드 발행이 CNY 유동성·시장 깊이 증가에 기여, 중국 자본시장 발전",
+      ],
+      positivesEn: [
+        "Funding currency diversification — breaking single dollar/euro dependence; selecting lowest-cost currency based on market conditions",
+        "Local investor base access — direct access to Japanese and Chinese institutional investors; long-term investor relationship diversification",
+        "Panda bonds' natural hedge — CNY revenues from China operations repay CNY debt; currency risk naturally offset",
+        "RMB internationalization contribution — Panda issuance increases CNY liquidity and market depth, contributing to China's capital market development",
+      ],
+      risks: [
+        "환 리스크 — 자국 통화가 아닌 JPY/CNY 발행 후 스왑 실패 또는 베이시스 악화 시 비용 급등",
+        "지정학 규제 리스크 — 제재·규정 변경이 갑자기 시장을 닫을 수 있음, 판다의 중국 규제 복잡성",
+        "일본 금리 정상화 — BOJ 금리 인상으로 사무라이 발행의 크로스커런시 경제성이 급변할 위험",
+        "판다본드 투자자 구성의 제한 — 중국 내 투자자 기반이 글로벌 대비 좁고 2차시장 유동성 제한",
+      ],
+      risksEn: [
+        "Currency risk — if swaps fail or basis worsens after issuing in non-home-currency JPY/CNY, costs can spike",
+        "Geopolitical regulatory risk — sanctions or rule changes can abruptly close markets; Panda bond Chinese regulatory complexity",
+        "Japan rate normalization — BOJ rate hikes can sharply change the cross-currency economics of Samurai issuance",
+        "Limited Panda investor base — Chinese investor universe is narrower than global markets and secondary market liquidity is constrained",
+      ],
+    },
+    faq: [
+      {
+        q: "사무라이본드와 유로엔 채권의 차이는 무엇인가요?",
+        qEn: "What is the difference between Samurai bonds and Euroyen bonds?",
+        a: "발행 장소와 규제 틀이 다릅니다. 사무라이본드는 일본 국내 시장에서 일본 법령에 따라 발행되어 일본 투자자에게 판매됩니다. 유로엔(Euroyen) 채권은 일본 역외(offshore) 시장에서 발행되는 JPY 채권으로, 주로 런던 등 유로마켓에서 이루어집니다. 사무라이는 일본 FSA 규정을 따르고, 유로엔은 주로 영국법 등 역외 법령을 따릅니다.",
+        aEn: "They differ in issuance venue and regulatory framework. Samurai bonds are issued in Japan's domestic market under Japanese regulations and sold to Japanese investors. Euroyen bonds are JPY-denominated bonds issued in offshore markets, primarily in London's Euromarket. Samurai bonds follow Japan FSA rules; Euroyen bonds typically follow offshore regulations such as English law.",
+      },
+      {
+        q: "판다본드 발행 절차는 어떻게 되나요?",
+        qEn: "What is the process for issuing Panda bonds?",
+        a: "크게 세 단계입니다. 첫째, 감독기관 승인: PBOC(중국인민은행) 또는 NAFMII(중국 장외파생상품협회) 또는 CSRC(증권감독위원회) 중 해당 기관에 등록·승인 신청. 둘째, 신용등급 획득: 중국 국내 신용등급사(중합신용평가·펑위안·다공 등)의 평가 필요. 셋째, 발행 및 결제: 중국 채권 결제 시스템(CCDC 또는 SHCH)을 통해 결제. 일반적으로 일반 유로채 발행보다 절차가 훨씬 복잡하고 시간이 오래 걸립니다.",
+        aEn: "There are three main steps. First, regulatory approval: apply for registration and approval from PBOC, NAFMII, or CSRC depending on the type. Second, obtaining a credit rating: assessment from a Chinese domestic credit rating agency (Zhongcheng, Pengyuan, Dagong, etc.) is required. Third, issuance and settlement: settlement through China's bond settlement systems (CCDC or SHCH). The process is significantly more complex and time-consuming than typical Eurobond issuance.",
+      },
+      {
+        q: "일본 금리 인상이 사무라이본드 시장에 어떤 영향을 미치나요?",
+        qEn: "What impact does Japanese rate hikes have on the Samurai bond market?",
+        a: "사무라이본드의 발행 경제성이 약화됩니다. 일본 금리가 올라가면 JPY 조달 비용이 높아지고, 크로스커런시 스왑으로 달러/유로로 교환 시 전체 올인코스트가 달러 직접 발행과 비슷해지거나 오히려 비싸질 수 있습니다. 2024년 BOJ 금리 인상 이후 사무라이 발행 수요가 실제로 감소했습니다. 단, 일본 투자자들의 다양화 수요는 여전히 있어 완전히 사라지지는 않을 것입니다.",
+        aEn: "The economics of Samurai bond issuance weaken. As Japanese rates rise, JPY borrowing costs increase, potentially making the all-in cost after cross-currency swap comparable to or more expensive than direct dollar issuance. Following the BOJ's 2024 rate hike, Samurai issuance demand has indeed declined. However, Japanese investors' diversification demand persists, so the market won't disappear entirely.",
+      },
+      {
+        q: "왜 러시아는 서방 제재 이후 판다본드를 발행하나요?",
+        qEn: "Why is Russia issuing Panda bonds after Western sanctions?",
+        a: "러시아는 2022년 우크라이나 침공 이후 달러·유로 국제 결제 시스템(SWIFT 등)에서 부분적으로 배제됐습니다. 로스네프트·가즈프롬 등 러시아 국영기업들은 달러 채권 발행이 사실상 불가능해졌습니다. 판다본드를 통한 CNY 조달은 달러 결제 시스템을 우회하는 대안입니다. 또한 중-러 무역이 위안화 결제로 빠르게 이동하면서 CNY 조달이 실제 거래 결제에도 유용해졌습니다.",
+        aEn: "Russia was partially excluded from dollar and euro international settlement systems (SWIFT etc.) after the 2022 Ukraine invasion. Russian SOEs like Rosneft and Gazprom have effectively lost access to dollar bond markets. CNY funding via Panda bonds provides an alternative that bypasses the dollar settlement system. Additionally, as China-Russia trade rapidly shifted to yuan settlement, CNY funding became useful for actual transaction settlement.",
+      },
+      {
+        q: "일반 투자자가 사무라이본드나 판다본드에 투자할 수 있나요?",
+        qEn: "Can individual investors invest in Samurai or Panda bonds?",
+        a: "접근성에 제약이 있습니다. 사무라이본드는 일본 증권사를 통해 일본 국내 투자자가 매수할 수 있지만, 글로벌 기관투자자가 주를 이룹니다. 판다본드는 중국 역내 투자자용으로 CCDC·SHCH 계좌가 필요하며, 외국 투자자는 Bond Connect 또는 QFII/RQFII를 통해 일부 접근 가능합니다. 두 시장 모두 기관 투자자 중심이며, 개인 투자자의 직접 접근은 매우 제한적입니다.",
+        aEn: "Access is constrained. Samurai bonds can be purchased by Japanese domestic investors through Japanese securities firms, but institutional investors dominate. Panda bonds are for onshore Chinese investors requiring CCDC or SHCH accounts; foreign investors can access some through Bond Connect or QFII/RQFII. Both markets are primarily institutional, with very limited direct access for individual investors.",
+      },
+    ],
+    references: [
+      { id: 1, author: "Asian Development Bank", title: "The Samurai Bond Market in Japan", source: "ADB Working Paper", year: "2022", url: "https://www.adb.org/publications/asian-bonds-online" },
+      { id: 2, author: "People's Bank of China", title: "Guidelines for Panda Bond Issuance by Overseas Institutions in China", source: "PBOC Circular", year: "2018", url: "https://www.pbc.gov.cn" },
+      { id: 3, author: "BIS", title: "Offshore Local Currency Bond Markets", source: "BIS Quarterly Review", year: "2021", url: "https://www.bis.org/publ/qtrpdf/r_qt2103b.htm" },
+      { id: 4, author: "Swift Institute", title: "RMB Internationalisation: Achievements and Prospects", source: "Swift Institute Working Paper", year: "2022", url: "https://www.swiftinstitute.org" },
+    ],
   },
 
   // ── E: SOE·기업 ──────────────────────────────────────────────────────────────
@@ -3035,7 +3877,7 @@ This is not an AT1-specific issue. Many market 'conventions' depend not on contr
     readingMinutes: 13,
     tags: ["SOE", "사우디", "Aramco", "회사채", "오더북"],
     tagsEn: ["SOE", "Saudi Arabia", "Aramco", "Corporate Bond", "Orderbook"],
-    published: false,
+    published: true,
     snapshot: [
       { labelKo: "발행사", labelEn: "Issuer", value: "Saudi Aramco" },
       { labelKo: "발행연도", labelEn: "Year", value: "2019" },
@@ -3043,10 +3885,216 @@ This is not an AT1-specific issue. Many market 'conventions' depend not on contr
       { labelKo: "오더북", labelEn: "Orderbook", value: "$100B+" },
       { labelKo: "등급", labelEn: "Rating", value: "A1/A+ (Moody's/S&P)" },
     ],
-    sections: [],
-    keyTerms: [],
+    sections: [
+      {
+        heading: "아람코의 비밀: 채권 발행 전까지 세계가 몰랐던 것들",
+        headingEn: "Aramco's Secret: What the World Didn't Know Before the Bond",
+        body:
+`2019년 이전, 사우디 아람코는 세계에서 가장 불투명한 대형 기업 중 하나였다. 상장사가 아닌 국영기업으로서 재무제표를 공개할 의무가 없었다. '세계에서 가장 수익성 높은 회사'라는 말은 많았지만, 실제 숫자는 알 수 없었다.
+
+2019년 4월, 아람코는 국제 채권시장 데뷔를 결정했다. 그러자 모든 것이 달라졌다. 신용등급을 받으려면 S&P와 Moody's에 전체 재무제표를 제공해야 했다. 최소한의 공시 요건을 충족하기 위해 투자설명서(Offering Memorandum)에 역대 처음으로 재무 현황이 공개됐다.
+
+공개된 숫자들은 충격적이었다. 2018년 순이익 $1,111억 — 애플($595억)의 거의 두 배였다. 269억 배럴의 확인 매장량. 일일 원유 생산량 1,030만 배럴. EBITDA 기준으로는 글로벌 상위 10개 기업의 합산과 비슷한 규모였다.
+
+등급은 A1(Moody's)/A+(S&P) — 사우디 국채와 동일한 수준이었다. 이 자체로도 이미 주목받을 딜이었다.`,
+        bodyEn:
+`Before 2019, Saudi Aramco was one of the world's most opaque major companies. As a non-listed state enterprise, it had no obligation to publicly disclose financial statements. The phrase 'world's most profitable company' was widely used, but the actual numbers were unknown.
+
+In April 2019, Aramco decided to debut in international bond markets — and everything changed. To receive credit ratings, it had to provide full financial statements to S&P and Moody's. For the first time, a bare-minimum financial disclosure appeared in the Offering Memorandum.
+
+The revealed numbers were stunning. 2018 net income of $111.1 billion — nearly twice Apple's $59.5 billion. 269 billion barrels of proven reserves. Daily crude production of 10.3 million barrels. EBITDA comparable to the combined sum of the global top 10 companies.
+
+Rating: A1 (Moody's) / A+ (S&P) — the same as Saudi government bonds. This alone made the deal remarkable.`,
+      },
+      {
+        heading: "$1,000억 오더북: 사상 최대의 수요",
+        headingEn: "$100B+ Orderbook: Demand on a Historic Scale",
+        body:
+`2019년 4월 8~10일, 아람코는 뉴욕·런던·홍콩·싱가포르에서 전격 로드쇼를 진행했다. 단 사흘만에 5개 트랑쉬에 걸쳐 $120억 발행을 마무리했다 — 이 규모 딜로는 역대 가장 빠른 실행이었다.
+
+오더북은 $1,000억을 훌쩍 넘겼다. 발행 규모($120억) 대비 약 10배. 역대 사상 최대 규모의 회사채 수요였다. 전 세계 1,000개 이상의 기관 투자자가 참여했다.
+
+트랑쉬 구성: 3년·5년·10년·20년·30년 5개 구간. 10년물이 $30억으로 최대 규모였다. 스프레드는 이전 가이던스보다 20~30bp 타이트하게 조여들었다.
+
+가장 주목받은 점은 가격 수준이었다. 일부 만기에서 사우디 정부 국채보다 낮은 스프레드로 발행됐다. SOE가 모국 국채보다 타이트하게 발행된 전례 없는 사례였다. 시장은 '아람코의 재무가 사우디 정부보다 더 강하다'는 신호로 읽었다.`,
+        bodyEn:
+`On April 8–10, 2019, Aramco executed a lightning roadshow across New York, London, Hong Kong, and Singapore — completing a $12 billion, 5-tranche issuance in just three days, the fastest execution ever for a deal of this size.
+
+The orderbook exceeded $100 billion — roughly 10x the deal size ($12B). It was the largest corporate bond demand in history. Over 1,000 institutional investors from around the world participated.
+
+Tranche structure: 3-year, 5-year, 10-year, 20-year, and 30-year maturities. The 10-year tranche was the largest at $3 billion. Spreads tightened 20–30bp inside initial guidance levels.
+
+The most remarkable aspect was the pricing. Several tranches priced at spreads tighter than Saudi government bonds — an unprecedented case of an SOE issuing inside its home sovereign. Markets read it as a signal that 'Aramco's balance sheet is stronger than the Saudi government's.'`,
+      },
+      {
+        heading: "왜 지금 채권인가: MBS와 Vision 2030의 현실",
+        headingEn: "Why Bonds Now: MBS and the Reality of Vision 2030",
+        body:
+`아람코의 채권 발행은 단순한 자금 조달이 아니었다. 사우디 왕세자 무함마드 빈 살만(MBS)의 야심찬 프로젝트 '비전 2030'과 직결된 전략적 결정이었다.
+
+비전 2030은 사우디 경제를 석유 의존에서 벗어나 관광·기술·금융으로 다양화한다는 계획이다. 이를 위한 자금이 필요했다. 아람코 IPO — 사상 최대 $2조 기업가치 목표 — 가 당초 계획이었다.
+
+그러나 2018년 10월 사우디 언론인 자말 카쇼기가 이스탄불 주재 사우디 영사관에서 피살되면서 국제 분위기가 급변했다. IPO 주관사 선정을 위해 접촉하던 글로벌 투자은행들이 거리를 뒀다. 뉴욕·런던 증시 상장도 불투명해졌다.
+
+채권 발행은 'Plan B'였다. IPO 없이 국제 자본시장에 접근하고, 사우디 정부 배당 재원을 조달하며, 아람코의 재무 투명성을 처음으로 선보이는 기회. 2019년 $120억 채권 발행은 이후 이어지는 대규모 채권 프로그램의 첫 단추였다.`,
+        bodyEn:
+`Aramco's bond issuance was not simply a funding exercise. It was a strategic decision directly tied to Saudi Crown Prince Mohammed bin Salman's (MBS) ambitious project — Vision 2030.
+
+Vision 2030 aims to diversify the Saudi economy away from oil dependence toward tourism, technology, and finance. Significant capital was required. The original plan was an Aramco IPO — targeting an unprecedented $2 trillion valuation.
+
+But in October 2018, Saudi journalist Jamal Khashoggi was murdered inside the Saudi consulate in Istanbul, suddenly chilling the international atmosphere. Global investment banks that had been engaged for IPO mandate discussions kept their distance. Listing on New York and London exchanges became uncertain.
+
+The bond issuance was Plan B: access international capital markets without an IPO, raise funds for the Saudi government dividend, and showcase Aramco's financial transparency for the first time. The 2019 $12B bond issuance was the first step in what would become a large, ongoing bond program.`,
+      },
+      {
+        heading: "SOE 채권의 정점: 국채보다 타이트한 스프레드",
+        headingEn: "The Apex of SOE Bonds: Pricing Inside the Sovereign",
+        body:
+`채권시장에는 오랫동안 하나의 불문율이 있었다. 'SOE는 국채보다 비쌀 수 없다.' SOE가 아무리 우량해도, 최종 지급 보증자는 국가이므로 국채보다 낮은 수익률(타이트한 스프레드)로 발행할 수 없다는 논리였다.
+
+아람코 2019년 딜은 이 불문율에 도전했다. 10년물 기준 아람코는 사우디 국채보다 좁은 스프레드로 발행됐다. 이유는 명확했다. 아람코는 달러 수익을 창출하는 기업이다. 사우디 정부는 아람코 배당에 의존하는 구조다. 즉, 투자자 입장에서 실제 신용은 사우디 정부보다 아람코가 더 견고하다는 인식이 있었다.
+
+이 딜은 이후 걸프 지역 SOE 채권 발행의 벤치마크가 됐다. UAE 아부다비국영석유공사(ADNOC), 쿠웨이트 쿠웨이트석유공사(KPC) 등도 이를 참고해 국제 채권시장에 접근했다.
+
+더 나아가, 이 딜은 '오일머니'가 국제 자본시장에 얼마나 깊숙이 통합됐는지를 보여줬다. ESG 우려가 있음에도 불구하고, $1,000억 이상의 수요는 석유 회사 채권에 대한 투자자들의 실질적 태도가 명확함을 보여줬다.`,
+        bodyEn:
+`For a long time, bond markets held one unwritten rule: 'SOEs cannot be cheaper than government bonds.' No matter how strong an SOE, the logic went that the ultimate guarantor was the state, so it could never issue at tighter spreads than sovereign bonds.
+
+Aramco's 2019 deal challenged this convention. On the 10-year tranche, Aramco issued at spreads tighter than Saudi government bonds. The reason was clear: Aramco generates dollar revenues. The Saudi government depends on Aramco dividends. From investors' perspective, Aramco's actual credit quality was perceived as more robust than the Saudi government's.
+
+This deal became the benchmark for subsequent Gulf SOE bond issuance. ADNOC (Abu Dhabi National Oil Company), Kuwait Petroleum Corporation (KPC), and others referenced it when accessing international bond markets.
+
+Further, the deal demonstrated how deeply 'oil money' had integrated into international capital markets. Despite ESG concerns, $100B+ in demand made clear the actual attitude of investors toward oil company bonds.`,
+      },
+      {
+        heading: "아람코 이후: IPO, 그린본드, 지속하는 채권 프로그램",
+        headingEn: "After the Bond: IPO, Green Bond, Ongoing Program",
+        body:
+`2019년 채권 발행 이후 아람코는 국제 자본시장에서 중요한 발행체로 자리를 잡았다.
+
+2019년 12월, 연기됐던 아람코 IPO가 결국 실현됐다. 사우디 증권거래소(Tadawul) 단일 상장으로 $256억을 조달해 역대 최대 IPO 기록을 갈아치웠다(이전 기록: 알리바바 2014 $250억). 그러나 사우디 국내 투자자 비중이 높았고, 목표 기업가치 $2조에는 미치지 못했다.
+
+2021년 11월, 아람코는 $60억 규모의 그린본드(Green Bond)를 발행했다. 지속가능성 재원 조달 채널을 추가하는 한편, ESG 투자자 기반에도 접근하는 전략적 행보였다.
+
+아람코의 채권 발행 경험이 주는 교훈: 투명성(재무 공개)은 조달 비용을 낮춘다. 아람코가 처음으로 재무를 공개한 직후, 시장은 국채보다 타이트한 가격을 부여했다. '모르는 것에는 프리미엄을 요구한다'는 채권시장의 정보 비대칭 원리가 역방향으로도 작동함을 보여준 사례였다.`,
+        bodyEn:
+`After the 2019 bond issuance, Aramco established itself as a significant issuer in international capital markets.
+
+In December 2019, the long-delayed Aramco IPO finally materialized. Listing solely on the Saudi Exchange (Tadawul), it raised $25.6 billion to break the all-time IPO record (previously held by Alibaba's 2014 $25 billion offering). However, domestic Saudi investors dominated, and the target $2 trillion valuation was not achieved.
+
+In November 2021, Aramco issued a $6 billion Green Bond — adding a sustainable financing channel while accessing ESG investor bases.
+
+The lesson from Aramco's bond experience: transparency (financial disclosure) lowers funding costs. Immediately after Aramco disclosed financials for the first time, the market awarded pricing tighter than sovereign bonds. The bond market's information asymmetry principle — 'demand a premium for the unknown' — was shown to work in both directions.`,
+      },
+    ],
+    keyTerms: [
+      {
+        term: "SOE 채권 (SOE Bond)",
+        termEn: "SOE Bond",
+        definition: "국영기업(State-Owned Enterprise)이 발행하는 채권. 모국 정부의 암묵적·명시적 지원이 있어 일반 기업채보다 낮은 스프레드로 발행 가능. 아람코·아디노크·사우디 아람코 등 걸프 국영 석유기업들이 대표적 발행체.",
+        definitionEn: "Bonds issued by State-Owned Enterprises. Implicit or explicit home-government support enables issuance at lower spreads than ordinary corporate bonds. Gulf national oil companies like Aramco, ADNOC, and others are representative issuers.",
+      },
+      {
+        term: "오더북 (Orderbook)",
+        termEn: "Orderbook",
+        definition: "채권 북빌딩 과정에서 투자자들이 제출한 총 매수 주문 규모. 아람코 2019년 딜의 $1,000억+ 오더북은 역대 회사채 최대 기록. 오더북 규모는 발행사의 가격 협상력을 결정짓는 핵심 지표.",
+        definitionEn: "The total volume of buy orders submitted by investors during a bond bookbuilding process. Aramco's 2019 deal's $100B+ orderbook set an all-time corporate bond record. Orderbook size is the key indicator determining an issuer's pricing negotiating power.",
+      },
+      {
+        term: "소버린 시일링 (Sovereign Ceiling)",
+        termEn: "Sovereign Ceiling",
+        definition: "이론적으로 SOE의 신용등급은 모국 국가 등급을 초과할 수 없다는 원칙. 단, 아람코처럼 달러 수익 창출력이 뛰어나고 정부보다 재무가 강한 기업은 일부 만기에서 소버린보다 타이트하게 발행 가능. 사우디 아람코 딜이 이 원칙에 도전한 사례.",
+        definitionEn: "The theoretical principle that an SOE's credit rating cannot exceed its home country's sovereign rating. However, companies like Aramco with exceptional dollar revenue generation and stronger balance sheets than the government can issue tighter than the sovereign on some maturities — Aramco's 2019 deal was a case that challenged this principle.",
+      },
+      {
+        term: "비전 2030 (Vision 2030)",
+        termEn: "Vision 2030",
+        definition: "사우디아라비아 왕세자 MBS가 주도하는 석유 의존 탈피·경제 다양화 국가 전략. 관광·기술·엔터테인먼트·금융으로의 전환을 목표로 하며, 막대한 투자 자금이 필요하다. 아람코 채권·IPO 수익이 이 계획의 주요 자금원.",
+        definitionEn: "A national economic diversification strategy led by Saudi Crown Prince MBS, aimed at reducing oil dependence and expanding into tourism, technology, entertainment, and finance. It requires enormous investment capital; Aramco bond and IPO proceeds are a primary funding source for this plan.",
+      },
+    ],
     relatedMarket101Slugs: ["dcm-ecosystem"],
-    references: [],
+    relatedDealSlugs: ["verizon-megadeal", "apple-bond-strategy"],
+    executiveSummary: {
+      ko: [
+        "2019년 4월 아람코 첫 국제채 $120억(5개 트랑쉬) — 역사상 최초 전면 재무 공개: 2018 순이익 $1,111억, 매장량 269억 배럴",
+        "오더북 $1,000억+ (역대 회사채 최대) — 단 3일 로드쇼, 10배 오버구독, 일부 만기에서 사우디 국채보다 타이트하게 발행",
+        "발행 배경: 카쇼기 피살 사건으로 IPO 지연 → 채권이 'Plan B', Vision 2030 재원 조달의 첫 국제 자본시장 접근",
+        "SOE 채권의 정점: 국채 소버린 시일링을 넘는 가격 — 아람코 재무가 사우디 정부보다 강하다는 시장 인식",
+        "이후 $60억 그린본드(2021), $256억 IPO(2019 12월, 역대 최대) — 국제 자본시장 상시 발행체로 정착",
+      ],
+      en: [
+        "April 2019: Aramco's debut $12B bond (5 tranches) — first-ever full financial disclosure: 2018 net income $111.1B, reserves 269B barrels",
+        "$100B+ orderbook (all-time corporate bond record) — 3-day roadshow, 10x oversubscription, several tranches priced tighter than Saudi government bonds",
+        "Background: Khashoggi murder delayed IPO → bonds became Plan B; first international capital market access for Vision 2030 funding",
+        "Apex of SOE bonds: priced inside the sovereign ceiling — market perceived Aramco's balance sheet as stronger than the Saudi government's",
+        "Followed by $6B green bond (2021), $25.6B IPO (Dec 2019, all-time record) — established as a regular international capital market issuer",
+      ],
+    },
+    assessment: {
+      positives: [
+        "재무 투명성 → 조달 비용 절감 — 최초 공개 직후 국채보다 타이트한 가격 달성, 투명성의 가격 보상 입증",
+        "역사적 오더북 — $1,000억+ 수요는 규모 경제 달성, 스프레드 협상력 극대화, 발행사에게 완전한 주도권",
+        "SOE 발행 모델 정립 — 이후 걸프 지역 SOE 채권 발행의 표준 케이스북으로 활용",
+        "국제 투자자 기반 확보 — 1,000개+ 투자자 관계 구축, 향후 반복 발행의 기반 마련",
+      ],
+      positivesEn: [
+        "Financial transparency → lower funding cost — achieving pricing tighter than sovereign immediately after first disclosure proved the price reward for transparency",
+        "Historic orderbook — $100B+ demand achieved scale economics, maximized spread negotiating power, and gave issuers complete control",
+        "SOE issuance model established — became the standard casebook for subsequent Gulf SOE bond issuance",
+        "International investor base built — 1,000+ investor relationships created, laying groundwork for future repeat issuance",
+      ],
+      risks: [
+        "카쇼기 사건 등 지정학 리스크 — ESG·SRI 투자자 제외, 일부 주관사·투자자 평판 리스크 우려로 참여 제한",
+        "유가 변동성 — 수익성의 절대적 의존도가 유가에 있어 유가 급락 시 신용 프로파일 급변 가능",
+        "사우디 정부 의존 구조 — 아람코 배당을 통한 사우디 재정 의존 → 정부 재정 수요가 아람코 재무에 영향",
+        "ESG 시대의 화석연료 투자 논란 — 탈탄소화 흐름에서 석유 회사 채권 보유에 대한 기관 투자자 내부 압박",
+      ],
+      risksEn: [
+        "Geopolitical risk (Khashoggi case) — excluded ESG/SRI investors; some bookrunners and investors limited participation over reputational risk concerns",
+        "Oil price volatility — absolute profitability dependence on oil prices means credit profile can change sharply with price crashes",
+        "Saudi government dependency structure — Saudi fiscal dependence on Aramco dividends means government spending needs affect Aramco's finances",
+        "Fossil fuel investment controversy in ESG era — institutional investor internal pressure on holding oil company bonds in a decarbonization trend",
+      ],
+    },
+    faq: [
+      {
+        q: "아람코가 왜 사우디 정부 국채보다 타이트한 스프레드로 발행될 수 있었나요?",
+        qEn: "How was Aramco able to issue at tighter spreads than Saudi government bonds?",
+        a: "세 가지 이유가 있습니다. 첫째, 달러 수익 창출: 아람코는 오일 달러 수입으로 달러 부채를 직접 상환 가능. 사우디 정부는 아람코 배당을 통해 간접적으로만 달러를 얻습니다. 둘째, 재무 견고성: 아람코의 레버리지는 매우 낮고 EBITDA 규모는 사우디 GDP와 비견될 수준. 셋째, 운영 독립성: 아람코는 사우디 국내 정치에서 상대적으로 독립적인 운영 역량을 보유합니다.",
+        aEn: "Three reasons: First, dollar revenue generation — Aramco can directly repay dollar debt with petroleum dollar revenues. The Saudi government only indirectly receives dollars through Aramco dividends. Second, financial strength — Aramco's leverage is extremely low and its EBITDA is comparable to Saudi GDP. Third, operational independence — Aramco maintains operating capabilities relatively independent of Saudi domestic politics.",
+      },
+      {
+        q: "아람코 재무 공개가 왜 그렇게 놀라웠나요?",
+        qEn: "Why was Aramco's financial disclosure so surprising?",
+        a: "아람코는 수십 년 동안 상장 기업이 아니었고 공개 재무제표 의무가 없었습니다. 세계에서 가장 수익성 높은 기업이라는 사실은 알려져 있었지만, 정확한 수치는 미스터리였습니다. 2018년 순이익 $1,111억이 공개되자, 이는 동년 애플($595억)의 약 두 배, 아마존의 약 10배였습니다. 매장량 269억 배럴은 세계 전체 확인 매장량의 약 17%에 해당합니다.",
+        aEn: "Aramco had been a non-listed company for decades with no public financial disclosure obligation. Its status as the world's most profitable company was known, but the exact numbers were a mystery. When 2018 net income of $111.1 billion was revealed, it was roughly twice Apple's ($59.5B) and about 10x Amazon's in the same year. The 269 billion barrels of proven reserves represents approximately 17% of the world's total proven reserves.",
+      },
+      {
+        q: "$1,000억 오더북은 어떻게 구성됐나요?",
+        qEn: "How was the $100B+ orderbook composed?",
+        a: "1,000개 이상의 기관 투자자가 참여했습니다. 지역별로는 아시아·중동·유럽·미국 투자자들이 고루 참여했습니다. 유형별로는 자산운용사·생명보험사·연기금·국부펀드(SWF)·은행 등이 포함됩니다. 특히 중동 국부펀드들의 대규모 참여가 두드러졌습니다. 역설적으로 서방 ESG 투자자들 일부는 참여하지 않았음에도 오더북은 역대 최대를 기록했습니다.",
+        aEn: "Over 1,000 institutional investors participated. By geography, Asian, Middle Eastern, European, and American investors were all represented. By type: asset managers, life insurers, pension funds, sovereign wealth funds (SWFs), and banks were all included. Middle Eastern SWF participation was particularly notable at large size. Paradoxically, even with some Western ESG investors choosing not to participate, the orderbook was still the largest in history.",
+      },
+      {
+        q: "아람코 채권 발행은 IPO와 어떤 관계인가요?",
+        qEn: "What is the relationship between Aramco's bond issuance and the IPO?",
+        a: "채권 발행은 원래 계획이 아니었습니다. 아람코는 2017~2018년에 뉴욕 증권거래소 또는 런던 증권거래소 상장을 통해 $2조 기업 가치의 IPO를 목표로 했습니다. 2018년 카쇼기 사건으로 국제 투자은행들이 뒤로 빠지고 해외 상장 계획이 불확실해지면서, 2019년 채권 발행이 우선 진행됐습니다. 2019년 12월 IPO는 결국 사우디 증권거래소(Tadawul)에서만 이루어졌고 해외 상장은 포기됐습니다.",
+        aEn: "Bond issuance was not the original plan. Aramco had been targeting a $2 trillion IPO on the NYSE or LSE in 2017–2018. When the 2018 Khashoggi incident caused international investment banks to step back and foreign listing plans became uncertain, the 2019 bond issuance proceeded first. The December 2019 IPO was ultimately conducted only on the Saudi Exchange (Tadawul), with overseas listing abandoned.",
+      },
+      {
+        q: "아람코 그린본드($60억, 2021)는 왜 발행됐나요?",
+        qEn: "Why did Aramco issue a $6B green bond in 2021?",
+        a: "두 가지 전략적 목적이 있었습니다. 첫째, ESG 투자자 기반 접근: 2019년 채권에서 일부 ESG 투자자들이 참여를 꺼렸는데, 그린본드 프레임워크를 통해 환경 자금 조달로 분류하면 이들을 포함할 수 있습니다. 둘째, 아람코의 탈탄소화 내러티브 구축: 재생에너지 투자·탄소 포집 등에 자금을 배정함으로써 '오일 기업도 에너지 전환에 투자한다'는 메시지 전달. 논란은 있었지만 $60억 모두 청약 마감됐습니다.",
+        aEn: "Two strategic purposes: first, accessing ESG investor bases — some ESG investors had been reluctant to participate in 2019; by classifying funding as environmental through a green bond framework, these investors could be included. Second, building Aramco's decarbonization narrative — allocating proceeds to renewable energy, carbon capture, etc. delivered the message 'even an oil company invests in the energy transition.' Despite controversy, the $6B was fully subscribed.",
+      },
+    ],
+    references: [
+      { id: 1, author: "Saudi Aramco", title: "Preliminary Offering Memorandum — Senior Unsecured Notes", source: "Saudi Arabian Oil Company", year: "2019", url: "https://www.saudiaramco.com/en/investors" },
+      { id: 2, author: "Moody's Investors Service", title: "Saudi Arabian Oil Company (Aramco): Rating Action", source: "Moody's", year: "2019", url: "https://www.moodys.com" },
+      { id: 3, author: "Bloomberg", title: "Aramco's Record $100 Billion Book Sends Message to Bond Markets", source: "Bloomberg Markets", year: "2019", url: "https://www.bloomberg.com" },
+      { id: 4, author: "Financial Times", title: "Saudi Aramco $12bn Bond Priced Tighter than Saudi Government", source: "Financial Times", year: "2019", url: "https://www.ft.com" },
+    ],
   },
 
   {
@@ -3064,17 +4112,231 @@ This is not an AT1-specific issue. Many market 'conventions' depend not on contr
     readingMinutes: 11,
     tags: ["M&A금융", "회사채", "메가딜", "Verizon", "북빌딩"],
     tagsEn: ["M&A Finance", "Corporate Bond", "Megadeal", "Verizon", "Bookbuilding"],
-    published: false,
+    published: true,
     snapshot: [
       { labelKo: "발행사", labelEn: "Issuer", value: "Verizon Communications" },
       { labelKo: "발행연도", labelEn: "Year", value: "2013" },
       { labelKo: "발행규모", labelEn: "Size", value: "$49B" },
       { labelKo: "목적", labelEn: "Purpose", value: "Vodafone 지분 인수 자금" },
     ],
-    sections: [],
-    keyTerms: [],
+    sections: [
+      {
+        heading: "왜 $490억이 필요했나: 보다폰 지분 인수",
+        headingEn: "Why $49B Was Needed: Buying Out Vodafone",
+        body:
+`버라이즌 커뮤니케이션스(Verizon Communications)는 미국 최대 통신 사업자다. 그런데 정작 미국에서 가장 수익성 높은 무선 네트워크인 '버라이즌 와이어리스'는 Verizon Communications와 영국 보다폰(Vodafone)의 합작 회사였다. Verizon이 55%, Vodafone이 45% 지분을 보유했다.
+
+2013년 9월 2일, Verizon은 보다폰의 45% 지분 전체를 $1,300억에 인수하기로 합의했다. 2000년대 초 이후 최대 규모의 M&A 거래였다. 이 딜로 Verizon은 버라이즌 와이어리스의 완전한 오너가 됐다.
+
+문제는 $1,300억의 자금 조달이었다. Verizon은 이를 ① 현금 $580억, ② 주식 발행 $600억, ③ 채권 발행 $490억으로 분담해 마련했다. 당시 단일 회사채 발행으로는 역대 최대 규모인 $490억이 단 하루 만에 완성됐다.`,
+        bodyEn:
+`Verizon Communications is America's largest telecommunications operator. But 'Verizon Wireless,' the most profitable wireless network in the U.S., was a joint venture between Verizon Communications (55%) and Britain's Vodafone (45%).
+
+On September 2, 2013, Verizon agreed to acquire Vodafone's full 45% stake for $130 billion — the largest M&A transaction since the early 2000s. The deal would make Verizon the full owner of Verizon Wireless.
+
+The challenge was financing $130 billion. Verizon structured this as: ① $58B in cash, ② $60B in stock, ③ $49B in bonds. That $49 billion — then the largest single corporate bond issuance ever — was completed in just one day.`,
+      },
+      {
+        heading: "역대 최대 회사채: $1,000억 오더북과 8개 트랑쉬",
+        headingEn: "The Largest Corporate Bond: $100B+ Orderbook and 8 Tranches",
+        body:
+`2013년 9월 10일, Verizon은 전광석화처럼 단 하루 만에 로드쇼를 마치고 $490억 채권을 발행했다.
+
+8개 트랑쉬 구성은 만기를 최대한 분산시켰다: 3년 변동금리·3년 고정금리·5년·7년·10년·20년·30년에 100년물(세기채, Century Bond)까지 포함됐다. 단기물에는 MMF·단기 자금 수요자가, 장기물에는 연기금·생명보험사가 각각 분리되어 매수했다.
+
+오더북은 $1,000억을 넘어섰다. 발행액 대비 약 2배. 10만 명 이상의 개인 투자자를 포함해 수천 개 기관이 참여했다. 스프레드는 초기 가이던스보다 20~25bp 타이트하게 확정됐다.
+
+당시 이 딜의 주관사(Bookrunner)는 JP모건·모건스탠리·뱅크오브아메리카·바클레이즈·웰스파고·씨티그룹 등 6개사가 공동으로 참여했다. $490억을 단일 주관사가 소화하기에는 너무 큰 규모였고, 배포 역량을 최대화하기 위해 대형 컨소시엄이 구성됐다.`,
+        bodyEn:
+`On September 10, 2013, Verizon completed a lightning one-day roadshow and issued $49 billion in bonds.
+
+Eight tranches maximized maturity diversification: 3-year floating rate, 3-year fixed, 5-year, 7-year, 10-year, 20-year, 30-year, and even a 100-year 'Century Bond.' Short-dated tranches attracted money market funds and short-duration buyers; long-dated tranches attracted pension funds and life insurers.
+
+The orderbook exceeded $100 billion — about twice the deal size. Thousands of institutions participated, including over 100,000 individual investors. Spreads tightened 20–25bp inside initial guidance.
+
+The deal's bookrunners were JPMorgan, Morgan Stanley, Bank of America, Barclays, Wells Fargo, and Citigroup — six banks jointly. $49 billion was too large for any single bookrunner to distribute alone; a large consortium was necessary to maximize distribution capacity.`,
+      },
+      {
+        heading: "메가딜 북빌딩의 논리: 규모가 수요를 만든다",
+        headingEn: "The Logic of Megadeal Bookbuilding: Size Creates Demand",
+        body:
+`$490억 딜을 하루 만에 완성하는 것은 단순히 가격만의 문제가 아니다. 전략적 실행의 기술이다.
+
+**적정 NIC(신규 발행 프리미엄)**: 대규모 딜은 기존 유통 시장 대비 10~30bp의 신규 발행 프리미엄(New Issue Concession, NIC)을 제공해야 투자자를 끌어들일 수 있다. Verizon 딜도 초기 가이던스를 넉넉하게 제시한 뒤 오더가 쌓이면서 조여나갔다.
+
+**랜드마크 효과**: '역대 최대' 타이틀이 붙은 딜은 역설적으로 수요를 더 만든다. 기관 투자자들은 역사적 거래에 참여했다는 레퍼런스 가치를 원한다. '버라이즌 딜에 X억 달러 참여'가 포트폴리오 운용 레퍼런스가 된다.
+
+**다중 트랑쉬의 수요 집계**: 8개 만기에 걸쳐 투자자를 분산시키면, 각 만기의 '전문 수요'를 모을 수 있다. 단일 만기로 $490억을 발행하면 특정 만기에 과도한 집중이 생기지만, 트랑쉬 분산으로 수요를 효율적으로 흡수한다.
+
+**일정 압박**: 빠른 실행이 시장 변동성 노출을 최소화한다. Verizon은 M&A 발표 후 가능한 빠르게 금리 고정을 원했다.`,
+        bodyEn:
+`Completing a $49 billion deal in one day is not just a pricing matter. It is the art of strategic execution.
+
+**Appropriate NIC (New Issue Concession)**: Large deals must offer a New Issue Concession of 10–30bp versus secondary market levels to attract investors. The Verizon deal set generous initial guidance, then tightened as books built.
+
+**Landmark effect**: Paradoxically, a deal labeled 'largest ever' actually generates more demand. Institutional investors want the reference value of having participated in a historic transaction. 'Participated $X million in the Verizon deal' becomes a portfolio management reference.
+
+**Multi-tranche demand aggregation**: Spreading investors across 8 maturities allows collecting the 'specialist demand' for each maturity. Issuing $49B in a single maturity would create excessive concentration; tranche diversification efficiently absorbs demand.
+
+**Timing pressure**: Fast execution minimizes market volatility exposure. Verizon wanted to lock in rates as quickly as possible after the M&A announcement.`,
+      },
+      {
+        heading: "2013년 IG 회사채 시장: 왜 이 딜이 가능했나",
+        headingEn: "The 2013 IG Market: Why This Deal Was Possible",
+        body:
+`2013년은 투자등급(IG) 회사채 시장에 절묘한 시기였다.
+
+2008~2009년 금융위기 이후 연준(Fed)은 제로금리(ZIRP)를 유지했다. 10년물 국채는 2~3% 수준에 머물렀고, 수익률을 원하는 기관 투자자들은 회사채로 몰렸다. IG 스프레드는 역사적으로 타이트한 수준(100bp 초반)이었다.
+
+동시에 투자자들의 가용 현금이 풍부했다. 양적완화(QE)로 시장에 유동성이 넘쳤고, 연기금·보험사·자산운용사들은 적절한 투자처를 찾고 있었다.
+
+이 환경에서 BBB 급의 Verizon이 $490억을 소화할 수 있는 유동성이 시장에 존재했다. 만약 2022~2023년처럼 금리가 5%를 넘고 스프레드가 200bp 이상인 환경이었다면, 같은 방식의 딜은 훨씬 높은 비용 또는 분할 발행이 필요했을 것이다.
+
+Verizon 딜은 저금리 시대 IG 회사채 시장의 성숙을 보여주는 상징적 사례이자, M&A 자금조달의 채권 시장 활용이 정점에 달한 시점이었다.`,
+        bodyEn:
+`2013 was a fortuitous moment for the investment-grade (IG) corporate bond market.
+
+After the 2008–2009 financial crisis, the Fed maintained zero interest rates (ZIRP). 10-year Treasuries hovered at 2–3%, and yield-hungry institutional investors flocked to corporate bonds. IG spreads were at historically tight levels (low 100s bp).
+
+Simultaneously, investor available cash was abundant. QE flooded markets with liquidity, and pension funds, insurers, and asset managers were all searching for appropriate investments.
+
+In this environment, sufficient liquidity existed in the market to absorb a BBB-rated Verizon's $49B. In a 2022–2023-style environment with rates above 5% and spreads of 200bp+, the same deal would have required significantly higher cost or multiple tranched issuances.
+
+The Verizon deal is both a symbol of IG corporate bond market maturity in the low-rate era and the peak of bond market utilization for M&A financing.`,
+      },
+      {
+        heading: "Verizon 이후: 메가딜 시대의 문을 열다",
+        headingEn: "After Verizon: Opening the Era of Megadeals",
+        body:
+`$490억 딜은 그 자체로도 역사적이었지만, 이후 시장의 판도를 바꿨다.
+
+**Apple 2013~**: Verizon 딜 한 달 뒤 Apple이 첫 채권 $170억을 발행했다(당시 역대 2위 규모). 이후 Apple은 연간 $100억 이상을 반복 발행하는 회사채 시장의 상시 발행체가 됐다.
+
+**AT&T 2016, $220억**: M&A(DirecTV 인수) 자금조달을 위한 메가딜이 이어졌다.
+
+**수익률 환경의 역할**: 2015~2019년 저금리 환경에서 기업들은 채권시장을 자사주매입·배당·M&A 자금조달의 핵심 채널로 활용했다. '부채의 황금 시대(Golden Age of Leverage)'라 불리는 시기였다.
+
+Verizon 딜의 진짜 유산은 '이 규모까지 가능하다'는 심리적 상한선을 바꾼 것이다. 이전에는 $200~300억이 IG 회사채의 실질적 한계였다. 버라이즌이 $490억을 소화하면서 시장은 메가딜을 '예외'가 아닌 '가능한 선택지'로 인식하게 됐다.`,
+        bodyEn:
+`The $49B deal was historic in itself, but it also changed the market's landscape.
+
+**Apple 2013~**: One month after the Verizon deal, Apple issued its first bond at $17 billion (then the second-largest ever). Apple subsequently became a regular bond market issuer with over $10 billion annually.
+
+**AT&T 2016, $22B**: Megadeals for M&A financing (DirecTV acquisition) followed.
+
+**The role of the yield environment**: In the 2015–2019 low-rate environment, companies used bond markets as a primary channel for buybacks, dividends, and M&A financing — a period called the 'Golden Age of Leverage.'
+
+Verizon's true legacy was changing the psychological ceiling of 'what size is possible.' Previously, $20–30 billion was the practical limit for IG corporate bonds. By absorbing $49 billion, the market came to view megadeals not as exceptional but as 'a viable option.'`,
+      },
+    ],
+    keyTerms: [
+      {
+        term: "M&A 채권 파이낸싱",
+        termEn: "M&A Bond Financing",
+        definition: "기업 인수·합병 자금을 회사채 발행으로 조달하는 방식. 브릿지론(단기 은행 대출)으로 딜을 먼저 클로징한 뒤 채권으로 리파이낸싱하거나, Verizon처럼 딜 발표 직후 직접 채권을 발행하는 방식이 있다. 초저금리 환경에서 기업들이 선호하는 자본구조 전략.",
+        definitionEn: "Financing corporate acquisitions and mergers through bond issuance. Common approaches include closing the deal first with bridge loans (short-term bank credit) then refinancing with bonds, or directly issuing bonds immediately after announcement as Verizon did. A preferred capital structure strategy for corporates in ultra-low rate environments.",
+      },
+      {
+        term: "북빌딩 (Bookbuilding)",
+        termEn: "Bookbuilding",
+        definition: "채권 발행 시 투자자들이 금리·규모 희망을 제출하는 가격 발견 과정. 주관사(Bookrunner)가 투자자 오더를 취합해 최적 발행 금리와 규모를 결정한다. 대형 딜일수록 초기 가이던스를 넉넉하게 설정해 오더를 끌어들인 뒤 타이트하게 조여나가는 전략이 일반적.",
+        definitionEn: "The price discovery process in bond issuance where investors submit interest rate and size preferences. The bookrunner aggregates investor orders to determine the optimal issuance rate and size. For large deals, setting generous initial guidance to attract orders and then tightening is the standard strategy.",
+      },
+      {
+        term: "신규 발행 프리미엄 (NIC)",
+        termEn: "New Issue Concession (NIC)",
+        definition: "새로 발행되는 채권이 기존 유통 시장 수준 대비 추가로 제공하는 금리 프리미엄. 투자자들이 신규 발행에 참여하는 인센티브. 딜 규모가 클수록, 발행사 신용이 낮을수록 NIC가 커지는 경향. Verizon 딜은 규모 덕분에 NIC를 20~25bp 수준에서 통제할 수 있었다.",
+        definitionEn: "The additional yield premium offered on new bond issuance versus secondary market levels. It is the incentive for investors to participate in new issues. NIC tends to be larger for bigger deals and lower-quality issuers. The Verizon deal, thanks to its size-driven demand, kept NIC to 20–25bp.",
+      },
+      {
+        term: "세기채 (Century Bond)",
+        termEn: "Century Bond",
+        definition: "만기가 100년인 초장기 채권. 일반적으로 대학교·국가기관·초우량 기업이 발행. Verizon 2013년 딜이 회사채로 처음 100년물을 포함시켰다. 투자자는 초장기 이자 수입을 고정하고, 발행사는 100년 동안 재파이낸싱 리스크를 제거한다는 장점이 있다.",
+        definitionEn: "An ultra-long-term bond with 100-year maturity. Typically issued by universities, government entities, or top-quality corporations. Verizon's 2013 deal was among the first to include a 100-year corporate bond. Investors lock in ultra-long-term interest income; issuers eliminate refinancing risk for 100 years.",
+      },
+    ],
     relatedMarket101Slugs: [],
-    references: [],
+    relatedDealSlugs: ["apple-bond-strategy", "saudi-aramco-debut"],
+    executiveSummary: {
+      ko: [
+        "2013년 9월 버라이즌 $490억 회사채 — 보다폰 45% 지분 $1,300억 M&A 자금조달 목적, 당시 역대 최대 IG 회사채",
+        "단 하루 로드쇼, 8개 트랑쉬(3yr~100yr), $1,000억+ 오더북 — 발행사에 완전한 협상력, 가이던스 대비 20~25bp 타이트하게 조임",
+        "성공 요인: 2013년 초저금리·QE 유동성 환경, 랜드마크 딜 참여 수요, 다중 트랑쉬로 전체 수익률 곡선 수요 흡수",
+        "이후 Apple $170억(2013 10월), AT&T $220억(2016) 등 IG 메가딜 시대 개막 — '부채의 황금 시대' 진입",
+        "교훈: 메가딜 성공 = 적정 NIC + 랜드마크 타이밍 + 트랑쉬 분산 + 대형 주관사 컨소시엄",
+      ],
+      en: [
+        "September 2013 Verizon $49B bond — for the $130B M&A financing of Vodafone's 45% stake; then the largest IG corporate bond ever",
+        "One-day roadshow, 8 tranches (3yr–100yr), $100B+ orderbook — complete negotiating power for issuer; priced 20–25bp inside guidance",
+        "Success factors: 2013 ultra-low rate/QE liquidity environment, landmark deal participation demand, multi-tranche absorption of full yield curve demand",
+        "Opened the IG megadeal era: Apple $17B (Oct 2013), AT&T $22B (2016) — entrance into the 'Golden Age of Leverage'",
+        "Lesson: megadeal success = appropriate NIC + landmark timing + tranche diversification + large bookrunner consortium",
+      ],
+    },
+    assessment: {
+      positives: [
+        "M&A 완전 제어 — 채권 발행으로 보다폰 지분 100% 인수, 버라이즌 와이어리스 이익 독점화 → 이후 수년간 EPS·배당 급증",
+        "낮은 조달 비용 고정 — 2013년 초저금리 환경에서 장기 고정 금리 채권 발행, 이후 금리 상승 시 상대적 조달 비용 이점",
+        "시장 랜드마크 효과 — '역대 최대' 타이틀이 투자자 관심 극대화, 스프레드 최소화에 기여",
+        "자본구조 최적화 — 주식 희석 최소화(주식 $600억 포함 지만 채권 비중 높음), 레버리지를 통한 주주 환원 극대화",
+      ],
+      positivesEn: [
+        "Full M&A control — bond issuance funded 100% acquisition of Vodafone stake, monopolizing Verizon Wireless profits → EPS and dividends surged in subsequent years",
+        "Low-cost funding locked in — long-term fixed-rate bond issuance in 2013's ultra-low-rate environment; relative funding cost advantage as rates rose later",
+        "Market landmark effect — 'largest ever' title maximized investor interest, contributing to spread minimization",
+        "Capital structure optimization — minimal equity dilution (equity included but bond-weighted), maximizing shareholder returns through leverage",
+      ],
+      risks: [
+        "레버리지 급증 — $490억 신규 채권으로 버라이즌 부채 급증, 신용등급 하락 압력, Baa1/BBB+로 낮아짐",
+        "금리 리스크 — 30년·100년물 포함 장기 채권은 향후 금리 상승 시 시장 가치 하락 (단, 발행사 측면에서는 조달 비용 고정으로 유리)",
+        "통신 산업 구조 변화 리스크 — 5G 설비투자·스트리밍 경쟁 심화 등 산업 변화로 현금흐름 압박 가능",
+        "리파이낸싱 부담 — 향후 만기 도래 시 재조달 비용 불확실성 (금리 상승 환경에서 부담 증가)",
+      ],
+      risksEn: [
+        "Leverage surge — $49B in new bonds sharply increased Verizon's debt load, with rating downgrade pressure (to Baa1/BBB+)",
+        "Interest rate risk — long-dated 30-year and 100-year bonds face market value declines in rising rate environments (though fixed funding cost is favorable for issuer)",
+        "Telecom industry structure change risk — 5G capex intensity and streaming competition could pressure cash flows",
+        "Refinancing burden — future maturity refinancing cost uncertainty increases in a rising rate environment",
+      ],
+    },
+    faq: [
+      {
+        q: "버라이즌은 왜 주식 발행 대신 채권을 택했나요?",
+        qEn: "Why did Verizon choose bonds over equity issuance?",
+        a: "2013년 저금리 환경에서 채권 조달 비용이 주식 조달 비용보다 훨씬 낮았습니다. 채권은 이자 비용이 세금 공제(tax shield)되어 세후 비용이 낮아집니다. 반면 주식 발행은 기존 주주의 EPS를 희석시킵니다. 또한 경영진은 저금리 환경이 영원하지 않음을 알았기에 가능한 한 많은 장기 고정 금리 자금을 낮은 비용에 고정시키려 했습니다.",
+        aEn: "In 2013's low-rate environment, bond funding costs were far lower than equity funding costs. Bond interest is tax-deductible (tax shield), lowering after-tax costs. Equity issuance, conversely, dilutes existing shareholder EPS. Management also knew the low-rate environment wouldn't last forever — they wanted to lock in as much long-term fixed-rate funding as possible at low cost.",
+      },
+      {
+        q: "$490억을 어떻게 하루 만에 소화했나요?",
+        qEn: "How was $49 billion absorbed in just one day?",
+        a: "세 가지 요소가 맞아떨어졌습니다. 첫째, 시장 환경: QE로 시장에 현금이 넘쳤고 투자자들은 회사채 수익률을 갈망했습니다. 둘째, 발행사 신용: BBB+/Baa1의 우량 IG 등급 + 버라이즌 와이어리스의 견고한 캐시플로우가 신뢰를 주었습니다. 셋째, 구조: 8개 트랑쉬로 만기를 분산해 다양한 유형의 투자자 수요를 동시에 흡수했습니다.",
+        aEn: "Three factors aligned: First, market environment — QE flooded markets with cash and investors hungered for corporate bond yields. Second, issuer credit — BBB+/Baa1 high-grade rating plus Verizon Wireless's robust cash flows provided confidence. Third, structure — 8 tranches spanning maturities simultaneously absorbed different types of investor demand.",
+      },
+      {
+        q: "100년물(세기채)에 투자하는 투자자는 누구인가요?",
+        qEn: "Who invests in 100-year bonds (Century Bonds)?",
+        a: "주로 초장기 부채(long-dated liabilities)를 가진 기관 투자자들입니다. 생명보험사 — 종신보험·연금 등 30~40년 이상 부채를 가진 경우 이를 매칭할 장기 자산이 필요합니다. 대학교 기부금 펀드 — 영구적 운용을 전제로 초장기 채권을 보유합니다. 일부 연기금도 장기 부채와 매칭하기 위해 보유합니다. 일반 개인 투자자나 단기 자금 운용자에게는 적합하지 않습니다.",
+        aEn: "Primarily institutional investors with ultra-long-dated liabilities. Life insurers — those with whole life and annuity liabilities of 30–40+ years need matching long-dated assets. University endowment funds — operating on a perpetual basis, they hold ultra-long bonds. Some pension funds also hold them for liability matching. Not suitable for ordinary individual investors or short-duration managers.",
+      },
+      {
+        q: "이 딜이 IG 회사채 시장에 미친 장기 영향은?",
+        qEn: "What was the long-term impact of this deal on the IG corporate bond market?",
+        a: "크게 두 가지 영향이 있었습니다. 첫째, 규모의 상한선 이동: '회사채로 $500억 이하는 가능하다'는 새 기준이 생겼고, 이후 Apple·AT&T 등 메가딜이 이어졌습니다. 둘째, M&A 자금조달 채널의 확립: 채권 시장이 대형 M&A의 핵심 자금조달 채널로 완전히 자리잡았습니다. 이후 M&A를 준비하는 기업들이 채권 시장 타이밍을 M&A 전략의 핵심으로 고려하게 됐습니다.",
+        aEn: "Two major impacts: First, shifting the size ceiling — a new standard was set that 'up to $50B is possible for corporate bonds,' leading to subsequent megadeals from Apple, AT&T, and others. Second, establishing M&A financing channels — bond markets were fully cemented as the primary financing channel for large M&A. Companies planning M&A subsequently integrated bond market timing as a core component of M&A strategy.",
+      },
+      {
+        q: "지금도 이런 메가딜이 가능한가요?",
+        qEn: "Are such megadeals still possible today?",
+        a: "가능하지만 비용이 다릅니다. 2022~2023년처럼 금리가 5%를 넘고 스프레드가 확대된 환경에서는 $490억을 소화하기 위한 NIC가 더 커야 하고 스프레드도 높아야 합니다. 조달 비용 자체가 높기 때문에 발행사 입장에서 채권 메가딜의 매력이 줄어듭니다. 2023년 이후 IG 금리가 안정되면서 M&A 채권 발행이 다시 증가하는 추세이지만, 2013~2021년의 초저금리 메가딜 시대가 재현되기는 어렵습니다.",
+        aEn: "Possible, but at higher cost. In a 2022–2023-style environment with rates above 5% and widened spreads, absorbing $49B requires a larger NIC and wider spreads. Higher borrowing costs reduce the attractiveness of bond megadeals for issuers. Since 2023, stabilizing IG rates have led to a recovery in M&A bond issuance, but it is difficult to replicate the ultra-low-rate megadeal era of 2013–2021.",
+      },
+    ],
+    references: [
+      { id: 1, author: "Verizon Communications", title: "Verizon to Acquire Vodafone's 45% Indirect Interest in Verizon Wireless", source: "Verizon Press Release", year: "2013", url: "https://www.verizon.com/about/investors" },
+      { id: 2, author: "Financial Times", title: "Verizon's $49bn Bond Issue Breaks Records", source: "Financial Times", year: "2013", url: "https://www.ft.com" },
+      { id: 3, author: "Bloomberg", title: "Verizon's Record Bond Sale Signals Appetite for Yield", source: "Bloomberg Markets", year: "2013", url: "https://www.bloomberg.com" },
+      { id: 4, author: "Morgan Stanley Research", title: "Corporate Bond Issuance and M&A Financing Trends 2013–2023", source: "Morgan Stanley", year: "2023", url: "https://www.morganstanley.com/ideas" },
+    ],
   },
 
   {
@@ -3092,7 +4354,7 @@ This is not an AT1-specific issue. Many market 'conventions' depend not on contr
     readingMinutes: 10,
     tags: ["Apple", "세금최적화", "자사주매입", "회사채", "재무전략"],
     tagsEn: ["Apple", "Tax Optimization", "Buyback", "Corporate Bond", "Financial Strategy"],
-    published: false,
+    published: true,
     snapshot: [
       { labelKo: "발행사", labelEn: "Issuer", value: "Apple Inc." },
       { labelKo: "첫 발행", labelEn: "First Issue", value: "2013" },
@@ -3100,10 +4362,232 @@ This is not an AT1-specific issue. Many market 'conventions' depend not on contr
       { labelKo: "등급", labelEn: "Rating", value: "Aaa/AAA" },
       { labelKo: "목적", labelEn: "Purpose", value: "자사주매입·배당 재원 (세금 회피)" },
     ],
-    sections: [],
-    keyTerms: [],
+    sections: [
+      {
+        heading: "패러독스: $1,450억 현금 가진 회사가 왜 빚을 냈나",
+        headingEn: "The Paradox: Why a Company Sitting on $145B Cash Took on Debt",
+        body:
+`2013년 4월, 애플은 전례 없는 발표를 했다. $170억 규모의 회사채를 발행한다는 것이었다. 그런데 당시 애플의 현금 보유액은 $1,450억이었다. 미국 재무부보다 현금이 많은 기업이 빚을 진다?
+
+표면적 역설에는 논리적 이유가 있었다. 애플의 현금 대부분은 해외(아일랜드·싱가포르·네덜란드)에 있었다. 이를 미국 본토로 가져오려면 당시 35%의 법인세를 내야 했다. $1,450억의 35%는 약 $500억 — 거대한 세금 장벽이었다.
+
+해결책은 역설적이었다. 빚을 내되, 해외 현금은 그대로 두는 것. 미국에서 채권을 발행(AAA 등급 덕분에 1~3% 저금리)하고, 그 자금으로 주주에게 배당과 자사주 매입을 돌려주는 것. 채권 이자는 미국 세금 공제 가능 — 실질 세후 비용은 더 낮아진다.
+
+순효과: 해외 이익에 35% 세금을 낼 필요 없이, 1~2% 저비용 차입금으로 주주 환원을 실행. 이것이 애플 채권 전략의 핵심 논리였다.`,
+        bodyEn:
+`In April 2013, Apple made an unprecedented announcement: it would issue $17 billion in corporate bonds. But at the time, Apple held $145 billion in cash. A company with more cash than the U.S. Treasury was taking on debt?
+
+There was a logical reason behind the apparent paradox. Most of Apple's cash was held overseas (Ireland, Singapore, Netherlands). Bringing it back to the U.S. required paying the then-35% corporate repatriation tax. 35% of $145 billion was roughly $50 billion — a massive tax wall.
+
+The solution was paradoxical: take on debt while leaving overseas cash in place. Issue bonds in the U.S. (at 1–3% low rates thanks to AAA rating) and use those proceeds to return cash to shareholders via dividends and buybacks. Bond interest is tax-deductible in the U.S. — after-tax costs are even lower.
+
+Net effect: no need to pay 35% tax on overseas profits; instead, fund shareholder returns with 1–2% low-cost borrowings. This was the core logic of Apple's bond strategy.`,
+      },
+      {
+        heading: "AAA 회사채의 사상 최저 금리",
+        headingEn: "AAA Corporate Bonds at All-Time Low Rates",
+        body:
+`2013년 4월 30일, 애플의 $170억 회사채는 6개 트랑쉬로 발행됐다.
+
+트랑쉬 구성: 3년 변동·3년 고정·5년·10년·20년·30년. 3년물은 0.45%로 발행됐다 — 당시 투자등급 회사채로는 역사상 가장 낮은 금리였다. 10년물도 2.4% 수준에 불과했다. 30년물이 3.85%였다.
+
+왜 이렇게 쌌나? 두 가지 이유다. 첫째, Aaa/AAA 등급 — 당시 미국 기업 중 Moody's 최고등급 Aaa를 받은 회사는 손에 꼽을 정도였다. 애플은 Microsoft와 함께 손꼽히는 최상위 등급이었다. 둘째, 2013년 QE 저금리 환경 — Fed의 제로금리 정책으로 모든 채권 금리가 역사적 저점이었다.
+
+오더북은 $500억+. 발행 규모($170억)의 3배가 넘는 수요였다. 투자자들은 AAA 등급 애플 채권이 미국 국채보다 약간 높은 금리를 주면서도 최고 신용 안전성을 제공한다는 점에 열광했다. 이 딜은 단번에 역대 최대 IG 회사채 기록(직전: Verizon 2012 $24B)을 갈아치웠다.`,
+        bodyEn:
+`On April 30, 2013, Apple's $17 billion bond was issued in six tranches.
+
+Tranche structure: 3-year floating, 3-year fixed, 5-year, 10-year, 20-year, 30-year. The 3-year tranche priced at 0.45% — the lowest rate in history for any investment-grade corporate bond at the time. The 10-year came in at just 2.4%; the 30-year at 3.85%.
+
+Why so cheap? Two reasons: First, Aaa/AAA rating — at the time, only a handful of U.S. companies held Moody's highest Aaa rating. Apple was among the elite alongside Microsoft. Second, 2013 QE low-rate environment — the Fed's zero-rate policy pushed all bond rates to historic lows.
+
+Orderbook: $50B+ — over 3x the deal size. Investors were enthusiastic about an AAA-rated Apple bond offering slightly higher rates than U.S. Treasuries while providing top credit safety. The deal instantly broke the then-record for the largest IG corporate bond (previously Verizon's 2012 $24B deal).`,
+      },
+      {
+        heading: "세금 차익거래의 메커니즘",
+        headingEn: "The Mechanics of Tax Arbitrage",
+        body:
+`애플의 채권 전략이 '세금 최적화'라고 불리는 이유를 단계별로 살펴보자.
+
+**Step 1 — 해외 이익 적치**: 애플은 아일랜드 자회사(Apple Sales International)를 통해 비미국 판매 이익을 낮은 세율(단일 자릿수)로 축적했다.
+
+**Step 2 — 미국 내 차입**: 해외 현금을 본국 송금하지 않고, 미국에서 채권을 발행해 달러를 조달했다. 채권 이자는 미국 법인세법상 공제 가능하므로, 실효 차입 비용은 명목 금리보다 낮아진다(당시 35% 법인세율 → 0.45% × 0.65 = 실효 0.29%).
+
+**Step 3 — 주주 환원 실행**: 차입 자금으로 $100B+ 자사주 매입 및 배당 프로그램 집행. EPS 희석 없이 주주 가치 극대화.
+
+**이익 비교**: 해외 이익 $1을 미국으로 송금하면 $0.35를 세금으로 내고 $0.65를 수령. 대신 채권을 발행하면 $1을 전액 활용하고 세후 이자 비용 ~0.3%만 낸다.
+
+이 구조는 조세 전문가들에게 '이중 아일랜드 구조(Double Irish)'와 함께 2010년대 글로벌 조세 회피 논쟁의 핵심 사례가 됐다. 합법적이지만 의도적인 세금 최소화 전략이었다.`,
+        bodyEn:
+`Let's walk through why Apple's bond strategy is called 'tax optimization' step by step.
+
+**Step 1 — Offshore profit accumulation**: Apple accumulated non-U.S. sales profits through its Irish subsidiary (Apple Sales International) at low single-digit tax rates.
+
+**Step 2 — Domestic borrowing**: Instead of repatriating overseas cash, Apple issued bonds in the U.S. to raise dollars. Bond interest is deductible under U.S. corporate tax law, so effective borrowing costs are lower than nominal rates (35% corporate tax rate at the time → 0.45% × 0.65 = effective 0.29%).
+
+**Step 3 — Shareholder return execution**: borrowed proceeds funded a $100B+ buyback and dividend program. Maximizing shareholder value without EPS dilution.
+
+**Profit comparison**: repatriating $1 of overseas profit means paying $0.35 in tax and receiving $0.65. Issuing bonds instead lets you deploy the full $1 and pay only ~0.3% after-tax interest cost.
+
+This structure, alongside the 'Double Irish' arrangement, became a central case study in 2010s global tax avoidance debates. Legally sound but deliberately tax-minimizing.`,
+      },
+      {
+        heading: "2017년 세제 개혁: 전략의 진화",
+        headingEn: "2017 Tax Reform: Evolution of the Strategy",
+        body:
+`2017년 12월, 트럼프 행정부의 세금감면 및 일자리법(TCJA)이 애플의 전략 전제를 바꿨다.
+
+핵심 변화: 해외 유보 이익에 대한 일회성 송금세(Transition Tax) 도입. 현금성 자산은 15.5%, 비유동 자산은 8% 세율. 2018년부터 해외 이익 과세 방식이 GILTI(Global Intangible Low-Taxed Income)로 전환.
+
+애플의 대응: 2018년 약 $2,520억 해외 현금을 미국으로 송금하고 약 $380억의 세금을 납부했다. '사상 최대 규모의 기업 세금 납부 사례 중 하나'로 꼽혔다.
+
+그러나 채권 전략은 계속됐다. 이유는 달라졌다. ① 금리 차익보다는 자본 구조 다양화 목적, ② 회계상 해외 현금이 여전히 더 효율적으로 운용될 수 있는 구조, ③ 채권 발행 자체가 기관 투자자와의 관계 유지 채널로 기능.
+
+2020년대에도 애플은 연 $100~200억 규모의 채권 발행을 지속했다. 목적은 단순 세금 회피에서 '일상적 자본 배분 수단'으로 성숙했다.`,
+        bodyEn:
+`In December 2017, Trump administration's Tax Cuts and Jobs Act (TCJA) changed the premises of Apple's strategy.
+
+Key change: introduction of a one-time Transition Tax on accumulated offshore profits. Rate of 15.5% on liquid assets and 8% on illiquid assets. From 2018, overseas profit taxation shifted to the GILTI (Global Intangible Low-Taxed Income) framework.
+
+Apple's response: in 2018, repatriated approximately $252 billion in overseas cash and paid approximately $38 billion in taxes — cited as 'one of the largest corporate tax payments in history.'
+
+But the bond strategy continued. The reason changed: ① capital structure diversification rather than pure rate arbitrage, ② offshore cash still more efficiently deployed under certain accounting structures, ③ bond issuance itself functions as a relationship maintenance channel with institutional investors.
+
+Through the 2020s, Apple continued issuing $10–20 billion annually. The purpose had matured from simple tax avoidance to 'routine capital allocation vehicle.'`,
+      },
+      {
+        heading: "애플이 바꾼 것: 자본 배분 패러다임의 전환",
+        headingEn: "What Apple Changed: A Paradigm Shift in Capital Allocation",
+        body:
+`애플 채권 전략의 진정한 유산은 기업 재무 사고방식을 바꾼 것이다.
+
+**'현금이 많은 회사는 빚 안 진다'는 신화 붕괴**: 애플 이전, 순현금(Net Cash) 기업이 채권을 발행한다는 것은 낭비처럼 보였다. 애플이 이 관행을 정상화했다. 세금 효율성 + 부채의 세금 방패 효과 + 낮은 금리 = 채권이 주주에게 더 효율적이라는 논리.
+
+**모방 확산**: Microsoft, Oracle, Google(Alphabet), Cisco, Qualcomm이 비슷한 전략을 채택했다. '해외 현금 보유 + 국내 채권 발행'은 2010년대 미국 대형 기술·제약 기업들의 표준 재무 전략이 됐다.
+
+**자사주 매입의 규모화**: 애플은 2013~2023년 누적 $5,500억 이상의 자사주를 매입했다. 이는 주당순이익(EPS)을 극적으로 끌어올렸다. 채권 발행이 없었다면 이 규모의 자사주 매입은 불가능했다.
+
+**비판과 반성**: '채권으로 빚지고 자사주 매입하는 것이 생산적 투자인가?'라는 비판도 있다. R&D·신사업 투자 대신 재무 공학적 수익을 추구한다는 지적. 세제 개혁 이후 이 논쟁은 지속되고 있다.`,
+        bodyEn:
+`Apple's bond strategy's true legacy was changing corporate financial thinking.
+
+**Shattering the myth that 'cash-rich companies don't borrow'**: Before Apple, a net-cash company issuing bonds seemed wasteful. Apple normalized the practice. Tax efficiency + debt tax shield + low interest rates = bonds more efficient for shareholders.
+
+**Imitation spread**: Microsoft, Oracle, Google (Alphabet), Cisco, and Qualcomm adopted similar strategies. 'Hold overseas cash + issue domestic bonds' became the standard financial strategy of large U.S. tech and pharma companies in the 2010s.
+
+**Buyback scaling**: Apple repurchased over $550 billion in cumulative shares from 2013 to 2023. This dramatically boosted EPS. Without bond issuance, this scale of buybacks would have been impossible.
+
+**Criticism and reflection**: 'Is borrowing to buy back shares productive investment?' is a persistent criticism — pursuing financial engineering returns instead of R&D and new business investment. Post-tax reform, this debate continues.`,
+      },
+    ],
+    keyTerms: [
+      {
+        term: "역외 현금 (Offshore Cash)",
+        termEn: "Offshore Cash",
+        definition: "해외 자회사에 보유된 현금으로 본국 송금 시 추가 세금이 발생하는 자산. 애플은 아일랜드·싱가포르 등에 $1,450억+ 규모의 역외 현금을 보유했다. TCJA(2017) 이전 35% 송금세 장벽이 이 전략의 핵심 동인이었다.",
+        definitionEn: "Cash held by overseas subsidiaries that incurs additional tax upon repatriation to the home country. Apple held $145B+ in offshore cash in Ireland, Singapore, and elsewhere. The pre-TCJA (2017) 35% repatriation tax barrier was the core driver of this strategy.",
+      },
+      {
+        term: "세금 방패 (Tax Shield)",
+        termEn: "Tax Shield",
+        definition: "부채의 이자 비용이 법인세 과세 소득에서 공제됨으로써 세금을 절감하는 효과. 10억 달러 채권을 5% 이자로 발행하면 이자 $5,000만이 과세 소득에서 공제된다. 세율 21%라면 $1,050만의 세금 절감 효과 = 세금 방패. 부채 자본 구조의 핵심 장점.",
+        definitionEn: "The reduction in tax liability from deducting bond interest from taxable income. If a $1B bond is issued at 5% interest, the $50M interest is deducted from taxable income. At 21% tax rate, that's $10.5M in tax savings = tax shield. A core advantage of debt capital structures.",
+      },
+      {
+        term: "자사주 매입 (Share Buyback)",
+        termEn: "Share Buyback (Share Repurchase)",
+        definition: "기업이 주식시장에서 자사 주식을 매입해 소각하는 행위. 발행 주식수가 줄어 EPS(주당순이익)가 상승한다. 배당과 함께 기업이 주주에게 현금을 돌려주는 주요 수단. 애플은 2013~2023년 누적 $5,500억+ 자사주 매입을 단행해 주식수를 약 40% 감소시켰다.",
+        definitionEn: "A company's purchase of its own shares from the market, then retiring them. With fewer shares outstanding, EPS rises. Along with dividends, a key vehicle for returning cash to shareholders. Apple repurchased $550B+ in cumulative shares from 2013 to 2023, reducing share count by approximately 40%.",
+      },
+      {
+        term: "자본 배분 (Capital Allocation)",
+        termEn: "Capital Allocation",
+        definition: "기업이 보유 현금을 어디에 어떻게 사용할지 결정하는 전략적 의사결정 프로세스. 주요 선택지: R&D·설비 투자(CAPEX), 인수합병(M&A), 배당, 자사주 매입, 현금 보유. 애플의 채권+자사주매입 전략은 '세금 비효율적 현금보다 부채가 낫다'는 자본 배분 철학을 실현한 것.",
+        definitionEn: "The strategic decision-making process of where and how a company deploys its available cash. Key options: R&D and capex, M&A, dividends, buybacks, holding cash. Apple's bond-plus-buyback strategy embodied the capital allocation philosophy that 'debt is better than tax-inefficient cash.'",
+      },
+    ],
     relatedMarket101Slugs: [],
-    references: [],
+    relatedDealSlugs: ["verizon-megadeal", "eu-ngeu-bonds"],
+    executiveSummary: {
+      ko: [
+        "2013년 4월 애플 첫 회사채 $170억 — $1,450억 현금 보유에도 발행. 해외 현금 35% 송금세 회피가 핵심 동기",
+        "Aaa/AAA 최고 등급 + 2013년 QE 저금리 환경 → 3년물 0.45% 역대 최저 금리, $500억+ 오더북, 당시 역대 최대 IG 회사채",
+        "메커니즘: 해외 이익 역외 보유 → 미국 내 채권 발행 → 이자 세금 공제 → 자사주 매입·배당으로 주주 환원",
+        "2017년 TCJA 세제 개혁: $2,520억 송금·$380억 납세 → 전략 진화(세금 최적화에서 일상적 자본 배분으로)",
+        "누적 $100B+ 발행, $5,500억+ 자사주 매입 → EPS 40% 이상 증가. '현금 많은 회사도 빚 진다'는 패러다임 정립",
+      ],
+      en: [
+        "April 2013: Apple's first bond $17B — issued despite $145B cash. Avoiding 35% overseas cash repatriation tax was the core motivation",
+        "Aaa/AAA highest rating + 2013 QE low-rate environment → 3-year at 0.45% all-time low, $50B+ orderbook, then-largest IG corporate bond",
+        "Mechanism: accumulate overseas profits offshore → issue U.S. domestic bonds → deduct interest taxes → use proceeds for buybacks and dividends",
+        "2017 TCJA tax reform: $252B repatriation, $38B tax paid → strategy evolved (from tax optimization to routine capital allocation)",
+        "Cumulative $100B+ issuance, $550B+ buybacks → EPS up 40%+. Established the paradigm that 'cash-rich companies can still borrow.'",
+      ],
+    },
+    assessment: {
+      positives: [
+        "세금 효율적 자본 배분 — 35% 송금세 대신 1~3% 저비용 부채 활용, 주주 환원 극대화 (EPS 40%+ 상승)",
+        "역대 최저 금리 고정 — Aaa 등급 + 2013년 저금리 환경에서 역대급 저비용으로 자금 조달",
+        "자사주 매입 규모화 — $5,500억+ 자사주 매입으로 주식수 감소 → 주당 가치 극적 증가",
+        "업계 패러다임 선도 — 기술·제약 업계 전반에 '해외 현금 + 국내 채권' 전략을 정상화",
+      ],
+      positivesEn: [
+        "Tax-efficient capital allocation — using 1–3% low-cost debt instead of 35% repatriation tax; maximizing shareholder returns (EPS up 40%+)",
+        "All-time low rates locked in — funded at historically low costs with Aaa rating + 2013 low-rate environment",
+        "Buyback scaling — $550B+ in buybacks reduced share count → dramatic increase in per-share value",
+        "Industry paradigm leadership — normalized 'offshore cash + domestic bond' strategy across tech and pharma industries",
+      ],
+      risks: [
+        "레버리지 증가 — 순현금 기업에서 점차 레버리지가 높아지는 구조 변화, 경기 둔화 시 유연성 감소",
+        "생산적 투자 vs 재무 공학 비판 — 자사주 매입이 R&D·신사업 투자를 대체한다는 비판, 장기 혁신 감소 우려",
+        "세제 변화 리스크 — TCJA(2017)처럼 갑작스러운 세법 개정이 전략의 전제를 바꿀 수 있음",
+        "금리 상승 시 차입 비용 증가 — 2022~2023년 고금리 환경에서 채권 발행 비용이 이전 대비 크게 상승",
+      ],
+      risksEn: [
+        "Increasing leverage — gradual shift from net-cash company to more levered structure; reduced flexibility in economic downturns",
+        "Productive investment vs. financial engineering criticism — buybacks displacing R&D and new business investment; concerns about long-term innovation reduction",
+        "Tax change risk — sudden tax reforms like TCJA (2017) can change the premises of the strategy",
+        "Higher borrowing costs with rate rises — bond issuance costs significantly higher in 2022–2023 high-rate environment versus historical lows",
+      ],
+    },
+    faq: [
+      {
+        q: "애플이 채권을 발행하는 대신 왜 해외 현금을 그냥 가져오지 않았나요?",
+        qEn: "Why didn't Apple simply repatriate its overseas cash instead of issuing bonds?",
+        a: "2013년 당시 미국 세법은 해외 이익을 본국으로 가져올 때 35%의 법인세를 부과했습니다. 애플의 해외 현금은 주로 아일랜드·싱가포르에서 2~3%의 낮은 세율로 적치됐습니다. 이를 본국 송금하면 35% - 이미 낸 세율(~2%) = 약 33%포인트 추가 세금을 내야 했습니다. $1,000억 송금 시 $330억 세금 vs 채권 발행 시 이자 $20~30억(세금 공제 후). 계산이 분명했습니다.",
+        aEn: "In 2013, U.S. tax law imposed a 35% corporate tax on overseas profits upon repatriation. Apple's overseas cash was primarily accumulated in Ireland and Singapore at 2–3% tax rates. Repatriation would have required paying approximately 35% - already paid rate (~2%) = an additional ~33 percentage points. For $100B repatriated: ~$33B in taxes vs bond issuance: ~$2–3B in after-tax interest. The math was clear.",
+      },
+      {
+        q: "아이폰 팔아서 쌓인 이익이 왜 해외에 남아있나요?",
+        qEn: "Why does profit from selling iPhones stay overseas?",
+        a: "애플은 법인 구조를 통해 미국 외 판매에서 발생한 이익을 아일랜드 자회사(Apple Sales International 등)에서 인식하도록 설계했습니다. 아이폰이 어느 나라에서 팔리든, 지적재산권(IP) 로열티 등을 통해 이익이 아일랜드로 이동하는 구조였습니다. 이는 '이중 아일랜드(Double Irish)' 등 조세 구조의 일부로, 2015년 EU 경쟁 당국의 조사·제재 대상이 됐습니다.",
+        aEn: "Apple structured its corporate architecture so that profits from non-U.S. sales were recognized by Irish subsidiaries (Apple Sales International, etc.). Regardless of where iPhones were sold, profits moved to Ireland through intellectual property royalties and similar mechanisms. This was part of the 'Double Irish' and related tax structures, which became subject to EU competition authority investigation and penalties in 2015.",
+      },
+      {
+        q: "2017년 세제 개혁 이후에도 애플이 채권을 발행하는 이유는?",
+        qEn: "Why does Apple continue issuing bonds even after the 2017 tax reform?",
+        a: "세제 개혁으로 주된 세금 차익 동기는 줄었지만, 채권 발행은 그 자체로 유용한 자본 배분 수단이 됐습니다. ①자본구조 다양화: 주식보다 낮은 비용으로 자금 조달 가능. ②EPS 관리: 주식 발행 대신 채권으로 자금 조달 시 EPS 희석 없음. ③투자자 관계: 수천 개 기관 투자자와 지속적 관계 유지. ④금리 관리: 특정 만기 금리 고정으로 이자 비용 예측 가능성 확보.",
+        aEn: "The primary tax arbitrage motivation diminished with tax reform, but bond issuance became a useful capital allocation tool in its own right: ① capital structure diversification — cheaper cost than equity; ② EPS management — no dilution from bond vs equity financing; ③ investor relations — ongoing relationships with thousands of institutional investors; ④ interest rate management — locking in fixed rates for predictable interest cost forecasting.",
+      },
+      {
+        q: "자사주 매입 규모가 왜 그렇게 큰가요 — $5,500억+?",
+        qEn: "Why is the buyback scale so large — $550B+?",
+        a: "2012년 당시 CEO 팀 쿡 취임 이후 대규모 주주 환원 프로그램이 시작됐습니다. 이유: ①현금 창출력: 애플은 연 $1,000억 이상의 영업 현금흐름을 창출합니다. ②투자 기회 제한: 이 현금을 모두 신규 투자에 쓸 만한 기회가 없습니다. ③주주 요구: 행동주의 투자자 칼 아이칸 등이 주주 환원을 강하게 촉구했습니다. ④EPS 효과: $5,500억 자사주 매입으로 주식수가 약 40% 감소해 EPS가 크게 상승, 주가 상승으로 이어졌습니다.",
+        aEn: "Large-scale shareholder return programs began under CEO Tim Cook after 2012: ① cash generation — Apple generates $100B+ in annual operating cash flow; ② limited investment opportunities — there aren't enough new investment opportunities for all this cash; ③ shareholder demands — activist investors including Carl Icahn strongly pressured for shareholder returns; ④ EPS effect — $550B+ in buybacks reduced share count by ~40%, dramatically boosting EPS and driving stock price appreciation.",
+      },
+      {
+        q: "다른 기업들도 같은 전략을 썼나요?",
+        qEn: "Did other companies use the same strategy?",
+        a: "네, 폭넓게 퍼졌습니다. 마이크로소프트·오라클·시스코·퀄컴 등 해외 현금을 대규모로 보유한 미국 기술 기업들이 유사 전략을 채택했습니다. 제약 업계(화이자·머크)도 마찬가지였습니다. 2010년대 미국 S&P 500 기업들의 총 해외 유보 현금은 약 $2.5조로 추산됐습니다. 이 돈이 국내로 돌아오지 않는 동안, 기업들은 채권 발행으로 주주 환원을 지속했습니다. TCJA(2017)가 이 트렌드를 부분적으로 해소했습니다.",
+        aEn: "Yes, widely. U.S. tech companies holding large overseas cash pools — Microsoft, Oracle, Cisco, Qualcomm — adopted similar strategies. Pharmaceutical companies (Pfizer, Merck) did too. In the 2010s, total overseas cash held by S&P 500 companies was estimated at ~$2.5 trillion. While this money stayed overseas, companies continued shareholder returns through bond issuance. TCJA (2017) partially resolved this trend.",
+      },
+    ],
+    references: [
+      { id: 1, author: "Apple Inc.", title: "Apple Inc. Offering Memorandum — Senior Notes 2013", source: "Apple Investor Relations", year: "2013", url: "https://investor.apple.com" },
+      { id: 2, author: "U.S. Senate Permanent Subcommittee on Investigations", title: "Offshore Profit Shifting and the U.S. Tax Code — Apple Inc.", source: "U.S. Senate", year: "2013", url: "https://www.hsgac.senate.gov/subcommittees/investigations/hearings/offshore-profit-shifting-and-the-us-tax-code_apple" },
+      { id: 3, author: "Zucman, G.", title: "The Hidden Wealth of Nations: The Scourge of Tax Havens", source: "University of Chicago Press", year: "2015", url: "https://press.uchicago.edu/ucp/books/book/chicago/H/bo20159032.html" },
+      { id: 4, author: "Financial Times", title: "Apple's Bond Strategy: The Tax Optimisation Machine", source: "Financial Times", year: "2013", url: "https://www.ft.com" },
+    ],
   },
 
   // ── F: 위기·디폴트 ────────────────────────────────────────────────────────────
@@ -3200,10 +4684,10 @@ This is not an AT1-specific issue. Many market 'conventions' depend not on contr
     ],
     relatedMarket101Slugs: [],
     references: [
-      { title: "NML Capital v. Republic of Argentina — U.S. Court of Appeals, Second Circuit (2012)", url: "https://law.justia.com/cases/federal/appellate-courts/ca2/12-105/12-105-2012-10-26.html" },
-      { title: "IMF (2014). Strengthening the Contractual Framework to Address Collective Action Problems in Sovereign Debt Restructuring", url: "https://www.imf.org/external/np/pp/eng/2014/090214.pdf" },
-      { title: "ICMA (2014). Standard Collective Action and Pari Passu Clauses for the Terms and Conditions of Sovereign Notes", url: "https://www.icmagroup.org/assets/documents/Regulatory/Sovereign-Debt-information/CAC-Pari-Passu-Clauses.pdf" },
-      { title: "Buchheit & Gulati (2010). Sovereign Bonds and the Collective Will. Emory Law Journal", url: "https://scholarship.law.duke.edu/faculty_scholarship/2240/" },
+      { id: 1, author: "U.S. Court of Appeals, Second Circuit", title: "NML Capital v. Republic of Argentina", source: "Second Circuit Opinion", year: "2012", url: "https://law.justia.com/cases/federal/appellate-courts/ca2/12-105/12-105-2012-10-26.html" },
+      { id: 2, author: "IMF", title: "Strengthening the Contractual Framework to Address Collective Action Problems in Sovereign Debt Restructuring", source: "IMF Policy Paper", year: "2014", url: "https://www.imf.org/external/np/pp/eng/2014/090214.pdf" },
+      { id: 3, author: "ICMA", title: "Standard Collective Action and Pari Passu Clauses for Sovereign Notes", source: "ICMA", year: "2014", url: "https://www.icmagroup.org/assets/documents/Regulatory/Sovereign-Debt-information/CAC-Pari-Passu-Clauses.pdf" },
+      { id: 4, author: "Buchheit, L.C. & Gulati, M.", title: "Sovereign Bonds and the Collective Will", source: "Emory Law Journal", year: "2010", url: "https://scholarship.law.duke.edu/faculty_scholarship/2240/" },
     ],
   },
 
@@ -3300,10 +4784,10 @@ This is not an AT1-specific issue. Many market 'conventions' depend not on contr
     ],
     relatedMarket101Slugs: [],
     references: [
-      { title: "IMF (2013). Greece: Ex Post Evaluation of Exceptional Access Under the 2010 Stand-By Arrangement", url: "https://www.imf.org/external/pubs/ft/scr/2013/cr13156.pdf" },
-      { title: "Zettelmeyer, Trebesch & Gulati (2013). The Greek Debt Restructuring: An Autopsy. Economic Policy", url: "https://academic.oup.com/economicpolicy/article/28/75/513/2918221" },
-      { title: "ISDA (2012). EMEA Determinations Committee Rules on Greek Credit Event", url: "https://www.isda.org/2012/03/09/emea-dc-rules-on-greek-credit-event/" },
-      { title: "Blanchard & Leigh (2013). Growth Forecast Errors and Fiscal Multipliers. IMF Working Paper", url: "https://www.imf.org/external/pubs/ft/wp/2013/wp1301.pdf" },
+      { id: 1, author: "IMF", title: "Greece: Ex Post Evaluation of Exceptional Access Under the 2010 Stand-By Arrangement", source: "IMF Country Report 13/156", year: "2013", url: "https://www.imf.org/external/pubs/ft/scr/2013/cr13156.pdf" },
+      { id: 2, author: "Zettelmeyer, J., Trebesch, C. & Gulati, M.", title: "The Greek Debt Restructuring: An Autopsy", source: "Economic Policy", year: "2013", url: "https://academic.oup.com/economicpolicy/article/28/75/513/2918221" },
+      { id: 3, author: "ISDA", title: "EMEA Determinations Committee Rules on Greek Credit Event", source: "ISDA Press Release", year: "2012", url: "https://www.isda.org/2012/03/09/emea-dc-rules-on-greek-credit-event/" },
+      { id: 4, author: "Blanchard, O. & Leigh, D.", title: "Growth Forecast Errors and Fiscal Multipliers", source: "IMF Working Paper 13/1", year: "2013", url: "https://www.imf.org/external/pubs/ft/wp/2013/wp1301.pdf" },
     ],
   },
 
@@ -3400,10 +4884,10 @@ This is not an AT1-specific issue. Many market 'conventions' depend not on contr
     ],
     relatedMarket101Slugs: ["dcm-ecosystem"],
     references: [
-      { title: "S&P Global (2024). China Real Estate Default Tracker", url: "https://www.spglobal.com/ratings/en/research/articles/210914-china-real-estate-credit-risks-rise-12106100" },
-      { title: "BIS (2022). The Evergrande Crisis and the Chinese Real Estate Sector", url: "https://www.bis.org/publ/work1032.htm" },
-      { title: "IMF (2022). China: 2022 Article IV Consultation — Staff Report", url: "https://www.imf.org/en/Publications/CR/Issues/2022/11/30/Peoples-Republic-of-China-2022-Article-IV-Consultation-526119" },
-      { title: "Guo & Lu (2023). China's Real Estate Crisis: Causes, Consequences, and Policy Options. Brookings Institution", url: "https://www.brookings.edu/articles/chinas-real-estate-crisis/" },
+      { id: 1, author: "S&P Global Ratings", title: "China Real Estate Default Tracker", source: "S&P Global Ratings", year: "2024", url: "https://www.spglobal.com/ratings/en/research/articles/210914-china-real-estate-credit-risks-rise-12106100" },
+      { id: 2, author: "BIS", title: "The Evergrande Crisis and the Chinese Real Estate Sector", source: "BIS Working Paper 1032", year: "2022", url: "https://www.bis.org/publ/work1032.htm" },
+      { id: 3, author: "IMF", title: "China: 2022 Article IV Consultation — Staff Report", source: "IMF Country Report", year: "2022", url: "https://www.imf.org/en/Publications/CR/Issues/2022/11/30/Peoples-Republic-of-China-2022-Article-IV-Consultation-526119" },
+      { id: 4, author: "Guo, Y. & Lu, Y.", title: "China's Real Estate Crisis: Causes, Consequences, and Policy Options", source: "Brookings Institution", year: "2023", url: "https://www.brookings.edu/articles/chinas-real-estate-crisis/" },
     ],
   },
 

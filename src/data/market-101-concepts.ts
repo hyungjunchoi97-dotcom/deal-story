@@ -2175,6 +2175,154 @@ From an IB career perspective, DCM requires a complex blend of structural design
     appearsIn: [],
   },
 
+  {
+    slug: "levfin-credit-metrics",
+    title: "LevFin Ch.2 — 크레딧 메트릭 & 언더라이팅: EBITDA·Leverage·Coverage·FCF 심층 해부",
+    titleEn: "LevFin Ch.2 — Credit Metrics & Underwriting: EBITDA Addbacks, Leverage, Coverage & FCF",
+    entryType: "article",
+    category: "levfin",
+    categoryLabel: "LevFin",
+    categoryLabelEn: "LevFin",
+    excerpt:
+      "LBO 크레딧 분석 완전 가이드: EBITDA Addback 3단계(Standard~Aggressive/Sponsor EBITDA), 레버리지 4종(Total/First Lien/Net/Senior Secured), FCCR 2.0× 인덴처 테스트, FCF 워터폴 8단계, Excess Cash Flow Sweep, S&P vs Moody's 방법론 비교, Atlas Industrial Corp($840mn EBITDA/$5.2bn 부채) 실전 크레딧 위원회 워크드 예제.",
+    excerptEn:
+      "Complete LBO credit analysis: EBITDA addback tiers (standard to aggressive/sponsor EBITDA), four leverage metrics (total/first lien/net/senior secured), FCCR 2.0× indenture test, 8-step FCF waterfall, excess cash flow sweep mechanics, S&P vs Moody's methodology comparison, Atlas Industrial Corp ($840mn EBITDA/$5.2bn debt) credit committee worked example.",
+    readingMinutes: 20,
+    tags: ["EBITDA Addback", "레버리지 메트릭", "FCCR", "FCF 워터폴", "S&P", "무디스", "크레딧 분석", "언더라이팅", "ECF Sweep", "레이팅 방법론", "Atlas Industrial", "크레딧 위원회", "한국 크레딧"],
+    tagsEn: ["EBITDA Addback", "Leverage Metrics", "FCCR", "FCF Waterfall", "S&P", "Moody's", "Credit Analysis", "Underwriting", "ECF Sweep", "Rating Methodology", "Credit Committee", "Korean Credit"],
+    sections: [],
+    keyTerms: [],
+    relatedSlugs: ["levfin-ecosystem", "levfin-hy-vs-loans", "levfin-covenants", "levfin-process", "levfin-pricing", "lbo-overview"],
+    appearsIn: [],
+  },
+
+  {
+    slug: "levfin-covenants",
+    title: "LevFin Ch.3 — 코버넌트 구조: HY 인덴처 & 론 에그리먼트의 모든 것",
+    titleEn: "LevFin Ch.3 — Covenant Structure: Everything in HY Indentures & Loan Agreements",
+    entryType: "article",
+    category: "levfin",
+    categoryLabel: "LevFin",
+    categoryLabelEn: "LevFin",
+    excerpt:
+      "HY 인덴처·TLB 코버넌트 완전 해설: 부채 발행 FCCR 2.0× 테스트 + 카브아웃 전체, 지불 제한 빌더 바스켓 계산법, 비제한 자회사(PE의 비밀 무기), J.Crew IP 이전(2017)·PetSmart/Chewy(2018)·Serta Simmons(2020)·Envision Healthcare(2020) 4대 루프홀 완전 해부 — 각 사건 이후 시장이 어떻게 blocker 조항을 추가했는지까지.",
+    excerptEn:
+      "Complete HY indenture & TLB covenant guide: debt incurrence FCCR 2.0× test + all carve-outs, restricted payments builder basket calculation, unrestricted subsidiaries (PE's secret weapon), four landmark loopholes (J.Crew 2017, PetSmart/Chewy 2018, Serta Simmons 2020, Envision Healthcare 2020) fully dissected — including how the market added blocker language after each event.",
+    readingMinutes: 18,
+    tags: ["코버넌트", "HY 인덴처", "부채 발행 제한", "FCCR", "빌더 바스켓", "비제한 자회사", "J.Crew", "PetSmart", "Serta Simmons", "Envision", "업타이어", "Cov-Lite", "코버넌트 협상"],
+    tagsEn: ["Covenants", "HY Indenture", "Limitation on Indebtedness", "FCCR", "Builder Basket", "Unrestricted Subsidiaries", "J.Crew", "PetSmart", "Serta Simmons", "Envision", "Uptier", "Cov-Lite", "Covenant Negotiation"],
+    sections: [],
+    keyTerms: [],
+    relatedSlugs: ["levfin-ecosystem", "levfin-hy-vs-loans", "levfin-credit-metrics", "levfin-process", "levfin-distressed", "lbo-overview"],
+    appearsIn: [],
+  },
+
+  {
+    slug: "levfin-process",
+    title: "LevFin Ch.4 — 딜 프로세스: 만기에서 클로징까지 실무 타임라인 완전 해부",
+    titleEn: "LevFin Ch.4 — Deal Process: Complete Practitioner Timeline from Mandate to Close",
+    entryType: "article",
+    category: "levfin",
+    categoryLabel: "LevFin",
+    categoryLabelEn: "LevFin",
+    excerpt:
+      "LBO 파이낸싱 실전 6단계: Pre-mandate(T-8주)부터 Closing(T+8주)까지 전체 타임라인 — Commitment Letter·Fee Letter·Market Flex 구조, CIM 80-120페이지 작성 과정, 레이팅 에이전시 4-6주 블랙박스 프로세스, 북빌드 10AM 업데이트·배분 정치학, 수수료 구조($25-40mn/딜), Hung Deal 위험(2022 Twitter $13bn 사례).",
+    excerptEn:
+      "LBO financing 6-stage process: T-8 weeks (pre-mandate) through T+8 weeks (closing) — commitment letter, fee letter, market flex structure; 80-120 page CIM drafting process; 4-6 week rating agency black box; book build 10AM updates and allocation politics; fee structure ($25-40mn/deal); hung deal risk (2022 Twitter $13bn case study).",
+    readingMinutes: 20,
+    tags: ["딜 프로세스", "Commitment Letter", "Fee Letter", "Market Flex", "CIM", "북빌드", "레이팅 에이전시", "배분", "수수료 구조", "Hung Deal", "Twitter", "신디케이션", "한국 LBO 프로세스"],
+    tagsEn: ["Deal Process", "Commitment Letter", "Fee Letter", "Market Flex", "CIM", "Book Build", "Rating Agency", "Allocation", "Fee Structure", "Hung Deal", "Twitter", "Syndication", "Korean LBO Process"],
+    sections: [],
+    keyTerms: [],
+    relatedSlugs: ["levfin-ecosystem", "levfin-hy-vs-loans", "levfin-credit-metrics", "levfin-pricing", "levfin-cases", "lbo-overview"],
+    appearsIn: [],
+  },
+
+  {
+    slug: "levfin-pricing",
+    title: "LevFin Ch.5 — 프라이싱 심화: OID·PIK·Call Schedule·NIC·Cross-Currency",
+    titleEn: "LevFin Ch.5 — Advanced Pricing: OID, PIK, Call Schedules, NIC & Cross-Currency",
+    entryType: "article",
+    category: "levfin",
+    categoryLabel: "LevFin",
+    categoryLabelEn: "LevFin",
+    excerpt:
+      "LevFin 프라이싱 완전 해설: IPT→Guidance→Final 5단계 프로세스, New Issue Concession(NIC) 시장 상황별 5-150bp 비교, OID 1pt=14~20bp 실질 비용 계산, PIK Toggle 복리 함정(iHeartMedia 사례), NC/2 vs NC/3 vs NC/4 Call Schedule 최적화, Cross-Currency HY(USD vs EUR), Rating Notching(인스트루먼트별 등급 차이), 2021~2024 매크로 사이클과 프라이싱.",
+    excerptEn:
+      "Complete LevFin pricing guide: IPT→Guidance→Final 5-stage process, New Issue Concession (NIC) 5-150bp by market condition, OID 1pt=14-20bp effective cost calculation, PIK toggle compounding trap (iHeartMedia case), NC/2 vs NC/3 vs NC/4 call schedule optimization, cross-currency HY (USD vs EUR), rating notching by instrument, 2021-2024 macro cycle and pricing.",
+    readingMinutes: 18,
+    tags: ["프라이싱", "IPT", "NIC", "OID", "PIK Toggle", "Call Schedule", "Cross-Currency HY", "Rating Notching", "iHeartMedia", "Twitter", "2022 금리 급등", "EUR HY", "Equity Clawback"],
+    tagsEn: ["Pricing", "IPT", "NIC", "OID", "PIK Toggle", "Call Schedule", "Cross-Currency HY", "Rating Notching", "iHeartMedia", "Twitter", "2022 Rate Shock", "EUR HY", "Equity Clawback"],
+    sections: [],
+    keyTerms: [],
+    relatedSlugs: ["levfin-ecosystem", "levfin-hy-vs-loans", "levfin-process", "levfin-credit-metrics", "levfin-distressed", "lbo-overview"],
+    appearsIn: [],
+  },
+
+  {
+    slug: "levfin-distressed",
+    title: "LevFin Ch.6 — 부실채권 & 구조조정: LBO가 무너질 때 무슨 일이 벌어지나",
+    titleEn: "LevFin Ch.6 — Distressed Debt & Restructuring: What Happens When an LBO Fails",
+    entryType: "article",
+    category: "levfin",
+    categoryLabel: "LevFin",
+    categoryLabelEn: "LevFin",
+    excerpt:
+      "LBO 부실 완전 가이드: PIK 선택→리볼버 인출→CCC 강등→Chapter 11 8단계 부실 신호, Amend & Extend·Out-of-Court·Ch.11·Prepackaged 4가지 구조조정 옵션, Serta Simmons·Envision Healthcare·TriMark USA 업타이어 트랜잭션 3사례, DIP 파이낸싱 메커니즘, 회수율(1st Lien 70-80% → Equity ~0%), 한국 법정관리 vs 워크아웃 vs KAMCO.",
+    excerptEn:
+      "Complete LBO distress guide: 8 warning signals (PIK election → revolver drawdown → CCC downgrade → Chapter 11), four restructuring options (A&E / out-of-court / Ch.11 / prepackaged), three uptier case studies (Serta Simmons, Envision Healthcare, TriMark USA), DIP financing mechanics, recovery rates (1st lien 70-80% → equity ~0%), Korean court receivership vs workout vs KAMCO.",
+    readingMinutes: 20,
+    tags: ["부실채권", "구조조정", "Chapter 11", "업타이어", "DIP 파이낸싱", "Serta Simmons", "Envision Healthcare", "TriMark", "Amend & Extend", "회수율", "법정관리", "워크아웃", "KAMCO", "Loan to Own"],
+    tagsEn: ["Distressed Debt", "Restructuring", "Chapter 11", "Uptier", "DIP Financing", "Serta Simmons", "Envision Healthcare", "TriMark", "Amend & Extend", "Recovery Rate", "Court Receivership", "Workout", "KAMCO", "Loan to Own"],
+    sections: [],
+    keyTerms: [],
+    relatedSlugs: ["levfin-ecosystem", "levfin-covenants", "levfin-credit-metrics", "levfin-pricing", "levfin-cases", "lbo-deal-process"],
+    appearsIn: [],
+  },
+
+  {
+    slug: "levfin-cases",
+    title: "LevFin Ch.7 — 케이스 종합: 역사를 바꾼 LBO 5개 완전 해부",
+    titleEn: "LevFin Ch.7 — Case Studies: Five Landmark LBOs Fully Dissected",
+    entryType: "article",
+    category: "levfin",
+    categoryLabel: "LevFin",
+    categoryLabelEn: "LevFin",
+    excerpt:
+      "LevFin 시리즈 대미: KKR/RJR Nabisco 1989($31.4bn·Drexel/Milken 정크본드), Blackstone/Hilton 2007($26.9bn·IRR 21%)·KKR/Toys R Us 2005($6.6bn·아마존에 무너진 LBO), Apollo/Caesars 2008($30.7bn·Good/Bad Bank LME·$1.25bn 소송 합의), MBK/홈플러스 2015(₩7.2조·한국 최대 LBO) — 5개 케이스에서 뽑은 LevFin 6대 교훈.",
+    excerptEn:
+      "LevFin series finale: KKR/RJR Nabisco 1989 ($31.4bn, Drexel/Milken junk bonds), Blackstone/Hilton 2007 ($26.9bn, IRR 21%), KKR/Toys R Us 2005 ($6.6bn, destroyed by Amazon), Apollo/Caesars 2008 ($30.7bn, Good/Bad Bank LME, $1.25bn litigation settlement), MBK/Homeplus 2015 (₩7.2T, Korea's largest LBO) — six LevFin lessons from five landmark deals.",
+    readingMinutes: 24,
+    tags: ["RJR Nabisco", "KKR", "Blackstone", "힐튼", "Toys R Us", "Caesars", "Apollo", "MBK Partners", "홈플러스", "Drexel Burnham", "마이클 밀컨", "LBO 케이스스터디", "업타이어", "LBO 교훈"],
+    tagsEn: ["RJR Nabisco", "KKR", "Blackstone", "Hilton", "Toys R Us", "Caesars", "Apollo", "MBK Partners", "Homeplus", "Drexel Burnham", "Michael Milken", "LBO Case Study", "Uptier", "LBO Lessons"],
+    sections: [],
+    keyTerms: [],
+    relatedSlugs: ["levfin-ecosystem", "levfin-hy-vs-loans", "levfin-credit-metrics", "levfin-covenants", "levfin-process", "levfin-pricing", "levfin-distressed"],
+    appearsIn: [],
+  },
+
+  // ── 신디케이티드론 101 시리즈 ──────────────────────────────────────────
+  {
+    slug: "syndicated-loan-overview",
+    title: "신디케이티드론 Ch.0 — 왜 은행들은 뭉치는가",
+    titleEn: "Syndicated Loans Ch.0 — Why Banks Pool Together",
+    entryType: "article",
+    category: "dcm",
+    categoryLabel: "DCM",
+    categoryLabelEn: "DCM",
+    excerpt:
+      "삼성전자가 100조를 빌리려 하면 한 은행이 다 빌려줄 수 있을까? BIS 자기자본 규제·집중 리스크·관계 관리 — 세 가지 이유로 은행들은 뭉친다. 연간 $4조+ 신디케이티드론 시장 전체 지도: IG와 레버리지드 두 세계의 차이, MLA·에이전트·참여은행의 역할과 수익구조, 언더라이트 vs 베스트에포트, Analyst가 밤새 만드는 IM의 실체까지.",
+    excerptEn:
+      "Could a single bank lend ¥100T to Samsung Electronics? BIS capital rules, concentration risk, and relationship management — three reasons banks syndicate. The complete map of the $4T+ global syndicated loan market: IG vs leveraged worlds, MLA/agent/participant roles, underwrite vs best efforts, and what an Analyst actually builds overnight.",
+    readingMinutes: 18,
+    tags: ["신디케이티드론", "신디케이션", "MLA", "주선은행", "레버리지드론", "IG론", "에이전트은행", "언더라이트", "베스트에포트", "SOFR", "RWA", "BIS"],
+    tagsEn: ["Syndicated Loan", "Syndication", "MLA", "Mandated Lead Arranger", "Leveraged Loan", "IG Loan", "Agent Bank", "Underwrite", "Best Efforts", "SOFR", "RWA", "BIS"],
+    sections: [],
+    keyTerms: [],
+    relatedSlugs: ["syndicated-loan-players", "syndicated-loan-process", "syndicated-loan-docs", "syndicated-loan-cases", "levfin-ecosystem"],
+    appearsIn: [],
+  },
+
 ];
 
 export function getMarket101ConceptBySlug(slug: string): MarketConcept | undefined {
