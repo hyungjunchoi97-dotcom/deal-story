@@ -101,19 +101,282 @@ export const ALL_MARKET_DEALS: MarketDeal[] = [
     readingMinutes: 12,
     tags: ["그린본드", "ESG", "SSA", "use-of-proceeds", "세계은행"],
     tagsEn: ["Green Bond", "ESG", "SSA", "Use-of-Proceeds", "World Bank"],
-    published: false,
+    published: true,
     snapshot: [
       { labelKo: "발행사", labelEn: "Issuer", value: "World Bank (IBRD)" },
       { labelKo: "발행연도", labelEn: "Year", value: "2008" },
       { labelKo: "발행규모", labelEn: "Size", value: "SEK 2.3B (~$440M)" },
       { labelKo: "만기", labelEn: "Maturity", value: "6년" },
       { labelKo: "주관사", labelEn: "Lead Manager", value: "SEB" },
+      { labelKo: "등급", labelEn: "Rating", value: "AAA/Aaa" },
       { labelKo: "의의", labelEn: "Significance", value: "세계 최초 그린본드" },
     ],
-    sections: [],
-    keyTerms: [],
+    sections: [
+      {
+        heading: "스웨덴 연기금의 질문 — 시장의 탄생",
+        headingEn: "A Swedish Pension Fund's Question — The Birth of a Market",
+        body:
+`2007년 스웨덴의 두 연기금 — AP2와 AP3 — 이 세계은행(IBRD) 채권 담당 팀에 이례적인 제안을 가져왔다. "세계은행에 투자하고 싶다. 그런데 우리가 투자한 자금이 구체적으로 어떤 기후 관련 사업에 쓰이는지 알고 싶다."
+
+당시 채권시장에는 이런 '사용처 지정 채권'이 존재하지 않았다. AAA 등급의 세계은행 채권은 세계은행의 모든 사업에 풀링되어 사용됐다. 투자자가 특정 사업에 연결된 채권을 원한다면, 그 채권을 새로 설계해야 했다.
+
+세계은행은 스웨덴 은행 SEB와 함께 해결책을 설계했다. 핵심 아이디어: 채권 발행으로 조달한 자금은 사전에 정의된 기후 관련 프로젝트 풀에만 사용하고, 이를 외부 기관이 감사·확인한다. 쿠폰과 만기는 일반 채권과 동일하지만, 자금 사용처가 '그린'으로 명확히 지정된다.
+
+2008년 11월, 세계은행은 SEB를 주관사로 스웨덴 크로나(SEK) 23억 규모의 그린본드를 발행했다. 수익자는 AP2, AP3, 그리고 그 밖의 기관 투자자들이었다. 세계 최초의 그린본드였다.`,
+        bodyEn:
+`In 2007, two Swedish pension funds — AP2 and AP3 — brought an unusual request to the World Bank's bond team: "We want to invest in the World Bank. But we want to know specifically which climate-related projects our money goes to."
+
+At the time, no such 'use-of-proceeds' bond existed in capital markets. AAA-rated World Bank bonds pooled proceeds into the institution's general operations. If investors wanted bonds linked to specific projects, those bonds had to be designed from scratch.
+
+The World Bank, together with Swedish bank SEB, designed the solution. The core idea: proceeds from the bond would be allocated exclusively to a pre-defined pool of climate-related projects, verified by an external auditor. Coupon and maturity were identical to conventional bonds — but the use of proceeds was explicitly designated as 'green.'
+
+In November 2008, the World Bank issued SEK 2.3 billion in green bonds, with SEB as lead manager. Buyers included AP2, AP3, and other institutional investors. It was the world's first green bond.`,
+      },
+      {
+        heading: "그린본드의 구조 — Use-of-Proceeds란 무엇인가",
+        headingEn: "Green Bond Structure — What Is Use-of-Proceeds?",
+        body:
+`그린본드의 핵심 구조는 '사용처 지정(use-of-proceeds)'이다. 일반 채권 발행사는 조달 자금을 어떤 목적에든 사용할 수 있다. 그린본드는 다르다. 발행사는 ① 사전에 적격 프로젝트 범주를 정의하고, ② 조달 자금을 해당 프로젝트에만 배정하고, ③ 독립적 외부 검토(Second Party Opinion)를 거쳐 사후 보고를 해야 한다.
+
+세계은행의 2008년 그린본드 프레임워크는 세 단계를 갖췄다.
+
+첫째, 사전 선정: 세계은행 내부의 '기후 전문가 패널'이 기후 완화·적응 관련 프로젝트를 심사해 적격 여부를 결정한다.
+
+둘째, 자금 추적: 그린본드 조달 자금은 일반 계정과 분리 추적된다. '그린본드 풀'이라는 별도 계정에 등록된 프로젝트에만 배정된다.
+
+셋째, 보고: 매년 조달 자금이 어떤 프로젝트에 배정됐는지, 해당 프로젝트의 환경적 성과(CO₂ 감축량 등)를 투자자에게 보고한다.
+
+이 세 단계 구조는 이후 2014년 국제자본시장협회(ICMA) 그린본드원칙(GBP)의 기반이 됐다. 세계은행 2008년 발행이 오늘날 시장 표준의 '원형'이다.`,
+        bodyEn:
+`The core structure of a green bond is 'use-of-proceeds.' In a conventional bond, the issuer may use proceeds for any purpose. Green bonds differ: the issuer must ① pre-define eligible project categories, ② allocate proceeds exclusively to those projects, and ③ commission independent external review (a Second Party Opinion) and deliver ongoing post-issuance reporting.
+
+The World Bank's 2008 green bond framework embodied three stages.
+
+First, pre-selection: an internal 'climate expert panel' at the World Bank reviews and determines eligibility of climate mitigation and adaptation projects.
+
+Second, fund tracking: green bond proceeds are tracked separately from general accounts, allocated only to projects registered in a dedicated 'green bond pool' account.
+
+Third, reporting: annually, the World Bank reports to investors which projects received allocations and the environmental outcomes of those projects (CO₂ reductions, etc.).
+
+This three-stage structure became the template for the International Capital Markets Association (ICMA) Green Bond Principles (GBP) established in 2014. The World Bank's 2008 issuance is the 'prototype' of today's market standard.`,
+      },
+      {
+        heading: "수조 달러로 성장 — 그린본드 시장의 진화",
+        headingEn: "From Millions to Trillions — The Evolution of the Green Bond Market",
+        body:
+`2008년 SEK 23억(약 4.4억 달러)으로 출발한 그린본드 시장은 15년 만에 수조 달러 규모로 성장했다.
+
+2013년까지: 주로 세계은행·유럽투자은행(EIB) 등 SSA 발행체들이 초기 시장을 형성했다. 연간 발행액은 수십억 달러 수준.
+
+2013~2015년: 회사채 그린본드 시장이 열렸다. 프랑스 EDF(2013), 네덜란드 ING 등이 기업 발행을 시작했다.
+
+2016~2018년: 국가(Sovereign) 그린본드 등장. 폴란드(2016년 세계 최초 소버린 그린본드), 프랑스(2017년 €7B), 인도·나이지리아·인도네시아 등으로 확산.
+
+2020년대: 연간 신규 발행 $500B+ 수준. 블룸버그 추산 2023년 말 기준 누적 발행 $5T+(그린+소셜+서스테이너빌리티 포함). EU의 NGEU 프로그램이 단일 최대 그린본드 발행체로 등장.
+
+그러나 비판도 있다. 'Greenwashing(그린워싱)' — 조달 자금이 실제로 녹색 전환에 기여하지 않으면서 그린본드 라벨만 붙이는 관행. EU는 이를 막기 위해 2023년 'EU 그린본드 표준(EUGBS)'을 도입했다.`,
+        bodyEn:
+`The green bond market that started at SEK 2.3 billion (approximately $440 million) in 2008 grew to trillions of dollars in 15 years.
+
+Through 2013: SSA (Supranational/Sovereign/Agency) issuers such as the World Bank and EIB formed the initial market. Annual issuance in the tens of billions.
+
+2013–2015: The corporate green bond market opened. France's EDF (2013) and Dutch ING, among others, launched corporate issuance.
+
+2016–2018: Sovereign green bonds emerged. Poland (2016, world's first sovereign green bond), France (2017, €7B), then India, Nigeria, and Indonesia followed.
+
+2020s: Annual new issuance surpassing $500B. Bloomberg estimates cumulative $5T+ by end-2023 (including green, social, and sustainability bonds). EU's NGEU program emerged as the single largest green bond issuer.
+
+However, criticism exists: 'Greenwashing' — attaching a green bond label while proceeds do not meaningfully contribute to green transition — became a concern. The EU introduced the EU Green Bond Standard (EUGBS) in 2023 to address this.`,
+      },
+      {
+        heading: "SSA 발행 구조 — 세계은행은 왜 최초 발행사로 적합했나",
+        headingEn: "SSA Issuance — Why the World Bank Was the Right First Issuer",
+        body:
+`세계은행이 최초 그린본드 발행사로 적합했던 이유는 세 가지다.
+
+첫째, AAA 신용등급: 투자자들이 신용 리스크 없이 그린 개념에 집중할 수 있었다. 새로운 상품 구조의 리스크와 발행사 신용 리스크를 동시에 감수하지 않아도 됐다.
+
+둘째, 개발금융 사명: 세계은행은 이미 기후 관련 프로젝트(태양광·풍력 발전, 에너지 효율 사업 등)를 대규모로 집행하고 있었다. 그린본드를 위한 별도 사업 포트폴리오를 구축할 필요가 없었다.
+
+셋째, 글로벌 투자자 기반: 세계은행은 세계 주요 기관투자자들이 이미 보유한 발행체였다. 새로운 투자자 발굴 부담이 적었다.
+
+SSA(Supranational/Sovereign/Agency) 시장은 세계은행, EIB, IDB, ADB 등 초국가 기관과 각국 정부기관이 참여하는 채권시장의 한 축이다. 이들은 국제기구의 특수한 법적 지위와 다수 국가의 공동 출자·보증 구조 덕분에 최고 신용등급을 유지한다.
+
+세계은행의 그린본드 발행은 SSA 시장의 혁신 역할을 다시 한번 확인했다 — 새로운 상품 구조를 최고 신용의 발행체가 먼저 검증함으로써 시장 전체의 채택을 이끌어내는 역할.`,
+        bodyEn:
+`Three factors made the World Bank the right first green bond issuer.
+
+First, AAA credit rating: investors could focus on the green concept without bearing credit risk. They didn't have to simultaneously absorb novel product structure risk AND issuer credit risk.
+
+Second, development finance mandate: the World Bank was already deploying capital at scale into climate-related projects (solar/wind power, energy efficiency). No separate project portfolio needed to be built.
+
+Third, global investor base: the World Bank was already held by the world's major institutional investors. Limited need to identify new buyers for the new product.
+
+The SSA (Supranational/Sovereign/Agency) market is a segment of fixed income comprising supranational institutions like the World Bank, EIB, IDB, and ADB alongside national government agencies. They maintain top credit ratings through their special legal status and the shared capital and guarantees of multiple member nations.
+
+The World Bank's green bond issuance reconfirmed SSA's role in market innovation — validating new product structures through highest-rated issuers, thereby enabling broader market adoption.`,
+      },
+      {
+        heading: "그린본드의 한계와 미래 — 라벨이 전부가 아니다",
+        headingEn: "Limits of Green Bonds — The Label Is Not Everything",
+        body:
+`그린본드 시장이 폭발적으로 성장하면서 한계도 함께 드러났다.
+
+그린워싱: 석유·가스 회사가 재생에너지 일부에 그린본드 라벨을 붙이는 사례, 원자력 분류 논쟁, '추가성(additionality)' 부재 — 그린본드 없이도 진행됐을 프로젝트에 자금을 배정하는 경우 등이 문제가 됐다.
+
+'Greenium(그린 프리미엄)': 그린본드는 동일 발행사 일반채 대비 소폭 낮은 금리(수익률)로 발행되는 경향이 있다 — 통상 5~15bp. ESG 투자 수요가 그린본드에 집중되기 때문이다. 동일 발행사, 동일 만기, 동일 신용등급임에도 수익률이 다르다는 것은 '라벨'에 프리미엄이 붙는다는 것으로, 비효율의 증거이기도 하다.
+
+미래 방향: EU는 2023년 EUGBS를 도입해 더 엄격한 기준을 적용한다. 전환금융(Transition Finance) 개념도 부상 — 화석연료 의존 산업이 탄소 감축 경로를 걷는 과정을 지원하는 채권.
+
+세계은행 2008년 발행의 교훈: 수요가 명확하고 신뢰할 수 있는 검증 체계가 있으면 새로운 자산군은 탄생할 수 있다. 그러나 시장이 커질수록 표준화와 감시의 중요성도 커진다.`,
+        bodyEn:
+`As the green bond market grew explosively, its limitations became apparent.
+
+Greenwashing: oil and gas companies labeling partial renewable energy projects as green bonds; nuclear classification debates; lack of 'additionality' — allocating proceeds to projects that would have proceeded regardless. These became serious concerns.
+
+Greenium (Green Premium): Green bonds tend to price at slightly lower yields than conventional bonds from the same issuer — typically 5–15bp. ESG investment demand concentrated on green bonds creates this pricing premium. Identical issuer, identical maturity, identical credit rating with different yields means a premium attached to the 'label' — a sign of market inefficiency.
+
+Future direction: The EU introduced EUGBS in 2023 with stricter standards. The concept of Transition Finance is also emerging — bonds supporting carbon-dependent industries on decarbonization pathways.
+
+The lesson of World Bank 2008: with clear demand and a credible verification framework, a new asset class can be born. But as markets grow, so does the importance of standardization and oversight.`,
+      },
+    ],
+    keyTerms: [
+      {
+        term: "Use-of-Proceeds (자금 사용처 지정)",
+        termEn: "Use-of-Proceeds",
+        definition: "그린본드의 핵심 구조. 발행사가 채권 조달 자금을 사전에 정의된 적격 프로젝트에만 사용하도록 계약상 지정하고, 독립 외부 검토와 사후 보고를 수행하는 구조. 2008년 세계은행 그린본드가 처음 채택했으며, 이후 ICMA 그린본드원칙의 핵심 요소가 됐다.",
+        definitionEn: "The core structure of green bonds. The issuer contractually designates bond proceeds for use exclusively in pre-defined eligible projects, with independent external review and post-issuance reporting. First adopted in the World Bank's 2008 green bond; subsequently became a core element of the ICMA Green Bond Principles.",
+      },
+      {
+        term: "그린워싱 (Greenwashing)",
+        termEn: "Greenwashing",
+        definition: "실제로는 환경적 효과가 없거나 미미한 활동·상품에 녹색 라벨을 붙이는 행위. 그린본드 맥락에서는 ① 적격성이 낮은 프로젝트를 그린으로 분류, ② 추가성(additionality)이 없는 프로젝트에 자금 배정, ③ 과장된 환경 성과 보고 등을 포함한다. EU는 EUGBS(2023)로 이를 규제하고 있다.",
+        definitionEn: "Attaching a green label to activities or products with no or minimal environmental impact. In green bonds: ① classifying low-eligibility projects as green, ② allocating proceeds to projects without additionality, ③ overstating environmental outcomes. The EU regulates this through EUGBS (2023).",
+      },
+      {
+        term: "SSA (초국가·주권·정부기관)",
+        termEn: "SSA (Supranational/Sovereign/Agency)",
+        definition: "채권시장에서 세계은행·EIB·ADB 등 초국가 기관(Supranational), 각국 정부(Sovereign), 국책은행·공공기관(Agency)을 통칭. 높은 신용등급(주로 AAA/AA)을 유지하며 채권시장의 '안전 자산' 섹터를 구성한다. 그린본드 시장의 초기 발전을 이끈 핵심 발행 주체다.",
+        definitionEn: "In bond markets, the collective term for supranational institutions (World Bank, EIB, ADB, etc.), sovereign governments, and national development banks and agencies. They maintain high credit ratings (mostly AAA/AA) and form the 'safe asset' sector of bond markets. They were the key issuers driving early development of the green bond market.",
+      },
+      {
+        term: "Greenium (그린 프리미엄)",
+        termEn: "Greenium (Green Premium)",
+        definition: "그린본드가 동일 발행사의 일반 채권 대비 낮은 금리(수익률)로 발행·거래되는 현상. 통상 5~15bp 수준. ESG 투자 수요가 그린본드에 집중되면서 발생하는 가격 프리미엄. 발행사에게는 조달 비용 절감이지만, 동일 현금 흐름에 라벨 프리미엄이 붙는다는 점에서 비효율 논란이 있다.",
+        definitionEn: "The phenomenon where green bonds price at lower yields than conventional bonds from the same issuer — typically 5–15bp. Generated by ESG investment demand concentrated on green bonds. For issuers, it represents lower financing costs; however, identical cash flows with a label premium creates a price inefficiency debate.",
+      },
+    ],
     relatedMarket101Slugs: ["dcm-ecosystem"],
-    references: [],
+    relatedDealSlugs: ["eu-ngeu-bonds", "bowie-bonds"],
+    executiveSummary: {
+      ko: [
+        "2007년 스웨덴 연기금 AP2/AP3의 '기후 투자 연계 채권' 요청 → 세계은행+SEB 설계 → 2008년 세계 최초 그린본드 SEK 23억 발행",
+        "핵심 혁신: Use-of-Proceeds 구조 — 조달 자금을 사전 정의된 기후 프로젝트에만 배정, 외부 검증·사후 보고 의무",
+        "2008년 $4.4억 → 2023년 누적 $5T+로 성장 — 소버린·기업·금융기관으로 발행 주체 다양화",
+        "ICMA 그린본드원칙(2014)의 원형 — 세계은행 프레임워크가 표준 시장 구조의 기반",
+        "한계: 그린워싱, 추가성 부재, Greenium 비효율 — EU EUGBS(2023)로 표준화 진행 중",
+      ],
+      en: [
+        "2007: Swedish pension funds AP2/AP3 requested 'climate-linked bonds' → World Bank + SEB designed the structure → 2008: world's first green bond, SEK 2.3B",
+        "Core innovation: Use-of-Proceeds structure — proceeds allocated only to pre-defined climate projects, with external verification and post-issuance reporting",
+        "Growth from $440M (2008) to $5T+ cumulative (2023) — issuer base diversified to sovereigns, corporates, financial institutions",
+        "Prototype for ICMA Green Bond Principles (2014) — World Bank framework became the foundation for market standards",
+        "Limitations: greenwashing, lack of additionality, Greenium inefficiency — EU EUGBS (2023) advancing standardization",
+      ],
+    },
+    assessment: {
+      positives: [
+        "수조 달러 ESG 채권시장 창조 — 연간 $500B+ 신규 발행의 기반이 된 역사적 혁신",
+        "Use-of-Proceeds 구조의 표준화 — ICMA GBP 채택으로 시장 신뢰성과 투명성 확보",
+        "기후 자금조달 채널 다양화 — 정부 예산 외에 자본시장을 통한 기후 프로젝트 자금조달 경로 창출",
+        "AAA 발행사를 통한 시장 검증 — 최고 신용등급 발행체가 먼저 채택함으로써 빠른 시장 확산 가능",
+      ],
+      positivesEn: [
+        "Created the multi-trillion dollar ESG bond market — historical innovation underlying $500B+ annual new issuance",
+        "Standardization of Use-of-Proceeds structure — ICMA GBP adoption secured market credibility and transparency",
+        "Diversified climate financing channels — created capital market pathways for climate project financing beyond government budgets",
+        "Market validation through AAA issuers — rapid market adoption enabled by highest-rated issuers adopting first",
+      ],
+      risks: [
+        "그린워싱 리스크 — 검증 표준 부재 시 라벨 남용, 투자자 오도 가능성",
+        "추가성 부재 — 그린본드 자금 없이도 진행됐을 프로젝트에 배정 시 실질적 기후 기여 의문",
+        "Greenium 비효율 — 동일 현금 흐름에 라벨 프리미엄이 붙는 가격 왜곡",
+        "측정·보고 불일치 — 발행사마다 다른 환경 성과 측정 방법론으로 비교 가능성 저하",
+      ],
+      risksEn: [
+        "Greenwashing risk — label abuse and investor misleading possible without verification standards",
+        "Lack of additionality — questionable climate contribution when proceeds fund projects proceeding regardless",
+        "Greenium inefficiency — label premium on identical cash flows creates price distortion",
+        "Measurement inconsistency — different environmental outcome methodologies reduce comparability across issuers",
+      ],
+    },
+    faq: [
+      {
+        q: "그린본드를 사면 투자자는 어떤 혜택을 받나요?",
+        qEn: "What benefits do investors get from buying green bonds?",
+        a: "재무적 혜택은 일반 채권과 동일합니다 — 쿠폰과 원금 상환. 그린본드만의 추가 혜택은 두 가지입니다. 첫째, ESG 포트폴리오 편입 — SRI 또는 ESG 정책을 가진 기관투자자는 그린본드를 통해 투자 가능 유니버스를 확장할 수 있습니다. 둘째, 환경 임팩트 보고 — 자신의 투자금이 실제로 어떤 기후 프로젝트에 사용됐는지, 얼마나 CO₂를 줄였는지 보고받습니다. 단, Greenium(그린 프리미엄) 때문에 동일 발행사 일반채 대비 소폭 낮은 수익률을 받는 재무적 비용이 있습니다.",
+        aEn: "Financial benefits are identical to conventional bonds — coupon and principal repayment. Green bonds add two specific benefits: First, ESG portfolio eligibility — institutional investors with SRI or ESG policies can expand their investable universe. Second, environmental impact reporting — reports on which climate projects their capital funded and CO₂ reductions achieved. However, Greenium means slightly lower yields versus conventional bonds from the same issuer — a financial cost.",
+      },
+      {
+        q: "그린본드 발행이 일반 채권 발행과 다른 점은 무엇인가요?",
+        qEn: "How does green bond issuance differ from conventional bond issuance?",
+        a: "세 가지 추가 절차가 있습니다. 첫째, 그린본드 프레임워크 수립: 적격 프로젝트 범주, 선정 기준, 자금 관리 방법, 보고 정책을 문서화합니다. 둘째, 외부 검토(SPO): Sustainalytics 등 독립 ESG 평가기관이 프레임워크의 그린본드원칙 부합 여부를 평가합니다. 셋째, 사후 보고: 매년 자금 배정 현황과 환경 성과를 보고합니다. 이 추가 비용이 있지만, Greenium을 통한 조달 비용 절감(5~15bp)이 이를 상쇄하는 경우가 많습니다.",
+        aEn: "Three additional procedures: First, Green Bond Framework — document covering eligible categories, selection criteria, fund management, and reporting. Second, external review (SPO): independent ESG assessors evaluate alignment with Green Bond Principles. Third, post-issuance reporting: annual reports on allocation and environmental outcomes. These add cost, but Greenium savings (5–15bp) often offset them.",
+      },
+      {
+        q: "그린본드 시장에서 가장 큰 발행체는 누구인가요?",
+        qEn: "Who are the largest green bond issuers?",
+        a: "2020년 이후 EU가 NGEU 프로그램을 통해 단일 발행체로는 세계 최대 규모의 그린본드를 발행하고 있습니다. EIB는 2007년부터 선구자적 역할을 해왔습니다. 기업 발행체로는 애플, SNCF, 에넬 등이 주요 발행사입니다. 국가 발행체로는 프랑스가 €50B+ 규모의 최대 소버린 그린본드 프로그램을 유지하고 있습니다. 세계은행(IBRD)은 시장을 만든 창시자로서 여전히 중요한 발행체입니다.",
+        aEn: "Since 2020, the EU through NGEU has been the world's largest single green bond issuer. The EIB has been a pioneer since 2007. Major corporate issuers include Apple, SNCF, and Enel. Among sovereigns, France maintains the largest sovereign program at €50B+. The World Bank remains a significant presence as the market's founding issuer.",
+      },
+      {
+        q: "그린본드와 소셜본드, 지속가능채권은 어떻게 다른가요?",
+        qEn: "How do green bonds, social bonds, and sustainability bonds differ?",
+        a: "Use-of-Proceeds 채권 가족의 세 가지 변형입니다. 그린본드: 환경 프로젝트(기후 완화, 재생에너지, 녹색 건물 등)에만 배정. 소셜본드: 사회적 프로젝트(저렴한 주택, 의료, 교육 등)에만 배정. 지속가능본드: 그린+소셜 혼합 배정. 이와 별도로 SLB(지속가능연계채권)가 있는데, KPI 달성에 따라 쿠폰이 달라지는 성과 연계 채권으로 Use-of-Proceeds 구조가 아닙니다. ICMA가 각각에 대한 원칙을 발행하고 있습니다.",
+        aEn: "Three variants of the use-of-proceeds bond family. Green Bond: allocated to environmental projects. Social Bond: allocated to social projects (affordable housing, healthcare, education). Sustainability Bond: mixed green and social allocation. Separately, SLBs (Sustainability-Linked Bonds) are not use-of-proceeds instruments but performance-linked bonds where coupons vary with KPI achievement. ICMA publishes separate principles for each.",
+      },
+      {
+        q: "세계은행이 없었다면 그린본드 시장이 생기지 않았을까요?",
+        qEn: "Would the green bond market have emerged without the World Bank?",
+        a: "아마 결국 생겨났을 것입니다 — 다만 더 늦게, 다른 형태로. 2007~2008년은 기후 의식이 높아지고 기관투자자들이 ESG 수요를 표현하기 시작한 시기였습니다. 세계은행의 기여는 두 가지입니다. 첫째, AAA 발행사가 처음 채택함으로써 신용 리스크 없이 상품 구조를 검증했습니다. 둘째, SEB와 공동으로 Use-of-Proceeds 프레임워크를 설계해 이후 모든 그린본드의 표준이 됐습니다. 실제로 EIB가 2007년 '기후 인식 채권'을 먼저 발행했지만, '그린본드'라는 이름과 구조를 갖춘 것은 세계은행 2008년 발행이었습니다.",
+        aEn: "It would likely have emerged eventually — just later and in a different form. 2007–2008 saw rising climate awareness and institutional investors beginning to express ESG demand. The World Bank's contribution: first, an AAA issuer's adoption validated the product structure without credit risk; second, the Use-of-Proceeds framework co-designed with SEB became the template for all subsequent green bonds. Notably, the EIB had issued 'Climate Awareness Bonds' in 2007 before the World Bank, but the formal 'green bond' name and structure was established with the World Bank's 2008 issuance.",
+      },
+    ],
+    references: [
+      {
+        id: 1,
+        author: "World Bank Group",
+        title: "Green Bond Impact Report",
+        source: "World Bank Treasury, 2023",
+        year: "2023",
+        url: "https://treasury.worldbank.org/en/about/unit/treasury/ibrd/ibrd-green-bond",
+      },
+      {
+        id: 2,
+        author: "ICMA",
+        title: "Green Bond Principles 2021",
+        source: "International Capital Market Association",
+        year: "2021",
+        url: "https://www.icmagroup.org/sustainable-finance/the-principles-guidelines-and-handbooks/green-bond-principles-gbp/",
+      },
+      {
+        id: 3,
+        author: "Climate Bonds Initiative",
+        title: "Sustainable Debt: Global State of the Market 2023",
+        source: "Climate Bonds Initiative",
+        year: "2024",
+        url: "https://www.climatebonds.net/resources/reports/sustainable-debt-global-state-market-2023",
+      },
+      {
+        id: 4,
+        author: "European Commission",
+        title: "EU Green Bond Standard Regulation",
+        source: "Official Journal of the European Union",
+        year: "2023",
+        url: "https://finance.ec.europa.eu/sustainable-finance/tools-and-standards/eu-green-bond-standard_en",
+      },
+    ],
   },
 
   {
@@ -131,7 +394,7 @@ export const ALL_MARKET_DEALS: MarketDeal[] = [
     readingMinutes: 10,
     tags: ["ABS", "증권화", "로열티", "구조화금융", "Bowie"],
     tagsEn: ["ABS", "Securitization", "Royalty", "Structured Finance", "Bowie"],
-    published: false,
+    published: true,
     snapshot: [
       { labelKo: "발행사", labelEn: "Issuer", value: "Ziggy Stardust Enterprises" },
       { labelKo: "발행연도", labelEn: "Year", value: "1997" },
@@ -139,11 +402,263 @@ export const ALL_MARKET_DEALS: MarketDeal[] = [
       { labelKo: "쿠폰", labelEn: "Coupon", value: "7.9%" },
       { labelKo: "만기", labelEn: "Maturity", value: "10년" },
       { labelKo: "주관사", labelEn: "Lead Manager", value: "Fahnestock & Co." },
+      { labelKo: "투자자", labelEn: "Investor", value: "Prudential Insurance" },
+      { labelKo: "담보", labelEn: "Collateral", value: "25개 앨범 로열티 (~287곡)" },
     ],
-    sections: [],
-    keyTerms: [],
+    sections: [
+      {
+        heading: "보위 본드의 탄생 — 데이비드 풀먼의 아이디어",
+        headingEn: "The Birth of Bowie Bonds — David Pullman's Idea",
+        body:
+`1997년, 뱅커 데이비드 풀먼(David Pullman)은 데이비드 보위의 매니저에게 전화를 걸었다. 제안은 단순하지만 파격적이었다: "보위가 앞으로 10년간 받을 로열티 수익을 지금 당장 현금으로 받을 수 있다면 어떻겠습니까?"
+
+당시 보위는 재정적으로 어려운 상황이 아니었다. 그러나 전 매니저와의 법적 분쟁으로 자신의 음악 목록에 대한 통제권 일부가 복잡하게 얽혀 있었고, 자산 포트폴리오 다각화를 원했다. 무엇보다, $5500만 달러를 지금 받을 수 있다면 미래 불확실성을 헤지할 수 있었다.
+
+풀먼의 구조: 보위의 음악 로열티 수익 — 레코드 판매, 라디오 방송 사용료, 라이센스 등 — 을 담보로 한 특수목적법인(SPV)을 설립하고, 이 SPV가 채권을 발행한다. 채권 쿠폰은 이 로열티 수익에서 지급된다. 만기 10년, 쿠폰 7.9%, 발행 규모 $5500만.
+
+1997년 2월, 이 채권은 전액 프루덴셜 보험(Prudential Insurance)에 사모 방식으로 매각됐다. 무디스는 A3 등급을 부여했다. '보위 본드'가 탄생했다.`,
+        bodyEn:
+`In 1997, banker David Pullman called David Bowie's manager with a bold proposition: "What if Bowie could receive his next ten years of royalty income as cash right now?"
+
+Bowie was not in financial distress. However, legal disputes with a former manager had created complications around control of his music catalog, and he sought to diversify his asset portfolio. Most importantly, receiving $55 million immediately could hedge future uncertainty.
+
+Pullman's structure: establish a special purpose vehicle (SPV) backed by Bowie's music royalty income — record sales, radio airplay fees, licensing — and have the SPV issue bonds. The bond coupon would be paid from these royalty revenues. Ten-year maturity, 7.9% coupon, $55 million issue size.
+
+In February 1997, the bonds were sold entirely to Prudential Insurance in a private placement. Moody's assigned an A3 rating. The 'Bowie Bond' was born.`,
+      },
+      {
+        heading: "구조화금융의 원리 — 어떻게 로열티가 채권이 되는가",
+        headingEn: "Structured Finance Principles — How Royalties Become a Bond",
+        body:
+`보위 본드는 ABS(자산담보부증권, Asset-Backed Securities)의 전형적 구조를 따랐다. 핵심은 '자산의 분리(true sale)'다.
+
+일반 회사채: 보위가 직접 채권을 발행하면, 투자자는 보위 개인의 신용을 믿고 투자해야 한다. 보위가 사망하거나 파산하면 원금을 잃을 위험이 있다.
+
+ABS 구조: 보위의 로열티 수익을 '진정한 양도(true sale)'로 SPV에 이전한다. SPV는 이 자산을 담보로 채권을 발행한다. 법적으로 보위가 파산해도 SPV는 독립된 법인이므로, 채권 담보 자산(로열티)은 보위의 파산 자산과 분리된다. 투자자는 보위 개인이 아닌 '로열티 현금 흐름'을 믿고 투자할 수 있다.
+
+이것이 구조화금융의 핵심 원리: 자산의 미래 현금 흐름이 예측 가능하고 법적으로 분리 가능하다면, 그 자산을 담보로 한 증권을 만들 수 있다.
+
+보위의 25개 앨범(Ziggy Stardust, Hunky Dory, Let's Dance 등 약 287곡)에서 나오는 연간 로열티 수익이 담보였다. 1997년 당시 이 음악들의 인기와 지속성을 고려할 때, 10년간 안정적 현금 흐름이 예상됐다.`,
+        bodyEn:
+`Bowie Bonds followed the textbook structure of ABS (Asset-Backed Securities). The core principle is 'true sale' — asset isolation.
+
+Conventional corporate bond: if Bowie issued bonds directly, investors would rely on Bowie's personal creditworthiness. If Bowie died or went bankrupt, principal recovery would be at risk.
+
+ABS structure: Bowie's royalty income stream is transferred to an SPV via a 'true sale.' The SPV issues bonds backed by this asset. Legally, even if Bowie became insolvent, the SPV is a separate legal entity — the collateral assets (royalties) are ring-fenced from Bowie's personal bankruptcy estate. Investors can rely on the 'royalty cash flow' rather than Bowie personally.
+
+This is the core principle of structured finance: if an asset's future cash flows are predictable and legally separable, that asset can serve as collateral for securities.
+
+The collateral comprised royalties from Bowie's 25 albums (Ziggy Stardust, Hunky Dory, Let's Dance, etc. — approximately 287 songs). Given the popularity and durability of this music catalog in 1997, stable cash flows over ten years appeared assured.`,
+      },
+      {
+        heading: "나프스터 충격 — 예측 불가능한 테일 리스크",
+        headingEn: "The Napster Shock — Unpredictable Tail Risk",
+        body:
+`그러나 세상이 바뀌었다.
+
+1999년, 나프스터(Napster)가 등장했다. 인터넷을 통한 MP3 파일 무료 공유 서비스였다. 2001년에는 수천만 명의 사용자가 음악을 불법으로 공유했다. 음반 산업 전체가 흔들렸다.
+
+보위 본드의 담보였던 로열티 수익도 타격을 받았다. 레코드 판매량이 줄고, 방송 사용료 구조도 변화하기 시작했다.
+
+무디스는 2004년 보위 본드 등급을 A3에서 Baa3(투자등급 최하단, 정크 바로 위)로 하향했다. 이유: 인터넷 발달로 음악 로열티 수익의 예측 가능성이 현저히 낮아졌다.
+
+아이러니하게도 보위 본드 자체는 기술적 디폴트 없이 2007년 만기를 맞아 전액 상환됐다. 그러나 투자자 입장에서 등급 강등과 시장가치 하락은 손실이었다.
+
+교훈: ABS 구조에서 자산의 '예측 가능성'은 미래의 사건에 의해 무너질 수 있다. 1997년에는 누구도 나프스터를 예상하지 못했다. 이것이 구조화금융의 근본적 한계다.`,
+        bodyEn:
+`But the world changed.
+
+In 1999, Napster launched — a peer-to-peer MP3 file sharing service. By 2001, tens of millions of users were sharing music for free. The entire recorded music industry was shaken.
+
+The royalty revenues backing Bowie Bonds were also affected. Record sales declined, and the structure of airplay royalties began to shift.
+
+In 2004, Moody's downgraded Bowie Bonds from A3 to Baa3 (the lowest investment grade, just above junk). Reason: the development of the internet had materially reduced the predictability of music royalty revenues.
+
+Ironically, Bowie Bonds themselves were redeemed in full without technical default at maturity in 2007. However, from the investor's perspective, the rating downgrade and mark-to-market value decline represented real losses.
+
+Lesson: In ABS structures, the 'predictability' of asset cash flows can be destroyed by future events. In 1997, nobody could predict Napster. This is the fundamental limitation of structured finance.`,
+      },
+      {
+        heading: "보위 본드의 유산 — 로열티 증권화의 선구자",
+        headingEn: "Bowie Bonds' Legacy — Pioneer of Royalty Securitization",
+        body:
+`보위 본드의 성공(최종 상환 완료)과 실패(등급 강등)는 구조화금융 시장에 양면적 유산을 남겼다.
+
+긍정적 유산: 보위 본드 이후 음악·영화·특허 로열티를 기초자산으로 한 ABS 발행이 잇따랐다. 제임스 브라운, 애시포드&심슨 등 다른 아티스트들도 유사한 구조를 이용했다. 오늘날 스트리밍 시대에도 음악 IP(지적재산권) 인수·금융화는 주요 사업 모델이다.
+
+부정적 유산: 로열티 현금 흐름의 '미래 예측 가능성'이 기술·시장 변화에 극도로 취약하다는 것이 증명됐다. 이는 ABS 구조화 시 기초자산의 현금흐름 취약성 분석이 얼마나 중요한지를 각인시켰다.
+
+보위 본드는 구조화금융의 창의성을 보여주는 동시에, "어떤 자산이든 증권화할 수 있지만, 그 가치는 미래 현금 흐름의 지속성에 달려 있다"는 기본 교훈을 남겼다.
+
+2023년 현재, 음악 IP는 Hipgnosis, KKR, BlackRock 등 기관투자자들이 대규모로 인수하는 자산군이 됐다. 보위 본드가 씨앗을 뿌린 시장이다.`,
+        bodyEn:
+`Bowie Bonds' success (full redemption) and failure (rating downgrade) left a dual legacy in structured finance.
+
+Positive legacy: Bowie Bonds was followed by a wave of ABS issuances backed by music, film, and patent royalties. Other artists including James Brown and Ashford & Simpson adopted similar structures. In today's streaming era, music IP (intellectual property) acquisition and monetization remains a major business model.
+
+Negative legacy: It was proven that the 'future predictability' of royalty cash flows is extremely vulnerable to technological and market disruption. This underscored how critical cash flow vulnerability analysis is when structuring ABS.
+
+Bowie Bonds simultaneously showcased structured finance's creativity and etched in the fundamental lesson: "any asset can be securitized, but its value depends on the durability of its future cash flows."
+
+In 2023, music IP has become an asset class that institutional investors including Hipgnosis, KKR, and BlackRock acquire at scale. A market that Bowie Bonds helped seed.`,
+      },
+      {
+        heading: "구조화금융의 진화 — 보위에서 서브프라임까지",
+        headingEn: "The Evolution of Structured Finance — From Bowie to Subprime",
+        body:
+`보위 본드는 1990년대 후반 ABS 시장 혁신의 한 사례였다. 이 시기에는 모기지론, 자동차 할부금, 신용카드 채권, 학자금 대출 등 다양한 자산들이 증권화됐다.
+
+'어떤 현금 흐름이든 증권화할 수 있다'는 구조화금융의 논리는 2000년대에 주택담보대출(모기지) 증권화 붐으로 이어졌다. CDO, CLO, MBS 등 복잡한 파생 구조가 만들어졌다.
+
+결정적 문제: 기초자산인 서브프라임 모기지의 '예측 가능성'이 무너졌다. 주택가격이 전국적으로 동시에 하락하는 사건 — 2008년 금융위기.
+
+보위 본드에서 나프스터가 예측 불가능한 리스크였다면, 2008년 서브프라임 위기에서는 '상관 구조(correlation structure)'의 붕괴가 예측 불가능한 리스크였다. 두 사건 모두 ABS의 근본적 취약점을 노출했다: 기초자산 현금흐름의 예측 가능성 가정이 무너지면, 정교한 구조도 함께 무너진다.
+
+보위 본드는 창의적이고 선구적인 딜이었다. 그러나 가장 중요한 교훈은 "구조의 창의성이 기초 자산의 취약성을 가릴 수 없다"는 것이다.`,
+        bodyEn:
+`Bowie Bonds was one example of ABS market innovation in the late 1990s. During this period, mortgages, auto loans, credit card receivables, and student loans were all being securitized.
+
+The logic of structured finance — 'any cash flow can be securitized' — led in the 2000s to the mortgage securitization boom. Complex derivative structures including CDOs, CLOs, and MBS were constructed.
+
+The critical problem: the 'predictability' of the underlying subprime mortgage cash flows collapsed. Housing prices fell nationwide simultaneously — the 2008 financial crisis.
+
+In Bowie Bonds, Napster was the unpredictable risk. In the 2008 subprime crisis, the collapse of the 'correlation structure' was the unpredictable risk. Both events exposed ABS's fundamental vulnerability: when the predictability assumption of underlying cash flows breaks down, the sophisticated structure collapses with it.
+
+Bowie Bonds was a creative and pioneering deal. But the most important lesson is: "structural creativity cannot conceal the fragility of the underlying asset."`,
+      },
+    ],
+    keyTerms: [
+      {
+        term: "ABS (자산담보부증권)",
+        termEn: "ABS (Asset-Backed Securities)",
+        definition: "자동차 할부, 신용카드 채권, 학자금 대출, 로열티 등 다양한 자산의 미래 현금 흐름을 담보로 발행되는 증권. 핵심 구조는 'true sale' — 기초자산을 SPV에 법적으로 이전해 발행사 파산과 격리. 보위 본드는 음악 로열티를 기초자산으로 한 최초의 유명 ABS 중 하나다.",
+        definitionEn: "Securities issued backed by future cash flows from various assets: auto loans, credit card receivables, student loans, royalties, etc. The core structure is 'true sale' — legally transferring the underlying asset to an SPV, isolating it from issuer bankruptcy. Bowie Bonds is one of the first prominent ABS backed by music royalties.",
+      },
+      {
+        term: "SPV (특수목적법인)",
+        termEn: "SPV (Special Purpose Vehicle)",
+        definition: "구조화금융에서 기초자산을 발행사로부터 분리하기 위해 설립하는 독립 법인. SPV는 기초자산만을 보유하고, 이를 담보로 증권을 발행한다. 발행사가 파산해도 SPV의 자산(기초자산)은 파산 재단에 귀속되지 않는다 — 이를 '파산 격리(bankruptcy remoteness)'라 한다. 보위 본드에서는 Ziggy Stardust Enterprises가 SPV 역할을 했다.",
+        definitionEn: "An independent legal entity established in structured finance to separate underlying assets from the originator. The SPV holds only the underlying assets and issues securities backed by them. Even if the originator becomes insolvent, the SPV's assets (underlying assets) are not subject to bankruptcy proceedings — this is called 'bankruptcy remoteness.' In Bowie Bonds, Ziggy Stardust Enterprises served as the SPV.",
+      },
+      {
+        term: "진정한 양도 (True Sale)",
+        termEn: "True Sale",
+        definition: "ABS 구조에서 기초자산이 발행사(originator)에서 SPV로 법적으로 완전히 이전됐음을 의미하는 법적 판단. True Sale이 인정되어야 발행사 파산 시 기초자산이 파산 재단에 귀속되지 않는다. 법원이 True Sale이 아닌 '담보부 대출'로 재해석할 경우 ABS 구조 전체가 붕괴될 수 있다 — ABS 구조화에서 가장 중요한 법적 리스크 중 하나.",
+        definitionEn: "The legal determination that underlying assets have been completely and legally transferred from the originator to the SPV in an ABS structure. True Sale recognition is required to ensure underlying assets are not subject to the originator's bankruptcy estate. If courts recharacterize the transaction as a 'secured loan' rather than a True Sale, the entire ABS structure can collapse — one of the most critical legal risks in ABS structuring.",
+      },
+      {
+        term: "미래 현금흐름 증권화 (Future Flow Securitization)",
+        termEn: "Future Flow Securitization",
+        definition: "아직 발생하지 않은 미래의 현금 흐름을 담보로 증권을 발행하는 구조. 일반 ABS가 이미 존재하는 자산(기존 대출 채권 등)을 담보로 하는 것과 달리, 미래 현금 흐름 증권화는 미래에 생성될 로열티, 수출 대금, 송금 등을 담보로 한다. 현금 흐름 예측 가능성이 핵심 리스크. 보위 본드가 대표적 사례다.",
+        definitionEn: "A structure that issues securities backed by future cash flows that have not yet been generated. Unlike conventional ABS backed by existing assets (such as outstanding loan receivables), future flow securitization uses collateral that will be generated in the future: royalties, export receivables, remittances, etc. Predictability of cash flows is the critical risk. Bowie Bonds is the canonical example.",
+      },
+    ],
     relatedMarket101Slugs: [],
-    references: [],
+    relatedDealSlugs: ["world-bank-green-bond", "eu-ngeu-bonds"],
+    executiveSummary: {
+      ko: [
+        "1997년 데이비드 보위, 25개 앨범 로열티 수익을 SPV에 양도 → $55M ABS 발행 — 세계 최초 유명 음악 로열티 증권화",
+        "구조: Fahnestock 주관, 프루덴셜 보험 전액 인수, 무디스 A3 등급, 7.9% 쿠폰, 10년 만기",
+        "1999년 나프스터 등장 → 음악 로열티 수익 타격 → 2004년 무디스 Baa3로 강등",
+        "2007년 기술적 디폴트 없이 만기 상환 완료 — 그러나 등급 강등으로 투자자 손실 경험",
+        "교훈: ABS 현금흐름 예측 가능성은 기술 변화에 취약 — '구조의 창의성이 기초 자산의 취약성을 가릴 수 없다'",
+      ],
+      en: [
+        "1997: David Bowie transferred royalties from 25 albums to SPV → $55M ABS issued — world's first prominent music royalty securitization",
+        "Structure: Fahnestock lead, Prudential Insurance full purchase, Moody's A3, 7.9% coupon, 10-year maturity",
+        "1999: Napster launch → music royalty revenues hit → 2004: Moody's downgrade to Baa3",
+        "Redeemed in full at maturity 2007 without technical default — but rating downgrade caused real investor mark-to-market losses",
+        "Lesson: ABS cash flow predictability is vulnerable to technological disruption — 'structural creativity cannot conceal the fragility of the underlying asset'",
+      ],
+    },
+    assessment: {
+      positives: [
+        "기술적 디폴트 없이 만기 상환 완료 — 최종적으로 투자자 원금 회수 성공",
+        "음악 로열티 증권화 시장 개척 — 이후 JP/영화/특허 로열티 ABS 발행의 선구자",
+        "발행사(보위) 입장: $55M 즉시 현금화 + 나프스터로 인한 미래 로열티 하락 리스크 헤지 성공",
+        "구조화금융 창의성의 전형 — '어떤 현금 흐름이든 증권화할 수 있다'는 개념의 대중화",
+      ],
+      positivesEn: [
+        "Redeemed in full at maturity without technical default — investors ultimately recovered principal",
+        "Pioneered music royalty securitization — precursor to film, patent, and other IP royalty ABS",
+        "From issuer (Bowie) perspective: $55M immediate cash + successful hedge against Napster-driven future royalty decline",
+        "Canonical example of structured finance creativity — popularized the concept that 'any cash flow can be securitized'",
+      ],
+      risks: [
+        "무디스 A3 → Baa3 강등(2004) — 나프스터·인터넷 혁명으로 음악 로열티 수익 예측 불가능성 급증",
+        "기술 리스크 과소평가 — 1997년 ABS 설계 시 디지털 음악 혁명을 stress scenario에 미포함",
+        "유동성 부재 — 사모 발행(프루덴셜 단독 인수)으로 2차 시장 거래 불가, 투자자 조기 출구 불가",
+        "교훈 실패 — 보위 본드의 교훈이 2000년대 모기지 ABS 붐에서 반복되지 않음",
+      ],
+      risksEn: [
+        "Moody's downgrade A3 → Baa3 (2004) — music royalty revenue predictability plummeted due to Napster and internet revolution",
+        "Technology risk underestimated — digital music revolution not included in 1997 ABS stress scenarios",
+        "No liquidity — private placement (Prudential sole buyer) meant no secondary market, no early exit for investors",
+        "Lesson not learned — Bowie Bonds' lessons were not applied in the 2000s mortgage ABS boom",
+      ],
+    },
+    faq: [
+      {
+        q: "보위 본드에서 투자자는 손해를 봤나요?",
+        qEn: "Did investors lose money on Bowie Bonds?",
+        a: "원금 손실은 없었습니다. 채권은 2007년 만기에 전액 상환됐습니다. 그러나 무디스가 2004년 등급을 A3에서 Baa3로 낮추면서 시장가치(mark-to-market)가 하락했습니다. 프루덴셜 보험이 전액 인수해 보유했기 때문에 시장에서의 손실 실현이 없었지만, 장부상 평가 손실은 있었을 것입니다. 또한 쿠폰 수익률 7.9%는 결과적으로 투자등급 최하단 채권(Baa3) 수준의 리스크에 비해 낮았다고 볼 수 있습니다.",
+        aEn: "There was no principal loss — the bonds were fully redeemed at maturity in 2007. However, Moody's downgrade from A3 to Baa3 in 2004 caused mark-to-market value decline. Since Prudential Insurance held the entire issue, there was no market-based realized loss, but book-value impairment would have been recorded. Additionally, the 7.9% coupon yield was arguably insufficient compensation for the risk that materialized — effectively the lowest investment-grade (Baa3) credit risk.",
+      },
+      {
+        q: "보위 본드 이후 다른 유명인도 비슷한 구조를 사용했나요?",
+        qEn: "Did other celebrities use similar structures after Bowie Bonds?",
+        a: "네. 풀먼은 보위 이후 여러 아티스트의 로열티 증권화를 추진했습니다. 제임스 브라운, 애시포드&심슨 등이 유사한 구조를 이용했습니다. 1990년대 후반~2000년대 초 음악 로열티 ABS는 하나의 틈새 자산군이 됐습니다. 그러나 나프스터 충격 이후 이 시장은 위축됐습니다. 2010년대 이후로는 음악 IP 자체를 인수하는 방식(Hipgnosis, KKR의 음악 IP 펀드 등)이 더 주류가 됐습니다.",
+        aEn: "Yes. Pullman pursued royalty securitization for several other artists after Bowie. James Brown, Ashford & Simpson, and others used similar structures. In the late 1990s to early 2000s, music royalty ABS became a niche asset class. However, after the Napster shock, this market contracted. From the 2010s onwards, outright acquisition of music IP (Hipgnosis, KKR's music IP funds, etc.) became the more mainstream approach.",
+      },
+      {
+        q: "나프스터가 없었다면 보위 본드는 성공한 딜이었을까요?",
+        qEn: "Would Bowie Bonds have been a success without Napster?",
+        a: "대체로 그렇습니다. 보위의 음악 카탈로그는 상업적으로 견고했고, 인터넷 혁명이 없었다면 10년간의 로열티 수익은 충분히 예측 가능했습니다. 등급 강등도 없었을 것이고, 투자자 수익률도 7.9%로 당시 기준 양호한 투자였을 것입니다. 그러나 '나프스터가 없었다면'이라는 가정 자체가 보위 본드의 핵심 교훈입니다: 자산 가치를 바꿀 수 있는 파괴적 기술 변화는 항상 예측 불가능한 곳에서 온다. ABS 투자자는 기초 자산의 취약성을 '알려진 리스크'뿐 아니라 '알려지지 않은 리스크'까지 고려해야 한다.",
+        aEn: "Largely yes. Bowie's music catalog was commercially solid, and without the internet revolution, ten years of royalty income would have been adequately predictable. There would have been no rating downgrade, and 7.9% would have been a reasonable return by 1997 standards. But the 'what if no Napster' hypothetical is itself the core lesson of Bowie Bonds: disruptive technological change that transforms asset values always comes from unexpected places. ABS investors must consider not just 'known risks' but 'unknown risks' in the underlying asset's vulnerability.",
+      },
+      {
+        q: "오늘날 음악 IP 투자는 어떻게 이뤄지나요?",
+        qEn: "How is music IP invested in today?",
+        a: "세 가지 주요 방식이 있습니다. 첫째, 음악 IP 직접 인수: Hipgnosis Songs Fund(영국 상장), KKR, BlackRock, 소프트뱅크 등 기관투자자가 음악 카탈로그를 직접 구매합니다. 예: 브루스 스프링스틴 카탈로그를 Sony에 약 $5억에 매각(2021). 둘째, 로열티 유동화: 여전히 소규모로 진행 중이나 보위 본드보다 훨씬 정교한 구조(스트리밍 수익 예측 모델 포함). 셋째, 스트리밍 로열티 어드밴스: Spotify·Apple Music 스트리밍 수익의 일부를 선지급하는 방식. 보위 본드가 씨앗을 뿌린 음악 IP 자산화의 생태계가 완전히 성숙했습니다.",
+        aEn: "Three main approaches today. First, direct music IP acquisition: institutional investors including Hipgnosis Songs Fund (UK listed), KKR, BlackRock, and SoftBank directly purchase music catalogs — e.g., Bruce Springsteen's catalog sold to Sony for approximately $500M (2021). Second, royalty securitization: still conducted on a smaller scale but with far more sophisticated structures than Bowie Bonds (including streaming revenue prediction models). Third, streaming royalty advances: pre-payment of a portion of Spotify/Apple Music streaming revenues. The music IP monetization ecosystem seeded by Bowie Bonds has fully matured.",
+      },
+      {
+        q: "보위 본드의 등급은 왜 처음에 A3였나요?",
+        qEn: "Why was Bowie Bonds initially rated A3?",
+        a: "무디스가 A3를 부여한 근거는 세 가지였습니다. 첫째, 세계적으로 인정받은 보위의 음악 카탈로그 — 검증된 상업적 가치와 지속적 로열티 수입. 둘째, ABS 구조의 파산 격리 — SPV 구조로 보위 개인 신용 리스크와 분리. 셋째, 1997년 시점의 기술 환경 — 아직 인터넷이 음악 유통을 지배하지 않았고, CD 시대 로열티 수익이 안정적이었다. 1997년 기준으로는 합리적인 등급이었습니다. 문제는 7년 후의 세상이 1997년과 근본적으로 달라졌다는 것이었고, 등급 모델이 이를 예측하지 못했다는 것입니다.",
+        aEn: "Moody's based the A3 rating on three factors. First, Bowie's globally recognized music catalog — proven commercial value and consistent royalty income. Second, bankruptcy isolation through ABS structure — SPV separating the transaction from Bowie's personal credit risk. Third, 1997's technological environment — the internet had not yet disrupted music distribution, and CD-era royalty revenues were stable. The A3 rating was reasonable by 1997 standards. The problem was that the world seven years later was fundamentally different from 1997, and the rating model could not anticipate this.",
+      },
+    ],
+    references: [
+      {
+        id: 1,
+        author: "Pullman, David",
+        title: "The Bowie Bond: How David Bowie Securitized his Music Royalties",
+        source: "Structured Finance Interview, Various Press",
+        year: "1997",
+      },
+      {
+        id: 2,
+        author: "Moody's Investors Service",
+        title: "Rating Action: Bowie Bonds Downgrade to Baa3",
+        source: "Moody's Press Release",
+        year: "2004",
+      },
+      {
+        id: 3,
+        author: "Kusek, David and Leonhard, Gerd",
+        title: "The Future of Music: Manifesto for the Digital Music Revolution",
+        source: "Berklee Press",
+        year: "2005",
+      },
+      {
+        id: 4,
+        author: "Schwarcz, Steven L.",
+        title: "The Alchemy of Asset Securitization",
+        source: "Stanford Journal of Law, Business & Finance, Vol. 1",
+        year: "1994",
+      },
+    ],
   },
 
   {
@@ -161,18 +676,267 @@ export const ALL_MARKET_DEALS: MarketDeal[] = [
     readingMinutes: 14,
     tags: ["EU", "SSA", "공동채", "Supranational", "NGEU"],
     tagsEn: ["EU", "SSA", "Joint Debt", "Supranational", "NGEU"],
-    published: false,
+    published: true,
     snapshot: [
       { labelKo: "발행사", labelEn: "Issuer", value: "European Union" },
-      { labelKo: "발행 시작", labelEn: "Launched", value: "2020" },
+      { labelKo: "발행 시작", labelEn: "Launched", value: "2020 (SURE) / 2021 (NGEU)" },
       { labelKo: "총 규모", labelEn: "Total Program", value: "€800B+ (NGEU)" },
+      { labelKo: "SURE 규모", labelEn: "SURE Program", value: "€100B" },
       { labelKo: "등급", labelEn: "Rating", value: "AAA/Aaa" },
-      { labelKo: "의의", labelEn: "Significance", value: "유럽 최초 공동채" },
+      { labelKo: "의의", labelEn: "Significance", value: "유럽 최초 공동부채" },
     ],
-    sections: [],
-    keyTerms: [],
+    sections: [
+      {
+        heading: "코로나 이전의 유럽 — '공동채'가 금기였던 이유",
+        headingEn: "Europe Before COVID — Why 'Joint Debt' Was Taboo",
+        body:
+`유럽 통합의 역사에서 '공동채권(joint debt)'은 오랫동안 금기어였다. 이유는 단순했다: 각국의 재정 주권.
+
+독일과 네덜란드 등 북유럽 국가들은 자국의 AAA 신용등급이 남유럽 국가들의 낮은 등급과 섞이면 전반적인 조달 비용이 상승한다고 우려했다. 더 중요하게, 재정 책임 없이 자금에 접근할 수 있는 '도덕적 해이(moral hazard)' 문제가 있었다 — 남유럽 국가들이 재정 개혁 없이 EU의 AAA를 이용해 저비용으로 차입할 수 있다면, 개혁 유인이 사라진다는 논리.
+
+2010년 유럽 재정위기 때도 이 원칙은 지켜졌다. EU는 그리스·포르투갈·아일랜드를 구제할 때 공동채권이 아닌 양자 대출(bilateral loans)과 ESM(유럽안정메커니즘) 대출 형태를 택했다.
+
+2020년 코로나19 팬데믹이 모든 것을 바꿨다. 위기는 특정 국가의 방만한 재정 관리가 원인이 아니었다 — 전 유럽이 동시에, 예측 불가능하게 타격을 받았다. 이 조건에서 독일·프랑스가 공동 부채를 받아들이는 것이 정치적으로 가능해졌다.`,
+        bodyEn:
+`In the history of European integration, 'joint debt' was long a taboo term. The reason was simple: fiscal sovereignty.
+
+Northern European countries, particularly Germany and the Netherlands, worried that mixing their AAA credit ratings with the lower ratings of southern European countries would raise overall borrowing costs. More importantly, moral hazard was the concern — if southern European countries could borrow cheaply using the EU's AAA without fiscal reform, the incentive to reform disappears.
+
+Even during the 2010 European debt crisis, this principle held. The EU rescued Greece, Portugal, and Ireland through bilateral loans and ESM (European Stability Mechanism) lending — not joint bonds.
+
+The COVID-19 pandemic in 2020 changed everything. The crisis was not caused by any country's fiscal mismanagement — all of Europe was hit simultaneously and unpredictably. Under these conditions, political acceptance of joint debt by Germany and France became possible.`,
+      },
+      {
+        heading: "SURE — 공동채의 첫 발 (2020년 10월)",
+        headingEn: "SURE — The First Step in Joint Debt (October 2020)",
+        body:
+`2020년 10월, EU는 SURE(Support to mitigate Unemployment Risks in an Emergency) 채권을 처음 발행했다. 규모 €170억, AAA 등급, 소셜본드 구조. 오더북은 €2330억 이상 — 역대 최대 SSA 오더북 신기록이었다.
+
+SURE의 목적: 코로나19로 인한 실업·단축근무 지원 프로그램을 위한 재원 조달. EU 회원국들이 고용 유지를 위해 지출한 비용을 EU가 저비용으로 차입해 대출해주는 방식.
+
+SURE는 엄밀히 말하면 완전한 '공동채'가 아니었다. 각국이 보증(guarantee) 방식으로 배후를 지원하는 구조였기 때문이다. 그러나 EU 기관이 직접 채권시장에서 대규모로 자금을 조달했다는 점에서 NGEU의 선행 모델이 됐다.
+
+총 SURE 발행 규모: €98.4B (프로그램 종료 기준). EU는 이를 전액 소셜본드로 발행해 고용 관련 소셜 임팩트 보고를 수행했다. SURE는 ESG 채권 시장에서도 EU의 위상을 높였다.`,
+        bodyEn:
+`In October 2020, the EU issued its first SURE (Support to mitigate Unemployment Risks in an Emergency) bonds. €17 billion, AAA-rated, structured as social bonds. The orderbook exceeded €233 billion — a new record for any SSA issuance in history.
+
+SURE's purpose: funding COVID-19 unemployment and short-time work support programs. EU member states' employment retention spending was financed by EU borrowing at low cost and on-lent to members.
+
+Strictly speaking, SURE was not a complete 'joint debt' instrument — member states provided guarantees backing the structure. However, as the EU institution directly raised large-scale capital from bond markets, it became the precursor model for NGEU.
+
+Total SURE issuance: €98.4B (at program completion). The EU issued all SURE bonds as social bonds, reporting on employment-related social impact. SURE also elevated the EU's profile in ESG bond markets.`,
+      },
+      {
+        heading: "NGEU — 유럽의 해밀턴 모멘트 (2021~)",
+        headingEn: "NGEU — Europe's Hamiltonian Moment (2021~)",
+        body:
+`2021년 6월, EU는 NextGenerationEU(NGEU) 채권 발행을 시작했다. 총 규모 €800B(보조금 €390B + 대출 €360B 포함), 2026년까지 발행 예정. 단일 발행체 기준 세계 최대급 SSA 프로그램이었다.
+
+NGEU의 핵심 특징:
+① EU 전체가 공동 채무자: 개별 회원국이 아닌 EU 자체가 채권자에 대한 직접 의무를 진다.
+② 배분 메커니즘: 조달 자금은 회원국에 지원금(grant)과 대출(loan)로 배분. 각국은 국가 회복·탄력성 계획(RRP)을 제출해야 받을 수 있다.
+③ 조건부 구조: RRP 이행 마일스톤 달성 시 다음 배분 가능 — 단순 지급이 아닌 성과 기반.
+④ 그린·디지털 트윈 목표: NGEU 지출의 37% 이상은 기후 관련, 20% 이상은 디지털 전환에 사용돼야 한다.
+
+역사적 비교: 많은 분석가들이 NGEU를 1790년 알렉산더 해밀턴이 미국 독립전쟁 채무를 연방 채무로 통합한 사건 — 미국 연방 부채시장의 기원 — 에 비교한다. "유럽의 해밀턴 모멘트(Europe's Hamiltonian Moment)"라는 표현이 자주 사용된다. 물론 NGEU가 일시적 위기 대응인지 영구적 유럽 공동 재정의 시작인지는 여전히 논쟁 중이다.`,
+        bodyEn:
+`In June 2021, the EU began issuing NextGenerationEU (NGEU) bonds. Total program size €800B (including €390B in grants and €360B in loans), scheduled for completion by 2026. It was the world's largest SSA program by any single issuer.
+
+Key features of NGEU:
+① EU as joint debtor: the EU itself bears direct obligation to bondholders, not individual member states.
+② Distribution mechanism: proceeds distributed to member states as grants and loans; each country must submit a National Recovery and Resilience Plan (RRP) to receive funds.
+③ Conditionality: next disbursements only upon achievement of RRP milestones — performance-based rather than unconditional.
+④ Green and digital twin targets: at least 37% of NGEU spending must be climate-related; at least 20% must support digital transformation.
+
+Historical comparison: many analysts compare NGEU to Alexander Hamilton's 1790 assumption of state Revolutionary War debts as federal debt — the origin of the US federal debt market. The phrase "Europe's Hamiltonian Moment" is widely used. Whether NGEU represents a temporary crisis response or the beginning of permanent European joint fiscal capacity remains actively debated.`,
+      },
+      {
+        heading: "EU의 SSA 시장 위상 — 하룻밤에 최대급 발행체로",
+        headingEn: "EU's SSA Market Position — Overnight Transformation to Mega-Issuer",
+        body:
+`NGEU 이전, EU는 이미 연간 수십억 유로 규모의 채권을 발행했다. 주로 전통적 EU 기관 채권(EIB, EFSF, ESM 등)이었다.
+
+NGEU 발행으로 EU의 연간 발행 규모는 €150B+로 급증했다. 이는 세계 최대 SSA 발행체 중 하나인 EIB(연간 €80~100B)를 상회하는 수준이다.
+
+EU 채권의 구조적 특징:
+• 다중 통화: EUR이 기본이지만 일부 USD, GBP, JPY 트랑슈도 발행
+• 만기 다양화: 3년~30년 범위의 다양한 만기 분산
+• 분기별 경매(Auction): 일부는 신디케이션(syndication), 일부는 경매 방식
+• 그린·소셜 혼합: NGEU의 30%는 그린본드, SURE는 전액 소셜본드
+
+EU 채권의 투자자: 중앙은행, 국부펀드, 연기금, 자산운용사 등 전 세계 기관투자자. EU의 AAA 등급과 유동성 덕분에 독일 국채(Bund) 대비 소폭 높은 금리(통상 10~30bp)로 거래된다 — 이를 'EU-Bund spread'라 한다.`,
+        bodyEn:
+`Before NGEU, the EU already issued bonds at tens of billions of euros annually — primarily traditional EU institution bonds (EIB, EFSF, ESM, etc.).
+
+NGEU transformed EU's annual issuance to €150B+, surpassing EIB (€80–100B annually) — one of the world's largest SSA issuers.
+
+Structural features of EU bonds:
+• Multi-currency: EUR as base currency, but some USD, GBP, JPY tranches
+• Maturity diversification: range from 3 to 30 years spread across the curve
+• Mixed issuance methods: some via syndication, some via auction
+• Green/social mix: 30% of NGEU as green bonds; all SURE as social bonds
+
+EU bond investors: central banks, sovereign wealth funds, pension funds, asset managers worldwide. Thanks to EU's AAA rating and liquidity, EU bonds trade at a slight premium to German Bunds (typically 10–30bp wider) — this is called the 'EU-Bund spread.'`,
+      },
+      {
+        heading: "영구적 공동채인가 일시적 위기 대응인가",
+        headingEn: "Permanent Joint Debt or Temporary Crisis Response?",
+        body:
+`NGEU에 대한 가장 중요한 질문: 이것이 유럽 공동 재정의 영구적 시작인가, 아니면 코로나라는 특수 상황에 대한 일회성 대응인가?
+
+독일·네덜란드 등 북유럽 국가들의 원래 입장: NGEU는 '예외(exception)'이지 새로운 규범(norm)이 아니다. 팬데믹이라는 전례 없는 충격에 대한 일시적 대응.
+
+반대 논거: EU는 이미 기후 위기 대응을 위한 새로운 공동채 프로그램(REPowerEU, 에너지 안보 대응)을 추진했다. EU 채권이 투자자들에게 하나의 자산군으로 정착됐다. 한번 형성된 발행 인프라와 투자자 기반은 유지되는 경향이 있다.
+
+현재 상황(2024 기준): NGEU 발행이 2026년까지 계속되며, EU는 향후 추가적인 공동 자금조달 메커니즘 논의를 이어가고 있다. 유럽 공동채의 '인프라'가 구축된 이상, 다음 위기 때 다시 활용될 가능성은 높다.
+
+EU 공동채의 진화는 유럽 통합의 깊이를 가늠하는 척도이기도 하다. 재정 연합(fiscal union)으로의 방향성과 그 속도가 EU 채권시장의 미래를 결정할 것이다.`,
+        bodyEn:
+`The most important question about NGEU: Is this the permanent beginning of European fiscal union, or a one-time response to the unique circumstances of COVID?
+
+Original position of northern European countries (Germany, Netherlands): NGEU is an 'exception,' not a new norm. A temporary response to an unprecedented pandemic shock.
+
+Counter-arguments: The EU has already pursued new joint financing programs for climate crisis response (REPowerEU, energy security). EU bonds have established themselves as an asset class with investors. Once an issuance infrastructure and investor base form, they tend to persist.
+
+Current situation (as of 2024): NGEU issuance continues through 2026, and the EU continues discussions about additional joint financing mechanisms. With the 'infrastructure' of European joint debt now established, reuse in future crises appears likely.
+
+The evolution of EU joint debt is also a measure of the depth of European integration. The direction and pace toward fiscal union will determine the future of EU bond markets.`,
+      },
+    ],
+    keyTerms: [
+      {
+        term: "NGEU (NextGenerationEU)",
+        termEn: "NextGenerationEU (NGEU)",
+        definition: "2021~2026년 EU의 COVID-19 경제 회복 지원 채권 프로그램. 총 €800B 규모, EU 전체가 공동 채무자. 조달 자금을 회원국의 국가 회복·탄력성 계획(RRP) 이행에 따라 지원금(grant)과 대출(loan)로 배분. 단일 발행체 기준 세계 최대급 SSA 프로그램이며, '유럽의 해밀턴 모멘트'로 불린다.",
+        definitionEn: "EU's 2021–2026 COVID-19 economic recovery bond program. Total €800B, with the EU as joint debtor. Proceeds distributed to member states as grants and loans based on National Recovery and Resilience Plan (RRP) implementation. The world's largest SSA program by a single issuer, often called 'Europe's Hamiltonian Moment.'",
+      },
+      {
+        term: "SURE (실업 리스크 지원)",
+        termEn: "SURE (Unemployment Risk Support)",
+        definition: "2020년 EU가 발행한 팬데믹 대응 소셜본드 프로그램. 총 €98.4B, 회원국의 실업·단축근무 지원 프로그램 재원 조달. NGEU의 선행 모델이자 EU 공동채 발행의 출발점. 전액 소셜본드 구조로 발행돼 EU의 ESG 채권시장 위상을 높였다.",
+        definitionEn: "EU's pandemic response social bond program issued in 2020. Total €98.4B, funding member states' unemployment and short-time work programs. Served as the precursor model for NGEU and the starting point for EU joint debt issuance. Issued entirely as social bonds, elevating EU's profile in the ESG bond market.",
+      },
+      {
+        term: "해밀턴 모멘트 (Hamiltonian Moment)",
+        termEn: "Hamiltonian Moment",
+        definition: "1790년 미국 재무장관 알렉산더 해밀턴이 각 주의 독립전쟁 채무를 연방 채무로 통합한 사건에 비유한 표현. 이 결정이 미국 연방 부채시장과 미국 달러의 기반이 됐다. EU NGEU를 유럽의 해밀턴 모멘트로 비유하는 것은, EU가 처음으로 진정한 의미의 공동 재정 책임을 진 사건이라는 의미다.",
+        definitionEn: "A reference to US Treasury Secretary Alexander Hamilton's 1790 assumption of state Revolutionary War debts as federal debt — which created the foundation for US federal debt markets and the US dollar. Calling EU NGEU 'Europe's Hamiltonian Moment' suggests it is the first time the EU accepted genuine joint fiscal responsibility.",
+      },
+      {
+        term: "SSA (초국가·주권·정부기관) 채권",
+        termEn: "SSA (Supranational/Sovereign/Agency) Bonds",
+        definition: "세계은행·EIB·IMF 등 초국가 기관, 각국 정부, 국책은행 등이 발행하는 채권의 총칭. 높은 신용등급(주로 AAA)과 준정부 지위로 안전 자산으로 분류. EU NGEU 이후 EU 자체가 세계 최대급 SSA 발행체 중 하나로 부상. EU 채권은 독일 Bund 대비 통상 10~30bp 스프레드로 거래된다.",
+        definitionEn: "The collective term for bonds issued by supranational institutions (World Bank, EIB, IMF), sovereign governments, and national development banks. Classified as safe assets due to high credit ratings (mostly AAA) and quasi-governmental status. Following NGEU, the EU itself emerged as one of the world's largest SSA issuers. EU bonds typically trade at 10–30bp spread to German Bunds.",
+      },
+    ],
     relatedMarket101Slugs: ["dcm-ecosystem"],
-    references: [],
+    relatedDealSlugs: ["world-bank-green-bond", "bowie-bonds"],
+    executiveSummary: {
+      ko: [
+        "2020년 10월 SURE 채권 발행(€98.4B 소셜본드) — EU 공동 자금조달의 첫 발, 오더북 €2330억+ 역대 SSA 최대",
+        "2021년 6월 NGEU 채권 발행 시작 — €800B 공동 부채, EU 전체가 공동 채무자, '유럽의 해밀턴 모멘트'",
+        "하룻밤에 세계 최대급 SSA 발행체로 부상 — 연간 €150B+ 발행, EIB를 상회하는 규모",
+        "그린·소셜본드 통합: NGEU 30% 그린본드 + SURE 전액 소셜본드 — EU가 글로벌 ESG 채권시장 최대 주체로",
+        "영구적 공동채인가 일회성 대응인가 — 유럽 재정 연합의 방향성을 가늠하는 핵심 질문",
+      ],
+      en: [
+        "October 2020: SURE bond issuance (€98.4B social bonds) — first EU joint financing, €233B+ orderbook, all-time SSA record",
+        "June 2021: NGEU bond issuance begins — €800B joint debt, EU as joint debtor, 'Europe's Hamiltonian Moment'",
+        "Overnight transformation to world's largest SSA issuer — €150B+ annual issuance, surpassing EIB",
+        "Green and social bond integration: NGEU 30% green bonds + SURE entirely social bonds — EU becomes dominant ESG bond market actor",
+        "Permanent joint debt or one-time response? — The defining question for the direction of European fiscal union",
+      ],
+    },
+    assessment: {
+      positives: [
+        "유럽 재정 통합 진전 — 공동 채무 가능성을 증명하며 재정 연합(fiscal union) 첫 발",
+        "사상 최대 SSA 오더북 기록 — SURE 첫 발행 €2330억+, 시장의 EU 공동채 수요 확인",
+        "그린·소셜본드 표준 강화 — EU 기준이 전 세계 ESG 채권 발행 표준에 영향",
+        "회원국 경제 회복 지원 효과 — 저비용 자금이 회원국 고용 유지·인프라 투자에 활용",
+      ],
+      positivesEn: [
+        "Advancement in European fiscal integration — demonstrated joint debt feasibility, first step toward fiscal union",
+        "Record SSA orderbook — SURE first issuance €233B+, confirming market demand for EU joint debt",
+        "ESG bond standard reinforcement — EU standards influencing global ESG bond issuance norms",
+        "Member state economic recovery support — low-cost financing utilized for employment retention and infrastructure investment",
+      ],
+      risks: [
+        "도덕적 해이 잠재력 — 조건부 구조에도 불구하고 재정 개혁 없이 저비용 자금 접근 우려",
+        "영구화 불확실성 — '예외적 수단'이 선례가 되면 EU 재정 규율 약화 우려",
+        "EU-Bund 스프레드 확대 리스크 — EU 발행 증가로 수급 불균형 시 스프레드 확대 가능",
+        "정치적 합의 의존성 — 향후 추가 공동채 프로그램은 만장일치에 가까운 정치적 합의 필요",
+      ],
+      risksEn: [
+        "Moral hazard potential — concerns about low-cost capital access without fiscal reform despite conditionality",
+        "Permanence uncertainty — if 'exceptional instruments' become precedents, EU fiscal discipline may weaken",
+        "EU-Bund spread widening risk — supply-demand imbalance from increased EU issuance could widen spreads",
+        "Political consensus dependency — future additional joint programs require near-unanimous political agreement",
+      ],
+    },
+    faq: [
+      {
+        q: "EU 채권과 독일 국채(Bund)는 어떻게 다른가요?",
+        qEn: "How do EU bonds differ from German Bunds?",
+        a: "두 가지 핵심 차이가 있습니다. 첫째, 발행사: 독일 Bund는 독일 연방 정부 채무이고, EU 채권은 EU 기관(European Commission) 채무입니다. 둘째, 신용: 독일 Bund는 독일의 단독 신용이고, EU 채권은 27개 회원국이 배후를 지원하는 EU의 신용입니다. EU 채권이 독일 대비 소폭 높은 금리(10~30bp)로 거래되는 이유는 두 가지입니다: ① EU 자체의 독립적 과세 권한 부재(독일과 달리), ② 유동성이 Bund 대비 다소 낮음. 그러나 두 채권 모두 AAA 등급으로, 투자자들에게 사실상 같은 신용 리스크 버킷에 속합니다.",
+        aEn: "Two key differences. First, issuer: German Bunds are Federal Republic of Germany debt; EU bonds are European Commission debt. Second, credit: Bunds reflect Germany's standalone credit; EU bonds reflect the EU's credit backed by 27 member states. EU bonds trade at slightly higher yields (10–30bp) for two reasons: ① EU itself lacks independent taxing power (unlike Germany); ② liquidity is somewhat lower than Bunds. However, both carry AAA ratings, placing them in essentially the same credit risk bucket for investors.",
+      },
+      {
+        q: "NGEU 자금은 어떻게 배분되나요?",
+        qEn: "How are NGEU funds distributed?",
+        a: "두 가지 방식으로 배분됩니다. 보조금(Grant, €390B): 상환 불필요. 각국은 국가 회복·탄력성 계획(RRP)을 제출하고 EU 승인을 받아야 합니다. RRP 이행 마일스톤 달성 시 단계별 지급. 대출(Loan, ~€360B): 상환 필요, 대신 시장금리 대비 낮은 EU 차입 금리 적용. 배분 조건은 '기후·디지털 트윈 목표': 지출의 37%+ 기후 관련, 20%+ 디지털 전환 관련. RRP 이행이 만족스럽지 않으면 EU는 지급을 중단하거나 삭감할 수 있습니다.",
+        aEn: "Distributed in two forms. Grants (€390B): no repayment required. Countries must submit a National Recovery and Resilience Plan (RRP) and receive EU approval; disbursements occur in stages as RRP milestones are achieved. Loans (~€360B): repayment required, but at low EU borrowing rates versus market rates. Disbursement conditions include 'green and digital twin targets': 37%+ climate-related, 20%+ digital transformation spending. If RRP implementation is unsatisfactory, the EU can withhold or reduce payments.",
+      },
+      {
+        q: "NGEU가 완전히 발행되면 EU 채권 발행은 끝나나요?",
+        qEn: "Once NGEU is fully issued, will EU bond issuance end?",
+        a: "그렇지 않을 것입니다. 몇 가지 이유가 있습니다. 첫째, NGEU 채권 만기 도래: NGEU 채권은 2028~2058년 사이에 만기가 됩니다. EU는 이를 상환하기 위해 추가 자금을 조달하거나 차환(refinancing)해야 할 가능성이 있습니다. 둘째, RepowerEU: 에너지 안보·탈탄소 관련 추가 채권 발행이 이미 승인됐습니다. 셋째, 향후 위기: 만약 다음 시스템 리스크(기후 위기, 지정학 위기 등)가 발생하면, EU 공동채 인프라를 다시 활용할 가능성이 높습니다. EU 채권이 하나의 영구적 자산군으로 투자자 포트폴리오에 자리잡고 있는 한, 발행은 지속될 것입니다.",
+        aEn: "It is unlikely. Several reasons: First, NGEU bond maturities: NGEU bonds mature between 2028 and 2058 — the EU may need to raise additional funds or refinance. Second, REPowerEU: additional bond issuance for energy security and decarbonization has already been approved. Third, future crises: if the next systemic risk (climate crisis, geopolitical crisis, etc.) emerges, reusing EU joint debt infrastructure is likely. As EU bonds have established themselves as a permanent asset class in investor portfolios, issuance will continue.",
+      },
+      {
+        q: "EU 채권은 어떻게 투자할 수 있나요?",
+        qEn: "How can investors invest in EU bonds?",
+        a: "EU 채권은 국제 채권시장에서 거래됩니다. 일반적인 투자 방법은 세 가지입니다. 첫째, 신디케이션 참여: EU가 새 채권을 발행할 때 주관사를 통해 기관투자자로 참여. 주로 기관투자자(연기금, 자산운용사, 보험사)가 대상. 둘째, 2차 시장 매입: Euroclear 등 국제 채권 결제 시스템을 통해 이미 발행된 EU 채권을 매입. 셋째, ETF: EU 채권을 포함하는 SSA 또는 유럽 국채 ETF를 통한 간접 투자. 일반 개인 투자자는 직접 투자보다 ETF를 통한 간접 투자가 현실적입니다.",
+        aEn: "EU bonds trade in international bond markets. Three main investment approaches: First, syndication participation: institutions participate through lead managers when EU issues new bonds — primarily for institutional investors (pension funds, asset managers, insurers). Second, secondary market purchase: buying already-issued EU bonds through international settlement systems like Euroclear. Third, ETFs: indirect exposure through SSA or European government bond ETFs that include EU bonds. For retail investors, ETF-based indirect investment is more practical than direct investment.",
+      },
+      {
+        q: "NGEU는 미국의 연방 부채 시스템과 어떻게 비교되나요?",
+        qEn: "How does NGEU compare to the US federal debt system?",
+        a: "중요한 차이가 있습니다. 미국 연방 채무: 연방 정부가 독립적 과세 권한을 가지며, 의회의 재정 권한이 강력합니다. 연방 부채는 미국 달러 패권과 연결된 안전 자산 지위를 갖습니다. EU NGEU: EU는 독립적 과세 권한이 없습니다(회원국이 자체 재정 주권 유지). EU의 재원은 주로 회원국 분담금과 관세 수입. NGEU는 이에 더해 처음으로 자본시장에서 직접 차입한 것입니다. 해밀턴 모멘트 비유의 의미는 '공동 부채의 시작'이지만, EU가 미국 수준의 재정 연합에 도달하려면 훨씬 많은 정치적 통합이 필요합니다.",
+        aEn: "Important differences exist. US federal debt: the federal government holds independent taxing authority, and Congressional fiscal authority is strong. Federal debt holds safe-asset status linked to US dollar hegemony. EU NGEU: the EU lacks independent taxing authority (member states maintain fiscal sovereignty), with EU revenues primarily from member contributions and customs duties. NGEU additionally marks the first direct borrowing from capital markets. The Hamiltonian Moment analogy signifies 'the beginning of joint debt,' but reaching US-level fiscal union would require far more political integration.",
+      },
+    ],
+    references: [
+      {
+        id: 1,
+        author: "European Commission",
+        title: "NextGenerationEU: Key Facts and Figures",
+        source: "European Commission",
+        year: "2024",
+        url: "https://commission.europa.eu/strategy-and-policy/recovery-plan-europe_en",
+      },
+      {
+        id: 2,
+        author: "Brunnermeier, Markus; James, Harold; Landau, Jean-Pierre",
+        title: "The Digitalization of Money",
+        source: "NBER Working Paper No. 26300",
+        year: "2019",
+      },
+      {
+        id: 3,
+        author: "Soros, George",
+        title: "Europe Must Seize the Moment and Issue Perpetual Bonds",
+        source: "Financial Times",
+        year: "2020",
+      },
+      {
+        id: 4,
+        author: "ECB",
+        title: "EU Bonds — Features and Role in the Investor Portfolio",
+        source: "ECB Economic Bulletin",
+        year: "2022",
+        url: "https://www.ecb.europa.eu/pub/economic-bulletin/",
+      },
+    ],
   },
 
   // ── B: Sovereign ──────────────────────────────────────────────────────────────
