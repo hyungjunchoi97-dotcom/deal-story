@@ -4,6 +4,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ShareButtons from "@/components/deal/ShareButtons";
+
 import type { MarketConcept } from "@/data/market-101-concepts";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -313,6 +315,12 @@ export default function DcmBondProductsClient({ concept, lang }: Props) {
               : "The bonds DCM trades are not a single fixed-rate instrument. From Senior Unsecured to Covered Bonds, Green Bonds, AT1/CoCo, High Yield, PIK, and CLOs backed by leveraged loans — seven product families exist with entirely different risk, return, and structural profiles. This chapter dissects the structural characteristics, coupon mechanics, typical investors, and real-world cases for each product."}
           </motion.p>
         </motion.section>
+
+
+        {/* ── Share — top ── */}
+        <div className="flex justify-end mb-6">
+          <ShareButtons title={ko ? concept.title : (concept.titleEn ?? concept.title)} variant="top" lang={lang} />
+        </div>
 
         {/* ── 3-Stat Callout ── */}
         <motion.section
@@ -730,6 +738,11 @@ export default function DcmBondProductsClient({ concept, lang }: Props) {
           </p>
         </motion.section>
 
+
+        {/* ── Share — mid ── */}
+        <ShareButtons title={ko ? concept.title : (concept.titleEn ?? concept.title)} variant="mid" lang={lang} />
+
+
         {/* ── FAQ ── */}
         <motion.section
           className="mb-14"
@@ -829,6 +842,11 @@ export default function DcmBondProductsClient({ concept, lang }: Props) {
             ))}
           </div>
         </motion.section>
+
+
+
+        {/* ── Share — bottom ── */}
+        <ShareButtons title={ko ? concept.title : (concept.titleEn ?? concept.title)} variant="bottom" lang={lang} />
 
 
         {/* ── References ─────────────────────────────────────────────────── */}

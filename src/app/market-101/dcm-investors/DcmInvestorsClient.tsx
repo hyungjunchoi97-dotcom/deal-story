@@ -4,6 +4,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ShareButtons from "@/components/deal/ShareButtons";
+
 import type { MarketConcept } from "@/data/market-101-concepts";
 
 type Lang = "ko" | "en";
@@ -354,6 +356,12 @@ export default function DcmInvestorsClient({ concept, lang }: Props) {
               : "When people think of bond investors, they imagine yield hunters. But the biggest players — central banks, insurers, pension funds — don't buy bonds for yield maximization. Each has a specific mandate that dictates their behavior. A DCM banker must understand this ecosystem to read an order book properly."}
           </p>
         </motion.section>
+
+
+        {/* ── Share — top ── */}
+        <div className="flex justify-end mb-6">
+          <ShareButtons title={ko ? concept.title : (concept.titleEn ?? concept.title)} variant="top" lang={lang} />
+        </div>
 
         {/* ── 3-stat callout row ───────────────────────────────────────────── */}
         <motion.div
@@ -829,6 +837,11 @@ export default function DcmInvestorsClient({ concept, lang }: Props) {
           </div>
         </motion.section>
 
+
+        {/* ── Share — mid ── */}
+        <ShareButtons title={ko ? concept.title : (concept.titleEn ?? concept.title)} variant="mid" lang={lang} />
+
+
         {/* ── FAQ ─────────────────────────────────────────────────────────── */}
         <motion.section
           variants={fadeUp(0)}
@@ -922,6 +935,11 @@ export default function DcmInvestorsClient({ concept, lang }: Props) {
             ))}
           </div>
         </motion.section>
+
+
+
+        {/* ── Share — bottom ── */}
+        <ShareButtons title={ko ? concept.title : (concept.titleEn ?? concept.title)} variant="bottom" lang={lang} />
 
 
         {/* ── References ─────────────────────────────────────────────────── */}

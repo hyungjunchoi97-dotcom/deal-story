@@ -4,6 +4,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ShareButtons from "@/components/deal/ShareButtons";
+
 import type { MarketConcept } from "@/data/market-101-concepts";
 
 type Lang = "ko" | "en";
@@ -361,6 +363,12 @@ export default function DcmStructureRegulationClient({ concept, lang }: Props) {
               : "Why can't bankers share certain information with S&T? Why do deal documents run hundreds of pages? Why does a syndicate need ten banks? Every one of these has a legal or institutional reason. To understand DCM in depth, you must understand the regulatory infrastructure behind every transaction."}
           </p>
         </motion.section>
+
+
+        {/* ── Share — top ── */}
+        <div className="flex justify-end mb-6">
+          <ShareButtons title={ko ? concept.title : (concept.titleEn ?? concept.title)} variant="top" lang={lang} />
+        </div>
 
         {/* ── 3-stat callout ───────────────────────────────────────────────── */}
         <motion.div
@@ -776,6 +784,11 @@ export default function DcmStructureRegulationClient({ concept, lang }: Props) {
           </div>
         </motion.section>
 
+
+        {/* ── Share — mid ── */}
+        <ShareButtons title={ko ? concept.title : (concept.titleEn ?? concept.title)} variant="mid" lang={lang} />
+
+
         {/* ── FAQ ─────────────────────────────────────────────────────────── */}
         <motion.section
           variants={fadeUp(0)}
@@ -886,6 +899,11 @@ export default function DcmStructureRegulationClient({ concept, lang }: Props) {
             </Link>
           </div>
         </motion.section>
+
+
+
+        {/* ── Share — bottom ── */}
+        <ShareButtons title={ko ? concept.title : (concept.titleEn ?? concept.title)} variant="bottom" lang={lang} />
 
 
         {/* ── References ─────────────────────────────────────────────────── */}

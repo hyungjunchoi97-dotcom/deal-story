@@ -16,6 +16,8 @@ import {
 } from "recharts";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ShareButtons from "@/components/deal/ShareButtons";
+
 import type { MarketDeal } from "@/data/market-deals";
 
 type Lang = "ko" | "en";
@@ -683,6 +685,12 @@ export default function KoreaExternalBondClient({
           </motion.div>
         </div>
 
+
+        {/* ── Share — top ── */}
+        <div className="flex justify-end mb-6">
+          <ShareButtons title={ko ? deal.title : deal.titleEn} variant="top" lang={lang} />
+        </div>
+
         {/* ── Executive Summary ── */}
         {deal.executiveSummary && (
           <motion.div
@@ -841,6 +849,11 @@ export default function KoreaExternalBondClient({
             </motion.section>
           )}
 
+
+        {/* ── Share — mid ── */}
+        <ShareButtons title={ko ? deal.title : deal.titleEn} variant="mid" lang={lang} />
+
+
           {/* ── FAQ ── */}
           {deal.faq && deal.faq.length > 0 && (
             <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
@@ -917,6 +930,11 @@ export default function KoreaExternalBondClient({
               </div>
             </motion.section>
           ) : null}
+
+
+        {/* ── Share — bottom ── */}
+        <ShareButtons title={ko ? deal.title : deal.titleEn} variant="bottom" lang={lang} />
+
 
           {/* ── References ── */}
           {deal.references && deal.references.length > 0 && (

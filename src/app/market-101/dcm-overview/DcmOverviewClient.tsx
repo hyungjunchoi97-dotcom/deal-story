@@ -4,6 +4,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ShareButtons from "@/components/deal/ShareButtons";
+
 import type { MarketConcept } from "@/data/market-101-concepts";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
@@ -963,6 +965,12 @@ export default function DcmOverviewClient({
           </div>
         </section>
 
+
+        {/* ── Share — top ── */}
+        <div className="flex justify-end mb-6">
+          <ShareButtons title={ko ? concept.title : (concept.titleEn ?? concept.title)} variant="top" lang={lang} />
+        </div>
+
         {/* ── Chapter Navigation ── */}
         <ChapterNav lang={lang} />
 
@@ -1237,6 +1245,11 @@ export default function DcmOverviewClient({
             <CaseStudyCards ko={ko} />
           </motion.section>
 
+
+        {/* ── Share — mid ── */}
+        <ShareButtons title={ko ? concept.title : (concept.titleEn ?? concept.title)} variant="mid" lang={lang} />
+
+
           {/* ── FAQ ── */}
           <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
             <motion.div variants={fadeUp()} className="mb-2">
@@ -1303,6 +1316,11 @@ export default function DcmOverviewClient({
               ))}
             </motion.div>
           </motion.section>
+
+
+        {/* ── Share — bottom ── */}
+        <ShareButtons title={ko ? concept.title : (concept.titleEn ?? concept.title)} variant="bottom" lang={lang} />
+
 
           {/* ── References ── */}
           {concept.references && concept.references.length > 0 && (

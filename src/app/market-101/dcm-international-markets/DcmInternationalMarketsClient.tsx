@@ -4,6 +4,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ShareButtons from "@/components/deal/ShareButtons";
+
 import type { MarketConcept } from "@/data/market-101-concepts";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -293,6 +295,12 @@ export default function DcmInternationalMarketsClient({ concept, lang }: Props) 
               : "Modern bond issuers are not confined to a single domestic market. A Korean company can raise dollars in New York, borrow yen in Tokyo and swap to dollars via CCS, and sell euro bonds to Taiwanese insurers. Each market has unique currencies, regulations, and investor bases, requiring strategic choices. This chapter dissects the key differences and selection criteria for the five major international bond markets."}
           </motion.p>
         </motion.section>
+
+
+        {/* ── Share — top ── */}
+        <div className="flex justify-end mb-6">
+          <ShareButtons title={ko ? concept.title : (concept.titleEn ?? concept.title)} variant="top" lang={lang} />
+        </div>
 
         {/* ── 3-Stat Callout ── */}
         <motion.section
@@ -821,6 +829,11 @@ export default function DcmInternationalMarketsClient({ concept, lang }: Props) 
           </div>
         </motion.section>
 
+
+        {/* ── Share — mid ── */}
+        <ShareButtons title={ko ? concept.title : (concept.titleEn ?? concept.title)} variant="mid" lang={lang} />
+
+
         {/* ── FAQ ── */}
         <motion.section
           className="mb-14"
@@ -919,6 +932,11 @@ export default function DcmInternationalMarketsClient({ concept, lang }: Props) 
             ))}
           </div>
         </motion.section>
+
+
+
+        {/* ── Share — bottom ── */}
+        <ShareButtons title={ko ? concept.title : (concept.titleEn ?? concept.title)} variant="bottom" lang={lang} />
 
 
         {/* ── References ─────────────────────────────────────────────────── */}
