@@ -540,6 +540,27 @@ export default function DcmInternationalMarketsClient({ concept, lang }: Props) 
           </div>
         </motion.section>
 
+
+          {/* ── Rate Benchmarks deep-dive link ── */}
+          <div
+            className="mt-6 p-4 rounded-xl border flex items-start gap-3"
+            style={{ borderColor: "#ccfbf1", background: "#f0fdf9" }}
+          >
+            <span className="text-xl mt-0.5">📐</span>
+            <div>
+              <p className="text-sm font-bold text-gray-800 dark:text-gray-100 mb-1">
+                {ko ? "CCS의 구조와 Basis Spread가 궁금하신가요?" : "Want to understand CCS structure and Basis Spread in depth?"}
+              </p>
+              <Link
+                href={`${base}/dcm-rate-benchmarks`}
+                className="text-sm font-medium hover:underline"
+                style={{ color: "#14b8a6" }}
+              >
+                {ko ? "DCM Special — SOFR·LIBOR·Mid-Swap·통화스왑 완전 해부 →" : "DCM Special — SOFR, LIBOR, Mid-Swap & CCS Deep-Dive →"}
+              </Link>
+            </div>
+          </div>
+
         {/* ── CCS Explainer ── */}
         <motion.section
           className="mb-14"

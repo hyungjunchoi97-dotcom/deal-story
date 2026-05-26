@@ -1936,6 +1936,26 @@ From an IB career perspective, DCM requires a complex blend of structural design
     appearsIn: [],
   },
 
+  // ── DCM Special: Rate Benchmarks ─────────────────────────────────────────
+  {
+    slug: "dcm-rate-benchmarks",
+    title: "DCM Special — 글로벌 금리 기준선: SOFR·LIBOR·Mid-Swap·통화스왑 완전 해부",
+    titleEn: "DCM Special — Global Rate Benchmarks: SOFR, LIBOR, Mid-Swap & Currency Swap",
+    entryType: "article",
+    category: "dcm",
+    categoryLabel: "DCM",
+    categoryLabelEn: "DCM",
+    excerpt: "왜 USD 채권은 'T+180bp'이고 EUR 채권은 'MS+80bp'인가? LIBOR 조작 스캔들과 SOFR 전환 배경, Mid-Swap의 정체, 그리고 Cross-Currency Swap으로 엔화 0.3%가 달러 3.2%가 되는 메커니즘을 처음부터 끝까지 해부합니다.",
+    excerptEn: "Why do USD bonds quote 'T+180bp' while EUR bonds quote 'MS+80bp'? The LIBOR manipulation scandal, the shift to SOFR, what Mid-Swap actually is, and how a 0.3% JPY rate becomes 3.2% USD via Cross-Currency Swap — fully dissected.",
+    readingMinutes: 20,
+    tags: ["SOFR", "LIBOR", "Mid-Swap", "통화스왑", "CCS", "금리기준선", "EURIBOR", "Basis Swap", "DCM"],
+    tagsEn: ["SOFR", "LIBOR", "Mid-Swap", "Currency Swap", "CCS", "Rate Benchmarks", "EURIBOR", "Basis Swap", "DCM"],
+    sections: [],
+    keyTerms: [],
+    relatedSlugs: ["dcm-pricing", "dcm-international-markets", "dcm-deal-process", "spread-basis", "oas"],
+    appearsIn: [],
+  },
+
 ];
 
 export function getMarket101ConceptBySlug(slug: string): MarketConcept | undefined {

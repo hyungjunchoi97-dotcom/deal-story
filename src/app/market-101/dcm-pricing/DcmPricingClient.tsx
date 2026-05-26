@@ -362,6 +362,27 @@ export default function DcmPricingClient({ concept, lang }: Props) {
           <ShareButtons title={ko ? concept.title : (concept.titleEn ?? concept.title)} variant="top" lang={lang} />
         </div>
 
+
+          {/* ── Rate Benchmarks deep-dive link ── */}
+          <div
+            className="mt-6 p-4 rounded-xl border flex items-start gap-3"
+            style={{ borderColor: "#ccfbf1", background: "#f0fdf9" }}
+          >
+            <span className="text-xl mt-0.5">📐</span>
+            <div>
+              <p className="text-sm font-bold text-gray-800 dark:text-gray-100 mb-1">
+                {ko ? "SOFR·LIBOR 전환 배경과 Mid-Swap의 정체가 궁금하신가요?" : "Want to understand the SOFR/LIBOR transition and what Mid-Swap really is?"}
+              </p>
+              <Link
+                href={`${base}/dcm-rate-benchmarks`}
+                className="text-sm font-medium hover:underline"
+                style={{ color: "#14b8a6" }}
+              >
+                {ko ? "DCM Special — SOFR·LIBOR·Mid-Swap·통화스왑 완전 해부 →" : "DCM Special — SOFR, LIBOR, Mid-Swap & CCS Deep-Dive →"}
+              </Link>
+            </div>
+          </div>
+
         {/* ── 3-stat callout ───────────────────────────────────────────────── */}
         <motion.div
           variants={stagger}
