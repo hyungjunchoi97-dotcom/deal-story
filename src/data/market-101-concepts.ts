@@ -20,6 +20,7 @@ export const MARKET_101_CATEGORIES = [
   { key: "fig"        as const, label: "FIG",       labelEn: "FIG",                    dotColor: "bg-rose-500"   },
   { key: "sovereign"  as const, label: "소버린",     labelEn: "Sovereign",              dotColor: "bg-indigo-500" },
   { key: "structured" as const, label: "구조화",     labelEn: "Structured",             dotColor: "bg-amber-500"  },
+  { key: "lbo"        as const, label: "LBO",        labelEn: "LBO",                    dotColor: "bg-indigo-500" },
 ];
 
 // ── 개념 데이터 ──────────────────────────────────────────────────────────────
@@ -1975,6 +1976,90 @@ From an IB career perspective, DCM requires a complex blend of structural design
     sections: [],
     keyTerms: [],
     relatedSlugs: ["dcm-pricing", "dcm-international-markets", "dcm-deal-process", "spread-basis", "oas"],
+    appearsIn: [],
+  },
+
+  // ────────────────────────────────────────────────────────────────────────────
+  // LBO 101 시리즈
+  // ────────────────────────────────────────────────────────────────────────────
+  {
+    slug: "lbo-overview",
+    title: "LBO의 본질 — 레버리지로 기업을 사는 수학",
+    titleEn: "What Is LBO? — The Math of Buying Companies with Leverage",
+    entryType: "article",
+    category: "lbo",
+    categoryLabel: "LBO",
+    categoryLabelEn: "LBO",
+    excerpt:
+      "레버리지드 바이아웃(LBO)은 빌려서 사고, 가치를 만들고, 팔아라 — 세 단어로 요약된다. 인수 대금의 60–70%를 차입금으로 충당하고 그 빚을 기업의 현금흐름으로 갚는 구조가 어떻게 자기자본 수익률을 증폭시키는지, 7가지 LBO 타겟 기준, GP/LP 경제학과 Carry Waterfall, Blackstone/Hilton·TXU 케이스스터디까지 — PE 바이아웃의 본질을 처음부터 끝까지 해부한다.",
+    excerptEn:
+      "LBO in three words: borrow, build, sell. How funding 60–70% of an acquisition with debt — and repaying it from the company's own cash flows — amplifies equity returns. Seven LBO target criteria, GP/LP economics and carry waterfall, Blackstone/Hilton and TXU case studies — the full anatomy of a PE buyout from first principles.",
+    readingMinutes: 15,
+    tags: ["LBO", "레버리지드바이아웃", "PE 바이아웃", "사모펀드", "GP LP", "Carried Interest", "Carry Waterfall", "IRR MOIC", "Blackstone Hilton", "TXU", "레버리지 수익률"],
+    tagsEn: ["LBO", "Leveraged Buyout", "PE Buyout", "Private Equity", "GP LP", "Carried Interest", "Carry Waterfall", "IRR MOIC", "Blackstone Hilton", "TXU Energy Future", "Leverage Returns"],
+    sections: [],
+    keyTerms: [],
+    relatedSlugs: ["lbo-capital-structure", "lbo-returns", "lbo-deal-process"],
+    appearsIn: [],
+  },
+  {
+    slug: "lbo-capital-structure",
+    title: "LBO Ch.1 — 자본구조 완전 해부: 부채 스택과 채권자 위계",
+    titleEn: "LBO Ch.1 — Capital Stack Deep Dive: Debt Tranches & Creditor Hierarchy",
+    entryType: "article",
+    category: "lbo",
+    categoryLabel: "LBO",
+    categoryLabelEn: "LBO",
+    excerpt:
+      "LBO 부채 피라미드 완전 분해: Term Loan A·B, Senior Secured·Unsecured, Mezz, PIK Toggle Note, Equity — 각 트랜치의 금리·담보·코버넌트·회수율. Covenant-Lite의 부상, DSCR 계산법, Hilton 2007 실제 자본구조를 해부한다.",
+    excerptEn:
+      "Full decomposition of the LBO debt pyramid: Term Loan A/B, Senior Secured/Unsecured, Mezz, PIK Toggle Notes, Equity — rate, collateral, covenants, and recovery for each tranche. The rise of covenant-lite, DSCR calculation, and the actual Hilton 2007 capital structure dissected.",
+    readingMinutes: 12,
+    tags: ["LBO", "Term Loan B", "TLB", "HY채권", "PIK Toggle", "Covenant-Lite", "DSCR", "자본구조", "채권자 위계", "Hilton"],
+    tagsEn: ["LBO", "Term Loan B", "TLB", "HY Bond", "PIK Toggle", "Covenant-Lite", "DSCR", "Capital Stack", "Creditor Hierarchy", "Hilton"],
+    sections: [],
+    keyTerms: [],
+    relatedSlugs: ["lbo-overview", "lbo-returns", "lbo-deal-process"],
+    appearsIn: [],
+  },
+  {
+    slug: "lbo-returns",
+    title: "LBO Ch.2 — 리턴 분석: MOIC·IRR·가치창출의 수학",
+    titleEn: "LBO Ch.2 — Return Analysis: MOIC, IRR & the Math of Value Creation",
+    entryType: "article",
+    category: "lbo",
+    categoryLabel: "LBO",
+    categoryLabelEn: "LBO",
+    excerpt:
+      "MOIC와 IRR이 왜 다른 결론을 내리는지, J-커브 효과, 가치창출 3대 드라이버(EBITDA 성장·Multiple Expansion·Deleveraging), Exit Multiple이 수익의 50–60%를 결정하는 이유, Vintage Year 효과, Carry Waterfall 계산 — PE 리턴 분석의 핵심 수학.",
+    excerptEn:
+      "Why MOIC and IRR give different conclusions, the J-curve, three value creation drivers (EBITDA growth, Multiple Expansion, Deleveraging), why exit multiple determines 50–60% of returns, vintage year effects, and carry waterfall math — the core return analytics of private equity.",
+    readingMinutes: 13,
+    tags: ["MOIC", "IRR", "J-커브", "Multiple Expansion", "Deleveraging", "Value Creation", "Vintage Year", "LBO 리턴", "Exit Multiple"],
+    tagsEn: ["MOIC", "IRR", "J-curve", "Multiple Expansion", "Deleveraging", "Value Creation", "Vintage Year", "LBO Returns", "Exit Multiple"],
+    sections: [],
+    keyTerms: [],
+    relatedSlugs: ["lbo-overview", "lbo-capital-structure", "lbo-deal-process"],
+    appearsIn: [],
+  },
+  {
+    slug: "lbo-deal-process",
+    title: "LBO Ch.3 — 딜 프로세스 & 리스크: Origination부터 Exit까지",
+    titleEn: "LBO Ch.3 — Deal Process & Risk: From Origination to Exit",
+    entryType: "article",
+    category: "lbo",
+    categoryLabel: "LBO",
+    categoryLabelEn: "LBO",
+    excerpt:
+      "LBO 딜 타임라인 전체(3–6개월): Sources & Uses 테이블, 만기장벽(Maturity Wall), 금리 인상기 SOFR 폭등 리스크, TXU($45B)·Toys\"R\"Us($6.6B)·iHeartMedia($24B) 실패 케이스 심층 해부 — LBO 리스크 관리의 실전 프레임워크.",
+    excerptEn:
+      "Full LBO deal timeline (3–6 months): sources & uses table, maturity wall mechanics, SOFR spike risk in rising rate environments, deep dives into TXU ($45B), Toys\"R\"Us ($6.6B), and iHeartMedia ($24B) failures — a practitioner's risk management framework for LBOs.",
+    readingMinutes: 14,
+    tags: ["LBO 프로세스", "Sources and Uses", "Maturity Wall", "TXU", "Toys R Us", "iHeartMedia", "레버리지 리스크", "SOFR", "Cov-Lite", "딜 타임라인"],
+    tagsEn: ["LBO Process", "Sources and Uses", "Maturity Wall", "TXU", "Toys R Us", "iHeartMedia", "Leverage Risk", "SOFR", "Cov-Lite", "Deal Timeline"],
+    sections: [],
+    keyTerms: [],
+    relatedSlugs: ["lbo-overview", "lbo-capital-structure", "lbo-returns"],
     appearsIn: [],
   },
 

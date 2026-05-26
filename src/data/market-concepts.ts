@@ -47,7 +47,7 @@ export type MarketConcept = {
    *  "term"    — 용어 사전 개별 페이지 (e.g. 신디케이트, AT1)
    */
   entryType?: "article" | "term";
-  category: "dcm" | "ecm" | "st" | "structure" | "sales" | "fig" | "sovereign" | "structured";
+  category: "dcm" | "ecm" | "st" | "structure" | "sales" | "fig" | "sovereign" | "structured" | "lbo";
   categoryLabel: string;
   categoryLabelEn: string;
   excerpt: string;
@@ -75,6 +75,7 @@ export const CATEGORY_COLOR: Record<
   fig:        { bg: "bg-rose-50 dark:bg-rose-900/20",    fg: "text-rose-700 dark:text-rose-300",    border: "border-rose-200 dark:border-rose-700",    dot: "bg-rose-500",    accent: "#f43f5e" },
   sovereign:  { bg: "bg-indigo-50 dark:bg-indigo-900/20",fg: "text-indigo-700 dark:text-indigo-300",border: "border-indigo-200 dark:border-indigo-700",dot: "bg-indigo-500",  accent: "#6366f1" },
   structured: { bg: "bg-amber-50 dark:bg-amber-900/20",  fg: "text-amber-700 dark:text-amber-300",  border: "border-amber-200 dark:border-amber-700",  dot: "bg-amber-500",   accent: "#f59e0b" },
+  lbo:        { bg: "bg-indigo-50 dark:bg-indigo-900/20",fg: "text-indigo-700 dark:text-indigo-300",border: "border-indigo-200 dark:border-indigo-700",dot: "bg-indigo-500",  accent: "#6366f1" },
 };
 
 // ── 개념 데이터 (현재 비어있음 — Market 101로 이관) ─────────────────────────
