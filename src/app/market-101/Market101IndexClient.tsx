@@ -146,18 +146,22 @@ function LockedFolder({ label, icon, desc }: { label: string; icon: string; desc
 }
 
 // ── 메인 폴더 컴포넌트 ────────────────────────────────────────────────────
+type ExtraGroup = { label: string; dotColor: string; items: MarketConcept[] };
+
 function CategoryFolder({
-  catKey, label, dotColor, articles, terms, defaultOpen,
+  catKey, label, dotColor, articles, terms, extraGroups = [], defaultOpen,
 }: {
   catKey: string;
   label: string;
   dotColor: string;
   articles: MarketConcept[];
   terms: MarketConcept[];
+  extraGroups?: ExtraGroup[];
   defaultOpen: boolean;
 }) {
   const [open, setOpen] = useState(defaultOpen);
-  const total = articles.length + terms.length;
+  const extraTotal = extraGroups.reduce((s, g) => s + g.items.length, 0);
+  const total = articles.length + terms.length + extraTotal;
   const cc = CATEGORY_COLOR[catKey as keyof typeof CATEGORY_COLOR];
   const meta = CAT_META[catKey];
 
@@ -193,9 +197,9 @@ function CategoryFolder({
                 아티클 {articles.length}
               </span>
             )}
-            {terms.length > 0 && (
+            {(terms.length + extraTotal) > 0 && (
               <span className="text-[10px] px-2 py-0.5 rounded-full font-semibold bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400">
-                용어 {terms.length}
+                용어 {terms.length + extraTotal}
               </span>
             )}
           </div>
@@ -245,7 +249,7 @@ function CategoryFolder({
               )}
 
               {/* 아티클↔용어 구분 */}
-              {articles.length > 0 && terms.length > 0 && (
+              {articles.length > 0 && (terms.length + extraTotal) > 0 && (
                 <div className="flex items-center gap-2 my-2 px-3.5">
                   <div className="flex-1 h-px bg-gray-100 dark:bg-gray-800" />
                   <span className="text-[10px] text-gray-400 dark:text-gray-500 font-medium">용어 사전</span>
@@ -253,7 +257,7 @@ function CategoryFolder({
                 </div>
               )}
 
-              {/* 용어 목록 */}
+              {/* 네이티브 용어 목록 */}
               {terms.length > 0 && (
                 <div>
                   {terms.map((c, i) => (
@@ -261,6 +265,24 @@ function CategoryFolder({
                   ))}
                 </div>
               )}
+
+              {/* extraGroups — 합병된 서브섹션 (FIG, 소버린 등) */}
+              {extraGroups.map((grp, gi) => (
+                <div key={grp.label}>
+                  <div className="flex items-center gap-2 mt-3 mb-1 px-3.5">
+                    <span className={`w-2 h-2 rounded-full flex-shrink-0 ${grp.dotColor}`} />
+                    <span className="text-[10px] font-bold text-gray-500 dark:text-gray-400">{grp.label}</span>
+                    <div className="flex-1 h-px bg-gray-100 dark:bg-gray-800" />
+                  </div>
+                  {grp.items.map((c, i) => (
+                    <TermRow
+                      key={c.slug}
+                      concept={c}
+                      index={articles.length + terms.length + extraGroups.slice(0, gi).reduce((s, g) => s + g.items.length, 0) + i}
+                    />
+                  ))}
+                </div>
+              ))}
             </div>
           </motion.div>
         )}
@@ -269,20 +291,46 @@ function CategoryFolder({
   );
 }
 
+// ── FIG·Sovereign → DCM 폴더 안으로 합병 설정 ───────────────────────────
+/** DCM 폴더 안에 서브섹션으로 합병할 카테고리 키 목록 */
+const MERGE_INTO_DCM: Array<{ key: string; label: string }> = [
+  { key: "fig",      label: "FIG (금융기관)" },
+  { key: "sovereign", label: "Sovereign (소버린)" },
+];
+
 // ── 메인 페이지 컴포넌트 ──────────────────────────────────────────────────
 export default function Market101IndexClient() {
   const totalCount = ALL_MARKET101_CONCEPTS.length;
 
-  // 카테고리별로 묶기 (MARKET_101_CATEGORIES 기준, lbo 제외)
-  const folders = MARKET_101_CATEGORIES.map((cat) => {
-    const all = ALL_MARKET101_CONCEPTS.filter((c) => c.category === cat.key);
-    return {
-      ...cat,
-      articles: all.filter((c) => c.entryType === "article"),
-      terms: all.filter((c) => c.entryType === "term" || !c.entryType),
-      total: all.length,
-    };
-  });
+  const mergedKeys = MERGE_INTO_DCM.map((m) => m.key);
+
+  // 카테고리별로 묶기 (MARKET_101_CATEGORIES 기준, lbo + merged 제외)
+  const folders = MARKET_101_CATEGORIES
+    .filter((cat) => !mergedKeys.includes(cat.key))
+    .map((cat) => {
+      const all = ALL_MARKET101_CONCEPTS.filter((c) => c.category === cat.key);
+      // DCM에는 extraGroups(FIG·Sovereign) 추가
+      const extraGroups: ExtraGroup[] = cat.key === "dcm"
+        ? MERGE_INTO_DCM.map((m) => {
+            const mCat = MARKET_101_CATEGORIES.find((c) => c.key === m.key);
+            return {
+              label: m.label,
+              dotColor: mCat?.dotColor ?? "bg-gray-400",
+              items: ALL_MARKET101_CONCEPTS.filter(
+                (c) => c.category === m.key && (c.entryType === "term" || !c.entryType)
+              ),
+            };
+          }).filter((g) => g.items.length > 0)
+        : [];
+      const extraTotal = extraGroups.reduce((s, g) => s + g.items.length, 0);
+      return {
+        ...cat,
+        articles: all.filter((c) => c.entryType === "article"),
+        terms: all.filter((c) => c.entryType === "term" || !c.entryType),
+        extraGroups,
+        total: all.length + extraTotal,
+      };
+    });
 
   const populated = folders.filter((f) => f.total > 0);
   const empty = folders.filter((f) => f.total === 0);
@@ -312,6 +360,13 @@ export default function Market101IndexClient() {
             <span className={`w-1.5 h-1.5 rounded-full ${f.dotColor}`} />
             {f.label}
             <span className="opacity-70">{f.total}</span>
+            {/* DCM에 합병된 카테고리 표시 */}
+            {f.key === "dcm" && MERGE_INTO_DCM.map((m) => {
+              const mCat = MARKET_101_CATEGORIES.find((c) => c.key === m.key);
+              return mCat ? (
+                <span key={m.key} className={`w-1.5 h-1.5 rounded-full ${mCat.dotColor}`} title={mCat.label} />
+              ) : null;
+            })}
           </div>
         ))}
       </motion.div>
@@ -331,6 +386,7 @@ export default function Market101IndexClient() {
               dotColor={f.dotColor}
               articles={f.articles}
               terms={f.terms}
+              extraGroups={f.extraGroups}
               defaultOpen={i === 0}
             />
           </motion.div>
