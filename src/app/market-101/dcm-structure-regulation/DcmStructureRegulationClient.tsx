@@ -33,6 +33,7 @@ const DCM_SERIES = [
   { slug: "dcm-deal-process",          ch: 5, title: (ko: boolean) => ko ? "Ch.5 딜 프로세스"  : "Ch.5 Process"    },
   { slug: "dcm-pricing",               ch: 6, title: (ko: boolean) => ko ? "Ch.6 프라이싱"     : "Ch.6 Pricing"    },
   { slug: "dcm-structure-regulation",  ch: 7, title: (ko: boolean) => ko ? "Ch.7 구조·제도"    : "Ch.7 Regulation" },
+  { slug: "dcm-execution",             ch: 8, title: (ko: boolean) => ko ? "Ch.8 실전 발행"     : "Ch.8 Execution"  },
 ];
 
 const thisCh = 7;

@@ -5,12 +5,17 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getDealBySlugEn, getAllSlugsEn, ALL_DEALS_EN } from "@/data/deals/en";
+import { getLboDealBySlug, getAllLboSlugs } from "@/data/deals/lbo";
 import { SITE_URL } from "@/lib/site";
 import DealPageClient from "./DealPageClient";
+import LboPageClient from "@/app/deals/[slug]/LboPageClient";
 
 // ── Static path generation ────────────────────────────────────
 export function generateStaticParams() {
-  return getAllSlugsEn().map((slug) => ({ slug }));
+  return [
+    ...getAllSlugsEn().map((slug) => ({ slug })),
+    ...getAllLboSlugs().map((slug) => ({ slug })),
+  ];
 }
 
 // ── SEO metadata ──────────────────────────────────────────────
@@ -65,6 +70,24 @@ export default async function DealPageEn({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+
+  // LBO deal check first
+  const lboDeal = getLboDealBySlug(slug);
+  if (lboDeal) {
+    return (
+      <>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            { "@type": "Article", headline: lboDeal.seo.title, description: lboDeal.seo.description, inLanguage: "en" },
+            { "@type": "FAQPage", mainEntity: (lboDeal.faq ?? []).map(({ qEn, aEn }) => ({ "@type": "Question", name: qEn, acceptedAnswer: { "@type": "Answer", text: aEn } })) },
+          ],
+        }) }} />
+        <LboPageClient deal={lboDeal} lang="en" />
+      </>
+    );
+  }
+
   const deal = getDealBySlugEn(slug);
   if (!deal) notFound();
 

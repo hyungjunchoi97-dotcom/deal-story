@@ -5,12 +5,17 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getDealBySlug, getAllSlugs, ALL_DEALS } from "@/data/deals";
+import { getLboDealBySlug, getAllLboSlugs } from "@/data/deals/lbo";
 import { SITE_URL } from "@/lib/site";
 import DealPageClient from "./DealPageClient";
+import LboPageClient from "./LboPageClient";
 
 // ── 정적 경로 사전 생성 ────────────────────────────────────────
 export function generateStaticParams() {
-  return getAllSlugs().map((slug) => ({ slug }));
+  return [
+    ...getAllSlugs().map((slug) => ({ slug })),
+    ...getAllLboSlugs().map((slug) => ({ slug })),
+  ];
 }
 
 // ── SEO 메타데이터 ─────────────────────────────────────────────
@@ -65,6 +70,51 @@ export default async function DealPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+
+  // LBO 딜 먼저 확인
+  const lboDeal = getLboDealBySlug(slug);
+  if (lboDeal) {
+    const lboJsonLd = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          headline: lboDeal.seo.title,
+          description: lboDeal.seo.description,
+          keywords: lboDeal.seo.keywords.join(", "),
+          datePublished: lboDeal.announcedAt,
+          dateModified: lboDeal.closedAt ?? lboDeal.announcedAt,
+          author: { "@type": "Organization", name: "Deal Story", url: SITE_URL },
+          publisher: { "@type": "Organization", name: "Deal Story", url: SITE_URL },
+          mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}/deals/${slug}` },
+          inLanguage: "ko",
+        },
+        {
+          "@type": "FAQPage",
+          mainEntity: (lboDeal.faq ?? []).map(({ q, a }) => ({
+            "@type": "Question",
+            name: q,
+            acceptedAnswer: { "@type": "Answer", text: a },
+          })),
+        },
+        {
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "홈", item: `${SITE_URL}/` },
+            { "@type": "ListItem", position: 2, name: "딜 아카이브", item: `${SITE_URL}/deals` },
+            { "@type": "ListItem", position: 3, name: lboDeal.title, item: `${SITE_URL}/deals/${slug}` },
+          ],
+        },
+      ],
+    };
+    return (
+      <>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(lboJsonLd) }} />
+        <LboPageClient deal={lboDeal} lang="ko" />
+      </>
+    );
+  }
+
   const deal = getDealBySlug(slug);
   if (!deal) notFound();
 

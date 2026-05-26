@@ -1936,6 +1936,28 @@ From an IB career perspective, DCM requires a complex blend of structural design
     appearsIn: [],
   },
 
+  // ── DCM Ch.8 — Execution ─────────────────────────────────────────────────
+  {
+    slug: "dcm-execution",
+    title: "DCM Ch.8 — 국제채 발행 실전: Arb 계산부터 북빌딩까지",
+    titleEn: "DCM Ch.8 — Bond Execution in Practice: Arb Calculation to Book-Building",
+    entryType: "article",
+    category: "dcm",
+    categoryLabel: "DCM",
+    categoryLabelEn: "DCM",
+    excerpt:
+      "DCM 피치의 핵심: \"우리 하우스를 써서 이 통화로 발행하면 USD 대비 Xbp 저렴합니다.\" EUR/JPY/TWD→USD Arb 계산, Bloomberg Comps에서 IPT 도출, 북빌딩 4시간의 실시간 판단, Real money vs. Fast money 배분 전략. Korea MOEF EUR 5yr 케이스.",
+    excerptEn:
+      "The core of every DCM pitch: 'Our house saves you Xbp vs. direct USD issuance.' EUR/JPY/TWD→USD arb calculation, Bloomberg comps to IPT, 4-hour bookbuilding decisions, real money vs. fast money allocation. Korea MOEF EUR 5yr case study.",
+    readingMinutes: 20,
+    tags: ["DCM", "CCBS", "크로스커런시스왑", "Arb", "북빌딩", "IPT", "NIC", "외평채", "사무라이본드", "포모사본드", "신디케이트"],
+    tagsEn: ["DCM", "CCBS", "Cross-Currency Swap", "Arb", "Book-Building", "IPT", "NIC", "KTB", "Samurai Bond", "Formosa Bond", "Syndicate"],
+    sections: [],
+    keyTerms: [],
+    relatedSlugs: ["dcm-deal-process", "dcm-pricing", "dcm-international-markets", "dcm-structure-regulation", "dcm-rate-benchmarks"],
+    appearsIn: [],
+  },
+
   // ── DCM Special: Rate Benchmarks ─────────────────────────────────────────
   {
     slug: "dcm-rate-benchmarks",
