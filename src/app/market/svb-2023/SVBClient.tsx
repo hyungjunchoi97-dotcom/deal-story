@@ -18,7 +18,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ShareButtons from "@/components/deal/ShareButtons";
 import FaqAccordion from "@/components/FaqAccordion";
-import FaqAccordion from "@/components/FaqAccordion";
 
 import type { MarketDeal } from "@/data/market-deals";
 
