@@ -608,21 +608,32 @@ export default function LevFinEcosystemClient({ concept, lang }: Props) {
             <p className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-4">
               {ko ? "HY 채권 연간 부도율 (Moody's 기준)" : "HY Bond Annual Default Rate (Moody's)"}
             </p>
-            <div className="flex items-end gap-1.5 h-32">
-              {DEFAULT_RATE_DATA.map((d, i) => (
-                <motion.div key={i} className="flex flex-col items-center flex-1 min-w-0"
-                  initial={{ scaleY: 0 }} whileInView={{ scaleY: 1 }} viewport={VP}
-                  transition={{ duration: 0.5, delay: i * 0.04, ease: "easeOut" }}
-                  style={{ transformOrigin: "bottom" }}>
-                  <div
-                    className={`w-full rounded-t-sm ${
-                      d.rate >= 8 ? "bg-rose-500" : d.rate >= 4 ? "bg-orange-400" : "bg-yellow-400"
-                    }`}
-                    style={{ height: `${(d.rate / maxRate) * 100}%` }}
-                  />
-                  <span className="text-[9px] text-gray-400 mt-1 rotate-45 origin-left whitespace-nowrap">{d.year}</span>
-                </motion.div>
-              ))}
+            {/* BAR CHART — 고정 px 높이로 정확하게 렌더 */}
+            <div className="flex items-end gap-1.5" style={{ height: "140px" }}>
+              {DEFAULT_RATE_DATA.map((d, i) => {
+                const barPx = Math.round((d.rate / maxRate) * 100);
+                const color = d.rate >= 8 ? "bg-rose-500" : d.rate >= 4 ? "bg-orange-400" : "bg-yellow-400";
+                return (
+                  <div key={i} className="flex flex-col items-center justify-end flex-1 min-w-0" style={{ height: "140px" }}>
+                    {/* 퍼센트 레이블 */}
+                    <span className="text-[8px] font-bold text-gray-500 dark:text-gray-400 mb-0.5 leading-none">
+                      {d.label}
+                    </span>
+                    {/* 바 — height 0 → barPx px 애니메이션 */}
+                    <motion.div
+                      className={`w-full rounded-t-sm ${color}`}
+                      initial={{ height: 0 }}
+                      whileInView={{ height: barPx }}
+                      viewport={VP}
+                      transition={{ duration: 0.55, delay: i * 0.045, ease: "easeOut" }}
+                    />
+                    {/* 연도 레이블 */}
+                    <span className="text-[8px] text-gray-400 dark:text-gray-500 mt-1 whitespace-nowrap leading-none">
+                      {d.year}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
             <div className="flex gap-4 mt-3 flex-wrap">
               {[
