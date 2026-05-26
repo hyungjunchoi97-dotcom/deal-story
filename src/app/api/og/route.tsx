@@ -36,6 +36,7 @@ const OG_CATEGORY: Record<DealCategory, { bg: string; fg: string }> = {
   ma:            { bg: "#e8f3ff", fg: "#1b64da" },
   activism:      { bg: "#fff1f2", fg: "#be123c" },
   restructuring: { bg: "#fffbeb", fg: "#d97706" },
+  control:       { bg: "#f5f3ff", fg: "#7c3aed" },
 };
 
 // ── 공통 컬러 토큰 (globals.css 와 동일) ───────────────────────

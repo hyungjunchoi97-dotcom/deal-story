@@ -1142,6 +1142,156 @@ The AT1 primary market reopened after this event. Investors keep coming because 
     references: [],
   },
 
+  // ── SVB 2023 ──────────────────────────────────────────────────────────────
+  {
+    slug: "svb-2023",
+    title: "실리콘밸리뱅크(SVB) 붕괴 — 48시간의 ALM 실패",
+    titleEn: "Silicon Valley Bank Collapse — 48 Hours of ALM Failure",
+    category: "fig",
+    categoryLabel: "FIG 드라마",
+    categoryLabelEn: "FIG Drama",
+    excerpt: "2023년 3월 Fed 금리 인상이 만들어낸 HTM 포트폴리오 폭탄. 94% 무보험 예금자, Twitter발 뱅크런, 48시간 만에 $2,090억 은행이 사라졌다.",
+    excerptEn: "The HTM portfolio bomb created by Fed rate hikes in March 2023. 94% uninsured depositors, a Twitter-fueled bank run — a $209B bank gone in 48 hours.",
+    dealYear: 2023,
+    issuer: "Silicon Valley Bank (SVB)",
+    issuerEn: "Silicon Valley Bank (SVB)",
+    readingMinutes: 16,
+    tags: ["ALM", "뱅크런", "HTM", "금리위기", "미국", "FDIC", "스타트업"],
+    tagsEn: ["ALM", "Bank Run", "HTM", "Rate Crisis", "US", "FDIC", "Startups"],
+    published: true,
+    snapshot: [
+      { labelKo: "은행 폐쇄일",        labelEn: "Closure Date",         value: "2023년 3월 10일" },
+      { labelKo: "총 자산",             labelEn: "Total Assets",          value: "$2,090억" },
+      { labelKo: "HTM 포트폴리오",      labelEn: "HTM Portfolio",         value: "$913억" },
+      { labelKo: "미실현 손실 (HTM)",   labelEn: "Unrealized Loss (HTM)", value: "–$152억" },
+      { labelKo: "하루 인출 시도액",    labelEn: "Single-Day Run",        value: "$420억" },
+      { labelKo: "무보험 예금 비율",    labelEn: "Uninsured Deposits",    value: "~94%" },
+    ],
+    sections: [],
+    keyTerms: [
+      {
+        term: "HTM (만기보유 채권)",
+        termEn: "HTM (Held-to-Maturity)",
+        definition: "만기까지 보유할 의도로 분류한 채권. 시가평가 없이 상각원가로 계상 — 매각 시 손실이 한꺼번에 실현됨.",
+        definitionEn: "Bonds classified as held-to-maturity, carried at amortized cost with no mark-to-market. When sold, all embedded losses are recognized at once.",
+      },
+      {
+        term: "AFS (매도가능 채권)",
+        termEn: "AFS (Available-for-Sale)",
+        definition: "시가평가 손익이 기타포괄손익(OCI)에 반영. HTM 대비 유연하지만 자기자본 변동 노출.",
+        definitionEn: "Fair-value changes flow through Other Comprehensive Income (OCI). More flexible than HTM but exposes book equity to rate moves.",
+      },
+      {
+        term: "Duration (듀레이션)",
+        termEn: "Duration",
+        definition: "금리 1% 변화 시 채권 가격의 % 변화량. SVB HTM 포트폴리오 평균 듀레이션 약 5.6년.",
+        definitionEn: "The % change in bond price for a 1% change in interest rates. SVB's HTM portfolio had ~5.6yr average duration.",
+      },
+      {
+        term: "ALM (자산부채관리)",
+        termEn: "ALM (Asset-Liability Management)",
+        definition: "자산과 부채의 만기·금리 불일치를 관리하는 은행 핵심 리스크 기능.",
+        definitionEn: "Core bank risk function managing maturity and rate mismatch between assets and liabilities.",
+      },
+      {
+        term: "BTFP",
+        termEn: "BTFP (Bank Term Funding Program)",
+        definition: "Fed가 SVB 붕괴 직후 도입한 긴급 대출 창구. HTM 채권을 액면가로 담보 접수.",
+        definitionEn: "Emergency Fed lending facility launched after SVB. Accepts HTM bonds at face value as collateral — absorbing unrealized losses instantly.",
+      },
+    ],
+    relatedMarket101Slugs: ["alm", "spread-basis", "oas"],
+    relatedDealSlugs: ["credit-suisse-at1"],
+    executiveSummary: {
+      ko: [
+        "SVB는 팬데믹 유동성 급증으로 예금이 2배 늘자 장기 MBS·국채에 $1,000억 이상을 투자, 대부분을 HTM으로 분류해 평가손을 재무제표에서 숨겼다.",
+        "Fed가 2022년 0.25%에서 5.25%로 금리를 올리자 HTM 포트폴리오에 $152억의 미실현 손실이 쌓였고, 이는 SVB 자기자본($163억)에 육박했다.",
+        "2023년 3월 8일 AFS 포트폴리오 매각 $18억 손실 공시와 증자 계획 발표가 VC 네트워크·Twitter를 통해 순식간에 퍼졌다.",
+        "3월 10일 하루에만 $420억의 인출이 몰리며 FDIC가 SVB를 폐쇄 — 미국 역사상 두 번째로 큰 은행 도산.",
+        "Fed는 이틀 뒤 BTFP를 도입해 HTM 채권을 액면가로 담보 대출, 시스템 전반의 뱅크런 전염을 차단했다.",
+      ],
+      en: [
+        "SVB's deposits doubled during the pandemic, so it deployed $100B+ into long-duration MBS and Treasuries — classifying most as HTM to hide fair-value losses from financial statements.",
+        "As the Fed hiked rates from 0.25% to 5.25% in 2022, SVB's HTM portfolio accumulated $15.2B in unrealized losses — nearly equal to its $16.3B in equity.",
+        "On March 8, SVB disclosed a $1.8B loss from selling its AFS portfolio and announced a capital raise. News spread instantly through VC networks and Twitter.",
+        "On March 10, $42B in withdrawals were attempted in a single day, forcing the FDIC to seize SVB — the second-largest US bank failure in history.",
+        "Two days later, the Fed launched BTFP, accepting HTM bonds at face value as collateral — stopping systemic contagion to other regional banks.",
+      ],
+    },
+    assessment: {
+      positives: [
+        "FDIC·연준의 신속한 대응(BTFP)으로 예금자 전액 보호 및 시스템 전이 방지 성공 — 2008년식 도미노 붕괴 없었음.",
+        "SVB 사태를 계기로 은행 HTM 포트폴리오·ALM에 대한 규제 감독이 대폭 강화됐다.",
+        "VC·스타트업 생태계가 예금보험 한도와 금융 리스크 관리의 중요성을 실감하는 계기가 됐다.",
+      ],
+      positivesEn: [
+        "Rapid FDIC/Fed BTFP response fully protected depositors and prevented systemic contagion — no 2008-style domino collapse.",
+        "SVB triggered significantly strengthened regulatory scrutiny of bank HTM portfolios and ALM frameworks.",
+        "The VC/startup ecosystem gained deep awareness of deposit insurance limits and financial risk management.",
+      ],
+      risks: [
+        "BTFP의 '액면가 담보' 원칙이 향후 HTM 분류 남용에 대한 도덕적 해이를 심화시킬 수 있다.",
+        "SNS 시대의 뱅크런은 기존 규제 프레임보다 수십 배 빠름 — 수 시간 내 대응 체계가 필요하나 규제가 이를 따라가지 못하고 있다.",
+        "특정 산업·커뮤니티에 예금이 집중된 다른 중소형 은행들에 유사 리스크가 잠재해 있다.",
+      ],
+      risksEn: [
+        "The BTFP's 'face value collateral' principle risks creating moral hazard encouraging aggressive future HTM classification.",
+        "Social media bank runs move far faster than existing regulatory frameworks assumed — response systems need to operate in hours, not days.",
+        "Other banks with similarly concentrated depositor bases face analogous latent risks.",
+      ],
+    },
+    faq: [
+      {
+        q: "HTM 채권을 만기까지 보유하면 손실이 없는 거 아닌가요?",
+        qEn: "If SVB held HTM bonds to maturity, wouldn't the losses disappear?",
+        a: "이론적으로는 맞습니다. 하지만 SVB의 부채(예금)는 단기였고 자산(HTM 채권)은 장기였습니다. 예금 인출이 몰리자 채권을 만기 전에 팔 수밖에 없었고, 그 순간 HTM에 숨어 있던 $152억 손실이 한꺼번에 실현됐습니다. ALM의 핵심 교훈 — 자산을 만기까지 보유하려면 부채도 안정적이어야 합니다.",
+        aEn: "Theoretically yes. But SVB's liabilities (deposits) were short-term while its assets (HTM bonds) were long-term. When withdrawals surged, bonds had to be sold before maturity — instantly crystallizing $15.2B in hidden losses. The core ALM lesson: you can only hold assets to maturity if your liabilities are equally stable.",
+      },
+      {
+        q: "왜 SVB 경영진은 HTM 비율을 이렇게 높게 가져갔나요?",
+        qEn: "Why did SVB management push HTM allocation so high?",
+        a: "2021년 당시 컨센서스는 '금리는 오랫동안 낮을 것'이었습니다. HTM은 OCI 변동성을 제거해 자기자본을 안정적으로 보이게 하고 규제 자기자본 비율에도 유리했습니다. 리스크팀이 경고했지만 수익성 압박 속에 무시됐고, 금리 인상 시나리오에 대한 스트레스 테스트가 충분하지 않았다는 것이 이후 규제 당국의 지적이었습니다.",
+        aEn: "In 2021, consensus was that rates would stay low for years. HTM eliminates OCI volatility and had regulatory capital advantages. Post-mortems suggest the risk team raised warnings but was overruled under profitability pressure. Regulators later criticized the lack of adequate stress testing for rate-hike scenarios.",
+      },
+      {
+        q: "SVB 사태가 CS AT1 사태와 다른 점은 무엇인가요?",
+        qEn: "How does SVB differ from the Credit Suisse AT1 event?",
+        a: "SVB는 ALM 실패 — 금리 환경 변화가 방아쇠였습니다. CS AT1은 수년간 누적된 신용 손실과 경영 불신이 원인이었습니다. 결과도 다릅니다: SVB는 예금자 전액 보호(FDIC), 주주·채권자 손실. CS AT1은 주주보다 먼저 AT1 채권자가 100% 손실. 두 사건 모두 시장 예상보다 훨씬 빠르게 전개됐다는 공통점이 있습니다.",
+        aEn: "SVB was an ALM failure triggered by the rate environment. CS AT1 resulted from years of accumulated credit losses and management distrust. The outcomes also differ: SVB's FDIC protected all depositors while shareholders lost; CS had AT1 holders take 100% losses before equity. Both events unfolded far faster than markets anticipated.",
+      },
+      {
+        q: "BTFP는 구제금융인가요?",
+        qEn: "Was BTFP a government bailout?",
+        a: "기술적으로는 담보 대출입니다 — 은행이 HTM 채권을 맡기고 빌리는 구조로, 채권이 만기 상환되면 Fed 손실이 없습니다. 다만 '액면가' 담보 원칙은 사실상 시장 손실을 정부가 흡수하는 효과가 있어 간접 지원이라는 비판도 있습니다. SVB 자체는 구제받지 못하고 폐쇄됐으며, BTFP는 전이 방지가 목적이었습니다.",
+        aEn: "Technically it's a collateralized lending facility — banks pledge HTM bonds and borrow against them; if bonds repay at par, the Fed takes no loss. However, the 'face value' collateral principle effectively absorbs market losses, which critics argue indirectly subsidizes bank shareholders. SVB itself was not bailed out — BTFP was designed to prevent contagion.",
+      },
+      {
+        q: "이런 사태가 한국 은행에서도 일어날 수 있나요?",
+        qEn: "Could something like this happen to Korean banks?",
+        a: "한국 주요 은행들도 저금리 시기 매입한 국채의 HTM 미실현 손실이 있었지만, SVB와 달리 예금자 기반이 소매 중심으로 다각화돼 있고 HTM 비중이 총 자산 대비 절대적이지 않았습니다. SVB 사태 직후 금감원은 전 은행에 HTM 포트폴리오 점검을 지시했고, 정기 ALM 스트레스 테스트 체계도 작동하고 있었습니다.",
+        aEn: "Major Korean banks also had unrealized HTM losses from bonds purchased during the low-rate era, but key differences apply: depositor bases are far more diversified toward retail, HTM concentrations were not as extreme, and the FSS conducted regular ALM stress tests. After SVB, the FSS ordered all banks to review their HTM portfolios.",
+      },
+    ],
+    references: [
+      {
+        id: 1,
+        author: "FDIC",
+        title: "Review of the FDIC's Supervision of Silicon Valley Bank",
+        source: "FDIC, April 2023",
+        year: "2023",
+        url: "https://www.fdic.gov/bank/individual/failed/silicon-valley-bank/svb-report.pdf",
+      },
+      {
+        id: 2,
+        author: "Board of Governors of the Federal Reserve System",
+        title: "Review of the Federal Reserve's Supervision of Silicon Valley Bank",
+        source: "Federal Reserve, April 2023",
+        year: "2023",
+        url: "https://www.federalreserve.gov/publications/files/svb-review-20230428.pdf",
+      },
+    ],
+  },
+
 ];
 
 export function getMarketDealBySlug(slug: string): MarketDeal | undefined {

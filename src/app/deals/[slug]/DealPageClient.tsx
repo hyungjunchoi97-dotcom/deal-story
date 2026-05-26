@@ -21,6 +21,7 @@ import ShareButtons from "@/components/deal/ShareButtons";
 import MetricCard from "@/components/deal/MetricCard";
 import CompanyLogo from "@/components/deal/CompanyLogo";
 import GovernanceOverviewSection from "@/components/deal/GovernanceOverviewSection";
+import ControlBattleSection from "@/components/deal/ControlBattleSection";
 import { formatDealDate } from "@/lib/format";
 import type { DealData } from "@/lib/deal-data";
 
@@ -375,6 +376,19 @@ export default function DealPageClient({
               <SectionTitle>Governance Overview</SectionTitle>
               <GovernanceOverviewSection
                 data={deal.governanceOverview}
+                lang={lang}
+              />
+            </>
+          )}
+
+          {/* ── 7-C. Control Battle Overview (control 딜 전용) */}
+          {deal.controlBattleOverview && (
+            <>
+              <SectionTitle>
+                {lang === "en" ? "Control Battle Overview" : "경영권 분쟁 개요"}
+              </SectionTitle>
+              <ControlBattleSection
+                data={deal.controlBattleOverview}
                 lang={lang}
               />
             </>

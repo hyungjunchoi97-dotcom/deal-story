@@ -99,7 +99,7 @@ export const ALL_LEARNING_PATHS: LearningPath[] = [
     descriptionEn:
       "Master spread and OAS pricing, understand bank ALM, then dive into the Credit Suisse AT1 write-down — the most dramatic bank capital event in modern history.",
     level: "intermediate",
-    estimatedMinutes: 50,
+    estimatedMinutes: 70,
     category: "fig",
     steps: [
       {
@@ -125,6 +125,12 @@ export const ALL_LEARNING_PATHS: LearningPath[] = [
         slug: "credit-suisse-at1",
         note: "2023년 크레딧스위스 AT1 채권 전액 상각 사태 — PONV 트리거, 베일인, 주주보다 먼저 손실을 흡수한 AT1 채권자들의 이야기.",
         noteEn: "The 2023 Credit Suisse AT1 write-down — how PONV triggered, what bail-in means in practice, and why AT1 investors lost everything before equity holders.",
+      },
+      {
+        type: "market-deal",
+        slug: "svb-2023",
+        note: "같은 해(2023년) 다른 원인의 은행 위기 — SVB는 ALM 실패, CS는 신용 손실. 둘을 비교하면 은행 리스크의 두 축이 보입니다.",
+        noteEn: "Two bank crises in the same year (2023), different causes — SVB was ALM failure, CS was credit deterioration. Comparing them reveals the two axes of bank risk.",
       },
     ],
   },

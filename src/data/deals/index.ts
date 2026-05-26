@@ -34,11 +34,14 @@ import danaherAcquisitions from "./danaher-acquisitions";
 import elliottSamsung from "./elliott-samsung";
 import hanjinKcgi from "./hanjin-kcgi";
 import koreaZincMbk from "./korea-zinc-mbk";
+import lvmhHermes from "./lvmh-hermes";
 import jpmorganBearStearns from "./jpmorgan-bear-stearns";
 import pershingSquareCpRail from "./pershing-square-cp-rail";
 import valueactMicrosoft from "./valueact-microsoft";
 import thirdPointSony from "./third-point-sony";
 import trianPg from "./trian-pg";
+import oraclePeoplesoft from "./oracle-peoplesoft";
+import porscheVolkswagen from "./porsche-volkswagen";
 
 /**
  * 딜 레지스트리 — 새 딜 추가 시 import 후 배열에 추가
@@ -72,16 +75,19 @@ export const ALL_DEALS: DealData[] = [
   mbkHomeplus,           // 2015-11-30
   elliottSamsung,        // 2015-09-01 (activism)
   ebayPaypalSpinoff,     // 2015-07-17
+  lvmhHermes,            // 2014-12-17 (control)
   metaWhatsapp,          // 2014-10-06
   thirdPointSony,        // 2014-08-07 (activism)
   valueactMicrosoft,     // 2014-02-04 (activism)
   abbottAbbvieSpinoff,   // 2013-01-01
   metaInstagram,         // 2012-09-06
+  porscheVolkswagen,     // 2012-08-01 (control)
   pershingSquareCpRail,  // 2012-05-17 (activism)
   jpmorganBearStearns,   // 2008-05-30 (금융위기)
   googleYoutube,         // 2006-10-31
   disneyPixar,           // 2006-05-05
   hpCompaq,              // 2002-05-03
+  oraclePeoplesoft,      // 2004-12-28 (control)
   daimlerChrysler,       // 1998-11-12
   kkrRjrNabisco,         // 1989-02-09
 ];
