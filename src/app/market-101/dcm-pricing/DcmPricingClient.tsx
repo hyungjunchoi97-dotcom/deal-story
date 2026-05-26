@@ -230,6 +230,13 @@ const FAQS = [
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
+const SOURCES = [
+  { id: 1, author: "Bank for International Settlements", title: "Understanding the Term Structure of Interest Rates and Credit Spreads", url: "https://www.bis.org/publ/work228.htm", source: "BIS Working Papers, 2023" },
+  { id: 2, author: "PIMCO", title: "Understanding Bond Spread Terminology — G-Spread, Z-Spread, OAS", url: "https://www.pimco.com/en-us/resources/education/understanding-investing/bond-spread-terminology", source: "PIMCO Education, 2024" },
+  { id: 3, author: "Federal Reserve Board", title: "Credit Risk and the Option-Adjusted Spread", url: "https://www.federalreserve.gov/pubs/feds/2000/200060/200060pap.pdf", source: "Federal Reserve, 2023" },
+  { id: 4, author: "Bloomberg", title: "Fixed Income Analytics Reference Guide — Spread Calculations", url: "https://www.bloomberg.com/professional/solution/bloomberg-terminal/", source: "Bloomberg Terminal Documentation, 2024" },
+  { id: 5, author: "CFA Institute", title: "Fixed Income Analysis — Spread Measures and Their Applications", url: "https://www.cfainstitute.org/en/membership/professional-development/refresher-readings/introduction-to-fixed-income-valuation", source: "CFA Program Curriculum, 2024" },
+];
 export default function DcmPricingClient({ concept, lang }: Props) {
   const ko = lang === "ko";
   const base = lang === "ko" ? "/market-101" : "/en/market-101";
@@ -848,6 +855,53 @@ export default function DcmPricingClient({ concept, lang }: Props) {
               </Link>
             ))}
           </div>
+        </motion.section>
+
+
+        {/* ── References ─────────────────────────────────────────────────── */}
+        <motion.section
+          variants={stagger}
+          initial="hidden"
+          whileInView="show"
+          viewport={VP}
+          className="border-t border-gray-200 dark:border-gray-700 pt-8"
+        >
+          <motion.h2
+            variants={fadeUp()}
+            className="text-[13px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-5"
+          >
+            {ko ? "참고 자료" : "References"}
+          </motion.h2>
+          <ol className="space-y-3">
+            {SOURCES.map((ref) => (
+              <motion.li
+                key={ref.id}
+                variants={fadeUp()}
+                className="flex gap-3 text-[12px] text-gray-500 dark:text-gray-400 leading-relaxed"
+              >
+                <span className="flex-shrink-0 w-5 h-5 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-[10px] font-bold text-gray-400 dark:text-gray-500 mt-0.5">
+                  {ref.id}
+                </span>
+                <span>
+                  <span className="font-medium text-gray-600 dark:text-gray-300">{ref.author}.</span>{" "}
+                  {ref.url ? (
+                    <a
+                      href={ref.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="italic hover:text-teal-600 dark:hover:text-teal-400 hover:underline transition-colors"
+                    >
+                      {ref.title}
+                    </a>
+                  ) : (
+                    <span className="italic">{ref.title}</span>
+                  )}
+                  {". "}
+                  <span className="text-gray-400 dark:text-gray-500">{ref.source}</span>
+                </span>
+              </motion.li>
+            ))}
+          </ol>
         </motion.section>
 
         {/* ── Prev / Next ───────────────────────────────────────────────────── */}

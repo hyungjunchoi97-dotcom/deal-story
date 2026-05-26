@@ -39,6 +39,8 @@ import valueactMicrosoft from "./valueact-microsoft";
 import thirdPointSony from "./third-point-sony";
 import trianPg from "./trian-pg";
 import koreaZincMbk from "./korea-zinc-mbk";
+import bhpRioTinto from "./bhp-rio-tinto";
+import kraftUnilever from "./kraft-unilever";
 import lvmhHermes from "./lvmh-hermes";
 import oraclePeoplesoft from "./oracle-peoplesoft";
 import porscheVolkswagen from "./porsche-volkswagen";
@@ -50,6 +52,8 @@ import aolTimeWarner from "./aol-time-warner";
  */
 export const ALL_DEALS_EN: DealData[] = [
   koreaZincMbk,          // 2025-03-28 (control contest)
+  bhpRioTinto,           // 2008-11-25 (control, withdrawn)
+  kraftUnilever,         // 2017-02-19 (control, withdrawn 48h)
   geBreakup,             // 2024-04-02
   illuminaGrail,         // 2024 forced divestiture
   adobeFigmaBlocked,     // 2023-12-18 (terminated)

@@ -34,6 +34,8 @@ import danaherAcquisitions from "./danaher-acquisitions";
 import elliottSamsung from "./elliott-samsung";
 import hanjinKcgi from "./hanjin-kcgi";
 import koreaZincMbk from "./korea-zinc-mbk";
+import bhpRioTinto from "./bhp-rio-tinto";
+import kraftUnilever from "./kraft-unilever";
 import lvmhHermes from "./lvmh-hermes";
 import jpmorganBearStearns from "./jpmorgan-bear-stearns";
 import pershingSquareCpRail from "./pershing-square-cp-rail";
@@ -44,6 +46,8 @@ import oraclePeoplesoft from "./oracle-peoplesoft";
 import porscheVolkswagen from "./porsche-volkswagen";
 import disneyFox from "./disney-fox";
 import aolTimeWarner from "./aol-time-warner";
+import attWarnemediaDivestiture from "./att-warnemedia-divestiture";
+import siemensBreakup from "./siemens-breakup";
 
 /**
  * 딜 레지스트리 — 새 딜 추가 시 import 후 배열에 추가
@@ -51,6 +55,8 @@ import aolTimeWarner from "./aol-time-warner";
  */
 export const ALL_DEALS: DealData[] = [
   koreaZincMbk,          // 2025-03-28 (control)
+  bhpRioTinto,           // 2008-11-25 (control, withdrawn)
+  kraftUnilever,         // 2017-02-19 (control, withdrawn 48h)
   geBreakup,             // 2024-04-02
   illuminaGrail,         // 2024 forced divestiture
   adobeFigmaBlocked,     // 2023-12-18 (terminated)
@@ -59,6 +65,7 @@ export const ALL_DEALS: DealData[] = [
   blackstoneKenedix,     // 2023-10-12
   zendeskPeBuyout,       // 2022-11-22
   elonMuskTwitter,       // 2022-10-27
+  attWarnemediaDivestiture, // 2022-04-08 (restructuring)
   warnerDiscoveryMerger, // 2022-04-08
   microsoftNuance,       // 2022-03-04
   nvidiaArm,             // terminated 2022-02-08
@@ -71,6 +78,7 @@ export const ALL_DEALS: DealData[] = [
   sapQualtrics,          // 2019-01-23
   microsoftGithub,       // 2018-06-04
   salesforceMulesoft,    // 2018-05-01
+  siemensBreakup,        // 2020-09-28 (restructuring)
   qualcommNxp,           // terminated 2018-07-26
   trianPg,               // 2017-12-15 (activism)
   amazonWholeFoods,      // 2017-08-28

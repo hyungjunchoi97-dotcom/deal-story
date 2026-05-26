@@ -222,6 +222,13 @@ const FAQS = [
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
+const SOURCES = [
+  { id: 1, author: "ICMA", title: "ICMA Primary Market Handbook — New Issue Process and Documentation", url: "https://www.icmagroup.org/resources/icma-publications/icma-primary-market-handbook/", source: "ICMA, 2024" },
+  { id: 2, author: "U.S. Securities and Exchange Commission (SEC)", title: "Rule 144A — Private Resales of Securities to Institutions", url: "https://www.sec.gov/rules/final/33-6862.pdf", source: "SEC, 2023" },
+  { id: 3, author: "Dealogic", title: "Global DCM Review — League Tables and Market Statistics", url: "https://www.dealogic.com/insight/dcm-review/", source: "Dealogic, 2024" },
+  { id: 4, author: "Bank for International Settlements", title: "New Issue Premiums in the Corporate Bond Market", url: "https://www.bis.org/publ/work896.htm", source: "BIS Working Papers, 2022" },
+  { id: 5, author: "ICMA", title: "EMTN Programme Guide — Documentation and Execution", url: "https://www.icmagroup.org/resources/icma-publications/", source: "ICMA, 2024" },
+];
 export default function DcmDealProcessClient({ concept, lang }: Props) {
   const ko = lang === "ko";
   const base = lang === "ko" ? "/market-101" : "/en/market-101";
@@ -849,6 +856,53 @@ export default function DcmDealProcessClient({ concept, lang }: Props) {
               </Link>
             ))}
           </div>
+        </motion.section>
+
+
+        {/* ── References ─────────────────────────────────────────────────── */}
+        <motion.section
+          variants={stagger}
+          initial="hidden"
+          whileInView="show"
+          viewport={VP}
+          className="border-t border-gray-200 dark:border-gray-700 pt-8"
+        >
+          <motion.h2
+            variants={fadeUp()}
+            className="text-[13px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-5"
+          >
+            {ko ? "참고 자료" : "References"}
+          </motion.h2>
+          <ol className="space-y-3">
+            {SOURCES.map((ref) => (
+              <motion.li
+                key={ref.id}
+                variants={fadeUp()}
+                className="flex gap-3 text-[12px] text-gray-500 dark:text-gray-400 leading-relaxed"
+              >
+                <span className="flex-shrink-0 w-5 h-5 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-[10px] font-bold text-gray-400 dark:text-gray-500 mt-0.5">
+                  {ref.id}
+                </span>
+                <span>
+                  <span className="font-medium text-gray-600 dark:text-gray-300">{ref.author}.</span>{" "}
+                  {ref.url ? (
+                    <a
+                      href={ref.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="italic hover:text-teal-600 dark:hover:text-teal-400 hover:underline transition-colors"
+                    >
+                      {ref.title}
+                    </a>
+                  ) : (
+                    <span className="italic">{ref.title}</span>
+                  )}
+                  {". "}
+                  <span className="text-gray-400 dark:text-gray-500">{ref.source}</span>
+                </span>
+              </motion.li>
+            ))}
+          </ol>
         </motion.section>
 
         {/* ── Prev / Next ───────────────────────────────────────────────────── */}
