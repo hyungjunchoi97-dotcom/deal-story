@@ -782,7 +782,7 @@ export default function EcmIpoIssuersClient({ concept, lang }: Props) {
               <motion.div
                 key={i}
                 variants={fadeUp(i * 0.07)}
-                className={`rounded-xl border-l-4 ${phase.border} border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-5`}
+                className={`rounded-xl border-l-4 ${phase.color} border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-5`}
               >
                 <div className="flex items-center gap-2 mb-3">
                   <span className={`w-2.5 h-2.5 rounded-full flex-shrink-0 ${phase.dot}`} />
