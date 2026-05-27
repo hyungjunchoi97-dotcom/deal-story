@@ -105,15 +105,19 @@ export type NoteCalloutDef = {
 export type PBRPoint          = { year: string; KOSPI: number; SP500: number; TOPIX: number };
 export type TaxRateBar        = { country: string; countryEn: string; rate: number; color: string };
 export type IndexPoint        = { year: string; KOSPI: number; Nikkei: number };
-export type ReserveSharePoint = { year: string; share: number };
-export type PrivilegeGapPoint = { category: string; categoryEn: string; dollarRole: number; usShare: number };
+export type ReserveSharePoint    = { year: string; share: number };
+export type PrivilegeGapPoint    = { category: string; categoryEn: string; dollarRole: number; usShare: number };
+export type FedBalanceSheetPoint = { year: string; assets: number };
+export type RepoCrisisPoint      = { date: string; repoRate: number; fedRate: number };
 
 export type NoteChartDef =
-  | { id: "pbr-comparison";   title: string; titleEn?: string; caption?: string; captionEn?: string; data: PBRPoint[] }
-  | { id: "tax-rates";        title: string; titleEn?: string; caption?: string; captionEn?: string; data: TaxRateBar[] }
-  | { id: "index-comparison"; title: string; titleEn?: string; caption?: string; captionEn?: string; data: IndexPoint[]; annotations?: { year: string; label: string; labelEn?: string }[] }
-  | { id: "reserve-share";    title: string; titleEn?: string; caption?: string; captionEn?: string; data: ReserveSharePoint[] }
-  | { id: "privilege-gap";    title: string; titleEn?: string; caption?: string; captionEn?: string; data: PrivilegeGapPoint[] };
+  | { id: "pbr-comparison";    title: string; titleEn?: string; caption?: string; captionEn?: string; data: PBRPoint[] }
+  | { id: "tax-rates";         title: string; titleEn?: string; caption?: string; captionEn?: string; data: TaxRateBar[] }
+  | { id: "index-comparison";  title: string; titleEn?: string; caption?: string; captionEn?: string; data: IndexPoint[]; annotations?: { year: string; label: string; labelEn?: string }[] }
+  | { id: "reserve-share";     title: string; titleEn?: string; caption?: string; captionEn?: string; data: ReserveSharePoint[] }
+  | { id: "privilege-gap";     title: string; titleEn?: string; caption?: string; captionEn?: string; data: PrivilegeGapPoint[] }
+  | { id: "fed-balance-sheet"; title: string; titleEn?: string; caption?: string; captionEn?: string; data: FedBalanceSheetPoint[]; annotations?: { year: string; label: string; labelEn?: string }[] }
+  | { id: "repo-crisis";       title: string; titleEn?: string; caption?: string; captionEn?: string; data: RepoCrisisPoint[] };
 
 export type NoteBlock =
   | { type: "text";    body: string; bodyEn?: string }
@@ -1041,6 +1045,421 @@ const dollarHegemony1: NoteData = {
   ],
 };
 
+// ══════════════════════════════════════════════════════════════════════════════
+// NOTE #3 — 달러 패권 시리즈 2편: 배관을 이해하면 세계가 보인다
+// ══════════════════════════════════════════════════════════════════════════════
+
+const dollarHegemony2: NoteData = {
+  slug: "dollar-hegemony-2",
+  category: "macro",
+  status: "published",
+  title: "달러 패권 ② — 배관을 이해하면 세계가 보인다",
+  titleEn: "Dollar Hegemony ② — Understanding the Plumbing",
+  description:
+    "레포시장, 연준 대차대조표, 재무부 TGA — 달러 패권은 지정학이 아닌 유동성 배관으로 유지된다. 2019년 레포 위기와 캐빈 워시 시대가 이 배관을 어떻게 바꾸는지 해부한다.",
+  descriptionEn:
+    "Repo markets, the Fed balance sheet, Treasury TGA — dollar hegemony is sustained not by geopolitics but by liquidity plumbing. We dissect how the 2019 repo crisis and the Kevin Warsh era are rewiring this system.",
+  date: "2026-05-28",
+  readingMinutes: 20,
+  keyPoints: [
+    "레포시장은 달러 패권의 배관 — 전 세계 금융기관이 미국 국채를 담보로 단기 달러를 조달한다",
+    "연준 대차대조표는 $900B(2007)에서 $9조(2022)까지 팽창했다 — 이 수도꼭지가 글로벌 달러 유동성을 결정한다",
+    "2019년 9월: QT가 지나치자 레포금리가 하루 만에 2%→10%로 치솟았다 — 배관이 막힌 날",
+    "재무부 TGA 잔고의 증감은 연준과 무관하게 시중 유동성을 조용히 움직인다",
+    "캐빈 워시: 공격적 QT + 규칙 기반 정책 → 달러 긴축의 새 국면, 신흥국과 원화에 직격",
+  ],
+  keyPointsEn: [
+    "The repo market is dollar hegemony's plumbing — global financial institutions borrow short-term dollars using US Treasuries as collateral",
+    "The Fed balance sheet expanded from $900B (2007) to $9 trillion (2022) — this faucet determines global dollar liquidity",
+    "September 2019: QT pushed too far and repo rates spiked from 2% to 10% in a single day — the day the pipes clogged",
+    "The Treasury General Account (TGA) quietly moves market liquidity independently of the Fed",
+    "Kevin Warsh: aggressive QT + rules-based policy → a new phase of dollar tightening, hitting emerging markets and the Korean won directly",
+  ],
+  sections: [
+    // ── 1 ──────────────────────────────────────────────────────────────────────
+    {
+      heading: "배관의 본질 — 레포시장이 달러를 세계에 뿌린다",
+      headingEn: "The Plumbing — How the Repo Market Distributes Dollars",
+      blocks: [
+        {
+          type: "text",
+          body: "달러 패권을 유지하는 힘은 군사력이나 경제 규모가 아니다. **배관(plumbing)**이다.\n\n전 세계 금융기관들이 매일 수조 달러를 단기로 빌리고 빌려주는 시장 — 이것이 **레포시장(Repo Market)**이다. 'Repo'는 'Repurchase Agreement(환매조건부채권)'의 약자다. 작동 방식은 단순하다:\n\n① A는 B에게 미국 국채를 판다\n② 동시에, A는 다음날(또는 정해진 날) 같은 국채를 더 비싼 가격에 되사겠다고 약속한다\n③ 가격 차이 = **레포금리(repo rate)** = 이자\n\nB 입장에서는 담보를 받고 하루짜리 대출을 해주는 것이다. A 입장에서는 국채를 잠시 맡기고 달러 현금을 빌리는 것이다. 전 세계 레포시장 규모는 약 **$10조** 이상으로 추산된다.\n\n핵심은 **담보의 질**이다. 이 시장에서 가장 선호되는 담보는 미국 국채(US Treasury)다. 신용 위험이 사실상 없고, 유동성이 극히 높기 때문이다. 즉 **미국 국채를 보유해야 달러를 빌릴 수 있는 구조**다. 이것이 달러 패권이 \"배관\"으로 유지되는 방식이다.",
+          bodyEn:
+            "The force sustaining dollar hegemony is not military power or economic scale. It's **plumbing**.\n\nThe market where global financial institutions borrow and lend trillions of dollars overnight — this is the **repo market** (Repurchase Agreement market). The mechanics are simple:\n\n① A sells a US Treasury to B\n② Simultaneously, A promises to repurchase the same Treasury at a slightly higher price tomorrow (or on a set date)\n③ The price difference = the **repo rate** = interest\n\nFrom B's perspective, it's a one-day collateralized loan. From A's perspective, it's pledging Treasuries to borrow cash. The global repo market exceeds **$10 trillion** in estimated size.\n\nThe critical factor is **collateral quality**. The most preferred collateral in this market is the US Treasury — virtually zero credit risk, extremely high liquidity. In other words, **you need US Treasuries to borrow dollars**. This is how dollar hegemony is maintained through plumbing.",
+        },
+        {
+          type: "metrics",
+          items: [
+            {
+              label: "레포시장 규모",
+              labelEn: "Repo Market Size",
+              value: "약 $10조+ (일일 거래)",
+              sub: "미국 내 시장만 $4~5조. 글로벌 포함 시 $10조 상회",
+              subEn: "US domestic alone: $4–5T. Including global: exceeds $10T",
+              color: "text-sky-600 dark:text-sky-400",
+            },
+            {
+              label: "최선호 담보",
+              labelEn: "Preferred Collateral",
+              value: "미국 국채 (US Treasury)",
+              sub: "담보 품질 기준 최상위 — 신용위험 제로, 유동성 극대",
+              subEn: "Top-tier collateral — near-zero credit risk, maximum liquidity",
+              color: "text-sky-600 dark:text-sky-400",
+            },
+            {
+              label: "거래 만기",
+              labelEn: "Typical Tenor",
+              value: "주로 overnight (1일)",
+              sub: "하루짜리 거래지만 매일 반복 롤오버 — 사실상 단기 자금 조달 인프라",
+              subEn: "One-day trades rolled daily — effectively short-term funding infrastructure",
+              color: "text-sky-600 dark:text-sky-400",
+            },
+          ],
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "insight",
+            heading: "왜 국채가 담보인가 — 달러 패권의 순환 논리",
+            headingEn: "Why Treasuries Are Collateral — Dollar Hegemony's Circular Logic",
+            body: "달러가 기축통화이기 때문에 국채가 최고 담보가 된다. 국채가 최고 담보이기 때문에 전 세계가 국채를 보유하려 한다. 국채 수요가 구조적으로 높기 때문에 미국은 낮은 금리로 계속 차입할 수 있다. 그 차입이 다시 달러 공급을 유지한다. **이 순환이 깨지지 않는 한, 달러 패권은 자기 강화된다.**",
+            bodyEn:
+              "Because the dollar is the reserve currency, Treasuries become the premier collateral. Because Treasuries are premier collateral, everyone wants to hold them. Because demand is structurally high, the US borrows at low rates. That borrowing sustains dollar supply. **As long as this loop holds, dollar hegemony self-reinforces.**",
+          },
+        },
+      ],
+    },
+    // ── 2 ──────────────────────────────────────────────────────────────────────
+    {
+      heading: "연준 대차대조표 — 달러의 수도꼭지",
+      headingEn: "The Fed Balance Sheet — The Dollar Faucet",
+      blocks: [
+        {
+          type: "text",
+          body: "연준(Federal Reserve)은 달러를 찍어내는 기관이다. 그러나 연준이 달러를 공급하는 방식은 '찍어내기'보다 훨씬 복잡하다. 핵심은 **대차대조표(balance sheet)**다.\n\n**QE(양적완화) 작동 방식:**\n연준이 시중의 국채를 매입한다 → 매입 대금으로 은행에 **지급준비금(bank reserves)**을 지급한다 → 시중에 달러가 공급된다.\n\n**QT(양적긴축) 작동 방식:**\n연준이 보유 국채를 만기 시 재투자하지 않거나 매각한다 → 국채가 시장으로 돌아온다 → 은행 지급준비금이 줄어든다 → 시중 달러 유동성이 감소한다.\n\n2008년 금융위기 전, 연준 대차대조표는 약 **$9,000억**이었다. 2022년 정점에서는 **$9조**에 달했다. 단 14년 만에 10배 팽창했다.",
+          bodyEn:
+            "The Federal Reserve is the institution that creates dollars. But the way it supplies dollars is far more complex than simply 'printing.' The key is the **balance sheet**.\n\n**How QE (Quantitative Easing) works:**\nThe Fed buys Treasuries from the market → pays for them with **bank reserves** → dollars enter the economy.\n\n**How QT (Quantitative Tightening) works:**\nThe Fed lets Treasuries mature without reinvesting, or actively sells → Treasuries return to the market → bank reserves shrink → dollar liquidity in the economy contracts.\n\nBefore the 2008 financial crisis, the Fed's balance sheet was approximately **$900 billion**. At its 2022 peak, it reached **$9 trillion** — a 10× expansion in just 14 years.",
+        },
+        {
+          type: "chart",
+          chart: {
+            id: "fed-balance-sheet",
+            title: "연준 총자산 추이 (2007–2024, 조 달러)",
+            titleEn: "Federal Reserve Total Assets (2007–2024, USD Trillions)",
+            caption:
+              "출처: Federal Reserve H.4.1 Statistical Release. 2022년 $9조 정점 이후 QT로 $7.2조로 축소 중. 2019년 레포 위기 당시 일시 반등 확인.",
+            captionEn:
+              "Source: Federal Reserve H.4.1 Statistical Release. After the $9T peak in 2022, QT has reduced assets to ~$7.2T. Note the temporary reversal around the 2019 repo crisis.",
+            data: [
+              { year: "2007", assets: 0.9 },
+              { year: "2008", assets: 2.2 },
+              { year: "2009", assets: 2.1 },
+              { year: "2010", assets: 2.3 },
+              { year: "2011", assets: 2.9 },
+              { year: "2012", assets: 2.9 },
+              { year: "2013", assets: 3.9 },
+              { year: "2014", assets: 4.5 },
+              { year: "2015", assets: 4.5 },
+              { year: "2016", assets: 4.5 },
+              { year: "2017", assets: 4.5 },
+              { year: "2018", assets: 4.2 },
+              { year: "2019", assets: 4.2 },
+              { year: "2020", assets: 7.1 },
+              { year: "2021", assets: 8.8 },
+              { year: "2022", assets: 8.9 },
+              { year: "2023", assets: 7.8 },
+              { year: "2024", assets: 7.2 },
+            ],
+            annotations: [
+              { year: "2008", label: "GFC", labelEn: "GFC" },
+              { year: "2020", label: "COVID", labelEn: "COVID" },
+              { year: "2022", label: "QT 시작", labelEn: "QT begins" },
+            ],
+          },
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "warning",
+            heading: "QE의 역설 — 국채를 사면 담보가 줄어든다",
+            headingEn: "QE's Paradox — Buying Treasuries Reduces Collateral",
+            body: "연준이 QE로 국채를 사면 시중에 달러(지급준비금)는 늘어난다. 그런데 동시에 레포시장의 담보(국채)는 줄어든다. 유동성은 증가하지만 배관의 연료가 감소하는 아이러니. QT가 오히려 레포시장 담보를 늘린다는 역설이 여기서 나온다 — 단, 너무 빠르면 준비금 부족으로 위기가 생긴다.",
+            bodyEn:
+              "When the Fed buys Treasuries via QE, dollar reserves in the system increase. But simultaneously, repo market collateral (Treasuries) decreases. Liquidity rises but the fuel that runs the plumbing shrinks. This is where the paradox emerges: QT actually increases repo collateral — but if it goes too fast, reserve shortages trigger a crisis.",
+          },
+        },
+      ],
+    },
+    // ── 3 ──────────────────────────────────────────────────────────────────────
+    {
+      heading: "재무부 TGA — 아무도 말하지 않는 유동성 변수",
+      headingEn: "The Treasury TGA — The Liquidity Variable Nobody Talks About",
+      blocks: [
+        {
+          type: "text",
+          body: "달러 유동성을 움직이는 변수는 연준만이 아니다. **재무부 TGA(Treasury General Account)**가 조용히 시장을 흔든다.\n\nTGA는 미국 재무부가 연준에 보유하는 당좌계좌다. 정부가 세금을 걷거나 국채를 발행하면 TGA로 들어오고, 정부가 지출하면 TGA에서 나간다. 단순해 보이지만, 이 계좌의 잔고 변화가 시중 유동성에 직접 영향을 미친다:\n\n- **TGA 잔고 감소** → 정부 지출 증가 → 시중에 달러 공급 → **유동성 증가** (완화 효과)\n- **TGA 잔고 증가** → 국채 발행 or 지출 축소 → 시중에서 달러 흡수 → **유동성 감소** (긴축 효과)",
+          bodyEn:
+            "The Fed isn't the only variable moving dollar liquidity. The **Treasury General Account (TGA)** quietly moves markets.\n\nThe TGA is the checking account the US Treasury holds at the Fed. Tax receipts and bond issuance flow in; government spending flows out. Simple in principle — but changes in this balance directly impact market liquidity:\n\n- **TGA balance falls** → government spending increases → dollars enter the economy → **liquidity rises** (easing effect)\n- **TGA balance rises** → bond issuance or spending cuts → dollars absorbed from economy → **liquidity falls** (tightening effect)",
+        },
+        {
+          type: "table",
+          table: {
+            id: "tga-scenarios",
+            title: "부채한도 협상과 TGA가 만드는 유동성 사이클",
+            titleEn: "Debt Ceiling Negotiations and the TGA Liquidity Cycle",
+            headers: ["단계", "상황", "TGA 변화", "시장 유동성", "금융시장 효과"],
+            headersEn: ["Phase", "Situation", "TGA Change", "Market Liquidity", "Market Effect"],
+            rows: [
+              ["①", "부채한도 도달 — 국채 발행 중단", "TGA 잔고 감소", "공급 증가", "완화적 (주가↑)"],
+              ["②", "부채한도 협상 타결", "TGA 재충전 시작", "공급 감소", "긴축적 (주가↓ 가능)"],
+              ["③", "국채 대규모 발행 (빚 갚기)", "TGA 급증", "대규모 흡수", "강한 긴축 충격"],
+              ["④", "정상화 — 정기 지출 재개", "TGA 점진 감소", "정상화", "중립"],
+            ],
+            caption:
+              "2023년 6월 부채한도 타결 직후, 재무부가 3개월 내 약 $1조의 국채를 발행해 TGA를 재충전하자 시중 유동성이 급격히 줄어들었다. 이것이 같은 해 하반기 금리 급등의 숨겨진 원인 중 하나다.",
+            captionEn:
+              "After the June 2023 debt ceiling resolution, the Treasury issued approximately $1 trillion in bonds within three months to refill the TGA, sharply draining market liquidity — one of the hidden drivers behind the rate surge in H2 2023.",
+          },
+        },
+      ],
+    },
+    // ── 4 ──────────────────────────────────────────────────────────────────────
+    {
+      heading: "2019년 레포 위기 — 배관이 막힌 날",
+      headingEn: "The 2019 Repo Crisis — The Day the Pipes Clogged",
+      blocks: [
+        {
+          type: "text",
+          body: "2019년 9월 17일 화요일 오전. 미국 레포시장이 멈췄다.\n\n전날까지 연 2% 내외였던 레포금리가 오전 중 **10%**까지 치솟았다. 하룻밤 사이에 5배. 연준 기준금리 상단(2.25%)의 4배가 넘는 수준이었다. 세계 최대 단기 자금시장이 마비될 뻔한 순간이었다.",
+          bodyEn:
+            "Tuesday morning, September 17, 2019. The US repo market froze.\n\nOvernight repo rates that had been hovering around 2% surged to **10%** during the morning session — five times higher than the prior day, more than four times the Fed's upper policy rate (2.25%). The world's largest short-term funding market nearly seized up.",
+        },
+        {
+          type: "chart",
+          chart: {
+            id: "repo-crisis",
+            title: "2019년 레포금리 위기 — 하루 만에 10%로 폭등",
+            titleEn: "2019 Repo Crisis — Rates Surged to 10% in a Single Day",
+            caption:
+              "출처: Federal Reserve Bank of New York, SOFR 전환 이전 GCF Repo rate 기준. 2019년 9월 17~18일 레포금리가 연 10%까지 치솟았고, 연준이 즉각 overnight repo 운영에 나서 정상화했다.",
+            captionEn:
+              "Source: Federal Reserve Bank of New York, GCF Repo rate (pre-SOFR). On September 17–18, 2019, repo rates spiked to ~10% annualized before the Fed intervened with overnight repo operations.",
+            data: [
+              { date: "7월", repoRate: 2.12, fedRate: 2.40 },
+              { date: "8월", repoRate: 2.10, fedRate: 2.25 },
+              { date: "9/10", repoRate: 2.09, fedRate: 2.25 },
+              { date: "9/16", repoRate: 2.20, fedRate: 2.25 },
+              { date: "9/17", repoRate: 5.25, fedRate: 2.25 },
+              { date: "9/18", repoRate: 10.0, fedRate: 2.25 },
+              { date: "9/19", repoRate: 2.55, fedRate: 2.00 },
+              { date: "10월", repoRate: 1.85, fedRate: 1.75 },
+              { date: "11월", repoRate: 1.56, fedRate: 1.75 },
+              { date: "12월", repoRate: 1.54, fedRate: 1.75 },
+            ],
+          },
+        },
+        {
+          type: "text",
+          body: "**원인은 두 가지가 동시에 겹쳤다:**\n\n① **법인세 납부 마감일** — 대형 기업들이 세금을 내기 위해 은행에서 대규모로 현금을 인출. 은행 지급준비금 급감\n② **국채 신규 발행 결제일** — 대규모 국채 경매 결제로 시중 현금이 국채 대금으로 빠져나감\n\n두 이벤트가 겹치자 은행들의 지급준비금이 임계점 이하로 떨어졌다. 달러를 빌려줄 여유가 없어진 은행들이 레포시장에서 발을 빼자 금리가 폭등했다.\n\n연준은 다음날 즉각 $750억 규모 overnight repo 오퍼레이션을 실시했다. 이후 수개월간 레포시장에 계속 개입했고, 2019년 10월부터는 T-bill(단기 국채)을 매월 $600억씩 매입하기 시작했다. 파월 의장은 이것을 **\"QE가 아니다(NOT QE)\"**라고 불렀지만, 사실상 미니 QE였다.\n\n이 사건이 가르쳐준 교훈: **QT에는 하드 플로어가 있다.** 지급준비금이 일정 수준 이하로 떨어지면 배관이 막힌다. 연준은 이를 막기 위해 2021년 Standing Repo Facility(SRF)를 신설했다.",
+          bodyEn:
+            "**Two events collided simultaneously:**\n\n① **Corporate tax payment deadline** — Large corporations drained cash from banks to pay taxes, rapidly depleting bank reserves\n② **Treasury auction settlement** — Large-scale Treasury issuance settlement absorbed cash from the system\n\nWhen the two hit together, bank reserves fell below the critical threshold. Banks unwilling to lend in repo pulled back — and rates exploded.\n\nThe Fed immediately launched a $75 billion overnight repo operation the next day, continuing interventions for months. In October 2019, it began purchasing $60 billion in T-bills monthly. Chair Powell called this **\"NOT QE\"** — but it was effectively a mini-QE.\n\nThe lesson: **QT has a hard floor.** When reserves fall below a certain level, the plumbing clogs. To prevent recurrence, the Fed established the Standing Repo Facility (SRF) in 2021.",
+        },
+      ],
+    },
+    // ── 5 ──────────────────────────────────────────────────────────────────────
+    {
+      heading: "달러 공급의 역설 — 빚이 많을수록 배관이 원활하다",
+      headingEn: "The Dollar Supply Paradox — More Debt Means Better Plumbing",
+      blocks: [
+        {
+          type: "text",
+          body: "이제 1편의 핵심 질문으로 돌아온다. 미국 국채가 $36조를 넘어도 왜 세계는 계속 사는가?\n\n**배관의 논리로 보면 역설이 사라진다.**\n\n미국이 국채를 더 발행하면 → 레포시장에 담보가 늘어난다 → 글로벌 단기 달러 조달이 원활해진다 → 달러 수요가 늘어난다 → 달러 패권이 강화된다. 부채 증가가 달러 패권을 약화시키는 것이 아니라, **오히려 강화하는 메커니즘**이다.\n\n이것이 '트리핀 딜레마'를 배관 언어로 번역한 결과다. 미국은 기축통화국으로서 세계에 달러(=유동성)를 공급하기 위해 구조적으로 경상수지 적자와 재정적자를 낼 수밖에 없다. 달러를 공급하는 행위 자체가 미국의 부채 누적을 의미한다. 그리고 그 부채(국채)가 레포시장의 연료가 되어 다시 달러 수요를 창출한다.",
+          bodyEn:
+            "Now we return to the core question from Part 1: why does the world keep buying US Treasuries even as the total exceeds $36 trillion?\n\n**Through the plumbing lens, the paradox dissolves.**\n\nMore US debt issuance → more collateral in the repo market → smoother global short-term dollar funding → more dollar demand → stronger dollar hegemony. Growing debt doesn't weaken dollar hegemony — the mechanism **actually reinforces it**.\n\nThis is what the Triffin Dilemma looks like translated into plumbing language. As the reserve currency issuer, the US is structurally required to run current account and fiscal deficits to supply the world with dollars (= liquidity). The very act of supplying dollars means accumulating debt. And that debt (Treasuries) becomes the fuel for the repo market, regenerating dollar demand.",
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "quote",
+            body: "달러 패권의 역설: 미국의 부채가 세계 금융 시스템의 연료다. 부채가 사라지면 배관도 멈춘다.",
+            bodyEn:
+              "The dollar paradox: US debt is the fuel of the global financial system. If the debt disappeared, so would the plumbing.",
+          },
+        },
+      ],
+    },
+    // ── 6 ──────────────────────────────────────────────────────────────────────
+    {
+      heading: "캐빈 워시 — 배관공이 바뀐다",
+      headingEn: "Kevin Warsh — A New Plumber Takes Over",
+      blocks: [
+        {
+          type: "text",
+          body: "2026년 연준의장 자리에 **캐빈 워시(Kevin Warsh)**가 지명됐다. 전 연준 이사(2006~2011), JP모건 투자은행 출신. 트럼프 대통령의 낙점이었다.\n\n워시가 중요한 이유는 그의 통화정책 철학이 파월과 근본적으로 다르기 때문이다.",
+          bodyEn:
+            "In 2026, **Kevin Warsh** was nominated as Fed Chair — a former Fed Governor (2006–2011) and JP Morgan investment banker. Trump's choice.\n\nWarsh matters because his monetary policy philosophy differs fundamentally from Powell's.",
+        },
+        {
+          type: "metrics",
+          items: [
+            {
+              label: "규칙 기반 통화정책",
+              labelEn: "Rules-Based Monetary Policy",
+              value: "재량적 결정 최소화",
+              sub: "테일러 준칙(Taylor Rule)류의 공식적 가이드라인 선호. 연준의 '임기응변식' 정책 비판",
+              subEn: "Prefers formal guidelines like the Taylor Rule. Critical of the Fed's 'discretionary' policy approach",
+              color: "text-amber-600 dark:text-amber-400",
+            },
+            {
+              label: "공격적 QT",
+              labelEn: "Aggressive QT",
+              value: "대차대조표 축소 가속화",
+              sub: "\"연준 대차대조표가 너무 크다\" 비판. 파월보다 빠른 속도의 국채 매각 선호",
+              subEn: "\"The Fed balance sheet is too large.\" Favors faster Treasury runoff than Powell",
+              color: "text-amber-600 dark:text-amber-400",
+            },
+            {
+              label: "트럼프와의 긴장",
+              labelEn: "Tension with Trump",
+              value: "금리 인하 압박 vs 인플레 억제",
+              sub: "트럼프는 금리 인하를 원하지만, 워시는 인플레 재발 우려로 신중한 입장 — Fed 독립성 갈등 가능",
+              subEn: "Trump wants rate cuts; Warsh is cautious about inflation re-acceleration — potential Fed independence friction",
+              color: "text-amber-600 dark:text-amber-400",
+            },
+          ],
+        },
+        {
+          type: "text",
+          body: "워시 체제가 달러 유동성에 미치는 직접 영향:\n\n**QT 가속** → 시중 국채 공급 증가(레포 담보↑) + 은행 지급준비금 감소 → 단기 금리 상승 압력 → 글로벌 달러 유동성 긴축\n\n**장기 금리** → 국채 공급 증가 + 인플레 우려로 장기 금리(10년물) 상승 가능 → 달러 강세 압력\n\n한 가지 아이러니가 있다. 공격적 QT가 은행 지급준비금을 너무 빨리 줄이면 — **또 다른 2019년 레포 위기가 올 수 있다.** 워시는 이 리스크를 알고 있고, SRF(상설 레포 창구)가 백스톱이 되겠지만, 그 임계점이 어디인지는 실시간으로 테스트될 것이다.",
+          bodyEn:
+            "Warsh's direct impact on dollar liquidity:\n\n**Faster QT** → More Treasuries in market (more repo collateral) + shrinking bank reserves → upward pressure on short rates → global dollar liquidity tightening\n\n**Long-term rates** → Rising Treasury supply + inflation fears → higher 10-year yields possible → dollar strengthening pressure\n\nOne irony: if aggressive QT drains bank reserves too quickly — **another 2019 repo crisis could emerge.** Warsh knows this risk, and the SRF (Standing Repo Facility) provides a backstop — but where exactly the critical threshold lies will be tested in real time.",
+        },
+      ],
+    },
+    // ── 7 ──────────────────────────────────────────────────────────────────────
+    {
+      heading: "원화 포지션 — 유동성 긴축의 최전선",
+      headingEn: "The Won's Position — On the Front Line of Liquidity Tightening",
+      blocks: [
+        {
+          type: "text",
+          body: "달러 유동성이 긴축될 때 가장 먼저 타격을 받는 것은 신흥국 통화다. 원화는 그 최전선에 있다.\n\n메커니즘은 단순하다: 연준 QT → 달러 유동성 감소 → 달러 수요 증가 → 달러 강세 → 원/달러 환율 상승(원화 약세) → 수입 물가 상승, 외채 부담 증가, 자본 유출 압력.\n\n**그러나 한국의 포지션은 단순하지 않다.** 한국은 FX 스왑라인을 보유하고 있고, 외환보유고도 $4,200억으로 충분하다. 한국은행은 외환시장에 개입할 실탄을 갖추고 있다.\n\n실제 위협은 **속도**다. 워시 체제에서 QT가 시장이 소화할 수 있는 속도보다 빠르게 진행된다면, 단기 달러 조달 비용(크로스커런시 베이시스 스왑 스프레드)이 급등할 수 있다. 한국 기업과 금융기관들이 달러를 빌릴 때 치르는 프리미엄이 급격히 올라가는 상황이다.\n\n한국에서 달러 패권 배관을 가장 직접적으로 체감하는 순간은 금융위기나 QT 쇼크 때다. 그때마다 **원/달러 환율이 배관의 압력계** 역할을 한다.",
+          bodyEn:
+            "When dollar liquidity tightens, emerging market currencies are hit first. The Korean won is on that front line.\n\nThe mechanism is straightforward: Fed QT → less dollar liquidity → more dollar demand → stronger dollar → higher USD/KRW (weaker won) → rising import prices, heavier foreign debt burden, capital outflow pressure.\n\n**But Korea's position is not simple.** Korea holds a Fed swap line and maintains ~$420 billion in foreign exchange reserves — sufficient firepower for the Bank of Korea to intervene in FX markets.\n\nThe real threat is **speed**. If QT under Warsh proceeds faster than markets can absorb, short-term dollar funding costs (cross-currency basis swap spreads) could spike. That means Korean corporations and financial institutions face a sudden premium surge when borrowing dollars.\n\nThe moments when Koreans feel dollar hegemony's plumbing most directly are financial crises and QT shocks. In those moments, **the USD/KRW exchange rate acts as the pressure gauge for the plumbing.**",
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "insight",
+            heading: "다음 편 예고 — 탈달러화는 가능한가",
+            headingEn: "Next: Can Dedollarization Actually Happen?",
+            body: "배관이 이렇게 촘촘하게 짜여 있는데, 탈달러화는 실제로 진행되고 있는가? BRICS, 위안화, mBridge — 선언은 넘치지만 인프라의 현실은 냉혹하다. 3편에서 탈달러화의 실체를 해부한다.",
+            bodyEn:
+              "With plumbing this tightly woven, is dedollarization actually happening? BRICS, yuan, mBridge — declarations overflow but the infrastructure reality is sobering. Part 3 dissects the real state of dedollarization.",
+          },
+        },
+      ],
+    },
+  ],
+  references: [
+    {
+      id: 1,
+      author: "Federal Reserve",
+      title: "H.4.1 Factors Affecting Reserve Balances of Depository Institutions",
+      source: "Federal Reserve Statistical Release",
+      year: "2024",
+      url: "https://www.federalreserve.gov/releases/h41/",
+    },
+    {
+      id: 2,
+      author: "Federal Reserve Bank of New York",
+      title: "Repo and Reverse Repo Operations",
+      source: "FRBNY Open Market Operations",
+      year: "2024",
+      url: "https://www.newyorkfed.org/markets/repo-and-reverse-repo-agreements",
+    },
+    {
+      id: 3,
+      author: "Pozsar, Z.",
+      title: "Global Money Notes — Repo Market Series",
+      source: "Credit Suisse / Formerly at Credit Suisse",
+      year: "2019",
+      note: "레포시장 구조 분석의 권위적 자료",
+    },
+    {
+      id: 4,
+      author: "Bagehot, W.",
+      title: "Lombard Street: A Description of the Money Market",
+      source: "Henry S. King & Co.",
+      year: "1873",
+      note: "중앙은행 최후 대부자 원칙의 원전 — 레포 위기 이해의 이론적 기초",
+    },
+    {
+      id: 5,
+      author: "Copeland, A., Martin, A., & Walker, M.",
+      title: "Repo Runs: Evidence from the Tri-Party Repo Market",
+      source: "Journal of Finance, 69(6)",
+      year: "2014",
+      url: "https://doi.org/10.1111/jofi.12205",
+    },
+    {
+      id: 6,
+      author: "Federal Reserve Bank of New York",
+      title: "Statement Regarding Repurchase Operations (September 2019)",
+      source: "FRBNY Markets Group",
+      year: "2019",
+      url: "https://www.newyorkfed.org/markets/opolicy/operating_policy_190917",
+    },
+    {
+      id: 7,
+      author: "Afonso, G., Cipriani, M., Copeland, A., et al.",
+      title: "The Market Events of Mid-September 2019",
+      source: "Federal Reserve Bank of New York Staff Report No. 918",
+      year: "2020",
+      url: "https://www.newyorkfed.org/research/staff_reports/sr918",
+    },
+    {
+      id: 8,
+      author: "Duffie, D. & Krishnamurthy, A.",
+      title: "Passthrough Efficiency in the Fed's New Monetary Policy Setting",
+      source: "Federal Reserve Bank of Kansas City Jackson Hole Proceedings",
+      year: "2016",
+    },
+    {
+      id: 9,
+      author: "Bernanke, B.",
+      title: "The New Tools of Monetary Policy",
+      source: "American Economic Review, 110(4)",
+      year: "2020",
+      url: "https://doi.org/10.1257/aer.110.4.943",
+    },
+    {
+      id: 10,
+      author: "Warsh, K.",
+      title: "Deregulation and Its Discontents: A Dissent from the Fed",
+      source: "Wall Street Journal Op-Ed",
+      year: "2011",
+      note: "워시의 통화정책 철학 이해를 위한 1차 자료",
+    },
+    {
+      id: 11,
+      author: "Krishnamurthy, A. & Vissing-Jorgensen, A.",
+      title: "The Aggregate Demand for Treasury Debt",
+      source: "Journal of Political Economy, 120(2)",
+      year: "2012",
+      url: "https://doi.org/10.1086/666526",
+    },
+    {
+      id: 12,
+      author: "한국은행 (Bank of Korea)",
+      title: "한국의 외환시장 개입 및 FX 스왑라인 운용",
+      source: "한국은행 조사통계월보",
+      year: "2024",
+      url: "https://www.bok.or.kr",
+    },
+  ],
+};
+
 // ── Export ─────────────────────────────────────────────────────────────────────
 
-export const ALL_NOTES: NoteData[] = [koreaDiscount, dollarHegemony1];
+export const ALL_NOTES: NoteData[] = [koreaDiscount, dollarHegemony1, dollarHegemony2];

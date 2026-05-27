@@ -25,6 +25,8 @@ import type {
   IndexPoint,
   ReserveSharePoint,
   PrivilegeGapPoint,
+  FedBalanceSheetPoint,
+  RepoCrisisPoint,
 } from "@/data/notes";
 import { NOTE_CATEGORY_META } from "@/data/notes";
 
@@ -287,6 +289,88 @@ function PrivilegeGapChart({ chart, lang }: { chart: NoteChartDef & { id: "privi
   );
 }
 
+// ── Fed Balance Sheet Chart ────────────────────────────────────────────────────
+function FedBalanceSheetChart({ chart, lang }: { chart: NoteChartDef & { id: "fed-balance-sheet" }; lang: Lang }) {
+  const data = chart.data as FedBalanceSheetPoint[];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  const annotations = chart.annotations ?? [];
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={260}>
+        <BarChart data={data} margin={{ top: 8, right: 16, bottom: 0, left: -8 }} barSize={16}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} vertical={false} />
+          <XAxis dataKey="year" tick={{ fontSize: 9 }} tickLine={false} axisLine={false} interval={1} />
+          <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `$${v}T`} domain={[0, 10]} />
+          <Tooltip
+            content={({ active, payload, label }) => {
+              if (!active || !payload?.length) return null;
+              const ann = annotations.find((a) => a.year === label);
+              const annLabel = ann ? (lang === "en" ? (ann.labelEn ?? ann.label) : ann.label) : null;
+              return (
+                <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl px-4 py-3 text-xs">
+                  <p className="font-semibold text-gray-600 dark:text-gray-300 mb-1">{label}</p>
+                  <p className="font-mono font-bold text-sky-600 dark:text-sky-400">${payload[0].value as number}T</p>
+                  {annLabel && <p className="text-amber-500 font-semibold mt-1">{annLabel}</p>}
+                </div>
+              );
+            }}
+          />
+          {annotations.map((ann) => (
+            <ReferenceLine key={ann.year} x={ann.year} stroke="#f59e0b" strokeDasharray="4 3" strokeWidth={1.5}
+              label={{ value: lang === "en" ? (ann.labelEn ?? ann.label) : ann.label, position: "top", fontSize: 8, fill: "#f59e0b" }} />
+          ))}
+          <Bar dataKey="assets" name={lang === "en" ? "Total Assets" : "총자산"} fill="#0ea5e9" radius={[3, 3, 0, 0]} />
+        </BarChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
+// ── Repo Crisis Chart ──────────────────────────────────────────────────────────
+function RepoCrisisChart({ chart, lang }: { chart: NoteChartDef & { id: "repo-crisis" }; lang: Lang }) {
+  const data = chart.data as RepoCrisisPoint[];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={260}>
+        <LineChart data={data} margin={{ top: 8, right: 16, bottom: 0, left: -8 }}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} />
+          <XAxis dataKey="date" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
+          <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `${v}%`} domain={[0, 12]} />
+          <Tooltip
+            content={({ active, payload, label }) => {
+              if (!active || !payload?.length) return null;
+              return (
+                <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl px-4 py-3 text-xs space-y-1.5">
+                  <p className="font-semibold text-gray-600 dark:text-gray-300">{label}</p>
+                  {payload.map((p) => (
+                    <div key={p.dataKey as string} className="flex items-center justify-between gap-4">
+                      <span className="flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full" style={{ background: p.color as string }} />
+                        <span className="text-gray-500 dark:text-gray-400">{p.name}</span>
+                      </span>
+                      <span className="font-mono font-bold text-gray-800 dark:text-gray-100">{p.value}%</span>
+                    </div>
+                  ))}
+                </div>
+              );
+            }}
+          />
+          <Legend wrapperStyle={{ fontSize: 11, paddingTop: 12 }} />
+          <ReferenceLine x="9/18" stroke="#ef4444" strokeDasharray="4 3" strokeWidth={1.5}
+            label={{ value: lang === "en" ? "Crisis Peak" : "위기 정점", position: "top", fontSize: 9, fill: "#ef4444" }} />
+          <Line type="monotone" dataKey="repoRate" name={lang === "en" ? "Repo Rate" : "레포금리"}
+            stroke="#ef4444" strokeWidth={2.5} dot={{ r: 3 }} />
+          <Line type="monotone" dataKey="fedRate" name={lang === "en" ? "Fed Funds Rate" : "연준 기준금리"}
+            stroke="#94a3b8" strokeWidth={1.5} dot={false} strokeDasharray="5 3" />
+        </LineChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
 // ── Generic chart dispatcher ───────────────────────────────────────────────────
 function NoteChart({ chart, lang }: { chart: NoteChartDef; lang: Lang }) {
   if (chart.id === "pbr-comparison") return <PBRChart chart={chart} lang={lang} />;
@@ -294,6 +378,8 @@ function NoteChart({ chart, lang }: { chart: NoteChartDef; lang: Lang }) {
   if (chart.id === "index-comparison") return <IndexComparisonChart chart={chart} lang={lang} />;
   if (chart.id === "reserve-share") return <ReserveShareChart chart={chart} lang={lang} />;
   if (chart.id === "privilege-gap") return <PrivilegeGapChart chart={chart} lang={lang} />;
+  if (chart.id === "fed-balance-sheet") return <FedBalanceSheetChart chart={chart} lang={lang} />;
+  if (chart.id === "repo-crisis") return <RepoCrisisChart chart={chart} lang={lang} />;
   return null;
 }
 
