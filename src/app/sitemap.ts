@@ -8,6 +8,7 @@ import { ALL_DEALS } from "@/data/deals";
 import { ALL_CONCEPTS } from "@/data/market-concepts";
 import { ALL_MARKET101_CONCEPTS } from "@/data/market-101-concepts";
 import { ALL_MARKET_DEALS } from "@/data/market-deals";
+import { ALL_NOTES } from "@/data/notes";
 import { SITE_URL } from "@/lib/site";
 
 const BASE = SITE_URL;
@@ -121,6 +122,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...ALL_DEALS.flatMap((deal) =>
       pair(`/deals/${deal.slug}`, `/en/deals/${deal.slug}`, {
         lastModified: deal.closedAt ?? deal.announcedAt,
+        changeFrequency: "monthly",
+        priority: 0.85,
+      })
+    ),
+
+    // ── Notes index ────────────────────────────────────────────
+    ...pair("/notes", "/en/notes", { changeFrequency: "weekly", priority: 0.9 }),
+
+    // ── Notes detail pages ─────────────────────────────────────
+    ...ALL_NOTES.filter((n) => n.status === "published").flatMap((note) =>
+      pair(`/notes/${note.slug}`, `/en/notes/${note.slug}`, {
+        lastModified: note.date,
         changeFrequency: "monthly",
         priority: 0.85,
       })
