@@ -931,6 +931,60 @@ export default function LevFinHyVsLoansClient({ concept, lang }: Props) {
           </ol>
         </motion.section>
 
+        {/* ── 딜 아카이브 연계 ── */}
+        <motion.section variants={fadeUp()} initial="hidden" whileInView="show" viewport={VP} className="mb-8">
+          <p className="text-[11px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3">
+            {ko ? "이 챕터로 이해하는 실제 딜 — HY채권·론 혼합 구조" : "Real Deals That Illustrate HY Bonds vs Loans Structure"}
+          </p>
+          <div className="grid sm:grid-cols-2 gap-3">
+            {[
+              {
+                href: `${base.replace("market-101", "deals")}/kkr-rjr-nabisco`,
+                initials: "KKR",
+                bg: "bg-gray-800",
+                title: ko ? "KKR × RJR Nabisco (1989) — HY채권·PIK·브리지론 혼합 구조" : "KKR × RJR Nabisco (1989) — HY Bonds, PIK & Bridge Loan Mix",
+                sub: ko
+                  ? "$31.1B, 드렉셀 주선 HY채권 $5B, PIK 복리, 7-레이어 자본구조 — LBO 파이낸싱의 원형"
+                  : "$31.1B, Drexel-led HY $5B, PIK compounding, 7-layer capital structure — the original LBO financing template",
+                span2: false,
+              },
+              {
+                href: `${base.replace("market-101", "deals")}/kkr-toys-r-us`,
+                initials: "KKR",
+                bg: "bg-blue-800",
+                title: ko ? "KKR × 토이저러스 (2005) — TLB 중심 LBO의 이자 부담" : "KKR × Toys R Us (2005) — TLB-Heavy LBO Interest Burden",
+                sub: ko
+                  ? "TLB $53억 + HY 후순위채 — 매년 $400M 이자가 EBITDA를 잠식, 디지털 투자 봉쇄"
+                  : "TLB $5.3B + HY sub-debt — $400M/yr interest consumes EBITDA, blocks digital investment",
+                span2: false,
+              },
+              {
+                href: `${base.replace("market-101", "deals")}/kkr-dollar-general`,
+                initials: "DG",
+                bg: "bg-emerald-700",
+                title: ko ? "KKR × Dollar General (2007) — TLB + HY 10.625% 혼합 성공 사례" : "KKR × Dollar General (2007) — TLB + HY 10.625% Blended Success",
+                sub: ko
+                  ? "TLB $38억 + HY 10.625% 채권 $7억 — 보수적 5.5× 레버리지·금융위기 역수혜·IRR 70%+"
+                  : "TLB $3.8B + HY 10.625% $0.7B — conservative 5.5× leverage, financial crisis tailwind, IRR 70%+",
+                span2: true,
+              },
+            ].map((d) => (
+              <Link key={d.href} href={d.href} className={d.span2 ? "sm:col-span-2" : ""}>
+                <div className="group flex gap-3 p-4 rounded-xl border border-amber-100 dark:border-amber-900/40 bg-amber-50/40 dark:bg-amber-900/10 hover:border-amber-300 dark:hover:border-amber-600 hover:shadow-sm transition-all">
+                  <div className={`flex-shrink-0 w-10 h-10 rounded-lg ${d.bg} flex items-center justify-center`}>
+                    <span className="text-white text-[8px] font-black">{d.initials}</span>
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-[13px] font-bold text-gray-800 dark:text-gray-200 group-hover:text-amber-700 dark:group-hover:text-amber-300 transition-colors">{d.title}</p>
+                    <p className="text-[11px] text-gray-500 dark:text-gray-400 leading-snug mt-0.5">{d.sub}</p>
+                  </div>
+                  <span className="flex-shrink-0 text-gray-300 dark:text-gray-600 group-hover:text-amber-400 transition-colors self-center text-lg">→</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </motion.section>
+
         <ShareButtons
           title={ko
             ? "HY 채권 vs 레버리지드 론 — 같은 발행사, 두 개의 시장 | Deal Story"
