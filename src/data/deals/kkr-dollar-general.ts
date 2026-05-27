@@ -348,7 +348,7 @@ const deal: DealData = {
         amountDisplay: "$0.7B",
         rate: "10.625% (고정)",
         maturity: "10년",
-        seniority: "unsecured",
+        seniority: "senior-unsecured",
         pct: 10,
         color: "bg-orange-500",
       },

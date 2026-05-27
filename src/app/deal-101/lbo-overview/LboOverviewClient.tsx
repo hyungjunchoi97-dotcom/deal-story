@@ -416,7 +416,7 @@ const CASE_STUDIES = [
       : "In 2007, KKR·TPG acquired TXU for $45B assuming natural gas prices would stay high or rise. The shale gas revolution crashed gas prices, collapsing electricity revenue. Leverage annihilates equity when EV drops even modestly — fragile entry assumptions are the essence of LBO failure.",
     color: "border-rose-200 dark:border-rose-700 bg-rose-50/60 dark:bg-rose-900/20",
     labelColor: "bg-rose-100 text-rose-700 dark:bg-rose-900/40 dark:text-rose-300",
-    link: null, // future deal page
+    link: "/deals/kkr-txu-energy-future",
   },
 ];
 

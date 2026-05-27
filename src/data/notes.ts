@@ -78,6 +78,7 @@ export type NoteMetric = {
   label: string;
   labelEn?: string;
   value: string;
+  valueEn?: string;
   sub?: string;
   subEn?: string;
   color?: string;
@@ -90,6 +91,7 @@ export type NoteTableDef = {
   headers: string[];
   headersEn?: string[];
   rows: (string | number)[][];
+  rowsEn?: (string | number)[][];
   caption?: string;
   captionEn?: string;
 };

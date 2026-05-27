@@ -140,7 +140,7 @@ const CASE_RETURNS = [
     name: "Blackstone / Hilton\n(2007–2018)",
     moic: 2.6, irr: 16.7, hold: 11,
     color: ACCENT,
-    link: null as string | null,
+    link: "/deals/blackstone-hilton-2007",
     drivers: (ko: boolean) => ko ? "EBITDA 3배 성장 + 호텔 자산 가치 상승" : "EBITDA 3x growth + hotel asset appreciation",
   },
   {

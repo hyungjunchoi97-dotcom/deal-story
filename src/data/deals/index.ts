@@ -73,6 +73,12 @@ import apolloCaesars from "./apollo-caesars";
 import jcrewIpTransfer from "./jcrew-ip-transfer";
 import sertaSimmons from "./serta-simmons-uptier";
 import kkrDollarGeneral from "./kkr-dollar-general";
+// 신규 추가 딜 — LBO 교육 케이스
+import blackstoneHilton2007 from "./blackstone-hilton-2007";
+import kkrTxuEnergyFuture from "./kkr-txu-energy-future";
+import silverLakeDell from "./silver-lake-dell-takeprivate";
+import bcPartnersPetsmart from "./bc-partners-petsmart";
+import g3CapitalBurgerKing from "./3g-capital-burger-king";
 
 /**
  * 딜 레지스트리 — 새 딜 추가 시 import 후 배열에 추가
@@ -124,20 +130,25 @@ export const ALL_DEALS: DealData[] = [
   mbkHomeplus,             // 2015-11-30
   elliottSamsung,          // 2015-09-01 (activism)
   ebayPaypalSpinoff,       // 2015-07-17
+  bcPartnersPetsmart,      // 2015-03-11 (LBO 교육 — 아마존 공포 역발상)
   lvmhHermes,              // 2014-12-17 (control)
   metaWhatsapp,            // 2014-10-06
   thirdPointSony,          // 2014-08-07 (activism)
   valueactMicrosoft,       // 2014-02-04 (activism)
+  silverLakeDell,          // 2013-10-29 (LBO 교육 — 테크 테이크프라이빗)
   abbottAbbvieSpinoff,     // 2013-01-01
   metaInstagram,           // 2012-09-06
   porscheVolkswagen,       // 2012-08-01 (control)
   pershingSquareCpRail,    // 2012-05-17 (activism)
   jcrewIpTransfer,         // 2011-03-07 (LevFin Trap Door 케이스)
   airgasAirProducts,       // 2011-02-11 (control, withdrawn)
+  g3CapitalBurgerKing,     // 2010-10-19 (LBO 교육 — ZBB + 재가맹점화)
   bhpRioTinto,             // 2008-11-25 (control, withdrawn)
   apolloCaesars,           // 2008-01-28 (LevFin 코비넌트)
   iheartmediaClearChannel, // 2008-07-30 (LevFin Hung Deal)
   jpmorganBearStearns,     // 2008-05-30 (금융위기)
+  blackstoneHilton2007,    // 2007-10-24 (LBO 교육 — CMBS + 오퍼레이션)
+  kkrTxuEnergyFuture,      // 2007-10-10 (LBO 교육 — 역대 최대 PE 파산)
   kkrDollarGeneral,        // 2007-07-07 (LevFin LBO 성공 케이스)
   kkrToysRUs,              // 2005-07-21 (LevFin 케이스)
   googleYoutube,           // 2006-10-31

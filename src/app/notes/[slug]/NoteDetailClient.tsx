@@ -27,6 +27,8 @@ import type {
   PrivilegeGapPoint,
   FedBalanceSheetPoint,
   RepoCrisisPoint,
+  CurrencyMixPoint,
+  StablecoinPoint,
 } from "@/data/notes";
 import { NOTE_CATEGORY_META } from "@/data/notes";
 
@@ -133,7 +135,7 @@ function PBRChart({ chart, lang }: { chart: NoteChartDef & { id: "pbr-comparison
           <Legend wrapperStyle={{ fontSize: 11, paddingTop: 12 }} />
           <Line yAxisId="left" type="monotone" dataKey="KOSPI" stroke="#ef4444" strokeWidth={2.5} dot={false} name="KOSPI" />
           <Line yAxisId="left" type="monotone" dataKey="TOPIX" stroke="#3b82f6" strokeWidth={2} dot={false} name="TOPIX" strokeDasharray="5 3" />
-          <Line yAxisId="right" type="monotone" dataKey="SP500" stroke="#8b5cf6" strokeWidth={2} dot={false} name="S&P 500 (우축)" />
+          <Line yAxisId="right" type="monotone" dataKey="SP500" stroke="#8b5cf6" strokeWidth={2} dot={false} name={lang === "en" ? "S&P 500 (R-axis)" : "S&P 500 (우축)"} />
         </LineChart>
       </ResponsiveContainer>
     </ChartCard>
@@ -371,6 +373,96 @@ function RepoCrisisChart({ chart, lang }: { chart: NoteChartDef & { id: "repo-cr
   );
 }
 
+// ── Currency Mix Chart (stacked bar) ──────────────────────────────────────────
+function CurrencyMixChart({ chart, lang }: { chart: NoteChartDef & { id: "currency-mix" }; lang: Lang }) {
+  const data = chart.data as CurrencyMixPoint[];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={260}>
+        <BarChart data={data} margin={{ top: 8, right: 16, bottom: 0, left: -8 }} barSize={28}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} vertical={false} />
+          <XAxis dataKey="year" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
+          <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `${v}%`} domain={[0, 100]} />
+          <Tooltip
+            content={({ active, payload, label }) => {
+              if (!active || !payload?.length) return null;
+              return (
+                <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl px-4 py-3 text-xs space-y-1.5">
+                  <p className="font-semibold text-gray-600 dark:text-gray-300 mb-1">{label}</p>
+                  {[...payload].reverse().map((p) => (
+                    <div key={String(p.dataKey)} className="flex items-center justify-between gap-4">
+                      <span className="flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full" style={{ background: p.color as string }} />
+                        <span className="text-gray-500 dark:text-gray-400">{p.name}</span>
+                      </span>
+                      <span className="font-mono font-bold text-gray-800 dark:text-gray-100">{p.value}%</span>
+                    </div>
+                  ))}
+                </div>
+              );
+            }}
+          />
+          <Legend wrapperStyle={{ fontSize: 11, paddingTop: 12 }} />
+          <Bar dataKey="USD" name="USD" stackId="a" fill="#0ea5e9" />
+          <Bar dataKey="EUR" name="EUR" stackId="a" fill="#8b5cf6" />
+          <Bar dataKey="JPY" name="JPY" stackId="a" fill="#ec4899" />
+          <Bar dataKey="GBP" name="GBP" stackId="a" fill="#f59e0b" />
+          <Bar dataKey="CNY" name="CNY" stackId="a" fill="#ef4444" />
+          <Bar dataKey="other" name={lang === "en" ? "Other" : "기타"} stackId="a" fill="#d1d5db" radius={[3, 3, 0, 0]} />
+        </BarChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
+// ── Stablecoin Growth Chart (stacked bar) ──────────────────────────────────────
+function StablecoinChart({ chart, lang }: { chart: NoteChartDef & { id: "stablecoin-growth" }; lang: Lang }) {
+  const data = chart.data as StablecoinPoint[];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={240}>
+        <BarChart data={data} margin={{ top: 8, right: 16, bottom: 0, left: -8 }} barSize={28}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} vertical={false} />
+          <XAxis dataKey="year" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
+          <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `$${v}B`} />
+          <Tooltip
+            content={({ active, payload, label }) => {
+              if (!active || !payload?.length) return null;
+              const total = (payload as { value: number }[]).reduce((s, p) => s + (p.value ?? 0), 0);
+              return (
+                <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl px-4 py-3 text-xs space-y-1.5">
+                  <p className="font-semibold text-gray-600 dark:text-gray-300 mb-1">{label}</p>
+                  {[...payload].reverse().map((p) => (
+                    <div key={String(p.dataKey)} className="flex items-center justify-between gap-4">
+                      <span className="flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full" style={{ background: p.color as string }} />
+                        <span className="text-gray-500 dark:text-gray-400">{p.name}</span>
+                      </span>
+                      <span className="font-mono font-bold text-gray-800 dark:text-gray-100">${p.value}B</span>
+                    </div>
+                  ))}
+                  <div className="border-t border-gray-200 dark:border-gray-700 pt-1.5 mt-1 flex justify-between">
+                    <span className="text-gray-400">{lang === "en" ? "Total" : "합계"}</span>
+                    <span className="font-mono font-bold text-gray-800 dark:text-gray-100">${total}B</span>
+                  </div>
+                </div>
+              );
+            }}
+          />
+          <Legend wrapperStyle={{ fontSize: 11, paddingTop: 12 }} />
+          <Bar dataKey="USDT" name="USDT (Tether)" stackId="a" fill="#26a17b" />
+          <Bar dataKey="USDC" name="USDC (Circle)" stackId="a" fill="#2775ca" />
+          <Bar dataKey="other" name={lang === "en" ? "Other Stablecoins" : "기타 스테이블코인"} stackId="a" fill="#94a3b8" radius={[3, 3, 0, 0]} />
+        </BarChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
 // ── Generic chart dispatcher ───────────────────────────────────────────────────
 function NoteChart({ chart, lang }: { chart: NoteChartDef; lang: Lang }) {
   if (chart.id === "pbr-comparison") return <PBRChart chart={chart} lang={lang} />;
@@ -380,6 +472,8 @@ function NoteChart({ chart, lang }: { chart: NoteChartDef; lang: Lang }) {
   if (chart.id === "privilege-gap") return <PrivilegeGapChart chart={chart} lang={lang} />;
   if (chart.id === "fed-balance-sheet") return <FedBalanceSheetChart chart={chart} lang={lang} />;
   if (chart.id === "repo-crisis") return <RepoCrisisChart chart={chart} lang={lang} />;
+  if (chart.id === "currency-mix") return <CurrencyMixChart chart={chart} lang={lang} />;
+  if (chart.id === "stablecoin-growth") return <StablecoinChart chart={chart} lang={lang} />;
   return null;
 }
 
@@ -387,6 +481,7 @@ function NoteChart({ chart, lang }: { chart: NoteChartDef; lang: Lang }) {
 function NoteTable({ table, lang }: { table: NoteTableDef; lang: Lang }) {
   const title = lang === "en" ? (table.titleEn ?? table.title) : table.title;
   const headers = lang === "en" ? (table.headersEn ?? table.headers) : table.headers;
+  const rows = lang === "en" ? (table.rowsEn ?? table.rows) : table.rows;
   const caption = lang === "en" ? (table.captionEn ?? table.caption) : table.caption;
   return (
     <div className="my-2">
@@ -405,7 +500,7 @@ function NoteTable({ table, lang }: { table: NoteTableDef; lang: Lang }) {
             </tr>
           </thead>
           <tbody>
-            {table.rows.map((row, ri) => (
+            {rows.map((row, ri) => (
               <tr
                 key={ri}
                 className="border-b border-gray-100 dark:border-gray-800/60 last:border-0 hover:bg-gray-50/60 dark:hover:bg-gray-800/30 transition-colors"
@@ -486,6 +581,7 @@ function MetricsGrid({ items, lang }: { items: NoteMetric[]; lang: Lang }) {
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 my-2">
       {items.map((item, i) => {
         const label = lang === "en" ? (item.labelEn ?? item.label) : item.label;
+        const value = lang === "en" ? (item.valueEn ?? item.value) : item.value;
         const sub = lang === "en" ? (item.subEn ?? item.sub) : item.sub;
         return (
           <motion.div
@@ -497,7 +593,7 @@ function MetricsGrid({ items, lang }: { items: NoteMetric[]; lang: Lang }) {
               {label}
             </p>
             <p className="text-[13px] font-semibold text-gray-800 dark:text-gray-100 leading-snug">
-              {item.value}
+              {value}
             </p>
             {sub && (
               <p className="text-[11px] text-gray-400 dark:text-gray-500 mt-1.5 leading-relaxed">{sub}</p>
