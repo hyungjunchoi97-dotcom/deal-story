@@ -35,6 +35,7 @@ export const HEADER_NAV: Record<Lang, NavItem[]> = {
     { href: "/deal-101",       label: "딜 101"  },
     { href: "/market-101",     label: "마켓 101" },
     { href: "/learning-paths", label: "러닝 패스" },
+    { href: "/notes",          label: "Notes"   },
   ],
   en: [
     { href: "/en/deals",              label: "Deals"      },
@@ -43,6 +44,7 @@ export const HEADER_NAV: Record<Lang, NavItem[]> = {
     { href: "/en/deal-101",           label: "Deal 101"   },
     { href: "/en/market-101",         label: "Market 101" },
     { href: "/en/learning-paths",     label: "Paths"      },
+    { href: "/en/notes",              label: "Notes"      },
   ],
 };
 
