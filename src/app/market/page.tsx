@@ -2,12 +2,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import {
-  ALL_MARKET_DEALS,
-  DEAL_CATEGORY_META,
-  type DealCategory,
-} from "@/data/market-deals";
+import { ALL_MARKET_DEALS, DEAL_CATEGORY_META, type DealCategory } from "@/data/market-deals";
 import { SITE_URL } from "@/lib/site";
+import MarketIndexClient from "./MarketIndexClient";
 
 export const metadata: Metadata = {
   title: "Market Story — 자본시장을 바꾼 딜들 | Deal Story",
@@ -32,26 +29,8 @@ export const metadata: Metadata = {
 };
 
 const CATEGORIES: DealCategory[] = [
-  "creator",
-  "sovereign",
-  "fig",
-  "structure",
-  "corporate",
-  "crisis",
+  "creator", "sovereign", "fig", "structure", "corporate", "crisis",
 ];
-
-/** 발행사 이름에서 카드용 이니셜 생성 */
-function issuerInitials(name: string): string {
-  const clean = name.replace(/\s*\(.*?\)\s*/g, " ").trim();
-  const words = clean.split(/\s+/).filter(Boolean);
-  if (words.length === 0) return "—";
-  if (words.length === 1) return words[0].slice(0, 3).toUpperCase();
-  return words
-    .slice(0, 3)
-    .map((w) => w[0])
-    .join("")
-    .toUpperCase();
-}
 
 export default function MarketPage() {
   const publishedDeals = ALL_MARKET_DEALS.filter((d) => d.published);
@@ -118,7 +97,7 @@ export default function MarketPage() {
             </h1>
             <p className="mt-3 text-base text-gray-500 dark:text-gray-400 leading-relaxed max-w-2xl">
               그린본드의 탄생, 군함을 압류한 헤지펀드, AT1 전액상각, IMF 직후 한국의 첫 복귀 딜까지 —
-              자본시장의 룰을 바꾸거나, 잊어서는 안 될 교훈을 남긴 landmark 딜 20개를 해부합니다.
+              자본시장의 룰을 바꾸거나, 잊어서는 안 될 교훈을 남긴 landmark 딜 {publishedCount}개를 해부합니다.
             </p>
 
             {/* 크로스링크 — Deal Archive */}
@@ -147,9 +126,7 @@ export default function MarketPage() {
                   >
                     <span className="font-black">{meta.letter}.</span>
                     {meta.label}
-                    <span className="opacity-60">
-                      {pubCount}/{count}
-                    </span>
+                    <span className="opacity-60">{pubCount}/{count}</span>
                   </div>
                 );
               })}
@@ -160,105 +137,9 @@ export default function MarketPage() {
           </div>
         </section>
 
-        {/* ── 카테고리별 딜 그리드 ── */}
-        <div className="max-w-4xl mx-auto px-5 py-10 space-y-12">
-          {CATEGORIES.map((cat) => {
-            const meta = DEAL_CATEGORY_META[cat];
-            const deals = ALL_MARKET_DEALS.filter((d) => d.category === cat);
-            return (
-              <section key={cat}>
-                {/* 카테고리 헤더 */}
-                <div className="flex items-center gap-3 mb-5">
-                  <span
-                    className={`w-7 h-7 rounded-lg flex items-center justify-center text-[11px] font-black text-white ${meta.dot}`}
-                  >
-                    {meta.letter}
-                  </span>
-                  <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100">
-                    {meta.label}
-                  </h2>
-                  <div className="flex-1 h-px bg-gray-200 dark:bg-gray-700" />
-                </div>
-
-                {/* 딜 카드 그리드 */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {deals.map((deal) =>
-                    deal.published ? (
-                      <Link key={deal.slug} href={`/market/${deal.slug}`}>
-                        <div
-                          className={`group relative rounded-xl border p-5 h-full flex flex-col cursor-pointer transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 ${meta.bg}`}
-                          style={{ borderColor: "transparent" }}
-                        >
-                          {/* 발행사 이니셜 + 연도 */}
-                          <div className="flex items-center gap-2 mb-3">
-                            <div
-                              className={`w-8 h-8 rounded-lg flex items-center justify-center text-[9px] font-black text-white flex-shrink-0 ${meta.dot}`}
-                            >
-                              {issuerInitials(deal.issuer)}
-                            </div>
-                            <div
-                              className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold ${meta.fg}`}
-                              style={{ background: "rgba(0,0,0,0.06)" }}
-                            >
-                              {deal.dealYear}
-                            </div>
-                          </div>
-
-                          <p className="text-[11px] text-gray-400 dark:text-gray-500 mb-1">
-                            {deal.issuer}
-                          </p>
-                          <h3
-                            className={`text-[14px] font-bold leading-snug mb-2 transition-colors ${meta.fg} group-hover:underline`}
-                          >
-                            {deal.title}
-                          </h3>
-                          <p className="text-[12px] text-gray-500 dark:text-gray-400 leading-relaxed flex-1 line-clamp-2 mb-3">
-                            {deal.excerpt}
-                          </p>
-                          <div className="flex items-center justify-between text-[11px]">
-                            <span className="text-gray-400 dark:text-gray-500">
-                              {deal.readingMinutes}분 읽기
-                            </span>
-                            <span className={`font-medium ${meta.fg}`}>읽기 →</span>
-                          </div>
-                        </div>
-                      </Link>
-                    ) : (
-                      <div
-                        key={deal.slug}
-                        className="relative rounded-xl border border-gray-200/60 dark:border-gray-700/40 p-5 h-full flex flex-col bg-gray-50/50 dark:bg-gray-900/30 opacity-60"
-                      >
-                        {/* Coming soon overlay badge */}
-                        <div className="absolute top-3 right-3 bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400 text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">
-                          곧 업로드
-                        </div>
-
-                        {/* 발행사 이니셜 + 연도 (비활성) */}
-                        <div className="flex items-center gap-2 mb-3">
-                          <div className="w-8 h-8 rounded-lg flex items-center justify-center text-[9px] font-black text-white flex-shrink-0 bg-gray-300 dark:bg-gray-600">
-                            {issuerInitials(deal.issuer)}
-                          </div>
-                          <div className="text-[10px] font-bold text-gray-400 dark:text-gray-500">
-                            {deal.dealYear}
-                          </div>
-                        </div>
-
-                        <div className="text-[11px] text-gray-400 dark:text-gray-500 mb-1">
-                          {deal.issuer}
-                        </div>
-                        <h3 className="text-[13px] font-bold text-gray-500 dark:text-gray-500 leading-snug mb-2 line-clamp-2">
-                          {deal.title}
-                        </h3>
-                        <p className="text-[12px] text-gray-400 dark:text-gray-500 leading-relaxed flex-1 line-clamp-2">
-                          {deal.excerpt}
-                        </p>
-                      </div>
-                    )
-                  )}
-                </div>
-              </section>
-            );
-          })}
+        {/* ── 카테고리 폴더 ── */}
+        <div className="max-w-4xl mx-auto px-5 py-10">
+          <MarketIndexClient />
         </div>
 
       </main>

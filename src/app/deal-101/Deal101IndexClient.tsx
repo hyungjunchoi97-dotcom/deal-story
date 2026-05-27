@@ -4,8 +4,11 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { ALL_DEALS } from "@/data/deals";
+import { ALL_DEALS_EN } from "@/data/deals/en";
 
 // ── 타입 ────────────────────────────────────────────────────────────────────
+type Lang = "ko" | "en";
+
 type ConceptItem = {
   slug: string;
   term: string;
@@ -14,8 +17,8 @@ type ConceptItem = {
   published: boolean;
 };
 
-// ── 개념 카탈로그 ─────────────────────────────────────────────────────────────
-const CONCEPT_CATALOG: ConceptItem[] = [
+// ── KO 개념 카탈로그 ──────────────────────────────────────────────────────────
+const KO_CONCEPT_CATALOG: ConceptItem[] = [
   // 밸류에이션
   { slug: "ev-ebitda",            term: "EV/EBITDA 멀티플",                    tagline: "M&A 가격 협상의 출발점 — 기업가치를 영업 현금창출력으로 나눈 핵심 지표",                                                      category: "밸류에이션",  published: true  },
   { slug: "adjusted-ebitda",      term: "Adjusted EBITDA — 조정의 전쟁",       tagline: "EV = Multiple × EBITDA — EBITDA 조정이 곱셈으로 매각가에 증폭된다. 1회성 판정 기준과 이해관계자 충돌 지도",                     category: "밸류에이션",  published: true  },
@@ -55,16 +58,48 @@ const CONCEPT_CATALOG: ConceptItem[] = [
   { slug: "competitive-moat",     term: "경쟁 해자",                           tagline: "버핏의 해자 개념으로 보는 M&A 멀티플 — 네트워크 효과·전환 비용·브랜드·규모의 경제",                                              category: "전략",       published: true  },
 ];
 
-const CATEGORIES = ["밸류에이션", "딜 구조", "LBO 시리즈", "실사", "규제·법률", "전략"] as const;
+// ── EN 개념 카탈로그 ──────────────────────────────────────────────────────────
+const EN_CONCEPT_CATALOG: ConceptItem[] = [
+  // Valuation
+  { slug: "ev-ebitda",            term: "EV/EBITDA Multiple",                 tagline: "The starting point of any M&A price conversation — enterprise value divided by operating cash generation",                              category: "Valuation",          published: true },
+  { slug: "adjusted-ebitda",      term: "Adjusted EBITDA",                    tagline: "EV = Multiple × EBITDA — why every add-back is a battle, who benefits, and how FDD teams push back",                                    category: "Valuation",          published: true },
+  { slug: "synergy",              term: "Synergy",                            tagline: "The justification for the M&A premium — Cost Synergy vs Revenue Synergy, and why 70% of deals miss their targets",                      category: "Valuation",          published: true },
+  { slug: "acquisition-premium",  term: "Acquisition Premium",                tagline: "Why buyers pay 30–40% above market — the sources of control, synergy, and scarcity premiums",                                           category: "Valuation",          published: true },
+  { slug: "ev-sales",             term: "EV/Sales Multiple",                  tagline: "Revenue-based valuation when EBITDA is negative — the math behind Slack at 26x and Figma at 50x",                                       category: "Valuation",          published: true },
+  { slug: "arr-multiple",         term: "ARR Multiple",                       tagline: "SaaS-specific valuation — enterprise value vs annual recurring revenue through bubble and correction",                                    category: "Valuation",          published: true },
+  { slug: "saas-valuation",       term: "SaaS Valuation",                     tagline: "ARR, NRR, Rule of 40 — why subscription software businesses are valued on completely different terms",                                    category: "Valuation",          published: true },
+  // Deal Structure
+  { slug: "ma-process",           term: "The M&A Process, End to End",        tagline: "Six phases from strategy to closing — stakeholders, key documents, and why deals succeed or fail",                                       category: "Deal Structure",      published: true },
+  { slug: "lbo",                  term: "LBO (Leveraged Buyout)",              tagline: "Using the target's own cash flows as collateral to minimize equity — from KKR's RJR Nabisco to modern PE",                              category: "Deal Structure",      published: true },
+  { slug: "tender-offer",         term: "Tender Offer",                       tagline: "Going directly to shareholders, bypassing the board — from Musk's Twitter gambit to hostile defense strategies",                         category: "Deal Structure",      published: true },
+  { slug: "spinoff",              term: "Spin-off",                           tagline: "Separating a unit to unlock hidden value — PayPal from eBay, GE's three-way breakup",                                                    category: "Deal Structure",      published: true },
+  { slug: "reverse-morris-trust", term: "Reverse Morris Trust",               tagline: "Spin off, then merge — saving billions in taxes on a large divestiture (AT&T / WarnerMedia)",                                           category: "Deal Structure",      published: true },
+  { slug: "stock-vs-asset-deal",  term: "Stock Deal vs Asset Deal",           tagline: "Same company, different structure — one choice shifts taxes, liabilities, and risk between buyer and seller",                            category: "Deal Structure",      published: true },
+  { slug: "pmi",                  term: "PMI (Post-Merger Integration)",       tagline: "The real war starts after signing — why org, IT, and culture failures destroy the value M&A promised",                                  category: "Deal Structure",      published: true },
+  { slug: "ipo-vs-ma-exit",       term: "IPO vs M&A Exit",                    tagline: "Two paths for PE/VC portfolio exits — when a public listing beats a strategic sale, and when it doesn't",                               category: "Deal Structure",      published: true },
+  { slug: "break-fee",            term: "Break-up Fee",                       tagline: "Termination fee paid if a party walks away — signals deal conviction and negotiating leverage",                                          category: "Deal Structure",      published: true },
+  { slug: "mac-clause",           term: "MAC Clause",                         tagline: "Allows the buyer to exit if a materially adverse change occurs between signing and closing",                                             category: "Deal Structure",      published: true },
+  // Regulatory & Legal
+  { slug: "antitrust",            term: "Antitrust Review",                   tagline: "How competition authorities assess whether a deal harms market competition — the real reason Adobe×Figma collapsed",                    category: "Regulatory & Legal",  published: true },
+  { slug: "regulatory-risk",      term: "Regulatory Risk in M&A",             tagline: "Antitrust, national security, sector regulators — five invisible walls that can kill any deal",                                          category: "Regulatory & Legal",  published: true },
+  // Due Diligence
+  { slug: "fdd",                  term: "Financial Due Diligence (FDD)",       tagline: "Behind the financial statements — normalizing EBITDA, working capital, and uncovering hidden liabilities",                              category: "Due Diligence",       published: true },
+  { slug: "cdd",                  term: "Commercial Due Diligence (CDD)",      tagline: "Market, customer, and competitive reality-testing — validating the growth story before you sign",                                       category: "Due Diligence",       published: true },
+  { slug: "ldd",                  term: "Legal Due Diligence (LDD)",           tagline: "Surfacing contract, litigation, IP, and regulatory risk — the evidence that kills deals or adjusts price",                              category: "Due Diligence",       published: true },
+  // Strategy
+  { slug: "strategic-ma",         term: "Strategic M&A",                      tagline: "Market position, technology, and talent over pure financial returns — why Meta paid $1B for Instagram with zero revenue",               category: "Strategy",            published: true },
+  { slug: "vertical-integration", term: "Vertical Integration",               tagline: "Owning the supply chain to control cost, quality, and competition — why Amazon and Apple make everything themselves",                    category: "Strategy",            published: true },
+  { slug: "subscription-economy", term: "Subscription Economy",               tagline: "From one-time sales to ARR — the economics of Adobe's journey from $10B to $330B",                                                      category: "Strategy",            published: true },
+  { slug: "platform-strategy",    term: "Platform Strategy",                  tagline: "Network effects and the M&A premium — what Google × YouTube and Microsoft × LinkedIn have in common",                                   category: "Strategy",            published: true },
+  { slug: "competitive-moat",     term: "Competitive Moat",                   tagline: "Buffett's moat framework applied to M&A multiples — network effects, switching costs, brands, scale",                                   category: "Strategy",            published: true },
+];
 
-// ── 카테고리 메타데이터 ──────────────────────────────────────────────────────
-const CAT_META: Record<string, {
-  icon: string;
-  desc: string;
-  dot: string;
-  badgeBg: string;
-  badgeFg: string;
-}> = {
+// ── 카테고리 순서 ─────────────────────────────────────────────────────────────
+const KO_CATEGORIES = ["밸류에이션", "딜 구조", "LBO 시리즈", "실사", "규제·법률", "전략"] as const;
+const EN_CATEGORIES = ["Valuation", "Deal Structure", "Due Diligence", "Regulatory & Legal", "Strategy"] as const;
+
+// ── KO 카테고리 메타데이터 ─────────────────────────────────────────────────────
+const KO_CAT_META: Record<string, { icon: string; desc: string; dot: string; badgeBg: string; badgeFg: string }> = {
   "밸류에이션":  { icon: "📊", desc: "기업가치·멀티플·프리미엄·SaaS 지표",      dot: "bg-blue-400",    badgeBg: "bg-blue-50 dark:bg-blue-900/30",    badgeFg: "text-blue-700 dark:text-blue-300"    },
   "딜 구조":    { icon: "🏗️", desc: "M&A 프로세스·공개매수·스핀오프·통합",       dot: "bg-amber-400",   badgeBg: "bg-amber-50 dark:bg-amber-900/30",   badgeFg: "text-amber-700 dark:text-amber-300"  },
   "LBO 시리즈": { icon: "💰", desc: "LBO 101 — 자본구조·리턴 분석·딜 프로세스", dot: "bg-indigo-400",  badgeBg: "bg-indigo-50 dark:bg-indigo-900/30", badgeFg: "text-indigo-700 dark:text-indigo-300" },
@@ -73,11 +108,28 @@ const CAT_META: Record<string, {
   "전략":       { icon: "🎯", desc: "전략적 M&A·플랫폼·해자·수직통합",           dot: "bg-emerald-400", badgeBg: "bg-emerald-50 dark:bg-emerald-900/30",badgeFg: "text-emerald-700 dark:text-emerald-300"},
 };
 
+// ── EN 카테고리 메타데이터 ─────────────────────────────────────────────────────
+const EN_CAT_META: Record<string, { icon: string; desc: string; dot: string; badgeBg: string; badgeFg: string }> = {
+  "Valuation":          { icon: "📊", desc: "EV/EBITDA, multiples, premiums & SaaS metrics",          dot: "bg-blue-400",    badgeBg: "bg-blue-50 dark:bg-blue-900/30",    badgeFg: "text-blue-700 dark:text-blue-300"    },
+  "Deal Structure":     { icon: "🏗️", desc: "M&A process, LBO, spin-offs & integration",              dot: "bg-amber-400",   badgeBg: "bg-amber-50 dark:bg-amber-900/30",   badgeFg: "text-amber-700 dark:text-amber-300"  },
+  "Due Diligence":      { icon: "🔍", desc: "Financial, commercial & legal diligence methods",         dot: "bg-violet-400",  badgeBg: "bg-violet-50 dark:bg-violet-900/30", badgeFg: "text-violet-700 dark:text-violet-300" },
+  "Regulatory & Legal": { icon: "⚖️", desc: "Antitrust, national security & sector regulation",       dot: "bg-rose-400",    badgeBg: "bg-rose-50 dark:bg-rose-900/30",    badgeFg: "text-rose-700 dark:text-rose-300"    },
+  "Strategy":           { icon: "🎯", desc: "Strategic M&A, platforms, moats & vertical integration", dot: "bg-emerald-400", badgeBg: "bg-emerald-50 dark:bg-emerald-900/30",badgeFg: "text-emerald-700 dark:text-emerald-300"},
+};
+
 // ── 딜 연결 수 (모듈 로드 시 1회 계산) ────────────────────────────────────────
-const dealCountBySlug: Record<string, number> = {};
-for (const concept of CONCEPT_CATALOG) {
+const dealCountBySlugKo: Record<string, number> = {};
+for (const concept of KO_CONCEPT_CATALOG) {
   const href = `/deal-101/${concept.slug}`;
-  dealCountBySlug[concept.slug] = ALL_DEALS.filter((d) =>
+  dealCountBySlugKo[concept.slug] = ALL_DEALS.filter((d) =>
+    d.concepts?.some((c) => c.href === href)
+  ).length;
+}
+
+const dealCountBySlugEn: Record<string, number> = {};
+for (const concept of EN_CONCEPT_CATALOG) {
+  const href = `/learn/${concept.slug}`;
+  dealCountBySlugEn[concept.slug] = ALL_DEALS_EN.filter((d) =>
     d.concepts?.some((c) => c.href === href)
   ).length;
 }
@@ -95,15 +147,18 @@ const listItem = {
 
 // ── 개념 행 (공개) ─────────────────────────────────────────────────────────────
 function ConceptRow({
-  concept, index, dealCount,
+  concept, index, dealCount, lang,
 }: {
   concept: ConceptItem;
   index: number;
   dealCount: number;
+  lang: Lang;
 }) {
+  const ko = lang === "ko";
+  const base = ko ? "/deal-101" : "/en/deal-101";
   return (
     <motion.div custom={index} variants={listItem} initial="hidden" animate="show">
-      <Link href={`/deal-101/${concept.slug}`}>
+      <Link href={`${base}/${concept.slug}`}>
         <div className="group flex items-start gap-3 p-3.5 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/60 transition-colors border border-transparent hover:border-gray-200 dark:hover:border-gray-700/50">
           <div className="flex-1 min-w-0">
             <p className="text-[14px] font-semibold text-gray-900 dark:text-gray-100 leading-snug group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-1">
@@ -115,11 +170,11 @@ function ConceptRow({
           </div>
           <div className="flex flex-col items-end gap-1.5 flex-shrink-0 pt-0.5">
             <span className="text-[10px] font-semibold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/40 rounded-full px-2 py-0.5 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-              학습하기 →
+              {ko ? "학습하기 →" : "Read →"}
             </span>
             {dealCount > 0 && (
               <span className="text-[10px] text-gray-400 dark:text-gray-500 whitespace-nowrap">
-                딜 {dealCount}개에서 등장
+                {ko ? `딜 ${dealCount}개에서 등장` : `in ${dealCount} ${dealCount === 1 ? "deal" : "deals"}`}
               </span>
             )}
           </div>
@@ -130,10 +185,17 @@ function ConceptRow({
 }
 
 // ── 개념 행 (준비 중) ──────────────────────────────────────────────────────────
-function UnpublishedRow({ concept, index }: { concept: ConceptItem; index: number }) {
+function UnpublishedRow({
+  concept, index, lang,
+}: {
+  concept: ConceptItem;
+  index: number;
+  lang: Lang;
+}) {
+  const ko = lang === "ko";
   return (
     <motion.div custom={index} variants={listItem} initial="hidden" animate="show">
-      <div className="flex items-start gap-3 p-3.5 rounded-lg">
+      <div className="flex items-start gap-3 p-3.5 rounded-lg opacity-50">
         <div className="flex-1 min-w-0">
           <p className="text-[14px] font-medium text-gray-400 dark:text-gray-600 leading-snug line-clamp-1">
             {concept.term}
@@ -143,7 +205,7 @@ function UnpublishedRow({ concept, index }: { concept: ConceptItem; index: numbe
           </p>
         </div>
         <span className="text-[10px] text-gray-400 dark:text-gray-500 bg-gray-100 dark:bg-gray-800 rounded-full px-2 py-0.5 flex-shrink-0 whitespace-nowrap">
-          준비 중
+          {ko ? "준비 중" : "Coming soon"}
         </span>
       </div>
     </motion.div>
@@ -152,16 +214,18 @@ function UnpublishedRow({ concept, index }: { concept: ConceptItem; index: numbe
 
 // ── 카테고리 폴더 ─────────────────────────────────────────────────────────────
 function CategoryFolder({
-  category,
-  concepts,
-  defaultOpen,
+  category, concepts, defaultOpen, lang, catMeta, dealCounts,
 }: {
   category: string;
   concepts: ConceptItem[];
   defaultOpen: boolean;
+  lang: Lang;
+  catMeta: Record<string, { icon: string; desc: string; dot: string; badgeBg: string; badgeFg: string }>;
+  dealCounts: Record<string, number>;
 }) {
   const [open, setOpen] = useState(defaultOpen);
-  const meta = CAT_META[category];
+  const ko = lang === "ko";
+  const meta = catMeta[category];
   const published = concepts.filter((c) => c.published);
   const unpublished = concepts.filter((c) => !c.published);
   const total = concepts.length;
@@ -194,11 +258,11 @@ function CategoryFolder({
               {category}
             </span>
             <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold ${meta.badgeBg} ${meta.badgeFg}`}>
-              개념 {published.length}
+              {ko ? `개념 ${published.length}` : `concepts ${published.length}`}
             </span>
             {unpublished.length > 0 && (
               <span className="text-[10px] px-2 py-0.5 rounded-full font-semibold bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400">
-                준비 중 {unpublished.length}
+                {ko ? `준비 중 ${unpublished.length}` : `soon ${unpublished.length}`}
               </span>
             )}
           </div>
@@ -210,7 +274,7 @@ function CategoryFolder({
         {/* 항목 수 + 시보 */}
         <div className="flex items-center gap-2 flex-shrink-0">
           <span className="text-[12px] font-semibold text-gray-400 dark:text-gray-500">
-            {total}편
+            {ko ? `${total}편` : `${total}`}
           </span>
           <motion.div
             animate={{ rotate: open ? 180 : 0 }}
@@ -248,7 +312,8 @@ function CategoryFolder({
                   key={c.slug}
                   concept={c}
                   index={i}
-                  dealCount={dealCountBySlug[c.slug] ?? 0}
+                  dealCount={dealCounts[c.slug] ?? 0}
+                  lang={lang}
                 />
               ))}
 
@@ -259,7 +324,7 @@ function CategoryFolder({
                     <div className="flex items-center gap-2 my-2 px-3.5">
                       <div className="flex-1 h-px bg-gray-100 dark:bg-gray-800" />
                       <span className="text-[10px] text-gray-400 dark:text-gray-500 font-medium">
-                        준비 중
+                        {ko ? "준비 중" : "Coming soon"}
                       </span>
                       <div className="flex-1 h-px bg-gray-100 dark:bg-gray-800" />
                     </div>
@@ -269,6 +334,7 @@ function CategoryFolder({
                       key={c.slug}
                       concept={c}
                       index={published.length + i}
+                      lang={lang}
                     />
                   ))}
                 </>
@@ -282,37 +348,41 @@ function CategoryFolder({
 }
 
 // ── 메인 컴포넌트 ─────────────────────────────────────────────────────────────
-export default function Deal101IndexClient() {
-  const publishedCount = CONCEPT_CATALOG.filter((c) => c.published).length;
-  const totalCount = CONCEPT_CATALOG.length;
+export default function Deal101IndexClient({ lang = "ko" }: { lang?: Lang }) {
+  const ko = lang === "ko";
+  const catalog = ko ? KO_CONCEPT_CATALOG : EN_CONCEPT_CATALOG;
+  const categories = ko ? KO_CATEGORIES : EN_CATEGORIES;
+  const catMeta = ko ? KO_CAT_META : EN_CAT_META;
+  const dealCounts = ko ? dealCountBySlugKo : dealCountBySlugEn;
+
+  const publishedCount = catalog.filter((c) => c.published).length;
+  const totalCount = catalog.length;
 
   return (
     <>
       {/* ── 통계 바 ── */}
       <div className="flex items-center gap-3 flex-wrap mb-5">
         <span className="text-[12px] font-semibold text-gray-500 dark:text-gray-400">
-          {CATEGORIES.length}개 카테고리
+          {ko ? `${categories.length}개 카테고리` : `${categories.length} categories`}
         </span>
         <span className="w-1 h-1 rounded-full bg-gray-200 dark:bg-gray-700 flex-shrink-0" />
         <span className="text-[12px] font-semibold text-gray-500 dark:text-gray-400">
-          총 {publishedCount}편
+          {ko ? `총 ${publishedCount}편` : `${publishedCount} published`}
         </span>
         {totalCount - publishedCount > 0 && (
           <>
             <span className="w-1 h-1 rounded-full bg-gray-200 dark:bg-gray-700 flex-shrink-0" />
             <span className="text-[12px] text-gray-400 dark:text-gray-500">
-              {totalCount - publishedCount}편 준비 중
+              {ko ? `${totalCount - publishedCount}편 준비 중` : `${totalCount - publishedCount} coming soon`}
             </span>
           </>
         )}
 
         {/* 카테고리 도트 */}
         <div className="ml-auto hidden sm:flex items-center gap-1.5 flex-wrap">
-          {CATEGORIES.map((cat) => {
-            const count = CONCEPT_CATALOG.filter(
-              (c) => c.category === cat && c.published
-            ).length;
-            const m = CAT_META[cat];
+          {(categories as readonly string[]).map((cat) => {
+            const count = catalog.filter((c) => c.category === cat && c.published).length;
+            const m = catMeta[cat];
             return (
               <span
                 key={cat}
@@ -328,14 +398,17 @@ export default function Deal101IndexClient() {
 
       {/* ── 카테고리 폴더 목록 ── */}
       <div className="space-y-3">
-        {CATEGORIES.map((cat, i) => {
-          const concepts = CONCEPT_CATALOG.filter((c) => c.category === cat);
+        {(categories as readonly string[]).map((cat, i) => {
+          const concepts = catalog.filter((c) => c.category === cat);
           return (
             <CategoryFolder
               key={cat}
               category={cat}
               concepts={concepts}
               defaultOpen={i === 0}
+              lang={lang}
+              catMeta={catMeta}
+              dealCounts={dealCounts}
             />
           );
         })}

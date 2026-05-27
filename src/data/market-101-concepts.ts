@@ -1803,7 +1803,48 @@ From an IB career perspective, DCM requires a complex blend of structural design
     tags: ["DCM", "발행사", "SSA", "FIG", "투자등급", "하이일드", "Distressed", "신용등급"],
     tagsEn: ["DCM", "Issuer", "SSA", "FIG", "Investment Grade", "High Yield", "Distressed", "Credit Rating"],
     sections: [],
-    keyTerms: [],
+    keyTerms: [
+      {
+        term: "발행자",
+        termEn: "Issuer",
+        definition:
+          "채권을 발행해 자금을 조달하는 주체. 크게 기업(Corporate), 금융기관(FIG — Banks, Insurance, Asset Managers), 정부·공공기관(SSA — Sovereigns, Supranationals, Agencies)으로 분류된다. 각 유형마다 채권 구조와 신용 분석 방법론이 다르며, 발행자의 성격이 채권의 스프레드와 투자자 베이스를 결정한다. 마치 집주인(정부)·회사원(기업)·은행원(FIG)이 각각 다른 신용도로 대출을 받는 것과 같다.",
+        definitionEn:
+          "The entity that issues bonds to raise capital. Broadly categorized into corporates, financial institutions (FIG — banks, insurance, asset managers), and government/public-sector entities (SSA — sovereigns, supranationals, agencies). Each type has distinct bond structures and credit analysis methodologies, and the issuer's nature determines spreads and investor base. Think of it like a landlord (government), salaried worker (corporate), and banker (FIG) each borrowing at different creditworthiness.",
+      },
+      {
+        term: "FIG (금융기관)",
+        termEn: "Financial Institutions Group",
+        definition:
+          "은행·보험·자산운용사 등 금융기관 발행자를 총칭하는 DCM 용어. AT1·T2 채권 등 특수 자본 구조를 가지며, 규제 요건(BIS 자기자본 비율)이 채권 발행 수요를 결정한다. FIG 분석은 일반 기업 분석과 달리 자기자본 규제, 예금 기반, NIM(순이자마진) 등 금융 특유 지표를 핵심으로 본다. 은행이 발행하는 채권은 투자자에게 해당 은행 건전성에 대한 간접적 베팅이기도 하다.",
+        definitionEn:
+          "A DCM term encompassing financial institution issuers — banks, insurance companies, and asset managers. They carry unique capital structures like AT1 and T2 bonds, with regulatory requirements (BIS capital ratios) driving issuance demand. FIG analysis differs from corporate analysis, focusing on capital regulation, deposit base, and NIM. Buying an FIG bond is in part a bet on the issuing bank's financial health.",
+      },
+      {
+        term: "SSA (소버린·초국가·에이전시)",
+        termEn: "Sovereign, Supranational, Agency",
+        definition:
+          "정부(국채), 세계은행·ADB 같은 초국가 기관, 한국전력·도로공사 같은 정부 지원 기관의 채권을 총칭. 채권 시장에서 가장 안전한 발행자 군으로 분류되며 가장 낮은 신용 스프레드를 형성한다. SSA 채권은 많은 국가의 은행 자기자본 계산 시 위험가중치가 0으로 처리되어 은행 투자자에게 특히 매력적이다. 국채는 수익률 곡선의 기준선(벤치마크)으로 기능하여 모든 다른 채권의 가격 결정 좌표계가 된다.",
+        definitionEn:
+          "Bonds issued by governments (sovereign bonds), supranational organizations like the World Bank and ADB, and government-supported agencies like KEPCO and Korea Expressway Corporation. Classified as the safest issuer category in bond markets, they carry the lowest credit spreads. SSA bonds often receive 0% risk-weighting in bank capital calculations, making them especially attractive to bank investors. Sovereign bonds serve as benchmark yield curves — the coordinate system for pricing all other bonds.",
+      },
+      {
+        term: "발행 신용등급",
+        termEn: "Credit Rating",
+        definition:
+          "S&P·Moody's·Fitch 등 신용평가사가 발행사의 채무 상환 능력을 기호로 등급화한 것. IG(Investment Grade, BBB- 이상) 발행자는 저금리로 광범위한 투자자 풀에 접근 가능하고, HY(High Yield, BB+ 이하) 발행자는 더 높은 쿠폰을 지불해야 한다. 등급 하락(Downgrade)은 발행 비용을 즉각 높이고 일부 규제 투자자의 매도를 유발할 수 있어 '절벽 효과(Fallen Angel)'로 불린다. 등급은 단순한 숫자가 아니라 채권 시장 접근성의 문을 여닫는 열쇠다.",
+        definitionEn:
+          "A letter-grade assessment of an issuer's debt repayment capacity, assigned by rating agencies like S&P, Moody's, and Fitch. Investment Grade (BBB- and above) issuers access broader investor pools at lower rates, while High Yield (BB+ and below) issuers must pay higher coupons. A downgrade immediately raises funding costs and can trigger forced selling by regulated investors — the so-called 'fallen angel' cliff effect. A rating is not just a number; it's the key that opens or closes the bond market door.",
+      },
+      {
+        term: "발행 동기",
+        termEn: "Issuance Motivation",
+        definition:
+          "발행자가 채권 시장을 찾는 이유. 기업은 M&A 자금·설비 투자·채무 재조정을 위해, 은행은 BIS 자기자본 충족을 위해, 정부는 재정 적자 보전과 인프라 투자를 위해 채권을 발행한다. 발행 동기를 이해하면 어떤 구조의 채권이 발행될지, 어떤 투자자가 관심을 가질지 예측할 수 있다. DCM 뱅커는 발행자의 동기를 파악해 최적의 채권 구조와 타이밍을 제안하는 전략가이기도 하다.",
+        definitionEn:
+          "The reason an issuer turns to the bond market. Corporates issue for M&A financing, capex, and debt restructuring; banks issue to meet BIS capital requirements; governments issue to cover fiscal deficits and fund infrastructure. Understanding issuance motivation allows you to predict the bond structure and likely investor interest. A DCM banker is also a strategist who identifies the issuer's motivation and proposes the optimal structure and timing.",
+      },
+    ],
     relatedSlugs: ["dcm-overview", "dcm-ecosystem", "investment-grade", "high-yield", "spread-basis", "dcm-investors"],
     appearsIn: [],
   },
@@ -1825,7 +1866,48 @@ From an IB career perspective, DCM requires a complex blend of structural design
     tags: ["DCM", "투자자", "중앙은행", "연기금", "보험사", "자산운용사", "헤지펀드", "ALM"],
     tagsEn: ["DCM", "Investor", "Central Bank", "Pension", "Insurance", "Asset Manager", "Hedge Fund", "ALM"],
     sections: [],
-    keyTerms: [],
+    keyTerms: [
+      {
+        term: "연기금",
+        termEn: "Pension Fund",
+        definition:
+          "퇴직연금 자산을 운용하는 기관 투자자. 초장기(20~30년) 부채를 매칭하기 위해 장기 IG 채권을 선호하며, 전 세계 채권 시장의 최대 수요 기반 중 하나다. 연기금은 수익률보다 부채 매칭(ALM)을 우선하기 때문에 금리가 낮아도 장기 채권을 꾸준히 매수한다. 마치 20년 후 연금을 지급해야 하는 '약속된 지출'에 맞춰 자산을 미리 잠가두는 것과 같다.",
+        definitionEn:
+          "An institutional investor managing retirement assets. They prefer long-term IG bonds to match ultra-long liabilities (20–30 year horizons) and are among the largest buyers in global bond markets. Pension funds prioritize liability matching (ALM) over yield chasing, buying long-duration bonds consistently even when rates are low. Think of it as locking in assets to match 'promised payouts' due 20 years from now.",
+      },
+      {
+        term: "보험사",
+        termEn: "Insurance Company",
+        definition:
+          "보험계약자에게 미래 지급 의무를 가지고 있어 장기·안정 수익을 선호하는 기관 투자자. ALM(자산부채관리) 관점에서 만기와 듀레이션을 매칭하는 투자 전략을 취한다. 생명보험사는 10~30년 만기 채권에 집중하고, 손해보험사는 상대적으로 단기 채권 비중이 높다. 보험사의 채권 투자 행태는 중앙은행의 금리 정책보다 규제(IFRS 17, RBC 비율)에 더 민감하게 반응하기도 한다.",
+        definitionEn:
+          "An institutional investor with future payment obligations to policyholders, preferring long-term stable returns. They employ asset-liability management (ALM) strategies to match the duration of their assets to liabilities. Life insurers focus on 10–30 year bonds while non-life insurers hold relatively shorter-dated paper. Insurance companies often respond more sensitively to regulation (IFRS 17, RBC ratios) than to central bank rate policy.",
+      },
+      {
+        term: "헤지펀드",
+        termEn: "Hedge Fund",
+        definition:
+          "수익 기회가 있는 곳이라면 IG에서 HY, 부실채권까지 전 스펙트럼에 걸쳐 투자하는 적극적 투자자. 빠른 포지션 전환과 레버리지 활용이 특징이며, 채권 가격 왜곡 시 차익거래 기회를 추구한다. 연기금·보험사가 '구매 후 보유(Buy-and-Hold)' 전략을 쓰는 반면, 헤지펀드는 발행 직후부터 활발하게 매매해 시장에 유동성을 공급한다. DCM 입장에서는 오더북을 빠르게 채워주지만 장기 보유 신뢰도가 낮은 '빠른 손(Fast Money)'으로 불린다.",
+        definitionEn:
+          "An active investor that spans the full credit spectrum from IG to high yield and distressed bonds wherever opportunities exist. Known for rapid position changes and leverage, hedge funds seek arbitrage when bond prices dislocate. While pension funds and insurers pursue 'buy-and-hold' strategies, hedge funds actively trade from the moment of issuance, providing market liquidity. In DCM, they are called 'fast money' — quick to fill order books but unlikely to hold bonds long-term.",
+      },
+      {
+        term: "만기 선호도",
+        termEn: "Maturity Preference",
+        definition:
+          "각 투자자 유형마다 선호하는 채권 만기가 다르다. 중앙은행은 초단기~중기, 연기금·보험사는 장기(10~30년), 일반 기관투자자는 5~10년을 주로 선호한다. 이 수요 불균형이 수익률 곡선의 형태를 결정하며, 특정 만기 구간에 수요가 집중되면 그 구간 금리가 상대적으로 낮아진다. DCM 뱅커는 투자자별 만기 선호를 파악해 발행사에게 '어느 만기로 발행하면 가장 저렴하게 자금을 조달할 수 있는지'를 제안한다.",
+        definitionEn:
+          "Each investor type has a distinct preferred bond maturity. Central banks favor short-to-medium term, pension funds and insurers prefer long-dated (10–30 years), and general institutional investors tend toward 5–10 years. This demand imbalance shapes the yield curve — heavy demand in a specific maturity segment drives that tenor's yields lower. DCM bankers map investor maturity preferences to advise issuers on which tenor offers the cheapest funding.",
+      },
+      {
+        term: "리테일 투자자",
+        termEn: "Retail Investor",
+        definition:
+          "소액 단위로 채권에 투자하는 개인 투자자. 예금 대체 수단으로 단기·안전 채권을 선호하며, 한국에서는 주로 증권사 창구에서 회사채·국채를 매수한다. 최근 개인 투자자의 해외 채권 ETF 투자도 빠르게 증가하고 있다. 기관 투자자에 비해 규모는 작지만, 한국처럼 개인 채권 투자 문화가 발달한 시장에서는 하이일드 공모채의 주요 수요층을 형성하기도 한다.",
+        definitionEn:
+          "An individual investor who buys bonds in small denominations. They prefer short-term, safe bonds as deposit alternatives, typically purchasing corporate bonds and government bonds through brokerage windows in Korea. Retail investment in overseas bond ETFs has also grown rapidly. While smaller than institutional buyers, retail investors form a key demand base for high-yield public bonds in markets like Korea where individual bond investment culture is well-developed.",
+      },
+    ],
     relatedSlugs: ["dcm-overview", "dcm-issuers", "alm", "reach-for-yield", "dcm-bond-products"],
     appearsIn: [],
   },
@@ -1847,7 +1929,48 @@ From an IB career perspective, DCM requires a complex blend of structural design
     tags: ["DCM", "채권상품", "커버드본드", "AT1", "CoCo", "ABS", "CLO", "그린본드", "FRN"],
     tagsEn: ["DCM", "Bond Products", "Covered Bond", "AT1", "CoCo", "ABS", "CLO", "Green Bond", "FRN"],
     sections: [],
-    keyTerms: [],
+    keyTerms: [
+      {
+        term: "고정금리 채권",
+        termEn: "Fixed Rate Bond",
+        definition:
+          "만기까지 동일한 쿠폰 이자를 지급하는 가장 일반적인 채권 형태. 발행 시점의 금리가 만기까지 고정되기 때문에, 이후 시장 금리가 상승하면 채권 가격은 하락하는 금리 리스크가 있다. 단순한 구조 덕분에 기관·개인 투자자 모두에게 선호되며, 대부분의 국채와 IG 회사채가 이 형태다. 마치 고정 월세 계약처럼 시장 변화와 무관하게 약속된 이자가 지급된다.",
+        definitionEn:
+          "The most common bond type, paying the same coupon rate throughout its life until maturity. Since the rate is locked at issuance, the bond price falls when market rates rise — this is known as interest rate risk. Its simplicity makes it popular with both institutional and retail investors; most government bonds and IG corporate bonds take this form. Like a fixed-rent lease, the promised interest is paid regardless of market changes.",
+      },
+      {
+        term: "변동금리 채권 (FRN)",
+        termEn: "Floating Rate Note",
+        definition:
+          "SOFR·Euribor 등 기준금리에 스프레드를 더한 변동 쿠폰을 지급하는 채권. 금리 상승기에 쿠폰이 함께 올라가기 때문에 가격이 액면가 근처에서 안정적으로 유지된다. 단기 자금 운용 펀드·CLO 투자자에게 인기가 높다. 은행이 변동금리 대출을 해줄 때 이자율 위험을 헤지하는 수단으로 FRN을 발행하기도 한다.",
+        definitionEn:
+          "A bond paying a coupon that resets periodically based on a reference rate (like SOFR or Euribor) plus a spread. Since the coupon rises with interest rates, the price stays near par even in rising rate environments. Popular among short-term money market funds and CLO investors. Banks also issue FRNs to hedge the interest rate risk of their floating-rate loan portfolios.",
+      },
+      {
+        term: "영구채 (Perpetual Bond)",
+        termEn: "Perpetual Bond / Perp",
+        definition:
+          "원칙적으로 만기가 없는 채권. 이자는 영구적으로 지급하되 발행사 재량에 따라 특정 시점에 조기상환(Call)이 가능하다. AT1 자본 증권(은행 영구채)이 대표적이며, 회계·규제상 자기자본으로 인정받을 수 있어 BIS 비율 관리에 활용된다. 투자자 입장에서는 만기 없는 현금 흐름을 받는 대신, 금리 리스크와 콜 위험을 감수해야 한다.",
+        definitionEn:
+          "A bond with no stated maturity date in principle. Interest is paid indefinitely, but the issuer can redeem it at its discretion at specific call dates. AT1 capital securities (bank perps) are the prime example, counting as regulatory capital under Basel III for BIS ratio management. For investors, the trade-off is receiving perpetual cash flows while bearing interest rate risk and call risk.",
+      },
+      {
+        term: "제로쿠폰 채권",
+        termEn: "Zero-Coupon Bond",
+        definition:
+          "이자를 지급하지 않는 대신 액면가보다 크게 할인된 가격으로 발행되고, 만기에 액면가를 수령하는 채권. 듀레이션이 만기와 동일하여 채권 중 금리 변동에 가장 민감하다. 중간 이자 재투자 위험이 없어 특정 미래 시점의 현금이 필요한 투자자(연기금, 보험사)에게 적합하다. 1,000원을 받기 위해 오늘 600원을 내는 것처럼, 시간 가치를 압축한 상품이다.",
+        definitionEn:
+          "A bond that pays no periodic interest but is issued at a deep discount to face value, with the investor receiving full face value at maturity. Its duration equals its maturity, making it the most sensitive bond type to interest rate changes. With no reinvestment risk from interim coupons, it suits investors needing a specific lump sum at a future date (pensions, insurers). Like paying 600 today to receive 1,000 later — a product that compresses the time value of money.",
+      },
+      {
+        term: "구조화 채권 (Structured Note)",
+        termEn: "Structured Note",
+        definition:
+          "금리·환율·주가 등 기초자산 성과에 연동된 수익 구조를 내장한 채권. ELS와 유사하나 채권 형태로 발행되어 원금 보장 여부, 쿠폰 조건, 조기상환 트리거가 다양하게 설계된다. 복잡한 구조로 높은 잠재 수익을 제공하지만 리스크도 그만큼 크며, 발행사는 파생상품을 통해 투자자에게 전가한 리스크를 헤지한다. 전통 채권과 파생상품이 결합된 상품이라 이해하기 어렵고 유동성도 낮은 편이다.",
+        definitionEn:
+          "A bond with an embedded payoff structure linked to the performance of an underlying asset — interest rates, FX, equities, or credit. Similar to ELS but issued in bond form, with customizable principal protection, coupon conditions, and early redemption triggers. The complex structure offers high potential returns but commensurate risks; the issuer hedges the transferred risk through derivatives. As a hybrid of traditional bonds and derivatives, structured notes are hard to value and tend to have low secondary market liquidity.",
+      },
+    ],
     relatedSlugs: ["dcm-overview", "dcm-investors", "oas", "spread-basis", "high-yield", "dcm-international-markets"],
     appearsIn: [],
   },
@@ -1869,7 +1992,48 @@ From an IB career perspective, DCM requires a complex blend of structural design
     tags: ["DCM", "외화채", "Yankee", "Eurobond", "사무라이", "Formosa", "Arirang", "달러채"],
     tagsEn: ["DCM", "International Bond", "Yankee", "Eurobond", "Samurai", "Formosa", "Arirang", "Dollar Bond"],
     sections: [],
-    keyTerms: [],
+    keyTerms: [
+      {
+        term: "유로본드",
+        termEn: "Eurobond",
+        definition:
+          "발행국 이외의 통화로, 해당 통화 발행국 이외의 장소에서 발행되는 채권. 명칭에 'Euro'가 있지만 유럽이나 유로화에 한정되지 않으며, 한국 기업이 런던에서 달러로 발행하는 채권도 유로본드다. 규제가 비교적 유연하고 국제 투자자 베이스가 넓어 대규모 공모 발행에 적합하다. 세금 혜택과 익명성 덕분에 역사적으로 기관 투자자들이 선호해온 시장이다.",
+        definitionEn:
+          "A bond issued in a currency other than the currency of the country where it is issued. Despite the 'Euro' prefix, it has no relation to Europe or the euro — a Korean company issuing dollar bonds in London qualifies as a Eurobond. Relatively flexible regulation and a broad international investor base make it well-suited for large public offerings. Historically favored by institutional investors for its tax advantages and anonymity.",
+      },
+      {
+        term: "양키본드",
+        termEn: "Yankee Bond",
+        definition:
+          "외국 기업이나 정부가 미국 투자자를 대상으로 달러화로 미국에서 발행하는 채권. SEC 등록 또는 Rule 144A 사모 면제를 통해 발행 가능하며, 미국 투자자 풀에 직접 접근한다는 것이 핵심 장점이다. 한국 기업들도 미국 자본 시장 접근을 위해 양키본드를 자주 활용한다. 미국 국채 시장과 연동되어 T+스프레드로 가격이 결정된다.",
+        definitionEn:
+          "A bond issued in the United States in USD by a foreign company or government, targeting U.S. investors. Issued either via SEC registration or Rule 144A private placement exemption, the key advantage is direct access to the U.S. investor pool. Korean issuers frequently tap the Yankee bond market to reach U.S. capital markets. Pricing is benchmarked against U.S. Treasuries as a T+ spread.",
+      },
+      {
+        term: "사무라이본드",
+        termEn: "Samurai Bond",
+        definition:
+          "외국 발행자가 일본에서 엔화로 발행하는 채권. 저금리의 안정적인 일본 자금을 유치하는 수단으로, 엔화 조달 후 크로스커런시 스왑을 통해 달러 등 다른 통화로 전환해 사용한다. 일본 투자자들은 보수적 성향으로 IG 발행사를 선호하며, 한국 공기업들이 일본 자금 조달을 위해 활발히 활용하는 시장이다. 사무라이는 일본에서 외국 발행자를 위한 '일본판 양키본드'라 할 수 있다.",
+        definitionEn:
+          "A bond issued in Japan in JPY by a foreign issuer. Used to tap into Japan's low-cost, stable funding pool, with JPY proceeds typically converted to USD or other currencies via cross-currency swaps. Japanese investors tend to be conservative and favor IG issuers; Korean SOEs are active in this market for Japanese funding. Samurai bonds are effectively the 'Japanese equivalent of Yankee bonds' for foreign issuers.",
+      },
+      {
+        term: "144A / Reg S",
+        termEn: "Rule 144A / Regulation S",
+        definition:
+          "미국 증권법의 두 가지 해외 채권 발행 면제 규정. 144A는 미국 적격기관투자자(QIB) 대상 사모 발행으로 SEC 등록 없이 미국 자본 시장에 접근 가능하다. RegS는 미국 외 투자자 대상 발행을 규율한다. 대부분의 글로벌 하이일드 딜은 144A/RegS를 동시에 사용해 미국과 해외 투자자 모두에게 판매한다.",
+        definitionEn:
+          "Two U.S. securities law exemptions for international bond issuance. Rule 144A allows private placement to U.S. Qualified Institutional Buyers (QIBs) without SEC registration, providing access to U.S. capital markets. Regulation S governs issuances to non-U.S. investors. Most global high-yield deals are launched as combined 144A/RegS offerings to reach both U.S. and international investors simultaneously.",
+      },
+      {
+        term: "외화 조달 동기",
+        termEn: "Motivation for Foreign Currency Issuance",
+        definition:
+          "기업·기관이 해외에서 달러·유로·엔 채권을 발행하는 이유는 크게 네 가지다: ① 국내보다 낮은 조달 금리 ② 투자자 베이스 다양화를 통한 발행 규모 확대 ③ 외화 부채로 환리스크 자연 헤지 ④ 글로벌 자본 시장 존재감 강화. 환헤지 비용을 포함한 종합 조달 비용(올인 코스트)이 국내 발행보다 유리한지 계산하는 것이 핵심 의사결정이다. DCM 뱅커는 통화별 아비트라지 기회를 발행사에게 제시하며 딜을 수임한다.",
+        definitionEn:
+          "There are four main reasons companies and institutions issue foreign currency bonds abroad: (1) lower funding rates than domestic markets, (2) expanded issuance size through investor base diversification, (3) natural hedging of FX risk via foreign currency debt, and (4) enhanced global capital market presence. The core decision is whether the all-in funding cost including FX hedging is cheaper than domestic issuance. DCM bankers pitch cross-currency arbitrage opportunities to win mandates from issuers.",
+      },
+    ],
     relatedSlugs: ["dcm-overview", "dcm-bond-products", "spread-basis", "dcm-deal-process"],
     appearsIn: [],
   },
@@ -1891,7 +2055,48 @@ From an IB career perspective, DCM requires a complex blend of structural design
     tags: ["DCM", "딜프로세스", "Mandate", "로드쇼", "북빌딩", "프라이싱", "클로징", "PP"],
     tagsEn: ["DCM", "Deal Process", "Mandate", "Roadshow", "Book Building", "Pricing", "Closing", "Private Placement"],
     sections: [],
-    keyTerms: [],
+    keyTerms: [
+      {
+        term: "만데이트",
+        termEn: "Mandate",
+        definition:
+          "발행사가 특정 IB에게 채권 주간사를 맡기는 공식 결정. 경쟁 피치(Beauty Contest) 이후 금리 수준·투자자 커버리지·팀 경험 등을 종합 평가해 선택한다. 만데이트를 받은 IB는 발행 구조 설계부터 클로징까지 전 과정을 주도한다. 딜 경쟁에서 만데이트 수임 실적은 IB의 리그테이블 순위와 직결되어 영업 활동의 궁극적 목표가 된다.",
+        definitionEn:
+          "The formal selection of a specific investment bank as bond underwriter by the issuer. Following a competitive pitch (beauty contest), the issuer chooses based on pricing capability, investor coverage, and team experience. The mandated bank leads the entire process from structure design to closing. Winning mandates feeds directly into league table rankings, making it the ultimate commercial goal of IB origination efforts.",
+      },
+      {
+        term: "로드쇼",
+        termEn: "Roadshow",
+        definition:
+          "발행사 경영진이 주요 투자자를 직접 방문하거나 영상 회의로 채권 발행 계획과 사업 전망을 설명하는 IR 활동. 통상 1~5일에 걸쳐 주요 금융 센터의 투자자를 순방한다. 투자자 피드백을 반영해 최종 발행 가격과 규모를 조정하며, 기관 투자자와의 신뢰 관계 구축에도 중요한 역할을 한다. 디지털 전환으로 최근에는 글로벌 버추얼 로드쇼가 일반화됐다.",
+        definitionEn:
+          "An IR activity where the issuer's management directly meets key investors — in person or via video conference — to present bond issuance plans and business outlook. Typically spanning 1–5 days across major financial centers. Investor feedback gathered during roadshows shapes the final pricing and deal size, and the process also builds institutional relationships. Digital transformation has made global virtual roadshows increasingly common.",
+      },
+      {
+        term: "북빌드",
+        termEn: "Book Build",
+        definition:
+          "투자자로부터 가격·물량 주문을 취합해 발행 가격과 물량을 결정하는 과정. 오더북이 목표 이상으로 채워지면(오버서브스크라이브) 가격이 개선되고, 미달이면 발행을 취소하거나 조건을 낮춰야 한다. 주간사(Bookrunner)는 실시간으로 오더 현황을 모니터링하며 Real Money vs. Fast Money 비율을 고려해 최적 가격을 결정한다. 북빌드는 채권 발행의 심장으로, 여기서 발행 성패가 결정된다.",
+        definitionEn:
+          "The process of collecting price and volume orders from investors to determine the final issue price and deal size. An oversubscribed order book allows for price improvement (tightening), while an undersubscribed book may force deal cancellation or weaker terms. The bookrunner monitors orders in real time, balancing real money vs. fast money to set the optimal price. The book build is the heart of bond issuance — this is where success or failure is decided.",
+      },
+      {
+        term: "그레이 마켓",
+        termEn: "Grey Market / When-Issued Market",
+        definition:
+          "채권이 공식 발행되기 전, 기관 투자자들 사이에서 비공식으로 발행 예정 채권을 거래하는 시장. 발행 가격에 대한 시장의 기대치를 선행 반영하며, 그레이 마켓 가격이 공식 IPT보다 타이트하면 강한 수요 신호로 해석된다. DCM 뱅커들은 그레이 마켓 동향을 실시간으로 체크해 IPT 설정 시 참고한다. 공식 시장은 아니지만 발행 성공 여부를 가늠하는 중요한 선행 지표다.",
+        definitionEn:
+          "An informal market where institutional investors trade anticipated bonds before their official issuance. Grey market prices reflect market expectations about the final deal price in advance — if they are tighter than the official IPT, it signals strong demand. DCM bankers monitor grey market movements in real time to calibrate IPT levels. While not an official market, grey market activity is a critical leading indicator of deal success.",
+      },
+      {
+        term: "클로징",
+        termEn: "Closing",
+        definition:
+          "채권 발행의 최종 단계로, 법적 문서 서명, 자금 이전, 채권 등록이 완료되는 날. 클로징 후 채권이 2차 시장에서 거래 가능 상태가 된다. 통상 거래 체결일(Trade Date)로부터 T+3~T+5 영업일 후에 클로징이 이루어진다. 클로징 전 법무팀의 서류 검토와 결제 기관(Euroclear, Clearstream) 등록이 선행되어야 하며, 모든 조건 충족 시 발행사에게 자금이 입금된다.",
+        definitionEn:
+          "The final stage of bond issuance, when legal documents are signed, funds are transferred, and the bond is formally registered. After closing, the bond becomes tradeable in the secondary market. Closing typically occurs T+3 to T+5 business days after the trade date. It requires prior completion of legal document review and registration with clearing houses (Euroclear, Clearstream); once all conditions are met, the proceeds are credited to the issuer.",
+      },
+    ],
     relatedSlugs: ["dcm-overview", "book-building", "nic", "syndicate", "dcm-pricing", "dcm-international-markets"],
     appearsIn: [],
   },
@@ -1913,7 +2118,48 @@ From an IB career perspective, DCM requires a complex blend of structural design
     tags: ["DCM", "프라이싱", "G스프레드", "Z스프레드", "OAS", "NIC", "Bloomberg YAS"],
     tagsEn: ["DCM", "Pricing", "G-Spread", "Z-Spread", "OAS", "NIC", "Bloomberg YAS"],
     sections: [],
-    keyTerms: [],
+    keyTerms: [
+      {
+        term: "IPT (초기 가격 제시)",
+        termEn: "Initial Price Talk",
+        definition:
+          "북빌드 개시 시 IB가 시장에 제시하는 예상 발행 금리 또는 스프레드 범위. 수요 반응을 보고 점차 좁혀가며 최종 Guidance → Final Price로 확정된다. IPT는 발행사에게 불리하지 않을 정도로 보수적으로 시작하여 수요가 확인되면 타이트하게 이동하는 것이 일반적이다. 마치 경매의 시작 가격처럼, IPT는 투자자들의 첫 반응을 측정하는 탐색 도구다.",
+        definitionEn:
+          "The initial expected yield or spread range that an IB announces to the market at the start of a book build. It narrows progressively as demand is gauged, moving to Guidance and then Final Price. IPT typically starts conservatively to not disadvantage the issuer, then tightens as demand builds. Like an auction's opening bid, IPT is a price discovery tool to measure the first wave of investor reactions.",
+      },
+      {
+        term: "가격 개선 (Tightening)",
+        termEn: "Price Tightening",
+        definition:
+          "오더북이 목표 이상으로 채워지면 최종 발행 가격을 IPT보다 낮은 금리(더 좋은 가격)로 확정하는 과정. 발행사 입장에서는 더 저렴하게 자금을 조달하는 유리한 결과다. 반대로 수요 부진 시에는 스프레드를 확대하거나 발행 자체를 철회하기도 한다. Tightening 폭이 클수록 딜의 성공과 발행사의 신용 강도를 입증한다.",
+        definitionEn:
+          "The process of finalizing the issue at a lower yield (better price) than the initial IPT when the order book is significantly oversubscribed. For the issuer, this means achieving cheaper funding — a favorable outcome. Conversely, weak demand may require widening the spread or even withdrawing the deal. A large tightening move demonstrates deal success and the issuer's credit strength.",
+      },
+      {
+        term: "NIC (신규 발행 콘세션)",
+        termEn: "New Issue Concession",
+        definition:
+          "새 채권을 시장에 소화시키기 위해 발행사가 기존 유통 채권 대비 추가로 지급하는 스프레드 프리미엄. 투자자에게 기존 채권 대신 새 채권을 살 이유를 제공한다. NIC가 작을수록 발행사에게 유리하지만, 너무 작으면 수요 부진 위험이 있다. 강한 크레딧과 우호적 시장 환경에서는 NIC 없이 또는 마이너스 NIC로 발행하는 경우도 있다.",
+        definitionEn:
+          "The additional spread premium an issuer pays over its existing secondary market bonds to incentivize investors to buy the new issue. It gives investors a reason to choose the new bond over existing paper. A smaller NIC benefits the issuer, but too little risks a thin order book. In favorable markets with strong credits, issuers sometimes print with zero or even negative NIC.",
+      },
+      {
+        term: "OAS (옵션조정 스프레드)",
+        termEn: "Option-Adjusted Spread",
+        definition:
+          "콜·풋 등 내재 옵션 가치를 제거하고 순수 신용 리스크에 해당하는 스프레드만 추출한 지표. 옵션이 내장된 채권(콜러블, AT1 등)의 실질 신용 프리미엄을 비교할 때 사용한다. OAS가 같다면 옵션 구조가 달라도 동일한 신용 리스크를 내포한다고 볼 수 있다. 마치 보험료를 제외하고 순수 원가를 비교하는 것처럼, 옵션 비용을 걷어낸 진짜 스프레드를 보는 도구다.",
+        definitionEn:
+          "A spread measure that strips out the value of embedded options (calls, puts) to isolate pure credit risk. Used to compare the true credit premium of bonds with embedded options (callables, AT1s, etc.). If two bonds have the same OAS, they carry equivalent credit risk despite differing option structures. Like comparing costs net of insurance premiums, OAS is the tool for seeing the 'real' spread after removing option costs.",
+      },
+      {
+        term: "포워드 커브",
+        termEn: "Forward Rate Curve",
+        definition:
+          "현재 시점의 금리 구조에서 추출한, 미래 특정 시점의 예상 단기금리를 연결한 곡선. 채권 만기별 실제 수익률이 포워드 커브에서 얼마나 이탈했는지를 비교해 상대적 매력도를 평가한다. 포워드 커브가 가파를수록 시장이 미래 금리 상승을 기대한다는 신호다. DCM 뱅커는 포워드 커브를 활용해 발행사에게 '지금 장기로 발행하는 것이 미래보다 유리한지'를 분석한다.",
+        definitionEn:
+          "A curve derived from the current yield curve structure, representing expected short-term rates at future points in time. Used to assess relative attractiveness by comparing actual yields across maturities against the forward curve. A steeper forward curve signals that the market expects future rate increases. DCM bankers use forward curves to analyze whether it is more advantageous for an issuer to lock in long-term funding today versus waiting.",
+      },
+    ],
     relatedSlugs: ["dcm-overview", "spread-basis", "oas", "nic", "book-building", "dcm-deal-process"],
     appearsIn: [],
   },
@@ -1935,7 +2181,48 @@ From an IB career perspective, DCM requires a complex blend of structural design
     tags: ["DCM", "차이니즈월", "MNPI", "신디케이트", "Reg S", "144A", "규제", "문서화"],
     tagsEn: ["DCM", "Chinese Wall", "MNPI", "Syndicate", "Reg S", "144A", "Regulation", "Documentation"],
     sections: [],
-    keyTerms: [],
+    keyTerms: [
+      {
+        term: "셸프 등록",
+        termEn: "Shelf Registration",
+        definition:
+          "일정 기간(보통 3년) 동안 반복 발행할 수 있는 포괄 공시 제도. 미국 Form S-3, 일본 방식 등이 대표적이다. 매번 새로 신고하지 않아도 되어 시장 창이 열릴 때 신속하게 발행할 수 있다. 사전에 등록을 완비한 발행사는 좋은 시장 환경이 왔을 때 24~48시간 내 발행을 완료할 수 있어 기회 비용을 최소화한다.",
+        definitionEn:
+          "A pre-registration framework that allows repeated bond issuances over a set period (typically three years) without filing anew each time. Examples include the U.S. Form S-3 and Japanese shelf systems. Because documentation is pre-approved, issuers can launch when market windows open. An issuer with a shelf in place can complete a deal in 24–48 hours when favorable conditions arise, minimizing opportunity cost.",
+      },
+      {
+        term: "담보부 채권 vs 무담보 채권",
+        termEn: "Secured vs Unsecured Bond",
+        definition:
+          "담보부 채권은 특정 자산(부동산·기계·수익권)이 채권에 담보로 설정되어 디폴트 시 담보 처분으로 우선 변제된다. 무담보 채권은 일반 채권자 위계에서 청산 시 변제되며, 담보부에 비해 동일 발행사라도 더 높은 스프레드를 지불한다. 담보 유무는 등급 평가와 스프레드 결정에 직접적 영향을 미친다. 은행 커버드 본드가 대표적인 담보부 채권으로, 주택 담보 자산을 기반으로 일반 선순위채보다 낮은 금리로 발행된다.",
+        definitionEn:
+          "Secured bonds have specific assets (real estate, equipment, receivables) pledged as collateral, giving bondholders priority claim on those assets in a default. Unsecured bonds rank within the general creditor hierarchy in a liquidation and require higher spreads than secured bonds from the same issuer. Collateral presence directly impacts rating and spread determination. Covered bonds (e.g., bank mortgage-backed bonds) are a prime example of secured debt, issued at lower rates than plain senior unsecured bonds.",
+      },
+      {
+        term: "기한이익 상실",
+        termEn: "Event of Default",
+        definition:
+          "채무불이행 사유 발생 시 원금 전액을 즉시 상환해야 하는 채권자 권리 발동 조건. 이자 미납, 코버넌트 위반, 파산 신청 등이 트리거가 된다. 인덴처에 상세히 정의되어 있으며, 단일 채권의 EOD가 교차 디폴트 조항을 통해 다른 채권에도 연쇄 발동될 수 있다. 투자자는 EOD 조항을 통해 최악의 시나리오에서도 일정 수준의 법적 보호를 받는다.",
+        definitionEn:
+          "A trigger condition in the bond indenture that accelerates the full principal repayment obligation when a default event occurs — such as missed interest payments, covenant breach, or bankruptcy filing. Defined in detail in the indenture, a single bond's EOD can cascade to other bonds via cross-default provisions. EOD clauses give investors a layer of legal protection even in worst-case scenarios.",
+      },
+      {
+        term: "바젤 III 규제",
+        termEn: "Basel III",
+        definition:
+          "BIS가 은행의 자기자본 적정성·유동성·레버리지를 규율하는 국제 표준. CET1 비율·LCR·NSFR 등을 요구한다. 바젤 III가 은행에게 AT1(신종자본증권)·T2(후순위채)를 발행해야 하는 핵심 동인이 된다. 규제가 강화될수록 은행의 채권 발행 수요가 증가하며, 은행채 투자자는 규제 변화를 주요 신용 분석 요소로 반드시 모니터링해야 한다.",
+        definitionEn:
+          "The BIS international standard governing bank capital adequacy, liquidity, and leverage. It requires metrics like CET1 ratio, LCR, and NSFR. Basel III is the primary driver behind bank issuance of AT1 (additional tier 1) and T2 (tier 2) bonds. As regulations tighten, bank bond issuance demand grows, and investors in bank bonds must monitor regulatory changes as a core credit analysis factor.",
+      },
+      {
+        term: "MNPI (미공개 중요 정보)",
+        termEn: "Material Non-Public Information",
+        definition:
+          "일반에 공개되지 않은 채권 발행사의 중요 정보. 내부자 거래 규제상 MNPI를 보유한 자는 해당 채권을 거래하거나 투자자에게 선택적으로 공개할 수 없다. DCM 딜 과정에서 IB 내부 팀은 MNPI에 노출될 수 있으므로, 차이니즈 월을 통해 트레이딩 데스크와 정보를 차단한다. MNPI 관리 실패는 규제 제재와 법적 책임으로 이어질 수 있다.",
+        definitionEn:
+          "Material information about a bond issuer that has not been disclosed to the public. Under insider trading regulations, anyone possessing MNPI cannot trade the relevant bonds or selectively disclose it to investors. In DCM deal execution, internal IB teams may be exposed to MNPI, which is why Chinese Walls separate them from the trading desk. Failure to manage MNPI properly can result in regulatory sanctions and legal liability.",
+      },
+    ],
     relatedSlugs: ["dcm-overview", "chinese-wall", "mnpi", "syndicate", "dcm-deal-process", "dcm-pricing"],
     appearsIn: [],
   },
@@ -1957,7 +2244,48 @@ From an IB career perspective, DCM requires a complex blend of structural design
     tags: ["DCM", "CCBS", "크로스커런시스왑", "Arb", "북빌딩", "IPT", "NIC", "외평채", "사무라이본드", "포모사본드", "신디케이트"],
     tagsEn: ["DCM", "CCBS", "Cross-Currency Swap", "Arb", "Book-Building", "IPT", "NIC", "KTB", "Samurai Bond", "Formosa Bond", "Syndicate"],
     sections: [],
-    keyTerms: [],
+    keyTerms: [
+      {
+        term: "듀얼 트랑쉐 발행",
+        termEn: "Dual-Tranche Issuance",
+        definition:
+          "만기가 다른 두 종류의 채권을 동시에 발행하는 방법. 예를 들어 5년물 + 10년물을 동시 발행하면 투자자 수요를 만기별로 분산 수용하여 조달 비용을 최적화할 수 있다. 단일 트랑쉐보다 총 발행 규모를 키울 수 있고, 다양한 투자자 베이스에 접근해 오더북의 질을 높인다. 대규모 딜에서 자주 사용되며 각 트랑쉐의 상대적 수요 강도가 가격 결정에 서로 영향을 미친다.",
+        definitionEn:
+          "The simultaneous issuance of two bond tranches with different maturities — for example, a 5-year and a 10-year issued at the same time. This absorbs investor demand across maturities, optimizing the issuer's funding cost. It increases total deal size versus a single tranche and improves order book quality by reaching a wider investor base. Common in large-scale deals, where the relative demand strength of each tranche influences the pricing of the other.",
+      },
+      {
+        term: "그린슈 옵션",
+        termEn: "Greenshoe Option",
+        definition:
+          "채권 발행 시 주관사가 초과 수요 발생 시 원래 공모 물량에 추가해 발행할 수 있는 옵션. 초기 발행 규모보다 더 많은 수요가 확인되면 발행사가 추가 물량을 같은 가격으로 발행해 자금 조달을 극대화한다. 주식 IPO에서도 같은 이름으로 쓰이며, 채권에서는 'Upsize Option' 또는 'Over-allotment Option'으로도 불린다. 발행사 입장에서는 '일단 최소 규모로 시작해, 수요가 있으면 키운다'는 유연한 전략이다.",
+        definitionEn:
+          "An option granted to the bookrunner to issue additional bonds at the same price when demand exceeds the initial offering size. When confirmed demand surpasses the original deal size, the issuer exercises this option to maximize proceeds at favorable terms. Known by the same name in equity IPOs and also called 'Upsize Option' or 'Over-allotment Option' in bond markets. For the issuer, it's a flexible strategy: 'start small, and scale up if demand warrants it.'",
+      },
+      {
+        term: "주간사 역할",
+        termEn: "Bookrunner / Lead Manager",
+        definition:
+          "채권 발행의 주간사(Bookrunner)는 가격 설정, 로드쇼 조직, 북빌드 진행, 배분 결정, 2차 시장 초기 유동성 공급의 전 과정을 책임진다. 여러 IB가 공동 주간사(Joint Bookrunner)로 참여할 때 리드 레프트(Left-Lead)가 실질적 주도권을 갖는다. 딜이 성공하면 리그테이블 실적이 되고, 실패하면 평판 리스크를 진다. 주간사는 발행사의 이익을 대리하면서도 시장 투자자와의 관계를 동시에 관리해야 하는 이중적 역할을 수행한다.",
+        definitionEn:
+          "The lead manager (bookrunner) is responsible for the entire bond issuance process — pricing, roadshow organization, book build execution, allocation decisions, and initial secondary market liquidity support. When multiple banks serve as joint bookrunners, the 'left-lead' holds primary authority. A successful deal becomes a league table credit; a failed deal carries reputational risk. The bookrunner plays a dual role: representing the issuer's interests while simultaneously managing relationships with market investors.",
+      },
+      {
+        term: "콜옵션 / 풋옵션",
+        termEn: "Call / Put Option",
+        definition:
+          "콜옵션은 발행사가 만기 전 채권을 조기 상환할 수 있는 권리, 풋옵션은 투자자가 채권을 발행사에 되팔 수 있는 권리다. 콜옵션이 있으면 금리 하락 시 저금리 채권을 재발행할 수 있어 발행사에게 유리하지만, 투자자는 이를 감안해 추가 스프레드를 요구한다. 풋옵션은 투자자 보호 수단으로 신용 이벤트 발생 시 조기 회수 가능성을 제공한다. 옵션의 존재는 채권 가격과 듀레이션 계산을 복잡하게 만든다.",
+        definitionEn:
+          "A call option gives the issuer the right to redeem the bond before maturity; a put option gives investors the right to sell the bond back to the issuer. Call options benefit issuers in falling rate environments by enabling refinancing at lower rates, but investors demand a premium spread in compensation. Put options protect investors by providing early exit if credit events occur. Embedded options complicate bond pricing and duration calculation.",
+      },
+      {
+        term: "가격 발견",
+        termEn: "Price Discovery",
+        definition:
+          "시장 참여자들의 주문(IOI·북빌드 오더)을 통해 채권의 공정 가격이 형성되는 과정. 활발한 2차 시장 유동성이 가격 발견을 원활하게 하고 1차 발행 비용을 낮춘다. 가격 발견이 잘 이루어지는 시장에서는 NIC가 낮아지고 발행사가 유리한 조건을 얻는다. DCM 관점에서 가격 발견의 투명성과 효율성은 채권 시장 전반의 신뢰성을 결정하는 핵심 요소다.",
+        definitionEn:
+          "The process by which the fair price of a bond is established through market participants' orders — IOIs and book-build orders. Deep secondary market liquidity facilitates price discovery and lowers primary market issuance costs. In markets with efficient price discovery, NIC narrows and issuers secure more favorable terms. From a DCM perspective, the transparency and efficiency of price discovery is a cornerstone of overall bond market credibility.",
+      },
+    ],
     relatedSlugs: ["dcm-deal-process", "dcm-pricing", "dcm-international-markets", "dcm-structure-regulation", "dcm-rate-benchmarks"],
     appearsIn: [],
   },
@@ -1979,7 +2307,48 @@ From an IB career perspective, DCM requires a complex blend of structural design
     tags: ["DCM", "텐더오퍼", "익스체인지오퍼", "부채관리", "LME", "Make-Whole Call", "Par Call", "Consent Solicitation", "만기절벽"],
     tagsEn: ["DCM", "Tender Offer", "Exchange Offer", "Liability Management", "LME", "Make-Whole Call", "Par Call", "Consent Solicitation", "Maturity Wall"],
     sections: [],
-    keyTerms: [],
+    keyTerms: [
+      {
+        term: "LME (부채 관리 거래)",
+        termEn: "Liability Management Exercise",
+        definition:
+          "기업이 기존 채권을 사전 상환·교환·재구조화해 만기 프로파일, 금리, 코버넌트 조건을 개선하는 일련의 거래. Tender Offer, Exchange Offer, Consent Solicitation이 대표적 수단이다. LME는 새 채권 발행과 함께 실행되는 경우가 많으며, 고금리 구채권 소각과 저금리 신채권 발행을 동시에 진행해 조달 비용을 낮춘다. 만기 집중으로 인한 유동성 위기를 선제적으로 예방하는 부채 관리 전략이다.",
+        definitionEn:
+          "A set of transactions by which a company proactively retires, exchanges, or restructures existing bonds to improve its maturity profile, interest cost, or covenant terms. Key tools include tender offers, exchange offers, and consent solicitations. LME is often executed alongside new bond issuance, simultaneously retiring high-coupon old bonds and issuing lower-coupon new ones to reduce funding costs. It is a proactive debt management strategy to prevent liquidity crises from maturity concentrations.",
+      },
+      {
+        term: "텐더오퍼 (채권 공개매수)",
+        termEn: "Tender Offer",
+        definition:
+          "발행사가 기존 채권 보유자에게 일정 프리미엄을 지급하고 채권을 시장에서 조기 매입하는 행위. 금리 하락기에 고금리 채권을 소각하고 저금리 채권을 재발행하는 비용 절감 전략으로 사용된다. 투자자 입장에서는 시장가보다 높은 가격에 매도할 기회를 제공받는다. 텐더오퍼 가격은 Make-Whole 계산 또는 Fixed Spread 방식으로 결정되며, 수락률이 낮으면 전략적 의미가 줄어든다.",
+        definitionEn:
+          "An action in which the issuer offers to buy back outstanding bonds from holders at a premium price, retiring them ahead of maturity. Used in falling rate environments to retire high-coupon bonds and refinance with lower-cost debt. For investors, it offers an exit above market price. Tender prices are set using make-whole calculations or a fixed spread approach; low acceptance rates reduce the strategic effectiveness of the exercise.",
+      },
+      {
+        term: "교환오퍼",
+        termEn: "Exchange Offer",
+        definition:
+          "기존 채권을 새로운 조건의 채권으로 교환하는 거래. 현금 지급 없이 만기·금리·코버넌트 구조를 변경할 수 있어 현금이 부족한 상황에서도 부채 구조를 재편할 수 있다. 부실 기업의 법정 외 구조조정 수단으로도 활용되며, 투자자는 헤어컷을 수용하는 대신 새로운 채권을 받는다. 성공적인 교환오퍼는 채권 보유자 과반수 이상의 참여가 필요하다.",
+        definitionEn:
+          "A transaction that exchanges existing bonds for new bonds with modified terms — without cash payment. It allows restructuring of maturity, coupon, or covenants even when the issuer lacks cash. Also used as an out-of-court restructuring tool for distressed companies, where investors accept a haircut in exchange for new bonds. A successful exchange offer requires participation from a majority of bondholders.",
+      },
+      {
+        term: "컨센트 솔리시테이션",
+        termEn: "Consent Solicitation",
+        definition:
+          "채권 인덴처의 특정 조항을 변경하기 위해 채권 보유자 과반수(또는 슈퍼마조리티) 동의를 구하는 절차. 코버넌트 완화, 담보 제거, 만기 연장, 크로스 디폴트 조항 수정 등의 목적으로 사용된다. 동의 대가로 발행사는 보통 현금 수수료(Consent Fee)를 지급한다. 교환오퍼와 함께 진행되는 경우가 많으며, 법적 절차(파산 신청) 없이 채권 조건을 유연하게 변경할 수 있는 수단이다.",
+        definitionEn:
+          "A process for soliciting bondholder consent (majority or supermajority) to amend specific indenture terms. Used to relax covenants, release collateral, extend maturities, or modify cross-default provisions. In exchange, the issuer typically pays a consent fee. Often conducted alongside exchange offers, it allows flexible modification of bond terms without resorting to formal legal proceedings (bankruptcy).",
+      },
+      {
+        term: "리파이낸싱",
+        termEn: "Refinancing",
+        definition:
+          "만기가 도래하거나 금리 조건이 불리한 기존 부채를 새로운 채권·대출로 교체하는 행위. 금리 인하 사이클에서는 비용 절감 효과가 크고, 만기 연장을 통해 유동성을 확보한다. 시장 혼란 시 리파이낸싱 실패가 유동성 위기로 직결될 수 있어, 기업은 통상 만기 1~2년 전에 선제적으로 리파이낸싱을 추진한다. 만기 절벽(Maturity Wall) 관리가 기업 재무의 핵심이다.",
+        definitionEn:
+          "Replacing existing debt that is maturing or carrying unfavorable terms with new bonds or loans. In rate-cutting cycles, refinancing yields significant cost savings while extending maturities improves liquidity. Refinancing failures during market dislocations can directly trigger liquidity crises, which is why companies typically pursue refinancing proactively 1–2 years before maturity. Managing the maturity wall is a core corporate treasury function.",
+      },
+    ],
     relatedSlugs: ["dcm-execution", "dcm-pricing", "dcm-deal-process", "dcm-bond-products"],
     appearsIn: [],
   },
@@ -2001,7 +2370,48 @@ From an IB career perspective, DCM requires a complex blend of structural design
     tags: ["DCM", "그린본드", "ESG", "SLB", "GBP", "Greenium", "SPO", "K-택소노미", "소셜본드", "그린워싱", "외평채"],
     tagsEn: ["DCM", "Green Bond", "ESG", "SLB", "GBP", "Greenium", "SPO", "K-Taxonomy", "Social Bond", "Greenwashing", "KTB"],
     sections: [],
-    keyTerms: [],
+    keyTerms: [
+      {
+        term: "그린본드",
+        termEn: "Green Bond",
+        definition:
+          "환경 프로젝트(재생에너지·에너지 효율·친환경 건축 등)를 위한 자금 조달에만 사용되는 채권. ICMA 그린본드 원칙에 따라 자금 사용처 보고가 의무화되어 있다. 동일 발행사의 일반채 대비 낮은 금리(Greenium)가 발생하기도 하며, ESG 전용 투자자 베이스에 접근할 수 있다는 것이 발행사의 주요 유인이다. 환경 목적의 증빙이 부실할 경우 그린워싱 논란을 야기할 수 있다.",
+        definitionEn:
+          "A bond whose proceeds are exclusively used for environmental projects — renewable energy, energy efficiency, green buildings, and similar. Use-of-proceeds reporting is mandatory under ICMA Green Bond Principles. Issuers may benefit from a Greenium — a lower yield versus their conventional bonds — and gain access to the dedicated ESG investor pool. Insufficient environmental evidence risks triggering greenwashing criticism.",
+      },
+      {
+        term: "서스테이너빌리티링크본드 (SLB)",
+        termEn: "Sustainability-Linked Bond",
+        definition:
+          "사용처를 지정하지 않지만, 발행사가 사전에 합의한 KPI(탄소 감축률, 재생에너지 비율 등)를 달성하지 못하면 쿠폰이 자동 인상되는 구조의 채권. 환경 성과 미달 시 투자자에게 금전적 보상이 이루어지는 메커니즘이다. 그린본드와 달리 자금 사용에 제약이 없어 일반 기업들이 ESG 의지를 표명하며 발행하기 좋다. KPI 목표치 설정이 너무 쉬우면 그린워싱 논란을 피할 수 없다.",
+        definitionEn:
+          "A bond with no use-of-proceeds restriction but with an automatic coupon step-up if the issuer fails to meet pre-agreed KPIs (e.g., carbon reduction rates, renewable energy share). The mechanism provides financial compensation to investors if environmental targets are missed. Unlike green bonds, SLBs carry no funding restrictions, making them attractive for issuers that want to signal ESG commitment without earmarking proceeds. Overly easy KPI targets invite greenwashing criticism.",
+      },
+      {
+        term: "ICMA 원칙",
+        termEn: "ICMA Principles",
+        definition:
+          "국제자본시장협회(ICMA)가 제시한 그린본드·소셜본드·서스테이너빌리티 채권의 발행 원칙. 네 가지 핵심 구성요소는 ① 자금 사용처(Use of Proceeds) ② 프로젝트 평가·선정 기준 ③ 자금 분리 관리 ④ 보고 의무다. 법적 구속력은 없지만 시장 표준으로 광범위하게 채택되어 있으며, 이를 준수해야 ESG 투자자들의 신뢰를 얻을 수 있다. ICMA 원칙 준수 여부를 외부 기관이 검토(SPO)하는 것이 일반적이다.",
+        definitionEn:
+          "Voluntary guidelines published by the International Capital Market Association (ICMA) for green, social, and sustainability bonds. The four core components are: (1) Use of Proceeds, (2) Process for Project Evaluation and Selection, (3) Management of Proceeds, and (4) Reporting. While not legally binding, they are widely adopted as market standards; compliance is essential to gain ESG investor confidence. Independent review (Second Party Opinion) of ICMA Principles compliance is standard practice.",
+      },
+      {
+        term: "그리니엄",
+        termEn: "Greenium",
+        definition:
+          "그린본드가 동일 발행사의 일반채 대비 낮은 금리(스프레드 기준 5~20bp)로 발행되는 현상. Green Premium의 합성어로, ESG 전용 투자자들의 집중 수요가 가격 우위를 만드는 메커니즘이다. 그리니엄이 존재하면 발행사는 일반채보다 저렴하게 자금을 조달할 수 있어 ESG 채권 발행의 경제적 유인이 된다. 시장 환경과 발행사 크레딧에 따라 그리니엄이 사라지거나 역전되는 경우도 있다.",
+        definitionEn:
+          "The phenomenon where a green bond is priced at a lower yield than conventional bonds from the same issuer — typically 5–20bps tighter in spread. A portmanteau of 'green' and 'premium,' it arises when concentrated demand from dedicated ESG investors creates a pricing advantage. When a greenium exists, issuers can fund more cheaply than via conventional bonds — the key economic incentive for ESG issuance. Greenium can disappear or invert depending on market conditions and issuer credit.",
+      },
+      {
+        term: "외부 검토 (SPO)",
+        termEn: "Second Party Opinion",
+        definition:
+          "그린본드 프레임워크의 환경 목적 부합성을 독립 기관이 검토해 의견서를 발행하는 절차. Sustainalytics·ISS·V.E(Moody's ESG Solutions) 등이 대표적 제공 기관이다. SPO는 발행사의 그린워싱 리스크를 낮추고 투자자에게 신뢰성을 제공하는 역할을 한다. 법적 의무는 아니지만 ESG 투자자들이 요구하는 사실상의 표준이 되어 거의 모든 그린본드 발행에 수반된다.",
+        definitionEn:
+          "A review by an independent institution of a green bond framework's alignment with environmental objectives, resulting in a published opinion. Leading providers include Sustainalytics, ISS, and V.E (Moody's ESG Solutions). An SPO reduces the issuer's greenwashing risk and provides investors with credibility assurance. While not legally required, it has become a de facto standard demanded by ESG investors and accompanies virtually every green bond issuance.",
+      },
+    ],
     relatedSlugs: ["dcm-execution", "dcm-international-markets", "dcm-pricing", "dcm-issuers"],
     appearsIn: [],
   },
@@ -2021,7 +2431,48 @@ From an IB career perspective, DCM requires a complex blend of structural design
     tags: ["SOFR", "LIBOR", "Mid-Swap", "통화스왑", "CCS", "금리기준선", "EURIBOR", "Basis Swap", "DCM"],
     tagsEn: ["SOFR", "LIBOR", "Mid-Swap", "Currency Swap", "CCS", "Rate Benchmarks", "EURIBOR", "Basis Swap", "DCM"],
     sections: [],
-    keyTerms: [],
+    keyTerms: [
+      {
+        term: "SOFR (담보부 일일금리)",
+        termEn: "Secured Overnight Financing Rate",
+        definition:
+          "미국 국채 레포 거래를 기반으로 산출되는 무위험 기준금리. 2023년 USD LIBOR 폐지 이후 달러 시장의 공식 벤치마크로 자리 잡았다. 변동금리 채권·대출·이자율 스왑의 기준점으로 널리 사용되며, LIBOR와 달리 실제 거래 데이터에 기반해 조작이 어렵다. 다만 순수 익일물(overnight) 금리이므로, 기간물 금리(Term SOFR)는 파생상품 시장에서 별도로 산출된다.",
+        definitionEn:
+          "A risk-free benchmark rate derived from U.S. Treasury repo transactions. Since the USD LIBOR cessation in 2023, SOFR has become the official dollar market benchmark. Widely used as the reference for floating rate bonds, loans, and interest rate swaps, it is harder to manipulate than LIBOR because it is based on actual transaction data. As a pure overnight rate, Term SOFR (for longer tenors) is separately derived from derivatives markets.",
+      },
+      {
+        term: "LIBOR 전환",
+        termEn: "LIBOR Transition",
+        definition:
+          "2023년 6월 USD LIBOR가 공식 폐지되고 SOFR 등 무위험 기준금리(RFR)로 대체된 역사적 변화. 수십 년간 글로벌 금융 계약의 기준이었던 LIBOR는 2012년 조작 스캔들 이후 신뢰를 잃고 단계적으로 퇴출됐다. 전환 과정에서 수백조 달러 규모의 금융 계약이 새 기준금리로 전환되어야 했으며, 이는 금융 역사상 가장 복잡한 인프라 전환 중 하나였다. 한국 채권 시장도 SOFR 연동 FRN 발행이 빠르게 증가했다.",
+        definitionEn:
+          "The historic 2023 shift away from USD LIBOR to risk-free rates (RFRs) like SOFR. LIBOR had been the global financial contract benchmark for decades, but lost credibility after the 2012 manipulation scandal and was phased out. The transition required converting hundreds of trillions of dollars in financial contracts to new reference rates — one of the most complex infrastructure overhauls in financial history. Korean bond markets also saw rapid growth in SOFR-linked FRN issuance.",
+      },
+      {
+        term: "수익률 곡선",
+        termEn: "Yield Curve",
+        definition:
+          "동일 발행자의 만기별 채권 금리를 연결한 선. 정상적으로는 우상향(장기 > 단기)하지만, 역전(단기 > 장기) 시 경기 침체의 선행 지표로 해석된다. 채권 가격 결정의 기본 좌표계이며, 모든 스프레드 계산의 기준이 된다. 중앙은행의 통화 정책 의도와 시장의 미래 금리 기대가 응축된 금융 시장 전체의 나침반이기도 하다.",
+        definitionEn:
+          "A line connecting the yields of bonds from the same issuer across different maturities. Normally upward-sloping (long-term yields > short-term yields), an inversion (short > long) is interpreted as a leading indicator of recession. It is the fundamental coordinate system for bond pricing and the reference for all spread calculations. The yield curve is also the compass of the entire financial market — compressing the central bank's policy intent and market expectations about future rates.",
+      },
+      {
+        term: "기간 프리미엄",
+        termEn: "Term Premium",
+        definition:
+          "투자자가 장기 채권 보유에 따른 불확실성·유동성 위험에 대해 요구하는 추가 수익률. '장기 금리 = 기대 단기금리 평균 + 기간 프리미엄'으로 분해된다. Fed의 QE(양적완화)는 대규모 장기 국채 매입을 통해 기간 프리미엄을 인위적으로 압축하는 수단이었다. 기간 프리미엄이 상승하면 같은 기대 단기금리 수준에서도 장기 금리가 높아져 채권 가격이 하락한다.",
+        definitionEn:
+          "The extra yield investors demand to compensate for the uncertainty and liquidity risk of holding long-duration bonds. Decomposed as: 'long-term yield = expected average short-term rate + term premium.' The Fed's QE (quantitative easing) artificially compressed the term premium by buying large quantities of long-dated Treasuries. When the term premium rises, long-term rates increase even if short-rate expectations are unchanged — driving bond prices lower.",
+      },
+      {
+        term: "금리 보간",
+        termEn: "Rate Interpolation",
+        definition:
+          "두 만기 사이의 금리를 수학적으로 추정하는 방법. 예를 들어 5년물과 10년물 금리를 알면 7년물 금리를 선형 또는 스플라인 보간으로 계산할 수 있다. 채권 가격 결정, 헤지 비율 산출, OIS 스왑 커브 구축에 활용된다. 정확한 금리 보간은 DCM 가격 결정의 정밀도를 높이며, 특히 유동성이 낮은 만기 구간의 채권을 발행할 때 중요하다.",
+        definitionEn:
+          "A mathematical method for estimating the yield at a maturity point that falls between two observable data points. For example, knowing 5-year and 10-year yields allows estimation of the 7-year yield through linear or spline interpolation. Used in bond pricing, hedge ratio calculation, and OIS swap curve construction. Accurate interpolation improves DCM pricing precision, especially when issuing bonds in less liquid maturity segments.",
+      },
+    ],
     relatedSlugs: ["dcm-pricing", "dcm-international-markets", "dcm-deal-process", "spread-basis", "oas"],
     appearsIn: [],
   },
@@ -2045,7 +2496,38 @@ From an IB career perspective, DCM requires a complex blend of structural design
     tags: ["LBO", "레버리지드바이아웃", "PE 바이아웃", "사모펀드", "GP LP", "Carried Interest", "Carry Waterfall", "IRR MOIC", "Blackstone Hilton", "TXU", "레버리지 수익률"],
     tagsEn: ["LBO", "Leveraged Buyout", "PE Buyout", "Private Equity", "GP LP", "Carried Interest", "Carry Waterfall", "IRR MOIC", "Blackstone Hilton", "TXU Energy Future", "Leverage Returns"],
     sections: [],
-    keyTerms: [],
+    keyTerms: [
+      {
+        term: "LBO (레버리지드 바이아웃)",
+        termEn: "LBO — Leveraged Buyout",
+        definition: "인수 대금의 60~70%를 차입금으로 충당하고 피인수 기업의 현금흐름으로 빚을 갚는 PE 인수 방식이다. 적은 자기자본으로 큰 기업을 사면서 레버리지가 수익률을 증폭시키는 원리로, 집을 살 때 20%만 내고 80%는 모기지로 조달하는 것과 유사하다. 집값이 10% 오르면 실제 자기자본 수익률은 50%가 된다. LBO의 성패는 기업의 안정적 현금흐름, 낮은 Capex 요구, 그리고 부채 상환 후 남는 에쿼티 가치 증가에 달려 있다.",
+        definitionEn: "An LBO funds 60–70% of an acquisition with debt, repaying it from the target company's own cash flows. Just as buying a house with 20% down and 80% mortgage amplifies your return when the price rises 10% into a 50% equity gain, leverage magnifies PE returns. The strategy succeeds when the target generates stable free cash flow, requires low capex, and builds equity value as debt is retired. It's the defining transaction type of private equity.",
+      },
+      {
+        term: "GP / LP",
+        termEn: "General Partner / Limited Partner",
+        definition: "GP(제너럴 파트너)는 KKR·Blackstone 같은 PE 운용사로, 펀드 투자 결정권을 가지며 성과 보수(Carry)만 받는다. LP(리미티드 파트너)는 연기금·보험사·국부펀드 등 실제 자금을 제공하는 투자자로, 의사결정에는 참여하지 않는다. GP는 운동장 설계자이고 LP는 돈을 넣은 선수들이라 할 수 있다. LP는 통상 원금의 1.5~2%를 관리수수료로, 나머지 수익의 80%를 배당으로 받는다.",
+        definitionEn: "The GP (General Partner) — firms like KKR or Blackstone — manages the fund, makes all investment decisions, and earns carried interest as compensation. The LP (Limited Partner) — pension funds, insurers, sovereign wealth funds — provides the capital but has no say in investment decisions. Think of the GP as the architect who designs the game and the LPs as investors who put in the money. LPs typically receive 80% of profits after a preferred return, paying the GP a 2% annual management fee.",
+      },
+      {
+        term: "Carry (캐리드 인터레스트)",
+        termEn: "Carried Interest",
+        definition: "GP가 펀드 수익의 20%를 성과 보수로 받는 제도다. LP에게 먼저 Hurdle Rate(통상 8%)를 돌려준 뒤 초과 수익의 20%를 GP가 가져간다. 식당을 공동 운영할 때 손님 없는 날 직원(GP)은 최저 임금(관리 수수료)만 받지만 대박 나면 이익의 20%를 챙기는 구조와 비슷하다. Carry 때문에 GP는 단순히 '크게' 투자하기보다 '잘' 투자하는 동기를 갖게 된다.",
+        definitionEn: "Carried interest is the GP's performance fee — typically 20% of fund profits after LPs receive their preferred return. The GP first returns the Hurdle Rate (commonly 8%) to LPs, then keeps 20% of all excess gains. Like a restaurant manager who earns only a base salary on slow days but takes 20% of profits when the place is packed, carry aligns the GP's interest with strong investment performance rather than mere asset gathering.",
+      },
+      {
+        term: "MOIC",
+        termEn: "Money-on-Invested-Capital",
+        definition: "투자 원금 대비 최종 회수 금액의 배수다. MOIC 3.0×이면 $1 투자가 $3으로 돌아온 것을 의미한다. IRR과 달리 기간을 반영하지 않기 때문에 빠른 Exit가 느린 Exit보다 IRR 측면에서 훨씬 유리해 보이지만 MOIC는 동일하게 표시된다. PE 펀드는 통상 5년 보유 기준 MOIC 2~3×, IRR 20%+를 목표로 한다.",
+        definitionEn: "MOIC measures the total return on invested capital as a simple multiple: a 3.0× MOIC means $1 invested returned $3. Unlike IRR, it ignores the time dimension — a 3× in 3 years and a 3× in 7 years look identical on MOIC. PE funds typically target 2–3× MOIC and 20%+ IRR over a 5-year hold. When evaluating a deal, both metrics are reported together because each captures a different aspect of returns.",
+      },
+      {
+        term: "Hurdle Rate (허들레이트)",
+        termEn: "Hurdle Rate / Preferred Return",
+        definition: "LP가 Carry 배분 전에 먼저 돌려받아야 하는 최소 수익률로, 통상 8%다. 펀드 전체 IRR이 8%를 넘어야 GP가 Carry를 받기 시작한다. 장애물 경주에서 GP가 LP 앞을 먼저 뛰어야 하는 허들과 같다. 8% 이하 구간의 수익은 100% LP 몫이고, 초과분에서 80:20으로 배분된다.",
+        definitionEn: "The Hurdle Rate is the minimum return LPs must receive before the GP earns any carried interest — typically 8% annually. Think of it as a hurdle in a race: the GP can only start collecting carry once they've cleared the bar for their LPs. Returns below 8% flow 100% to LPs; only the excess above the hurdle is split 80/20 between LPs and the GP.",
+      },
+    ],
     relatedSlugs: ["lbo-capital-structure", "lbo-returns", "lbo-deal-process"],
     appearsIn: [],
   },
@@ -2065,7 +2547,38 @@ From an IB career perspective, DCM requires a complex blend of structural design
     tags: ["LBO", "Term Loan B", "TLB", "HY채권", "PIK Toggle", "Covenant-Lite", "DSCR", "자본구조", "채권자 위계", "Hilton"],
     tagsEn: ["LBO", "Term Loan B", "TLB", "HY Bond", "PIK Toggle", "Covenant-Lite", "DSCR", "Capital Stack", "Creditor Hierarchy", "Hilton"],
     sections: [],
-    keyTerms: [],
+    keyTerms: [
+      {
+        term: "Term Loan A / B (TLA·TLB)",
+        termEn: "Term Loan A / B",
+        definition: "TLA는 원금 분할상환 방식으로 주로 관계 은행이 보유하고, TLB는 만기에 원금을 일시상환(Bullet Maturity)하는 방식으로 기관투자자·CLO가 선호한다. LBO에서는 TLB가 대다수를 차지하며 Cov-Lite 구조가 일반적이다. 아파트 대출에 비유하면 TLA는 매달 원금을 조금씩 갚는 분할상환 방식이고, TLB는 만기에 한꺼번에 원금을 갚는 풍선 대출이다. TLB의 Bullet 구조 덕분에 차입자는 영업 초기 현금 유출을 최소화할 수 있다.",
+        definitionEn: "TLA amortizes principal over the loan's life and is typically held by relationship banks; TLB has a bullet maturity and is preferred by institutional investors and CLOs. In LBOs, TLB dominates and is usually structured as covenant-lite. Think of TLA as a standard mortgage where you pay down principal each month, and TLB as a balloon loan where the full principal is due at maturity. The bullet structure preserves cash flow during the early hold period when value creation is underway.",
+      },
+      {
+        term: "DSCR (부채상환능력비율)",
+        termEn: "Debt Service Coverage Ratio",
+        definition: "(EBITDA - Capex)를 총부채상환액(이자 + 원금)으로 나눈 비율이다. 1.0× 미만이면 현금흐름만으로 부채를 갚지 못함을 의미한다. 월급쟁이가 월 소득으로 대출 원리금을 감당할 수 있는지 따지는 DSR(총부채상환비율)과 같은 개념이다. LBO 부채 구조 설계 시 은행 대출약정의 핵심 검증 지표로 활용된다.",
+        definitionEn: "DSCR divides (EBITDA minus Capex) by total debt service (interest plus principal). A ratio below 1.0× means the company cannot cover its obligations from operating cash flow alone. It's the corporate equivalent of a personal debt-to-income check used in mortgage underwriting. When structuring an LBO's debt stack, lenders stress-test DSCR under multiple downside scenarios to ensure coverage even in adverse conditions.",
+      },
+      {
+        term: "메자닌 (Mezzanine)",
+        termEn: "Mezzanine Debt",
+        definition: "선순위 채권(TLB·HY)과 에쿼티 사이의 중간 단계 부채다. 금리는 일반 HY보다 높고(12~18%), 워런트·PIK 등 에쿼티 업사이드 조건이 붙기도 한다. 빌딩 1층(선순위 채권)과 옥상(에쿼티) 사이에 있는 중간 층(메자닌)이라는 이름 그대로다. 은행보다 유연한 헤지펀드·메자닌 펀드가 주요 공급자로, 리스크와 리턴이 중간 수준이다.",
+        definitionEn: "Mezzanine sits between senior secured debt (TLB/HY) and equity in the capital stack. It carries higher coupons than standard HY (12–18%) and often includes equity kickers such as warrants or PIK options. The name literally means the middle floor between ground level (senior debt) and the roof (equity). Hedge funds and dedicated mezzanine funds are the primary providers, offering flexibility that banks cannot match in exchange for higher returns.",
+      },
+      {
+        term: "PIK Toggle Note",
+        termEn: "PIK Toggle Note",
+        definition: "발행사가 매 분기 현금 이자(Cash Pay)와 PIK(원금에 이자 추가) 중 선택할 수 있는 구조다. 현금 부담을 줄이는 장점이 있지만, PIK 선택 시 부채가 복리로 증가한다. 신용카드 최소결제 옵션과 비슷하게, 당장은 편하지만 쌓이는 잔액이 나중에 큰 부담이 된다. 주로 LBO의 Junior 트랜치나 메자닌에서 활용되며, 현금흐름이 불확실한 성장 기업에서 선호된다.",
+        definitionEn: "A PIK Toggle lets the issuer choose each quarter between paying cash interest and adding the interest to the principal balance (Payment-in-Kind). Like paying only the minimum on a credit card, it relieves near-term cash pressure but compounds the outstanding balance. When the PIK option is elected repeatedly, the debt snowballs and refinancing risk rises sharply at maturity. It's most common in junior tranches and mezzanine financing for LBOs with uncertain near-term cash flows.",
+      },
+      {
+        term: "채권자 위계 (Creditor Hierarchy)",
+        termEn: "Creditor Hierarchy",
+        definition: "파산·청산 시 변제 순서를 정한 법적 위계다. RCF·TLA·TLB(최우선 담보 채권) → 선순위 무담보 채권자 → 후순위 채권자 → 에쿼티 순으로 변제된다. 아래로 갈수록 회수율이 낮고 기대 수익(쿠폰)은 높다. 건물 화재 시 보험금을 1순위 담보권자가 먼저 받고 남은 돈을 순서대로 나눠 갖는 것과 같다.",
+        definitionEn: "The creditor hierarchy is the legally mandated repayment order in bankruptcy or liquidation: RCF / TLA / TLB (first-lien secured) → senior unsecured creditors → subordinated creditors → equity holders. Lower in the stack means lower recovery rates but higher expected coupons to compensate. Think of it like a building fire insurance payout: the first-lien mortgage holder is made whole first, and whatever remains is distributed down the chain.",
+      },
+    ],
     relatedSlugs: ["lbo-overview", "lbo-returns", "lbo-deal-process"],
     appearsIn: [],
   },
@@ -2085,7 +2598,38 @@ From an IB career perspective, DCM requires a complex blend of structural design
     tags: ["MOIC", "IRR", "J-커브", "Multiple Expansion", "Deleveraging", "Value Creation", "Vintage Year", "LBO 리턴", "Exit Multiple"],
     tagsEn: ["MOIC", "IRR", "J-curve", "Multiple Expansion", "Deleveraging", "Value Creation", "Vintage Year", "LBO Returns", "Exit Multiple"],
     sections: [],
-    keyTerms: [],
+    keyTerms: [
+      {
+        term: "IRR (내부수익률)",
+        termEn: "Internal Rate of Return",
+        definition: "현금 유출입의 순현재가치(NPV)를 0으로 만드는 할인율이다. 기간을 반영해 빠른 Exit·중간 배당을 유리하게 평가하기 때문에, MOIC가 동일해도 Exit 시점에 따라 IRR은 크게 달라진다. 3년에 3×를 달성한 투자의 IRR은 약 44%인 반면, 7년에 3×면 IRR은 약 17%로 급락한다. PE 업계에서 IRR 20%+를 마법의 기준선으로 여기는 이유가 여기에 있다.",
+        definitionEn: "IRR is the discount rate that makes the net present value of all cash inflows and outflows equal to zero. Because it weights timing, early exits and interim dividends look more attractive under IRR than MOIC. A 3× return in 3 years implies ~44% IRR; the same 3× stretched to 7 years falls to ~17% IRR. The PE industry's informal 20%+ IRR target reflects this time-sensitivity and the opportunity cost of capital.",
+      },
+      {
+        term: "J-커브 효과",
+        termEn: "J-Curve Effect",
+        definition: "PE 펀드 초기에는 관리수수료와 미실현 손실로 IRR이 음수였다가, 투자 포트폴리오가 성숙하고 Exit가 시작되면서 양수로 반등하는 전형적인 패턴이다. 차트가 J자 형태를 그린다. LP 입장에서는 초반 음수 IRR에 당황하지 말아야 하며, 10년 펀드 기준 첫 3~4년은 J-커브 구간으로 간주된다. 빈티지 연도가 같은 펀드들을 비교할 때 J-커브 단계를 감안해야 한다.",
+        definitionEn: "In the early years of a PE fund, management fees and unrealized write-downs push IRR into negative territory; as the portfolio matures and exits begin, returns recover and exceed initial investment, tracing a J-shaped curve on a chart. LPs should expect and tolerate negative IRR in the first three to four years of a 10-year fund. Cross-fund comparisons must account for where each fund sits on its J-curve before drawing performance conclusions.",
+      },
+      {
+        term: "Multiple Expansion (멀티플 확장)",
+        termEn: "Multiple Expansion",
+        definition: "인수 시 6× EV/EBITDA로 샀다가 Exit 시 8×에 팔면 EBITDA 성장 없이도 배수 확대가 발생하는 것을 말한다. 시장 전반의 리레이팅이나 섹터 인기 상승, 구조 개선으로 인한 '프리미엄 기업화'가 주요 원인이다. 역사적으로 PE 리턴의 30~40%가 Multiple Expansion에서 창출되지만, 고금리 환경에서는 이 레버가 약해진다. EBITDA를 키우지 않고도 Exit 배수만 올라도 수익이 증폭되는 PE의 중요한 알파 원천이다.",
+        definitionEn: "Multiple expansion occurs when a company is sold at a higher EV/EBITDA multiple than it was acquired at — generating returns even without EBITDA growth. For example, buying at 6× and selling at 8× on the same EBITDA doubles the gain from operations alone. Historically, 30–40% of PE returns come from multiple expansion. In high-interest-rate environments, this lever weakens as discount rates rise and public market multiples compress.",
+      },
+      {
+        term: "Deleveraging (부채 축소)",
+        termEn: "Deleveraging",
+        definition: "보유 기간 동안 FCF(잉여현금흐름)로 부채를 상환해 에쿼티 가치를 높이는 과정이다. $4억 에쿼티로 $10억 딜을 했을 때, 부채 $6억이 $4억으로 줄면 같은 EV 기준 에쿼티가 $6억으로 늘어 MoM 1.5×가 된다. 부채 상환이 에쿼티 가치를 기계적으로 증가시키기 때문에 안정적 FCF 창출 기업이 LBO 타겟으로 선호된다. LBO 가치창출 3대 드라이버(EBITDA 성장·Multiple Expansion·Deleveraging) 중 가장 확실하고 예측 가능한 요소다.",
+        definitionEn: "Deleveraging is the process of using the target's free cash flow to pay down acquisition debt, mechanically increasing equity value over the hold period. If a $1B deal was financed with $600M of debt and $400M of equity, paying debt down to $400M while EV stays flat grows equity to $600M — a 1.5× gain from deleveraging alone. Because this driver is the most predictable of the three value-creation levers, PE sponsors prize targets with durable, high-conversion free cash flows.",
+      },
+      {
+        term: "Vintage Year (빈티지 연도)",
+        termEn: "Vintage Year",
+        definition: "펀드가 투자를 본격적으로 시작한 연도다. 2005~2007 빈티지는 금융위기 직전 고가 인수로 수익률이 저조했고, 2009~2010 빈티지는 위기 직후 저가 매수로 초과수익을 올렸다. 와인의 빈티지처럼 어느 해에 투자를 시작했느냐가 최종 리턴에 결정적 영향을 미친다. LP가 복수 펀드에 분산 투자하는 이유도 특정 빈티지 리스크를 희석하기 위해서다.",
+        definitionEn: "Vintage year refers to the year a fund deployed its first capital. Like a wine vintage, the macro and market conditions at entry fundamentally shape long-term returns. The 2005–2007 vintage suffered from pre-crisis peak valuations, while the 2009–2010 vintage benefited from post-crisis distressed pricing. LPs diversify across vintage years precisely to avoid concentrating in a single economic cycle, since entry timing drives 30–50% of ultimate fund performance.",
+      },
+    ],
     relatedSlugs: ["lbo-overview", "lbo-capital-structure", "lbo-deal-process"],
     appearsIn: [],
   },
@@ -2105,7 +2649,38 @@ From an IB career perspective, DCM requires a complex blend of structural design
     tags: ["LBO 프로세스", "Sources and Uses", "Maturity Wall", "TXU", "Toys R Us", "iHeartMedia", "레버리지 리스크", "SOFR", "Cov-Lite", "딜 타임라인"],
     tagsEn: ["LBO Process", "Sources and Uses", "Maturity Wall", "TXU", "Toys R Us", "iHeartMedia", "Leverage Risk", "SOFR", "Cov-Lite", "Deal Timeline"],
     sections: [],
-    keyTerms: [],
+    keyTerms: [
+      {
+        term: "Sources & Uses",
+        termEn: "Sources & Uses Table",
+        definition: "딜 자금의 출처(Sources: 부채·에쿼티·롤오버 등)와 용도(Uses: 인수 대금·수수료·기존 부채 상환 등)를 대조한 표다. Sources 합계와 Uses 합계는 항상 일치해야 하며, 딜 경제성 검증의 출발점이다. 가계부에서 수입 합계와 지출 합계가 맞아야 하는 것처럼, Sources ≠ Uses이면 딜 자체가 불가능하다. IB Analyst가 LBO 모델의 첫 번째 탭으로 반드시 작성하는 기초 자료다.",
+        definitionEn: "The Sources & Uses table maps where the deal money comes from (debt tranches, equity, rollover equity, etc.) against where it goes (purchase price, transaction fees, debt repayment, etc.). Sources must equal Uses — a mismatch means the deal cannot close. It's the corporate finance equivalent of balancing a household budget before any purchase. Every LBO model starts with this table on Tab 1; it sets the entire capital structure and equity check.",
+      },
+      {
+        term: "만기장벽 (Maturity Wall)",
+        termEn: "Maturity Wall",
+        definition: "여러 부채의 만기가 특정 연도에 집중되는 현상이다. 2025~2026년 대규모 Maturity Wall이 형성되어 LBO 기업들이 동시에 리파이낸싱 압박을 받고 있다. 고금리 환경에서는 리파이낸싱 비용이 급증해 이자 커버리지가 악화된다. 고속도로 여러 출구가 동시에 막히면 교통 체증이 폭발하듯, Maturity Wall이 쌓인 시기에는 신용 시장 전반이 경색될 수 있다.",
+        definitionEn: "A Maturity Wall occurs when large volumes of debt mature in the same year, forcing issuers to refinance simultaneously. The 2025–2026 window has a historically large Maturity Wall from the 2020–2021 LBO boom. In a high-rate environment, refinancing costs spike and interest coverage deteriorates across the board. Like multiple highway exits closing at once, a concentrated Maturity Wall creates systemic stress in credit markets, raising default risk even for otherwise healthy borrowers.",
+      },
+      {
+        term: "Sponsor (재무적 스폰서)",
+        termEn: "Financial Sponsor / PE Firm",
+        definition: "LBO를 주도하는 사모펀드를 말한다. Blackstone·KKR·Apollo·Carlyle 등이 대표적이다. 스폰서는 IB에게 딜 파이낸싱을 발주하고 수수료를 지불하는 주요 고객으로, IB와 스폰서 간 관계 관리가 딜 플로우를 좌우한다. 스폰서는 에쿼티 체크를 제공하고 경영 전략을 주도하며, 통상 3~7년 후 IPO·M&A·리캡(Recapitalization) 방식으로 Exit한다.",
+        definitionEn: "A financial sponsor is the private equity firm orchestrating an LBO — Blackstone, KKR, Apollo, Carlyle and their peers. Sponsors are the primary clients of leveraged finance desks, commissioning deal financing and paying substantial fees to banks they work with repeatedly. The sponsor provides the equity check, drives operational strategy, and typically exits via IPO, M&A, or dividend recapitalization three to seven years post-acquisition.",
+      },
+      {
+        term: "리파이낸싱 리스크",
+        termEn: "Refinancing Risk",
+        definition: "만기 도래 부채를 새 부채로 교체할 때 금리 상승·신용등급 하락·시장 혼란 등으로 조달 비용이 크게 오를 위험이다. TXU는 2008년 금융위기와 천연가스 가격 급락이 겹쳐 리파이낸싱이 막혔고 결국 파산했다. 빚을 갚기 위해 또 빚을 빌려야 하는 구조에서 시장이 닫히면 치명적이다. 고레버리지 기업일수록 리파이낸싱 리스크를 주기적으로 점검하고 만기를 분산시켜야 한다.",
+        definitionEn: "Refinancing risk is the danger that maturing debt cannot be replaced on acceptable terms due to rising rates, credit deterioration, or market disruption. TXU — the largest LBO of its era at $45B — collapsed when the 2008 crisis and plunging natural gas prices made refinancing impossible. The lesson: when a highly leveraged company relies on rolling debt to survive and the market closes, bankruptcy follows swiftly. Spreading maturities and monitoring credit metrics continuously are the primary defenses.",
+      },
+      {
+        term: "전략적 리스크 (Operational Risk in LBO)",
+        termEn: "Operational / Business Risk in LBO",
+        definition: "부채 레버리지가 높은 LBO에서 실적 악화는 즉각적인 디폴트로 이어진다. Toys R Us는 Amazon 부상과 e-commerce 대응 실패로 영업이익이 급감해 $5.2B 부채를 감당하지 못하고 파산했다. 줄타기 곡예사가 높은 곳에 있을수록 작은 흔들림도 치명적이듯, 레버리지가 높을수록 사업 리스크 허용 폭이 좁아진다. LBO 타겟 선정 시 경쟁 구조·기술 변화·고객 집중도 등 전략적 리스크를 필수로 검토해야 한다.",
+        definitionEn: "In a high-leverage LBO, operating underperformance translates directly into default risk with no buffer. Toys R Us entered its LBO with $5.2B in debt and no capacity to invest in e-commerce; when Amazon systematically eroded its market position, EBITDA collapsed and the debt became unpayable. Like a tightrope walker — the higher you go, the less a misstep is survivable. LBO due diligence must stress-test competitive moats, technology disruption, and customer concentration to ensure the business can service its debt through a full cycle.",
+      },
+    ],
     relatedSlugs: ["lbo-overview", "lbo-capital-structure", "lbo-returns"],
     appearsIn: [],
   },
@@ -2135,7 +2710,38 @@ From an IB career perspective, DCM requires a complex blend of structural design
       "Mezzanine", "TLB", "Covenant", "MBK Partners", "KKR", "Carlyle",
     ],
     sections: [],
-    keyTerms: [],
+    keyTerms: [
+      {
+        term: "레버리지드 파이낸스 (Leveraged Finance)",
+        termEn: "Leveraged Finance",
+        definition: "신용등급 BB+/Ba1 이하의 발행사가 조달하는 고수익·고위험 부채 금융의 총칭이다. 하이일드(HY) 채권, 레버리지드론(TLB), 2차시장 부실채권 등 다양한 형태를 포함한다. 은행 일반 대출과 달리 높은 레버리지와 높은 금리를 감수하며, PE 스폰서의 LBO 파이낸싱에 핵심적으로 활용된다. 투자등급(IG) 파이낸스와 구분되며, 리스크가 높은 만큼 투자자도 헤지펀드·CLO 등 위험 선호 기관이 주를 이룬다.",
+        definitionEn: "Leveraged finance is the umbrella term for high-yield, high-risk debt capital raised by issuers rated BB+/Ba1 or below. It encompasses high yield bonds, leveraged loans (TLBs), and secondary market distressed debt instruments. Unlike investment-grade lending, leveraged finance accepts higher leverage ratios and higher interest rates, making it the primary financing tool for PE-sponsored LBOs. The investor base skews toward risk-tolerant institutions such as hedge funds and CLOs.",
+      },
+      {
+        term: "CLO (담보대출채권)",
+        termEn: "CLO (Collateralized Loan Obligation)",
+        definition: "레버리지드론을 기초자산으로 묶어 트랑쉐별로 리패키징한 구조화 금융 상품이다. AAA부터 BB, 그리고 Equity(First Loss) 트랑쉐까지 신용도별로 나뉘며, CLO 매니저가 편입 대출 자산을 적극적으로 운용한다. 레버리지드론 시장의 약 65%를 CLO가 흡수하는 핵심 투자자이기 때문에, CLO 기술적 수요가 줄면 TLB 스프레드가 즉각 상승한다. 단순히 묶어놓는 것이 아니라 마치 건물처럼 층별로 손실을 흡수하는 구조라 할 수 있다.",
+        definitionEn: "A CLO is a structured finance vehicle that pools leveraged loans as collateral and repackages them into tranches differentiated by credit quality — from AAA down to BB and an equity (first-loss) piece. A CLO manager actively manages the underlying loan portfolio within defined eligibility criteria. Because CLOs absorb roughly 65% of leveraged loan supply, any contraction in CLO formation directly widens TLB spreads. Think of it like a building where upper floors (AAA) only suffer losses after all lower floors are wiped out.",
+      },
+      {
+        term: "자본구조 워터폴 (Capital Structure Waterfall)",
+        termEn: "Capital Structure Waterfall",
+        definition: "기업이 청산하거나 디폴트에 빠졌을 때 채권자별 회수 우선순위를 정해놓은 구조다. RCF(리볼빙) → TLA → TLB → HY채권 → 메자닌 → 에쿼티 순서로 선순위부터 차례로 회수한다. 폭포처럼 위에서 아래로 흐르다가 자산이 바닥나면 그 이하는 아무것도 받지 못한다. 투자자들이 동일 회사의 부채라도 트랑쉐별로 전혀 다른 수익률을 요구하는 이유가 바로 이 워터폴 구조 때문이다.",
+        definitionEn: "The capital structure waterfall defines the priority of repayment among creditors in a liquidation or default scenario. Claims flow from the most senior — revolving credit facility, TLA, TLB — down through high yield bonds, mezzanine, and finally equity. Like a waterfall, when the pool of assets runs dry, everything below the waterline receives nothing. This hierarchy is precisely why investors demand very different yields on the same company's debt depending on which tranche they hold.",
+      },
+      {
+        term: "Covenant-Lite (코브라이트)",
+        termEn: "Covenant-Lite",
+        definition: "재무유지약정(Financial Maintenance Covenant) 없이 부채발행제한·지불제한 같은 Incurrence-only 코버넌트만 적용되는 대출 구조다. 2010년대 이후 레버리지드론의 85% 이상이 이 방식으로 발행되며, 차입자에게는 유리하지만 은행이 재무 악화를 조기에 감지하기 어렵다는 단점이 있다. 전통적인 대출에서는 분기마다 레버리지 배수가 특정 기준을 넘으면 은행이 강제로 협상 테이블로 불러올 수 있었지만, Cov-Lite에서는 그 권한이 사라진다. PE 스폰서가 LBO 파이낸싱 협상에서 가장 먼저 요구하는 조건 중 하나다.",
+        definitionEn: "Covenant-lite loans omit financial maintenance covenants — the quarterly ratio tests that traditionally give banks an early-warning trigger to renegotiate — and instead rely only on incurrence covenants that are tested only when the borrower takes a specific action such as issuing new debt or paying a dividend. Over 85% of leveraged loans issued since 2010 have been cov-lite, heavily favouring borrowers. While PE sponsors love the flexibility, lenders lose the ability to detect deterioration early and force a restructuring conversation before the situation becomes dire.",
+      },
+      {
+        term: "PIK (현금 미지급 이자)",
+        termEn: "PIK (Payment-in-Kind)",
+        definition: "현금으로 이자를 지급하는 대신 원금에 이자를 더해 나중에 한꺼번에 상환하는 구조다. Payment-in-Kind의 약자로, 단기 현금 부담을 줄여주는 장점이 있지만 이자가 복리로 쌓여 원금이 눈덩이처럼 불어나는 단점이 있다. LBO 초기 현금흐름이 부족한 시기에 활용되거나, 부실 징후가 나타날 때 발행사가 선택적으로 PIK로 전환하는 PIK Toggle 구조도 존재한다. 투자자 입장에서는 현금을 지금 받지 못하는 위험을 감수하는 대가로 더 높은 표면금리를 요구한다.",
+        definitionEn: "PIK interest is paid not in cash but by adding the interest amount to the outstanding principal balance, deferring the actual cash outflow until maturity. The acronym stands for Payment-in-Kind. While PIK reduces near-term cash pressure for the borrower, the compounding effect means the debt burden snowballs over time. Some instruments carry a PIK Toggle feature, allowing the issuer to switch between cash-pay and PIK at each interest period. Investors demand a higher coupon to compensate for not receiving current cash income.",
+      },
+    ],
     relatedSlugs: [
       "levfin-hy-vs-loans", "levfin-credit-metrics", "levfin-covenants",
       "levfin-process", "levfin-pricing", "levfin-distressed", "levfin-cases",
@@ -2168,7 +2774,38 @@ From an IB career perspective, DCM requires a complex blend of structural design
       "Equity Clawback", "Change of Control Put", "Dollar General", "KKR", "Korean LevFin",
     ],
     sections: [],
-    keyTerms: [],
+    keyTerms: [
+      {
+        term: "OID (원가할인)",
+        termEn: "OID (Original Issue Discount)",
+        definition: "채권을 액면가(100)보다 낮은 가격(예: 97)에 발행해 투자자에게 추가 수익을 제공하는 구조다. 표면 금리가 같더라도 실질 수익률은 OID 때문에 더 높아진다. 1포인트(1pt) OID는 대략 14~20bp의 실질 금리 상승에 해당하며, 발행사 입장에서는 금리를 직접 올리지 않고도 투자자를 유인할 수 있는 유연한 도구다. 시장 수요가 약할 때 IB가 Market Flex 권한으로 OID를 넓혀 딜을 완성하는 경우가 많다.",
+        definitionEn: "OID occurs when a bond or loan is issued below its par value — for example, at $97 instead of $100 — giving investors an additional yield pickup on top of the stated coupon. Even with the same headline rate, the effective yield is higher due to the discount. One point of OID is roughly equivalent to 14-20 basis points of additional effective spread. For issuers, OID is a flexible lever to attract investors without formally raising the coupon, and bankers routinely widen OID under market-flex provisions when bookbuild demand disappoints.",
+      },
+      {
+        term: "Call Schedule (조기상환 스케줄)",
+        termEn: "Call Schedule",
+        definition: "발행사가 만기 전 채권을 조기상환할 수 있는 시기와 가격(프리미엄)을 사전에 정해둔 일정이다. 예를 들어 7NC3는 7년 만기에 3년간 콜 보호(No-Call) 기간을 두는 구조로, 투자자는 초기 3년 동안 조기상환 없이 약정된 쿠폰을 받는다. 콜 보호 기간 이후에는 액면가에 일정 프리미엄(예: +50bp)을 더한 가격으로 상환 가능하며, 해마다 프리미엄이 줄어들어 만기 직전에는 Par(100)로 콜이 가능해진다. 금리 하락 시 발행사는 리파이낸싱 기회를 활용하지만, 투자자는 재투자 위험에 노출된다.",
+        definitionEn: "The call schedule specifies when and at what price an issuer may redeem bonds before maturity. A common structure is 7NC3 — a 7-year bond with a 3-year non-call period — guaranteeing investors their coupon for the first three years without reinvestment risk. After the call protection window, the issuer may redeem at a declining premium (e.g., par plus 50bps in year four, stepping down each year to par at maturity). When interest rates fall, issuers benefit by calling and refinancing at lower rates, while investors face reinvestment risk.",
+      },
+      {
+        term: "MFN (최혜국 조항)",
+        termEn: "MFN (Most Favored Nation)",
+        definition: "동일 발행사가 새로운 TLB를 기존 대출보다 높은 금리로 발행할 경우, 기존 대출자도 자동으로 금리를 인상받을 수 있는 조항이다. 통상 새 대출의 스프레드가 기존 대출보다 50bp 이상 높으면 MFN 조항이 발동된다. 투자자 입장에서는 기존 포지션의 희석을 방지하는 핵심 보호 장치이며, 발행사는 MFN 조항을 피하기 위해 새 트랑쉐 구조를 정교하게 설계해야 한다. PE 스폰서가 add-on 인수를 통한 추가 파이낸싱 시 가장 먼저 검토하는 조항이다.",
+        definitionEn: "The MFN clause protects existing TLB lenders by requiring that if the same borrower issues a new leveraged loan at a spread more than a defined threshold (typically 50 bps) above the existing loan, the existing loan's spread is automatically reset to match. It prevents the issuer from diluting existing holders by issuing cheaper paper in the future. For PE sponsors executing add-on acquisitions with incremental debt, navigating the MFN threshold is a key structuring consideration, as breaching it raises the cost of the entire existing debt stack.",
+      },
+      {
+        term: "Change of Control Put (지배권 변경 풋)",
+        termEn: "Change of Control Put (CoC Put)",
+        definition: "발행사의 지배권이 변경될 경우(예: PE 매각, 경영권 교체) HY채권 보유자가 채권을 101% 가격에 되팔 수 있는 권리다. PE가 포트폴리오 회사를 제3자에게 매각할 때 채권 투자자가 불리한 조건의 새 오너 아래에 묶이지 않도록 보호하는 장치다. 투자자가 101에 풋을 행사하면 발행사(또는 인수자)는 전체 채권을 상환해야 하므로, 대규모 CoC Put 행사는 M&A 비용을 크게 높인다. 레버리지드론(TLB)에는 일반적으로 CoC Put이 없어 HY채권과의 핵심 구조 차이 중 하나다.",
+        definitionEn: "The change of control put gives high yield bondholders the right to sell their bonds back to the issuer at 101 cents on the dollar if a defined change of control event — such as a sale of the company by its PE sponsor — occurs. It prevents investors from being locked under a new owner they did not underwrite. If a large portion of bondholders exercise the 101 put, the acquirer must effectively refinance the entire bond stack at closing, meaningfully increasing the deal's financing cost. Leveraged loans typically do not include a CoC put, which is one of the key structural differences between HY bonds and TLBs.",
+      },
+      {
+        term: "Cov-Lite",
+        termEn: "Covenant-Lite",
+        definition: "재무유지약정(Maintenance Covenant) 없이 부채발행·배당지급 같은 특정 행위 시에만 테스트하는 Incurrence 코버넌트만 적용하는 대출 구조다. 2010년대 이후 레버리지드론의 85% 이상이 Cov-Lite 구조로 발행되어 시장의 표준이 됐다. 차입자 입장에서는 분기마다 재무비율을 맞춰야 하는 부담이 없어 운영 유연성이 높지만, 은행은 실적 악화를 조기에 포착해 재협상을 요구할 기회를 잃는다. Cov-Lite 확산이 2008년 이후 구조조정 협상을 더 복잡하게 만들었다는 비판이 있다.",
+        definitionEn: "Covenant-lite loans contain only incurrence covenants — tested solely when the borrower takes a specific action such as issuing additional debt or making a restricted payment — and omit the traditional maintenance covenants that require the borrower to comply with financial ratios every quarter. Since 2010, over 85% of leveraged loans have been cov-lite, making it the market standard. Borrowers gain operational flexibility, but lenders lose the early-warning mechanism that would otherwise compel a restructuring dialogue before the company deteriorates severely. Critics argue cov-lite proliferation has made post-default recoveries more complicated.",
+      },
+    ],
     relatedSlugs: [
       "levfin-ecosystem", "levfin-credit-metrics", "levfin-covenants",
       "levfin-process", "levfin-pricing", "levfin-distressed", "lbo-overview",
@@ -2192,7 +2829,38 @@ From an IB career perspective, DCM requires a complex blend of structural design
     tags: ["EBITDA Addback", "레버리지 메트릭", "FCCR", "FCF 워터폴", "S&P", "무디스", "크레딧 분석", "언더라이팅", "ECF Sweep", "레이팅 방법론", "Atlas Industrial", "크레딧 위원회", "한국 크레딧"],
     tagsEn: ["EBITDA Addback", "Leverage Metrics", "FCCR", "FCF Waterfall", "S&P", "Moody's", "Credit Analysis", "Underwriting", "ECF Sweep", "Rating Methodology", "Credit Committee", "Korean Credit"],
     sections: [],
-    keyTerms: [],
+    keyTerms: [
+      {
+        term: "EBITDA Addback (EBITDA 조정)",
+        termEn: "EBITDA Addback",
+        definition: "LBO 분석에서 비반복적·비현금성 비용을 EBITDA에 더해 조정 EBITDA(Adjusted EBITDA)를 산출하는 과정이다. 구조조정 비용, 주식보상비, 일회성 법무비용 등을 더하는 것은 비교적 표준적이지만, PE 스폰서가 시너지 효과나 미래 비용절감 항목까지 더하는 경우 주관성이 지나치게 높아진다. 실제로 Sponsor EBITDA는 실제 수치보다 30~50%까지 부풀려지는 사례도 있어, 크레딧 애널리스트는 Addback 내역을 반드시 개별 검증해야 한다. 마치 집값을 산정할 때 리모델링 비용을 자산 가치에 포함시키는 것처럼, 무엇을 더하느냐에 따라 레버리지 배수가 전혀 달라진다.",
+        definitionEn: "EBITDA addbacks are adjustments that add back non-recurring and non-cash expenses to reported EBITDA to derive an Adjusted EBITDA used in LBO credit analysis. Standard addbacks include restructuring charges, stock-based compensation, and one-time legal fees. However, PE sponsors often push the envelope by including projected synergies and forward-looking cost savings, which can inflate Sponsor EBITDA by 30-50% versus the as-reported figure. Credit analysts must scrutinize each addback line individually — just as a home appraiser must verify which renovations actually add value before marking up the property.",
+      },
+      {
+        term: "Total Leverage / First Lien Leverage",
+        termEn: "Total Leverage / First Lien Leverage",
+        definition: "Total Leverage는 기업의 총 부채를 EBITDA로 나눈 배수로, LBO 크레딧 분석의 가장 기본 지표다. First Lien Leverage는 선순위 담보 부채(TLA, TLB, RCF)만을 EBITDA로 나눠, 시니어 채권자의 위험 노출을 별도로 측정한다. 두 지표의 차이가 클수록 HY채권·메자닌 등 후순위 부채가 많다는 의미이며, 채권 계약서에 직접 쓰이는 핵심 수치다. 예를 들어 Total Leverage 7.0×, First Lien Leverage 4.5×라면 TLB 투자자는 3.5× EBITDA의 에쿼티+후순위 쿠션을 가진 셈이다.",
+        definitionEn: "Total Leverage (total debt ÷ EBITDA) is the primary headline metric in LBO credit analysis. First Lien Leverage (senior secured debt only ÷ EBITDA) isolates the exposure of senior creditors and is the figure most commonly written directly into TLB credit agreement covenant definitions. The gap between the two metrics represents the subordinated debt cushion — the more HY bonds and mezzanine below the senior debt, the more protected TLB holders are in a downside scenario. A 7.0× total / 4.5× first-lien structure means TLB lenders sit behind 2.5 turns of subordinated debt before suffering a first-dollar loss.",
+      },
+      {
+        term: "FCCR (고정비용커버리지비율)",
+        termEn: "FCCR (Fixed Charge Coverage Ratio)",
+        definition: "Fixed Charge Coverage Ratio의 약자로, (EBITDA - Capex) ÷ (현금 이자 + 원금 상환)으로 계산한다. HY 인덴처의 부채발행 테스트로 활용되며, 이 비율이 2.0× 이상이어야 추가 부채를 발행할 수 있다는 조항이 표준이다. FCCR이 2.0 미만으로 떨어지면 인덴처상 부채 발행이 제한되기 때문에, 발행사는 이 임계치를 사수하기 위해 Capex를 줄이거나 자산을 매각하는 판단을 내리기도 한다. 레버리지 배수가 회사의 부채 크기를 말해준다면, FCCR은 그 부채를 실제로 감당할 능력을 보여주는 지표다.",
+        definitionEn: "The Fixed Charge Coverage Ratio (FCCR) is calculated as (EBITDA minus capex) divided by (cash interest plus scheduled debt amortization). In a typical HY indenture, the debt incurrence covenant requires FCCR to exceed 2.0× before the company may incur additional debt. When FCCR falls below this threshold, the incurrence test fails and new debt issuance is effectively blocked — forcing the issuer to consider asset sales or capex cuts to restore headroom. If leverage ratios tell you how much debt a company carries, FCCR tells you whether it can actually afford to service it.",
+      },
+      {
+        term: "ECF Sweep (초과현금흐름 강제상환)",
+        termEn: "ECF Sweep (Excess Cash Flow Sweep)",
+        definition: "일정 금액 이상의 잉여현금흐름(Free Cash Flow)을 강제로 원금 상환에 사용하도록 요구하는 TLB 코버넌트다. 일반적으로 레버리지가 높을 때(예: 4.0× 이상)는 FCF의 50~75%를 Sweep하고, 레버리지가 낮아짐에 따라 Sweep 비율이 25% → 0%로 줄어드는 래칫(ratchet) 구조를 사용한다. LBO 초기 레버리지를 빠르게 낮춰 채권자 위험을 줄이는 장치이며, 발행사 입장에서는 현금을 M&A나 배당에 쓰지 못하도록 제한하는 족쇄가 된다. PE 스폰서가 협상 시 Sweep 임계치를 최대한 높이려는 이유가 바로 이 때문이다.",
+        definitionEn: "The excess cash flow sweep is a TLB covenant that mandates a portion of annual free cash flow above a defined threshold be applied to mandatory debt prepayment. The sweep percentage typically steps down as leverage improves — for example, 75% sweep when leverage exceeds 4.0×, falling to 25% when leverage drops below 3.5×, and eventually 0% once the borrower is below a target level. This ratchet mechanism accelerates deleveraging early in the LBO when lender risk is highest. PE sponsors negotiate aggressively to raise the leverage thresholds and widen the step-downs, preserving more cash for dividends or bolt-on acquisitions.",
+      },
+      {
+        term: "신용등급 노칭 (Rating Notching)",
+        termEn: "Rating Notching",
+        definition: "동일 발행사의 부채라도 선순위·후순위 여부, 담보 유무에 따라 신용등급을 위아래로 조정하는 방식이다. 일반적으로 1순위 담보 TLB는 기업 전체 등급보다 1~2 노치 높게 부여되고, 무담보 HY채권은 기업 등급과 동일하거나 1 노치 낮게, 후순위 HY는 1~2 노치 더 낮게 부여된다. 노칭의 근거는 디폴트 시 회수율 차이에 있으며, S&P와 Moody's가 각기 다른 노칭 기준을 적용한다. 같은 회사 채권이라도 어느 트랑쉐냐에 따라 BB+와 B-의 등급 차이가 날 수 있어, 투자자의 투자 가능 범위(mandate)에 직접 영향을 준다.",
+        definitionEn: "Rating notching adjusts the credit rating of a specific debt instrument above or below the issuer's overall corporate credit rating based on its position in the capital structure and the presence or absence of collateral. Senior secured TLBs are typically notched one to two levels above the corporate rating, reflecting higher expected recovery in default; unsecured HY bonds sit at or one notch below; and subordinated instruments trade another one to two notches below that. The theoretical basis is recovery-rate differentiation validated by historical default data. Two instruments from the same issuer can therefore carry ratings several notches apart, directly affecting which fund mandates can hold them.",
+      },
+    ],
     relatedSlugs: ["levfin-ecosystem", "levfin-hy-vs-loans", "levfin-covenants", "levfin-process", "levfin-pricing", "lbo-overview"],
     appearsIn: [],
   },
@@ -2213,7 +2881,38 @@ From an IB career perspective, DCM requires a complex blend of structural design
     tags: ["코버넌트", "HY 인덴처", "부채 발행 제한", "FCCR", "빌더 바스켓", "비제한 자회사", "J.Crew", "PetSmart", "Serta Simmons", "Envision", "업타이어", "Cov-Lite", "코버넌트 협상"],
     tagsEn: ["Covenants", "HY Indenture", "Limitation on Indebtedness", "FCCR", "Builder Basket", "Unrestricted Subsidiaries", "J.Crew", "PetSmart", "Serta Simmons", "Envision", "Uptier", "Cov-Lite", "Covenant Negotiation"],
     sections: [],
-    keyTerms: [],
+    keyTerms: [
+      {
+        term: "비제한 자회사 (Unrestricted Subsidiary)",
+        termEn: "Unrestricted Subsidiary",
+        definition: "크레딧 어그리먼트·인덴처의 제약을 받지 않도록 별도로 지정된 자회사다. PE 스폰서는 이 구조를 활용해 핵심 자산(특허, 부동산 등)을 비제한 자회사로 이전하고, 채권자의 담보 범위와 코버넌트 통제 밖에 배치할 수 있다. J.Crew(2017년 브랜드 IP 이전)와 Chewy(PetSmart 지분 분리) 사건이 대표적인 악용 사례로, 이후 시장은 IP 이전과 지분 분리를 차단하는 Blocker 조항을 표준으로 추가했다. 비제한 자회사는 PE의 가장 강력한 코버넌트 우회 도구이자, 채권 투자자가 가장 경계하는 조항이다.",
+        definitionEn: "An unrestricted subsidiary is a subsidiary explicitly designated as outside the restricted group governed by the credit agreement or indenture, meaning it is not subject to any of the debt incurrence, restricted payments, or asset-sale covenants. PE sponsors use this carve-out to ring-fence valuable assets — intellectual property, real estate, high-growth subsidiaries — away from creditors' security package and covenant controls. The J.Crew brand IP transfer (2017) and PetSmart/Chewy spin-off (2018) are landmark cases of this being weaponized; both events prompted the market to add specific blocker language into standard indenture packages. It remains the single most powerful covenant-avoidance tool in the PE toolkit.",
+      },
+      {
+        term: "업타이어 트랜잭션 (Uptier Transaction)",
+        termEn: "Uptier Transaction",
+        definition: "기존 채권자 전원의 동의 없이 다수결(통상 50.1% 또는 2/3 동의)만으로 새로운 최선순위 트랑쉐를 기존 부채 위에 얹는 구조 재편 방식이다. 새 부채를 참여 채권자들이 함께 발행하고 기존 비참여 채권자들은 열위 순위로 밀려난다. Serta Simmons(2020)와 Envision Healthcare(2020)가 대표적이며, 이후 시장에서는 이를 차단하는 'Sacred Rights'(만장일치 요건) 조항이 표준으로 자리잡았다. 채권자 간 소송이 끊이지 않아 LevFin 법무 분야의 가장 뜨거운 쟁점이 됐다.",
+        definitionEn: "An uptier transaction allows the issuer — with the consent of a majority (typically 50.1% or 66.7%) rather than all creditors — to issue a new super-priority tranche that sits senior to the existing debt, effectively cramming down non-participating holders. Participating creditors exchange existing paper for the new senior debt while holdouts are pushed deeper into the waterfall. Serta Simmons and Envision Healthcare (both 2020) brought the structure to prominence, sparking extensive litigation. The market response was to designate lien subordination provisions as sacred rights requiring unanimous consent, but uptier litigation continues to be the most contested area of leveraged finance law.",
+      },
+      {
+        term: "빌더 바스켓 (Builder Basket)",
+        termEn: "Builder Basket",
+        definition: "누적 이익의 일정 비율(예: EBITDA의 50%)을 배당이나 추가 투자에 사용할 수 있도록 허용하는 코버넌트 조항이다. 기업이 이익을 쌓을수록 배당 및 투자 허용 한도가 늘어나는 구조로, PE 스폰서가 LBO 운영 중 배당 재원을 축적하는 핵심 통로다. 빌더 바스켓은 재무적으로 성공적인 기업일수록 PE에 유리하게 작동하지만, 채권 투자자 입장에서는 기업 자금이 채권 상환보다 PE 수익 실현에 먼저 쓰일 수 있다는 우려를 낳는다. '이익 벽돌을 쌓아 나중에 배당 건물을 짓는다'는 비유로 이해하면 쉽다.",
+        definitionEn: "The builder basket (also called the cumulative credit basket) allows the issuer to make restricted payments — dividends to the PE sponsor, investments in unrestricted subsidiaries — up to a defined limit that builds over time as a percentage of cumulative net income or EBITDA. The better the company performs, the larger the basket grows, giving the PE sponsor an increasingly wide runway to upstream cash. From the creditor's perspective, the builder basket means that a financially healthy portfolio company may legitimately send cash to its equity owner rather than deleveraging. Think of it as laying profit bricks over time to eventually construct a dividend payout.",
+      },
+      {
+        term: "Incurrence Covenant vs Maintenance Covenant",
+        termEn: "Incurrence Covenant vs Maintenance Covenant",
+        definition: "Incurrence Covenant는 추가 부채 발행·배당 지급 같은 특정 행위를 하려 할 때만 재무 비율을 테스트하는 방식이다. 반면 Maintenance Covenant는 매 분기 말 재무 비율이 지정된 기준을 지속적으로 충족해야 하는 의무 약정이다. Cov-Lite 구조는 Maintenance를 제거하고 Incurrence만 남긴 형태로, 차입자는 나쁜 분기를 겪어도 자동으로 디폴트 이벤트가 발생하지 않는다. 전통 은행 대출이 매 분기 건강 검진을 요구한다면, Cov-Lite는 '큰일이 있을 때만 체크'하는 구조다.",
+        definitionEn: "An incurrence covenant is tested only when the borrower takes a specified action — issuing new debt, paying a dividend, making an acquisition — and prohibits that action if the financial ratio would fall below the required threshold at that moment. A maintenance covenant, by contrast, requires the borrower to pass a financial ratio test every quarter regardless of any specific action; failure automatically triggers a default event. Cov-lite structures eliminate maintenance covenants and retain only incurrence tests, meaning a company can experience a run of poor quarters without automatically triggering a default. Traditional bank loans demand a quarterly health check; cov-lite is test only when you act.",
+      },
+      {
+        term: "IP 이전 루프홀 (IP Transfer Loophole)",
+        termEn: "IP Transfer Loophole",
+        definition: "J.Crew가 2017년 자사 브랜드 지식재산권을 케이맨제도 비제한 자회사로 이전해 채권자의 담보 범위에서 빼낸 사례에서 유래한 코버넌트 취약점이다. 이 구조에서 IP를 보유한 자회사는 인덴처 제약을 받지 않으므로 새 선순위 부채를 발행할 수 있고, 기존 채권자들은 핵심 자산 없이 껍데기만 남은 담보를 갖게 된다. 이 사건 이후 시장은 IP 자산의 이전 제한(IP Transfer Blocker)과 비제한 자회사 지정 한도를 표준 인덴처에 삽입하기 시작했다. 루프홀이 발견될 때마다 시장이 반응해 새 방어 장치를 추가하는 LevFin 코버넌트의 진화 역사를 보여주는 대표 사례다.",
+        definitionEn: "The IP transfer loophole refers to the structural vulnerability exploited by J.Crew in 2017, when the company transferred its brand intellectual property to a Cayman Islands unrestricted subsidiary sitting outside the indenture restricted group. Once the IP was housed in the unrestricted subsidiary, it could be used as collateral for a new super-senior facility, leaving original bondholders with a pledge over an operating company that no longer owned its most valuable asset. The market responded by incorporating IP transfer blockers and caps on the value of assets that may be designated to unrestricted subsidiaries into standard indenture packages. The J.Crew saga is the canonical example of how leveraged finance covenants evolve — a loophole is exploited, litigation ensues, and new defensive language becomes market standard.",
+      },
+    ],
     relatedSlugs: ["levfin-ecosystem", "levfin-hy-vs-loans", "levfin-credit-metrics", "levfin-process", "levfin-distressed", "lbo-overview"],
     appearsIn: [],
   },
@@ -2234,7 +2933,38 @@ From an IB career perspective, DCM requires a complex blend of structural design
     tags: ["딜 프로세스", "Commitment Letter", "Fee Letter", "Market Flex", "CIM", "북빌드", "레이팅 에이전시", "배분", "수수료 구조", "Hung Deal", "Twitter", "신디케이션", "한국 LBO 프로세스"],
     tagsEn: ["Deal Process", "Commitment Letter", "Fee Letter", "Market Flex", "CIM", "Book Build", "Rating Agency", "Allocation", "Fee Structure", "Hung Deal", "Twitter", "Syndication", "Korean LBO Process"],
     sections: [],
-    keyTerms: [],
+    keyTerms: [
+      {
+        term: "Commitment Letter (커미트먼트 레터)",
+        termEn: "Commitment Letter",
+        definition: "IB가 일정 조건에서 파이낸싱을 실행할 것을 약속하는 계약 문서다. 딜 서명 전 발행사에게 자금 조달 확약을 제공하며, 조건 미충족 시 IB가 직접 손실을 감수해야 하는 법적 구속력이 있다. PE 스폰서가 M&A 입찰에서 경쟁력을 갖추려면 자금 조달 확실성이 필수이므로, Commitment Letter는 사실상 LBO 딜의 선결 조건이다. IB 입장에서는 시장 리스크를 짧은 기간 떠안는 것이므로, Market Flex 조항으로 조건 변경 권한을 확보해 위험을 부분적으로 헤지한다.",
+        definitionEn: "A commitment letter is the legally binding document in which one or more investment banks agree to provide financing at specified terms as a precondition to signing the LBO acquisition agreement. Without it, the PE buyer cannot credibly bid for a target. If market conditions deteriorate after signing and the bank cannot syndicate the debt, the bank must hold the loan on its own balance sheet, absorbing any mark-to-market loss. To partially hedge this risk, commitment letters almost always include a market-flex provision allowing the bank to adjust pricing and terms within agreed parameters.",
+      },
+      {
+        term: "Market Flex (마켓 플렉스)",
+        termEn: "Market Flex",
+        definition: "북빌드 결과에 따라 IB가 금리·OID·구조를 사전 합의된 범위 내에서 조정할 수 있는 권한이다. 투자자 수요가 약하면 IB는 스프레드를 올리거나 OID를 넓히는 방식으로 딜을 완성하며, 이 비용은 발행사에게 돌아간다. 반대로 수요가 매우 강하면 역방향 플렉스(Reverse Flex)로 조건을 발행사에게 유리하게 조정하기도 한다. 마켓 플렉스는 IB가 언더라이팅 리스크를 줄이면서도 발행사에게 확정적인 파이낸싱 확약을 줄 수 있게 하는 핵심 메커니즘이다.",
+        definitionEn: "Market flex is a provision in the commitment letter that gives the arranging bank the right to adjust pricing, OID, structure, and certain terms within pre-agreed limits in response to investor demand during the bookbuild. If demand is weak, the bank flexes spreads wider or increases OID to clear the book — a cost borne by the issuer. When demand is very strong, banks sometimes exercise a reverse flex, improving terms for the borrower. Market flex allows banks to provide firm financing commitments while managing syndication risk, making it a cornerstone of the leveraged finance primary market.",
+      },
+      {
+        term: "CIM (기밀 정보 메모)",
+        termEn: "CIM (Confidential Information Memorandum)",
+        definition: "LBO 딜에서 발행사의 사업 현황·재무·투자 논거를 담은 80~120페이지 분량의 투자자 제안 문서다. Confidential Information Memorandum의 약자로, 신디케이션 과정에서 잠재 기관 투자자들에게 배포된다. Executive Summary, Business Overview, Industry Analysis, Financial Analysis, Credit Highlights 등의 섹션으로 구성되며, IB Analyst가 주로 초안을 작성한다. CIM의 품질은 북빌드 성공을 좌우하며, 특히 Credit Highlights 섹션이 투자자의 첫인상을 결정한다.",
+        definitionEn: "The CIM is an 80-120 page marketing document prepared by the arranging bank that presents the company's business, financial performance, and investment thesis to prospective institutional lenders during syndication. Standard sections include an executive summary, business and industry overview, detailed financial analysis, and credit highlights. Analysts are the primary drafters, often working through the night during deal execution. The CIM's quality directly affects bookbuild momentum — a compelling credit highlights section is frequently the difference between a fully subscribed deal and a difficult syndication.",
+      },
+      {
+        term: "Hung Deal (헝 딜)",
+        termEn: "Hung Deal",
+        definition: "북빌드에서 투자자를 충분히 모집하지 못해 IB가 약속한 부채를 시장에 소화시키지 못하고 직접 보유해야 하는 상황이다. 2022년 Elon Musk의 Twitter 인수에서 Morgan Stanley 등 주선 IB들이 약 $130억의 TLB·HY채권을 떠안게 된 것이 최근 가장 큰 사례다. Hung Deal이 되면 IB는 대규모 마크다운 손실을 감수해야 하며, 이후 레버리지드 파이낸싱 시장 전반에 위험 회피 분위기가 형성된다. IB가 Commitment Letter 서명에 신중을 기하는 이유이기도 하다.",
+        definitionEn: "A hung deal occurs when the arranging bank cannot syndicate all of the committed debt to institutional investors, leaving the bank holding the unsold portion on its own balance sheet — often at a significant mark-to-market loss. The 2022 Twitter/Musk LBO left approximately $13 billion in leveraged loans and high yield bonds hung at Morgan Stanley and other arrangers, representing one of the largest hung deal situations in leveraged finance history. A hung deal chills the broader syndication market as banks become more cautious about providing commitment letters, and it often marks the peak of a credit cycle.",
+      },
+      {
+        term: "레이팅 에이전시 프로세스 (Rating Agency Process)",
+        termEn: "Rating Agency Process",
+        definition: "S&P·Moody's가 발행사 경영진과 미팅 후 4~6주의 검토를 거쳐 채권 등급을 부여하는 절차다. 경영진 프레젠테이션, 재무 모델 제출, Q&A, 신용위원회 내부 논의를 거쳐 예비 등급이 결정되며, 최종 등급은 딜 클로징 직전에 확정된다. 등급이 HY 기준선 이하(B- 이하)로 나오면 투자자 베이스가 급감해 스프레드가 급등하거나 딜 구조 자체를 변경해야 하는 상황이 생긴다. 등급 결과는 IB와 스폰서가 통제할 수 없기 때문에, 레이팅 에이전시 프로세스는 딜 타임라인에서 가장 큰 불확실성 요인 중 하나다.",
+        definitionEn: "The rating agency process involves S&P and Moody's reviewing the issuer's financials, business plan, and credit story before assigning an instrument rating, typically taking four to six weeks from the management presentation to the preliminary rating. The process includes a formal management meeting, submission of the financial model, a Q&A process, and internal credit committee deliberation at each agency. If the resulting rating comes in below expectations — particularly at CCC territory — the investor universe shrinks dramatically, forcing spread increases or structural changes. Because agencies operate independently and unpredictably, the rating process is consistently one of the largest execution risks in an LBO financing timeline.",
+      },
+    ],
     relatedSlugs: ["levfin-ecosystem", "levfin-hy-vs-loans", "levfin-credit-metrics", "levfin-pricing", "levfin-cases", "lbo-overview"],
     appearsIn: [],
   },
@@ -2255,7 +2985,38 @@ From an IB career perspective, DCM requires a complex blend of structural design
     tags: ["프라이싱", "IPT", "NIC", "OID", "PIK Toggle", "Call Schedule", "Cross-Currency HY", "Rating Notching", "iHeartMedia", "Twitter", "2022 금리 급등", "EUR HY", "Equity Clawback"],
     tagsEn: ["Pricing", "IPT", "NIC", "OID", "PIK Toggle", "Call Schedule", "Cross-Currency HY", "Rating Notching", "iHeartMedia", "Twitter", "2022 Rate Shock", "EUR HY", "Equity Clawback"],
     sections: [],
-    keyTerms: [],
+    keyTerms: [
+      {
+        term: "IPT (초기 가격 제시)",
+        termEn: "IPT (Initial Price Talk)",
+        definition: "북빌드 개시 시 발행사와 IB가 시장에 제시하는 예상 금리·스프레드 범위다. 투자자들은 IPT를 보고 관심 여부와 수량을 표명하며, 북빌드 경과에 따라 IPT → Guidance → Final Pricing 순으로 범위가 좁혀진다. IPT는 최종 가격이 아니라 협상의 출발점이므로, IB는 보통 실제 예상 수준보다 5~25bp 넓게 제시해 투자자에게 타이트해지는 여지를 남긴다. 투자자가 많이 몰릴수록 IB는 스프레드를 줄이는 방향으로 Guidance를 업데이트한다.",
+        definitionEn: "Initial Price Talk is the indicative spread or yield range communicated to investors at the launch of a bookbuild, representing the starting point for price discovery rather than the final terms. Investors respond with indications of interest and order sizes, and the book runner progressively tightens the range through guidance updates and ultimately sets final pricing. Banks typically set IPT 5-25 bps wide of where they expect to price, preserving room to tighten as the book builds. A heavily oversubscribed book may tighten through IPT by 50 bps or more, while a weak book may require the bank to hold or widen the initial talk.",
+      },
+      {
+        term: "NIC (신규발행 프리미엄)",
+        termEn: "NIC (New Issue Concession)",
+        definition: "새 채권을 기존 세컨더리 시장 수준보다 추가로 높은 스프레드에 발행하는 비용이다. 투자자 입장에서는 새 채권을 분석하고 포지션을 설정하는 수고에 대한 보상이고, 발행사 입장에서는 시장 진입 비용이다. 시장이 안정적일 때는 5~15bp의 NIC가 일반적이지만, 변동성이 클 때는 100bp를 초과하기도 한다. NIC가 크다는 것은 시장 환경이 발행사에게 불리하다는 신호이며, 투자자들이 새 공급에 대한 프리미엄을 요구하고 있음을 의미한다.",
+        definitionEn: "The new issue concession is the additional spread premium above the secondary market fair value of comparable outstanding bonds that a borrower must offer to attract investors to a new deal. It compensates investors for the analytical effort of underwriting a new credit and the market risk of holding an illiquid new issue before it settles. In stable markets, NICs of 5-15 bps are typical; in volatile markets they can exceed 100 bps as investors demand a larger cushion. A widening NIC environment signals deteriorating primary market conditions and rising borrowing costs for issuers across the leveraged finance universe.",
+      },
+      {
+        term: "PIK Toggle (PIK 토글)",
+        termEn: "PIK Toggle",
+        definition: "발행사가 선택에 따라 현금 이자 또는 PIK(원금에 이자 추가) 방식으로 전환할 수 있는 채권 구조다. 현금 압박이 심할 때 PIK로 전환하면 단기 유동성을 보전할 수 있지만, 이자가 복리로 쌓여 원금이 급격히 증가한다. iHeartMedia가 PIK Toggle을 활용해 현금 유출을 줄였지만 결국 부채가 눈덩이처럼 불어나 2018년 파산한 것이 대표적 사례다. 투자자는 PIK Toggle을 부실 징후로 인식하는 경향이 있어, Toggle 채권은 일반 현금이자 채권보다 높은 스프레드로 발행된다.",
+        definitionEn: "A PIK toggle bond allows the issuer to elect, at each interest payment date, whether to pay interest in cash or to add the interest amount to the outstanding principal balance (payment-in-kind). This toggle feature preserves liquidity when cash is tight but creates a compounding snowball effect on the debt balance. iHeartMedia famously used PIK toggles to manage cash outflows, but the accumulating debt burden contributed to its 2018 bankruptcy filing. Investors view a PIK election as a significant distress signal, and toggle bonds therefore carry meaningfully higher spreads than otherwise comparable cash-pay instruments.",
+      },
+      {
+        term: "Rating Notching (신용등급 노칭)",
+        termEn: "Rating Notching",
+        definition: "같은 발행사의 부채라도 담보 유무·선후순위에 따라 신용등급을 위아래로 조정하는 방식이다. 1순위 담보 TLB는 기업 등급보다 1~2 노치 높고, 무담보 HY채권은 기업 등급과 동일하거나 1 노치 낮으며, 후순위 HY는 추가로 1~2 노치 더 낮게 부여된다. 노칭의 이론적 근거는 디폴트 시 트랑쉐별 회수율 차이이며, S&P와 Moody's는 각기 다른 노칭 가이드라인을 적용한다. 투자자 펀드 mandate는 특정 등급 범위만 편입 가능하도록 제한하기 때문에, 노칭 결과에 따라 해당 트랑쉐의 접근 가능한 투자자 풀이 완전히 달라진다.",
+        definitionEn: "Rating notching is the practice of assigning a credit rating to a specific debt instrument that differs from the issuer's overall corporate family rating based on the instrument's structural position — its security interest, seniority, and recovery prospects in a default. First-lien secured loans are typically notched one to two levels above the corporate rating; unsecured HY bonds at or one notch below; and deeply subordinated instruments two or more notches below. S&P and Moody's apply their own distinct notching methodologies. Because institutional fund mandates restrict holdings to specific rating categories, the notched rating directly determines the investor universe for each tranche and therefore its pricing.",
+      },
+      {
+        term: "Cross-Currency HY (크로스커런시 HY)",
+        termEn: "Cross-Currency HY",
+        definition: "달러 대신 유로 표시로 HY채권을 발행해 유럽 투자자 풀을 공략하는 전략이다. 유럽 HY 시장은 USD HY 시장보다 전통적으로 코버넌트 구조가 타이트하고 발행 규모가 작지만, 유로 투자자를 함께 끌어들여 전체 자금 조달 비용을 낮출 수 있다. 발행사는 EUR 부채 원금과 이자를 달러로 교환하는 FX 헤지 비용(Cross-Currency Swap)을 부담해야 하며, 이 비용이 EUR 금리 절감분보다 크면 경제성이 없다. EUR/USD 스프레드 차이, 헤지 비용, 투자자 다변화 편익을 종합적으로 고려해 통화를 결정한다.",
+        definitionEn: "Cross-currency HY refers to the strategy of issuing euro-denominated high yield bonds to access the European investor base alongside or instead of dollar-denominated paper. The EUR HY market has historically featured tighter covenant packages and smaller deal sizes than USD HY, but tapping European investors can broaden the order book and potentially reduce total funding costs. Issuers typically layer on cross-currency swap agreements to convert euro principal and interest payments back into dollars, and the all-in cost of the EUR tranche including hedging must be compared against the equivalent dollar funding cost. The currency mix decision balances absolute spread differentials, swap costs, and investor diversification benefits.",
+      },
+    ],
     relatedSlugs: ["levfin-ecosystem", "levfin-hy-vs-loans", "levfin-process", "levfin-credit-metrics", "levfin-distressed", "lbo-overview"],
     appearsIn: [],
   },
@@ -2276,7 +3037,38 @@ From an IB career perspective, DCM requires a complex blend of structural design
     tags: ["부실채권", "구조조정", "Chapter 11", "업타이어", "DIP 파이낸싱", "Serta Simmons", "Envision Healthcare", "TriMark", "Amend & Extend", "회수율", "법정관리", "워크아웃", "KAMCO", "Loan to Own"],
     tagsEn: ["Distressed Debt", "Restructuring", "Chapter 11", "Uptier", "DIP Financing", "Serta Simmons", "Envision Healthcare", "TriMark", "Amend & Extend", "Recovery Rate", "Court Receivership", "Workout", "KAMCO", "Loan to Own"],
     sections: [],
-    keyTerms: [],
+    keyTerms: [
+      {
+        term: "DIP 파이낸싱 (DIP Financing)",
+        termEn: "DIP Financing (Debtor-In-Possession Financing)",
+        definition: "Chapter 11 파산 신청 후 기업이 영업을 유지하기 위해 조달하는 초선순위 부채다. Debtor-In-Possession의 약자로, 법원 승인 하에 기존 채권자보다 우선 상환권을 갖는다. 파산 기업은 신규 자금 조달이 사실상 불가능하므로 DIP 파이낸싱이 운영 자금의 생명줄 역할을 하며, DIP 대출자는 낮은 신용 위험과 높은 수익률을 동시에 누린다. 기존 채권자들이 자신의 담보 가치를 보호하기 위해 스스로 DIP를 제공하는 경우(Roll-up DIP)도 많다.",
+        definitionEn: "DIP financing is super-priority debt raised by a company after filing for Chapter 11 bankruptcy protection to fund ongoing operations while reorganizing under court supervision. As debtor-in-possession, the company has court-approved authority to borrow on terms that sit ahead of all pre-petition claims in the repayment waterfall. DIP lenders enjoy low credit risk combined with above-market returns, since the court protects their priority position. Existing senior secured creditors often provide DIP financing themselves — a roll-up DIP — to protect their collateral value and maintain negotiating leverage over the reorganization plan.",
+      },
+      {
+        term: "Amend & Extend (만기 연장)",
+        termEn: "Amend & Extend (A&E)",
+        definition: "만기가 임박한 부채를 법정 절차 없이 채권자 동의만으로 기간을 연장하는 법정 외 구조조정 방식이다. 기업이 즉각적인 파산 없이 숨통을 틔우는 현실적 선택지로, 대신 금리 인상·추가 담보·약간의 원금 상환을 조건으로 한다. 채권자 입장에서도 즉각 청산보다 A&E가 더 높은 회수율을 기대할 수 있을 때 동의하므로, 양측 모두에게 합리적인 선택이 될 수 있다. 단, A&E는 근본 문제를 해결하지 못하고 만기를 미루는 것이라서, 이후에도 사업 개선이 없으면 결국 Chapter 11로 이어지는 경우가 많다.",
+        definitionEn: "Amend & Extend is an out-of-court restructuring technique where existing lenders agree to push out a looming debt maturity in exchange for improved economic terms — typically a higher spread, additional fees, or incremental collateral. It avoids the cost, stigma, and uncertainty of formal bankruptcy while giving the borrower time to execute an operational turnaround. Lenders agree when they believe A&E will produce a higher recovery than an immediate enforcement or liquidation. However, A&E is a deferral rather than a cure — without genuine business improvement, many A&E candidates eventually file for Chapter 11 after the extended maturity arrives.",
+      },
+      {
+        term: "Loan-to-Own (론투온)",
+        termEn: "Loan-to-Own",
+        definition: "부실채권을 시장가(액면 대비 30~70% 할인)에 매입한 뒤, 구조조정 과정에서 채권을 에쿼티로 전환해 기업 지배권을 획득하는 헤지펀드 전략이다. Elliott Management, Apollo Global Management 등이 대표적 플레이어로, 부채 매입 비용이 낮기 때문에 에쿼티 전환 후 기업이 회복되면 큰 수익을 거둔다. 이 전략은 기존 주주를 완전히 희석시키고 새 오너가 되는 것이므로, 주주 및 기존 채권자들과의 법적 분쟁이 빈번하게 발생한다. Loan-to-Own 투자자는 Plan of Reorganization 협상에서 새 에쿼티 배분을 극대화하기 위해 적극적으로 개입한다.",
+        definitionEn: "Loan-to-own is a distressed investing strategy in which a hedge fund or private credit manager purchases a company's debt at a steep discount — often 30-70 cents on the dollar — with the explicit intention of converting that debt into controlling equity through the reorganization process. Firms such as Elliott Management and Apollo have built franchises around this strategy. Because the investor's cost basis is far below par, even a modest business recovery can generate extraordinary equity returns. Loan-to-own is inherently adversarial toward existing shareholders and junior creditors who get wiped out, so it typically involves protracted litigation over the valuation and allocation of new equity in the plan of reorganization.",
+      },
+      {
+        term: "Chapter 11 (미국 파산 보호)",
+        termEn: "Chapter 11 Bankruptcy",
+        definition: "미국 파산법 제11장에 따른 기업 회생 절차로, 영업을 중단하지 않고 법원 감독 하에 채무 재조정 계획(Plan of Reorganization)을 수립·인가받는 방식이다. 자동유예(Automatic Stay) 덕분에 채권자들의 강제집행이 일시 중단되고 기업에게 협상 시간을 준다. TXU·Caesars·iHeartMedia 등 대형 LBO 기업들이 이 절차를 활용했으며, 통상 12~24개월 내에 종결된다. 미국 Chapter 11은 글로벌 LBO 파이낸싱에서 사실상의 표준 구조조정 플랫폼으로, 채권자 위계에 따른 회수율을 법원이 강제하는 구조다.",
+        definitionEn: "Chapter 11 of the U.S. Bankruptcy Code provides a court-supervised reorganization framework under which a company continues operating as a going concern while negotiating a Plan of Reorganization with creditors. Upon filing, an automatic stay halts all enforcement actions by creditors, giving the debtor breathing room to negotiate. Major LBO bankruptcies including TXU Energy, Caesars Entertainment, and iHeartMedia all restructured through Chapter 11 processes. The proceeding typically concludes in 12-24 months with court confirmation of a reorganization plan that distributes new equity and restructured debt according to the absolute priority rule — effectively enforcing the capital structure waterfall at gunpoint.",
+      },
+      {
+        term: "회수율 (Recovery Rate)",
+        termEn: "Recovery Rate",
+        definition: "디폴트·청산 시 각 트랑쉐 채권자가 원금 대비 실제 돌려받는 비율이다. 역사적 평균으로는 1순위 담보 TLB가 70~80%, 무담보 HY채권이 30~50%, 메자닌이 10~30%, 에쿼티가 ~0%다. 회수율은 신용등급 노칭의 이론적 근거이자, 부실채권 투자자가 매입 가격을 결정하는 핵심 변수다. LBO에서 레버리지가 높을수록 워터폴 하단의 HY채권·에쿼티 회수율이 급격히 낮아지므로, 크레딧 애널리스트는 항상 최악 시나리오의 회수율을 시뮬레이션해야 한다.",
+        definitionEn: "Recovery rate is the percentage of par value that each class of creditor ultimately receives in a default, restructuring, or liquidation scenario. Historical averages show first-lien secured TLBs recovering 70-80 cents on the dollar, unsecured high yield bonds 30-50 cents, mezzanine 10-30 cents, and equity near zero. Recovery rates are the empirical foundation for rating notching and are the primary pricing input for distressed debt investors determining at what discount to purchase impaired claims. In highly leveraged LBOs, subordinated tranches face dramatically lower recoveries as enterprise value declines, which is why credit analysts stress-test recovery rates under multiple downside scenarios when underwriting debt.",
+      },
+    ],
     relatedSlugs: ["levfin-ecosystem", "levfin-covenants", "levfin-credit-metrics", "levfin-pricing", "levfin-cases", "lbo-deal-process"],
     appearsIn: [],
   },
@@ -2297,7 +3089,38 @@ From an IB career perspective, DCM requires a complex blend of structural design
     tags: ["RJR Nabisco", "KKR", "Blackstone", "힐튼", "Toys R Us", "Caesars", "Apollo", "MBK Partners", "홈플러스", "Drexel Burnham", "마이클 밀컨", "LBO 케이스스터디", "업타이어", "LBO 교훈"],
     tagsEn: ["RJR Nabisco", "KKR", "Blackstone", "Hilton", "Toys R Us", "Caesars", "Apollo", "MBK Partners", "Homeplus", "Drexel Burnham", "Michael Milken", "LBO Case Study", "Uptier", "LBO Lessons"],
     sections: [],
-    keyTerms: [],
+    keyTerms: [
+      {
+        term: "Drexel Burnham Lambert / 정크본드 혁명",
+        termEn: "Drexel Burnham Lambert / Junk Bond Revolution",
+        definition: "1980년대 Michael Milken이 주도해 정크본드(HY채권)를 M&A 파이낸싱의 핵심 도구로 만든 금융 혁명이다. 이전까지 투자등급 기업만 접근 가능했던 자본시장을 BB 이하 기업에게 열었으며, KKR/RJR Nabisco $31.4bn 딜이 이 혁명의 정점이었다. 1990년 Drexel의 파산은 HY채권 시장을 일시적으로 얼어붙게 했지만, 그 구조 혁신은 이후 현대 레버리지드 파이낸스의 기반이 됐다. Milken은 HY채권 발행에 대한 내부자 거래 혐의로 유죄를 받았으나, 그가 개척한 시장 구조는 살아남아 지금도 연간 $400bn+ 규모로 작동하고 있다.",
+        definitionEn: "The junk bond revolution of the 1980s was driven by Michael Milken at Drexel Burnham Lambert, who created the modern high yield bond market by convincing institutional investors that the risk-adjusted returns on sub-investment-grade debt were attractive. This opened the capital markets to companies and PE sponsors that had previously been locked out, and culminated in the KKR/RJR Nabisco $31.4 billion LBO in 1989 — still the largest LBO by inflation-adjusted value. Drexel's 1990 bankruptcy following Milken's securities fraud conviction temporarily froze the market, but the structural innovation survived and underpins the $400bn+ annual HY issuance market operating today.",
+      },
+      {
+        term: "Good Bank / Bad Bank 분리",
+        termEn: "Good Bank / Bad Bank Split",
+        definition: "부실 기업을 우량 자산(Good Bank)과 불량 자산(Bad Bank)으로 분리해 구조조정하는 전략이다. Apollo/Caesars 사례에서 Caesars Palace, Paris Las Vegas 등 핵심 자산은 CEOC(Good Bank)에, 문제 자산은 별도 법인에 배치해 핵심 자산을 채권자로부터 격리했다. 이 전략은 기업의 최선 자산을 보호하는 동시에 부실 자산을 법원 절차로 정리하는 PE의 고전적 구조 최적화 기법이지만, 채권자들은 자신들이 나쁜 쪽에 놓였다고 주장하며 대규모 소송을 제기했다. Caesars 사례는 결국 $1.25bn 소송 합의로 종결됐다.",
+        definitionEn: "The good bank / bad bank split involves separating a distressed company's assets into a high-quality operating entity and a vehicle containing the problem assets, allowing the valuable franchise to restructure under better terms while the bad assets are wound down or resolved through bankruptcy. In the Apollo/Caesars restructuring, prime casino properties including Caesars Palace were housed in CEOC while other assets were placed separately. Creditors who found themselves holding claims against the bad entity sued, alleging that Apollo had improperly transferred value away from their reach — litigation that ultimately settled for $1.25 billion. The tactic is now a standard element of PE distressed-asset playbooks worldwide.",
+      },
+      {
+        term: "Liability Management Exercise (LME)",
+        termEn: "Liability Management Exercise (LME)",
+        definition: "기존 부채 조건을 교체·재구조화해 디폴트를 피하거나 만기를 연장하는 포괄적 부채 관리 기법이다. Exchange Offer, Tender + Consent Solicitation, Uptier Transaction 등 다양한 방식을 포함하며, 법원 절차 없이 채권자 동의로 진행한다. 최근에는 Uptier LME가 소수 채권자들의 반발과 소송을 낳아 시장에서 가장 논쟁적인 구조 재편 기법이 됐다. Apollo/Caesars의 LME는 업계에서 교과서적 사례로 연구되며, 법적 분쟁 없이 LME를 진행하기가 얼마나 어려운지를 잘 보여준다.",
+        definitionEn: "A liability management exercise is a broad term for any out-of-court transaction that modifies existing debt obligations to improve the borrower's financial position — encompassing exchange offers, tender offers combined with consent solicitations, and uptier transactions. LMEs are preferred over formal bankruptcy because they are faster, cheaper, and avoid the reputational damage of a court filing. However, aggressive LMEs — particularly uptier transactions that subordinate holdout creditors — have generated a wave of litigation as disaffected creditors challenge the fairness of the process. The Apollo/Caesars LME is studied as a cautionary tale illustrating both the power and the legal peril of pushing liability management to its structural limits.",
+      },
+      {
+        term: "브리지 파이낸싱 (Bridge Financing)",
+        termEn: "Bridge Financing",
+        definition: "LBO 클로징 직후 영구 자금 조달이 완료될 때까지 단기로 운용하는 중간 대출이다. KKR/RJR Nabisco에서 Drexel Burnham이 브리지를 제공했고, 이후 6~12개월 내에 HY채권·TLB로 재파이낸싱하는 구조가 표준이 됐다. 브리지 파이낸싱은 딜 클로징 타이밍과 시장 상황이 맞지 않을 때 유용하지만, 시장이 급격히 악화되면 IB가 브리지를 장기 보유하는 Hung Deal로 이어질 수 있다. 브리지 금리는 보통 TLB보다 높고, 기간이 길어질수록 단계적으로 금리가 상승하는 스텝업(step-up) 구조를 채택해 발행사가 조기 재파이낸싱에 나서도록 유도한다.",
+        definitionEn: "Bridge financing is short-term debt provided by investment banks at LBO closing to allow the deal to complete before permanent capital markets financing — high yield bonds and term loans — is syndicated. Drexel's bridge for KKR in the RJR Nabisco deal established the template still used today: close the acquisition with bridge capital, then refinance into permanent instruments within six to twelve months. The bridge carries a higher interest rate that steps up over time to incentivize prompt refinancing. When capital markets deteriorate sharply after a commitment is made, the bridge can become a hung deal, forcing the arranging bank to hold a large illiquid position at a mark-to-market loss.",
+      },
+      {
+        term: "Sale & Leaseback (세일앤리스백)",
+        termEn: "Sale & Leaseback",
+        definition: "기업이 보유 부동산·설비 등 자산을 매각한 뒤 임대료를 내고 계속 사용하는 방식이다. MBK/홈플러스는 LBO 부채 상환을 위해 ₩4조 규모의 점포 부동산을 매각 후 임차하는 S&L을 실행했다. 자산 유동화와 영업 연속성을 동시에 달성할 수 있는 장점이 있지만, 장기 임차 부담이 발생해 운영 고정비가 높아지는 트레이드오프가 있다. PE LBO에서 S&L은 레버리지를 빠르게 낮추는 유용한 도구이지만, 자산 보유 이익(부동산 가치 상승)을 포기하는 비용을 수반한다.",
+        definitionEn: "A sale and leaseback transaction involves selling owned assets — typically real estate — to a third-party investor and simultaneously signing a long-term lease to continue occupying and operating the assets. MBK Partners executed a KRW 4 trillion sale-leaseback of Homeplus store properties to deleverage the LBO balance sheet and return capital to investors. The structure simultaneously monetizes illiquid assets and preserves operational continuity, but it converts a fixed asset into a fixed operating lease obligation, permanently increasing the cost base. In PE-backed LBOs, S&L is a powerful deleveraging tool, but it forfeits the long-term upside from property appreciation and leaves the portfolio company exposed to rent escalation.",
+      },
+    ],
     relatedSlugs: ["levfin-ecosystem", "levfin-hy-vs-loans", "levfin-credit-metrics", "levfin-covenants", "levfin-process", "levfin-pricing", "levfin-distressed"],
     appearsIn: [],
   },
@@ -2319,7 +3142,38 @@ From an IB career perspective, DCM requires a complex blend of structural design
     tags: ["신디케이티드론", "신디케이션", "MLA", "주선은행", "레버리지드론", "IG론", "에이전트은행", "언더라이트", "베스트에포트", "SOFR", "RWA", "BIS"],
     tagsEn: ["Syndicated Loan", "Syndication", "MLA", "Mandated Lead Arranger", "Leveraged Loan", "IG Loan", "Agent Bank", "Underwrite", "Best Efforts", "SOFR", "RWA", "BIS"],
     sections: [],
-    keyTerms: [],
+    keyTerms: [
+      {
+        term: "신디케이티드론",
+        termEn: "Syndicated Loan",
+        definition: "단일 은행이 아닌 여러 은행·기관이 공동으로 자금을 제공하는 대규모 대출 방식이다. 은행별 집중 위험을 분산시키면서도 수십억 달러 규모의 자금을 공급할 수 있다. 마치 아파트 개발 프로젝트에 여러 투자자가 각자의 자금을 나눠 투자하는 것처럼, 신디케이티드론도 각 은행이 감당 가능한 부분만 책임진다. 글로벌 연간 시장 규모는 $4조+로, 기업 금융의 핵심 자금 조달 수단이다.",
+        definitionEn: "A syndicated loan is a large credit facility provided jointly by a group of banks and financial institutions rather than a single lender. It allows enormous capital amounts to flow to a single borrower while spreading credit risk across many participants. Think of it like multiple investors co-funding a real estate development, each taking only the slice of risk they can comfortably absorb. At $4T+ annually, the global syndicated loan market is the backbone of large-scale corporate finance.",
+      },
+      {
+        term: "MLA (주선은행)",
+        termEn: "MLA — Mandated Lead Arranger",
+        definition: "딜을 설계하고 조건을 결정한 뒤 참여은행을 모집하는 주간사 역할이다. 가장 많은 수수료를 가져가며 시장에서 딜 리더로 인식된다. 건설 현장의 원도급자처럼 전체 프로젝트를 책임지고 하도급업체(참여은행)를 모집해 작업을 배분한다. 대형 딜에서는 복수의 MLA가 공동 주선(Joint MLA)을 맡기도 한다.",
+        definitionEn: "The MLA structures the deal, sets terms, and recruits the syndicate of participating banks. It earns the largest share of fees and is recognized by the market as the deal's architect and leader. Like a general contractor who takes full project responsibility and sub-contracts work to specialists, the MLA underwrites or arranges the full commitment and distributes portions to participants. Large deals often feature multiple Joint MLAs sharing the lead role.",
+      },
+      {
+        term: "RWA (위험가중자산)",
+        termEn: "RWA — Risk-Weighted Asset",
+        definition: "BIS 자기자본 규제(바젤 III)에서 자산을 위험도에 따라 가중치를 적용한 값이다. RWA가 높을수록 은행이 쌓아야 하는 자기자본이 늘어난다. 국채는 RWA 0%, 기업 대출은 통상 100%로 계산된다. 은행이 대규모 단독 대출 대신 신디케이션을 선택하는 핵심 이유로, 참여 금액을 줄여 RWA를 절약하면 동일한 자본으로 더 많은 딜에 참여할 수 있다.",
+        definitionEn: "Risk-Weighted Assets apply regulatory multipliers to bank assets based on credit risk; higher RWA requires more capital to be held in reserve under Basel III. Government bonds carry 0% risk weight while corporate loans are typically 100%. This is the primary structural driver behind syndication: by limiting exposure to any single borrower, each participating bank conserves RWA, freeing capital for other transactions. It's essentially the regulatory plumbing that makes syndication economically rational.",
+      },
+      {
+        term: "언더라이팅 vs 베스트에포트",
+        termEn: "Underwrite vs Best Efforts",
+        definition: "언더라이팅은 MLA가 전체 금액 조달을 보장하는 방식으로, 북빌드 실패 시 자체 보유해야 한다. 베스트에포트는 최선을 다하되 미달 위험을 발행사가 부담한다. 언더라이팅은 발행사에게 확실성을 주는 대신 MLA가 높은 수수료와 시장 리스크를 진다. 신용도 좋은 IG 딜은 베스트에포트, 레버리지드 딜은 언더라이팅이 일반적이다.",
+        definitionEn: "In an underwritten deal, the MLA guarantees the full funding amount — if the bookbuild falls short, the arranger holds the unsold portion on its own balance sheet. In a best-efforts deal, the arranger commits only to using its best efforts; shortfall risk stays with the borrower. Underwriting gives the issuer certainty and commands a higher fee, while best-efforts pricing is lower but exposes the borrower to market risk. Investment-grade deals often use best-efforts; LBO financings typically require underwriting.",
+      },
+      {
+        term: "집중위험 (Concentration Risk)",
+        termEn: "Concentration Risk",
+        definition: "한 차입자나 섹터에 대출이 과도하게 집중될 경우 해당 차입자 디폴트 시 은행 자본에 큰 타격이 발생하는 위험이다. 계란을 한 바구니에 담지 말라는 원칙의 금융판이다. 바젤 III의 대규모 익스포저 규제(LEX)는 단일 차입자 익스포저를 은행 자기자본의 25% 이내로 제한한다. 신디케이션이 존재하는 본질적인 이유 중 하나가 이 집중위험 분산이다.",
+        definitionEn: "Concentration risk arises when a bank has excessive exposure to a single borrower, sector, or geography — making a default in that area disproportionately damaging to the bank's capital. It's the financial version of 'don't put all your eggs in one basket.' Basel III's Large Exposure framework caps any single counterparty exposure at 25% of a bank's Tier 1 capital. Syndication is structurally motivated by the need to distribute this risk across multiple institutions.",
+      },
+    ],
     relatedSlugs: ["syndicated-loan-players", "syndicated-loan-process", "syndicated-loan-docs", "syndicated-loan-cases", "levfin-ecosystem"],
     appearsIn: [],
   },
@@ -2339,7 +3193,39 @@ From an IB career perspective, DCM requires a complex blend of structural design
     readingMinutes: 16,
     tags: ["MLA", "주선은행", "에이전트은행", "CLO", "어레인지먼트피", "업프론트피", "참여은행", "북러너", "코어레인저"],
     tagsEn: ["MLA", "Mandated Lead Arranger", "Agent Bank", "CLO", "Arrangement Fee", "Upfront Fee", "Participant Bank", "Bookrunner", "Co-Arranger"],
-    sections: [], keyTerms: [],
+    sections: [],
+    keyTerms: [
+      {
+        term: "Bookrunner (북러너)",
+        termEn: "Bookrunner",
+        definition: "북빌드(참여은행 모집)를 실행하고 투자자 주문을 취합하는 역할이다. 통상 MLA와 겹치며, 대형 딜에서는 복수의 Joint Bookrunner가 공동으로 수행한다. 공연 티켓 판매처럼 전체 수요를 한 곳에서 집계하고 배분을 결정하는 게이트키퍼 역할이다. 북러너가 되면 리그테이블 크레딧을 받아 은행의 시장 지위를 높이는 데도 기여한다.",
+        definitionEn: "The bookrunner runs the bookbuild — soliciting and aggregating orders from potential lenders to fill the syndicate. It typically overlaps with the MLA role, and large deals often feature multiple joint bookrunners. Like a concert ticketing platform that centralizes all demand and decides allocation, the bookrunner controls the distribution process. Bookrunner credit feeds league table rankings, which in turn drive future deal flow and client relationships.",
+      },
+      {
+        term: "에이전트은행 (Agent Bank)",
+        termEn: "Agent Bank",
+        definition: "대출 실행 후 차입자와 대출 참여기관 사이에서 이자 지급·원금 상환·코버넌트 모니터링·정보 전달을 대행하는 은행이다. 딜 클로징 후에도 만기까지 수수료(Agency Fee)를 받는 지속적인 수익원이다. 아파트 관리사무소처럼 입주(클로징) 이후에도 지속적으로 계약 이행을 관리하고 문제를 중재하는 역할이다. MLA와 에이전트를 동일 은행이 맡는 경우가 많다.",
+        definitionEn: "After a deal closes, the agent bank acts as the operational hub between borrower and all lenders: processing interest payments, managing principal repayments, monitoring covenants, and distributing financial information. It collects an annual agency fee for the life of the loan — a durable, low-risk revenue stream after deal execution. Think of it as the building manager who keeps everything running after the tenants move in. The MLA and agent role are frequently held by the same institution.",
+      },
+      {
+        term: "Arrangement Fee (어레인지먼트 피)",
+        termEn: "Arrangement Fee",
+        definition: "딜 주선의 대가로 MLA가 받는 일회성 수수료다. 딜 규모의 0.5~1.5% 수준으로, 전체 수수료 풀(Gross Spread)에서 가장 큰 비중을 차지한다. $1B 딜이면 $5M~$15M을 MLA가 가져간다. 수수료는 딜 클로징 시 일괄 지급되므로, MLA에게 딜 완성의 경제적 동기가 된다.",
+        definitionEn: "The arrangement fee is a one-time upfront fee paid to the MLA for structuring and arranging the syndicated facility — typically 0.5–1.5% of deal size. On a $1B transaction, that's $5M–$15M in a single payment. It's the largest single component of the total fee pool and is paid at closing, creating a strong incentive for the arranger to get the deal done. Larger, more complex deals command higher arrangement fees.",
+      },
+      {
+        term: "CLO (담보대출채권)",
+        termEn: "CLO — Collateralized Loan Obligation",
+        definition: "레버리지드론 100~200개를 포트폴리오로 묶어 AAA~Equity 트랑쉐로 재분류한 구조화 상품이다. 레버리지드론 시장의 65% 이상을 흡수하는 핵심 투자자로, CLO 매니저가 기존 대출을 사들여 포트폴리오를 구성한다. 위험도가 다른 층(트랑쉐)으로 나누어 파는 케이크처럼, 최상위 AAA 트랑쉐는 연기금이 사고 하위 Equity 트랑쉐는 헤지펀드가 매입한다. CLO 발행이 줄면 레버리지드론 시장 전체가 위축된다.",
+        definitionEn: "A CLO pools 100–200 leveraged loans into a portfolio, then issues tranches from AAA down to Equity — each tranche carries different risk and return characteristics. CLOs absorb over 65% of all leveraged loan issuance, making them the market's dominant buyer. Think of it as a tiered cake: pension funds buy the AAA layers at near-risk-free yields while hedge funds take the equity slice for double-digit returns. When CLO formation slows, leveraged loan markets tighten significantly.",
+      },
+      {
+        term: "Upfront Fee (업프론트 피)",
+        termEn: "Upfront Fee",
+        definition: "참여은행이 대출 참여의 대가로 지급받는 초기 수수료다. MLA의 어레인지먼트 피보다 낮은 수준으로, 참여 금액에 비례해 지급된다. 같은 딜에 더 많이 참여할수록 더 많은 업프론트 피를 받기 때문에, 참여은행의 참여 규모를 유도하는 인센티브로 작동한다. 소규모 참여행에게는 이자 스프레드에 추가되는 알파 수익원이다.",
+        definitionEn: "The upfront fee is paid to each participating lender at closing in proportion to their commitment — a lower rate than the arranger's fee but a meaningful yield enhancement. Because larger commitments earn more upfront fee, it incentivizes deeper participation from each lender. For smaller regional banks that lack relationship ties to the borrower, the upfront fee can be the economic tipping point that makes participation attractive beyond the coupon spread alone.",
+      },
+    ],
     relatedSlugs: ["syndicated-loan-overview", "syndicated-loan-process", "syndicated-loan-docs", "syndicated-loan-cases"],
     appearsIn: [],
   },
@@ -2359,7 +3245,39 @@ From an IB career perspective, DCM requires a complex blend of structural design
     readingMinutes: 18,
     tags: ["뷰티콘테스트", "mandate", "IM", "정보제공각서", "북빌드", "마켓플렉스", "클로징", "CP", "선행조건"],
     tagsEn: ["Beauty Contest", "Mandate", "IM", "Information Memorandum", "Bookbuild", "Market Flex", "Closing", "CP", "Conditions Precedent"],
-    sections: [], keyTerms: [],
+    sections: [],
+    keyTerms: [
+      {
+        term: "IM (정보제공각서)",
+        termEn: "IM — Information Memorandum",
+        definition: "차입자의 사업 개요·재무 현황·투자 논거를 담은 잠재 참여은행 대상 제안서다. 신디케이티드론에서는 CIM(Confidential Information Memorandum)이라 부르기도 한다. Analyst가 주도해 80~120페이지 분량으로 작성하며, Executive Summary·업황 분석·재무 모델·리스크 섹션으로 구성된다. IM의 스토리텔링 품질이 북빌드 성공률을 직접 결정한다.",
+        definitionEn: "The Information Memorandum is the deal's marketing document sent to potential lenders — covering business overview, financial performance, investment thesis, and risk factors. Often called a CIM (Confidential Information Memorandum) in leveraged deals, it runs 80–120 pages and is primarily written by the Analyst. Sections include executive summary, industry analysis, financial model, and risk disclosures. The quality of the IM's narrative directly drives bookbuild participation rates.",
+      },
+      {
+        term: "Beauty Contest (뷰티콘테스트)",
+        termEn: "Beauty Contest",
+        definition: "발행사가 복수의 은행에게 피치를 받고 MLA를 선정하는 경쟁 과정이다. 각 은행은 자신만의 조건·팀·네트워크를 어필해 딜을 따낸다. 오디션 프로그램처럼 은행들이 차별화된 가격, 구조, 배분 능력을 경쟁적으로 제시하는 과정이다. 선정된 MLA는 Mandate Letter를 받고 딜 설계를 본격적으로 시작한다.",
+        definitionEn: "A beauty contest is the competitive pitch process where a borrower invites multiple banks to present their proposed terms, team, and distribution capabilities before selecting the MLA. Like an audition, each bank differentiates itself on pricing, structure, and relationship depth. The winning bank receives a mandate letter and begins formal deal structuring. The beauty contest outcome often hinges on the bank's league table credibility and the MD's personal relationship with the CFO or treasurer.",
+      },
+      {
+        term: "Lender Meeting (렌더 미팅)",
+        termEn: "Lender Meeting",
+        definition: "IM 배포 후 차입자 경영진과 잠재 참여은행들이 만나는 투자자 설명회다. Q&A를 통해 코버넌트·재무 전망에 대한 신뢰를 쌓는 핵심 과정이다. 회사 신규 상장 시 IR 로드쇼와 유사하게, 경영진이 직접 회사의 비전과 재무 건전성을 어필한다. 렌더 미팅의 성과가 북빌드 커버리지에 즉각 반영된다.",
+        definitionEn: "Lender meetings bring the borrower's senior management face-to-face with potential syndicate participants after the IM has been distributed. Like a roadshow for an IPO, management presents the company's strategy and financials and fields detailed Q&A on covenants, projections, and risk factors. The quality of management's presentation and responsiveness directly shapes lender confidence, which translates into bookbuild demand.",
+      },
+      {
+        term: "북빌드 커버리지",
+        termEn: "Bookbuild Coverage",
+        definition: "북빌드에서 모집된 참여 의향 금액이 목표 금액의 몇 배인지를 나타내는 수치다. 3× 커버리지라면 목표의 세 배 수요가 몰린 것이다. 높을수록 가격 우위가 발행사에게 넘어가 스프레드 인하·조건 개선이 가능하다. 반대로 1× 미만이면 딜이 미달되거나 MLA가 자체 보유해야 하는 상황이 발생한다.",
+        definitionEn: "Bookbuild coverage is the ratio of orders received to the target facility size. A 3× coverage means demand is three times the amount being raised, giving the borrower pricing power to tighten spreads or improve terms. Coverage above 1× confirms the deal will close; coverage below 1× risks a shortfall that the underwriting bank must absorb. Reporting strong coverage in early bookbuild is itself a marketing signal that attracts additional lenders chasing a successful deal.",
+      },
+      {
+        term: "선행조건 (CP)",
+        termEn: "Conditions Precedent",
+        definition: "대출 실행(Closing) 직전 충족해야 하는 법적·재무적 조건들이다. 대표적으로 정관 확인, 담보 등록, 보험 증빙, 최신 재무제표 제출 등이 있다. 조건 중 하나라도 미충족이면 대출 실행이 지연되거나 취소된다. 에이전트은행이 CP 충족 여부를 확인하고 모든 참여은행에게 통보하는 역할을 맡는다.",
+        definitionEn: "Conditions Precedent are the legal and financial requirements that must be satisfied before the loan is drawn down. Typical CPs include confirmation of corporate authorizations, registration of security interests, delivery of audited financials, and evidence of insurance. Any unsatisfied CP blocks funding until resolved. The agent bank verifies each CP item and confirms satisfaction to all syndicate members, triggering the disbursement of funds.",
+      },
+    ],
     relatedSlugs: ["syndicated-loan-overview", "syndicated-loan-players", "syndicated-loan-docs", "syndicated-loan-cases"],
     appearsIn: [],
   },
@@ -2379,7 +3297,39 @@ From an IB career perspective, DCM requires a complex blend of structural design
     readingMinutes: 17,
     tags: ["크레딧어그리먼트", "SOFR", "LIBOR", "파이낸셜코버넌트", "레버리지비율", "이자보상비율", "Cov-Lite", "어멘드먼트", "웨이버"],
     tagsEn: ["Credit Agreement", "SOFR", "LIBOR", "Financial Covenant", "Leverage Ratio", "Interest Coverage", "Cov-Lite", "Amendment", "Waiver"],
-    sections: [], keyTerms: [],
+    sections: [],
+    keyTerms: [
+      {
+        term: "크레딧 어그리먼트",
+        termEn: "Credit Agreement",
+        definition: "신디케이티드론의 핵심 법률 문서로, 대출 조건·코버넌트·이자 계산·기한이익 상실·대출인 교체 절차 등 15개 이상의 조항을 규정한다. LMA(영국) 또는 LSTA(미국) 표준 양식을 기반으로 하며, 실제 협상에서 수십 개의 조항이 수정된다. 부동산 매매 계약처럼 당사자 간 권리와 의무를 완전히 규정하는 계약서로, 딜 구조의 모든 것이 여기에 담긴다. 문서 길이는 통상 200~400페이지에 달한다.",
+        definitionEn: "The Credit Agreement is the master legal document governing a syndicated loan — covering pricing, drawdown mechanics, covenant obligations, events of default, and lender transfer procedures across 15+ articles. It follows LMA (UK) or LSTA (US) standard forms, with negotiated modifications added for each deal. Think of it as the comprehensive title deed and operating manual for the loan: every right and obligation of every party for the loan's full life is defined here. Typical Credit Agreements run 200–400 pages.",
+      },
+      {
+        term: "SOFR",
+        termEn: "SOFR — Secured Overnight Financing Rate",
+        definition: "미국 국채 레포 시장 기반의 무위험 기준금리다. 2023년 LIBOR 폐지 이후 USD 변동금리 대출의 공식 기준점으로 전환됐다. 'SOFR + Spread'로 레버리지드론의 금리가 결정된다. LIBOR가 은행 간 호가 기반이었다면, SOFR는 실제 거래 기반이라 조작 가능성이 없는 것이 핵심 장점이다.",
+        definitionEn: "SOFR is the overnight benchmark rate based on U.S. Treasury repo transactions, replacing LIBOR as the reference rate for USD-denominated floating-rate loans after LIBOR's official cessation in 2023. Leveraged loan rates are now quoted as SOFR + a credit spread. Unlike LIBOR, which was based on bank submissions vulnerable to manipulation (as the 2012 scandal revealed), SOFR is grounded in actual transaction data, making it more robust and trustworthy as a global benchmark.",
+      },
+      {
+        term: "파이낸셜 코버넌트",
+        termEn: "Financial Covenant",
+        definition: "매 분기 검사하는 재무 약정(Maintenance Covenant)이다. 레버리지 비율·이자보상비율·최소 유동성 등이 대표적이며, 위반 시 즉각 기한이익 상실 사유가 될 수 있다. 자동차 정기검사처럼 분기마다 재무 건전성을 점검하는 장치로, 문제가 생기면 은행이 조기에 개입할 수 있는 트리거가 된다. Cov-Lite 구조에서는 이 정기검사 의무가 없어져 은행이 문제를 늦게 발견하게 된다.",
+        definitionEn: "Financial covenants are maintenance tests run every quarter — typically covering maximum leverage ratio, minimum interest coverage, and sometimes minimum liquidity. A breach triggers an Event of Default, giving lenders the right to accelerate repayment or renegotiate terms. Think of them as quarterly MOT tests for the borrower's financial health: they force early intervention before problems compound. In Cov-Lite structures, these quarterly checkups are removed, leaving lenders to discover distress only when it's already severe.",
+      },
+      {
+        term: "Amendment & Waiver",
+        termEn: "Amendment & Waiver",
+        definition: "대출 조건 변경(Amendment) 또는 코버넌트 위반을 일시 용인(Waiver)하는 행위다. 단순 웨이버는 과반수(50%+) 대출인 동의로 가능하고, 핵심 조건(금리·만기 변경)은 슈퍼마조리티(통상 2/3 이상) 동의가 필요하다. 집 수리 공사처럼 건물 소유자(차입자)가 임차인 대다수(대출인들)의 동의를 받아 구조를 변경하는 과정이다. 에이전트은행이 투표를 집계하고 공식 통보한다.",
+        definitionEn: "An Amendment formally changes loan terms; a Waiver temporarily suspends enforcement of a covenant breach. Both require lender votes: routine changes pass with simple majority (50%+), while modifications to core economic terms like rate or maturity require supermajority (typically 66–75%). Think of it as a homeowner needing tenant consent to structurally modify a building. The agent bank coordinates the vote, tracks responses, and issues the official notice once the required threshold is met.",
+      },
+      {
+        term: "Cov-Lite",
+        termEn: "Covenant-Lite",
+        definition: "재무약정(Maintenance Covenant) 없이 Incurrence 조건만 있는 대출 구조다. 차입자는 분기마다 재무 테스트를 받지 않아 유리하지만, 은행은 문제를 조기에 감지하기 어렵다. 2014년 이후 레버리지드론의 80% 이상이 Cov-Lite 구조로 발행됐다. 정기검진 없이 큰 병이 될 때까지 방치되는 것처럼, Cov-Lite 환경에서 신용 악화 기업들은 파산 직전까지 은행 개입이 없는 경우가 많다.",
+        definitionEn: "Covenant-lite loans omit Maintenance Financial Covenants — the quarterly tests that let lenders catch deterioration early. Instead, they include only Incurrence Covenants that trigger only when the borrower takes an affirmative action (issuing new debt, paying dividends). Since 2014, over 80% of leveraged loans have been cov-lite. Like skipping annual medical checkups, cov-lite structures allow credit deterioration to go undetected until it's severe. This was a key factor amplifying losses in the 2020 and 2022 credit stress episodes.",
+      },
+    ],
     relatedSlugs: ["syndicated-loan-overview", "syndicated-loan-players", "syndicated-loan-process", "syndicated-loan-cases"],
     appearsIn: [],
   },
@@ -2399,7 +3349,39 @@ From an IB career perspective, DCM requires a complex blend of structural design
     readingMinutes: 20,
     tags: ["ARM홀딩스", "토이저러스", "케이스스터디", "레버리지드론", "파산", "Cov-Lite", "리파이낸싱", "LBO", "신디케이션성공"],
     tagsEn: ["ARM Holdings", "Toys'R'Us", "Case Study", "Leveraged Loan", "Bankruptcy", "Cov-Lite", "Refinancing", "LBO", "Syndication Success"],
-    sections: [], keyTerms: [],
+    sections: [],
+    keyTerms: [
+      {
+        term: "신디케이션 성공 요인",
+        termEn: "Syndication Success Factors",
+        definition: "IM의 재무 스토리 설득력, 발행사 신용도, 시장 타이밍, 북빌드 전략(경쟁 오더 유도)의 네 가지가 신디케이션 성패를 결정한다. ARM Holdings의 2023 $10B 신디케이션은 반도체 산업의 구조적 성장 내러티브와 소프트뱅크 상장 준비 맥락이 맞물려 3× 이상 오버서브되었다. 성공적인 신디케이션은 단순히 자금을 모으는 게 아니라 시장에 '이 딜은 좋은 딜이다'라는 신호를 보내는 행위다.",
+        definitionEn: "Four factors determine syndication outcomes: the IM's financial narrative quality, issuer credit profile, market timing, and bookbuild strategy (generating competitive order flow). ARM Holdings' 2023 $10B syndication succeeded because the semiconductor structural growth story, combined with SoftBank's IPO preparation backdrop, drove over 3× oversubscription. A successful syndication isn't just about raising money — it signals to the market that a deal has strong institutional endorsement.",
+      },
+      {
+        term: "재파이낸싱 (Refinancing)",
+        termEn: "Refinancing",
+        definition: "기존 부채를 새 조건(금리·만기·코버넌트)으로 교체하는 과정이다. 금리 하락기에는 차입자에게 유리한 조건으로 재파이낸싱이 가능하지만, 시장 악화 시 만기 도래 부채를 제때 교체하지 못하는 위험이 발생한다. Toys R Us는 e-commerce 경쟁 심화로 영업이익이 급감한 시점에 $5B 레버리지드론 만기가 도래했고, 재파이낸싱 실패가 직접적인 파산 원인이 됐다. 재파이낸싱 창이 언제 열리고 닫히는지 모니터링하는 것이 LevFin 뱅커의 핵심 업무다.",
+        definitionEn: "Refinancing replaces existing debt with new obligations at revised terms — lower rate, extended maturity, or improved covenants. In falling-rate environments, borrowers can reduce interest costs significantly. Conversely, when markets are stressed, rolling maturing debt becomes dangerous. Toys R Us had $5B in leveraged loans come due as Amazon was destroying its business model; unable to refinance at any workable rate, it filed for bankruptcy in 2017. Tracking refinancing windows is a core LevFin banker responsibility.",
+      },
+      {
+        term: "전략적 리스크 (사업 리스크)",
+        termEn: "Business / Operational Risk",
+        definition: "높은 레버리지 구조에서 사업 모델 붕괴는 즉각적인 디폴트로 직결된다. Toys R Us는 물리적 매장 중심 사업 모델이 Amazon·대형마트의 온라인 확장에 의해 근본적으로 무력화됐다. 줄타기 선수가 높을수록 흔들림을 견디기 어렵듯, 레버리지가 높을수록 사업 리스크를 허용할 여유가 없다. LBO·신디케이티드론 실사 단계에서 디지털 전환·경쟁 환경·고객 집중도 등 전략적 리스크를 핵심 항목으로 점검해야 한다.",
+        definitionEn: "In a high-leverage structure, business model disruption translates directly into default without any buffer to absorb shocks. Toys R Us saw its entire physical-retail model become economically unviable as Amazon and big-box retailers expanded online. The more leverage you carry, the less room you have to survive strategic disruption — like a tightrope walker at greater height. Syndicated loan and LBO due diligence must treat digital transformation threats, competitive dynamics, and customer concentration as Tier-1 risks.",
+      },
+      {
+        term: "보유 기간 (Holding Period)",
+        termEn: "Holding Period",
+        definition: "PE 투자 관점에서 대출 실행(또는 인수)에서 Exit까지의 기간이다. 통상 3~7년이며, 이 기간 동안 EBITDA 성장·Deleveraging·Multiple Expansion이 에쿼티 가치를 높인다. ARM Holdings는 소프트뱅크 보유 기간(2016~2023) 중 반도체 설계 IP 가치가 급성장했고, 상장 전 $10B 신디케이션으로 재무 유연성을 확보해 성공적인 IPO를 준비했다. 보유 기간이 너무 길어지면 J-커브 효과로 IRR이 급락한다.",
+        definitionEn: "The holding period is the time from acquisition (or loan funding) to exit, typically 3–7 years. During this window, EBITDA growth, deleveraging, and multiple expansion build equity value. ARM Holdings' holding period under SoftBank (2016–2023) saw semiconductor IP value surge dramatically; the pre-IPO $10B syndication provided the financial flexibility to prepare a successful 2023 listing. Extending the hold beyond plan compresses IRR significantly, even if MOIC remains strong.",
+      },
+      {
+        term: "디폴트율 (Default Rate)",
+        termEn: "Default Rate",
+        definition: "전체 레버리지드론·HY채권 중 12개월 내 디폴트가 발생한 비율이다. 경기 정상기 1~2%, 경기침체·위기 시 10~15%까지 급등한다. Moody's·S&P가 분기별로 추적 발표하며, LevFin 프라이싱의 기초 자료로 활용된다. Toys R Us 파산은 소매업 레버리지드론 전반의 디폴트 우려를 높여 해당 섹터 스프레드를 일시 급등시켰다.",
+        definitionEn: "The default rate measures what percentage of leveraged loans or HY bonds defaulted within the past 12 months. In normal conditions it runs 1–2%; during recessions or credit crises it spikes to 10–15%. Moody's and S&P publish quarterly default rate reports, which serve as foundational inputs for LevFin pricing models and CLO stress testing. Sector-level default spikes — like Toys R Us triggering retail LBO repricing — can ripple through an entire segment's spread levels.",
+      },
+    ],
     relatedSlugs: ["syndicated-loan-overview", "syndicated-loan-players", "syndicated-loan-process", "syndicated-loan-docs"],
     appearsIn: [],
   },
@@ -2782,7 +3764,38 @@ From an IB career perspective, DCM requires a complex blend of structural design
     tags: ["팔로우온", "ABB", "블록 트레이드", "유상증자", "ATM", "PE 엑싯", "희석", "삼성물산"],
     tagsEn: ["Follow-on", "ABB", "Block Trade", "Rights Issue", "ATM", "PE Exit", "Dilution"],
     sections: [],
-    keyTerms: [],
+    keyTerms: [
+      {
+        term: "팔로우온 공모",
+        termEn: "Follow-on Offering",
+        definition: "이미 상장된 기업이 추가로 신주를 발행하거나 대주주가 보유 주식을 공개 매도하는 거래다. IPO와 달리 이미 공개 정보가 있어 딜 속도가 빠르고 가격 발견이 용이하다. 기업 재무 상황 개선, PE 엑싯, 성장 투자 재원 마련 등 다양한 목적으로 활용된다. ABB·유상증자·ATM 등 방식에 따라 속도와 희석 정도가 달라진다.",
+        definitionEn: "A transaction in which an already-listed company issues additional new shares or a major shareholder sells existing holdings publicly. Unlike an IPO, existing public information makes the deal faster and price discovery easier. It is used for various purposes including improving financial position, PE exits, and funding growth investments. Speed and dilution vary depending on the method — ABB, rights issue, or ATM.",
+      },
+      {
+        term: "Primary vs Secondary 오퍼링",
+        termEn: "Primary vs Secondary Offering",
+        definition: "Primary는 신주를 새로 발행해 기업이 자금을 조달하는 방식으로, 조달 자금이 기업에 유입된다. Secondary는 기존 주주(PE·창업자)가 보유 주식을 팔아 그들이 현금화하는 방식으로, 기업에는 돈이 들어오지 않는다. 두 방식은 하나의 딜에 혼합되어 진행되는 경우도 많다. 시장은 Secondary 비중이 높을수록 기업 자체 성장 필요보다 기존 주주의 엑싯 욕구가 강하다고 해석한다.",
+        definitionEn: "In a Primary offering, new shares are issued and proceeds flow to the company. In a Secondary offering, existing shareholders (PE, founders) sell their holdings and receive the proceeds — the company gets nothing. Both can be combined in a single transaction. Markets interpret a high Secondary component as a signal that existing shareholders are seeking an exit rather than the company needing growth capital.",
+      },
+      {
+        term: "ATM (자동 시장 매도)",
+        termEn: "At-the-Market Offering",
+        definition: "증권거래소를 통해 소량씩 일상적 거래처럼 주식을 매도하는 방식이다. 전통적 팔로우온보다 가격 충격이 작고 유연하지만 한 번에 큰 금액 조달은 어렵다. 주관사가 브로커 역할을 맡아 일정 기간에 걸쳐 시장 상황에 따라 분산 매도한다. 미국 바이오·리츠(REIT) 기업이 자주 사용하며, 시장가에 가깝게 지속 발행한다는 점에서 ATM이라는 이름이 붙었다.",
+        definitionEn: "A method of selling shares in small increments through the exchange like ordinary market trades. It causes less price impact and offers more flexibility than a traditional follow-on, but is not suited for raising large amounts at once. The underwriter acts as broker, distributing sales over time based on market conditions. Frequently used by US biotech and REIT companies; the name ATM reflects the practice of continuously issuing shares at near-market prices.",
+      },
+      {
+        term: "보호예수 기간",
+        termEn: "Lockup Period",
+        definition: "IPO 후 내부자·기관 투자자가 보유 주식을 팔 수 없도록 제한하는 기간으로 통상 90~180일이다. 만료 직전·직후 대량 매도 우려가 커지며 주가 변동성이 높아진다. 앵커 투자자는 D+90일, PE·창업자는 D+180일에 제한이 해제되는 것이 일반적이다. 락업이 실질적으로 팔로우온 딜의 타이밍을 결정하는 핵심 변수다.",
+        definitionEn: "A period during which insiders and institutional investors are restricted from selling their shares after an IPO, typically 90–180 days. Price volatility increases just before and after expiry as the market anticipates large block selling. Anchor investors typically unlock at D+90 and PE/founders at D+180. The lockup expiry is a key variable that effectively determines the timing of follow-on deals.",
+      },
+      {
+        term: "희석 효과",
+        termEn: "Dilution",
+        definition: "신주 발행으로 기존 주주 지분율이 낮아지는 현상이다. Primary 팔로우온은 항상 희석을 수반하며, 발행 규모와 시장 가격 대비 발행 가격의 차이가 희석 정도를 결정한다. 기존 주주 입장에서는 지분율·EPS·배당 권리가 모두 희석된다. 주관사는 시장이 허용하는 최소 할인율에서 최대한 빠르게 발행해 희석 충격을 줄이려 한다.",
+        definitionEn: "The reduction in existing shareholders' ownership percentage caused by the issuance of new shares. Primary follow-ons always involve dilution; the extent depends on the offering size and the discount to market price. From existing shareholders' perspective, ownership stake, EPS, and dividend rights are all diluted. Underwriters aim to minimize dilution impact by pricing at the minimum acceptable discount and executing as quickly as possible.",
+      },
+    ],
     relatedSlugs: ["ecm-ipo-post", "ecm-convertible", "ecm-overview"],
     appearsIn: [],
   },
@@ -2803,7 +3816,38 @@ From an IB career perspective, DCM requires a complex blend of structural design
     tags: ["전환사채", "CB", "전환프리미엄", "델타 헤징", "하이브리드", "페이오프", "ECM 상품"],
     tagsEn: ["Convertible Bond", "CB", "Conversion Premium", "Delta Hedging", "Hybrid", "Payoff", "ECM Products"],
     sections: [],
-    keyTerms: [],
+    keyTerms: [
+      {
+        term: "전환사채 (CB)",
+        termEn: "Convertible Bond",
+        definition: "채권으로 발행되지만 특정 조건에서 발행사 주식으로 전환할 수 있는 하이브리드 증권이다. 주가가 오르면 주식으로 전환해 이익을 보고, 내리면 채권 원금을 돌려받는 투자자 보호 구조다. 채권의 안전벨트와 주식의 가속기를 동시에 가진 차에 비유된다. 발행사는 낮은 쿠폰(이자율)을 대가로 투자자에게 주식 전환 옵션을 부여한다.",
+        definitionEn: "A hybrid security issued as a bond but convertible into the issuer's stock under specific conditions. When the stock price rises, the holder converts to equity and profits; when it falls, the bondholder receives principal repayment. It is often compared to a car with both a seatbelt (bond protection) and an accelerator (equity upside). The issuer pays a lower coupon in exchange for granting the investor a stock conversion option.",
+      },
+      {
+        term: "전환 프리미엄",
+        termEn: "Conversion Premium",
+        definition: "CB 전환가격이 발행 시 주가보다 높게 설정된 비율이다. 예를 들어 주가가 ₩10,000일 때 전환가를 ₩12,000으로 설정하면 20% 프리미엄이다. 발행사는 이 프리미엄만큼 희석을 줄이고, 투자자는 낮은 쿠폰을 감수하는 대신 주가 상승 업사이드를 얻는다. 프리미엄이 높을수록 투자자에게는 불리하지만 발행사 기존 주주에게는 유리하다.",
+        definitionEn: "The percentage by which a CB's conversion price is set above the stock price at issuance. For example, if the stock trades at KRW 10,000 and the conversion price is KRW 12,000, that is a 20% premium. The issuer benefits from reduced dilution while the investor accepts a lower coupon in exchange for the equity upside. A higher premium is less favorable to investors but more favorable to the issuer's existing shareholders.",
+      },
+      {
+        term: "델타 헤지",
+        termEn: "Delta Hedge",
+        definition: "CB 차익거래 투자자가 CB 내 주식 옵션 가치에 비례해 주식을 공매도하는 리스크 중립 전략이다. CB가 주가 변화에 관계없이 일정한 수익을 내도록 주식 헤지 비율(델타)을 지속 조정한다. 주가가 오르면 델타가 높아져 더 많은 공매도가 필요하고, 내리면 그 반대다. CB 차익거래 헤지펀드의 핵심 운용 방식이다.",
+        definitionEn: "A risk-neutral strategy in which a convertible bond arbitrageur short-sells the underlying stock in proportion to the equity option value embedded in the CB. The hedge ratio (delta) is continuously adjusted so the position generates consistent returns regardless of stock price moves. When the stock rises, delta increases and more shorting is required; the reverse applies on a decline. This is the core strategy of CB arbitrage hedge funds.",
+      },
+      {
+        term: "리픽싱 (Refixing)",
+        termEn: "Refixing",
+        definition: "주가 하락 시 CB 전환가격을 낮춰주는 조항이다. 투자자에게 유리하지만 발행사 입장에서는 더 많은 신주 발행(더 큰 희석)으로 이어질 수 있다. 한국에서는 최초 전환가의 70% 이하로는 리픽싱할 수 없도록 법적으로 제한한다. 리픽싱 조항이 있는 CB는 주가 하락 방어막 역할을 하기 때문에 투자자 수요가 높다.",
+        definitionEn: "A clause that lowers the CB's conversion price if the stock price falls. It benefits the investor but leads to greater dilution for the issuer through additional share issuance. In Korea, refixing is legally capped at no lower than 70% of the original conversion price. CBs with refixing clauses attract strong investor demand because they provide a floor against stock price declines.",
+      },
+      {
+        term: "만기 풋 옵션",
+        termEn: "Put at Maturity",
+        definition: "CB 보유자가 만기 전 특정 시점에 액면가(보통 100 또는 101)에 CB를 되팔 수 있는 권리다. 주가 급락 시 원금 보호를 위한 핵심 안전장치로 기능한다. 풋 옵션이 있는 CB는 발행사의 조기 상환 부담을 높이지만, 그만큼 낮은 쿠폰으로 발행 가능하다. 투자자는 주가 상승 시 전환으로, 하락 시 풋으로 두 방향 모두를 방어할 수 있다.",
+        definitionEn: "The right of a CB holder to sell the bond back to the issuer at face value (typically 100 or 101) at a specific date before maturity. It serves as the primary capital protection mechanism when the stock price drops sharply. CBs with put options increase the issuer's early redemption obligation but allow issuance at a lower coupon. Investors are protected in both directions: conversion on the upside, put on the downside.",
+      },
+    ],
     relatedSlugs: ["ecm-followon", "ecm-overview", "ecm-ipo-valuation"],
     appearsIn: [],
   },
@@ -2824,7 +3868,38 @@ From an IB career perspective, DCM requires a complex blend of structural design
     tags: ["ADR", "GDR", "국제 상장", "쿠팡 NYSE", "이중상장", "예탁증서", "144A", "Reg S", "해외 직상장"],
     tagsEn: ["ADR", "GDR", "International Listing", "Coupang NYSE", "Dual Listing", "Depositary Receipt", "144A", "Reg S"],
     sections: [],
-    keyTerms: [],
+    keyTerms: [
+      {
+        term: "ADR / GDR",
+        termEn: "American Depositary Receipt / Global Depositary Receipt",
+        definition: "외국 기업의 주식을 미국(ADR) 또는 글로벌(GDR) 예탁증서 형태로 발행해 현지 거래소에서 거래할 수 있게 한 구조다. 실제 주식은 예탁기관이 보관하고 투자자는 예탁증서를 보유한다. 한국 SK하이닉스·삼성전자도 ADR 형태로 미국에서 거래 가능하다. 환전·규제 장벽 없이 외국 기업 주식에 투자할 수 있는 가장 보편적 방식이다.",
+        definitionEn: "A structure in which a foreign company's shares are issued as depositary receipts in the US (ADR) or globally (GDR) to be traded on local exchanges. The actual shares are held by a depositary institution while investors hold the receipts. Korean companies like SK Hynix and Samsung Electronics are also tradable in the US via ADRs. It is the most common mechanism for investing in foreign company shares without currency or regulatory barriers.",
+      },
+      {
+        term: "이중상장 (Dual Listing)",
+        termEn: "Dual Listing",
+        definition: "동일 기업이 두 개 이상 거래소에 상장하는 것이다. 투자자 베이스를 넓히고 유동성을 높이지만 두 시장의 공시·규제 요건을 동시에 준수해야 하는 부담이 있다. 홍콩과 상하이에 이중 상장한 중국 기업, 미국과 한국 KRX에 동시 상장한 기업들이 사례다. 두 시장 간 주가 차이(프리미엄·디스카운트)가 발생하면 차익거래 기회가 생긴다.",
+        definitionEn: "The listing of a single company on two or more exchanges simultaneously. It broadens the investor base and improves liquidity, but requires compliance with the disclosure and regulatory requirements of both markets. Chinese companies dual-listed in Hong Kong and Shanghai, or companies with simultaneous listings in the US and Korea, are typical examples. Price discrepancies between the two markets can create arbitrage opportunities.",
+      },
+      {
+        term: "VIE 구조",
+        termEn: "Variable Interest Entity (VIE) Structure",
+        definition: "중국 기업이 외국인 투자 제한을 우회해 해외 상장하기 위한 계약 지배 구조다. 알리바바·바이두·JD닷컴 등이 활용했으며, 법적 소유권은 없지만 계약으로 경제적 권리를 확보하는 방식이다. 투자자는 중국 사업체에 대한 직접 소유권 없이 케이만 제도 법인에 투자한다. 구조적 리스크가 높아 SEC와 기관 투자자의 지속적 우려 대상이다.",
+        definitionEn: "A contractual control structure used by Chinese companies to bypass foreign ownership restrictions and list overseas. Alibaba, Baidu, and JD.com have all used this structure; investors obtain economic rights through contracts without direct legal ownership of the operating entity. Investors hold shares in a Cayman Islands entity rather than the Chinese operating company. It carries significant structural risk and remains a persistent concern for the SEC and institutional investors.",
+      },
+      {
+        term: "해외 상장 프리미엄",
+        termEn: "Overseas Listing Premium",
+        definition: "성장시장 기업이 선진 시장(뉴욕·홍콩)에 상장할 때 얻을 수 있는 추가 밸류에이션이다. 더 깊은 투자자 풀, 더 높은 유동성, ESG·거버넌스 기준 충족 인정 등에서 비롯된다. 단, 해외 상장 요건 준수 비용과 지정학 리스크(특히 미중 갈등 속 중국 기업)도 함께 고려해야 한다. 쿠팡이 국내보다 NYSE 상장을 선택한 주된 이유 중 하나다.",
+        definitionEn: "The additional valuation a growth-market company can achieve by listing on a developed market exchange such as NYSE or Hong Kong. It derives from access to a deeper investor pool, higher liquidity, and recognition of ESG and governance standards. However, compliance costs and geopolitical risks (especially for Chinese companies amid US-China tensions) must also be weighed. This premium was one of the main reasons Coupang chose NYSE over the Korean market.",
+      },
+      {
+        term: "공시 규제 격차",
+        termEn: "Regulatory Gap",
+        definition: "국내 상장 요건과 해외 상장 요건의 차이다. SEC Form 20-F, 홍콩 HKEx 기준 등은 한국 금융감독원 기준과 내용·형식이 다르다. 이 격차를 메우는 준비(법무·회계·IR) 비용이 해외 상장의 핵심 비용이며, 통상 딜 규모의 2~4%를 차지한다. 격차가 클수록 준비 기간이 길어지고 상장 타이밍 리스크가 높아진다.",
+        definitionEn: "The difference between domestic and overseas listing requirements. SEC Form 20-F and Hong Kong HKEx standards differ substantially from Korea's FSS requirements in both content and format. Bridging this gap — through legal, accounting, and IR preparation — constitutes the core cost of an overseas listing, typically 2–4% of deal size. A larger gap means longer preparation time and higher timing risk.",
+      },
+    ],
     relatedSlugs: ["ecm-overview", "ecm-ipo-process", "ecm-spac-direct"],
     appearsIn: [],
   },
@@ -2845,7 +3920,38 @@ From an IB career perspective, DCM requires a complex blend of structural design
     tags: ["SPAC", "직상장", "Direct Listing", "에어비앤비", "Nikola", "Grab", "Bird", "SPAC 거품", "전통 IPO 비교", "De-SPAC"],
     tagsEn: ["SPAC", "Direct Listing", "Airbnb", "Nikola", "Grab", "Bird", "SPAC Bubble", "De-SPAC", "IPO Comparison"],
     sections: [],
-    keyTerms: [],
+    keyTerms: [
+      {
+        term: "SPAC (기업인수목적회사)",
+        termEn: "Special Purpose Acquisition Company",
+        definition: "실제 사업 없이 IPO를 통해 자금을 조달한 뒤 비상장 기업을 인수·합병하는 것만을 목적으로 하는 빈껍데기 회사다. 일반 IPO와 달리 합병 대상 기업이 증권신고서 없이 상장 가능하다. 보통 2년 내 합병 대상을 찾아야 하며, 실패하면 신탁 계정 자금을 투자자에게 반환한다. 2020~22년 붐 이후 규제 강화와 합병 실패로 시장이 급격히 위축됐다.",
+        definitionEn: "A shell company that raises funds through an IPO with the sole purpose of acquiring or merging with a private company, without operating any actual business. Unlike a traditional IPO, the target company can go public without filing a securities registration statement. The SPAC typically has two years to find a merger target; if it fails, the trust account funds are returned to investors. After the 2020–22 boom, tighter regulation and deal failures caused the market to contract sharply.",
+      },
+      {
+        term: "De-SPAC 합병",
+        termEn: "De-SPAC Merger",
+        definition: "SPAC이 실제 기업과 합병해 그 기업이 상장되는 과정이다. 기업 입장에서는 전통 IPO보다 빠르고 금융 프로젝션(미래 전망)을 IR에 활용할 수 있다는 장점이 있다. 그러나 Due Diligence 부재, 과도한 밸류에이션, SPAC 워런트 희석 등이 문제로 지적됐다. 2022년 이후 SEC가 SPAC 합병에도 IPO와 유사한 공시 기준을 적용하면서 이점이 줄었다.",
+        definitionEn: "The process by which a SPAC merges with a real company, resulting in that company becoming publicly listed. For the target company, it is faster than a traditional IPO and allows the use of financial projections in IR materials. However, lack of due diligence, inflated valuations, and SPAC warrant dilution have been major criticisms. Since 2022, the SEC has applied IPO-equivalent disclosure standards to SPAC mergers, reducing their advantages.",
+      },
+      {
+        term: "SPAC 워런트",
+        termEn: "SPAC Warrant",
+        definition: "SPAC IPO 시 유닛(주식+워런트)으로 발행되는 워런트다. 합병 완료 후 30일이 지나면 $11.50 등 고정가에 추가 주식을 살 수 있는 권리다. 합병 성공 시 업사이드를 위한 레버리지 도구로 기능하지만, 주가 상승 시 기존 주주를 희석시킨다. SPAC 워런트 남발이 2020~22년 SPAC 붕괴의 한 원인으로 지목됐다.",
+        definitionEn: "Warrants issued as part of the SPAC IPO unit (stock + warrant). They grant the right to purchase additional shares at a fixed price (e.g., $11.50) 30 days after merger completion. They serve as a leverage tool for upside on merger success but dilute existing shareholders when exercised. The over-issuance of SPAC warrants was cited as one factor behind the 2020–22 SPAC collapse.",
+      },
+      {
+        term: "직상장 (Direct Listing)",
+        termEn: "Direct Listing",
+        definition: "기존 주주가 보유 주식을 직접 공개 시장에 파는 방식으로 상장하되 신주 발행 없이 진행하는 방식이다. Spotify·Coinbase·Roblox가 활용했으며, 언더라이터 수수료가 없어 저비용이지만 자금 조달은 불가하다. 공모가 대신 시장 수요와 공급이 첫 거래 가격을 결정한다. 브랜드 인지도와 투자자 관심이 이미 높은 기업에 적합한 방식이다.",
+        definitionEn: "A listing method in which existing shareholders sell their shares directly to the public market without issuing new shares. Spotify, Coinbase, and Roblox used this method; there are no underwriter fees, making it low-cost, but no capital is raised. Rather than an offer price, supply and demand determine the opening trade price. It is best suited for companies that already have high brand recognition and investor interest.",
+      },
+      {
+        term: "SPAC 신탁 계정",
+        termEn: "SPAC Trust Account",
+        definition: "SPAC IPO로 조달한 자금을 합병 완료 전까지 격리 보관하는 신탁 계정이다. 합병이 실패하거나 주주가 반대하면 신탁 계정 자금을 투자자에게 되돌려준다. 신탁 계정 자금은 통상 미국 국채에 투자해 이자를 발생시킨다. 투자자에게는 원금 보호 장치이지만 발행 SPAC에는 2년 내 딜 완료 압박으로 작용한다.",
+        definitionEn: "A trust account that holds the IPO proceeds in escrow until a merger is completed. If the merger fails or shareholders vote against it, the trust account funds are returned to investors. The funds are typically invested in US Treasuries to generate interest. For investors it serves as capital protection; for the SPAC it creates pressure to close a deal within the two-year window.",
+      },
+    ],
     relatedSlugs: ["ecm-overview", "ecm-ipo-post", "ecm-international-listing"],
     appearsIn: [],
   },
@@ -2869,7 +3975,39 @@ From an IB career perspective, DCM requires a complex blend of structural design
     readingMinutes: 18,
     tags: ["유상증자", "TERP", "할인율", "서브언더라이팅", "투자설명서", "DART", "주주배정", "일반공모", "실무가이드"],
     tagsEn: ["Rights Issue", "TERP", "Discount", "Sub-underwriting", "Prospectus", "Filing", "Rights Offering", "Execution Guide"],
-    sections: [], keyTerms: [],
+    sections: [],
+    keyTerms: [
+      {
+        term: "유상증자 (Rights Issue)",
+        termEn: "Rights Issue / Rights Offering",
+        definition: "기존 주주에게 지분율에 비례해 신주를 우선 매수할 수 있는 권리를 부여하는 증자 방식이다. 기존 주주가 권리를 행사하면 희석 없이 지분율을 유지할 수 있다. 신규 자본 조달과 주주 보호라는 두 목적을 동시에 달성하는 방식이다. 한국에서는 주주배정·일반공모·제3자배정 세 방식으로 구분된다.",
+        definitionEn: "A capital-raising method that grants existing shareholders the preferential right to purchase new shares in proportion to their current holdings. Shareholders who exercise their rights can maintain their ownership percentage without dilution. It simultaneously achieves two goals: raising new capital and protecting shareholders. In Korea, it is categorized into three types: shareholder allotment, general public offering, and third-party allotment.",
+      },
+      {
+        term: "신주인수권 (Rights)",
+        termEn: "Rights",
+        definition: "기존 주주가 신주를 우선 살 수 있는 권리다. 한국에서는 신주인수권증서로 별도 발행·거래 가능하며, 권리를 행사하지 않으면 실권 처리되거나 시장에 매도할 수 있다. 권리의 이론적 가치는 구주 시장가와 신주 발행가의 차이에 배정 비율을 곱해 계산한다. 신주인수권을 시장에 매도하면 권리 가치만큼 현금화가 가능하다.",
+        definitionEn: "The preferential right granted to existing shareholders to purchase new shares. In Korea, rights are issued separately as right certificates and can be traded; if not exercised, they lapse or can be sold in the market. The theoretical value of a right is calculated as the difference between the market price of existing shares and the new issuance price, multiplied by the subscription ratio. Selling rights in the market allows holders to monetize their right value.",
+      },
+      {
+        term: "실권주",
+        termEn: "Unexercised / Lapsed Shares",
+        definition: "주주가 신주인수권을 행사하지 않아 청약이 되지 않은 주식이다. 주관사가 잔액 인수 또는 일반 공모로 처리한다. 실권주 발생 비율이 높으면 기존 주주들의 자금력 부족 또는 투자 매력도 저하를 나타내는 시장 신호로 해석된다. 서브언더라이팅 계약에 따라 주관사가 실권주를 인수하고 시장에 재매각한다.",
+        definitionEn: "Shares that remain unsubscribed because shareholders did not exercise their rights. The underwriter processes them through residual underwriting or a general public offering. A high rate of lapsed shares is interpreted as a market signal of insufficient shareholder capital or weak investment attractiveness. Under the sub-underwriting agreement, the underwriter takes up the lapsed shares and re-sells them to the market.",
+      },
+      {
+        term: "할인 발행",
+        termEn: "Discounted Issuance",
+        definition: "유상증자 시 현재 시장가보다 낮은 가격에 신주를 발행하는 것이다. 주주들이 권리 행사에 참여할 경제적 유인을 만들기 위함이다. 할인율이 클수록 주주 참여율은 높아지지만 기존 주주 희석 피해도 커진다. 한국에서는 통상 시장가의 70~85% 수준에서 발행 가격이 결정된다.",
+        definitionEn: "The issuance of new shares at a price below the current market price in a rights offering. The discount creates an economic incentive for shareholders to participate and exercise their rights. A larger discount increases participation rates but also magnifies the dilution impact on existing shareholders. In Korea, the issuance price is typically set at 70–85% of the market price.",
+      },
+      {
+        term: "배정 비율",
+        termEn: "Subscription Ratio",
+        definition: "기존 주식 1주당 새로 받을 수 있는 신주 수다. 예를 들어 2:1이면 기존 주 2주당 신주 1주가 배정된다. 배정 비율과 발행 가격이 함께 희석 효과를 결정한다. 배정 비율이 높을수록 신규 자금 조달 규모가 크지만 희석 우려도 커져 주가에 부정적 영향을 줄 수 있다.",
+        definitionEn: "The number of new shares a shareholder can receive per existing share held. For example, a ratio of 2:1 means one new share is allocated for every two existing shares. The subscription ratio and issuance price together determine the dilution effect. A higher ratio raises more capital but increases dilution concerns, which can weigh on the stock price.",
+      },
+    ],
     relatedSlugs: ["ecm-followon", "ecm-ipo-allocation", "ecm-overview", "ecm-pitchbook"],
     appearsIn: [],
   },
@@ -2889,7 +4027,39 @@ From an IB career perspective, DCM requires a complex blend of structural design
     readingMinutes: 16,
     tags: ["IPO배분", "코너스톤투자자", "그린슈", "안정화", "클로백", "기관배분", "리테일배분", "배분전략"],
     tagsEn: ["IPO Allocation", "Cornerstone Investor", "Greenshoe", "Stabilization", "Clawback", "Institutional Allocation", "Retail Allocation"],
-    sections: [], keyTerms: [],
+    sections: [],
+    keyTerms: [
+      {
+        term: "앵커 투자자",
+        termEn: "Anchor Investor",
+        definition: "IPO 전 사전 협의로 대량 참여를 약속한 기관 투자자다. 분위기 형성 효과가 있어 다른 투자자들의 참여를 유도한다. 통상 6개월 Lockup을 감수하는 대가로 우선 배분을 받으며, 발행사와 주관사에게 딜 성공의 안전판 역할을 한다. 홍콩 IPO에서는 코너스톤(Cornerstone) 투자자라는 이름으로 의무 공시된다.",
+        definitionEn: "An institutional investor who has pre-committed to participate in large size before the IPO launch. Their commitment creates momentum and encourages other investors to participate. They typically accept a 6-month lockup in exchange for priority allocation and serve as a safety net for the issuer and underwriters. In Hong Kong IPOs, they are known as cornerstone investors and their commitments must be publicly disclosed.",
+      },
+      {
+        term: "오버얼롯먼트",
+        termEn: "Over-Allotment",
+        definition: "주관사가 공모 수량보다 15% 더 배정하는 것이다. 그린슈 옵션과 연동되어 상장 후 주가 안정에 활용된다. 주가가 공모가 이하로 내려가면 시장에서 매수해 숏 포지션을 커버하고, 공모가 이상이면 발행사로부터 그린슈 옵션을 행사한다. 주관사에게 주가 방향 불문 개입 수단을 제공하는 양방향 안전장치다.",
+        definitionEn: "The practice of allocating 15% more shares than the offering size. It is linked to the greenshoe option and used for post-listing price stabilization. If the price falls below the offer price, the stabilization agent buys in the market to cover the short position; if it rises above, the greenshoe option is exercised with the issuer. It is a two-way safety net that gives the underwriter tools to intervene regardless of price direction.",
+      },
+      {
+        term: "그린슈 옵션",
+        termEn: "Greenshoe Option",
+        definition: "주관사가 상장 후 30일 내 추가로 공모가에 주식을 매수할 수 있는 옵션이다. 과배정(오버얼롯먼트)과 세트로 운용되며, 주가 상승 시 발행사로부터 옵션을 행사해 과배정 부분을 충당한다. 1963년 Green Shoe Manufacturing Company IPO에서 최초로 사용된 이름이다. IPO 이후 주가 안정화를 위한 표준 구조다.",
+        definitionEn: "An option that allows the underwriter to purchase additional shares at the offer price within 30 days of listing. It operates as a set with over-allotment; when the stock price rises, the option is exercised with the issuer to cover the over-allotted portion. Named after the Green Shoe Manufacturing Company IPO of 1963, where it was first used. It is the standard structure for post-IPO price stabilization.",
+      },
+      {
+        term: "배분 정치학",
+        termEn: "Allocation Politics",
+        definition: "IPO 배분은 단순 수요 크기가 아닌 투자자 관계·거래 수수료·주식 매수 후 보유 의향에 따라 결정된다. 장기 보유 성향 기관(Long-only)에 더 많이 배분하는 경향이 있다. 헤지펀드는 빠른 플립(단기 매도) 가능성 때문에 상대적으로 적게 배분받는다. 배분 결정은 북러너 MD의 재량으로 이루어지며, 이해충돌이 발생할 수 있는 민감한 과정이다.",
+        definitionEn: "IPO allocation is determined not by demand size alone, but by investor relationships, commission history, and the investor's stated intention to hold. Long-only institutions tend to receive larger allocations. Hedge funds receive relatively smaller allocations due to the risk of quick flipping. Allocation decisions are made at the discretion of the bookrunner MD and can be a sensitive process prone to conflicts of interest.",
+      },
+      {
+        term: "주가 안정 조치",
+        termEn: "Price Stabilization",
+        definition: "상장 후 30일 내 주관사가 공모가 이하로 주가 하락 시 시장에서 매수해 주가를 지지하는 행위다. 오버얼롯먼트와 그린슈 옵션을 활용해 이중 쿠션 역할을 한다. 규정에 따라 합법적으로 허용된 시장 개입이며, 주관사는 안정화 매수를 공시해야 한다. 안정화 기간 종료 후에는 시장 자율에 맡기며 추가 개입이 불가하다.",
+        definitionEn: "The act of the underwriter purchasing shares in the market to support the stock price when it falls below the offer price within 30 days of listing. It uses over-allotment and the greenshoe option as a two-layer cushion. This market intervention is legally permitted under securities regulations, and the underwriter is required to disclose stabilization purchases. After the stabilization period ends, further intervention is not allowed and the stock trades freely.",
+      },
+    ],
     relatedSlugs: ["ecm-ipo-process", "ecm-ipo-bookbuilding", "ecm-rights-issue", "ecm-overview"],
     appearsIn: [],
   },
@@ -2909,7 +4079,39 @@ From an IB career perspective, DCM requires a complex blend of structural design
     readingMinutes: 15,
     tags: ["피치북", "에퀴티스토리", "비교회사분석", "풋볼필드", "ECM수수료", "뷰티콘테스트", "IB피치"],
     tagsEn: ["Pitchbook", "Equity Story", "Comparable Company Analysis", "Football Field", "ECM Fees", "Beauty Contest", "IB Pitch"],
-    sections: [], keyTerms: [],
+    sections: [],
+    keyTerms: [
+      {
+        term: "ECM 피치북",
+        termEn: "ECM Pitchbook",
+        definition: "ECM 뱅커가 잠재 발행사(CEO·CFO)에게 거래를 제안하기 위해 작성하는 분석 문서다. 시장 환경, 경쟁사 비교, 예상 밸류에이션, 발행 타이밍 권고 등이 핵심 내용이다. 북러너 선정 경쟁(Bake-off)에서 은행들이 제출하는 핵심 산출물이기도 하다. 피치북의 질이 주관사 선정에서 분석력과 딜 실행 경험을 보여주는 증거물이 된다.",
+        definitionEn: "An analytical document prepared by ECM bankers to pitch a transaction to a potential issuer (CEO/CFO). Its core contents include market conditions, comparable company analysis, estimated valuation, and issuance timing recommendations. It is also the primary deliverable submitted by banks in the bookrunner selection competition (Bake-off). The quality of the pitchbook serves as evidence of the bank's analytical capability and deal execution experience.",
+      },
+      {
+        term: "컴프 분석",
+        termEn: "Comparable Company Analysis",
+        definition: "상장 경쟁사의 EV/EBITDA, P/E, EV/Sales 등 멀티플을 취합해 피칭 기업의 예상 밸류에이션 범위를 산출하는 방법론이다. 같은 업종 내 유사 규모·성장성·수익성을 가진 기업 5~10개를 선별한다. 피어 선정이 밸류에이션 결과에 결정적 영향을 미치므로 어떤 기업을 비교 대상으로 넣느냐가 전략적 선택이다. ECM 피치북과 IPO 밸류에이션의 핵심 도구다.",
+        definitionEn: "A methodology that compiles EV/EBITDA, P/E, and EV/Sales multiples from listed peers to derive a valuation range for the pitching company. Typically 5–10 companies with similar sector, scale, growth, and profitability are selected. Peer selection is strategically critical because it decisively shapes the valuation outcome — which companies to include is a deliberate choice. It is the core tool in both ECM pitchbooks and IPO valuation analysis.",
+      },
+      {
+        term: "공모 타이밍 (Market Window)",
+        termEn: "IPO Market Window",
+        definition: "투자자 심리가 좋고 시장 변동성이 낮은 최적의 공모 실행 시기다. 연도 초~봄(1~5월)과 가을(9~11월)이 전통적으로 공모 시즌이다. 금리·지정학·섹터 모멘텀이 창을 열고 닫는다. 피치북에서 뱅커는 '지금이 창이 열려 있다'는 논리로 발행사에게 딜 결정을 촉구하는 경우가 많다.",
+        definitionEn: "The optimal timing for executing a public offering, when investor sentiment is positive and market volatility is low. Traditionally, the prime issuance seasons are early spring (January–May) and autumn (September–November). Interest rates, geopolitical events, and sector momentum open and close the window. In pitchbooks, bankers frequently argue that the window is currently open to urge issuers to make a deal decision.",
+      },
+      {
+        term: "언더라이팅 커미션",
+        termEn: "Underwriting Commission",
+        definition: "주관사가 공모 대금의 일정 비율을 수수료로 받는 구조다. 한국은 통상 0.5~1.5%, 미국은 5~7% 수준이다. 대형 딜일수록 비율이 낮아지는 규모의 경제 효과가 있다. 피치북에서 수수료 제안은 딜 경쟁력의 일부로, 지나치게 낮으면 서비스 품질이 저하될 수 있어 발행사도 무조건 최저가를 선택하지 않는다.",
+        definitionEn: "The structure in which the underwriter receives a percentage of the total offering proceeds as a fee. The typical range is 0.5–1.5% in Korea and 5–7% in the US. There is an economies-of-scale effect where the rate decreases for larger deals. In pitchbooks, the fee proposal is part of the competitive pitch; issuers do not always choose the lowest fee, as excessively low fees may signal reduced service quality.",
+      },
+      {
+        term: "뱅크 피치 (Bank Pitch)",
+        termEn: "Bank Pitch / Beauty Contest",
+        definition: "발행사가 여러 IB에게 제안을 받아 주관사를 선정하는 경쟁 과정이다. 피치북 품질, 팀 경험, 배분 네트워크, 시장 인사이트가 선택 기준이다. 형식적으로는 분석 품질로 결정되지만 실질적으로 과거 관계와 신뢰가 큰 역할을 한다. 뷰티 콘테스트(Beauty Contest)라고도 불리며, 선정된 주관사가 딜 수수료 전체를 나눠 갖는다.",
+        definitionEn: "The competitive process in which the issuer receives proposals from multiple investment banks to select lead managers. Selection criteria include pitchbook quality, team experience, distribution network, and market insight. While formally decided on analytical merit, prior relationships and trust play a significant role in practice. Also called a beauty contest; selected underwriters share the deal fees among themselves.",
+      },
+    ],
     relatedSlugs: ["ecm-overview", "ecm-ipo-valuation", "ecm-rights-issue", "ecm-ipo-process"],
     appearsIn: [],
   },
@@ -2929,7 +4131,39 @@ From an IB career perspective, DCM requires a complex blend of structural design
     readingMinutes: 14,
     tags: ["ABB", "블록트레이드", "IOI트래커", "할인율", "북빌드", "장외매매", "PE엑싯", "기관배분"],
     tagsEn: ["ABB", "Accelerated Bookbuild", "Block Trade", "IOI Tracker", "Discount", "PE Exit", "Institutional Allocation"],
-    sections: [], keyTerms: [],
+    sections: [],
+    keyTerms: [
+      {
+        term: "ABB (가속장부매출)",
+        termEn: "Accelerated Book Build",
+        definition: "상장 기업이 기관 투자자 대상으로 12~24시간 내에 신속하게 대규모 주식을 발행하는 방식이다. 긴 IPO 로드쇼 없이 소수 기관과 북빌드로 가격을 결정한다. 장 마감 후 매뉴데이트를 받아 다음 날 장 시작 전까지 딜을 완료하는 것이 목표다. 속도가 최대 장점이지만, 짧은 마케팅 기간으로 인해 3~5%의 할인이 수반된다.",
+        definitionEn: "A method by which a listed company rapidly issues a large volume of shares to institutional investors within 12–24 hours. The price is set through a book-build with a select group of institutions without a lengthy IPO roadshow. The goal is to receive the mandate after market close and complete the deal before the next day's open. Speed is the key advantage, but the short marketing window typically requires a 3–5% discount.",
+      },
+      {
+        term: "IOI (관심 표명)",
+        termEn: "Indication of Interest",
+        definition: "북빌드 과정에서 투자자가 얼마나 매수하겠다는 의향을 표시하는 초기 단계다. IOI는 법적 구속력이 없으며, 최종 배분은 가격 확정 후 북러너 재량으로 결정된다. 뱅커는 실시간 IOI 트래커를 통해 수요 누적 상황을 모니터링하고 가격 범위를 조정한다. 헤지펀드의 IOI는 장기 기관보다 신뢰도가 낮다고 평가되는 경향이 있다.",
+        definitionEn: "The initial stage of the book-build process in which investors indicate how much they intend to purchase. IOIs are not legally binding, and final allocation is determined at the bookrunner's discretion after price setting. Bankers use a real-time IOI tracker to monitor demand accumulation and adjust the price range accordingly. Hedge fund IOIs tend to be viewed as less reliable than those from long-only institutions.",
+      },
+      {
+        term: "ABB 할인율",
+        termEn: "ABB Discount",
+        definition: "ABB 발행 가격을 현재 시장가 대비 낮추는 비율로 통상 3~5%다. 투자자는 이 할인을 통해 즉각적 업사이드를 얻고 참여 유인이 생긴다. 할인율이 너무 높으면 발행사·기존 주주에게 불리하고, 너무 낮으면 수요 부족으로 딜이 실패할 수 있다. 시장 변동성이 높을수록 투자자들이 더 큰 할인을 요구하는 경향이 있다.",
+        definitionEn: "The percentage by which the ABB issuance price is set below the current market price, typically 3–5%. Investors gain immediate upside from this discount, creating an incentive to participate. Too large a discount is unfavorable to the issuer and existing shareholders; too small a discount risks insufficient demand and deal failure. Investors tend to demand larger discounts when market volatility is high.",
+      },
+      {
+        term: "블록 트레이드",
+        termEn: "Block Trade",
+        definition: "상장 기업의 대주주(PE·창업자)가 보유 주식을 일괄 매각하는 거래다. 통상 전체 지분의 5~10%를 ABB 방식으로 처분한다. 기업이 자금을 받는 Primary가 아니라 기존 주주가 현금화하는 Secondary 딜이다. 처분 규모가 크고 공개되면 주가가 하락할 수 있어 대부분 장 마감 후 비밀리에 진행된다.",
+        definitionEn: "A transaction in which a major shareholder (PE, founder) sells a large block of listed company shares at once. Typically 5–10% of total holdings are disposed of via ABB. It is a Secondary deal where existing shareholders monetize rather than a Primary deal that raises capital for the company. Because large disclosed disposals can push down the stock price, most block trades are conducted confidentially after market close.",
+      },
+      {
+        term: "Pre-Placement (사전 배정)",
+        termEn: "Pre-Placement",
+        definition: "ABB 개시 전 핵심 기관(앵커 투자자)에게 일정 수량을 미리 배정하는 방식이다. 전체 수요의 일부를 사전에 확보해 북빌드 리스크를 낮춘다. 사전 배정 투자자들은 통상 가격 범위 하단 또는 중간에서 배정을 받는 대가로 의향서를 먼저 제출한다. 시장이 불안정하거나 딜 규모가 클 때 특히 중요한 수요 확보 전략이다.",
+        definitionEn: "The practice of pre-allocating a portion of shares to key institutions (anchor investors) before the ABB officially launches. Securing a portion of total demand in advance reduces book-build risk. Pre-placement investors typically submit their indication first in exchange for receiving allocation at the lower or mid-range of the price band. It is an especially important demand-securing strategy when markets are unstable or the deal size is large.",
+      },
+    ],
     relatedSlugs: ["ecm-followon", "ecm-ipo-allocation", "ecm-pitchbook", "ecm-overview"],
     appearsIn: [],
   },
@@ -2953,7 +4187,39 @@ From an IB career perspective, DCM requires a complex blend of structural design
     readingMinutes: 16,
     tags: ["BW", "신주인수권부사채", "분리형BW", "리픽싱", "제3자배정", "SM엔터", "하이브", "행사가"],
     tagsEn: ["BW", "Bond with Warrant", "Detachable Warrant", "Rifixing", "Third-party Allotment", "SM Entertainment", "HYBE"],
-    sections: [], keyTerms: [],
+    sections: [],
+    keyTerms: [
+      {
+        term: "신주인수권부사채 (BW)",
+        termEn: "Bond with Warrant",
+        definition: "채권에 신주인수권(Warrant)을 결합한 하이브리드 증권이다. 전환사채(CB)와 달리 워런트를 행사해도 채권이 그대로 남아, 발행사는 채권과 주식 납입 두 번 자금 유입이 가능하다. 투자자 입장에서는 채권 이자를 받으면서 주가 상승 시 추가 수익을 올릴 수 있는 구조다. 한국 중소기업의 자금 조달 수단으로 많이 활용되지만 남용 사례도 빈번하다.",
+        definitionEn: "A hybrid security that combines a bond with a stock purchase warrant. Unlike a convertible bond, exercising the warrant does not extinguish the bond — the issuer receives two inflows of funds: from the bond issuance and from warrant exercise. For investors, it provides bond interest income while allowing additional profit if the stock price rises. Widely used by Korean small and mid-cap companies for fundraising, but also frequently abused.",
+      },
+      {
+        term: "신주인수권 (Warrant)",
+        termEn: "Warrant",
+        definition: "미리 정해진 행사가격으로 새 주식을 매수할 수 있는 권리다. BW에서 분리되어 별도 거래소에 상장될 경우(분리형) 개인 투자자도 주식처럼 매매 가능하다. 주가가 행사가격을 초과해야 행사가 의미 있다(In-the-Money). 워런트는 주식 옵션과 유사하지만, 행사 시 신주가 발행된다는 점에서 기존 주주를 희석시킨다.",
+        definitionEn: "The right to purchase new shares at a pre-agreed exercise price. If separated from the bond and listed on an exchange (detachable), individual investors can also trade it like a stock. Exercise is only meaningful when the stock price exceeds the exercise price (in-the-money). While similar to a stock option, warrant exercise results in new share issuance, which dilutes existing shareholders.",
+      },
+      {
+        term: "분리형 / 비분리형",
+        termEn: "Detachable / Non-detachable",
+        definition: "분리형은 채권과 워런트가 별도로 유통·매매 가능하고, 비분리형은 반드시 함께 유통된다. 한국에서는 분리형이 80% 이상이며 대주주 이익 실현 도구로 악용된 사례가 있다. 분리형 BW에서 제3자 배정 방식으로 대주주 측에 발행한 후 워런트를 분리해 매각하는 방식이 대표적 남용 패턴이다. 금융당국은 이를 규제하기 위한 다양한 조치를 도입했다.",
+        definitionEn: "In a detachable structure, the bond and warrant can be traded separately; in a non-detachable structure, they must always trade together. Over 80% of Korean BWs are detachable, and there have been cases of abuse as tools for major shareholders to extract value. A typical abuse pattern involves issuing detachable BWs to a related party via third-party allotment and then separately selling the warrants. Financial regulators have introduced various measures to curb such practices.",
+      },
+      {
+        term: "리픽싱 (Refixing)",
+        termEn: "Refixing",
+        definition: "주가 하락 시 BW 행사가격을 낮춰주는 조항이다. 투자자를 보호하지만 발행사 입장에서 더 많은 신주가 발행되어 기존 주주를 희석시킨다. 한국에서는 최초 행사가의 70% 이하로는 낮출 수 없도록 제한한다. 악의적인 행위자들이 리픽싱을 악용해 주가를 인위적으로 끌어내린 뒤 낮은 가격에 신주를 취득하는 사례가 발생했다.",
+        definitionEn: "A clause that lowers the BW exercise price if the stock price falls. It protects the investor but leads to greater dilution for the issuer through additional share issuance. In Korea, refixing is capped at no lower than 70% of the original exercise price. There have been cases of bad actors manipulating stock prices downward to take advantage of refixing and acquire new shares at artificially low prices.",
+      },
+      {
+        term: "행사가격",
+        termEn: "Exercise Price / Strike Price",
+        definition: "워런트 보유자가 신주를 매수할 수 있는 고정 가격이다. 발행 시 시장가 대비 10~30% 프리미엄으로 설정되는 것이 일반적이다. 주가가 행사가를 초과해야 행사가 의미 있다(In-the-Money). 행사가격이 낮을수록 투자자에게 유리하지만 발행사 기존 주주에게는 더 큰 희석을 의미한다.",
+        definitionEn: "The fixed price at which a warrant holder can purchase new shares. It is typically set at a 10–30% premium above the market price at the time of issuance. Exercise is only meaningful when the stock price exceeds the exercise price (in-the-money). A lower exercise price is more favorable to the investor but represents greater dilution for the issuer's existing shareholders.",
+      },
+    ],
     relatedSlugs: ["ecm-convertible", "ecm-exchangeable-bond", "ecm-overview", "ecm-dual-class"],
     appearsIn: [],
   },
@@ -2973,7 +4239,39 @@ From an IB career perspective, DCM requires a complex blend of structural design
     readingMinutes: 15,
     tags: ["자사주매입", "바이백", "10b5-1", "ASR", "공개매수", "EPS부스팅", "주주환원", "Apple바이백", "삼성자사주"],
     tagsEn: ["Share Buyback", "Repurchase", "10b5-1 Plan", "ASR", "Tender Offer", "EPS Boost", "Shareholder Return", "Apple Buyback"],
-    sections: [], keyTerms: [],
+    sections: [],
+    keyTerms: [
+      {
+        term: "자사주 매입 (Share Buyback)",
+        termEn: "Share Buyback / Stock Repurchase",
+        definition: "기업이 시장에서 자사 주식을 매입하는 행위다. 배당과 함께 주주 환원의 핵심 수단이며, 유통 주식 수를 줄여 EPS를 높이고 주주 가치를 높인다. S&P500 기업들은 연간 $1조 이상을 자사주 매입에 투입한다. 배당과 달리 일회성으로 조정 가능해 재무 유연성이 높다는 장점이 있다.",
+        definitionEn: "The act of a company purchasing its own shares from the market. Along with dividends, it is a core mechanism for shareholder returns, reducing shares outstanding to raise EPS and enhance shareholder value. S&P 500 companies collectively spend over $1 trillion on buybacks annually. Unlike dividends, buybacks can be adjusted on a one-time basis, offering greater financial flexibility.",
+      },
+      {
+        term: "EPS 부스트",
+        termEn: "EPS Boost",
+        definition: "자사주 매입으로 유통 주식 수가 줄면 동일 이익에서 주당 이익(EPS)이 높아지는 효과다. 시장은 EPS 개선을 긍정적으로 평가해 주가 상승을 유발하는 경향이 있다. 그러나 실제 영업 이익 성장 없는 재무 공학적 EPS 개선은 장기 가치 창출이 아니라는 비판도 있다. CEO 스톡옵션·보너스가 EPS 달성과 연동될 때 자사주 매입 유인이 커진다.",
+        definitionEn: "The effect of reducing shares outstanding through buybacks, which raises earnings per share (EPS) from the same total earnings. Markets tend to view EPS improvement positively, driving stock price appreciation. However, critics argue that financial-engineering EPS gains without underlying operating profit growth do not represent long-term value creation. The incentive for buybacks increases when CEO stock options and bonuses are tied to EPS targets.",
+      },
+      {
+        term: "ASR (가속주식환매)",
+        termEn: "Accelerated Share Repurchase",
+        definition: "IB와 선도거래로 일정 기간 내 대규모 자사주 매입을 즉시 실행하는 방식이다. 통상 최종 수량은 향후 평균 시장가로 결정된다. 기업이 자사주 매입 의지를 시장에 강하게 신호하는 효과가 있다. IB가 시장에서 주식을 수집하는 동안 기업은 즉시 주식을 인도받아 소각할 수 있다.",
+        definitionEn: "A structure in which a company immediately executes a large-scale share repurchase via a forward contract with an investment bank. The final number of shares is typically determined by the average market price over a future period. It strongly signals the company's commitment to buybacks to the market. While the bank gathers shares from the market, the company receives and can cancel shares immediately.",
+      },
+      {
+        term: "자사주 소각",
+        termEn: "Share Cancellation",
+        definition: "매입한 자사주를 영구 소각해 자본금을 줄이는 행위다. 재발행 없이 주식 수를 영구적으로 줄이는 주주 친화 정책이다. 한국에서는 자사주 매입 후 소각이 주주환원 기대 지표로 작용하며, 소각 발표 시 주가가 상승하는 경향이 있다. 반면 자사주를 소각하지 않고 보유하면 경영권 방어 수단으로 재활용될 가능성이 있어 투자자들이 소각을 선호한다.",
+        definitionEn: "The permanent cancellation of repurchased treasury shares, reducing paid-in capital. It is a shareholder-friendly policy that permanently reduces shares outstanding without reissuance. In Korea, cancellation of treasury shares is viewed as a key indicator of shareholder return commitment, and stock prices tend to rise on cancellation announcements. By contrast, holding treasury shares without cancellation raises concerns about their potential reuse as a takeover defense tool.",
+      },
+      {
+        term: "포이즌 필 (Poison Pill)",
+        termEn: "Poison Pill",
+        definition: "적대적 인수를 시도하는 세력이 일정 지분 이상을 취득하면 기존 주주들이 시장가보다 할인된 가격으로 신주를 매수할 수 있게 하는 방어 장치다. 인수자 지분을 희석시켜 적대적 인수를 비경제적으로 만든다. 자사주 매입과 달리 인수 방어 목적으로 활용된다. 미국에서는 광범위하게 사용되지만 한국에서는 아직 제한적으로만 허용된다.",
+        definitionEn: "A defense mechanism that allows existing shareholders to purchase new shares at a discounted price if a hostile acquirer exceeds a certain ownership threshold. It dilutes the acquirer's stake, making a hostile takeover economically unattractive. Unlike share buybacks, it is used specifically for takeover defense. Widely used in the US, but only limitedly permitted in Korea.",
+      },
+    ],
     relatedSlugs: ["ecm-overview", "ecm-tender-offer", "ecm-ipo-allocation", "ecm-followon"],
     appearsIn: [],
   },
@@ -2993,7 +4291,39 @@ From an IB career perspective, DCM requires a complex blend of structural design
     readingMinutes: 14,
     tags: ["차등의결권", "듀얼클래스", "Alphabet", "Meta", "Snap", "창업자지배권", "선셋조항", "한국특례", "지배구조"],
     tagsEn: ["Dual Class Shares", "Dual Class Structure", "Alphabet", "Meta", "Snap", "Founder Control", "Sunset Clause", "Corporate Governance"],
-    sections: [], keyTerms: [],
+    sections: [],
+    keyTerms: [
+      {
+        term: "차등의결권 (Dual Class Shares)",
+        termEn: "Dual-Class Share Structure",
+        definition: "동일 경제적 권리를 가지면서 의결권만 다른 복수 주식 클래스를 발행하는 지배구조 설계다. 창업자가 소수 지분으로 과반 의결권을 확보해 장기 전략을 실행할 수 있게 한다. Alphabet은 Class A(1표)·B(비상장, 10표)·C(무의결권) 3중 구조를 운영한다. 창업자 비전 보호와 투자자 소수 권리 보호 사이의 균형이 핵심 논쟁이다.",
+        definitionEn: "A governance design that issues multiple share classes with identical economic rights but different voting rights. It allows founders to retain majority voting control with a minority economic stake, enabling long-term strategic execution. Alphabet operates a three-tier structure: Class A (1 vote), Class B (unlisted, 10 votes), and Class C (no vote). The core debate is the balance between protecting the founder's vision and safeguarding minority investor rights.",
+      },
+      {
+        term: "선셋 조항 (Sunset Clause)",
+        termEn: "Sunset Clause",
+        definition: "창업자 사망, 일정 기간 경과, 지분율 하락 등 특정 조건이 충족되면 다중 의결권이 자동 소멸하는 조항이다. 기관 투자자의 '영구 지배' 우려를 완화하는 장치다. 선셋 조항이 없으면 창업자 후손들이 영구적으로 지배권을 유지할 수 있어 지배구조 할인이 더 커진다. 한국 차등의결권 특례법도 선셋 조항 포함을 요건으로 한다.",
+        definitionEn: "A clause under which enhanced voting rights automatically expire upon specific conditions — such as the founder's death, a set time period, or a drop in ownership stake. It alleviates institutional investors' concerns about permanent entrenchment. Without a sunset clause, the founder's heirs could perpetually retain control, amplifying the governance discount. Korea's dual-class exception law also requires inclusion of a sunset clause.",
+      },
+      {
+        term: "지배구조 할인",
+        termEn: "Governance Discount",
+        definition: "차등의결권 구조 기업은 같은 수익성의 단일 의결권 기업보다 낮게 평가받을 수 있는 현상이다. ISS 같은 의결권 자문사의 반대 권고와 지수 편입 제한이 주요 요인이다. 할인 규모는 지배구조 투명성, 선셋 조항 유무, 창업자의 실적에 따라 달라진다. 구조적으로 우수한 기업도 차등의결권 때문에 밸류에이션 불이익을 받을 수 있다.",
+        definitionEn: "The phenomenon in which dual-class companies are valued lower than single-class peers with equivalent profitability. Key drivers include against recommendations from proxy advisors like ISS and exclusion from major indices. The magnitude of the discount varies based on governance transparency, the presence of sunset clauses, and the founder's track record. Even operationally strong companies can face valuation penalties due to their dual-class structure.",
+      },
+      {
+        term: "ISS (의결권 자문사)",
+        termEn: "ISS (Institutional Shareholder Services)",
+        definition: "기관 투자자에게 주주총회 안건에 대한 찬반 권고를 제공하는 의결권 자문사다. 차등의결권이나 ESG 미준수 기업에 반대 권고를 내려 투자자 압박을 유도한다. 전 세계 연금·운용사의 상당수가 ISS 권고를 참고해 의결권을 행사한다. ISS의 반대 권고는 기업 주가와 자본비용에 실질적 영향을 미친다.",
+        definitionEn: "A proxy advisory firm that provides institutional investors with voting recommendations on shareholder meeting agenda items. It issues against recommendations for companies with dual-class structures or ESG non-compliance, applying investor pressure. A significant portion of global pension funds and asset managers reference ISS recommendations when exercising voting rights. ISS against recommendations have a tangible impact on stock prices and cost of capital.",
+      },
+      {
+        term: "지수 편입 페널티",
+        termEn: "Index Inclusion Penalty",
+        definition: "S&P 500·FTSE Russell이 2017년 이후 극단적 차등의결권 기업의 지수 편입을 제한하는 정책이다. 패시브 펀드 자금 유입이 차단되어 밸류에이션 하방 압력이 발생한다. 지수 편입 제한은 기업이 차등의결권 구조를 유지하는 비용을 명확히 드러낸다. 홍콩 HKEx는 반대로 차등의결권 기업 유치를 위해 상장 요건을 완화한 바 있다.",
+        definitionEn: "A policy by which S&P 500 and FTSE Russell have restricted index inclusion for companies with extreme dual-class structures since 2017. Exclusion from passive fund inflows creates downward valuation pressure. The exclusion policy makes the cost of maintaining a dual-class structure explicit. In contrast, Hong Kong HKEx has relaxed listing requirements to attract dual-class companies.",
+      },
+    ],
     relatedSlugs: ["ecm-overview", "ecm-spac-direct", "ecm-ipo-process", "ecm-warrant-bond"],
     appearsIn: [],
   },
@@ -3013,7 +4343,39 @@ From an IB career perspective, DCM requires a complex blend of structural design
     readingMinutes: 16,
     tags: ["공개매수", "강제공개매수", "스퀴즈아웃", "포이즌필", "화이트나이트", "Musk-Twitter", "SM엔터", "경영권프리미엄"],
     tagsEn: ["Tender Offer", "Mandatory Tender", "Squeeze-out", "Poison Pill", "White Knight", "Musk-Twitter", "SM Entertainment", "Control Premium"],
-    sections: [], keyTerms: [],
+    sections: [],
+    keyTerms: [
+      {
+        term: "공개매수 (Tender Offer)",
+        termEn: "Tender Offer",
+        definition: "인수자가 불특정 다수 주주에게 미리 공표한 가격으로 주식을 사겠다고 제안하는 행위다. 이사회를 거치지 않고 주주에게 직접 접근할 수 있어 적대적 M&A의 핵심 도구다. 통상 현재 시장가 대비 20~40% 프리미엄으로 제안해 주주의 응모를 유도한다. 머스크의 Twitter $44B 인수가 대표적 공개매수 사례다.",
+        definitionEn: "An offer by an acquirer to buy shares from an unspecified number of shareholders at a publicly announced price. It allows the acquirer to approach shareholders directly, bypassing the board, making it a key tool for hostile M&A. Offers are typically made at a 20–40% premium to the current market price to encourage shareholder tendering. Elon Musk's $44B acquisition of Twitter is a prominent example of a tender offer.",
+      },
+      {
+        term: "강제공개매수 규정",
+        termEn: "Mandatory Tender Offer",
+        definition: "일정 지분 초과 취득 시 나머지 주주에게도 동일 조건으로 매수를 제안해야 하는 규정이다. 한국은 5%룰(5% 초과 취득 시 공시)과 30%룰(30% 초과 시 강제 공개매수)을 적용한다. 소수 주주 보호가 목적이며, 지배 주주만 프리미엄을 받고 나머지 주주는 소외되는 상황을 방지한다. 유럽은 30% 이상 취득 시 100% 의무 공개매수(Full Bid)를 요구한다.",
+        definitionEn: "A rule requiring an acquirer to offer the same purchase terms to all remaining shareholders once a specified ownership threshold is exceeded. Korea applies the 5% rule (disclosure required above 5%) and the 30% rule (mandatory tender offer above 30%). Its purpose is to protect minority shareholders and prevent situations where only the controlling shareholder receives a premium. Europe requires a full bid for 100% of shares once the 30% threshold is crossed.",
+      },
+      {
+        term: "스퀴즈아웃 (Squeeze-out)",
+        termEn: "Squeeze-out",
+        definition: "지배 주주가 소수 주주의 주식을 강제로 매입해 회사를 완전 자회사화하는 행위다. 한국에서는 95% 이상 취득 시 나머지 5%를 강제 취득 가능하다. 소수 주주는 공정한 보상을 받을 권리가 있으며, 법원이 가격 결정에 개입하기도 한다. 완전 자회사화 후에는 상장 폐지(De-listing)가 진행된다.",
+        definitionEn: "The forced acquisition of minority shareholders' shares by the controlling shareholder to make the company a wholly owned subsidiary. In Korea, once 95% ownership is reached, the remaining 5% can be compulsorily acquired. Minority shareholders have the right to fair compensation, and courts may intervene in price determination. After full privatization, the company is subsequently delisted.",
+      },
+      {
+        term: "포이즌 필 (Poison Pill)",
+        termEn: "Poison Pill",
+        definition: "적대적 인수자가 일정 지분을 초과 취득하면 기존 주주들이 할인 가격에 신주를 매수할 수 있게 하는 방어 전략이다. 인수자 지분을 희석시켜 적대적 인수를 비경제적으로 만든다. 이사회가 주주 동의 없이 발동할 수 있어 적대적 인수 억지력이 강하다. Twitter는 머스크의 인수 시도에 대응해 포이즌 필을 발동했다가 합의에 이른 사례다.",
+        definitionEn: "A defense strategy that allows existing shareholders to purchase new shares at a discount if a hostile acquirer exceeds a certain ownership threshold. It dilutes the acquirer's stake, making the hostile takeover economically unattractive. Because the board can trigger it without shareholder approval, it serves as a powerful deterrent against hostile bids. Twitter activated a poison pill in response to Musk's acquisition attempt before ultimately reaching an agreement.",
+      },
+      {
+        term: "경영권 프리미엄",
+        termEn: "Control Premium",
+        definition: "공개매수 시 현재 시장가 대비 추가 지불하는 웃돈으로 통상 20~40%다. 지배권을 획득함으로써 창출할 수 있는 기대 가치(시너지·구조조정)를 반영한다. 프리미엄이 높을수록 인수자의 통합 가치에 대한 확신이 강하다는 신호다. 경쟁 공개매수(SM엔터 하이브-카카오 사례)에서는 프리미엄이 더 높아지는 경향이 있다.",
+        definitionEn: "The additional amount paid above the current market price in a tender offer, typically 20–40%. It reflects the expected value to be created through control — synergies, restructuring, and strategic realignment. A higher premium signals stronger conviction by the acquirer about integration value. In competing tender offers (such as the Hybe-Kakao battle for SM Entertainment), premiums tend to escalate further.",
+      },
+    ],
     relatedSlugs: ["ecm-buyback", "ecm-dual-class", "ecm-overview", "ecm-followon"],
     appearsIn: [],
   },
@@ -3033,8 +4395,232 @@ From an IB career perspective, DCM requires a complex blend of structural design
     readingMinutes: 14,
     tags: ["교환사채", "EB", "SoftBank", "알리바바", "현대차EB", "제3자주식", "CB비교", "하이브리드증권"],
     tagsEn: ["Exchangeable Bond", "EB", "SoftBank", "Alibaba", "Third-Party Shares", "Hybrid Securities", "CB Comparison"],
-    sections: [], keyTerms: [],
+    sections: [],
+    keyTerms: [
+      {
+        term: "교환사채 (EB)",
+        termEn: "Exchangeable Bond",
+        definition: "발행사가 보유 중인 제3자(또는 자사 자기주식)의 주식으로 상환되는 채권이다. 전환사채(CB)는 새 주식을 발행하므로 희석이 발생하지만, EB는 기존 주식을 이전하므로 희석이 없다. SoftBank가 알리바바 지분을 기초자산으로 $11B EB를 발행한 것이 대표 사례다. 발행사 입장에서는 보유 자산을 처분하면서 자금을 조달하는 이중 효과를 얻는다.",
+        definitionEn: "A bond redeemed with shares of a third party (or the issuer's own treasury shares) held by the issuer. Unlike a convertible bond — which issues new shares and thus dilutes existing shareholders — an EB transfers existing shares and causes no dilution. SoftBank's $11B EB using Alibaba shares as the underlying asset is the iconic example. For the issuer, it achieves a dual effect: disposing of held assets while raising capital.",
+      },
+      {
+        term: "기초자산 (Underlying Shares)",
+        termEn: "Underlying Shares",
+        definition: "EB에서 교환 대상이 되는 주식이다. 발행사가 미리 보유하고 있어야 한다. SoftBank의 EB는 알리바바 지분을, 현대차그룹 계열 EB는 계열사 주식을 기초자산으로 사용했다. 기초자산 주가 변동이 EB의 가치에 직접 영향을 미치며, 투자자는 기초자산 상승 시 주식 교환으로 이익을 취한다.",
+        definitionEn: "The shares into which an EB can be exchanged. The issuer must already hold these shares. SoftBank's EB used Alibaba shares as the underlying asset, while Hyundai Motor Group affiliate EBs used affiliated company shares. The performance of the underlying shares directly affects the EB's value; investors profit by exchanging into shares when the underlying stock price rises.",
+      },
+      {
+        term: "희석 부재 (No Dilution)",
+        termEn: "No Dilution",
+        definition: "EB 전환 시 기존 주식을 이전하므로 발행사 주식의 유통 주식 수가 늘어나지 않는다. 이 점에서 신주 발행이 수반되는 CB·BW보다 발행사 기존 주주에게 유리하다. 다만 발행사가 보유하던 제3자 지분이 사라지면서 간접 자산 감소가 발생한다. 구조적 희석은 없지만 포트폴리오 자산 처분이라는 경제적 비용이 수반된다.",
+        definitionEn: "Since EB conversion transfers existing shares rather than issuing new ones, the issuer's shares outstanding do not increase. This makes EB more favorable for the issuer's existing shareholders than CBs or BWs, which require new share issuance. However, the issuer's third-party stake disappears, resulting in an indirect reduction in assets. There is no structural dilution, but the disposal of portfolio assets carries its own economic cost.",
+      },
+      {
+        term: "CB vs EB 전략적 선택",
+        termEn: "CB vs EB Strategic Choice",
+        definition: "발행사가 처분을 원하는 대량의 제3자 주식을 보유한 경우 EB 방식이 유리하다. 블록세일보다 낮은 가격 충격으로 지분을 서서히 시장에 공급하는 효과가 있다. CB는 신규 자금 조달이 목적이고, EB는 기존 자산 처분과 자금 조달을 동시에 달성하는 것이 목적이다. 두 방식 모두 저금리 환경에서 낮은 쿠폰으로 발행 가능한 하이브리드 구조다.",
+        definitionEn: "When the issuer holds a large block of third-party shares it wishes to divest, EB is the preferred structure. It supplies shares to the market gradually with less price impact than a block sale. The purpose of a CB is to raise new capital, while EB simultaneously achieves asset disposal and capital raising. Both structures allow issuance at low coupons in a low-interest-rate environment as hybrid instruments.",
+      },
+      {
+        term: "EB 발행 동기",
+        termEn: "EB Issuance Motivation",
+        definition: "EB는 계열사 지분 정리, 세금 이연 효과(주식 양도세 대신 이자 구조), 시장 충격 없는 대규모 지분 처분의 세 가지 목적으로 사용된다. 대량 지분 매각 시 블록 세일로 인한 주가 급락을 피하면서 서서히 시장에 공급하는 효과가 있다. 만기까지 교환이 없으면 채권으로 원리금을 상환하고 지분도 유지할 수 있다는 유연성도 있다. SoftBank의 Alibaba EB가 이 세 가지 동기를 모두 갖춘 대표 사례다.",
+        definitionEn: "EB issuance is driven by three main motivations: unwinding affiliate holdings, tax deferral effects (interest structure instead of equity transfer tax), and disposing of large stakes without market disruption. It allows gradual supply to the market, avoiding the sharp price decline associated with a block sale. If no exchange occurs by maturity, the issuer repays principal and interest as a bond while retaining the stake — adding flexibility. SoftBank's Alibaba EB is the defining case combining all three motivations.",
+      },
+    ],
     relatedSlugs: ["ecm-convertible", "ecm-warrant-bond", "ecm-overview", "ecm-buyback"],
+    appearsIn: [],
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────────
+  // ── 구조화금융 시리즈 (Structured Finance Series) ─────────────────────────────
+  // ─────────────────────────────────────────────────────────────────────────────
+
+  {
+    slug: "structured-overview",
+    title: "구조화금융 개요 — 증권화 기계 해부: SPV·워터폴·트랑쉐",
+    titleEn: "Structured Finance Overview — Inside the Securitization Machine: SPV, Waterfall & Tranches",
+    entryType: "article",
+    category: "structured",
+    categoryLabel: "구조화",
+    categoryLabelEn: "Structured",
+    excerpt: "은행이 대출채권을 SPV에 팔고, SPV가 이를 묶어 등급별 채권으로 다시 판다. ABS·CLO·CMBS·CDO가 모두 이 하나의 메커니즘 위에 세워진다. 증권화의 원리, 트랑쉐 구조, 신용 보강 방법, 그리고 2008년 금융위기가 이 기계를 어떻게 망가뜨렸는지.",
+    excerptEn: "Banks sell loan pools to an SPV; the SPV bundles them into rated bonds sold to investors. ABS, CLO, CMBS, and CDO all stand on this single mechanism. The logic of securitization, tranche structure, credit enhancement methods, and how the 2008 crisis broke the machine.",
+    readingMinutes: 14,
+    tags: ["구조화금융", "증권화", "SPV", "트랑쉐", "워터폴", "신용보강", "ABS", "CLO", "CMBS", "CDO"],
+    tagsEn: ["Structured Finance", "Securitization", "SPV", "Tranche", "Waterfall", "Credit Enhancement", "ABS", "CLO", "CMBS"],
+    sections: [], keyTerms: [],
+    relatedSlugs: ["structured-abs", "structured-clo", "structured-cmbs", "structured-waterfall"],
+    appearsIn: [],
+  },
+
+  {
+    slug: "structured-abs",
+    title: "ABS (자산담보부증권) 완전 해설 — 자동차 할부·카드·학자금이 채권이 되는 과정",
+    titleEn: "ABS Complete Guide — How Auto Loans, Credit Cards & Student Loans Become Bonds",
+    entryType: "article",
+    category: "structured",
+    categoryLabel: "구조화",
+    categoryLabelEn: "Structured",
+    excerpt: "현대캐피탈의 자동차 할부채권, 신한카드의 카드 매출채권, 미국의 학자금 대출이 ABS가 되는 과정. 선순위·후순위 트랑쉐, 과잉담보(OC), 초과 스프레드(XS), 준비적립금 — 신용 보강의 4가지 도구. Toyota ABS, SoFi 학자금 ABS 실제 구조 해부.",
+    excerptEn: "How Hyundai Capital auto loans, Shinhan Card receivables, and US student loans become ABS. Senior/subordinate tranches, overcollateralization (OC), excess spread (XS), reserve funds — the four credit enhancement tools. Toyota ABS and SoFi student loan ABS real structure dissection.",
+    readingMinutes: 15,
+    tags: ["ABS", "자산담보부증권", "자동차ABS", "카드ABS", "학자금ABS", "신용보강", "SPV", "과잉담보", "Toyota", "현대캐피탈"],
+    tagsEn: ["ABS", "Asset-Backed Securities", "Auto ABS", "Credit Card ABS", "Student Loan ABS", "Credit Enhancement", "Toyota ABS", "SoFi"],
+    sections: [], keyTerms: [
+      {
+        term: "ABS (자산담보부증권)",
+        termEn: "Asset-Backed Securities (ABS)",
+        definition: "자동차 할부, 신용카드 매출채권, 학자금 대출, 장비 리스 등 동질적인 소비자·기업 대출을 묶어 SPV를 통해 발행하는 증권. 은행이 대출채권을 장부에서 제거(off-balance sheet)하고 새로운 대출 자금을 마련할 수 있게 한다. 선순위·후순위 트랑쉐 구조와 신용 보강 장치 덕분에 원 자산 등급보다 높은 신용도의 채권이 만들어진다. 한국에서는 현대캐피탈 자동차 ABS, 신한카드 카드채권 ABS가 대표 사례다.",
+        definitionEn: "Securities issued through an SPV backed by homogeneous consumer or corporate loans such as auto finance, credit card receivables, student loans, and equipment leases. Allows banks to remove loan assets off their balance sheet and recycle capital for new lending. Through senior/subordinate tranche structures and credit enhancement, bonds with higher credit quality than the underlying assets are created. Hyundai Capital auto ABS and Shinhan Card receivables ABS are representative Korean examples.",
+      },
+      {
+        term: "자동차 ABS",
+        termEn: "Auto ABS",
+        definition: "자동차 할부 대출 또는 리스 채권을 담보로 발행하는 ABS. 단기(3~5년) 만기, 고분산, 상대적으로 낮은 연체율로 신용 품질이 우수하다. Toyota Financial Services, Hyundai Capital 등이 정기적으로 발행하며 비용 효율적인 자금조달 수단이다. 자동차 가격 하락·금리 상승 시 차주 채무불이행 증가 위험이 있으나, 자동차 잔존가치 회수로 손실을 일부 방어한다. 2024년 미국 자동차 ABS 발행액은 연간 $1,200억을 상회했다.",
+        definitionEn: "ABS backed by auto loans or lease receivables. Features short maturities (3–5 years), high diversification, and relatively low delinquency rates, giving it strong credit quality. Toyota Financial Services, Hyundai Capital and others issue regularly as a cost-efficient funding tool. Risks include increased borrower default from falling vehicle values or rising rates, though vehicle residual value recovery provides partial loss protection. US auto ABS issuance exceeded $120B annually in 2024.",
+      },
+      {
+        term: "카드 ABS (Credit Card ABS)",
+        termEn: "Credit Card ABS",
+        definition: "신용카드 매출채권을 담보로 발행하는 ABS. 회전(Revolving) 구조 — 기존 채권이 상환되면 새로운 카드 사용 채권으로 교체된다. 재투자 기간(Revolving Period) 후 상환 기간(Amortization Period)으로 전환된다. 카드 사용자의 소비 패턴·연체율·결제율(Payment Rate)이 핵심 분석 변수다. 신한카드, KB국민카드 등이 한국 주요 발행사이며, 미국의 American Express, Citibank도 정기적으로 발행한다.",
+        definitionEn: "ABS backed by credit card receivables. Features a revolving structure — as existing receivables are repaid, new card spending receivables replace them. After a revolving period, it transitions to an amortization period. Key analytical variables include cardholder spending patterns, delinquency rates, and payment rates. Shinhan Card and KB Kookmin Card are major Korean issuers; American Express and Citibank issue regularly in the US.",
+      },
+      {
+        term: "선순위-후순위 구조 (Senior-Sub Structure)",
+        termEn: "Senior-Subordinate Structure",
+        definition: "ABS에서 자산 풀 현금흐름의 배분 우선순위를 정하는 핵심 신용 보강 방법. 선순위(AAA) 트랑쉐가 이자와 원금을 가장 먼저 받고, 후순위(메자닌·BB, 에쿼티)가 나머지를 받는다. 손실 발생 시 에쿼티→메자닌→선순위 순으로 흡수한다. 예: 자산 풀 손실이 10%여도 후순위 25%가 버퍼 역할을 하면 선순위 75%는 무손실. 신용평가사는 이 버퍼 두께를 스트레스 테스트해 선순위 등급을 결정한다.",
+        definitionEn: "The core credit enhancement method in ABS that establishes the priority of cash flow distribution from the asset pool. Senior (AAA) tranches receive interest and principal first; subordinate (mezzanine BB, equity) receive what remains. In case of losses: equity absorbs first, then mezzanine, then senior. Example: even with 10% pool losses, if 25% subordination acts as buffer, the 75% senior tranche suffers zero loss. Rating agencies stress-test this buffer depth to determine the senior tranche rating.",
+      },
+      {
+        term: "준비적립금 (Reserve Fund)",
+        termEn: "Reserve Fund",
+        definition: "ABS 발행 시 초기에 적립해 두는 현금 쿠션. 자산 풀 잔액의 일정 비율(보통 0.5~2%)을 신탁 계좌에 예치하고, 예상치 못한 손실이나 유동성 부족 시 이자 지급에 사용한다. 선순위 투자자의 신용 보강 수단 중 하나로, 신용평가사가 등급 부여 시 반영한다. 자산 연체율이 임계치를 넘으면 준비적립금이 먼저 소진되고, 그 후 에쿼티→메자닌 순서로 손실이 흡수된다.",
+        definitionEn: "A cash cushion set aside at ABS issuance. A specified percentage (typically 0.5–2%) of the asset pool balance is deposited in a trust account and used for interest payments in case of unexpected losses or liquidity shortfalls. One of several credit enhancement tools factored into rating agency assessments. When pool delinquency exceeds a threshold, the reserve fund is depleted first, followed by equity then mezzanine loss absorption.",
+      },
+    ],
+    relatedSlugs: ["structured-overview", "structured-waterfall", "structured-clo", "structured-cmbs"],
+    appearsIn: [],
+  },
+
+  {
+    slug: "structured-clo",
+    title: "CLO 완전 해설 — 레버리지론이 채권이 되는 과정 & 2024년 CLO 붐",
+    titleEn: "CLO Complete Guide — How Leveraged Loans Become Bonds & the 2024 CLO Boom",
+    entryType: "article",
+    category: "structured",
+    categoryLabel: "구조화",
+    categoryLabelEn: "Structured",
+    excerpt: "CLO는 100~200개 레버리지드론을 담보로 AAA~에쿼티 8개 트랑쉐 채권을 발행한다. CLO 매니저(Blackstone·Apollo·Ares)의 역할, 램프업→재투자→정산 3단계 라이프사이클, AAA 투자자가 레버리지드론 리스크를 피하는 방법. 2024년 글로벌 CLO 발행 $185B 신기록 배경.",
+    excerptEn: "A CLO issues 8 tranches from AAA to equity backed by 100-200 leveraged loans. CLO manager roles (Blackstone, Apollo, Ares), the 3-stage lifecycle (ramp-up to reinvestment to wind-down), and how AAA investors avoid leveraged loan risk. Background to 2024 record $185B global CLO issuance.",
+    readingMinutes: 16,
+    tags: ["CLO", "담보대출채권", "레버리지론", "CLO매니저", "Blackstone", "Apollo", "AAA트랑쉐", "재투자기간", "LevFin"],
+    tagsEn: ["CLO", "Collateralized Loan Obligation", "Leveraged Loans", "CLO Manager", "Blackstone", "Apollo", "AAA Tranche", "Reinvestment Period"],
+    sections: [], keyTerms: [
+      {
+        term: "CLO (대출담보부채권)",
+        termEn: "Collateralized Loan Obligation (CLO)",
+        definition: "100~200개의 레버리지드 론(LBO 인수금융, BB~B 등급 기업 대출)을 담보로 AAA~에쿼티 8개 트랑쉐 채권을 발행하는 구조화금융 상품. 가장 정교하고 규모가 큰 ABS 형태 중 하나로, 글로벌 레버리지드 론 시장의 65%를 CLO가 보유한다. CLO는 채권(Bond)이 아닌 '론(Loan)'을 담보로 한다는 점에서 일반 ABS와 구분된다. Blackstone·Apollo·Ares 같은 대형 얼터너티브 자산운용사가 주요 CLO 매니저다.",
+        definitionEn: "A structured finance product that issues 8 tranches from AAA to equity backed by 100–200 leveraged loans (LBO acquisition finance, BB–B rated corporate loans). One of the most sophisticated and large-scale ABS forms, CLOs hold approximately 65% of the global leveraged loan market. Unlike regular ABS, CLOs are backed by loans (not bonds). Major alternative asset managers like Blackstone, Apollo, and Ares are leading CLO managers.",
+      },
+      {
+        term: "CLO 매니저 (CLO Manager)",
+        termEn: "CLO Manager",
+        definition: "CLO 구조 안에서 담보 대출 풀을 운용하는 전문 자산운용사. 론 선별, 재투자 기간 중 포트폴리오 교체, 크레딧 모니터링을 담당한다. 매니저의 실적(Manager Track Record)은 CLO 발행 비용과 투자자 수요에 직접 영향을 미친다. 소수 상위 매니저(Tier-1: Blackstone, Apollo, Ares, PGIM)는 AAA 트랑쉐 스프레드가 낮고, 신규 매니저는 더 높은 쿠폰을 제공해야 한다. 매니저는 에쿼티 트랑쉐를 5~10% 보유해 이해관계를 투자자와 정렬한다.",
+        definitionEn: "A specialist asset manager that operates the collateral loan pool within the CLO structure. Responsible for loan selection, portfolio replacement during the reinvestment period, and credit monitoring. Manager track record directly affects CLO issuance costs and investor demand. Tier-1 managers (Blackstone, Apollo, Ares, PGIM) command tighter AAA spreads, while newer managers must offer higher coupons. The manager retains 5–10% of the equity tranche to align interests with investors.",
+      },
+      {
+        term: "재투자 기간 (Reinvestment Period)",
+        termEn: "Reinvestment Period",
+        definition: "CLO 라이프사이클 3단계 중 핵심 단계. 램프업(1~6개월, 초기 론 매입) 후 보통 4~5년간 진행. 이 기간 동안 CLO 매니저는 상환된 원금으로 새로운 론을 매입해 담보 풀을 유지한다. 재투자 기간이 끝나면 CLO는 새 론 매입 없이 원금을 순차적으로 상환하는 정산 단계(Wind-down)로 전환된다. 재투자 기간의 길이가 CLO 에쿼티 투자자의 수익률에 결정적이다 — 재투자 기간이 길수록 초과 스프레드를 더 오래 수취할 수 있다.",
+        definitionEn: "The core phase of the CLO lifecycle's three stages. Following the ramp-up period (1–6 months of initial loan purchases), it typically lasts 4–5 years. During this period, the CLO manager purchases new loans with repaid principal to maintain the collateral pool. After the reinvestment period ends, the CLO transitions to a wind-down phase, repaying principal sequentially without buying new loans. The length of the reinvestment period is critical to CLO equity investors' returns — a longer period means more excess spread accrual.",
+      },
+      {
+        term: "AAA 트랑쉐 (CLO AAA)",
+        termEn: "AAA Tranche (CLO AAA)",
+        definition: "CLO에서 가장 선순위이며 신용도가 가장 높은 트랑쉐. 보통 CLO 총 발행액의 60~65%를 차지하며, 자산 풀(레버리지드 론)의 평균 신용등급이 B~BB임에도 불구하고 AAA 등급을 받는다. 두꺼운 후순위 버퍼(35~40%)와 OC·IC 트리거가 선순위를 보호한다. 2020년 COVID 충격에서 CLO AAA 트랑쉐는 단 한 건도 디폴트하지 않았다 — 2008년 RMBS/CDO 와는 달리 실제 분산된 기업 대출이 담보여서 시스템적 상관관계가 낮았기 때문이다.",
+        definitionEn: "The most senior and highest-quality tranche in a CLO. Typically representing 60–65% of total CLO issuance, it achieves a AAA rating despite the collateral pool (leveraged loans) having an average rating of B to BB. Thick subordination buffers (35–40%) and OC/IC triggers protect the senior tranche. During the 2020 COVID shock, not a single CLO AAA tranche defaulted — unlike 2008 RMBS/CDO, the diversified corporate loan collateral had low systemic correlation.",
+      },
+      {
+        term: "2024 CLO 붐",
+        termEn: "2024 CLO Boom",
+        definition: "2024년 전 세계 CLO 발행이 $1,850억이라는 사상 최대 기록을 달성한 현상. 배경: ①레버리지드 론 공급 증가(PE 인수금융), ②투자자들의 변동금리 선호(금리 고점 유지), ③CLO 에쿼티 수익률 개선. CLO 발행 붐은 레버리지드 론 시장에 막대한 수요를 공급하며 차입 비용을 낮추는 순환 피드백 구조를 만든다. Blackstone·Apollo·Ares 등 사모 신용 펀드가 CLO 매니저 역할을 확대하며 은행 경쟁자로 부상했다.",
+        definitionEn: "The phenomenon of global CLO issuance reaching a record $185 billion in 2024. Drivers: ①Increased leveraged loan supply from PE acquisition finance; ②Investor preference for floating rate instruments (rates held near peak); ③Improving CLO equity returns. The CLO issuance boom creates a circular feedback loop supplying massive demand to the leveraged loan market, lowering borrowing costs. Private credit funds like Blackstone, Apollo, and Ares expanded their CLO manager roles, emerging as serious competitors to banks.",
+      },
+    ],
+    relatedSlugs: ["structured-overview", "structured-waterfall", "levfin-ecosystem", "structured-abs"],
+    appearsIn: [],
+  },
+
+  {
+    slug: "structured-cmbs",
+    title: "CMBS 완전 해설 — 상업용 부동산 모기지가 채권이 되는 과정 & 오피스 CMBS 위기",
+    titleEn: "CMBS Complete Guide — How Commercial Mortgages Become Bonds & the Office CMBS Crisis",
+    entryType: "article",
+    category: "structured",
+    categoryLabel: "구조화",
+    categoryLabelEn: "Structured",
+    excerpt: "오피스·리테일·호텔·물류센터 등 상업용 부동산 모기지를 SPV로 넘겨 CMBS를 발행하는 구조. LTV·DSCR·NOI 핵심 지표, 선순위·메자닌·B피스 트랑쉐 구조, 스페셜 서비서 역할. 코로나19 이후 오피스 CMBS 부실 급증과 WeWork·Brookfield CMBS 디폴트 케이스.",
+    excerptEn: "Securitization of office, retail, hotel, and logistics mortgages into CMBS via SPV. Key metrics LTV, DSCR, NOI; senior/mezzanine/B-piece tranche structure; special servicer role. Rapid post-COVID office CMBS deterioration and WeWork/Brookfield CMBS default cases.",
+    readingMinutes: 15,
+    tags: ["CMBS", "상업용부동산", "모기지증권화", "LTV", "DSCR", "스페셜서비서", "오피스CMBS", "WeWork", "Brookfield"],
+    tagsEn: ["CMBS", "Commercial Mortgage-Backed Securities", "Commercial Real Estate", "LTV", "DSCR", "Special Servicer", "Office CMBS", "WeWork"],
+    sections: [], keyTerms: [],
+    relatedSlugs: ["structured-overview", "structured-waterfall", "structured-cdo", "structured-abs"],
+    appearsIn: [],
+  },
+
+  {
+    slug: "structured-waterfall",
+    title: "트랑쉐 & 워터폴 — 구조화금융 신용 리스크 배분의 원리",
+    titleEn: "Tranche & Waterfall — The Mechanics of Credit Risk Distribution in Structured Finance",
+    entryType: "article",
+    category: "structured",
+    categoryLabel: "구조화",
+    categoryLabelEn: "Structured",
+    excerpt: "워터폴은 현금이 선순위에서 후순위 순서로 흐르는 규칙이다. 과잉담보(OC)·초과스프레드(XS)·준비적립금·후순위화 4가지 신용 보강 도구. OC 트리거, IC 트리거, 이벤트 오브 디폴트 발동 조건. 에쿼티 투자자가 레버리지드 수익을 얻는 구조적 근거.",
+    excerptEn: "The waterfall governs cash flow order from senior to subordinate tranches. Four credit enhancement tools: overcollateralization (OC), excess spread (XS), reserve funds, and subordination. OC trigger, IC trigger, and event-of-default conditions. Why equity tranche investors earn leveraged returns.",
+    readingMinutes: 13,
+    tags: ["워터폴", "트랑쉐", "신용보강", "과잉담보", "초과스프레드", "OC트리거", "IC트리거", "에쿼티트랑쉐", "선순위"],
+    tagsEn: ["Waterfall", "Tranche", "Credit Enhancement", "Overcollateralization", "Excess Spread", "OC Trigger", "IC Trigger", "Equity Tranche"],
+    sections: [], keyTerms: [],
+    relatedSlugs: ["structured-overview", "structured-abs", "structured-clo", "structured-cmbs"],
+    appearsIn: [],
+  },
+
+  {
+    slug: "structured-cdo",
+    title: "CDO & 합성CDO — 2008 금융위기를 만든 구조화금융의 폭탄",
+    titleEn: "CDO & Synthetic CDO — The Structured Finance Bomb That Built the 2008 Crisis",
+    entryType: "article",
+    category: "structured",
+    categoryLabel: "구조화",
+    categoryLabelEn: "Structured",
+    excerpt: "CDO는 ABS(주로 모기지)를 담보로 새 채권을 발행한다. CDO 제곱은 CDO를 담보로 또 다른 CDO를 발행한다. 합성 CDO는 CDS로 실제 대출 없이 리스크를 합성한다. 무디스가 BBB 모기지 슬라이스를 AAA로 변환해준 방법, Big Short의 Michael Burry와 John Paulson이 어떻게 이 기계에 베팅했는가.",
+    excerptEn: "A CDO issues new bonds backed by ABS (mostly mortgages). CDO-squared issues yet another CDO backed by CDOs. Synthetic CDO replicates risk via CDS without actual loans. How Moody's converted BBB mortgage slices to AAA, and how Michael Burry and John Paulson bet against the machine in the Big Short.",
+    readingMinutes: 17,
+    tags: ["CDO", "합성CDO", "2008금융위기", "서브프라임", "CDS", "MichaelBurry", "JohnPaulson", "BigShort", "무디스"],
+    tagsEn: ["CDO", "Synthetic CDO", "2008 Financial Crisis", "Subprime", "CDS", "Michael Burry", "John Paulson", "Big Short"],
+    sections: [], keyTerms: [],
+    relatedSlugs: ["structured-overview", "structured-waterfall", "structured-cmbs", "structured-cases"],
+    appearsIn: [],
+  },
+
+  {
+    slug: "structured-cases",
+    title: "구조화금융 케이스스터디 — 2008 RMBS 붕괴·CLO COVID 스트레스·오피스 CMBS 위기",
+    titleEn: "Structured Finance Case Studies — 2008 RMBS Collapse, CLO COVID Stress & Office CMBS Crisis",
+    entryType: "article",
+    category: "structured",
+    categoryLabel: "구조화",
+    categoryLabelEn: "Structured",
+    excerpt: "같은 구조화금융이 어떤 상황에서 무너지고 어떤 상황에서 버티는가. 2008년 서브프라임 RMBS/CDO 전면 붕괴, 2020년 COVID 충격에서 CLO AAA가 왜 손실을 피했는가, 2023년 미국 오피스 CMBS 부실의 구조적 원인. 한국 부동산PF ABS 위기까지.",
+    excerptEn: "When does structured finance collapse and when does it hold? The full 2008 subprime RMBS/CDO collapse; why CLO AAA tranches survived COVID in 2020; the structural roots of the 2023 US office CMBS stress; and Korea's real estate PF ABS crisis.",
+    readingMinutes: 16,
+    tags: ["구조화금융위기", "2008금융위기", "RMBS붕괴", "CLO스트레스", "오피스CMBS", "부동산PF", "한국ABS위기", "서브프라임"],
+    tagsEn: ["Structured Finance Crisis", "2008 Crisis", "RMBS Collapse", "CLO Stress", "Office CMBS", "Korea PF ABS", "Subprime"],
+    sections: [], keyTerms: [],
+    relatedSlugs: ["structured-cdo", "structured-clo", "structured-cmbs", "structured-abs"],
     appearsIn: [],
   },
 
