@@ -1,0 +1,18 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "deal-story",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["dev", "--turbopack", "--port", "3001"],
+      "port": 3001
+    },
+    {
+      "name": "uhak-compare",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["dev"],
+      "port": 3000,
+      "cwd": "/Users/choehyeongjun/Documents/uhak-compare"
+    }
+  ]
+}
