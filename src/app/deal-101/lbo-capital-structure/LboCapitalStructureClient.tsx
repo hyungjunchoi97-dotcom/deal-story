@@ -894,6 +894,49 @@ export default function LboCapitalStructureClient({ concept, lang }: Props) {
             </motion.div>
           </motion.section>
 
+          {/* ══ 딜 아카이브 ══════════════════════════════════════════════════════════ */}
+          <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
+            <motion.div variants={fadeUp()} className="mb-4">
+              <p className="text-[11px] font-black uppercase tracking-widest mb-1" style={{ color: ACCENT }}>
+                {ko ? "딜 아카이브" : "Deal Archive"}
+              </p>
+              <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100">
+                {ko ? "LBO 자본구조가 망가지면 — 실제 사례" : "When LBO Capital Structure Breaks Down"}
+              </h3>
+            </motion.div>
+            <motion.div variants={fadeUp(0.05)} className="rounded-2xl overflow-hidden border border-red-200/60 dark:border-red-800/40 bg-red-800 p-5 hover:opacity-90 transition-opacity">
+              <Link href="/deals/serta-simmons-uptier" className="block">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="w-8 h-8 rounded-lg bg-white/15 flex items-center justify-center text-xs font-black text-white">SSB</span>
+                      <span className="text-[11px] font-bold text-red-200 uppercase tracking-wide">
+                        {ko ? "LBO → 과잉 레버리지 → LME → Ch.11" : "LBO → Over-leverage → LME → Ch.11"}
+                      </span>
+                    </div>
+                    <p className="text-sm font-bold text-white mb-1">
+                      {ko ? "Serta Simmons 업티어 — 자본구조 재편의 법적 한계" : "Serta Simmons Uptier — Legal Limits of Capital Restructuring"}
+                    </p>
+                    <p className="text-[12px] text-red-200 leading-relaxed">
+                      {ko
+                        ? "$12억 수퍼-선순위 TL 발행으로 기존 채권자 ~$9억 후순위 강등. 2024년 5th Circuit 무효 판결 — LBO 자본구조가 과도한 레버리지로 망가졌을 때의 교과서."
+                        : "$1.2B super-priority TL primed ~$0.9B of existing lenders. 2024 5th Circuit declared the transaction invalid — textbook of what happens when LBO capital structure collapses under over-leverage."}
+                    </p>
+                  </div>
+                  <div className="flex-shrink-0 text-right">
+                    <p className="text-2xl font-black text-white">$1.2B</p>
+                    <p className="text-[10px] text-red-200">{ko ? "수퍼-선순위 TL" : "Super-Priority TL"}</p>
+                    <p className="text-lg font-bold text-red-300 mt-1">{ko ? "무효" : "Void"}</p>
+                    <p className="text-[10px] text-red-200">5th Circuit</p>
+                  </div>
+                </div>
+                <p className="text-[11px] text-red-300 mt-3 font-semibold">
+                  {ko ? "딜 전체 분석 보기 →" : "View full deal analysis →"}
+                </p>
+              </Link>
+            </motion.div>
+          </motion.section>
+
           {/* ══ Series Nav ═══════════════════════════════════════════════════════ */}
           <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
             <motion.div variants={fadeUp()} className="flex items-center justify-between mb-4">

@@ -123,28 +123,39 @@ const VINTAGE_DATA = [
 // ── Real PE Case Returns ──────────────────────────────────────────────────────
 const CASE_RETURNS = [
   {
+    name: "KKR / Dollar General\n(2007–2013)",
+    moic: 4.5, irr: 70, hold: 6,
+    color: "#10b981",
+    link: "/deals/kkr-dollar-general",
+    drivers: (ko: boolean) => ko ? "금융위기 = 불황형 소매 수혜 → EBITDA +35% + 2009 IPO 완벽 타이밍" : "Financial crisis = recession-proof retail tailwind → EBITDA +35% + perfect 2009 IPO timing",
+  },
+  {
+    name: "Apollo / ADT\n(2012–2018)",
+    moic: 3.2, irr: 22.1, hold: 6,
+    color: "#6366f1",
+    link: null as string | null,
+    drivers: (ko: boolean) => ko ? "보안 서비스 반복 구독 수익 + IPO Multiple Expansion" : "Security subscription recurring revenue + IPO multiple expansion",
+  },
+  {
     name: "Blackstone / Hilton\n(2007–2018)",
     moic: 2.6, irr: 16.7, hold: 11,
     color: ACCENT,
+    link: null as string | null,
     drivers: (ko: boolean) => ko ? "EBITDA 3배 성장 + 호텔 자산 가치 상승" : "EBITDA 3x growth + hotel asset appreciation",
-  },
-  {
-    name: "KKR / RJR Nabisco\n(1989–1994)",
-    moic: 1.5, irr: 8.0, hold: 5,
-    color: "#f59e0b",
-    drivers: (ko: boolean) => ko ? "브랜드 가치 확인, 담배 소송·경영권 갈등이 제한" : "Brand value confirmed, tobacco litigation + management conflict limited returns",
   },
   {
     name: "Carlyle / Hertz\n(2005–2013)",
     moic: 1.9, irr: 10.2, hold: 8,
     color: "#8b5cf6",
+    link: null as string | null,
     drivers: (ko: boolean) => ko ? "GFC로 차량 수요 급감 후 회복, 장기 보유로 만회" : "GFC crushed vehicle demand, long hold to recover",
   },
   {
-    name: "Apollo / ADT\n(2012–2018)",
-    moic: 3.2, irr: 22.1, hold: 6,
-    color: "#10b981",
-    drivers: (ko: boolean) => ko ? "보안 서비스 반복 구독 수익 + IPO Multiple Expansion" : "Security subscription recurring revenue + IPO multiple expansion",
+    name: "KKR / RJR Nabisco\n(1989–1994)",
+    moic: 1.5, irr: 8.0, hold: 5,
+    color: "#f59e0b",
+    link: "/deals/kkr-rjr-nabisco",
+    drivers: (ko: boolean) => ko ? "브랜드 가치 확인, 담배 소송·경영권 갈등이 제한" : "Brand value confirmed, tobacco litigation + management conflict limited returns",
   },
 ];
 
@@ -542,9 +553,16 @@ export default function LboReturnsClient({ concept, lang }: Props) {
                 <motion.div key={i} variants={fadeUp(i * 0.05)} className="rounded-xl border border-gray-200 dark:border-gray-700 p-4 bg-white dark:bg-gray-900">
                   <div className="flex items-start gap-4">
                     <div className="flex-1">
-                      <p className="text-[12px] font-bold text-gray-800 dark:text-gray-200 mb-2">
-                        {c.name.replace("\n", " ")}
-                      </p>
+                      <div className="flex items-center gap-2 mb-2">
+                        <p className="text-[12px] font-bold text-gray-800 dark:text-gray-200">
+                          {c.name.replace("\n", " ")}
+                        </p>
+                        {c.link && (
+                          <Link href={c.link} className="text-[10px] font-semibold px-2 py-0.5 rounded-full text-white transition-opacity hover:opacity-80" style={{ background: c.color }}>
+                            {ko ? "딜 보기" : "View deal"}
+                          </Link>
+                        )}
+                      </div>
                       <div className="flex gap-4 mb-2 flex-wrap">
                         <div>
                           <p className="text-[10px] text-gray-400 dark:text-gray-500">MOIC</p>
@@ -568,7 +586,7 @@ export default function LboReturnsClient({ concept, lang }: Props) {
                         <div className="h-3 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
                           <motion.div className="h-full rounded-full" style={{ background: c.color }}
                             initial={{ width: 0 }}
-                            whileInView={{ width: `${(c.moic / 3.5) * 100}%` }}
+                            whileInView={{ width: `${Math.min((c.moic / 5.0) * 100, 100)}%` }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.7, delay: i * 0.1 }}
                           />
@@ -579,7 +597,7 @@ export default function LboReturnsClient({ concept, lang }: Props) {
                         <div className="h-3 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
                           <motion.div className="h-full rounded-full" style={{ background: c.color }}
                             initial={{ width: 0 }}
-                            whileInView={{ width: `${(c.irr / 25) * 100}%` }}
+                            whileInView={{ width: `${Math.min((c.irr / 80) * 100, 100)}%` }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.7, delay: i * 0.1 + 0.15 }}
                           />
@@ -605,6 +623,49 @@ export default function LboReturnsClient({ concept, lang }: Props) {
             </motion.div>
             <motion.div variants={fadeUp(0.05)}>
               <FaqAccordion items={FAQS.map((f) => ({ q: f.q(ko), a: f.a(ko) }))} accent={ACCENT} />
+            </motion.div>
+          </motion.section>
+
+          {/* ══ 딜 아카이브 ══════════════════════════════════════════════════════════ */}
+          <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
+            <motion.div variants={fadeUp()} className="mb-4">
+              <p className="text-[11px] font-black uppercase tracking-widest mb-1" style={{ color: ACCENT }}>
+                {ko ? "딜 아카이브" : "Deal Archive"}
+              </p>
+              <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100">
+                {ko ? "실제 딜로 배우는 LBO 수익률" : "LBO Returns in Real Deals"}
+              </h3>
+            </motion.div>
+            <motion.div variants={fadeUp(0.05)} className="rounded-2xl overflow-hidden border border-emerald-200/60 dark:border-emerald-800/40 bg-emerald-700 p-5 hover:opacity-90 transition-opacity">
+              <Link href="/deals/kkr-dollar-general" className="block">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="w-8 h-8 rounded-lg bg-white/15 flex items-center justify-center text-sm font-black text-white">KKR</span>
+                      <span className="text-[11px] font-bold text-emerald-200 uppercase tracking-wide">
+                        {ko ? "LBO — IRR 역대급 수익" : "LBO — Record-Breaking IRR"}
+                      </span>
+                    </div>
+                    <p className="text-sm font-bold text-white mb-1">
+                      {ko ? "KKR × Dollar General — IRR ~70%, MOIC ~4-5×" : "KKR × Dollar General — IRR ~70%, MOIC ~4-5×"}
+                    </p>
+                    <p className="text-[12px] text-emerald-200 leading-relaxed">
+                      {ko
+                        ? "금융위기가 오히려 EBITDA를 키운 역설. 불황형 소매의 반주기 특성 + 보수적 레버리지 + 오퍼레이션 알파의 완벽한 조합."
+                        : "The financial crisis amplified EBITDA instead of crushing it. Counter-cyclical retail + conservative leverage + operational alpha — the perfect combination."}
+                    </p>
+                  </div>
+                  <div className="flex-shrink-0 text-right">
+                    <p className="text-2xl font-black text-white">~70%</p>
+                    <p className="text-[10px] text-emerald-200">IRR</p>
+                    <p className="text-lg font-bold text-white mt-1">~4-5×</p>
+                    <p className="text-[10px] text-emerald-200">MOIC</p>
+                  </div>
+                </div>
+                <p className="text-[11px] text-emerald-300 mt-3 font-semibold">
+                  {ko ? "딜 전체 분석 보기 →" : "View full deal analysis →"}
+                </p>
+              </Link>
             </motion.div>
           </motion.section>
 
