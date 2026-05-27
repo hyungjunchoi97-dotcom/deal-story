@@ -102,14 +102,18 @@ export type NoteCalloutDef = {
   bodyEn?: string;
 };
 
-export type PBRPoint   = { year: string; KOSPI: number; SP500: number; TOPIX: number };
-export type TaxRateBar = { country: string; countryEn: string; rate: number; color: string };
-export type IndexPoint = { year: string; KOSPI: number; Nikkei: number };
+export type PBRPoint          = { year: string; KOSPI: number; SP500: number; TOPIX: number };
+export type TaxRateBar        = { country: string; countryEn: string; rate: number; color: string };
+export type IndexPoint        = { year: string; KOSPI: number; Nikkei: number };
+export type ReserveSharePoint = { year: string; share: number };
+export type PrivilegeGapPoint = { category: string; categoryEn: string; dollarRole: number; usShare: number };
 
 export type NoteChartDef =
   | { id: "pbr-comparison";   title: string; titleEn?: string; caption?: string; captionEn?: string; data: PBRPoint[] }
   | { id: "tax-rates";        title: string; titleEn?: string; caption?: string; captionEn?: string; data: TaxRateBar[] }
-  | { id: "index-comparison"; title: string; titleEn?: string; caption?: string; captionEn?: string; data: IndexPoint[]; annotations?: { year: string; label: string; labelEn?: string }[] };
+  | { id: "index-comparison"; title: string; titleEn?: string; caption?: string; captionEn?: string; data: IndexPoint[]; annotations?: { year: string; label: string; labelEn?: string }[] }
+  | { id: "reserve-share";    title: string; titleEn?: string; caption?: string; captionEn?: string; data: ReserveSharePoint[] }
+  | { id: "privilege-gap";    title: string; titleEn?: string; caption?: string; captionEn?: string; data: PrivilegeGapPoint[] };
 
 export type NoteBlock =
   | { type: "text";    body: string; bodyEn?: string }
@@ -667,6 +671,376 @@ const koreaDiscount: NoteData = {
   ],
 };
 
+// ══════════════════════════════════════════════════════════════════════════════
+// NOTE #2 — 달러 패권 시리즈 1편: 왜 달러가 세계의 돈이 됐나
+// ══════════════════════════════════════════════════════════════════════════════
+
+const dollarHegemony1: NoteData = {
+  slug: "dollar-hegemony-1",
+  category: "macro",
+  status: "published",
+  title: "달러 패권 ① — 왜 달러가 세계의 돈이 됐나",
+  titleEn: "Dollar Hegemony ① — How the Dollar Became the World's Money",
+  description:
+    "브레튼우즈(1944), 닉슨 쇼크(1971), 페트로달러(1974) — 달러가 기축통화가 된 건 미국의 경제력 때문이 아니라, 세 번의 결정적 설계 때문이었다.",
+  descriptionEn:
+    "Bretton Woods (1944), the Nixon Shock (1971), petrodollars (1974) — the dollar didn't become the world's reserve currency because of America's economic might. It was designed that way, three decisive times.",
+  date: "2026-05-28",
+  readingMinutes: 18,
+  keyPoints: [
+    "브레튼우즈에서 달러가 기축통화가 된 건 미국의 경제력이 아닌 전 세계 금의 2/3를 보유한 협상력 때문이었다",
+    "닉슨이 1971년 '일시적으로' 금 태환을 중단했다 — 그 '일시적'은 영구가 됐고 달러는 더 강해졌다",
+    "페트로달러 체계(1974)는 금 대신 석유로 달러를 뒷받침했다 — 군사 안보와 맞바꾼 거래",
+    "달러의 '과도한 특권': 미국 GDP는 세계의 25%지만 글로벌 무역 인보이싱의 80%가 달러로 이뤄진다",
+    "달러 외환보유고 비중은 2001년 71.5%에서 2024년 57.8%로 하락했다 — 그러나 2위 유로(20%)의 3배다",
+  ],
+  keyPointsEn: [
+    "The dollar became the reserve currency at Bretton Woods not because of US economic strength but because the US held two-thirds of the world's gold",
+    "Nixon 'temporarily' suspended gold convertibility in 1971 — that 'temporary' became permanent, and the dollar only grew stronger",
+    "The petrodollar system (1974) replaced gold with oil as the dollar's backing — a deal traded for US military security guarantees",
+    "The 'exorbitant privilege': US GDP is ~25% of the world's but 80% of global trade is invoiced in dollars",
+    "Dollar's share of global FX reserves has fallen from 71.5% in 2001 to 57.8% in 2024 — but still 3× the #2 euro at 20%",
+  ],
+  sections: [
+    // ── 1 ──────────────────────────────────────────────────────────────────────
+    {
+      heading: "달러가 지배하는 세계의 숫자들",
+      headingEn: "The Numbers Behind Dollar Dominance",
+      blocks: [
+        {
+          type: "text",
+          body: "2024년 기준, 전 세계 외환 거래의 **88%**에 달러가 끼어 있다(BIS, 2022). 국제 무역의 **80%**가 달러로 인보이싱된다. 전 세계 중앙은행 외환보유고의 **57.8%**가 달러 자산이다.\n\n미국의 GDP는 세계의 약 25%, 무역 비중은 약 13%다. 경제 규모와 통화 역할의 이 거대한 갭 — 프랑스 재무장관 발레리 지스카르 데스탱은 1965년 이것을 **'과도한 특권(exorbitant privilege)'**이라 불렀다.",
+          bodyEn:
+            "As of 2024, **88%** of all global FX transactions involve the dollar (BIS, 2022). **80%** of international trade is invoiced in dollars. **57.8%** of global central bank reserves are held in dollar assets.\n\nThe US accounts for roughly 25% of global GDP and about 13% of global trade. This vast gap between economic weight and currency role was what French Finance Minister Valéry Giscard d'Estaing called the **'exorbitant privilege'** in 1965.",
+        },
+        {
+          type: "chart",
+          chart: {
+            id: "privilege-gap",
+            title: "달러의 역할 vs 미국의 경제 비중 (%)",
+            titleEn: "Dollar's Role vs US Economic Share (%)",
+            caption:
+              "출처: BIS Triennial Survey(2022), IMF COFER(2024), ECB. 달러는 미국의 경제 규모를 훨씬 초과하는 역할을 한다 — 이것이 '과도한 특권'의 실체다.",
+            captionEn:
+              "Sources: BIS Triennial Survey (2022), IMF COFER (2024), ECB. The dollar's role vastly exceeds US economic weight — this is the substance of 'exorbitant privilege.'",
+            data: [
+              { category: "무역 인보이싱", categoryEn: "Trade Invoicing", dollarRole: 80, usShare: 13 },
+              { category: "FX 거래", categoryEn: "FX Transactions", dollarRole: 88, usShare: 13 },
+              { category: "외환보유고", categoryEn: "FX Reserves", dollarRole: 58, usShare: 25 },
+              { category: "글로벌 채권", categoryEn: "Global Bonds", dollarRole: 50, usShare: 25 },
+              { category: "SWIFT 결제", categoryEn: "SWIFT Payments", dollarRole: 42, usShare: 25 },
+            ],
+          },
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "quote",
+            heading: "과도한 특권 (Exorbitant Privilege)",
+            headingEn: "Exorbitant Privilege",
+            body: "\"미국은 달러를 찍어내기만 하면 전 세계에서 실물을 조달할 수 있다. 다른 나라는 수출해서 달러를 벌어야 하는데.\" — 발레리 지스카르 데스탱, 1965년",
+            bodyEn:
+              "\"The US can acquire real resources from the rest of the world simply by printing dollars. Everyone else has to export to earn them.\" — Valéry Giscard d'Estaing, 1965",
+          },
+        },
+      ],
+    },
+    // ── 2 ──────────────────────────────────────────────────────────────────────
+    {
+      heading: "브레튼우즈 — 달러가 왕좌에 오른 날 (1944)",
+      headingEn: "Bretton Woods — The Day the Dollar Took the Throne (1944)",
+      blocks: [
+        {
+          type: "text",
+          body: "1944년 7월, 뉴햄프셔 브레튼우즈 호텔. 44개국 730명의 대표가 전후 국제통화 체계를 설계했다.\n\n두 거인이 맞섰다. 영국의 **존 메이너드 케인즈**는 국제 결제 전용 통화 '방코르(Bancor)'를 제안했다 — 어느 한 나라 통화에 종속되지 않는 중립적 국제통화. 미국의 **해리 덱스터 화이트**는 달러를 기축통화로 하는 시스템을 주장했다.\n\n케인즈는 패했다. 당시 미국은 전 세계 금 매장량의 **2/3**를 보유하고 있었다. 협상 테이블에서 금을 가진 자가 규칙을 만든다. 합의된 체계:\n\n- 달러만 금과 교환 (1온스 = $35 고정)\n- 다른 모든 통화는 달러에 연동\n- 미국이 세계의 '중앙은행' 역할",
+          bodyEn:
+            "July 1944, Bretton Woods Hotel, New Hampshire. 730 delegates from 44 nations gathered to design the postwar international monetary order.\n\nTwo giants clashed. Britain's **John Maynard Keynes** proposed 'Bancor' — a neutral international currency not tied to any single nation. America's **Harry Dexter White** pushed for a dollar-centric system.\n\nKeynes lost. The US held **two-thirds** of the world's gold reserves at the time. In negotiations, whoever holds the gold makes the rules. The agreed system:\n\n- Only the dollar would be exchangeable for gold (fixed at $35/oz)\n- All other currencies would peg to the dollar\n- The US would serve as the world's 'central bank'",
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "insight",
+            heading: "케인즈가 옳았다 — 40년 후에 증명됐다",
+            headingEn: "Keynes Was Right — Proven 40 Years Later",
+            body: "케인즈는 단일 국가 통화를 기축으로 쓰면 그 나라는 경상수지 적자를 낼 수밖에 없고, 결국 체계가 불안정해진다고 경고했다. 이것이 훗날 '트리핀 딜레마'로 불리게 된 구조다. 닉슨 쇼크(1971)는 케인즈의 예언이 맞았음을 증명했다.",
+            bodyEn:
+              "Keynes warned that making a single nation's currency the reserve asset would force that country to run persistent current account deficits, eventually destabilizing the system. This is what later became known as the 'Triffin Dilemma.' The Nixon Shock of 1971 proved Keynes right.",
+          },
+        },
+      ],
+    },
+    // ── 3 ──────────────────────────────────────────────────────────────────────
+    {
+      heading: "닉슨 쇼크 — 금이 사라진 날 (1971)",
+      headingEn: "The Nixon Shock — The Day Gold Disappeared (1971)",
+      blocks: [
+        {
+          type: "text",
+          body: "브레튼우즈 체계에는 치명적 결함이 있었다. 케인즈가 예측한 바로 그것이다.\n\n전 세계에 달러를 공급하려면 미국은 경상수지 적자를 내야 한다. 그런데 적자가 커질수록 금 태환 약속의 신뢰가 흔들린다. **공급하면 신뢰 위기, 공급 안 하면 유동성 부족** — 어느 쪽으로 가도 막힌다.\n\n1960년대 베트남 전쟁과 린든 존슨의 '위대한 사회' 복지 지출로 달러가 과잉 공급됐다. 각국 중앙은행들이 달러를 금으로 교환하기 시작했다. **프랑스 드골 대통령**은 특히 공격적이었다 — 달러를 실은 군함을 포트 녹스로 보내 금으로 교환했다.\n\n1971년 8월 15일 일요일 저녁, 리처드 닉슨은 TV에 나와 발표했다.\n\n달러-금 태환을 **\"일시적으로\"** 중단한다.\n\n그 '일시적'은 영구가 됐다. 브레튼우즈 체계는 붕괴했다.",
+          bodyEn:
+            "Bretton Woods had a fatal flaw — exactly the one Keynes predicted.\n\nTo supply the world with dollars, the US had to run current account deficits. But the larger those deficits grew, the more the promise of gold convertibility was undermined. **Supply enough dollars and face a confidence crisis. Supply too few and create a liquidity shortage.** Either way, the system was trapped.\n\nVietnam War spending and Lyndon Johnson's Great Society programs in the 1960s flooded the world with dollars. Central banks began converting dollars to gold. **French President de Gaulle** was particularly aggressive — he sent warships loaded with dollars to Fort Knox to exchange for gold.\n\nSunday evening, August 15, 1971. Richard Nixon went on television and announced:\n\nHe was **\"temporarily\"** suspending the dollar's convertibility to gold.\n\nThat 'temporarily' became permanent. The Bretton Woods system collapsed.",
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "example",
+            heading: "역설: 달러는 금 없이 더 강해졌다",
+            headingEn: "The Paradox: The Dollar Grew Stronger Without Gold",
+            body: "닉슨 쇼크 이후 달러는 어떤 실물로도 뒷받침되지 않는 통화가 됐다. 보통 이런 일이 생기면 통화는 붕괴한다. 그런데 달러는 오히려 전 세계에 더 깊이 침투했다. 이유는 간단하다 — 대안이 없었다. 그리고 3년 후, 새로운 뒷받침이 생겼다.",
+            bodyEn:
+              "After the Nixon Shock, the dollar became a currency backed by nothing tangible. Normally that's a death sentence for a currency. Yet the dollar only penetrated the global economy more deeply. The reason was simple — there was no alternative. And three years later, a new form of backing emerged.",
+          },
+        },
+      ],
+    },
+    // ── 4 ──────────────────────────────────────────────────────────────────────
+    {
+      heading: "페트로달러 밀약 — 석유가 금을 대신하다 (1974)",
+      headingEn: "The Petrodollar Deal — Oil Replaces Gold (1974)",
+      blocks: [
+        {
+          type: "text",
+          body: "1973~74년 1차 오일쇼크. OPEC은 석유 금수 조치로 유가를 4배 올렸다. 세계는 에너지 대란에 빠졌고, 미국은 기회를 봤다.\n\n헨리 키신저 국무장관과 윌리엄 사이먼 재무장관은 사우디아라비아와 비밀 협상에 들어갔다. 1974년 6월 체결된 협약의 핵심:\n\n**사우디아라비아가 미국에 주는 것:**\n- OPEC을 설득해 모든 석유를 달러로만 결제\n- 석유 수출로 벌어들인 달러 잉여분을 미국 국채(Treasury)에 투자\n\n**미국이 사우디아라비아에 주는 것:**\n- 군사 안보 보장 및 무기 지원\n- 왕정 체제 보호\n\n이로써 달러는 새로운 뒷받침을 얻었다. **금(Gold)** 대신 **석유(Oil)**. 세계는 에너지를 사려면 달러가 필요해졌고, 달러를 얻으려면 미국 국채를 사야 했다. 달러 수요와 미국 국채 수요가 구조적으로 묶였다.",
+          bodyEn:
+            "The 1973-74 oil shock. OPEC's oil embargo quadrupled oil prices. The world plunged into an energy crisis — and the US saw an opportunity.\n\nSecretary of State Henry Kissinger and Treasury Secretary William Simon entered secret negotiations with Saudi Arabia. The June 1974 accord had two sides:\n\n**What Saudi Arabia gave the US:**\n- Persuade OPEC to price all oil exclusively in dollars\n- Recycle surplus petrodollar earnings into US Treasury bonds\n\n**What the US gave Saudi Arabia:**\n- Military security guarantees and weapons\n- Protection for the monarchy\n\nThe dollar had found new backing. **Gold** was replaced by **Oil**. The world needed dollars to buy energy. To get dollars, you bought US Treasuries. Dollar demand and Treasury demand became structurally intertwined.",
+        },
+        {
+          type: "table",
+          table: {
+            id: "petrodollar-cycle",
+            title: "페트로달러 순환 구조",
+            titleEn: "The Petrodollar Recycling Mechanism",
+            headers: ["단계", "행위자", "흐름", "효과"],
+            headersEn: ["Step", "Actor", "Flow", "Effect"],
+            rows: [
+              ["①", "산유국(OPEC)", "석유 수출 → 달러 수취", "달러 수요 창출"],
+              ["②", "산유국(OPEC)", "달러 잉여분 → 미국 국채 매입", "미국 금리 안정, 재정 조달"],
+              ["③", "미국", "국채 발행 → 달러 공급 확대", "글로벌 달러 유동성 유지"],
+              ["④", "수입국", "수입 결제 → 달러 필요", "달러 수요 구조적 유지"],
+              ["⑤", "미국", "군사 안보 제공", "체계 유지 비용 지불"],
+            ],
+            caption:
+              "페트로달러 체계는 단순한 통화 협약이 아닌 안보-경제 복합 구조다. 석유 = 달러, 달러 = 국채, 국채 = 안보가 하나의 고리로 연결된다.",
+            captionEn:
+              "The petrodollar system was not a mere currency arrangement but a security-economic complex. Oil = dollars, dollars = Treasuries, Treasuries = security — all linked in one loop.",
+          },
+        },
+      ],
+    },
+    // ── 5 ──────────────────────────────────────────────────────────────────────
+    {
+      heading: "과도한 특권 — 달러 패권이 주는 3가지 이득",
+      headingEn: "The Exorbitant Privilege — Three Benefits of Dollar Hegemony",
+      blocks: [
+        {
+          type: "metrics",
+          items: [
+            {
+              label: "① 시뇨리지(Seigniorage)",
+              labelEn: "① Seigniorage",
+              value: "달러 인쇄 비용으로 실물 조달",
+              sub: "미국은 종이(달러)를 주고 실제 상품과 서비스를 받는다. 연간 수천억 달러 규모로 추산",
+              subEn: "The US exchanges paper (dollars) for real goods and services — estimated at hundreds of billions per year",
+              color: "text-sky-600 dark:text-sky-400",
+            },
+            {
+              label: "② 저금리 프리미엄",
+              labelEn: "② Low Borrowing Cost",
+              value: "미국 국채 = 세계 안전자산",
+              sub: "전 세계가 달러 안전자산을 원하기 때문에 미국은 구조적으로 낮은 금리로 차입 가능",
+              subEn: "Global demand for dollar safe assets lets the US borrow at structurally lower rates than any other sovereign",
+              color: "text-sky-600 dark:text-sky-400",
+            },
+            {
+              label: "③ 제재 무기화",
+              labelEn: "③ Sanctions as Weapon",
+              value: "SWIFT 달러 결제망 통제",
+              sub: "달러 결제망에서 배제 = 실질적 경제 봉쇄. 이란·러시아 제재의 근거",
+              subEn: "Exclusion from the dollar payment network equals effective economic blockade — the basis for Iran and Russia sanctions",
+              color: "text-sky-600 dark:text-sky-400",
+            },
+          ],
+        },
+        {
+          type: "text",
+          body: "이 세 가지 이득은 서로 강화한다. 저금리로 차입할 수 있으니 재정 공간이 넓고, 재정 공간이 있으니 군사력과 외교력을 투사할 수 있고, 그 힘이 달러 시스템을 지키는 방패가 된다. **달러 패권은 순환 자기강화 구조**다.",
+          bodyEn:
+            "These three benefits reinforce each other. Low borrowing costs create fiscal space; fiscal space enables military and diplomatic power projection; that power protects the dollar system. **Dollar hegemony is a self-reinforcing circular structure.**",
+        },
+      ],
+    },
+    // ── 6 ──────────────────────────────────────────────────────────────────────
+    {
+      heading: "달러 패권의 현주소 — 흔들리는가",
+      headingEn: "The Dollar's Current State — Is It Weakening?",
+      blocks: [
+        {
+          type: "chart",
+          chart: {
+            id: "reserve-share",
+            title: "달러의 글로벌 외환보유고 비중 추이 (1999–2024, %)",
+            titleEn: "Dollar's Share of Global FX Reserves (1999–2024, %)",
+            caption:
+              "출처: IMF COFER(Currency Composition of Official Foreign Exchange Reserves), 2024. 2001년 71.5%에서 2024년 57.8%로 하락했으나, 2위 유로(약 20%)의 3배 수준을 유지 중.",
+            captionEn:
+              "Source: IMF COFER, 2024. Declined from 71.5% in 2001 to 57.8% in 2024, yet remains roughly 3× the #2 euro (~20%).",
+            data: [
+              { year: "1999", share: 71.0 },
+              { year: "2001", share: 71.5 },
+              { year: "2003", share: 65.9 },
+              { year: "2005", share: 66.5 },
+              { year: "2007", share: 64.1 },
+              { year: "2009", share: 62.1 },
+              { year: "2011", share: 62.6 },
+              { year: "2013", share: 61.2 },
+              { year: "2015", share: 65.7 },
+              { year: "2017", share: 63.8 },
+              { year: "2019", share: 61.8 },
+              { year: "2021", share: 58.9 },
+              { year: "2022", share: 58.4 },
+              { year: "2023", share: 58.8 },
+              { year: "2024", share: 57.8 },
+            ],
+          },
+        },
+        {
+          type: "text",
+          body: "숫자만 보면 달러의 지배력은 분명 약해지고 있다. 2001년 71.5%에서 2024년 57.8% — 20년간 약 14%포인트 하락이다.\n\n그러나 맥락이 중요하다. 이 하락의 절반 이상은 달러가 '이탈'한 게 아니라, 기존에 집계되지 않던 중국·러시아 등의 보유 자산이 통계에 포함되기 시작하면서 생긴 **통계 기저 효과**다. 실제 탈달러화 흐름의 실질적 규모는 통계보다 훨씬 작다.\n\n무엇보다, **2위 유로는 약 20%다.** 달러가 흔들린다고 해도, 그 자리를 채울 대안은 아직 없다.",
+          bodyEn:
+            "The numbers alone suggest dollar dominance is clearly fading. From 71.5% in 2001 to 57.8% in 2024 — roughly a 14 percentage point drop over 20 years.\n\nBut context matters. More than half of this decline reflects not dollar 'defections' but a **statistical base effect**: China, Russia, and others began reporting reserve composition data that was previously untracked. The actual pace of de-dollarization is substantially smaller than the headline numbers suggest.\n\nMost importantly — **the euro in second place is at roughly 20%.** Even as the dollar softens, there is still no alternative capable of filling its role.",
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "warning",
+            heading: "탈달러화 선언 vs 실제 인프라",
+            headingEn: "Dedollarization Rhetoric vs Actual Infrastructure",
+            body: "BRICS, ASEAN, 중동에서 탈달러화 선언이 이어진다. 그러나 대안 결제 시스템의 현실은 냉혹하다. 이 이야기는 3편에서 본격적으로 다룬다.",
+            bodyEn:
+              "Dedollarization declarations pour in from BRICS, ASEAN, and the Middle East. But the reality of alternative payment infrastructure is sobering. That story unfolds fully in Part 3.",
+          },
+        },
+      ],
+    },
+    // ── 7 ──────────────────────────────────────────────────────────────────────
+    {
+      heading: "원화 포지션 — 한국에게 달러 패권은 무엇인가",
+      headingEn: "The Won's Position — What Dollar Hegemony Means for Korea",
+      blocks: [
+        {
+          type: "text",
+          body: "한국은 달러 패권 체계 안에서 **준내부자** 포지션에 있다.\n\n수출 주도 경제 구조상, 한국 기업들은 달러로 수출 대금을 받고 달러로 원자재를 구입한다. 원/달러 환율은 한국 기업 수익성의 핵심 변수다. 한국은행은 약 4,200억 달러의 외환보유고를 운용하는데, 이 대부분이 달러 표시 자산 — 주로 미국 국채다.\n\n결정적인 것은 **연준 FX 스왑라인**이다. 2008년 금융위기, 2020년 코로나 위기 때 한국은행은 연준과 600억 달러 규모의 스왑라인을 체결했다. 이는 달러 유동성 위기 시 한국이 연준에서 직접 달러를 빌릴 수 있다는 의미다. 스왑라인을 보유한 나라는 한국을 포함해 소수에 불과하다 — 이것이 '준내부자'의 증거다.\n\n**그러나 이 포지션은 달러 패권의 수혜이면서 동시에 종속이기도 하다.** 연준이 금리를 올리면 달러가 강해지고 원화가 약해지며, 수입 물가가 오르고, 외채 기업들의 부담이 커진다. 2편에서 다룰 연준 대차대조표와 레포 시장 이야기가 한국과 직결되는 이유다.",
+          bodyEn:
+            "Korea occupies a **semi-insider** position within the dollar hegemony system.\n\nGiven its export-driven economic structure, Korean companies receive export revenues in dollars and pay for raw materials in dollars. The USD/KRW exchange rate is a core variable of Korean corporate profitability. The Bank of Korea manages approximately $420 billion in foreign exchange reserves — mostly dollar-denominated assets, primarily US Treasuries.\n\nThe decisive element is the **Fed FX Swap Line**. During the 2008 financial crisis and the 2020 COVID crisis, the Bank of Korea secured a $60 billion swap line with the Fed — meaning Korea can borrow dollars directly from the Fed in a dollar liquidity crisis. Countries holding Fed swap lines are a small, privileged group. Korea is one of them. That's what 'semi-insider' means.\n\n**But this position is simultaneously a benefit and a dependency.** When the Fed raises rates, the dollar strengthens, the won weakens, import prices rise, and dollar-indebted Korean firms face growing pressure. This is precisely why the Fed balance sheet and repo market story — which we cover in Part 2 — directly concerns Korea.",
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "insight",
+            heading: "다음 편 예고 — 달러 패권의 배관",
+            headingEn: "Next: The Dollar's Plumbing",
+            body: "달러는 왜 패권을 유지하는가? 역사가 아닌 메커니즘으로 보면 답이 다르다. 2편에서는 레포시장, 연준 대차대조표, 재무부 TGA가 어떻게 맞물려 글로벌 달러 유동성을 만드는지, 그리고 캐빈 워시 시대의 연준이 이 배관을 어떻게 바꾸려 하는지를 다룬다.",
+            bodyEn:
+              "Why does the dollar maintain its dominance? The answer looks different when viewed through mechanics rather than history. Part 2 examines how the repo market, the Fed balance sheet, and the Treasury General Account (TGA) interlock to create global dollar liquidity — and how the Kevin Warsh Fed aims to rewire that plumbing.",
+          },
+        },
+      ],
+    },
+  ],
+  references: [
+    {
+      id: 1,
+      author: "Eichengreen, B.",
+      title: "Exorbitant Privilege: The Rise and Fall of the Dollar and the Future of the International Monetary System",
+      source: "Oxford University Press",
+      year: "2011",
+    },
+    {
+      id: 2,
+      author: "IMF",
+      title: "Currency Composition of Official Foreign Exchange Reserves (COFER)",
+      source: "IMF Data",
+      year: "2024",
+      url: "https://data.imf.org/?sk=E6A5F467-C14B-4AA8-9F6D-5A09EC4E62A4",
+    },
+    {
+      id: 3,
+      author: "Bank for International Settlements (BIS)",
+      title: "Triennial Central Bank Survey: Foreign Exchange Turnover in April 2022",
+      source: "BIS Statistics",
+      year: "2022",
+      url: "https://www.bis.org/statistics/rpfx22.htm",
+    },
+    {
+      id: 4,
+      author: "Yergin, D.",
+      title: "The Prize: The Epic Quest for Oil, Money & Power",
+      source: "Simon & Schuster",
+      year: "1991",
+    },
+    {
+      id: 5,
+      author: "Triffin, R.",
+      title: "Gold and the Dollar Crisis: The Future of Convertibility",
+      source: "Yale University Press",
+      year: "1960",
+    },
+    {
+      id: 6,
+      author: "Nixon, R.",
+      title: "Address to the Nation Outlining a New Economic Policy: The Challenge of Peace",
+      source: "The American Presidency Project",
+      year: "1971",
+      url: "https://www.presidency.ucsb.edu/documents/address-the-nation-outlining-new-economic-policy-the-challenge-peace",
+    },
+    {
+      id: 7,
+      author: "Prasad, E.",
+      title: "The Dollar Trap: How the U.S. Dollar Tightened Its Grip on Global Finance",
+      source: "Princeton University Press",
+      year: "2014",
+    },
+    {
+      id: 8,
+      author: "McKinnon, R.",
+      title: "The Unloved Dollar Standard: From Bretton Woods to the Rise of China",
+      source: "Oxford University Press",
+      year: "2013",
+    },
+    {
+      id: 9,
+      author: "Gopinath, G. & Stein, J.",
+      title: "Banking, Trade, and the Making of a Dominant Currency",
+      source: "Quarterly Journal of Economics, 136(2)",
+      year: "2021",
+      url: "https://doi.org/10.1093/qje/qjaa036",
+    },
+    {
+      id: 10,
+      author: "Setser, B.",
+      title: "The Return of the Dollar's Dominance",
+      source: "Council on Foreign Relations",
+      year: "2021",
+      url: "https://www.cfr.org/report/return-dollars-dominance",
+    },
+    {
+      id: 11,
+      author: "Giscard d'Estaing, V.",
+      title: "Statement on the 'Exorbitant Privilege' of the Dollar",
+      source: "Cited in Eichengreen (2011), p.2",
+      year: "1965",
+    },
+    {
+      id: 12,
+      author: "한국은행 (Bank of Korea)",
+      title: "외환보유액 현황 및 운용 현황",
+      source: "한국은행 경제통계시스템",
+      year: "2024",
+      url: "https://ecos.bok.or.kr",
+    },
+  ],
+};
+
 // ── Export ─────────────────────────────────────────────────────────────────────
 
-export const ALL_NOTES: NoteData[] = [koreaDiscount];
+export const ALL_NOTES: NoteData[] = [koreaDiscount, dollarHegemony1];

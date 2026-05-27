@@ -23,6 +23,8 @@ import type {
   PBRPoint,
   TaxRateBar,
   IndexPoint,
+  ReserveSharePoint,
+  PrivilegeGapPoint,
 } from "@/data/notes";
 import { NOTE_CATEGORY_META } from "@/data/notes";
 
@@ -208,11 +210,90 @@ function IndexComparisonChart({ chart, lang }: { chart: NoteChartDef & { id: "in
   );
 }
 
+// ── Reserve Share Chart ────────────────────────────────────────────────────────
+function ReserveShareChart({ chart, lang }: { chart: NoteChartDef & { id: "reserve-share" }; lang: Lang }) {
+  const data = chart.data as ReserveSharePoint[];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={240}>
+        <LineChart data={data} margin={{ top: 8, right: 16, bottom: 0, left: -16 }}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} />
+          <XAxis dataKey="year" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} interval={2} />
+          <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false} domain={[54, 74]} tickFormatter={(v) => `${v}%`} />
+          <Tooltip
+            content={({ active, payload, label }) => {
+              if (!active || !payload?.length) return null;
+              return (
+                <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl px-4 py-3 text-xs">
+                  <p className="font-semibold text-gray-600 dark:text-gray-300 mb-1">{label}</p>
+                  <p className="font-mono font-bold text-sky-600 dark:text-sky-400">
+                    {payload[0].value}%
+                  </p>
+                </div>
+              );
+            }}
+          />
+          <ReferenceLine y={57.8} stroke="#94a3b8" strokeDasharray="4 3" strokeWidth={1}
+            label={{ value: lang === "en" ? "2024: 57.8%" : "2024: 57.8%", position: "right", fontSize: 9, fill: "#94a3b8" }} />
+          <Line type="monotone" dataKey="share" stroke="#0ea5e9" strokeWidth={2.5} dot={{ r: 2.5, fill: "#0ea5e9" }}
+            name={lang === "en" ? "USD Share" : "달러 비중"} />
+        </LineChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
+// ── Privilege Gap Chart ────────────────────────────────────────────────────────
+function PrivilegeGapChart({ chart, lang }: { chart: NoteChartDef & { id: "privilege-gap" }; lang: Lang }) {
+  const raw = chart.data as PrivilegeGapPoint[];
+  const data = raw.map((d) => ({ ...d, displayName: lang === "en" ? d.categoryEn : d.category }));
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  const dollarLabel = lang === "en" ? "Dollar's Role" : "달러 역할";
+  const usLabel = lang === "en" ? "US Economic Share" : "미국 경제 비중";
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={230}>
+        <BarChart data={data} layout="vertical" margin={{ top: 0, right: 20, bottom: 0, left: 56 }} barCategoryGap="28%">
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} horizontal={false} />
+          <XAxis type="number" domain={[0, 100]} tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `${v}%`} />
+          <YAxis type="category" dataKey="displayName" tick={{ fontSize: 11 }} tickLine={false} axisLine={false} width={56} />
+          <Tooltip
+            content={({ active, payload }) => {
+              if (!active || !payload?.length) return null;
+              return (
+                <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl px-4 py-3 text-xs space-y-1.5">
+                  {payload.map((p) => (
+                    <div key={String(p.dataKey)} className="flex items-center justify-between gap-4">
+                      <span className="flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full" style={{ background: p.color as string }} />
+                        <span className="text-gray-500 dark:text-gray-400">{p.name}</span>
+                      </span>
+                      <span className="font-mono font-bold text-gray-800 dark:text-gray-100">{p.value}%</span>
+                    </div>
+                  ))}
+                </div>
+              );
+            }}
+          />
+          <Legend wrapperStyle={{ fontSize: 11, paddingTop: 10 }} />
+          <Bar dataKey="dollarRole" name={dollarLabel} fill="#0ea5e9" radius={[0, 3, 3, 0]} />
+          <Bar dataKey="usShare" name={usLabel} fill="#e2e8f0" radius={[0, 3, 3, 0]} />
+        </BarChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
 // ── Generic chart dispatcher ───────────────────────────────────────────────────
 function NoteChart({ chart, lang }: { chart: NoteChartDef; lang: Lang }) {
   if (chart.id === "pbr-comparison") return <PBRChart chart={chart} lang={lang} />;
   if (chart.id === "tax-rates") return <TaxRatesChart chart={chart} lang={lang} />;
   if (chart.id === "index-comparison") return <IndexComparisonChart chart={chart} lang={lang} />;
+  if (chart.id === "reserve-share") return <ReserveShareChart chart={chart} lang={lang} />;
+  if (chart.id === "privilege-gap") return <PrivilegeGapChart chart={chart} lang={lang} />;
   return null;
 }
 
