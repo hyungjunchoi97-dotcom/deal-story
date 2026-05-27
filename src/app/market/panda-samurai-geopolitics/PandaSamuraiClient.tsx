@@ -1,0 +1,298 @@
+"use client";
+
+import Link from "next/link";
+import { motion } from "framer-motion";
+import {
+  AreaChart, Area, BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid,
+  ResponsiveContainer, Cell,
+} from "recharts";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import ShareButtons from "@/components/deal/ShareButtons";
+import FaqAccordion from "@/components/FaqAccordion";
+import type { MarketDeal } from "@/data/market-deals";
+
+type Lang = "ko" | "en";
+const EASE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
+const VP = { once: true, margin: "-60px" };
+const fadeUp = (delay = 0) => ({ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: EASE, delay } } });
+const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.07 } } };
+const ACCENT = "#8b5cf6";
+const ACCENT_DARK = "#4c1d95";
+const ACCENT_LIGHT = "rgb(245 243 255)";
+
+// Chart 1: Origins timeline
+function OriginsTimeline({ lang }: { lang: Lang }) {
+  const ko = lang === "ko";
+  const events = [
+    { year: "1970", flag: "🇯🇵", ko: "최초 사무라이본드 — 아시아개발은행(ADB) 발행", en: "First Samurai Bond — Asian Development Bank issuance" },
+    { year: "1977", flag: "🇺🇸", ko: "세계은행 사무라이본드 — 시장 정착", en: "World Bank Samurai Bond — market established" },
+    { year: "2005", flag: "🇨🇳", ko: "최초 판다본드 — IFC+ADB가 중국 은행간시장 발행", en: "First Panda Bond — IFC+ADB issue in China interbank market" },
+    { year: "2016", flag: "🇬🇧", ko: "영국 정부 판다본드 — 소버린 판다 첫 사례", en: "UK government Panda Bond — first sovereign Panda" },
+    { year: "2019~", flag: "⚡", ko: "지정학 갈등 → 사무라이·판다 시장 정치화", en: "Geopolitical tensions → Samurai/Panda markets politicized" },
+  ];
+  return (
+    <motion.div variants={fadeUp(0.1)} className="mt-8">
+      <div className="rounded-2xl overflow-hidden border border-gray-200/60 dark:border-gray-700/60">
+        <div className="bg-gray-50 dark:bg-gray-800/60 px-5 py-3 border-b border-gray-200/60 dark:border-gray-700/60">
+          <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">{ko ? "사무라이·판다본드 시장의 기원 — 1970~2020s" : "Samurai & Panda Bond Origins — 1970s to 2020s"}</p>
+        </div>
+        <div className="p-5 sm:p-8">
+          <div className="relative pl-6">
+            <div className="absolute left-2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-violet-300 to-violet-600" />
+            <div className="space-y-4">
+              {events.map((e, i) => (
+                <motion.div key={i} initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={VP} transition={{ duration: 0.4, delay: i * 0.08, ease: EASE }} className="relative">
+                  <div className="absolute -left-6 top-2 w-4 h-4 rounded-full bg-violet-500 border-2 border-white dark:border-gray-900" />
+                  <div className="rounded-xl bg-violet-50 dark:bg-violet-900/20 border border-violet-200 dark:border-violet-700 p-3">
+                    <span className="text-[10px] font-black text-violet-500">{e.flag} {e.year}</span>
+                    <p className="text-[12px] text-violet-700 dark:text-violet-300 mt-0.5">{ko ? e.ko : e.en}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+// Chart 2: Samurai ZIRP cost advantage
+const samuraiCostData = [
+  { name: "USD 5yr", rate: 4.2 }, { name: "EUR 5yr", rate: 3.8 }, { name: "JPY 5yr (Samurai)", rate: 0.6 },
+];
+
+function SamuraiZirpChart({ lang }: { lang: Lang }) {
+  const ko = lang === "ko";
+  const data = [
+    { name: ko ? "USD 5년" : "USD 5yr", rate: 4.2 },
+    { name: ko ? "EUR 5년" : "EUR 5yr", rate: 3.8 },
+    { name: ko ? "JPY 사무라이" : "JPY Samurai", rate: 0.6 },
+  ];
+  const fills = ["#d1d5db", "#9ca3af", ACCENT];
+  return (
+    <motion.div variants={fadeUp(0.1)} className="mt-8">
+      <div className="rounded-2xl overflow-hidden border border-gray-200/60 dark:border-gray-700/60">
+        <div className="bg-gray-50 dark:bg-gray-800/60 px-5 py-3 border-b border-gray-200/60 dark:border-gray-700/60">
+          <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">{ko ? "사무라이 ZIRP 이점 — 통화별 5년 발행 비용 비교 (%)" : "Samurai ZIRP Advantage — 5yr Borrowing Cost by Currency (%)"}</p>
+        </div>
+        <div className="p-5 sm:p-8">
+          <div className="h-44">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={data} margin={{ top: 8, right: 16, left: 0, bottom: 0 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+                <XAxis dataKey="name" tick={{ fontSize: 10, fill: "#9ca3af" }} />
+                <YAxis tick={{ fontSize: 10, fill: "#9ca3af" }} tickFormatter={(v) => `${v}%`} />
+                <Tooltip formatter={(v) => [`${v}%`, ko ? "쿠폰 비용" : "Coupon cost"]} contentStyle={{ fontSize: 11, borderRadius: 8, border: "1px solid #e5e7eb", background: "white" }} />
+                <Bar dataKey="rate" radius={[4, 4, 0, 0]}>
+                  {data.map((_, i) => <Cell key={i} fill={fills[i]} />)}
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+          <p className="text-[10px] text-center text-gray-400 mt-2">{ko ? "엔화 ZIRP: USD 대비 ~350bp 저렴 → 엔 조달 후 스와프 유리" : "JPY ZIRP: ~350bp cheaper than USD → favorable yen issuance + swap"}</p>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+// Chart 3: Panda bond issuance
+const pandaData = [
+  { year: "2005", bn: 0.1 }, { year: "2010", bn: 0.5 }, { year: "2015", bn: 2.1 },
+  { year: "2017", bn: 6.8 }, { year: "2019", bn: 12.4 }, { year: "2021", bn: 19.2 }, { year: "2023", bn: 24.5 },
+];
+
+function PandaGrowthChart({ lang }: { lang: Lang }) {
+  const ko = lang === "ko";
+  return (
+    <motion.div variants={fadeUp(0.1)} className="mt-8">
+      <div className="rounded-2xl overflow-hidden border border-gray-200/60 dark:border-gray-700/60">
+        <div className="bg-gray-50 dark:bg-gray-800/60 px-5 py-3 border-b border-gray-200/60 dark:border-gray-700/60">
+          <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">{ko ? "판다본드 연간 발행액 (CNY 기준 $B 환산)" : "Panda Bond Annual Issuance (CNY equiv. $B)"}</p>
+        </div>
+        <div className="p-5 sm:p-8">
+          <div className="h-44">
+            <ResponsiveContainer width="100%" height="100%">
+              <AreaChart data={pandaData} margin={{ top: 8, right: 16, left: 0, bottom: 0 }}>
+                <defs>
+                  <linearGradient id="pandaGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor={ACCENT} stopOpacity={0.35} />
+                    <stop offset="95%" stopColor={ACCENT} stopOpacity={0.0} />
+                  </linearGradient>
+                </defs>
+                <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+                <XAxis dataKey="year" tick={{ fontSize: 10, fill: "#9ca3af" }} />
+                <YAxis tick={{ fontSize: 10, fill: "#9ca3af" }} tickFormatter={(v) => `$${v}B`} />
+                <Tooltip formatter={(v) => [`$${v}B`, ko ? "발행액" : "Issuance"]} contentStyle={{ fontSize: 11, borderRadius: 8, border: "1px solid #e5e7eb", background: "white" }} />
+                <Area type="monotone" dataKey="bn" stroke={ACCENT} fill="url(#pandaGrad)" strokeWidth={2} dot={{ fill: ACCENT, strokeWidth: 0, r: 3 }} />
+              </AreaChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+// Chart 4: Geopolitics
+function GeopoliticsVisual({ lang }: { lang: Lang }) {
+  const ko = lang === "ko";
+  const items = [
+    { icon: "🇺🇸🇨🇳", ko: "미-중 무역전쟁 (2018~): 판다본드 미국 발행사 접근 제한, 사무라이+판다 정치화", en: "US-China trade war (2018~): Panda access restricted for US issuers, Samurai+Panda politicized" },
+    { icon: "🇷🇺", ko: "러시아 2022 침공: 사무라이본드 러시아 발행 중단, 일본 경제 제재 동참", en: "Russia 2022 invasion: Samurai bonds by Russia halted, Japan joins economic sanctions" },
+    { icon: "🇹🇼", ko: "대만 해협 긴장: 판다본드 시장 불안, 타이완계 기업 접근 불확실성", en: "Taiwan Strait tensions: Panda market uncertainty, Taiwan-linked issuer access unclear" },
+    { icon: "⚖️", ko: "결론: 통화외교 채권시장은 정치와 분리 불가 — 지정학 리스크가 항상 잠재", en: "Conclusion: Currency-diplomacy bond markets inseparable from politics — geopolitical risk always latent" },
+  ];
+  return (
+    <motion.div variants={fadeUp(0.1)} className="mt-8">
+      <div className="rounded-2xl overflow-hidden border border-gray-200/60 dark:border-gray-700/60">
+        <div className="bg-gray-50 dark:bg-gray-800/60 px-5 py-3 border-b border-gray-200/60 dark:border-gray-700/60">
+          <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">{ko ? "판다·사무라이의 지정학 리스크" : "Geopolitical Risks in Panda & Samurai Markets"}</p>
+        </div>
+        <div className="p-5 sm:p-8 space-y-3">
+          {items.map((item, i) => (
+            <motion.div key={i} initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={VP} transition={{ duration: 0.4, delay: i * 0.1, ease: EASE }} className="flex items-start gap-3 rounded-xl bg-violet-50 dark:bg-violet-900/20 border border-violet-200 dark:border-violet-700 p-3">
+              <span className="text-base flex-shrink-0">{item.icon}</span>
+              <p className="text-[12px] text-violet-700 dark:text-violet-300">{ko ? item.ko : item.en}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+// Chart 5: Future comparison
+function FutureOutlookVisual({ lang }: { lang: Lang }) {
+  const ko = lang === "ko";
+  const rows = [
+    { aspect: ko ? "사무라이 전망" : "Samurai Outlook", positive: ko ? "엔 약세 시 발행사 유리" : "Favorable when JPY weak", risk: ko ? "일본 금리 정상화 → 비용 상승" : "BOJ normalization → cost rising" },
+    { aspect: ko ? "판다 전망" : "Panda Outlook", positive: ko ? "RMB 국제화 지속, 중국 채권시장 개방" : "RMB internationalization, China bond market opening", risk: ko ? "지정학 리스크, 자본통제 불확실성" : "Geopolitical risk, capital control uncertainty" },
+    { aspect: ko ? "핵심 교훈" : "Key Lesson", positive: ko ? "통화·금리 차익 활용 가능" : "Currency/rate arbitrage accessible", risk: ko ? "정치 변수 항상 존재" : "Political variables always present" },
+  ];
+  return (
+    <motion.div variants={fadeUp(0.1)} className="mt-8">
+      <div className="rounded-2xl overflow-hidden border border-gray-200/60 dark:border-gray-700/60">
+        <div className="bg-gray-50 dark:bg-gray-800/60 px-5 py-3 border-b border-gray-200/60 dark:border-gray-700/60">
+          <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">{ko ? "판다·사무라이 시장 전망" : "Panda & Samurai Market Outlook"}</p>
+        </div>
+        <div className="p-5 sm:p-8">
+          <div className="overflow-x-auto">
+            <table className="w-full text-[12px]">
+              <thead><tr className="border-b border-gray-200 dark:border-gray-700"><th className="text-left py-2 pr-3 text-gray-500 font-bold">{ko ? "항목" : "Item"}</th><th className="text-left py-2 pr-3 text-emerald-600 dark:text-emerald-400 font-bold">{ko ? "기회" : "Opportunity"}</th><th className="text-left py-2 text-red-500 font-bold">{ko ? "리스크" : "Risk"}</th></tr></thead>
+              <tbody>{rows.map((r, i) => <tr key={i} className="border-b border-gray-100 dark:border-gray-800"><td className="py-2.5 pr-3 font-medium text-violet-700 dark:text-violet-300">{r.aspect}</td><td className="py-2.5 pr-3 text-emerald-700 dark:text-emerald-300">{r.positive}</td><td className="py-2.5 text-red-600 dark:text-red-300">{r.risk}</td></tr>)}</tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+function getVisual(i: number, lang: Lang) {
+  return [<OriginsTimeline key="0" lang={lang} />, <SamuraiZirpChart key="1" lang={lang} />, <PandaGrowthChart key="2" lang={lang} />, <GeopoliticsVisual key="3" lang={lang} />, <FutureOutlookVisual key="4" lang={lang} />][i] ?? null;
+}
+
+export default function PandaSamuraiClient({ deal, lang }: { deal: MarketDeal; lang: Lang }) {
+  const ko = lang === "ko";
+  return (
+    <>
+      <Header />
+      <main className="flex-1">
+        <section className="border-b border-gray-200/60 dark:border-gray-700/60 bg-gray-50 dark:bg-gray-900/50">
+          <div className="max-w-3xl mx-auto px-5 py-10">
+            <div className="flex items-center gap-1.5 text-xs text-gray-400 dark:text-gray-500 mb-4 flex-wrap">
+              <Link href={ko ? "/" : "/en"} className="hover:text-gray-600 dark:hover:text-gray-300 transition-colors">{ko ? "홈" : "Home"}</Link>
+              <span>›</span>
+              <Link href={ko ? "/market" : "/en/market"} className="transition-colors" style={{ color: ACCENT }}>Market</Link>
+              <span>›</span>
+              <span className="text-gray-600 dark:text-gray-300">{ko ? "구조 혁신" : "Structural Innovations"}</span>
+            </div>
+            <div className="inline-flex items-center px-3 py-1 rounded-full text-[11px] font-bold mb-4" style={{ background: ACCENT_LIGHT, color: ACCENT }}>{ko ? deal.categoryLabel : deal.categoryLabelEn}</div>
+            <motion.h1 initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: EASE }} className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 leading-snug mb-2">{ko ? deal.title : deal.titleEn}</motion.h1>
+            {ko && <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.08 }} className="text-[12px] text-gray-400 dark:text-gray-500 italic mb-4">{deal.titleEn}</motion.p>}
+            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.15 }} className="text-[15px] text-gray-600 dark:text-gray-400 leading-relaxed">{ko ? deal.excerpt : deal.excerptEn}</motion.p>
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.2 }} className="flex items-center gap-3 mt-5 flex-wrap">
+              <span className="text-[11px] text-gray-400 dark:text-gray-500">{deal.readingMinutes}{ko ? "분 읽기" : " min read"}</span>
+              <span className="text-gray-300 dark:text-gray-600">·</span>
+              <div className="flex gap-1.5 flex-wrap">{(ko ? deal.tags : (deal.tagsEn ?? deal.tags)).slice(0, 6).map((tag) => <span key={tag} className="bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 px-2 py-0.5 rounded text-[10px]">{tag}</span>)}</div>
+            </motion.div>
+          </div>
+        </section>
+        <div className="flex justify-end max-w-3xl mx-auto px-5 mb-6 mt-4"><ShareButtons title={ko ? deal.title : deal.titleEn} variant="top" lang={lang} /></div>
+        {deal.executiveSummary && (
+          <motion.div variants={fadeUp(0.1)} initial="hidden" whileInView="show" viewport={VP} className="max-w-3xl mx-auto px-5 pt-4">
+            <div className="rounded-xl border-l-4 px-5 py-4" style={{ borderColor: ACCENT, background: ACCENT_LIGHT }}>
+              <p className="text-[10px] font-bold uppercase tracking-widest mb-3" style={{ color: ACCENT }}>{ko ? "핵심 요약" : "Key Takeaways"}</p>
+              <ul className="space-y-2">{(ko ? deal.executiveSummary.ko : deal.executiveSummary.en).map((point, i) => <li key={i} className="flex items-start gap-2 text-[13px] leading-relaxed text-violet-800 dark:text-violet-200"><span className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: ACCENT }} />{point}</li>)}</ul>
+            </div>
+          </motion.div>
+        )}
+        <div className="max-w-3xl mx-auto px-5 py-10 space-y-16">
+          <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
+            <motion.div variants={fadeUp()} className="mb-5"><h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100 mb-0.5">{ko ? "딜 스냅샷" : "Deal Snapshot"}</h2><div className="w-8 h-0.5 mt-3" style={{ background: ACCENT }} /></motion.div>
+            <motion.div variants={fadeUp(0.05)} className="rounded-2xl overflow-hidden border-2" style={{ borderColor: "#ddd6fe" }}>
+              <div className="px-5 py-3" style={{ background: ACCENT }}><p className="text-[10px] font-black text-white uppercase tracking-widest">{ko ? "판다·사무라이본드 — 핵심 수치" : "Panda & Samurai Bonds — Key Figures"}</p></div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x bg-white dark:bg-gray-950" style={{ borderColor: "#ddd6fe" }}>
+                {deal.snapshot.map((row, i) => <motion.div key={row.labelKo} variants={fadeUp(i * 0.06)} className={`px-5 py-4 ${i % 2 === 0 && i === deal.snapshot.length - 1 ? "sm:col-span-2" : ""}`}><p className="text-[10px] text-gray-400 dark:text-gray-500 mb-1">{ko ? row.labelKo : row.labelEn}</p><p className="text-[14px] font-bold leading-snug text-gray-900 dark:text-gray-100">{row.value}</p></motion.div>)}
+              </div>
+              <div className="grid grid-cols-3 divide-x border-t-2" style={{ borderColor: "#ddd6fe" }}>
+                <div className="px-4 py-4 text-center bg-gray-50 dark:bg-gray-900"><p className="text-[10px] text-gray-400 uppercase font-bold mb-1">{ko ? "사무라이 기원" : "Samurai Origin"}</p><p className="text-2xl font-black text-gray-700 dark:text-gray-300">1970</p></div>
+                <div className="px-4 py-4 text-center" style={{ background: ACCENT_LIGHT }}><p className="text-[10px] uppercase font-bold mb-1" style={{ color: ACCENT }}>{ko ? "판다 기원" : "Panda Origin"}</p><p className="text-2xl font-black" style={{ color: ACCENT }}>2005</p></div>
+                <div className="px-4 py-4 text-center bg-gray-50 dark:bg-gray-900"><p className="text-[10px] text-gray-400 uppercase font-bold mb-1">{ko ? "핵심 변수" : "Key Variable"}</p><p className="text-lg font-black text-gray-700 dark:text-gray-300">{ko ? "지정학" : "Geopolitics"}</p></div>
+              </div>
+            </motion.div>
+          </motion.section>
+          {deal.sections.map((section, i) => (
+            <motion.section key={i} variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
+              <motion.div variants={fadeUp()} className="mb-6"><h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100 mb-0.5">{ko ? section.heading : section.headingEn}</h2><div className="w-8 h-0.5 mt-3" style={{ background: ACCENT }} /></motion.div>
+              <div className="pl-4 border-l-2 mb-2" style={{ borderColor: ACCENT + "4d" }}><div className="space-y-3">{(ko ? section.body : section.bodyEn).split("\n\n").map((para, j) => <motion.p key={j} variants={fadeUp(j * 0.04)} className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">{para}</motion.p>)}</div></div>
+              {getVisual(i, lang)}
+            </motion.section>
+          ))}
+          <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
+            <motion.h2 variants={fadeUp()} className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">{ko ? "핵심 용어" : "Key Terms"}</motion.h2>
+            <div className="mt-5 space-y-3">{deal.keyTerms.map((term, i) => <motion.div key={i} variants={fadeUp()} className="bg-gray-50 dark:bg-gray-900 rounded-xl p-5 border border-gray-100 dark:border-gray-800"><div className="flex items-center gap-2 mb-2 flex-wrap"><span className="w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold text-white flex-shrink-0" style={{ background: ACCENT }}>{i + 1}</span><span className="font-bold text-gray-900 dark:text-gray-100 text-[14px]">{ko ? term.term : term.termEn}</span></div><p className="text-[13px] text-gray-700 dark:text-gray-300 leading-relaxed pl-7">{ko ? term.definition : term.definitionEn}</p></motion.div>)}</div>
+          </motion.section>
+          {deal.assessment && (
+            <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
+              <motion.h2 variants={fadeUp()} className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">{ko ? "딜 평가" : "Deal Assessment"}</motion.h2>
+              <div className="w-8 h-0.5 mt-3 mb-6" style={{ background: ACCENT }} />
+              <div className="grid sm:grid-cols-2 gap-4">
+                <motion.div variants={fadeUp()} className="rounded-xl border border-emerald-200 dark:border-emerald-700/50 bg-emerald-50 dark:bg-emerald-900/15 p-5"><p className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-widest mb-3">{ko ? "긍정적 결과" : "Positives"}</p><ul className="space-y-2">{(ko ? deal.assessment.positives : deal.assessment.positivesEn).map((p, i) => <li key={i} className="flex items-start gap-2 text-[13px] text-emerald-800 dark:text-emerald-200 leading-relaxed"><span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0" />{p}</li>)}</ul></motion.div>
+                <motion.div variants={fadeUp()} className="rounded-xl border border-red-200 dark:border-red-700/50 bg-red-50 dark:bg-red-900/15 p-5"><p className="text-[11px] font-bold text-red-600 dark:text-red-400 uppercase tracking-widest mb-3">{ko ? "리스크 및 교훈" : "Risks & Lessons"}</p><ul className="space-y-2">{(ko ? deal.assessment.risks : deal.assessment.risksEn).map((r, i) => <li key={i} className="flex items-start gap-2 text-[13px] text-red-800 dark:text-red-200 leading-relaxed"><span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0" />{r}</li>)}</ul></motion.div>
+              </div>
+            </motion.section>
+          )}
+          <ShareButtons title={ko ? deal.title : deal.titleEn} variant="mid" lang={lang} />
+          {deal.faq && deal.faq.length > 0 && (
+            <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
+              <motion.h2 variants={fadeUp()} className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">{ko ? "자주 묻는 질문" : "Frequently Asked Questions"}</motion.h2>
+              <div className="w-8 h-0.5 mt-3 mb-6" style={{ background: ACCENT }} />
+              <FaqAccordion items={deal.faq.map((f) => ({ q: ko ? f.q : f.qEn, a: ko ? f.a : f.aEn }))} accent={ACCENT} />
+            </motion.section>
+          )}
+          {(deal.relatedDealSlugs?.length || deal.relatedMarket101Slugs?.length) ? (
+            <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
+              <motion.h2 variants={fadeUp()} className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">{ko ? "함께 읽으면 좋은 콘텐츠" : "Related Content"}</motion.h2>
+              <div className="w-8 h-0.5 mt-3 mb-6" style={{ background: ACCENT }} />
+              <div className="grid sm:grid-cols-2 gap-3">
+                {deal.relatedDealSlugs?.map((slug) => <motion.div key={slug} variants={fadeUp()}><Link href={ko ? `/market/${slug}` : `/en/market/${slug}`}><div className="group flex items-center gap-3 px-4 py-3.5 rounded-xl border border-gray-200/60 dark:border-gray-700/60 hover:bg-violet-50/40 dark:hover:bg-violet-900/20 transition-all"><span className="w-7 h-7 rounded-lg flex items-center justify-center text-[11px] font-bold text-white flex-shrink-0" style={{ background: ACCENT }}>M</span><div className="flex-1 min-w-0"><p className="text-[10px] text-gray-400 dark:text-gray-500 font-medium">Market Story</p><p className="text-[13px] font-semibold text-gray-800 dark:text-gray-200 transition-colors truncate">{slug.split("-").map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")}</p></div><span className="text-gray-300 dark:text-gray-600 text-sm flex-shrink-0">→</span></div></Link></motion.div>)}
+              </div>
+            </motion.section>
+          ) : null}
+          {deal.references && deal.references.length > 0 && (
+            <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
+              <motion.h2 variants={fadeUp()} className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">{ko ? "참고 자료" : "References"}</motion.h2>
+              <div className="w-8 h-0.5 mt-3 mb-5" style={{ background: ACCENT }} />
+              <ol className="space-y-2.5">{deal.references.map((ref) => <motion.li key={ref.id} variants={fadeUp()} className="flex gap-3 text-[13px] text-gray-600 dark:text-gray-400 leading-relaxed"><span className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-[9px] font-bold text-white mt-0.5" style={{ background: ACCENT_DARK }}>{ref.id}</span><span>{ref.author && <span className="font-semibold text-gray-800 dark:text-gray-200">{ref.author}. </span>}{ref.url ? <a href={ref.url} target="_blank" rel="noopener noreferrer" className="hover:underline" style={{ color: ACCENT }}>{ref.title}</a> : <span>{ref.title}</span>}{ref.source && <span className="text-gray-400 dark:text-gray-500"> — {ref.source}</span>}{ref.year && <span className="text-gray-400 dark:text-gray-500"> ({ref.year})</span>}</span></motion.li>)}</ol>
+            </motion.section>
+          )}
+        </div>
+      </main>
+      <Footer />
+    </>
+  );
+}

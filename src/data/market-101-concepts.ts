@@ -2324,6 +2324,86 @@ From an IB career perspective, DCM requires a complex blend of structural design
     appearsIn: [],
   },
 
+  {
+    slug: "syndicated-loan-players",
+    title: "신디케이티드론 Ch.1 — 플레이어와 수익구조",
+    titleEn: "Syndicated Loans Ch.1 — Players & Economics",
+    entryType: "article",
+    category: "syndloan",
+    categoryLabel: "신디케이티드론",
+    categoryLabelEn: "Syndicated Loans",
+    excerpt:
+      "MLA·에이전트·참여은행·기관투자자(CLO) — 신디케이트를 구성하는 4대 플레이어의 역할과 수익 구조. 수백 bps 스프레드가 어떻게 Arrangement Fee·Upfront Fee·Agency Fee로 쪼개지는지, Analyst가 첫날 밤 만드는 Fee Model의 실체.",
+    excerptEn:
+      "MLA, agent bank, participant banks, institutional investors (CLO) — the four players that make a syndicate and how they get paid. How hundreds of bps in spread split into arrangement fees, upfront fees, and agency fees, and what the Analyst builds on night one.",
+    readingMinutes: 16,
+    tags: ["MLA", "주선은행", "에이전트은행", "CLO", "어레인지먼트피", "업프론트피", "참여은행", "북러너", "코어레인저"],
+    tagsEn: ["MLA", "Mandated Lead Arranger", "Agent Bank", "CLO", "Arrangement Fee", "Upfront Fee", "Participant Bank", "Bookrunner", "Co-Arranger"],
+    sections: [], keyTerms: [],
+    relatedSlugs: ["syndicated-loan-overview", "syndicated-loan-process", "syndicated-loan-docs", "syndicated-loan-cases"],
+    appearsIn: [],
+  },
+
+  {
+    slug: "syndicated-loan-process",
+    title: "신디케이티드론 Ch.2 — 딜 프로세스 실무",
+    titleEn: "Syndicated Loans Ch.2 — Deal Process in Practice",
+    entryType: "article",
+    category: "syndloan",
+    categoryLabel: "신디케이티드론",
+    categoryLabelEn: "Syndicated Loans",
+    excerpt:
+      "피치에서 클로징까지 8단계 전체 타임라인. 뷰티콘테스트→mandate→IM 작성→렌더 미팅→북빌드→배분→서명→클로징. Analyst가 IM의 각 섹션을 어떻게 쓰는지, Market Flex 조항이 왜 생겼는지, 북빌드 3× 커버리지란 무슨 뜻인지.",
+    excerptEn:
+      "The full 8-step timeline from pitch to closing. Beauty contest → mandate → IM writing → lender meetings → bookbuild → allocation → signing → closing. How Analysts write each IM section, why Market Flex exists, and what 3× bookbuild coverage actually means.",
+    readingMinutes: 18,
+    tags: ["뷰티콘테스트", "mandate", "IM", "정보제공각서", "북빌드", "마켓플렉스", "클로징", "CP", "선행조건"],
+    tagsEn: ["Beauty Contest", "Mandate", "IM", "Information Memorandum", "Bookbuild", "Market Flex", "Closing", "CP", "Conditions Precedent"],
+    sections: [], keyTerms: [],
+    relatedSlugs: ["syndicated-loan-overview", "syndicated-loan-players", "syndicated-loan-docs", "syndicated-loan-cases"],
+    appearsIn: [],
+  },
+
+  {
+    slug: "syndicated-loan-docs",
+    title: "신디케이티드론 Ch.3 — 문서와 코버넌트",
+    titleEn: "Syndicated Loans Ch.3 — Documentation & Covenants",
+    entryType: "article",
+    category: "syndloan",
+    categoryLabel: "신디케이티드론",
+    categoryLabelEn: "Syndicated Loans",
+    excerpt:
+      "Credit Agreement 15개 조항 완전 해부. LIBOR→SOFR 전환의 실무 의미, Financial Covenant(레버리지·커버리지·FCCR) 계산법, Cov-Lite가 어떻게 은행의 눈을 멀게 하는가, Amendment & Waiver 투표 메커니즘.",
+    excerptEn:
+      "Complete dissection of the 15-clause Credit Agreement. The practical meaning of LIBOR→SOFR transition, how to calculate financial covenants (leverage, coverage, FCCR), how Cov-Lite blinds banks to risk, and the amendment & waiver voting mechanism.",
+    readingMinutes: 17,
+    tags: ["크레딧어그리먼트", "SOFR", "LIBOR", "파이낸셜코버넌트", "레버리지비율", "이자보상비율", "Cov-Lite", "어멘드먼트", "웨이버"],
+    tagsEn: ["Credit Agreement", "SOFR", "LIBOR", "Financial Covenant", "Leverage Ratio", "Interest Coverage", "Cov-Lite", "Amendment", "Waiver"],
+    sections: [], keyTerms: [],
+    relatedSlugs: ["syndicated-loan-overview", "syndicated-loan-players", "syndicated-loan-process", "syndicated-loan-cases"],
+    appearsIn: [],
+  },
+
+  {
+    slug: "syndicated-loan-cases",
+    title: "신디케이티드론 Ch.4 — 케이스스터디: 성공 vs 실패",
+    titleEn: "Syndicated Loans Ch.4 — Case Studies: Win vs Fail",
+    entryType: "article",
+    category: "syndloan",
+    categoryLabel: "신디케이티드론",
+    categoryLabelEn: "Syndicated Loans",
+    excerpt:
+      "ARM Holdings $10B(2023) 성공과 Toys'R'Us $5B(2005) 파산 — 같은 신디케이티드론 구조, 정반대의 결말. 두 딜의 IM·코버넌트·투자자 배분·리파이낸싱 전략을 나란히 해부하고, Analyst가 당시 놓쳤어야 했을 신호들을 MD 관점에서 짚는다.",
+    excerptEn:
+      "ARM Holdings $10B (2023) success vs Toys'R'Us $5B (2005) bankruptcy — same syndicated loan structure, opposite outcomes. A side-by-side dissection of IM, covenants, investor allocation, and refinancing strategy, plus the signals an Analyst should have flagged from the MD's perspective.",
+    readingMinutes: 20,
+    tags: ["ARM홀딩스", "토이저러스", "케이스스터디", "레버리지드론", "파산", "Cov-Lite", "리파이낸싱", "LBO", "신디케이션성공"],
+    tagsEn: ["ARM Holdings", "Toys'R'Us", "Case Study", "Leveraged Loan", "Bankruptcy", "Cov-Lite", "Refinancing", "LBO", "Syndication Success"],
+    sections: [], keyTerms: [],
+    relatedSlugs: ["syndicated-loan-overview", "syndicated-loan-players", "syndicated-loan-process", "syndicated-loan-docs"],
+    appearsIn: [],
+  },
+
   // ────────────────────────────────────────────────────────────────────────────
   // ECM 시리즈 — Overview + IPO 핵심 6챕터 + 상품 5챕터
   // ────────────────────────────────────────────────────────────────────────────
