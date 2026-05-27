@@ -71,6 +71,8 @@ import kkrToysRUs from "./kkr-toys-r-us";
 import iheartmediaClearChannel from "./iheartmedia-clear-channel";
 import apolloCaesars from "./apollo-caesars";
 import jcrewIpTransfer from "./jcrew-ip-transfer";
+import sertaSimmons from "./serta-simmons-uptier";
+import kkrDollarGeneral from "./kkr-dollar-general";
 
 /**
  * 딜 레지스트리 — 새 딜 추가 시 import 후 배열에 추가
@@ -101,6 +103,7 @@ export const ALL_DEALS: DealData[] = [
   engineNo1Exxon,          // 2021-05-26 (activism)
   lvmhTiffany,             // 2021-01-07
   siemensBreakup,          // 2020-09-28 (restructuring)
+  sertaSimmons,            // 2020-06-22 (LevFin 업티어 익스체인지)
   danaherAcquisitions,     // multiple deals (latest: Cytiva 2020-03)
   thirdPointNestle,        // 2019-09-01 (activism)
   dowdupont,               // 2019-06-01 (restructuring)
@@ -135,6 +138,7 @@ export const ALL_DEALS: DealData[] = [
   apolloCaesars,           // 2008-01-28 (LevFin 코비넌트)
   iheartmediaClearChannel, // 2008-07-30 (LevFin Hung Deal)
   jpmorganBearStearns,     // 2008-05-30 (금융위기)
+  kkrDollarGeneral,        // 2007-07-07 (LevFin LBO 성공 케이스)
   kkrToysRUs,              // 2005-07-21 (LevFin 케이스)
   googleYoutube,           // 2006-10-31
   disneyPixar,             // 2006-05-05

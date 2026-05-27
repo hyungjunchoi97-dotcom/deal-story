@@ -1061,7 +1061,17 @@ export default function LevFinCovenantsClient({ concept, lang }: Props) {
                 sub: ko
                   ? "Cov-Lite 구조, 정보공개 코비넌트 협상, SEC 공시 회피 구조"
                   : "Cov-Lite structure, disclosure covenant negotiations, SEC reporting avoidance",
-                span2: true,
+                span2: false,
+              },
+              {
+                href: `${base.replace("market-101", "deals")}/serta-simmons-uptier`,
+                initials: "SSB",
+                bg: "bg-red-800",
+                title: ko ? "Serta Simmons 업티어 (2020) — Pro Rata 조항 위반 판결" : "Serta Simmons Uptier (2020) — Pro Rata Covenant Violation Ruling",
+                sub: ko
+                  ? "과반수 동의 업티어 → 5th Circuit 무효 → Serta Blocker 코비넌트 표준화"
+                  : "Majority-lender uptier → 5th Circuit invalidates → Serta Blocker covenant standardized",
+                span2: false,
               },
             ].map((d) => (
               <Link key={d.href} href={d.href} className={d.span2 ? "sm:col-span-2" : ""}>

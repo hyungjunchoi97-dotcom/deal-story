@@ -1027,6 +1027,25 @@ export default function LevFinDistressedClient({ concept, lang }: Props) {
                 <span className="flex-shrink-0 text-gray-300 dark:text-gray-600 group-hover:text-amber-400 transition-colors self-center text-lg">→</span>
               </Link>
             </motion.div>
+            <motion.div variants={fadeUp(0.11)} className="sm:col-span-2">
+              <Link
+                href={`${base.replace("market-101", "deals")}/serta-simmons-uptier`}
+                className="group flex gap-3 rounded-xl border border-amber-100 dark:border-amber-900/40 bg-amber-50/40 dark:bg-amber-900/10 p-4 hover:border-amber-300 dark:hover:border-amber-600 transition-colors"
+              >
+                <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-red-800 flex items-center justify-center">
+                  <span className="text-white text-[9px] font-black leading-none">SSB</span>
+                </div>
+                <div className="min-w-0">
+                  <p className="text-[13px] font-bold text-gray-800 dark:text-gray-200 group-hover:text-amber-700 dark:group-hover:text-amber-300 transition-colors leading-snug">
+                    {ko ? "Serta Simmons 업티어 (2020→2024) — Lender-on-Lender Violence & 5th Circuit 무효 판결" : "Serta Simmons Uptier (2020→2024) — Lender-on-Lender Violence & 5th Circuit Invalidation"}
+                  </p>
+                  <p className="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 leading-snug">
+                    {ko ? "$12억 수퍼-선순위 발행 → 비동의 채권자 $9억 후순위 → 2023년 Chapter 11 → 2024년 5th Circuit 거래 무효" : "$1.2B super-priority issuance → $0.9B non-consenting lenders primed → 2023 Chapter 11 → 2024 5th Circuit transaction invalid"}
+                  </p>
+                </div>
+                <span className="flex-shrink-0 text-gray-300 dark:text-gray-600 group-hover:text-amber-400 transition-colors self-center text-lg">→</span>
+              </Link>
+            </motion.div>
           </div>
         </motion.section>
 

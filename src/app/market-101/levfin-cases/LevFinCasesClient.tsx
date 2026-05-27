@@ -1090,8 +1090,15 @@ export default function LevFinCasesClient({ concept, lang }: Props) {
                 title: ko ? "J.Crew IP 이전 (2011→2020) — Trap Door & J.Crew Blocker 탄생" : "J.Crew IP Transfer (2011→2020) — Trap Door & Birth of the J.Crew Blocker",
                 sub: ko ? "비제한 자회사 IP 이전 → $250M 담보 증발 → TLB 회수율 $0.75 → 시장 표준 Blocker 조항 탄생" : "IP transfer to unrestricted sub → $250M collateral vanished → TLB recovery $0.75 → J.Crew Blocker language standardized",
               },
+              {
+                href: `${base.replace("market-101", "deals")}/serta-simmons-uptier`,
+                initials: "SSB",
+                bg: "bg-red-800",
+                title: ko ? "Serta Simmons 업티어 (2020) — Lender-on-Lender Violence 교과서" : "Serta Simmons Uptier (2020) — The Lender-on-Lender Violence Textbook",
+                sub: ko ? "$12억 수퍼-선순위 TL → 비동의 채권자 $9억 후순위 → 5th Circuit 무효 판결" : "$1.2B super-priority TL → $0.9B non-consenting lenders primed → 5th Circuit invalidates transaction",
+              },
             ].map((d, i) => (
-              <motion.div key={d.href} variants={fadeUp(i * 0.06)} className={i === 5 ? "sm:col-span-2" : ""}>
+              <motion.div key={d.href} variants={fadeUp(i * 0.06)} className={i === 6 ? "sm:col-span-2" : ""}>
                 <Link href={d.href} className="group flex gap-3 rounded-xl border border-amber-100 dark:border-amber-900/40 bg-amber-50/40 dark:bg-amber-900/10 p-4 hover:border-amber-300 dark:hover:border-amber-600 transition-colors">
                   <div className={`flex-shrink-0 w-10 h-10 rounded-xl ${d.bg} flex items-center justify-center`}>
                     <span className="text-white text-[8px] font-black leading-none">{d.initials}</span>

@@ -1249,9 +1249,20 @@ export default function LevFinCreditMetricsClient({ concept, lang }: Props) {
                 sub: ko
                   ? "Debt/EBITDA 21×, 이자보상배율 0.2× — 역대급 크레딧 메트릭 이상치 사례"
                   : "21× Debt/EBITDA, 0.2× ICR — history's most extreme credit metric outlier",
+                span2: false,
+              },
+              {
+                href: `${base.replace("market-101", "deals")}/kkr-dollar-general`,
+                initials: "DG",
+                bg: "bg-emerald-700",
+                title: ko ? "KKR × Dollar General (2007→2013)" : "KKR × Dollar General (2007→2013)",
+                sub: ko
+                  ? "Entry 5.5× → 금융위기로 EBITDA 성장 → 2년 후 4.5× — 레버리지가 자연 감소하는 LBO"
+                  : "Entry 5.5× → financial crisis EBITDA growth → 4.5× in 2 years — leverage self-correcting LBO",
+                span2: true,
               },
             ].map((d) => (
-              <Link key={d.href} href={d.href}>
+              <Link key={d.href} href={d.href} className={"span2" in d && d.span2 ? "sm:col-span-2" : ""}>
                 <div className="group flex gap-3 p-4 rounded-xl border border-amber-100 dark:border-amber-900/40 bg-amber-50/40 dark:bg-amber-900/10 hover:border-amber-300 dark:hover:border-amber-600 hover:shadow-sm transition-all">
                   <div className={`flex-shrink-0 w-10 h-10 rounded-lg ${d.bg} flex items-center justify-center`}>
                     <span className="text-white text-[8px] font-black">{d.initials}</span>
