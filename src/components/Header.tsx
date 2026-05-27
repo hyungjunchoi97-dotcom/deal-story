@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import DarkModeToggle from "./DarkModeToggle";
@@ -26,14 +25,6 @@ export default function Header() {
             onClick={() => setMenuOpen(false)}
             className="flex items-center gap-2 text-lg font-bold text-gray-900 dark:text-gray-100 tracking-tight"
           >
-            <Image
-              src="/logo-eagle.png"
-              alt="Deal Story"
-              width={36}
-              height={36}
-              className="object-contain"
-              priority
-            />
             Deal Story
           </Link>
 
