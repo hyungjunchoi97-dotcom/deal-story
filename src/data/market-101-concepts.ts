@@ -2424,7 +2424,44 @@ From an IB career perspective, DCM requires a complex blend of structural design
     tags: ["ECM", "IPO", "주식자본시장", "공모", "팔로우온", "전환사채", "그린슈", "북빌딩", "밸류에이션", "WeWork", "Ant Group"],
     tagsEn: ["ECM", "IPO", "Equity Capital Markets", "Public Offering", "Follow-on", "Convertible", "Greenshoe", "Book Building", "Valuation", "WeWork", "Ant Group"],
     sections: [],
-    keyTerms: [],
+    keyTerms: [
+      {
+        term: "ECM (주식자본시장)",
+        termEn: "ECM — Equity Capital Markets",
+        definition: "ECM은 기업이 주식을 발행해 자금을 조달하는 1차 시장과, 그 거래를 중개하는 IB 팀명을 동시에 가리킨다. DCM(채권)이 '돈 빌려줄래요?'라면 ECM은 '우리 회사 지분 살래요?'다. 주식 발행은 상환 의무가 없는 대신 기존 주주의 지분이 희석(Dilution)된다. ECM의 세 축은 IPO(첫 공개), 팔로우온(추가 발행), 전환사채(CB)다.",
+        definitionEn: "ECM refers to both the primary market where companies raise capital by issuing equity, and the IB team that facilitates it. If DCM (bonds) is 'will you lend us money?', ECM is 'want to own a piece of our company?' Equity has no repayment obligation but dilutes existing shareholders. The three ECM pillars are IPO (first public offering), follow-on (additional issuance), and convertible bonds (CB).",
+      },
+      {
+        term: "IPO (기업공개)",
+        termEn: "IPO — Initial Public Offering",
+        definition: "IPO는 비상장 기업이 처음으로 일반 투자자에게 주식을 공개 판매하고 거래소에 상장하는 것이다. 단순한 '데뷔 무대'가 아니라 소유권 구조·지배구조·정보 공시 의무가 영구적으로 바뀌는 사건이다. 상장 후에는 매 분기 실적 공시와 시장의 감시를 받게 된다. IPO로 조달된 자금은 성장 투자·부채 상환·기존 주주 현금화 등에 사용된다.",
+        definitionEn: "An IPO is when a private company first sells shares to the general public and lists on an exchange. It's not merely a 'debut party' — it's a permanent transformation of ownership structure, governance, and disclosure obligations. After listing, the company faces quarterly earnings releases and constant market scrutiny. Proceeds fund growth, debt repayment, or existing shareholder liquidity.",
+      },
+      {
+        term: "팔로우온 (Follow-on Offering)",
+        termEn: "Follow-on Offering",
+        definition: "상장 이후 추가로 주식을 발행해 자금을 조달하는 방식이다. 크게 네 가지: ABB(하룻밤 속전속결), 블록 트레이드(기존 주주 대량 매각), 유상증자(기존 주주 우선 청약), ATM(수시 소량 발행). ABB가 PE 엑싯에 가장 흔하고, 유상증자는 한국 시장에서 자주 활용된다. 신주 발행 시 기존 주주 지분이 희석되어 주가 하방 압력이 생긴다.",
+        definitionEn: "Raising additional capital by issuing more shares after a company is already listed. Four main forms: ABB (overnight, fastest), block trade (large shareholder sale), rights issue (existing shareholder subscription), ATM (ongoing small issuances). ABB is most common for PE exits; rights issues dominate Korean markets. New share issuance dilutes existing shareholders, creating downward price pressure.",
+      },
+      {
+        term: "전환사채 (CB — Convertible Bond)",
+        termEn: "CB — Convertible Bond",
+        definition: "채권(낮은 쿠폰으로 원금 보장)과 주식 전환권(주가 상승 시 혜택)을 결합한 하이브리드 상품이다. 발행사는 일반 채권보다 낮은 금리로 자금을 조달하고, 투자자는 채권 보호와 주가 상승 시 전환 수익을 동시에 노린다. ECM과 DCM의 경계에 있어 두 팀이 함께 구조를 설계한다. 전환가격은 발행 시 주가보다 20~40% 높게 설정되는 것이 일반적이다.",
+        definitionEn: "A hybrid combining bond protection (low coupon, principal guaranteed) with an equity call option (benefits if share price rises). Issuers borrow at below-market rates; investors get downside protection plus upside participation. Sits at the ECM-DCM boundary, requiring both teams. Conversion price is typically set 20–40% above the stock price at issuance.",
+      },
+      {
+        term: "그린슈 옵션 (Greenshoe Option)",
+        termEn: "Greenshoe Option (Over-Allotment Option)",
+        definition: "IPO 시 주관사가 공모 규모의 최대 15%를 추가로 판매할 수 있는 권리다. 상장 후 30일 안정화 기간에 주가가 공모가 아래로 떨어지면 시장에서 매수(가격 지지), 공모가 이상이면 옵션을 행사해 추가 주식을 발행한다. 투자자 보호와 가격 안정화라는 두 가지 기능을 동시에 수행한다. 이름은 최초 도입 기업 'Green Shoe Manufacturing Company'에서 유래했다.",
+        definitionEn: "The right for underwriters to sell up to 15% more shares than the original IPO size. During the 30-day stabilization window: if stock falls below IPO price, the underwriter buys in the market (price support); if it stays above, the underwriter exercises the option to issue extra shares. Simultaneously protects investors and stabilizes post-IPO price. Named after Green Shoe Manufacturing Company.",
+      },
+      {
+        term: "희석 (Dilution)",
+        termEn: "Dilution (EPS Dilution)",
+        definition: "신주 발행으로 총 발행 주식수가 늘어나 기존 주주의 지분율과 주당순이익(EPS)이 낮아지는 현상이다. 예를 들어 1,000만 주 기업이 200만 주를 추가 발행하면 기존 주주의 지분율은 5분의 1 희석된다. 희석은 팔로우온·CB 전환·스톡옵션 행사 시 모두 발생한다. 발행사가 조달 자금으로 EPS를 늘릴 수 있다는 논리를 제시하지 못하면 주가 하락으로 이어지는 것이 일반적이다.",
+        definitionEn: "The reduction in existing shareholders' ownership percentage and EPS when new shares are issued. For example, if a company with 10 million shares issues 2 million more, existing shareholders are diluted by one-fifth. Dilution occurs with follow-on offerings, CB conversions, and stock option exercises. Unless management can argue the new capital will grow EPS, dilution typically leads to stock price decline.",
+      },
+    ],
     relatedSlugs: ["ecm-ipo-issuers", "ecm-ipo-investors", "ecm-ipo-valuation", "ecm-ipo-process", "ecm-ipo-bookbuilding", "ecm-ipo-post"],
     appearsIn: [],
   },
@@ -2445,7 +2482,38 @@ From an IB career perspective, DCM requires a complex blend of structural design
     tags: ["IPO 발행사", "PE 엑싯", "SOE 민영화", "VC 백 스타트업", "쿠팡", "크래프톤", "LG에너지솔루션", "IPO 타이밍", "계열사 분리상장"],
     tagsEn: ["IPO Issuers", "PE Exit", "SOE Privatization", "VC-backed", "Coupang", "Krafton", "LG Energy Solution", "IPO Timing", "Spin-off"],
     sections: [],
-    keyTerms: [],
+    keyTerms: [
+      {
+        term: "PE 엑싯 (IPO를 통한)",
+        termEn: "PE Exit via IPO",
+        definition: "사모펀드(PE)가 보유 중인 피투자 기업의 지분을 IPO를 통해 현금화하는 방식이다. 펀드 만기(보통 7~10년)가 가까워질수록 엑싯 압박이 커진다. 상장 직후에는 락업(보통 180일) 때문에 지분을 바로 팔지 못하고, 락업 만료 후 ABB(Accelerated Book Build)로 잔여 지분을 추가 매각하는 것이 일반적이다. PE가 대주주로 남아 있는 한 시장은 오버행(Overhang)을 우려해 주가에 할인을 적용한다.",
+        definitionEn: "The process by which a private equity fund monetizes its stake in a portfolio company through an IPO. The closer a fund is to its maturity (typically 7–10 years), the greater the pressure to exit. Immediately after listing, the PE sponsor is typically locked up (often 180 days) and cannot sell. After lock-up expiry, residual stakes are usually sold via ABB. As long as the PE remains a major shareholder, the market applies an overhang discount to the stock.",
+      },
+      {
+        term: "VC 백드 IPO",
+        termEn: "VC-backed IPO",
+        definition: "벤처캐피탈이 투자한 스타트업이 주식시장에 상장하는 IPO 유형이다. 전통적인 이익 기반 밸류에이션보다 매출 성장률을 기반으로 한 EV/Revenue 배수가 주로 사용된다. 수익(Profit)이 없어도 성장 스토리만으로 상장이 가능한 경우가 있다. 창업자와 초기 투자자의 락업이 만료되는 시점(D+180일 이후)에 대규모 오버행이 형성될 수 있다.",
+        definitionEn: "An IPO by a venture capital-backed startup. Valuation typically relies on EV/Revenue multiples based on revenue growth rates rather than traditional profit-based metrics. Profitability is not required — growth story alone can justify a listing. A significant overhang risk emerges when founder and early investor lock-ups expire, typically 180 days after listing.",
+      },
+      {
+        term: "SOE 민영화 IPO",
+        termEn: "SOE Privatization IPO",
+        definition: "정부가 소유한 국영기업(State-Owned Enterprise)의 지분 일부를 주식시장에 상장해 민간 투자자에게 매각하는 방식이다. 정부는 재정 충당과 기업 경영 효율화를 동시에 추구한다. 상장 후에도 정부가 최대 주주 지위를 유지하는 경우가 많다. Saudi Aramco, LG에너지솔루션, 한국전력 등의 사례가 대표적이다.",
+        definitionEn: "The sale of a partial stake in a government-owned enterprise to public market investors via IPO. The government pursues dual objectives: fiscal funding and operational efficiency improvement. After listing, the government typically retains majority ownership. Notable examples include Saudi Aramco, LG Energy Solution, and KEPCO.",
+      },
+      {
+        term: "스핀오프 / 분리상장",
+        termEn: "Spin-off / Carve-out Listing",
+        definition: "대기업(모회사)이 자회사 지분의 일부를 IPO를 통해 주식시장에 상장하는 구조다. 모회사는 지배 지분을 유지하면서도 자회사에 독립적인 시장 밸류에이션을 부여받는다. 사업 다각화 기업이 각 사업부의 가치를 재평가받기 위해 활용하는 전략이다. 상장된 자회사는 독자적인 자본 조달 능력을 갖추게 된다.",
+        definitionEn: "A structure in which a parent company lists a portion of a subsidiary's shares via IPO. The parent retains a controlling stake while the subsidiary receives an independent public market valuation. Conglomerates use this strategy to unlock value across diversified business units. The listed subsidiary gains independent access to capital markets.",
+      },
+      {
+        term: "IPO 타이밍 3요소",
+        termEn: "IPO Timing Three Factors",
+        definition: "IPO 실행의 최적 시점을 결정하는 세 가지 핵심 조건이다. 첫째, 자본시장 환경(VIX 지수·IG 스프레드 등 리스크 지표). 둘째, 섹터 멀티플(유사 상장 기업들의 현재 주가 수준). 셋째, 발행사의 재무 준비도(2~3년치 감사 재무제표, 거버넌스 체계 완비). 세 요소가 동시에 맞아떨어질 때 '윈도우가 열린다'고 표현하며, 이 창을 놓치면 6~12개월을 기다려야 할 수 있다.",
+        definitionEn: "The three key conditions that determine the optimal timing for an IPO execution. First, capital market conditions (risk indicators such as VIX and IG spreads). Second, sector multiples (current price levels of comparable listed companies). Third, the issuer's financial readiness (2–3 years of audited financials and complete governance structures). When all three align, bankers say the 'window is open' — missing it may mean waiting another 6–12 months.",
+      },
+    ],
     relatedSlugs: ["ecm-overview", "ecm-ipo-investors", "ecm-ipo-valuation", "ecm-ipo-process"],
     appearsIn: [],
   },
@@ -2466,7 +2534,38 @@ From an IB career perspective, DCM requires a complex blend of structural design
     tags: ["IPO 투자자", "앵커 투자자", "QIB", "기관투자자", "리테일 공모", "오더북", "락업", "배분 전략", "Temasek", "GIC", "국민연금"],
     tagsEn: ["IPO Investors", "Anchor Investor", "QIB", "Institutional", "Retail Offering", "Order Book", "Lock-up", "Allocation", "Temasek", "GIC", "NPS"],
     sections: [],
-    keyTerms: [],
+    keyTerms: [
+      {
+        term: "앵커 투자자",
+        termEn: "Anchor Investor",
+        definition: "IPO 공모 물량의 일부를 상장 전에 사전 확약하는 기관 투자자다. Temasek·GIC·국민연금 등 정부계 펀드가 대표적이다. 딜 신뢰도를 높여 다른 투자자들을 유인하는 '마중물' 역할을 한다. 배분 우선권을 받는 대신 락업 기간이 가장 길며(일반적으로 90일 이상), 확약 자체가 시장에 강력한 신호를 보낸다.",
+        definitionEn: "An institutional investor that commits to subscribe for a portion of IPO shares before listing. Sovereign wealth funds like Temasek, GIC, and NPS are typical examples. They serve as a 'magnet' that boosts deal credibility and attracts other investors. In exchange for allocation priority, anchor investors accept the longest lock-up periods (typically 90+ days), and their commitment sends a strong signal to the market.",
+      },
+      {
+        term: "QIB (적격 기관투자자)",
+        termEn: "QIB (Qualified Institutional Buyer)",
+        definition: "미국 증권법 Rule 144A에서 정의하는 적격 기관투자자로, 재량으로 운용하는 자산이 1억 달러 이상인 기관을 말한다. 헤지펀드·뮤추얼펀드·연기금 등이 해당된다. QIB만이 Rule 144A 사모 발행 증권을 취득할 수 있어, 미국 이외 발행사가 미국 기관투자자에게 접근하는 핵심 경로다. 미국 IPO 북빌딩에 참여하려면 QIB 자격이 요구된다.",
+        definitionEn: "A qualified institutional buyer as defined under US securities law Rule 144A — an institution that manages at least $100 million in securities on a discretionary basis. Hedge funds, mutual funds, and pension funds qualify. Only QIBs can purchase Rule 144A privately placed securities, making QIB status the critical gateway for non-US issuers to access US institutional investors. QIB eligibility is required to participate in US IPO book-building.",
+      },
+      {
+        term: "의무보유 확약",
+        termEn: "Lock-up Commitment (Mandatory Hold)",
+        definition: "한국 IPO 시장의 특수 제도로, 공모주 배분 시 일정 기간 동안 매각 금지를 확약한 투자자에게 더 많은 물량을 우선 배분한다. D+15일, D+30일, D+90일, D+180일 구간별로 가중치가 차등 적용된다. 확약 기간이 길수록 수요의 '질'이 높아진다고 평가하며, 상장 후 주가 안정성을 높이는 효과가 있다. 한국거래소(KRX)와 금융감독원의 배분 가이드라인에 반영되어 있다.",
+        definitionEn: "A system unique to Korean IPO markets where investors who commit to mandatory holding periods receive priority and larger allocations of public offering shares. Weighted incentives apply across four holding periods: D+15, D+30, D+90, and D+180 days. Longer commitment periods are considered indicators of higher 'order quality,' improving post-listing price stability. This mechanism is reflected in KRX and FSC allocation guidelines.",
+      },
+      {
+        term: "오더 유형 4가지",
+        termEn: "Four Order Types in IPO Book-Building",
+        definition: "IPO 북빌딩에서 기관투자자가 제출하는 수요 오더의 네 가지 유형이다. Strike Order는 가격에 상관없이 최대로 참여하는 오더, Limit Order는 특정 가격 이하에서만 참여하는 오더, Step-down Order는 가격이 높아질수록 수량을 줄이는 오더, Capped Order는 특정 가격 이상에서는 불참하는 오더다. 신디케이트는 오더 구성을 분석해 수요 곡선을 도출하고 공모가를 결정한다.",
+        definitionEn: "The four types of demand orders submitted by institutional investors during IPO book-building. A Strike Order participates at any price for maximum allocation. A Limit Order only participates below a specified price. A Step-down Order reduces quantity as price increases. A Capped Order withdraws entirely above a specified price. The syndicate analyzes the order composition to construct the demand curve and determine the offer price.",
+      },
+      {
+        term: "IPO 배분 (Allocation)",
+        termEn: "IPO Allocation",
+        definition: "오버부킹 시 주관사가 오더 품질·투자자 관계·보유 기간 의지를 종합해 주식을 배정하는 과정이다. 'High Quality Book'은 락업 기간이 긴 앵커 투자자와 장기 보유 의향을 가진 기관의 비중이 높은 상태를 의미한다. 빠른 매도가 예상되는 헤지펀드에는 적게 배분하는 것이 일반적이다. 배분 결정은 발행사와 주관사 간의 관계를 좌우하는 핵심 정치적 과정이기도 하다.",
+        definitionEn: "The process by which the lead manager allocates shares when a deal is oversubscribed, weighing order quality, investor relationships, and intended holding period. A 'High Quality Book' means a high proportion of long-term anchor investors and institutions with genuine buy-and-hold intent. Hedge funds expected to flip quickly typically receive smaller allocations. Allocation decisions are a critical political process that shapes the issuer-banker relationship.",
+      },
+    ],
     relatedSlugs: ["ecm-overview", "ecm-ipo-issuers", "ecm-ipo-bookbuilding", "ecm-ipo-post"],
     appearsIn: [],
   },
@@ -2487,7 +2586,38 @@ From an IB career perspective, DCM requires a complex blend of structural design
     tags: ["IPO 밸류에이션", "Football Field", "Comparable Analysis", "DCF", "EV/EBITDA", "PER", "크래프톤", "Rivian", "Leave Money on the Table", "Comps"],
     tagsEn: ["IPO Valuation", "Football Field", "Comparable Analysis", "DCF", "EV/EBITDA", "P/E", "Krafton", "Rivian", "Leave Money on the Table", "Comps"],
     sections: [],
-    keyTerms: [],
+    keyTerms: [
+      {
+        term: "풋볼 필드 밸류에이션",
+        termEn: "Football Field Valuation",
+        definition: "여러 밸류에이션 방법론(EV/EBITDA·P/E·EV/Revenue·DCF·선행 거래)의 결과를 하나의 수평 막대 차트에 나란히 표시한 것이다. 각 방법론이 서로 다른 가격 범위를 도출하며, 뱅커는 전체 범위를 보고 적정 공모가 구간을 제시한다. 범위가 넓을수록 불확실성이 높고 협상 여지가 크다는 신호다. IB 피치북과 밸류에이션 보고서의 핵심 슬라이드다.",
+        definitionEn: "A horizontal bar chart that displays the outputs of multiple valuation methodologies — EV/EBITDA, P/E, EV/Revenue, DCF, and precedent transactions — side by side. Each methodology produces a different price range, and bankers use the full picture to propose an appropriate IPO price range. Wider ranges signal greater uncertainty and more negotiating room. It is the centerpiece slide in IB pitchbooks and valuation reports.",
+      },
+      {
+        term: "EV/EBITDA 멀티플",
+        termEn: "EV/EBITDA Multiple",
+        definition: "기업가치(Enterprise Value)를 EBITDA로 나눈 배수로, 부채·세금·감가상각의 차이를 제거해 순수한 영업 수익성을 비교하는 지표다. 섹터마다 적정 배수가 다르며, 테크 기업은 15~25×, 소매업은 6~10× 수준이 일반적이다. IPO 시 유사 상장 기업(Comps)의 평균 EV/EBITDA에 IPO 할인율을 적용해 공모가 범위를 산출한다.",
+        definitionEn: "A ratio of enterprise value to EBITDA that strips out differences in debt, taxes, and depreciation to enable pure operating profitability comparisons. Appropriate multiples vary by sector: technology typically trades at 15–25×, retail at 6–10×. In IPO valuation, the average EV/EBITDA of comparable listed companies is used as a benchmark, with an IPO discount applied to derive the offering price range.",
+      },
+      {
+        term: "유사 기업 분석 (Comps)",
+        termEn: "Comparable Company Analysis (Comps)",
+        definition: "상장된 유사 기업들의 주가 배수를 기준으로 IPO 기업의 가치를 추정하는 분석 방법이다. 어떤 기업을 Comp에 포함하고 제외하는지가 뱅커의 핵심 기술이자 협상 도구다. 발행사는 가능한 한 높은 배수의 Comp 기업을 포함하려 하고, 투자자는 낮은 배수의 기업을 더 넣으려 한다. Comp 선택의 근거와 논리가 밸류에이션 신뢰도의 핵심이다.",
+        definitionEn: "A method of estimating an IPO company's value by referencing the trading multiples of comparable listed companies. The selection of which companies to include or exclude is both a core technical skill and a negotiating tool for the banker. Issuers push to include high-multiple comparables, while investors prefer lower-multiple peers. The rationale for comp selection drives the credibility of the entire valuation.",
+      },
+      {
+        term: "현금흐름할인법 (DCF)",
+        termEn: "Discounted Cash Flow (DCF)",
+        definition: "미래에 발생할 자유현금흐름(FCF)을 가중평균자본비용(WACC)으로 할인해 현재가치를 구하는 밸류에이션 방법이다. 성장률·영업이익률·WACC 등 핵심 가정이 조금만 바뀌어도 결과값이 크게 달라지는 '쓰레기 인·쓰레기 아웃(GIGO)' 문제가 있다. 현금흐름 예측이 불확실한 스타트업에는 EV/Revenue 등 다른 방법론이 더 선호된다.",
+        definitionEn: "A valuation method that discounts projected future free cash flows back to present value using the weighted average cost of capital (WACC). The model is highly sensitive to assumptions around growth rate, margin, and WACC — small changes produce large valuation swings, a classic 'garbage in, garbage out' problem. For startups with unpredictable cash flows, revenue-based multiples like EV/Revenue are often preferred.",
+      },
+      {
+        term: "Leave Money on the Table",
+        termEn: "Leave Money on the Table",
+        definition: "공모가를 너무 낮게 설정한 결과 상장 첫날 주가가 급등했을 때, 발행사가 더 높은 가격에 팔 수 있었던 금액을 포기한 것을 뜻하는 표현이다. 15~20%의 첫날 팝(First Day Pop)은 적절하지만, 30%를 넘으면 발행사가 실질적으로 손해를 본 것으로 해석된다. 주관사 입장에서는 투자자 만족을 의미하지만, 발행사 CFO에게는 과도한 할인의 증거가 된다. IPO 가격 협상의 핵심 긴장 지점이다.",
+        definitionEn: "The value forfeited by an issuer when IPO pricing is set too low and the stock surges on the first day of trading. A 15–20% first-day pop is considered reasonable, but a pop exceeding 30% is seen as a failure to maximize proceeds. From the underwriter's perspective, a big pop means satisfied investors; from the issuer CFO's perspective, it is evidence of excessive underpricing. This tension is central to IPO price negotiations.",
+      },
+    ],
     relatedSlugs: ["ecm-overview", "ecm-ipo-issuers", "ecm-ipo-process", "ecm-ipo-bookbuilding"],
     appearsIn: [],
   },
@@ -2508,7 +2638,38 @@ From an IB career perspective, DCM requires a complex blend of structural design
     tags: ["IPO 프로세스", "S-1", "SEC", "로드쇼", "Quiet Period", "프라이싱 나이트", "Comment Letter", "Bake-off", "투자설명서", "Due Diligence"],
     tagsEn: ["IPO Process", "S-1", "SEC", "Roadshow", "Quiet Period", "Pricing Night", "Comment Letter", "Bake-off", "Prospectus", "Due Diligence"],
     sections: [],
-    keyTerms: [],
+    keyTerms: [
+      {
+        term: "베이크오프 (Bake-off)",
+        termEn: "Bake-off (Bank Selection Pitch)",
+        definition: "발행사가 복수의 투자은행(IB)에 동시에 IPO 피치를 요청해 주관사를 선발하는 경쟁 과정이다. 각 은행은 밸류에이션·수수료·배분 능력·업종 전문성을 경쟁적으로 제시한다. 보통 10개 내외의 IB 중 2개를 북러너(Bookrunner)로 선정하고, 오른쪽에 Co-manager를 추가한다. 주관사 선정은 딜의 성패를 가르는 첫 번째 핵심 결정이다.",
+        definitionEn: "The competitive process in which an issuer solicits IPO pitches from multiple investment banks simultaneously to select lead managers. Each bank competes on valuation, fees, distribution capability, and sector expertise. Typically, 2 bookrunners are selected from roughly 10 pitching banks, with co-managers added alongside. The bookrunner selection is the first critical decision that shapes the success of the entire deal.",
+      },
+      {
+        term: "투자설명서 / S-1",
+        termEn: "Prospectus / S-1 Filing",
+        definition: "미국 IPO 시 SEC에 제출하는 등록 서류(Form S-1), 한국에서는 DART에 제출하는 증권신고서다. 사업 현황·재무제표·위험요소·공모 자금 사용 계획이 모두 공개된다. Risk Factors 섹션은 투자자를 보호하면서 동시에 발행사의 취약점을 노출하는 이중적 역할을 한다. SEC Comment Letter 왕복 수개월의 심사 과정을 거쳐 최종 확정된다.",
+        definitionEn: "The registration statement (Form S-1) filed with the SEC for a US IPO; the equivalent in Korea is the securities registration statement filed with DART. It publicly discloses business overview, financial statements, risk factors, and use of proceeds. The Risk Factors section plays a dual role: protecting investors while simultaneously exposing issuer vulnerabilities. The document is finalized after months of SEC Comment Letter back-and-forth review.",
+      },
+      {
+        term: "쿼이엇 피리어드 (Quiet Period)",
+        termEn: "Quiet Period",
+        definition: "IPO 전후 특정 기간 동안 발행사 임원과 주관사 애널리스트의 공개 발언을 제한하는 규정이다. 미국에서 언더라이터 애널리스트는 상장 후 40일간 투자 리서치 보고서 발행이 금지된다. 이 기간 중 말실수나 과도한 낙관론으로 SEC 조사를 받은 사례가 다수 있다. 쿼이엇 피리어드 종료 후 커버리지 개시 보고서가 주가에 영향을 미친다.",
+        definitionEn: "A regulatory restriction on public statements by issuer executives and underwriter analysts during specified periods around an IPO. In the US, underwriter analysts are prohibited from publishing research reports for 40 days after listing. Violations through missteps or excessive optimism during this period have triggered SEC investigations. The initiation of coverage after the quiet period ends typically impacts the stock price.",
+      },
+      {
+        term: "로드쇼 (Roadshow)",
+        termEn: "Roadshow",
+        definition: "북빌딩 기간(보통 1~2주) 동안 CEO·CFO·IR 담당자가 주요 도시를 순회하며 기관투자자에게 기업을 직접 프레젠테이션하는 과정이다. 일반적으로 50~80개의 투자자 미팅이 진행된다. 미팅 반응과 오더 강도가 수요 곡선 형성에 직접 반영된다. 현재는 가상(Virtual) 방식이 보편화됐지만, 핵심 앵커 투자자 미팅은 여전히 대면으로 진행된다.",
+        definitionEn: "The process during the book-building period (typically 1–2 weeks) in which the CEO, CFO, and IR team tour major cities to present the company directly to institutional investors. Typically 50–80 investor meetings take place. Meeting reactions and order intensity directly shape the demand curve. Virtual roadshows are now the norm, but key anchor investor meetings are still conducted in person.",
+      },
+      {
+        term: "프라이싱 나이트 (Pricing Night)",
+        termEn: "Pricing Night",
+        definition: "로드쇼 마지막 날 밤, 수요 곡선·오버북 배수·시장 환경을 종합 분석해 최종 공모가를 결정하는 과정이다. 발행사 CFO·이사회·주관사 MD들이 전화회의(콘퍼런스 콜)로 협상한다. 오버북 배수가 5× 이상이면 레인지 상단을 택하고, 1~2×에 머물면 하단을 선택하거나 딜을 연기한다. 다음 날 아침 시장 개장 전에 공모가가 공식 발표된다.",
+        definitionEn: "The final night of the roadshow during which the demand curve, oversubscription multiples, and market conditions are analyzed to set the final offer price. The issuer's CFO, board, and lead manager MDs negotiate via conference call. If the deal is 5× oversubscribed, the top of the range is chosen; if only 1–2×, the bottom is selected or the deal is postponed. The final offer price is announced before market open the following morning.",
+      },
+    ],
     relatedSlugs: ["ecm-overview", "ecm-ipo-valuation", "ecm-ipo-bookbuilding", "ecm-ipo-post"],
     appearsIn: [],
   },
@@ -2529,7 +2690,32 @@ From an IB career perspective, DCM requires a complex blend of structural design
     tags: ["북빌딩", "그린슈", "Greenshoe", "수요 곡선", "과배정 옵션", "공모가", "첫날 팝", "안정화", "의무보유 확약", "IPO 프라이싱"],
     tagsEn: ["Book Building", "Greenshoe", "Over-allotment", "Demand Curve", "IPO Price", "First Day Pop", "Stabilization", "Lock-up Commitment", "IPO Pricing"],
     sections: [],
-    keyTerms: [],
+    keyTerms: [
+      {
+        term: "수요 곡선",
+        termEn: "Demand Curve",
+        definition: "가격별 투자자 수요를 집계한 차트로, DCM과 달리 IPO는 가격을 고정하지 않은 상태에서 오더를 받는다. X축이 공모가, Y축이 수요 주식수로 구성된다. '어느 가격에서 공모 물량이 모두 채워지는가'를 보고 공모가를 결정하며, 상단에서도 오버북되면 가격을 올리고 하단도 미달이면 낮추거나 연기한다. 북빌딩의 핵심 산출물이다.",
+        definitionEn: "A chart aggregating investor demand by price level. Unlike DCM, IPO book-building collects orders without a fixed price. The x-axis represents the offer price and the y-axis represents shares demanded. The offer price is set at the level where demand fully covers the offering — if oversubscribed at the top of the range, the price is raised; if undersubscribed at the bottom, the price is lowered or the deal is pulled. This is the central output of the book-building process.",
+      },
+      {
+        term: "그린슈 / 과배정 옵션",
+        termEn: "Greenshoe / Over-allotment Option",
+        definition: "IPO 안정화 메커니즘으로, 공모 물량의 115%를 투자자에게 배분(15% 과배정)한 뒤 상장 후 30일 안정화 기간 동안 운용된다. 주가가 공모가 이하로 내려가면 시장에서 매수해 가격을 지지하고(숏 포지션 커버), 주가가 공모가 이상이면 발행사로부터 옵션을 행사해 주식을 수령한다. 주가 방향에 상관없이 주관사가 개입할 수 있는 양방향 안전장치다.",
+        definitionEn: "An IPO stabilization mechanism in which 115% of the offering size is allocated to investors (15% over-allotment), followed by a 30-day stabilization window after listing. If the stock falls below the offer price, the stabilization agent buys in the market to support the price (covering the short position). If the stock rises above the offer price, the option is exercised with the issuer to receive additional shares. It provides a two-way safety net regardless of stock price direction.",
+      },
+      {
+        term: "첫날 팝 (First Day Pop)",
+        termEn: "First Day Pop",
+        definition: "IPO 첫 거래일 종가가 공모가 대비 상승한 비율이다. 15~20%는 투자자 만족과 발행사의 적정 가격 사이의 균형점으로 이상적이다. 0%는 시장이 공모가에 동의하지 않는다는 신호로 실패로 간주된다. 30% 이상은 발행사가 더 비싸게 팔 수 있었음을 의미해 역설적으로 실패다. 뱅커의 목표는 '적당한 팝'을 만드는 것이다.",
+        definitionEn: "The percentage gain of an IPO stock's closing price on its first trading day relative to the offer price. A pop of 15–20% is considered ideal, balancing investor satisfaction against the issuer leaving money on the table. A 0% pop signals market disagreement with the offer price and is considered a failure. A pop exceeding 30% paradoxically signals failure because the issuer could have priced higher. The banker's goal is to engineer a 'just right' pop.",
+      },
+      {
+        term: "공모가 (Offer Price)",
+        termEn: "Offer Price",
+        definition: "북빌딩 결과를 반영해 프라이싱 나이트에 최종 확정되는 IPO 발행 가격이다. 보통 사전에 제시한 가격 레인지의 중간~상단에서 결정된다. 오버북 배수·오더 품질·시장 환경이 종합 반영된다. 거래소 상장 후 첫 거래 가격(시초가)은 이 공모가를 기준으로 매수·매도 수요에 따라 결정된다.",
+        definitionEn: "The final IPO issuance price confirmed on Pricing Night, reflecting book-building results. It is typically set at the mid-to-upper end of the pre-announced price range. The decision incorporates oversubscription multiples, order quality, and market conditions. The opening trade price on the first day of exchange listing is determined by supply and demand around this offer price.",
+      },
+    ],
     relatedSlugs: ["ecm-ipo-process", "ecm-ipo-investors", "ecm-ipo-post", "ecm-ipo-valuation"],
     appearsIn: [],
   },
@@ -2550,7 +2736,32 @@ From an IB career perspective, DCM requires a complex blend of structural design
     tags: ["포스트-IPO", "락업 만료", "오버행", "WeWork", "카카오뱅크", "Rivian", "DiDi", "Ant Group", "LG에너지솔루션", "SPAC 붕괴", "IPO 실패"],
     tagsEn: ["Post-IPO", "Lock-up Expiry", "Overhang", "WeWork", "Kakao Bank", "Rivian", "DiDi", "Ant Group", "LG Energy Solution", "SPAC Collapse", "IPO Failure"],
     sections: [],
-    keyTerms: [],
+    keyTerms: [
+      {
+        term: "오버행",
+        termEn: "Overhang",
+        definition: "락업 만료 후 시장에 출회될 수 있는 대규모 주식 물량 압박을 의미한다. 내부자·PE펀드·앵커 투자자가 곧 매각할 것이라는 시장의 기대만으로도 주가가 먼저 하락하는 효과가 있다. 실제 매도가 이루어지기 전에 '공급 폭탄이 뜨는 날 전에 미리 빠져나오자'는 심리가 주가를 압박한다. D+180일(PE·창업자 락업 만료)이 가장 큰 오버행 이벤트로 꼽힌다.",
+        definitionEn: "The supply pressure created by large blocks of shares that could be sold into the market after lock-up expiry. The mere expectation that insiders, PE funds, or anchor investors will soon sell causes the stock to decline in advance of actual selling. The psychology of 'sell before the supply bomb hits' drives price pressure ahead of the event. The D+180 day lock-up expiry for PE and founders is typically the largest overhang event.",
+      },
+      {
+        term: "락업 만료",
+        termEn: "Lock-up Expiry",
+        definition: "상장 후 내부자의 주식 매각 금지가 해제되는 시점이다. 일반적으로 앵커 투자자는 D+90일, PE·VC·창업자는 D+180일(최대 물량), 임직원 스톡옵션은 D+365일에 만료된다. 만료 전부터 주가가 하락하고, 만료 후 실제 매도 물량이 시장을 압박한다. 법적 의무이면서 동시에 IPO 이후 주가 흐름을 결정하는 핵심 이벤트다.",
+        definitionEn: "The date on which insider share sale restrictions are lifted after an IPO listing. Typical schedules: anchor investors at D+90, PE/VC/founders at D+180 (maximum volume), and employee stock options at D+365. Stock prices tend to decline before expiry in anticipation, and actual selling after expiry adds further market pressure. Lock-up expiry is both a legal requirement and a defining event in post-IPO price action.",
+      },
+      {
+        term: "안정화 매수",
+        termEn: "Stabilization",
+        definition: "상장 직후 30일 안정화 기간 동안 그린슈 운용사(주관사)가 공모가 이하에서 시장 매수를 통해 주가를 지지하는 행위다. 발행사와 투자자 모두를 위한 조치이며 규정에 따라 합법적으로 허용된 시장 개입이다. 안정화 기간이 종료된 이후에는 시장 자율에 맡긴다. 한국에도 유사한 시장조성(Market Making) 제도가 있다.",
+        definitionEn: "The act of the greenshoe agent (lead manager) purchasing shares in the open market below the offer price to support the stock during the 30-day stabilization window after listing. This intervention is conducted on behalf of both issuers and investors and is legally permitted under securities regulations. After the stabilization period ends, the stock is left to trade freely. Korea has a similar market-making mechanism.",
+      },
+      {
+        term: "포스트-IPO 애널리스트 커버리지",
+        termEn: "Post-IPO Analyst Coverage Initiation",
+        definition: "쿼이엇 피리어드 종료 후 주관사 애널리스트가 처음 발행하는 투자 보고서다. 첫 커버리지 개시는 시장의 주목을 받으며 주가에 즉각적인 영향을 미친다. 주관사는 이해충돌이 존재해 매수(Buy) 의견이 압도적으로 많지만, SEC Regulation AC에 따라 분석의 독립성 확인 의무가 있다. 양질의 커버리지는 상장 이후에도 기관투자자 관심을 유지시키는 역할을 한다.",
+        definitionEn: "The first investment research report published by the lead underwriter's analyst after the quiet period ends. Initiation of coverage attracts market attention and typically has an immediate impact on the stock price. Underwriters face inherent conflicts of interest and overwhelmingly issue Buy recommendations, but SEC Regulation AC requires analysts to certify the independence of their views. High-quality coverage sustains institutional investor interest in the stock after listing.",
+      },
+    ],
     relatedSlugs: ["ecm-overview", "ecm-ipo-bookbuilding", "ecm-followon", "ecm-spac-direct"],
     appearsIn: [],
   },
@@ -2636,6 +2847,194 @@ From an IB career perspective, DCM requires a complex blend of structural design
     sections: [],
     keyTerms: [],
     relatedSlugs: ["ecm-overview", "ecm-ipo-post", "ecm-international-listing"],
+    appearsIn: [],
+  },
+
+  // ────────────────────────────────────────────────────────────────────────────
+  // ECM 실무 시리즈 — 딜 타입별 실행 가이드
+  // ────────────────────────────────────────────────────────────────────────────
+
+  {
+    slug: "ecm-rights-issue",
+    title: "유상증자 실무 A-Z — TERP부터 DART 제출까지",
+    titleEn: "Rights Issue Execution A-Z — From TERP to Final Filing",
+    entryType: "article",
+    category: "ecm",
+    categoryLabel: "ECM",
+    categoryLabelEn: "ECM",
+    excerpt:
+      "유상증자 딜이 들어오면 실제로 어떤 순서로 움직이는가. TERP 계산·할인율 결정·투자설명서 작성·서브언더라이팅·DART 제출까지 전 과정. 한화에어로스페이스 2.3조(2024)·Volkswagen €11B(2023) 글로벌 케이스 포함.",
+    excerptEn:
+      "What actually happens when a rights issue mandate arrives. TERP calculation, discount setting, prospectus drafting, sub-underwriting, and filing — end to end. Includes Hanwha Aerospace KRW 2.3T (2024) and Volkswagen €11B (2023) global cases.",
+    readingMinutes: 18,
+    tags: ["유상증자", "TERP", "할인율", "서브언더라이팅", "투자설명서", "DART", "주주배정", "일반공모", "실무가이드"],
+    tagsEn: ["Rights Issue", "TERP", "Discount", "Sub-underwriting", "Prospectus", "Filing", "Rights Offering", "Execution Guide"],
+    sections: [], keyTerms: [],
+    relatedSlugs: ["ecm-followon", "ecm-ipo-allocation", "ecm-overview", "ecm-pitchbook"],
+    appearsIn: [],
+  },
+
+  {
+    slug: "ecm-ipo-allocation",
+    title: "IPO 배분 전략 — 누가 얼마나 받는가",
+    titleEn: "IPO Allocation Strategy — Who Gets How Much",
+    entryType: "article",
+    category: "ecm",
+    categoryLabel: "ECM",
+    categoryLabelEn: "ECM",
+    excerpt:
+      "북빌드가 끝난 후 가장 뜨거운 순간 — 배분. 기관·리테일 배분 비율 결정, 코너스톤 투자자 우선 배정, 안정화(Greenshoe) 운영, Clawback 메커니즘. ARM IPO(2023)·LG에너지솔루션(2022) 배분 전략 해부.",
+    excerptEn:
+      "The hottest moment after bookbuild closes — allocation. Institutional vs retail split, cornerstone investor priority, stabilization (Greenshoe) operation, Clawback mechanism. ARM IPO (2023) and LG Energy Solution (2022) allocation strategies dissected.",
+    readingMinutes: 16,
+    tags: ["IPO배분", "코너스톤투자자", "그린슈", "안정화", "클로백", "기관배분", "리테일배분", "배분전략"],
+    tagsEn: ["IPO Allocation", "Cornerstone Investor", "Greenshoe", "Stabilization", "Clawback", "Institutional Allocation", "Retail Allocation"],
+    sections: [], keyTerms: [],
+    relatedSlugs: ["ecm-ipo-process", "ecm-ipo-bookbuilding", "ecm-rights-issue", "ecm-overview"],
+    appearsIn: [],
+  },
+
+  {
+    slug: "ecm-pitchbook",
+    title: "ECM 피치북 해부학 — Equity Story부터 수수료 제안까지",
+    titleEn: "ECM Pitchbook Anatomy — From Equity Story to Fee Proposal",
+    entryType: "article",
+    category: "ecm",
+    categoryLabel: "ECM",
+    categoryLabelEn: "ECM",
+    excerpt:
+      "IPO·유상증자·CB 모든 ECM 딜의 시작은 피치북. 10개 섹션의 구조, Equity Story 작성 논리, 비교 회사(Peer) 선정 기준, Football Field 구성법, 수수료 제안 방식. 뱅커가 CFO 회의실에 들어가기 전 48시간의 실체.",
+    excerptEn:
+      "Every ECM deal starts with a pitchbook. 10-section structure, equity story logic, peer selection criteria, Football Field construction, fee proposal format. The reality of the 48 hours before a banker walks into the CFO's conference room.",
+    readingMinutes: 15,
+    tags: ["피치북", "에퀴티스토리", "비교회사분석", "풋볼필드", "ECM수수료", "뷰티콘테스트", "IB피치"],
+    tagsEn: ["Pitchbook", "Equity Story", "Comparable Company Analysis", "Football Field", "ECM Fees", "Beauty Contest", "IB Pitch"],
+    sections: [], keyTerms: [],
+    relatedSlugs: ["ecm-overview", "ecm-ipo-valuation", "ecm-rights-issue", "ecm-ipo-process"],
+    appearsIn: [],
+  },
+
+  {
+    slug: "ecm-abb-execution",
+    title: "ABB 실행 매뉴얼 — 장 마감 후 12시간",
+    titleEn: "ABB Execution Manual — 12 Hours After Market Close",
+    entryType: "article",
+    category: "ecm",
+    categoryLabel: "ECM",
+    categoryLabelEn: "ECM",
+    excerpt:
+      "ABB(Accelerated Book Building)는 자본시장에서 가장 빠른 딜. 장 마감 → mandate → IOI → pricing → 장 시작 전 완료. 시간대별 세부 프로세스, IOI Tracker 구조, 할인율 결정 로직, 헤지펀드 vs 장기 기관 배분 전략. Arm(2023)·삼성물산·SK하이닉스 블록 트레이드 케이스.",
+    excerptEn:
+      "ABB is the fastest deal in capital markets. Market close → mandate → IOI → pricing → done before open. Hour-by-hour process, IOI Tracker structure, discount decision logic, hedge fund vs long-only allocation strategy. ARM (2023), Samsung C&T, SK Hynix block trade cases.",
+    readingMinutes: 14,
+    tags: ["ABB", "블록트레이드", "IOI트래커", "할인율", "북빌드", "장외매매", "PE엑싯", "기관배분"],
+    tagsEn: ["ABB", "Accelerated Bookbuild", "Block Trade", "IOI Tracker", "Discount", "PE Exit", "Institutional Allocation"],
+    sections: [], keyTerms: [],
+    relatedSlugs: ["ecm-followon", "ecm-ipo-allocation", "ecm-pitchbook", "ecm-overview"],
+    appearsIn: [],
+  },
+
+  // ────────────────────────────────────────────────────────────────────────────
+  // ECM 상품 시리즈 — 미싱 상품 완전 해설
+  // ────────────────────────────────────────────────────────────────────────────
+
+  {
+    slug: "ecm-warrant-bond",
+    title: "BW(신주인수권부사채) 완전 해설 — CB와 뭐가 다른가",
+    titleEn: "Bond with Warrant (BW) Complete Guide — How It Differs from Convertible Bonds",
+    entryType: "article",
+    category: "ecm",
+    categoryLabel: "ECM",
+    categoryLabelEn: "ECM",
+    excerpt:
+      "BW는 CB처럼 보이지만 다르다. 채권과 신주인수권이 분리되어 따로 유통된다. 행사가 리픽싱의 함정, 한국 특유의 제3자 배정 BW 남용, SM엔터테인먼트·하이브 사례. Tesla Warrant 2021 구조와의 비교.",
+    excerptEn:
+      "BW looks like a CB but works differently — the bond and warrant trade separately after issuance. The rifixing trap, Korea's unique third-party BW abuse, SM Entertainment and HYBE cases. Comparison with Tesla Warrant 2021 structure.",
+    readingMinutes: 16,
+    tags: ["BW", "신주인수권부사채", "분리형BW", "리픽싱", "제3자배정", "SM엔터", "하이브", "행사가"],
+    tagsEn: ["BW", "Bond with Warrant", "Detachable Warrant", "Rifixing", "Third-party Allotment", "SM Entertainment", "HYBE"],
+    sections: [], keyTerms: [],
+    relatedSlugs: ["ecm-convertible", "ecm-exchangeable-bond", "ecm-overview", "ecm-dual-class"],
+    appearsIn: [],
+  },
+
+  {
+    slug: "ecm-buyback",
+    title: "자사주매입 완전 해설 — 발행의 반대, 주주환원의 핵심",
+    titleEn: "Share Buyback Complete Guide — The Opposite of Issuance",
+    entryType: "article",
+    category: "ecm",
+    categoryLabel: "ECM",
+    categoryLabelEn: "ECM",
+    excerpt:
+      "S&P500 기업들은 연간 $1조+ 자사주를 산다. 왜 배당 대신 바이백인가, 공개시장 매수·ASR·공개매수 세 방식의 차이, 10b5-1 플랜의 구조, EPS 마법. Apple $90B·Berkshire 방식·삼성전자 자사주 소각 케이스.",
+    excerptEn:
+      "S&P 500 companies buy back $1T+ in stock annually. Why buyback over dividend, differences between open market repurchase, ASR, and tender offer, the 10b5-1 plan structure, EPS magic. Apple $90B, Berkshire's approach, and Samsung Electronics treasury share cancellation.",
+    readingMinutes: 15,
+    tags: ["자사주매입", "바이백", "10b5-1", "ASR", "공개매수", "EPS부스팅", "주주환원", "Apple바이백", "삼성자사주"],
+    tagsEn: ["Share Buyback", "Repurchase", "10b5-1 Plan", "ASR", "Tender Offer", "EPS Boost", "Shareholder Return", "Apple Buyback"],
+    sections: [], keyTerms: [],
+    relatedSlugs: ["ecm-overview", "ecm-tender-offer", "ecm-ipo-allocation", "ecm-followon"],
+    appearsIn: [],
+  },
+
+  {
+    slug: "ecm-dual-class",
+    title: "차등의결권 구조 — 창업자는 왜 지배권을 유지하려 하는가",
+    titleEn: "Dual Class Share Structure — Why Founders Fight to Keep Control",
+    entryType: "article",
+    category: "ecm",
+    categoryLabel: "ECM",
+    categoryLabelEn: "ECM",
+    excerpt:
+      "Alphabet Class A(1표)·B(없음)·C(10표), Meta·Snap의 지배구조. 왜 기관 투자자는 반대하고 창업자는 사수하는가. 선셋 조항, 한국 스타트업 특례 도입, 카카오·네이버 지배구조 비교. 상장 후 차등의결권이 기업 가치에 미치는 영향.",
+    excerptEn:
+      "Alphabet Class A (1 vote), B (none), C (10 votes), Meta and Snap governance. Why institutional investors oppose it and founders fight for it. Sunset clauses, Korea's startup exception law, Kakao and Naver governance comparison. Impact of dual class on post-IPO valuation.",
+    readingMinutes: 14,
+    tags: ["차등의결권", "듀얼클래스", "Alphabet", "Meta", "Snap", "창업자지배권", "선셋조항", "한국특례", "지배구조"],
+    tagsEn: ["Dual Class Shares", "Dual Class Structure", "Alphabet", "Meta", "Snap", "Founder Control", "Sunset Clause", "Corporate Governance"],
+    sections: [], keyTerms: [],
+    relatedSlugs: ["ecm-overview", "ecm-spac-direct", "ecm-ipo-process", "ecm-warrant-bond"],
+    appearsIn: [],
+  },
+
+  {
+    slug: "ecm-tender-offer",
+    title: "공개매수 실무 — 경영권 거래의 ECM 측면",
+    titleEn: "Tender Offer Practice — The ECM Side of Control Transactions",
+    entryType: "article",
+    category: "ecm",
+    categoryLabel: "ECM",
+    categoryLabelEn: "ECM",
+    excerpt:
+      "공개매수는 주식을 사는 행위지만 ECM 딜이다. 강제공개매수 규정(5%룰·30%룰), Squeeze-out 요건, 프리미엄 결정 논리, 방어 전략(Poison Pill·White Knight). Musk-Twitter $44B 딜 해부, SM엔터 하이브-카카오 경쟁 공개매수.",
+    excerptEn:
+      "A tender offer is buying stock, but it's an ECM deal. Mandatory tender offer rules (5% rule, 30% rule), squeeze-out requirements, premium determination logic, defense strategies (Poison Pill, White Knight). Musk-Twitter $44B deal dissected, SM Entertainment Hybe-Kakao competing offer.",
+    readingMinutes: 16,
+    tags: ["공개매수", "강제공개매수", "스퀴즈아웃", "포이즌필", "화이트나이트", "Musk-Twitter", "SM엔터", "경영권프리미엄"],
+    tagsEn: ["Tender Offer", "Mandatory Tender", "Squeeze-out", "Poison Pill", "White Knight", "Musk-Twitter", "SM Entertainment", "Control Premium"],
+    sections: [], keyTerms: [],
+    relatedSlugs: ["ecm-buyback", "ecm-dual-class", "ecm-overview", "ecm-followon"],
+    appearsIn: [],
+  },
+
+  {
+    slug: "ecm-exchangeable-bond",
+    title: "EB(교환사채) 완전 해설 — 남의 주식으로 갚는 채권",
+    titleEn: "Exchangeable Bond (EB) Complete Guide — Repaying with Someone Else's Shares",
+    entryType: "article",
+    category: "ecm",
+    categoryLabel: "ECM",
+    categoryLabelEn: "ECM",
+    excerpt:
+      "EB는 CB와 닮았지만 발행사가 아닌 제3자 주식으로 교환된다. SoftBank의 Alibaba 지분 EB로 $11B 조달, 현대차그룹 계열사 EB 구조. 발행사 입장에서 EB가 CB보다 유리한 경우, 세금 처리, 희석 여부.",
+    excerptEn:
+      "An EB looks like a CB but exchanges into a third party's shares, not the issuer's. SoftBank raised $11B via Alibaba share EB. Hyundai Motor Group affiliate EB structure. When EB beats CB for the issuer, tax treatment, and dilution analysis.",
+    readingMinutes: 14,
+    tags: ["교환사채", "EB", "SoftBank", "알리바바", "현대차EB", "제3자주식", "CB비교", "하이브리드증권"],
+    tagsEn: ["Exchangeable Bond", "EB", "SoftBank", "Alibaba", "Third-Party Shares", "Hybrid Securities", "CB Comparison"],
+    sections: [], keyTerms: [],
+    relatedSlugs: ["ecm-convertible", "ecm-warrant-bond", "ecm-overview", "ecm-buyback"],
     appearsIn: [],
   },
 

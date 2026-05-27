@@ -839,6 +839,50 @@ export default function LevFinEcosystemClient({ concept, lang }: Props) {
           </ol>
         </motion.section>
 
+        {/* ── 이 챕터가 분석하는 실제 딜 ─────────────────────────── */}
+        <motion.section
+          variants={stagger}
+          initial="hidden"
+          whileInView="show"
+          viewport={VP}
+          className="mt-14"
+        >
+          <motion.p variants={fadeUp()} className="text-[11px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-4">
+            {ko ? "이 챕터가 분석하는 실제 딜 — LevFin 관점" : "Real Deals Analyzed Through LevFin Lens"}
+          </motion.p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {[
+              {
+                href: `${base.replace("market-101", "deals")}/kkr-rjr-nabisco`,
+                initials: "KKR",
+                bg: "bg-gray-800",
+                title: ko ? "KKR × RJR Nabisco (1989) — HY채권 생태계의 탄생" : "KKR × RJR Nabisco (1989) — The Birth of the HY Bond Ecosystem",
+                sub: ko ? "$31.1B LBO, 정크본드·PIK·브리지론 7-레이어 구조 실전 해부" : "$31.1B LBO — junk bonds, PIK, bridge loan 7-layer structure dissected",
+              },
+              {
+                href: `${base.replace("market-101", "deals")}/mbk-homeplus`,
+                initials: "MBK",
+                bg: "bg-slate-700",
+                title: ko ? "MBK × 홈플러스 (2015) — 한국형 LBO 에코시스템" : "MBK × Homeplus (2015) — Korean LBO Ecosystem",
+                sub: ko ? "7.2조원 아시아 최대 유통 LBO, 한국 인수금융 생태계와 S&L 구조" : "₩7.2T Asia's largest retail LBO — Korean acquisition finance ecosystem & S&L",
+              },
+            ].map((d, i) => (
+              <motion.div key={d.href} variants={fadeUp(i * 0.06)}>
+                <Link href={d.href} className="group flex gap-3 rounded-xl border border-amber-100 dark:border-amber-900/40 bg-amber-50/40 dark:bg-amber-900/10 p-4 hover:border-amber-300 dark:hover:border-amber-600 transition-colors">
+                  <div className={`flex-shrink-0 w-10 h-10 rounded-xl ${d.bg} flex items-center justify-center`}>
+                    <span className="text-white text-[9px] font-black leading-none">{d.initials}</span>
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-[13px] font-bold text-gray-800 dark:text-gray-200 group-hover:text-amber-700 dark:group-hover:text-amber-300 transition-colors leading-snug line-clamp-2">{d.title}</p>
+                    <p className="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 leading-snug line-clamp-2">{d.sub}</p>
+                  </div>
+                  <span className="flex-shrink-0 text-gray-300 dark:text-gray-600 group-hover:text-amber-400 transition-colors self-center text-lg">→</span>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </motion.section>
+
         <ShareButtons
           title={ko
             ? "LevFin 전체 지도 — HY채권·레버리지드 론·LBO 생태계 | Deal Story"

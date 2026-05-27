@@ -979,6 +979,50 @@ export default function LevFinPricingClient({ concept, lang }: Props) {
           </ol>
         </motion.section>
 
+        {/* ── 이 챕터가 분석하는 실제 딜 ─────────────────────────── */}
+        <motion.section
+          variants={stagger}
+          initial="hidden"
+          whileInView="show"
+          viewport={VP}
+          className="mt-14"
+        >
+          <motion.p variants={fadeUp()} className="text-[11px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-4">
+            {ko ? "이 챕터가 분석하는 실제 딜 — LevFin 관점" : "Real Deals Analyzed Through LevFin Lens"}
+          </motion.p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {[
+              {
+                href: `${base.replace("market-101", "deals")}/kkr-rjr-nabisco`,
+                initials: "KKR",
+                bg: "bg-gray-800",
+                title: ko ? "KKR × RJR Nabisco (1989) — PIK 채권과 복리 함정의 교과서" : "KKR × RJR Nabisco (1989) — The PIK Bond & Compounding Trap Textbook",
+                sub: ko ? "PIK 15~17% 복리 구조, $5B HY 14~16% 금리 결정 과정 — LevFin 프라이싱 원형" : "PIK 15–17% compound structure, $5B HY 14–16% rate-setting process — the LevFin pricing original",
+              },
+              {
+                href: `${base.replace("market-101", "deals")}/elon-musk-twitter`,
+                initials: "MUSK",
+                bg: "bg-gray-900",
+                title: ko ? "일론 머스크 × 트위터 (2022) — Market Flex의 한계와 2022 금리 충격" : "Elon Musk × Twitter (2022) — Market Flex Limits & the 2022 Rate Shock",
+                sub: ko ? "브리지론 Flex 15%+ 적용 후에도 신디케이션 실패 — OID와 NIC가 한계에 봉착한 사례" : "Even after 15%+ flex, syndication failed — OID and NIC hitting their limits in practice",
+              },
+            ].map((d, i) => (
+              <motion.div key={d.href} variants={fadeUp(i * 0.06)}>
+                <Link href={d.href} className="group flex gap-3 rounded-xl border border-amber-100 dark:border-amber-900/40 bg-amber-50/40 dark:bg-amber-900/10 p-4 hover:border-amber-300 dark:hover:border-amber-600 transition-colors">
+                  <div className={`flex-shrink-0 w-10 h-10 rounded-xl ${d.bg} flex items-center justify-center`}>
+                    <span className="text-white text-[8px] font-black leading-none">{d.initials}</span>
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-[13px] font-bold text-gray-800 dark:text-gray-200 group-hover:text-amber-700 dark:group-hover:text-amber-300 transition-colors leading-snug line-clamp-2">{d.title}</p>
+                    <p className="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 leading-snug line-clamp-2">{d.sub}</p>
+                  </div>
+                  <span className="flex-shrink-0 text-gray-300 dark:text-gray-600 group-hover:text-amber-400 transition-colors self-center text-lg">→</span>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </motion.section>
+
         <ShareButtons
           title={ko
             ? "LevFin Ch.5 프라이싱 심화 — OID·PIK·Call Schedule·NIC·크로스커런시 | Deal Story"

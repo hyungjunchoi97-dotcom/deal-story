@@ -295,6 +295,61 @@ const deal: DealData = {
     },
   ],
 
+  levfinOverview: {
+    angle: "역대 최대 Hung Deal — LevFin 딜 프로세스의 악몽",
+    body: "트위터 인수는 LevFin 딜 프로세스 교과서의 반면교사다. 2022년 금리 급등기에 $13B 은행 부채를 조달했으나 신디케이션에 완전히 실패했다. 7개 은행이 커미트먼트 레터를 이미 발행한 상태에서 딜이 클로징됐고, 이후에도 부채를 투자자에게 팔지 못해 수십억 달러의 장부 손실을 떠안았다. Debt/EBITDA 21배라는 전례없는 레버리지와 테크 미디어의 수익성 불확실성이 합쳐진 이 딜은 Hung Deal·커미트먼트 레터·Market Flex 한계를 모두 보여주는 역사적 사례다.",
+    tranches: [
+      { name: "Term Loan B (TLB)", amountDisplay: "$6.5B", rate: "SOFR + 300bp", maturity: "7년", seniority: "senior-secured" as const, pct: 15, color: "bg-blue-500" },
+      { name: "담보 브리지론 (Secured Bridge)", amountDisplay: "$3.0B", rate: "SOFR + 325bp → 575bp+", maturity: "1년 (Flex)", seniority: "bridge" as const, pct: 7, color: "bg-cyan-400" },
+      { name: "무담보 브리지론 (Unsecured Bridge)", amountDisplay: "$3.0B", rate: "11.75% → 15%+", maturity: "1년 (Flex)", seniority: "bridge" as const, pct: 7, color: "bg-rose-400" },
+      { name: "HY 채권 (미발행 — Hung)", amountDisplay: "$0.5B 부분 매각", rate: "시장 환경으로 대부분 미신디케이션", maturity: "-", seniority: "senior-unsecured" as const, pct: 1, color: "bg-amber-400" },
+      { name: "에쿼티 (머스크 + 공동투자자)", amountDisplay: "$27.25B", rate: "목표 수익률 미정", maturity: "미정 (비상장)", seniority: "equity" as const, pct: 62, color: "bg-gray-700" },
+    ],
+    metrics: [
+      { label: "Debt/EBITDA", value: "~21×", sub: "EBITDA $6억 vs 부채 $130억", isAlert: true },
+      { label: "연간 이자비용", value: "~$10억", sub: "트위터 FCF를 초과하는 이자 부담", isAlert: true },
+      { label: "은행 추정 손실", value: "$3~4B", sub: "7개 은행 Hung Deal 장부 손실 추정", isAlert: true },
+      { label: "에쿼티 투입", value: "$27.25B", sub: "머스크 $21B + 공동투자자 $6.25B" },
+    ],
+    lessons: [
+      {
+        icon: "🔴",
+        title: "Hung Deal — 은행이 부채를 팔지 못하면 손실은 은행의 몫이다",
+        body: "7개 은행(Morgan Stanley, BofA, Barclays 등)은 $13B 커미트먼트 레터를 발행했다. 2022년 금리 급등과 트위터의 불확실성으로 신디케이션이 사실상 실패했고, 은행들은 원가의 60~70센트에 팔거나 그대로 보유해야 했다. Hung Deal은 LBO 파이낸싱에서 은행이 지는 가장 큰 리스크다.",
+      },
+      {
+        icon: "📉",
+        title: "Market Flex 한계 — 금리 충격기에 Flex만으로는 부족하다",
+        body: "커미트먼트 레터에는 스프레드를 올릴 수 있는 Market Flex 조항이 있다. 그러나 2022년 금리 충격은 Flex 범위를 완전히 초과했다. 브리지론 금리를 15%+로 올려도 투자자들은 트위터 부채를 원하지 않았다 — Flex에도 한계가 있음을 이 딜이 입증했다.",
+      },
+      {
+        icon: "📋",
+        title: "커미트먼트 레터 — 한 번 사인하면 되돌릴 수 없다",
+        body: "7개 은행은 조건부 조항이 있었음에도 최종적으로 $13B를 제공해야 했다. 머스크가 딜 철회를 선언하고 법정 공방을 벌이는 와중에도 커미트먼트 레터는 유효했다. 이 딜은 커미트먼트 레터가 은행에 얼마나 무거운 의무인지를 역사상 가장 극적으로 보여줬다.",
+      },
+    ],
+    relatedChapters: [
+      {
+        slug: "levfin-process",
+        chapterNum: "Ch.4",
+        title: "딜 프로세스 — 만기에서 클로징까지",
+        whyRelevant: "트위터 $13B Hung Deal이 커미트먼트 레터·신디케이션·Hung Deal 리스크 섹션의 실제 사례로 직접 등장",
+      },
+      {
+        slug: "levfin-pricing",
+        chapterNum: "Ch.5",
+        title: "프라이싱 심화 — OID·PIK·Market Flex",
+        whyRelevant: "트위터 브리지론의 Market Flex 한계와 2022년 금리 충격이 NIC·OID 계산에 미친 영향 분석",
+      },
+      {
+        slug: "levfin-credit-metrics",
+        chapterNum: "Ch.2",
+        title: "크레딧 메트릭 & 언더라이팅",
+        whyRelevant: "Debt/EBITDA 21배 — 어떤 언더라이팅 기준도 이 딜을 정상적인 LBO로 인정하지 않았던 이유",
+      },
+    ],
+  },
+
   faq: [
     {
       q: "머스크는 왜 인수를 시도했다가 철회하려 했나요?",

@@ -259,6 +259,68 @@ const deal: DealData = {
     ],
   },
 
+  levfinOverview: {
+    angle: "HY채권 시장의 탄생 — LevFin 에코시스템을 만든 딜",
+    body: "1989년 KKR의 RJR Nabisco 인수는 단순한 M&A가 아니라 현대 레버리지드 파이낸스 시장의 탄생을 알린 사건이다. Michael Milken과 Drexel Burnham Lambert가 만든 정크본드(HY채권) 시장 없이는 이 딜은 존재할 수 없었다. 에쿼티 5%, 차입 95%라는 극단적 레버리지 구조는 이후 모든 LBO 교과서의 1장이 됐으며, PIK 채권·브리지론·7개 레이어 부채 구조는 현대 LevFin 자본 구조 설계의 원형이다.",
+    tranches: [
+      { name: "은행 신디케이트 대출 (TLA)", amountDisplay: "$13.0B", rate: "LIBOR + 250~300bp", maturity: "7년", seniority: "senior-secured" as const, pct: 42, color: "bg-blue-500" },
+      { name: "정크본드 (HY Senior Notes)", amountDisplay: "$5.0B", rate: "14.5~16.5% 고정", maturity: "10년", seniority: "senior-unsecured" as const, pct: 16, color: "bg-amber-500" },
+      { name: "브리지 론 (Bridge Loan)", amountDisplay: "$5.0B", rate: "LIBOR + 400bp", maturity: "1년", seniority: "bridge" as const, pct: 16, color: "bg-rose-400" },
+      { name: "PIK 채권 (Payment-in-Kind)", amountDisplay: "$4.0B", rate: "PIK 15~17%", maturity: "12년", seniority: "subordinated" as const, pct: 13, color: "bg-orange-400" },
+      { name: "메자닌 채권", amountDisplay: "$3.1B", rate: "PIK 17~19%", maturity: "15년", seniority: "mezzanine" as const, pct: 8, color: "bg-purple-400" },
+      { name: "에쿼티 (KKR 펀드)", amountDisplay: "~$1.5B", rate: "목표 IRR 20%+", maturity: "5-7년 Exit", seniority: "equity" as const, pct: 5, color: "bg-emerald-500" },
+    ],
+    metrics: [
+      { label: "인수 EV/EBITDA", value: "12.4×", sub: "1988년 역대 최고 LBO 배수" },
+      { label: "에쿼티 비중", value: "~5%", sub: "$1.5B 에쿼티 / $31.1B 딜" },
+      { label: "이자 커버리지", value: "~0.9×", sub: "인수 직후 EBITDA < 이자비용", isAlert: true },
+      { label: "HY채권 발행", value: "$5.0B", sub: "Drexel Burnham Lambert 총괄" },
+    ],
+    lessons: [
+      {
+        icon: "💥",
+        title: "정크본드 혁명 — HY채권 없이 대형 LBO는 없다",
+        body: "1980년대 이전 투자등급 이하 기업은 대규모 차입이 불가능했다. Milken이 개척한 HY채권 시장은 이 장벽을 해체했다. RJR Nabisco의 $5B HY 발행은 현대 레버리지드 파이낸스 시장의 출발점이며, 이후 모든 LBO는 이 유산 위에 서 있다.",
+      },
+      {
+        icon: "⚠️",
+        title: "PIK 채권의 복리 함정 — 이자를 현금이 아닌 채권으로 낸다",
+        body: "PIK(Payment-in-Kind) 채권은 현금 이자 대신 추가 채권을 발행해 이자를 지급하는 구조다. RJR Nabisco의 PIK 구조는 시간이 지날수록 부채가 눈덩이처럼 불어나는 복리 함정을 보여줬다 — 현금흐름은 지키면서 부채가 증가하는 이 구조는 LevFin Ch.5의 핵심 주제다.",
+      },
+      {
+        icon: "🌉",
+        title: "브리지 론 — 신디케이션 전까지 자금을 메우는 일시적 다리",
+        body: "$5B 브리지 론은 딜 클로징과 HY채권·TLB 신디케이션 완료 사이의 자금 공백을 메웠다. 브리지 론은 영구 자금이 아니라 일시적 자금 조달 수단이며, 신디케이션 실패 시 은행이 떠안아야 하는 Hung Deal 리스크의 원형이기도 하다.",
+      },
+    ],
+    relatedChapters: [
+      {
+        slug: "levfin-ecosystem",
+        chapterNum: "Ch.0",
+        title: "LevFin 에코시스템 전체 지도",
+        whyRelevant: "RJR Nabisco LBO가 HY채권·레버리지드 론·CLO 생태계를 어떻게 형성했는지 확인",
+      },
+      {
+        slug: "levfin-hy-vs-loans",
+        chapterNum: "Ch.1",
+        title: "HY채권 vs 레버리지드 론",
+        whyRelevant: "KKR이 TLB와 HY채권을 동시에 발행한 이유와 각 상품의 구조적 차이 비교",
+      },
+      {
+        slug: "levfin-pricing",
+        chapterNum: "Ch.5",
+        title: "프라이싱 심화 — OID·PIK·Call Schedule",
+        whyRelevant: "RJR Nabisco의 PIK Toggle 구조·복리 함정, 14~16% HY 금리 결정 원리 심층 해설",
+      },
+      {
+        slug: "levfin-cases",
+        chapterNum: "Ch.7",
+        title: "LBO 케이스 종합 — 역사를 바꾼 5개 딜",
+        whyRelevant: "RJR Nabisco 1989가 LevFin 시리즈 5대 케이스 중 첫 번째로 등장하는 이유",
+      },
+    ],
+  },
+
   concepts: [
     { term: "LBO (레버리지 바이아웃)", href: "/deal-101/lbo", description: "차입으로 에쿼티 최소화 — KKR RJR Nabisco가 LBO 역사의 이정표" },
     { term: "인수 프리미엄", href: "/deal-101/acquisition-premium", description: "경쟁 입찰로 주당 $75 → $109로 오른 경영권 프리미엄" },

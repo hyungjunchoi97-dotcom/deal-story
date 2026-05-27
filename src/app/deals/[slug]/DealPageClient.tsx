@@ -17,6 +17,7 @@ import CompanyLogo from "@/components/deal/CompanyLogo";
 import GovernanceOverviewSection from "@/components/deal/GovernanceOverviewSection";
 import ControlBattleSection from "@/components/deal/ControlBattleSection";
 import RestructuringSection from "@/components/deal/RestructuringSection";
+import LevFinSection from "@/components/deal/LevFinSection";
 import { formatDealDate } from "@/lib/format";
 import type { DealData } from "@/lib/deal-data";
 
@@ -516,6 +517,16 @@ export default function DealPageClient({
           </div>
           {deal.valuation.disclaimer && (
             <p className="text-[11px] text-gray-400 dark:text-gray-500">{deal.valuation.disclaimer}</p>
+          )}
+
+          {/* ── 10-B. LevFin Overview (LBO 딜 전용) */}
+          {deal.levfinOverview && (
+            <>
+              <SectionTitle>
+                {lang === "en" ? "LevFin Deep-Dive — Debt Structure Anatomy" : "LevFin 관점 — 부채 구조 해부"}
+              </SectionTitle>
+              <LevFinSection data={deal.levfinOverview} lang={lang} />
+            </>
           )}
 
           {/* ── 공유하기 (중간) */}

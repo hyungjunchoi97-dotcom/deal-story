@@ -977,6 +977,40 @@ export default function LevFinDistressedClient({ concept, lang }: Props) {
           </ol>
         </motion.section>
 
+        {/* ── 이 챕터가 분석하는 실제 딜 ─────────────────────────── */}
+        <motion.section
+          variants={stagger}
+          initial="hidden"
+          whileInView="show"
+          viewport={VP}
+          className="mt-14"
+        >
+          <motion.p variants={fadeUp()} className="text-[11px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-4">
+            {ko ? "이 챕터가 분석하는 실제 딜 — LevFin 관점" : "Real Deals Analyzed Through LevFin Lens"}
+          </motion.p>
+          <div className="grid grid-cols-1 gap-3">
+            <motion.div variants={fadeUp(0.05)}>
+              <Link
+                href={`${base.replace("market-101", "deals")}/mbk-homeplus`}
+                className="group flex gap-3 rounded-xl border border-amber-100 dark:border-amber-900/40 bg-amber-50/40 dark:bg-amber-900/10 p-4 hover:border-amber-300 dark:hover:border-amber-600 transition-colors"
+              >
+                <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-slate-700 flex items-center justify-center">
+                  <span className="text-white text-[9px] font-black leading-none">MBK</span>
+                </div>
+                <div className="min-w-0">
+                  <p className="text-[13px] font-bold text-gray-800 dark:text-gray-200 group-hover:text-amber-700 dark:group-hover:text-amber-300 transition-colors leading-snug">
+                    {ko ? "MBK × 홈플러스 (2015→2024) — 한국 기업회생절차의 현장" : "MBK × Homeplus (2015→2024) — Korean Court Receivership in Practice"}
+                  </p>
+                  <p className="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 leading-snug">
+                    {ko ? "7.2조원 LBO → S&L 임차료 부담 + 이커머스 타격 → 2024년 기업회생 신청 — 한국 법정관리 vs Chapter 11 비교" : "₩7.2T LBO → S&L fixed rent + e-commerce disruption → 2024 court receivership — Korean vs US Chapter 11 compared"}
+                  </p>
+                </div>
+                <span className="flex-shrink-0 text-gray-300 dark:text-gray-600 group-hover:text-amber-400 transition-colors self-center text-lg">→</span>
+              </Link>
+            </motion.div>
+          </div>
+        </motion.section>
+
         <ShareButtons
           title={ko
             ? "부실채권 & 구조조정: LBO가 무너질 때 무슨 일이 벌어지나 | Deal Story"

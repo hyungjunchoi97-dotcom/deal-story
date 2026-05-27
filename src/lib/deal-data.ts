@@ -313,6 +313,55 @@ export interface DealData {
    * 왜·어떻게·누가 영향받았나 + 이론 프레임워크
    */
   restructuringOverview?: RestructuringOverview;
+
+  /**
+   * LBO/LevFin 관점 오버레이 — Valuation 섹션 다음에 렌더링
+   * LBO 구조를 가진 딜에 추가해 LevFin 챕터 이해를 높임
+   */
+  levfinOverview?: LevFinOverview;
+}
+
+// ── LevFin 오버레이 전용: LevFin Overview ────────────────────────────
+
+export interface LevFinTranche {
+  name: string;              // "1순위 Term Loan B"
+  amountDisplay: string;     // "$7.1bn"
+  rate: string;              // "LIBOR + 325bp"
+  maturity: string;          // "7년"
+  seniority: "senior-secured" | "senior-unsecured" | "subordinated" | "mezzanine" | "equity" | "bridge";
+  pct?: number;              // 전체 자본 구조 중 비율 (시각화용)
+  color: string;             // Tailwind bg class
+}
+
+export interface LevFinChapterLink {
+  slug: string;              // "levfin-credit-metrics"
+  chapterNum: string;        // "Ch.2"
+  title: string;             // "신용지표"
+  whyRelevant: string;       // 이 딜이 챕터 이해에 어떻게 도움이 되는지
+}
+
+export interface LevFinOverview {
+  /** 섹션 앵글 배지 텍스트 */
+  angle: string;             // "HY채권 시장의 탄생 — LevFin 에코시스템을 만든 딜"
+  /** 섹션 인트로 본문 */
+  body: string;
+  /** 자본 구조 트랑쉐 목록 */
+  tranches: LevFinTranche[];
+  /** 핵심 LevFin 지표 */
+  metrics: Array<{
+    label: string;           // "Entry Leverage"
+    value: string;           // "12.4x"
+    sub: string;             // "Debt/EBITDA at close"
+    isAlert?: boolean;       // 극단값 적색 강조
+  }>;
+  /** 이 딜의 LevFin 핵심 교훈 */
+  lessons: Array<{
+    icon: string;            // emoji
+    title: string;           // "정크본드 없이는 LBO도 없다"
+    body: string;            // 2~3줄 설명
+  }>;
+  /** 연관 LevFin 챕터 (Market 101 링크) */
+  relatedChapters: LevFinChapterLink[];
 }
 
 // ── 경영권 분쟁 전용: Control Battle Overview ─────────────────────

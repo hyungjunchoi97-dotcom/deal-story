@@ -1035,6 +1035,57 @@ export default function LevFinCasesClient({ concept, lang }: Props) {
           </ol>
         </motion.section>
 
+        {/* ── Deal Story 딜 페이지 크로스링크 ─────────────────── */}
+        <motion.section
+          variants={stagger}
+          initial="hidden"
+          whileInView="show"
+          viewport={VP}
+          className="mt-14"
+        >
+          <motion.p variants={fadeUp()} className="text-[11px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-4">
+            {ko ? "이 챕터에 등장하는 딜 — LevFin 심층 분석 보기" : "Deals Featured in This Chapter — See Full LevFin Analysis"}
+          </motion.p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {[
+              {
+                href: `${base.replace("market-101", "deals")}/kkr-rjr-nabisco`,
+                initials: "KKR",
+                bg: "bg-gray-800",
+                title: ko ? "KKR × RJR Nabisco (1989) — 정크본드 혁명과 LBO의 탄생" : "KKR × RJR Nabisco (1989) — The Junk Bond Revolution & LBO's Birth",
+                sub: ko ? "$31.1B, HY채권 $5B, PIK 복리, 브리지론 — 7-레이어 자본구조 LevFin 해부" : "$31.1B, HY $5B, PIK compounding, bridge loan — 7-layer capital structure LevFin analysis",
+              },
+              {
+                href: `${base.replace("market-101", "deals")}/mbk-homeplus`,
+                initials: "MBK",
+                bg: "bg-slate-700",
+                title: ko ? "MBK × 홈플러스 (2015) — 한국형 LBO의 명암" : "MBK × Homeplus (2015) — The Rise and Fall of Korea's Largest LBO",
+                sub: ko ? "7.2조원, S&L 4조원 유동화, 기업회생 2024 — 한국 LBO 생태계 전체 분석" : "₩7.2T, ₩4T S&L monetization, 2024 insolvency — full Korean LBO ecosystem analysis",
+              },
+              {
+                href: `${base.replace("market-101", "deals")}/elon-musk-twitter`,
+                initials: "MUSK",
+                bg: "bg-gray-900",
+                title: ko ? "일론 머스크 × 트위터 (2022) — 역대 최대 Hung Deal" : "Elon Musk × Twitter (2022) — History's Largest Hung Deal",
+                sub: ko ? "$44B LBO, $13B 부채 신디케이션 실패, Debt/EBITDA 21배 — LevFin 딜 프로세스 실패 케이스" : "$44B LBO, $13B debt syndication failure, 21× Debt/EBITDA — LevFin deal process failure case study",
+              },
+            ].map((d, i) => (
+              <motion.div key={d.href} variants={fadeUp(i * 0.06)} className={i === 2 ? "sm:col-span-2" : ""}>
+                <Link href={d.href} className="group flex gap-3 rounded-xl border border-amber-100 dark:border-amber-900/40 bg-amber-50/40 dark:bg-amber-900/10 p-4 hover:border-amber-300 dark:hover:border-amber-600 transition-colors">
+                  <div className={`flex-shrink-0 w-10 h-10 rounded-xl ${d.bg} flex items-center justify-center`}>
+                    <span className="text-white text-[8px] font-black leading-none">{d.initials}</span>
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-[13px] font-bold text-gray-800 dark:text-gray-200 group-hover:text-amber-700 dark:group-hover:text-amber-300 transition-colors leading-snug line-clamp-2">{d.title}</p>
+                    <p className="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 leading-snug line-clamp-2">{d.sub}</p>
+                  </div>
+                  <span className="flex-shrink-0 text-gray-300 dark:text-gray-600 group-hover:text-amber-400 transition-colors self-center text-lg">→</span>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </motion.section>
+
         <ShareButtons
           title={ko
             ? "LevFin 케이스 종합 — 역사를 바꾼 LBO 5개 완전 해부 | Deal Story"

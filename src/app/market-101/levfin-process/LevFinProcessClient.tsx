@@ -1012,6 +1012,59 @@ export default function LevFinProcessClient({ concept, lang }: Props) {
           </ol>
         </motion.section>
 
+        {/* ── 이 챕터가 분석하는 실제 딜 ─────────────────────────── */}
+        <motion.section
+          variants={stagger}
+          initial="hidden"
+          whileInView="show"
+          viewport={VP}
+          className="mt-14"
+        >
+          <motion.p variants={fadeUp()} className="text-[11px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-4">
+            {ko ? "이 챕터가 분석하는 실제 딜 — LevFin 관점" : "Real Deals Analyzed Through LevFin Lens"}
+          </motion.p>
+          <div className="grid grid-cols-1 gap-3">
+            <motion.div variants={fadeUp(0.05)}>
+              <Link
+                href={`${base.replace("market-101", "deals")}/elon-musk-twitter`}
+                className="group flex gap-3 rounded-xl border border-amber-100 dark:border-amber-900/40 bg-amber-50/40 dark:bg-amber-900/10 p-4 hover:border-amber-300 dark:hover:border-amber-600 transition-colors"
+              >
+                <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-gray-900 flex items-center justify-center">
+                  <span className="text-white text-[8px] font-black leading-none">MUSK</span>
+                </div>
+                <div className="min-w-0">
+                  <p className="text-[13px] font-bold text-gray-800 dark:text-gray-200 group-hover:text-amber-700 dark:group-hover:text-amber-300 transition-colors leading-snug">
+                    {ko ? "일론 머스크 × 트위터 (2022) — 역대 최대 Hung Deal, 딜 프로세스의 악몽" : "Elon Musk × Twitter (2022) — History's Largest Hung Deal, Deal Process Nightmare"}
+                  </p>
+                  <p className="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 leading-snug">
+                    {ko ? "$13B 커미트먼트 레터 → 신디케이션 실패 → 7개 은행 $3~4B 손실 — Hung Deal 완전 해부" : "$13B commitment letter → syndication failure → 7 banks $3–4B losses — Hung Deal fully dissected"}
+                  </p>
+                </div>
+                <span className="flex-shrink-0 text-gray-300 dark:text-gray-600 group-hover:text-amber-400 transition-colors self-center text-lg">→</span>
+              </Link>
+            </motion.div>
+            <motion.div variants={fadeUp(0.1)}>
+              <Link
+                href={`${base.replace("market-101", "deals")}/kkr-rjr-nabisco`}
+                className="group flex gap-3 rounded-xl border border-amber-100 dark:border-amber-900/40 bg-amber-50/40 dark:bg-amber-900/10 p-4 hover:border-amber-300 dark:hover:border-amber-600 transition-colors"
+              >
+                <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-gray-800 flex items-center justify-center">
+                  <span className="text-white text-[9px] font-black leading-none">KKR</span>
+                </div>
+                <div className="min-w-0">
+                  <p className="text-[13px] font-bold text-gray-800 dark:text-gray-200 group-hover:text-amber-700 dark:group-hover:text-amber-300 transition-colors leading-snug">
+                    {ko ? "KKR × RJR Nabisco (1989) — 브리지론과 신디케이션의 원형" : "KKR × RJR Nabisco (1989) — The Original Bridge Loan & Syndication Playbook"}
+                  </p>
+                  <p className="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 leading-snug">
+                    {ko ? "$5B 브리지론 → HY 신디케이션 완료 — 현대 LBO 딜 프로세스의 원형을 만든 딜" : "$5B bridge loan → HY syndication closed — the deal that established the modern LBO deal process template"}
+                  </p>
+                </div>
+                <span className="flex-shrink-0 text-gray-300 dark:text-gray-600 group-hover:text-amber-400 transition-colors self-center text-lg">→</span>
+              </Link>
+            </motion.div>
+          </div>
+        </motion.section>
+
         <ShareButtons
           title={ko
             ? "LevFin Ch.4 딜 프로세스 — 만기에서 클로징까지 실무 타임라인 | Deal Story"

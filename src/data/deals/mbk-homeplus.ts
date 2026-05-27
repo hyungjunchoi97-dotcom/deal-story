@@ -259,6 +259,61 @@ const deal: DealData = {
     ],
   },
 
+  levfinOverview: {
+    angle: "한국형 LBO 인수금융 — 아시아 최대 유통 LBO의 부채 구조",
+    body: "MBK파트너스의 홈플러스 인수는 한국 PE 역사상 최대이자 아시아 유통 부문 LBO 사상 최대 딜이었다. 약 4.5조원의 인수금융(LTV 63%)은 교과서적인 레버리지 구조였고, 인수 직후 실행한 Sale & Leaseback(S&L)으로 약 4조원을 유동화해 초기 부채를 상환했다. 그러나 오프라인 유통의 구조적 위기와 S&L로 인한 고정 임차료가 결합되면서 2024년 기업회생절차에 이르렀다 — LBO가 재무공학으로는 완성도가 높아도 산업 패러다임이 무너지면 의미 없음을 보여주는 케이스.",
+    tranches: [
+      { name: "TLA (은행 신디케이트)", amountDisplay: "₩2.5조", rate: "KORIBOR + 200~250bp", maturity: "5년", seniority: "senior-secured" as const, pct: 35, color: "bg-blue-500" },
+      { name: "TLB (국내 기관투자자)", amountDisplay: "₩1.0조", rate: "고정 5.5~6.5%", maturity: "7년", seniority: "senior-secured" as const, pct: 14, color: "bg-blue-400" },
+      { name: "HY 채권 (선순위 무담보)", amountDisplay: "₩0.5조", rate: "고정 7.0~8.0%", maturity: "5년", seniority: "senior-unsecured" as const, pct: 7, color: "bg-amber-500" },
+      { name: "메자닌 (CB·BW 구조)", amountDisplay: "₩0.5조", rate: "PIK 9~11%", maturity: "7년", seniority: "mezzanine" as const, pct: 7, color: "bg-purple-400" },
+      { name: "에쿼티 (MBK + CPPIB)", amountDisplay: "₩2.7조", rate: "목표 IRR 15~20%", maturity: "5-7년 Exit", seniority: "equity" as const, pct: 37, color: "bg-emerald-500" },
+    ],
+    metrics: [
+      { label: "인수 대금", value: "7.2조원", sub: "아시아 유통 LBO 역대 최대" },
+      { label: "Debt/EBITDA", value: "~6.5×", sub: "인수 당시 교과서적 범위 내" },
+      { label: "LTV (부채/자산)", value: "~63%", sub: "점포 부동산 기준 담보인정비율" },
+      { label: "S&L 유동화", value: "약 4조원", sub: "점포 매각 후 재임차 — 초기 부채 상환" },
+    ],
+    lessons: [
+      {
+        icon: "🏬",
+        title: "Sale & Leaseback — 자산을 팔고 임차인으로 남는 PE의 레버리지 기법",
+        body: "MBK는 인수 직후 홈플러스 점포를 리츠·부동산 펀드에 매각하고 장기 임차인으로 남는 S&L로 약 4조원을 회수했다. 단기 재무지표는 개선됐으나 점포당 연 수백억원의 임차료가 고정비로 고착되면서, 이커머스 경쟁 심화 시 생존을 위협하는 부메랑이 됐다.",
+      },
+      {
+        icon: "🇰🇷",
+        title: "한국 LBO 특수성 — 국제 LevFin vs 한국 인수금융",
+        body: "한국에는 HY채권 공개 시장이 사실상 없다. MBK는 국내 은행 신디케이트와 기관 투자자 TLB 구조를 활용한 한국형 인수금융으로 자금을 조달했다. 글로벌 LBO의 CLO·HY 신디케이션 대신 국내 은행·보험사·연기금이 레버리지드 파이낸싱의 공급자였다.",
+      },
+      {
+        icon: "⚡",
+        title: "LBO 수익의 역설 — PE는 S&L로 이미 수익을 상당 부분 회수했다",
+        body: "홈플러스가 기업회생에 들어갔음에도 MBK는 S&L 유동화(~4조원)와 배당 등을 통해 상당한 자금을 이미 회수했다는 분석이 있다. 이것이 LBO에서 에쿼티 투자자(PE)가 채권자보다 먼저 수익을 챙기는 구조의 논란을 낳는 핵심이며, LBO 이익 배분의 구조적 비대칭성을 보여준다.",
+      },
+    ],
+    relatedChapters: [
+      {
+        slug: "levfin-ecosystem",
+        chapterNum: "Ch.0",
+        title: "LevFin 에코시스템 전체 지도",
+        whyRelevant: "홈플러스 사례가 한국 PE 딜로 LevFin 에코시스템 챕터에 직접 등장 — 아시아 LBO 생태계 비교",
+      },
+      {
+        slug: "levfin-distressed",
+        chapterNum: "Ch.6",
+        title: "부실채권 & 구조조정 — LBO가 무너질 때",
+        whyRelevant: "홈플러스 기업회생 과정 — 한국 법정관리 vs 미국 Chapter 11 비교 분석의 실제 사례",
+      },
+      {
+        slug: "levfin-cases",
+        chapterNum: "Ch.7",
+        title: "LBO 케이스 종합 — 역사를 바꾼 5개 딜",
+        whyRelevant: "홈플러스 LBO가 5대 케이스 중 하나로 한국 LBO 특수성과 S&L 구조를 대표",
+      },
+    ],
+  },
+
   concepts: [
     { term: "LBO (차입 인수)", href: "/learn/lbo", description: "인수금융(차입)을 활용해 에쿼티 투입을 최소화하는 PE 핵심 인수 기법" },
     { term: "Sale & Leaseback", href: "/learn/sale-leaseback", description: "자산(부동산)을 매각하고 임차인으로 전환해 현금을 유동화하는 전략" },
