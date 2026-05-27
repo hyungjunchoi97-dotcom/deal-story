@@ -1063,6 +1063,13 @@ export default function LevFinCasesClient({ concept, lang }: Props) {
                 sub: ko ? "7.2조원, S&L 4조원 유동화, 기업회생 2024 — 한국 LBO 생태계 전체 분석" : "₩7.2T, ₩4T S&L monetization, 2024 insolvency — full Korean LBO ecosystem analysis",
               },
               {
+                href: `${base.replace("market-101", "deals")}/kkr-toys-r-us`,
+                initials: "KKR",
+                bg: "bg-blue-800",
+                title: ko ? "KKR × 토이저러스 (2005→2018) — 소매 LBO 파산의 교과서" : "KKR × Toys R Us (2005→2018) — Textbook Retail LBO Failure",
+                sub: ko ? "$53억 부채 → 연 $400M 이자 → 디지털 투자 봉쇄 → Chapter 11 → TLB 회수율 $0.22" : "$5.3B debt → $400M/yr interest → zero digital capex → Chapter 11 → TLB recovery $0.22",
+              },
+              {
                 href: `${base.replace("market-101", "deals")}/elon-musk-twitter`,
                 initials: "MUSK",
                 bg: "bg-gray-900",
@@ -1070,7 +1077,7 @@ export default function LevFinCasesClient({ concept, lang }: Props) {
                 sub: ko ? "$44B LBO, $13B 부채 신디케이션 실패, Debt/EBITDA 21배 — LevFin 딜 프로세스 실패 케이스" : "$44B LBO, $13B debt syndication failure, 21× Debt/EBITDA — LevFin deal process failure case study",
               },
             ].map((d, i) => (
-              <motion.div key={d.href} variants={fadeUp(i * 0.06)} className={i === 2 ? "sm:col-span-2" : ""}>
+              <motion.div key={d.href} variants={fadeUp(i * 0.06)} className={i === 3 ? "sm:col-span-2" : ""}>
                 <Link href={d.href} className="group flex gap-3 rounded-xl border border-amber-100 dark:border-amber-900/40 bg-amber-50/40 dark:bg-amber-900/10 p-4 hover:border-amber-300 dark:hover:border-amber-600 transition-colors">
                   <div className={`flex-shrink-0 w-10 h-10 rounded-xl ${d.bg} flex items-center justify-center`}>
                     <span className="text-white text-[8px] font-black leading-none">{d.initials}</span>

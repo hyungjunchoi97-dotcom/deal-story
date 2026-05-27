@@ -319,6 +319,12 @@ export interface DealData {
    * LBO 구조를 가진 딜에 추가해 LevFin 챕터 이해를 높임
    */
   levfinOverview?: LevFinOverview;
+
+  /**
+   * 신디케이티드론 관점 오버레이 — LevFin Overview 다음에 렌더링
+   * 대형 브리지론·신디론이 핵심인 딜에 추가해 신디케이티드론 챕터 이해를 높임
+   */
+  syndicatedLoanOverview?: SyndicatedLoanOverview;
 }
 
 // ── LevFin 오버레이 전용: LevFin Overview ────────────────────────────
@@ -362,6 +368,75 @@ export interface LevFinOverview {
   }>;
   /** 연관 LevFin 챕터 (Market 101 링크) */
   relatedChapters: LevFinChapterLink[];
+}
+
+// ── 신디케이티드론 오버레이 전용: Syndicated Loan Overview ────────────────
+
+export type SyndicatedLoanTrancheType =
+  | "bridge"
+  | "term-loan-a"
+  | "term-loan-b"
+  | "revolving"
+  | "bonds"
+  | "acquisition-facility"
+  | "other";
+
+export interface SyndicatedLoanTranche {
+  name: string;              // "인수 브리지론 (USD 트랑쉐)"
+  amountDisplay: string;     // "$35B"
+  type: SyndicatedLoanTrancheType;
+  arrangers: string;         // "BofAML · Deutsche · Goldman × 7개 주선은행"
+  pricing: string;           // "LIBOR + 150bp → step-up +225bp"
+  maturity: string;          // "최대 18개월"
+  pct?: number;              // 비율 (스택 바 시각화용)
+  color: string;             // Tailwind bg 클래스
+}
+
+export interface SyndicatedLoanArranger {
+  name: string;              // "Bank of America Merrill Lynch"
+  role: "bookrunner" | "mandated-lead-arranger" | "lead-arranger" | "co-arranger" | "participant";
+  commitmentDisplay?: string; // "$8.5B"
+  note?: string;              // "Equity Underwriter 겸임"
+}
+
+export interface SyndicatedLoanChapterLink {
+  slug: string;              // "syndicated-loan-process"
+  chapterNum: string;        // "Ch.3"
+  title: string;
+  whyRelevant: string;
+}
+
+export interface SyndicatedLoanOverview {
+  /** 섹션 앵글 배지 텍스트 */
+  angle: string;
+  /** 섹션 인트로 본문 */
+  body: string;
+  /** 론/채권 트랑쉐 목록 */
+  tranches: SyndicatedLoanTranche[];
+  /** 주선은행 목록 */
+  arrangers: SyndicatedLoanArranger[];
+  /** 핵심 지표 */
+  metrics: Array<{
+    label: string;
+    value: string;
+    sub: string;
+    isAlert?: boolean;
+  }>;
+  /** 딜 타임라인 (날짜 × 이벤트 × 플레이어 임팩트) */
+  timeline: Array<{
+    date: string;
+    event: string;
+    detail: string;
+    playerImpact?: string;
+  }>;
+  /** 이 딜의 신디론 핵심 교훈 */
+  lessons: Array<{
+    icon: string;
+    title: string;
+    body: string;
+  }>;
+  /** 연관 신디케이티드론 챕터 */
+  relatedChapters: SyndicatedLoanChapterLink[];
 }
 
 // ── 경영권 분쟁 전용: Control Battle Overview ─────────────────────

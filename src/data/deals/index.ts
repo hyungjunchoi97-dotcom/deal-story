@@ -65,6 +65,11 @@ import kraftUnilever from "./kraft-unilever";
 import hanmiPharmaControl from "./hanmi-pharma-control";
 import coucheTard7eleven from "./couche-tard-7eleven";
 import airgasAirProducts from "./airgas-air-products";
+// LevFin / 신디케이티드론 관점 딜
+import bayerMonsanto from "./bayer-monsanto";
+import kkrToysRUs from "./kkr-toys-r-us";
+import iheartmediaClearChannel from "./iheartmedia-clear-channel";
+import apolloCaesars from "./apollo-caesars";
 
 /**
  * 딜 레지스트리 — 새 딜 추가 시 import 후 배열에 추가
@@ -103,6 +108,7 @@ export const ALL_DEALS: DealData[] = [
   elliottHyundai,          // 2019-01-10 (activism)
   qualcommNxp,             // terminated 2018-07-26
   attTimeWarner,           // 2018-06-14
+  bayerMonsanto,           // 2018-06-07 (ma + 신디케이티드론)
   microsoftGithub,         // 2018-06-04
   salesforceMulesoft,      // 2018-05-01
   trianPg,                 // 2017-12-15 (activism)
@@ -124,7 +130,10 @@ export const ALL_DEALS: DealData[] = [
   pershingSquareCpRail,    // 2012-05-17 (activism)
   airgasAirProducts,       // 2011-02-11 (control, withdrawn)
   bhpRioTinto,             // 2008-11-25 (control, withdrawn)
+  apolloCaesars,           // 2008-01-28 (LevFin 코비넌트)
+  iheartmediaClearChannel, // 2008-07-30 (LevFin Hung Deal)
   jpmorganBearStearns,     // 2008-05-30 (금융위기)
+  kkrToysRUs,              // 2005-07-21 (LevFin 케이스)
   googleYoutube,           // 2006-10-31
   disneyPixar,             // 2006-05-05
   oraclePeoplesoft,        // 2004-12-28 (control)

@@ -1225,6 +1225,48 @@ export default function LevFinCreditMetricsClient({ concept, lang }: Props) {
           </ol>
         </motion.section>
 
+        {/* ── 딜 아카이브 연계 ── */}
+        <motion.section variants={fadeUp()} initial="hidden" whileInView="show" viewport={VP} className="mb-8">
+          <p className="text-[11px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3">
+            {ko ? "이 챕터로 이해하는 실제 딜 — 신용지표 현장" : "Real Deals That Illustrate These Credit Metrics"}
+          </p>
+          <div className="grid sm:grid-cols-2 gap-3">
+            {[
+              {
+                href: `${base.replace("market-101", "deals")}/kkr-toys-r-us`,
+                initials: "KKR",
+                bg: "bg-blue-800",
+                title: ko ? "KKR × 토이저러스 (2005→2018)" : "KKR × Toys R Us (2005→2018)",
+                sub: ko
+                  ? "Debt/EBITDA 6.2× Entry → ICR 1.5× → 소매 LBO 신용지표 경보등 완전 분석"
+                  : "6.2× entry leverage → 1.5× ICR → complete retail LBO credit metrics warning analysis",
+              },
+              {
+                href: `${base.replace("market-101", "deals")}/elon-musk-twitter`,
+                initials: "MUSK",
+                bg: "bg-gray-900",
+                title: ko ? "일론 머스크 × 트위터 (2022)" : "Elon Musk × Twitter (2022)",
+                sub: ko
+                  ? "Debt/EBITDA 21×, 이자보상배율 0.2× — 역대급 크레딧 메트릭 이상치 사례"
+                  : "21× Debt/EBITDA, 0.2× ICR — history's most extreme credit metric outlier",
+              },
+            ].map((d) => (
+              <Link key={d.href} href={d.href}>
+                <div className="group flex gap-3 p-4 rounded-xl border border-amber-100 dark:border-amber-900/40 bg-amber-50/40 dark:bg-amber-900/10 hover:border-amber-300 dark:hover:border-amber-600 hover:shadow-sm transition-all">
+                  <div className={`flex-shrink-0 w-10 h-10 rounded-lg ${d.bg} flex items-center justify-center`}>
+                    <span className="text-white text-[8px] font-black">{d.initials}</span>
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-[13px] font-bold text-gray-800 dark:text-gray-200 group-hover:text-amber-700 dark:group-hover:text-amber-300 transition-colors">{d.title}</p>
+                    <p className="text-[11px] text-gray-500 dark:text-gray-400 leading-snug mt-0.5">{d.sub}</p>
+                  </div>
+                  <span className="flex-shrink-0 text-gray-300 dark:text-gray-600 group-hover:text-amber-400 transition-colors self-center text-lg">→</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </motion.section>
+
         <ShareButtons
           title={ko
             ? "LevFin Ch.2 크레딧 메트릭 — Leverage·Coverage·EBITDA 심층 해부 | Deal Story"

@@ -1006,6 +1006,13 @@ export default function LevFinPricingClient({ concept, lang }: Props) {
                 title: ko ? "일론 머스크 × 트위터 (2022) — Market Flex의 한계와 2022 금리 충격" : "Elon Musk × Twitter (2022) — Market Flex Limits & the 2022 Rate Shock",
                 sub: ko ? "브리지론 Flex 15%+ 적용 후에도 신디케이션 실패 — OID와 NIC가 한계에 봉착한 사례" : "Even after 15%+ flex, syndication failed — OID and NIC hitting their limits in practice",
               },
+              {
+                href: `${base.replace("market-101", "deals")}/iheartmedia-clear-channel`,
+                initials: "CCO",
+                bg: "bg-slate-700",
+                title: ko ? "Clear Channel → iHeartMedia (2008) — Hung Deal의 교과서" : "Clear Channel → iHeartMedia (2008) — The Hung Deal Textbook",
+                sub: ko ? "LIBOR+265bp 약정 → +350bp 플렉스 → 시장 닫힘 → MAC 소송 → 강제 클로징 → $1.5B 은행 손실" : "LIBOR+265bp committed → +350bp flex → market closed → MAC suit → forced close → $1.5B bank losses",
+              },
             ].map((d, i) => (
               <motion.div key={d.href} variants={fadeUp(i * 0.06)}>
                 <Link href={d.href} className="group flex gap-3 rounded-xl border border-amber-100 dark:border-amber-900/40 bg-amber-50/40 dark:bg-amber-900/10 p-4 hover:border-amber-300 dark:hover:border-amber-600 transition-colors">

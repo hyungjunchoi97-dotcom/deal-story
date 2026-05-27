@@ -949,6 +949,43 @@ export default function SyndicatedLoanProcessClient({ concept, lang }: Props) {
             </ol>
           </motion.section>
 
+          {/* ── 딜 아카이브 연계 ── */}
+          <motion.section variants={fadeUp()} initial="hidden" whileInView="show" viewport={VP} className="mb-8">
+            <h2 className="text-base font-bold text-gray-700 dark:text-gray-200 mb-3">
+              {ko ? "딜 아카이브 — 프로세스 실전 케이스" : "Deal Archive — Process in Action"}
+            </h2>
+            <div className="grid sm:grid-cols-2 gap-3">
+              {[
+                {
+                  slug: "bayer-monsanto",
+                  badge: ko ? "IG 브리지 프로세스" : "IG Bridge Process",
+                  title: ko ? "바이엘 × 몬산토 (2018)" : "Bayer × Monsanto (2018)",
+                  desc: ko
+                    ? "발표 → 약정 → 18개월 리파이낸싱 — 교과서적 IG 브리지 실행 로드맵"
+                    : "Announcement → Commitment → 18-month refinancing — textbook IG bridge execution",
+                  logo: "BAYER",
+                  bg: "bg-[#10384F]",
+                },
+              ].map((d) => (
+                <Link key={d.slug} href={`/deals/${d.slug}`}>
+                  <div className="group flex gap-3 p-4 rounded-xl border border-cyan-200 dark:border-cyan-800 bg-cyan-50/40 dark:bg-cyan-900/10 hover:border-cyan-400 dark:hover:border-cyan-600 hover:shadow-sm transition-all">
+                    <div className={`flex-shrink-0 w-10 h-10 rounded-lg ${d.bg} flex items-center justify-center`}>
+                      <span className="text-white text-[9px] font-black">{d.logo}</span>
+                    </div>
+                    <div className="min-w-0">
+                      <span className="text-[10px] font-bold text-cyan-600 dark:text-cyan-400 uppercase block mb-0.5">{d.badge}</span>
+                      <p className="text-[13px] font-bold text-gray-800 dark:text-gray-200 group-hover:text-cyan-700 dark:group-hover:text-cyan-300 transition-colors">
+                        {d.title}
+                      </p>
+                      <p className="text-[11px] text-gray-500 dark:text-gray-400 leading-snug mt-0.5">{d.desc}</p>
+                    </div>
+                    <span className="flex-shrink-0 text-cyan-300 dark:text-cyan-700 group-hover:text-cyan-500 dark:group-hover:text-cyan-400 transition-colors self-center text-lg">→</span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </motion.section>
+
           <ShareButtons
             title={ko ? concept.title : (concept.titleEn || concept.title)}
           />

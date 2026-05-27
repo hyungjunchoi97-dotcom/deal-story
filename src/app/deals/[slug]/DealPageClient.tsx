@@ -18,6 +18,7 @@ import GovernanceOverviewSection from "@/components/deal/GovernanceOverviewSecti
 import ControlBattleSection from "@/components/deal/ControlBattleSection";
 import RestructuringSection from "@/components/deal/RestructuringSection";
 import LevFinSection from "@/components/deal/LevFinSection";
+import SyndicatedLoanSection from "@/components/deal/SyndicatedLoanSection";
 import { formatDealDate } from "@/lib/format";
 import type { DealData } from "@/lib/deal-data";
 
@@ -526,6 +527,16 @@ export default function DealPageClient({
                 {lang === "en" ? "LevFin Deep-Dive — Debt Structure Anatomy" : "LevFin 관점 — 부채 구조 해부"}
               </SectionTitle>
               <LevFinSection data={deal.levfinOverview} lang={lang} />
+            </>
+          )}
+
+          {/* ── 10-C. Syndicated Loan Overview (대형 브리지·신디론 딜 전용) */}
+          {deal.syndicatedLoanOverview && (
+            <>
+              <SectionTitle>
+                {lang === "en" ? "Syndicated Loan Deep-Dive — Bridge to Permanent Financing" : "신디케이티드론 관점 — 브리지에서 영구조달까지"}
+              </SectionTitle>
+              <SyndicatedLoanSection data={deal.syndicatedLoanOverview} lang={lang} />
             </>
           )}
 
