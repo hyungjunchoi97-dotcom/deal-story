@@ -732,6 +732,40 @@ export default function StructuredCdoClient({ concept, lang }: Props) {
           </div>
         </motion.section>
 
+        {/* ══ 관련 마켓 케이스 ══════════════════════════════════════════════ */}
+        <motion.section initial="hidden" whileInView="show" viewport={VP} variants={fadeUp()} className="mb-16">
+          <h2 className="text-xl font-black text-gray-900 dark:text-gray-50 mb-2">
+            {ko ? "관련 마켓 케이스" : "Related Market Cases"}
+          </h2>
+          <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+            {ko ? "이 챕터의 개념이 실전에서 어떻게 작동했는지 확인하세요." : "See how the concepts in this chapter played out in real deals."}
+          </p>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {([
+              { slug: "abacus-2007-ac1", icon: "📉", category: (k: boolean) => k ? "구조화금융" : "Structured Finance", title: (k: boolean) => k ? "Abacus 2007-AC1 — Goldman Sachs CDO 사기" : "Abacus 2007-AC1 — The Goldman Sachs CDO Fraud", desc: (k: boolean) => k ? "Big Short의 실제 주인공 딜. 합성 CDO 구조, 이해충돌, SEC $550M 합의 — CDO 붕괴의 가장 극적인 케이스." : "The real deal behind the Big Short. Synthetic CDO, conflicts of interest, $550M SEC settlement — the most dramatic CDO collapse.", year: "2007", badge: "bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-300" },
+              { slug: "bowie-bonds", icon: "🎸", category: (k: boolean) => k ? "구조화금융" : "Structured Finance", title: (k: boolean) => k ? "보위 본드 (1997) — 미래 로열티를 증권화하다" : "Bowie Bonds (1997) — Securitizing Future Royalties", desc: (k: boolean) => k ? "CDO와 달리 단순한 자산 기반 ABS는 어떻게 위기를 버텼나. Abacus CDO와 비교하면 구조화금융의 선과 악이 보인다." : "How simple asset-backed ABS weathered the crisis unlike CDOs. Compare with Abacus to see structured finance at its best and worst.", year: "1997", badge: "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300" },
+            ]).map((c, i) => (
+              <motion.div key={i} initial="hidden" whileInView="show" viewport={VP} variants={fadeUp(i * 0.08)}>
+                <Link href={`${ko ? "" : "/en"}/market/${c.slug}`}
+                  className="group flex flex-col gap-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/40 p-5 hover:border-red-400 dark:hover:border-red-600 transition-colors">
+                  <div className="flex items-start gap-3">
+                    <span className="text-2xl shrink-0">{c.icon}</span>
+                    <div className="flex-1 min-w-0">
+                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full mb-2 inline-block ${c.badge}`}>{c.category(ko)}</span>
+                      <p className="text-sm font-bold text-gray-900 dark:text-gray-50 leading-snug group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors mb-1">{c.title(ko)}</p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{c.desc(ko)}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between pt-2 border-t border-gray-200 dark:border-gray-700">
+                    <span className="text-[10px] text-gray-400">{c.year}</span>
+                    <span className="text-xs text-gray-400 group-hover:text-red-500 transition-colors">{ko ? "읽기" : "Read"} →</span>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </motion.section>
+
         <ShareButtons
           title={ko
             ? "CDO & 합성CDO — 2008 금융위기를 만든 구조화금융의 폭탄 | Deal Story"

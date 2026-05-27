@@ -553,7 +553,7 @@ Bowie Bonds was a creative and pioneering deal. But the most important lesson is
         definitionEn: "A structure that issues securities backed by future cash flows that have not yet been generated. Unlike conventional ABS backed by existing assets (such as outstanding loan receivables), future flow securitization uses collateral that will be generated in the future: royalties, export receivables, remittances, etc. Predictability of cash flows is the critical risk. Bowie Bonds is the canonical example.",
       },
     ],
-    relatedMarket101Slugs: [],
+    relatedMarket101Slugs: ["structured-abs", "structured-overview"],
     relatedDealSlugs: ["world-bank-green-bond", "eu-ngeu-bonds"],
     executiveSummary: {
       ko: [
@@ -5038,6 +5038,704 @@ Through the 2020s, Apple continued issuing $10–20 billion annually. The purpos
         year: "2023",
         url: "https://www.federalreserve.gov/publications/files/svb-review-20230428.pdf",
       },
+    ],
+  },
+
+  {
+    slug: "abacus-2007-ac1",
+    title: "Abacus 2007-AC1 — Goldman Sachs가 설계한 CDO 사기",
+    titleEn: "Abacus 2007-AC1 — The Goldman Sachs CDO Fraud",
+    category: "structure",
+    categoryLabel: "구조화금융",
+    categoryLabelEn: "Structured Finance",
+    excerpt: "존 폴슨이 숏을 치기 위해 설계하고, Goldman이 팔고, IKB가 샀다. Big Short의 실제 주인공 딜 — SEC 역대 최대 합의금 $5억 5천만.",
+    excerptEn: "Paulson designed it to short, Goldman sold it, IKB bought it. The real deal behind the Big Short — a $550M SEC settlement record.",
+    dealYear: 2007,
+    issuer: "Goldman Sachs",
+    issuerEn: "Goldman Sachs",
+    readingMinutes: 12,
+    tags: ["CDO", "합성CDO", "Goldman Sachs", "SEC", "빅쇼트", "구조화금융"],
+    tagsEn: ["CDO", "Synthetic CDO", "Goldman Sachs", "SEC", "Big Short", "Structured Finance"],
+    published: true,
+    snapshot: [
+      { labelKo: "발행사", labelEn: "Issuer", value: "Goldman Sachs (ACA Management)" },
+      { labelKo: "발행연도", labelEn: "Year", value: "2007" },
+      { labelKo: "발행규모", labelEn: "Size", value: "$2B (합성 노출)" },
+      { labelKo: "담보", labelEn: "Collateral", value: "90개 서브프라임 RMBS CDS" },
+      { labelKo: "포트폴리오 선정", labelEn: "Portfolio Selection", value: "Paulson & Co. (공개 안 됨)" },
+      { labelKo: "투자자 손실", labelEn: "Investor Loss", value: "~$1B (IKB·ACA)" },
+      { labelKo: "Paulson 수익", labelEn: "Paulson Gain", value: "~$1B" },
+      { labelKo: "SEC 합의금", labelEn: "SEC Settlement", value: "$550M (2010)" },
+    ],
+    sections: [
+      {
+        heading: "딜의 탄생 — 폴슨의 아이디어",
+        headingEn: "The Deal's Origin — Paulson's Idea",
+        body:
+`2006년 말, 존 폴슨(John Paulson)은 확신하고 있었다. 미국 서브프라임 주택담보대출 시장이 붕괴할 것이라고. 문제는 방법이었다. 개별 RMBS(주택담보대출 증권)를 직접 공매도하기엔 시장이 비효율적이었고, 거래 비용도 컸다.
+
+폴슨의 팀은 Goldman Sachs에 제안했다: 우리가 공매도할 포트폴리오를 구성해달라. 구체적으로 — 가장 부실할 것 같은 90개 서브프라임 RMBS를 기초자산으로 하는 합성 CDO(Synthetic CDO)를 만들고, 우리는 CDS를 통해 그 포트폴리오에 숏 포지션을 취할 것이다.
+
+Goldman은 이 아이디어를 사업으로 만들었다. ACA Management라는 CDO 매니저를 고용해 포트폴리오 선정을 맡겼다. 그러나 ACA에게 결정적 사실을 알리지 않았다: 실제 포트폴리오 구성을 가장 큰 영향력으로 주도한 것은 폴슨이었고, 폴슨은 이 딜에서 숏 포지션을 취할 계획이라는 것.
+
+2007년 4월, Abacus 2007-AC1이 발행됐다.`,
+        bodyEn:
+`In late 2006, John Paulson was convinced: the US subprime mortgage market would collapse. The problem was how. Short-selling individual RMBS securities was market-inefficient and costly.
+
+Paulson's team approached Goldman Sachs with a proposal: build us a portfolio to short. Specifically — create a synthetic CDO referencing 90 subprime RMBS securities most likely to fail, and we'll take a short position via CDS on that portfolio.
+
+Goldman turned this idea into a business. It hired ACA Management as the CDO manager to handle portfolio selection. But it failed to disclose a critical fact to ACA: the entity that had the most influence on the actual portfolio composition was Paulson, who planned to take a short position on this deal.
+
+In April 2007, Abacus 2007-AC1 was issued.`,
+      },
+      {
+        heading: "합성 CDO의 구조 — 어떻게 $2B 노출이 만들어졌나",
+        headingEn: "The Synthetic CDO Structure — How $2B of Exposure Was Created",
+        body:
+`Abacus 2007-AC1은 '합성' CDO였다. 실제 RMBS를 보유하지 않고, 신용부도스왑(CDS)을 통해 90개 서브프라임 RMBS에 대한 합성 노출만 취했다.
+
+구조: Goldman이 SPV를 설립 → SPV가 CDS 계약의 '보장 매도자(Protection Seller)' 역할 → 폴슨은 '보장 매수자(Protection Buyer)' → RMBS가 부도나면 폴슨이 SPV로부터 보상 수취.
+
+투자자(IKB Deutsche Industriebank, ACA Financial Guaranty 등)는 이 SPV에 투자 → 실질적으로 해당 RMBS 포트폴리오에 롱 포지션 취득. 만약 RMBS들이 잘 버티면 투자자는 스프레드를 받지만, RMBS가 부도나면 투자자 원금에서 손실이 난다.
+
+폴슨은 포트폴리오 선정에 깊이 관여하면서 가장 부실한 RMBS를 골랐다. 동시에 Goldman에게 이 정보를 다른 투자자에게 공개하지 말아달라고 했다. Goldman은 이를 수용했다. ACA는 자신이 '롱 포지션을 취하는 독립적 매니저'라고 믿었다.`,
+        bodyEn:
+`Abacus 2007-AC1 was a 'synthetic' CDO. Rather than holding actual RMBS securities, it created synthetic exposure to 90 subprime RMBS through credit default swaps (CDS).
+
+Structure: Goldman established an SPV → the SPV acted as 'protection seller' under CDS contracts → Paulson was the 'protection buyer' → if RMBS defaulted, Paulson received payment from the SPV.
+
+Investors (IKB Deutsche Industriebank, ACA Financial Guaranty, etc.) invested in this SPV → effectively taking a long position on those RMBS securities. If RMBS held up, investors received spread income; if RMBS defaulted, investors lost principal.
+
+Paulson was deeply involved in portfolio selection, handpicking the most likely-to-fail RMBS. Simultaneously, he asked Goldman not to disclose this to other investors. Goldman complied. ACA believed it was acting as an 'independent manager taking a long position.'`,
+      },
+      {
+        heading: "붕괴 — 9개월 만에 99% 손실",
+        headingEn: "The Collapse — 99% Loss in 9 Months",
+        body:
+`2007년 4월 발행 이후 9개월이 지난 2008년 1월, Abacus 2007-AC1의 기초자산인 90개 서브프라임 RMBS 포트폴리오 99% 이상이 부도 또는 등급 강등됐다.
+
+IKB는 약 $1억 5천만, ACA Financial Guaranty는 약 $9억 이상의 손실을 봤다. 두 기관 합산 약 $1B+ 손실. 반면 폴슨 앤 컴퍼니는 이 딜에서만 약 $1B의 수익을 거뒀다. 폴슨의 2007년 전체 수익은 약 $37억 달러에 달했다.
+
+Goldman도 이 딜에서 일부 롱 포지션을 취했고 약 $9,000만의 손실을 봤다. 그러나 Goldman은 전체적으로는 이 시기 서브프라임에 숏 포지션을 유지해 수익을 냈다.
+
+핵심 문제: 투자자들은 포트폴리오 선정자가 숏 포지션을 취할 예정이었다는 사실을 몰랐다. 이것이 SEC 소송의 핵심이었다.`,
+        bodyEn:
+`Nine months after the April 2007 issuance, by January 2008, more than 99% of the 90 subprime RMBS portfolio underlying Abacus 2007-AC1 had defaulted or been severely downgraded.
+
+IKB lost approximately $150M; ACA Financial Guaranty lost over $900M. Combined investor losses exceeded $1B. Meanwhile, Paulson & Co. earned approximately $1B from this deal alone. Paulson's total 2007 profits reached approximately $3.7B.
+
+Goldman also held some long positions and lost around $90M on this deal. However, Goldman maintained net short positions in subprime overall and was profitable during this period.
+
+The core problem: investors had no idea that the entity selecting the portfolio planned to short it. This was the crux of the SEC's case.`,
+      },
+      {
+        heading: "SEC 소송 — 역사적 합의",
+        headingEn: "SEC Lawsuit — Historic Settlement",
+        body:
+`2010년 4월, SEC는 Goldman Sachs를 증권 사기 혐의로 기소했다. 핵심 주장: Goldman이 Abacus 딜 마케팅 자료에서 "폴슨이 포트폴리오 선정에 관여했고 숏 포지션을 취할 예정"이라는 사실을 누락해 투자자를 오도했다.
+
+Goldman의 입장: "폴슨이 숏 포지션을 취한다는 사실을 공개할 법적 의무가 없었다. ACA가 독립적으로 포트폴리오를 검토하고 승인했다."
+
+2010년 7월, Goldman은 $5억 5천만 합의금을 내고 사건을 종결했다. 이는 당시 SEC 역사상 최대 규모의 증권 사기 합의금이었다. Goldman은 "마케팅 자료에 중요한 정보가 불충분하게 반영됐다"고 인정했으나, 의도적 사기는 부인했다.
+
+폴슨은 기소되지 않았다. 법적으로 투자자에 대한 의무가 없는 거래 상대방이었기 때문이다.
+
+이 사건은 구조화금융에서 '이해충돌 공시'가 얼마나 중요한지를 각인시켰고, 이후 금융규제 강화 논의의 핵심 사례가 됐다.`,
+        bodyEn:
+`In April 2010, the SEC charged Goldman Sachs with securities fraud. The core allegation: Goldman had misled investors by omitting from Abacus marketing materials the fact that Paulson had been involved in portfolio selection and intended to take a short position.
+
+Goldman's position: "There was no legal obligation to disclose that Paulson would take a short position. ACA independently reviewed and approved the portfolio."
+
+In July 2010, Goldman settled for $550M — at the time, the largest securities fraud settlement in SEC history. Goldman admitted that marketing materials "contained incomplete information" but denied intentional fraud.
+
+Paulson was not charged. As a counterparty, he owed no legal duty to the investors.
+
+This case underscored how critical 'conflict of interest disclosure' is in structured finance, and became a centerpiece of post-crisis financial regulatory reform discussions.`,
+      },
+      {
+        heading: "교훈 — CDO 구조의 근본적 취약점",
+        headingEn: "Lessons — Fundamental Vulnerabilities of CDO Structures",
+        body:
+`Abacus 2007-AC1은 구조화금융의 세 가지 근본적 취약점을 동시에 보여준다.
+
+첫째, 정보 비대칭: 복잡한 구조는 정보 격차를 만든다. 폴슨이 포트폴리오를 설계했다는 사실을 투자자가 알았다면 투자했겠는가? 구조가 복잡할수록 정보 비대칭 리스크는 커진다.
+
+둘째, 등급의 한계: AAA 등급이 부여된 트랑쉐도 9개월 만에 전손이 났다. 등급 모델이 서브프라임 모기지 간의 높은 상관관계를 반영하지 못했다. "등급은 구조를 평가하지, 의도를 평가하지 않는다."
+
+셋째, 인센티브 정렬 실패: Goldman은 이 딜을 팔면서 수수료를 받았다. 폴슨은 딜 설계에서 이익을 얻었다. 투자자만 정보 없이 리스크를 안았다. 이해충돌이 구조 전체에 내재되어 있었다.
+
+Big Short의 마이클 버리, 폴슨, 스티브 아이스먼이 주목한 것은 단순히 '주택 가격이 하락한다'가 아니었다. 그들은 '이 구조 자체가 부패했다'는 것을 알아챈 것이다.`,
+        bodyEn:
+`Abacus 2007-AC1 simultaneously demonstrates three fundamental vulnerabilities of structured finance.
+
+First, information asymmetry: complexity creates information gaps. If investors had known Paulson designed the portfolio, would they have invested? The more complex the structure, the greater the information asymmetry risk.
+
+Second, ratings limitations: even AAA-rated tranches suffered total loss in nine months. Rating models failed to capture the high correlation between subprime mortgages. "Ratings evaluate structure, not intent."
+
+Third, incentive misalignment failure: Goldman earned fees from selling the deal. Paulson profited from designing it. Only investors bore the risk without full information. Conflicts of interest were embedded throughout the structure.
+
+What Michael Burry, Paulson, and Steve Eisman in The Big Short recognized was not simply 'housing prices will fall.' They identified that 'the structure itself was corrupt.'`,
+      },
+    ],
+    keyTerms: [
+      {
+        term: "합성 CDO (Synthetic CDO)",
+        termEn: "Synthetic CDO",
+        definition: "실제 자산을 보유하지 않고 신용부도스왑(CDS)을 통해 특정 자산 포트폴리오에 대한 합성 노출만 취하는 CDO. 실물 자산 매입 없이 대규모 신용 포지션 구축 가능. 레버리지 효과가 매우 크고 투명성이 낮다. Abacus 2007-AC1이 대표적 사례로, 실제 RMBS 없이 CDS로만 $2B 노출을 만들었다.",
+        definitionEn: "A CDO that creates synthetic exposure to a specific asset portfolio via credit default swaps (CDS) without holding actual assets. Enables construction of large credit positions without physical asset purchases. Highly leveraged with low transparency. Abacus 2007-AC1 is the canonical example — $2B of exposure created entirely through CDS with no actual RMBS holdings.",
+      },
+      {
+        term: "이해충돌 공시 (Conflict of Interest Disclosure)",
+        termEn: "Conflict of Interest Disclosure",
+        definition: "금융 거래에서 한 당사자가 다른 당사자와 상충되는 이해관계를 가질 때 이를 공개할 의무. Abacus 딜에서 Goldman은 포트폴리오 선정에 관여한 폴슨이 숏 포지션을 취할 예정이라는 사실을 공개하지 않았다. SEC는 이를 증권법 위반으로 판단해 $550M 합의를 이끌어냈다. 이후 구조화금융 규제에서 이해충돌 공시 요건이 강화됐다.",
+        definitionEn: "The obligation to disclose when one party in a financial transaction has interests that conflict with another party. In the Abacus deal, Goldman failed to disclose that Paulson — who influenced portfolio selection — intended to take a short position. The SEC ruled this violated securities law, resulting in a $550M settlement. Post-crisis structured finance regulations significantly strengthened conflict of interest disclosure requirements.",
+      },
+      {
+        term: "CDS (신용부도스왑)",
+        termEn: "CDS (Credit Default Swap)",
+        definition: "특정 준거 자산(채권, 대출 등)의 신용사건(부도, 등급 강등 등) 발생 시 보장 매도자가 보장 매수자에게 손실을 보상하는 파생상품. 보장 매수자는 정기적으로 프리미엄을 지급한다. CDS를 통해 실제 자산 없이 신용 포지션 구축 가능. Abacus 딜에서 폴슨은 보장 매수자(숏 포지션), 투자자들은 실질적 보장 매도자(롱 포지션) 역할을 했다.",
+        definitionEn: "A derivative where the protection seller compensates the protection buyer for losses if a credit event (default, downgrade, etc.) occurs on a reference asset (bond, loan, etc.). The protection buyer pays periodic premiums. CDS enables construction of credit positions without holding actual assets. In the Abacus deal, Paulson was the protection buyer (short), while investors effectively acted as protection sellers (long).",
+      },
+      {
+        term: "빅쇼트 트레이드 (The Big Short)",
+        termEn: "The Big Short Trade",
+        definition: "2006~2008년 일부 헤지펀드 매니저들(마이클 버리, 존 폴슨, 스티브 아이스먼 등)이 서브프라임 RMBS와 CDO에 대한 CDS를 매입해 서브프라임 시장 붕괴에 베팅한 거래. 이들은 시장이 과소 평가한 RMBS 부실화 리스크와 CDO 구조의 취약성을 먼저 인식했다. Abacus 딜은 폴슨이 이 전략을 실행한 대표적 수단이었다.",
+        definitionEn: "Trades executed in 2006–2008 by certain hedge fund managers (Michael Burry, John Paulson, Steve Eisman, etc.) who purchased CDS on subprime RMBS and CDOs, betting on the collapse of the subprime market. They recognized before the market the underestimated risk of RMBS deterioration and structural vulnerabilities in CDOs. The Abacus deal was a key vehicle through which Paulson executed this strategy.",
+      },
+    ],
+    relatedMarket101Slugs: ["structured-cdo", "structured-overview", "structured-cases"],
+    relatedDealSlugs: ["bowie-bonds", "svb-2023"],
+    executiveSummary: {
+      ko: [
+        "2007년 Goldman Sachs가 발행한 합성 CDO — 폴슨이 숏 포지션을 위해 포트폴리오를 설계하고 Goldman이 투자자에게 판매",
+        "9개월 만에 기초자산 99% 이상 부실화 → 투자자 약 $1B 손실, 폴슨 약 $1B 수익",
+        "2010년 SEC 소송 → Goldman $550M 합의 (당시 SEC 역대 최대), 마케팅 자료의 '불충분한 정보' 인정",
+        "폴슨은 기소되지 않음 — 투자자에 대한 법적 의무 없는 거래 상대방",
+        "교훈: 구조의 복잡성이 정보 비대칭을 만들고, 이해충돌 공시 실패가 시스템 리스크로 연결된다",
+      ],
+      en: [
+        "Goldman Sachs-issued synthetic CDO in 2007 — Paulson designed the portfolio for a short position; Goldman sold it to investors",
+        "99%+ of underlying assets impaired within 9 months → ~$1B investor losses, ~$1B Paulson profit",
+        "2010 SEC lawsuit → $550M Goldman settlement (record at the time), acknowledgment of 'incomplete information' in marketing materials",
+        "Paulson not charged — counterparty with no legal duty to investors",
+        "Lesson: structural complexity creates information asymmetry; conflict of interest disclosure failures lead to systemic risk",
+      ],
+    },
+    assessment: {
+      positives: [
+        "구조적으로는 합성 CDO 메커니즘이 의도대로 작동 — CDS 계약 이행, SPV 구조 유지",
+        "시장 비효율성 발견: 폴슨·버리 등이 시장이 과소평가한 위험을 인식한 것은 정보 우위의 결과",
+        "규제 개선 촉진: Abacus 사건은 Dodd-Frank Act 제941조 (ABS 발행자 리스크 보유 의무) 등 구조화금융 규제 강화로 이어짐",
+      ],
+      positivesEn: [
+        "Structurally, the synthetic CDO mechanism worked as intended — CDS contracts honored, SPV structure maintained",
+        "Market inefficiency discovery: Paulson and Burry recognizing underpriced risk was the result of genuine information advantage",
+        "Regulatory improvement: The Abacus case contributed to Dodd-Frank Act Section 941 (ABS issuer risk retention requirements) and broader structured finance reform",
+      ],
+      risks: [
+        "정보 비대칭 고의적 활용: 포트폴리오 설계자의 숏 포지션을 투자자에게 공개하지 않은 것은 윤리적으로도 문제",
+        "등급의 실패: AAA 등급 트랑쉐가 9개월 만에 전손 — 신용평가 모델의 상관관계 가정 붕괴",
+        "시스템적 함의: Abacus 류의 합성 CDO가 실물 경제와 무관한 거대 리스크 포지션을 만들어 금융 위기를 증폭",
+        "교훈 미흡: 2010년 이후에도 유사한 구조가 변형된 형태로 계속 활용됨",
+      ],
+      risksEn: [
+        "Deliberate exploitation of information asymmetry: failing to disclose the portfolio designer's short position to investors was ethically problematic",
+        "Rating failure: AAA-rated tranches suffered total loss in nine months — correlation assumption breakdown in credit rating models",
+        "Systemic implications: synthetic CDOs like Abacus created massive risk positions disconnected from real economic activity, amplifying the financial crisis",
+        "Incomplete lesson: similar structures continued to be used in modified forms post-2010",
+      ],
+    },
+    faq: [
+      {
+        q: "폴슨은 왜 기소되지 않았나요?",
+        qEn: "Why wasn't Paulson charged?",
+        a: "폴슨은 투자자에 대한 법적 공시 의무가 없는 '거래 상대방'이었기 때문입니다. SEC의 주장은 Goldman이 마케팅 자료에서 중요 정보를 누락해 투자자를 오도했다는 것이었지, 폴슨이 허위 진술을 했다는 것이 아니었습니다. 폴슨은 공개적으로 숏 포지션을 취하는 거래 상대방이었고, 그 사실이 Goldman에게만 알려졌을 뿐입니다. 금융 시장에서 거래 상대방이 반대 포지션을 취하는 것 자체는 불법이 아닙니다.",
+        aEn: "Paulson was a 'counterparty' with no legal disclosure obligation to investors. The SEC's allegation was that Goldman misled investors by omitting material information from marketing materials — not that Paulson made false statements. Paulson was a counterparty openly taking a short position, a fact known only to Goldman. Taking an opposing position as a counterparty in financial markets is not itself illegal.",
+      },
+      {
+        q: "Goldman이 마케팅 자료에 뭘 안 썼나요?",
+        qEn: "What did Goldman omit from marketing materials?",
+        a: "핵심 누락 내용: (1) Paulson & Co.가 포트폴리오 선정에 실질적으로 관여했다는 사실, (2) Paulson이 최종적으로 해당 포트폴리오에 대한 숏 포지션(CDS 보장 매수)을 취할 것이라는 사실. Goldman의 마케팅 자료는 ACA Management가 '독립적인 포트폴리오 매니저'라고 표현했지만, 실제로는 폴슨의 영향력이 상당했습니다. SEC는 투자자들이 이 사실을 알았다면 투자 결정이 달랐을 것이라고 주장했습니다.",
+        aEn: "The key omissions: (1) that Paulson & Co. had materially influenced the portfolio selection process; (2) that Paulson intended to take a short position (buy CDS protection) on the resulting portfolio. Goldman's marketing materials described ACA Management as an 'independent portfolio manager,' while in reality Paulson's influence was substantial. The SEC argued that investors would have made different investment decisions had they known this.",
+      },
+      {
+        q: "합성 CDO가 실제 CDO보다 위험한 이유는 무엇인가요?",
+        qEn: "Why is a synthetic CDO more dangerous than a cash CDO?",
+        a: "세 가지 이유입니다. 첫째, 레버리지: 합성 CDO는 실물 자산 없이 CDS만으로 무제한의 포지션을 만들 수 있습니다. 서브프라임 위기 당시 실물 모기지 총액보다 훨씬 큰 규모의 합성 CDO가 발행됐습니다. 둘째, 투명성: 실물 RMBS는 보고 분석이 가능하지만, CDS 기반 합성 노출은 파악이 어렵습니다. 셋째, 인센티브: 합성 CDO 발행자(Goldman)는 기초자산을 실제 보유하지 않으므로 자산 품질에 대한 직접 인센티브가 없습니다.",
+        aEn: "Three reasons. First, leverage: synthetic CDOs can create unlimited positions using only CDS, without physical assets. During the subprime crisis, the notional value of synthetic CDOs issued far exceeded the total outstanding subprime mortgages. Second, transparency: actual RMBS can be examined and analyzed; synthetic CDS-based exposure is difficult to track. Third, incentives: synthetic CDO issuers (Goldman) don't hold the underlying assets, removing direct incentives to care about asset quality.",
+      },
+    ],
+    references: [
+      { id: 1, author: "SEC", title: "SEC v. Goldman, Sachs & Co. — Litigation Release", source: "U.S. Securities and Exchange Commission", year: "2010", url: "https://www.sec.gov/litigation/complaints/2010/comp21489.pdf" },
+      { id: 2, author: "Lewis, Michael", title: "The Big Short: Inside the Doomsday Machine", source: "W. W. Norton & Company", year: "2010" },
+      { id: 3, author: "FCIC", title: "Financial Crisis Inquiry Commission Final Report", source: "U.S. Government", year: "2011", url: "https://fcic.law.stanford.edu/" },
+    ],
+  },
+
+  {
+    slug: "hertz-fleet-abs-2020",
+    title: "Hertz Fleet ABS (2020) — 파산해도 AAA는 살아남는다",
+    titleEn: "Hertz Fleet ABS (2020) — AAA Survives Bankruptcy",
+    category: "structure",
+    categoryLabel: "구조화금융",
+    categoryLabelEn: "Structured Finance",
+    excerpt: "렌터카 1위 Hertz가 코로나로 파산했다. 하지만 차량 담보 ABS AAA 투자자들은 전액 회수했다. True Sale과 파산 격리의 실전 증명.",
+    excerptEn: "Hertz, the #1 car rental company, went bankrupt due to COVID. But AAA investors in its fleet ABS were fully repaid. True Sale and bankruptcy remoteness proven in practice.",
+    dealYear: 2020,
+    issuer: "Hertz Global Holdings",
+    issuerEn: "Hertz Global Holdings",
+    readingMinutes: 10,
+    tags: ["ABS", "파산격리", "True Sale", "자동차ABS", "COVID", "구조화금융"],
+    tagsEn: ["ABS", "Bankruptcy Remoteness", "True Sale", "Auto ABS", "COVID", "Structured Finance"],
+    published: true,
+    snapshot: [
+      { labelKo: "발행사", labelEn: "Issuer", value: "Hertz Vehicle Financing LLC (SPV)" },
+      { labelKo: "파산 신청", labelEn: "Bankruptcy Filing", value: "2020년 5월 22일" },
+      { labelKo: "ABS 잔액", labelEn: "ABS Outstanding", value: "~$14B (파산 시점)" },
+      { labelKo: "기초자산", labelEn: "Collateral", value: "약 50만 대 렌터카 차량" },
+      { labelKo: "AAA 투자자 결과", labelEn: "AAA Investor Outcome", value: "전액 회수" },
+      { labelKo: "차량 담보 회수율", labelEn: "Vehicle Recovery Rate", value: "~90%+ (예상 대비 양호)" },
+      { labelKo: "파산 종결", labelEn: "Bankruptcy Exit", value: "2021년 6월 (재건)" },
+    ],
+    sections: [
+      {
+        heading: "Hertz의 위기 — 하룻밤 사이 여행 수요 제로",
+        headingEn: "Hertz's Crisis — Travel Demand to Zero Overnight",
+        body:
+`2020년 3월, COVID-19가 전 세계 여행을 멈췄다. 미국 최대 렌터카 기업 중 하나인 Hertz Global Holdings에게 이것은 곧 수익 제로를 의미했다. 렌터카 수익은 하루아침에 증발했지만, 차량 리스 비용, ABS 쿠폰 지급, 유지비는 계속됐다.
+
+Hertz는 $190억의 부채를 안고 있었다. 이 중 약 $140억이 차량 구매를 위해 조달한 ABS였다. 2020년 5월 22일, Hertz는 델라웨어 파산법원에 챕터 11 파산보호를 신청했다. 100년 역사의 자동차 렌탈 기업의 파산이었다.
+
+시장 충격: Hertz 파산 소식에 ABS 투자자들은 패닉에 빠졌다. $140억 규모의 ABS는 어떻게 될 것인가? 하지만 그 답은 구조화금융의 교과서에 이미 있었다.`,
+        bodyEn:
+`In March 2020, COVID-19 brought global travel to a halt. For Hertz Global Holdings, one of America's largest car rental companies, this meant revenue effectively went to zero. Car rental income evaporated overnight, but vehicle lease costs, ABS coupon payments, and maintenance continued.
+
+Hertz carried $19B in debt. Of this, approximately $14B was ABS issued to finance vehicle purchases. On May 22, 2020, Hertz filed for Chapter 11 bankruptcy protection in Delaware. The century-old car rental giant had fallen.
+
+Market shock: investors in Hertz ABS panicked at the bankruptcy news. What would happen to $14B of ABS? But the answer was already written in the structured finance textbook.`,
+      },
+      {
+        heading: "SPV 구조가 어떻게 투자자를 보호했나",
+        headingEn: "How the SPV Structure Protected Investors",
+        body:
+`Hertz의 차량들은 Hertz Vehicle Financing LLC라는 SPV(특수목적법인)에 소유권이 있었다. Hertz Global Holdings는 이 SPV에 차량을 'True Sale' 방식으로 이전하고, SPV가 ABS를 발행해 자금을 조달했다.
+
+파산 시 결정적 질문: Hertz Global Holdings가 파산해도 SPV의 자산(약 50만 대 차량)은 파산 재단(bankruptcy estate)에 속하는가?
+
+법원의 판단: No. SPV의 차량은 Hertz Global Holdings의 파산 재단에 속하지 않는다. True Sale이 성립됐기 때문이다. SPV의 차량들은 독립적으로 청산 또는 관리될 수 있다.
+
+실제 전개: 파산 법원은 SPV가 계속해서 ABS 계약에 따라 운영되도록 허용했다. 렌터카 사업이 재개되면서 차량들은 계속 수익을 창출했고, 일부는 중고차 시장에 매각됐다. 2021년 중고차 가격은 반도체 부족으로 오히려 급등했다 — Hertz ABS 투자자들에게 예상치 못한 호재.`,
+        bodyEn:
+`Hertz's vehicles were owned by Hertz Vehicle Financing LLC, an SPV. Hertz Global Holdings had transferred the vehicles to this SPV via True Sale, with the SPV issuing ABS to raise funds.
+
+The critical bankruptcy question: if Hertz Global Holdings goes bankrupt, do the SPV's assets (approximately 500,000 vehicles) belong to the bankruptcy estate?
+
+Court's answer: No. The SPV's vehicles do not belong to Hertz Global Holdings' bankruptcy estate. True Sale was established. The SPV's vehicles could be independently liquidated or managed.
+
+Actual outcome: the bankruptcy court allowed the SPV to continue operating under the ABS agreements. As rental operations resumed, vehicles continued generating revenue; some were sold in used car markets. Used car prices surged in 2021 due to semiconductor shortages — an unexpected positive for Hertz ABS investors.`,
+      },
+      {
+        heading: "트랑쉐별 성과 — 워터폴이 작동했다",
+        headingEn: "Tranche Performance — The Waterfall Worked",
+        body:
+`Hertz의 ABS는 전통적인 선순위-후순위 워터폴 구조로 설계됐다.
+
+AAA 선순위 트랑쉐: 전액 회수. 파산 중에도 쿠폰 지급이 일시 지연된 경우가 있었지만, 최종적으로 원금과 이자 모두 회수됐다. 파산 격리 구조가 제 역할을 했다.
+
+AA/A 트랑쉐: 전액 또는 거의 전액 회수. 차량 가치가 예상보다 잘 유지됐고, 2021년 중고차 가격 급등이 추가 완충 역할을 했다.
+
+BBB/BB 메자닌 트랑쉐: 일부 손실이 발생했다. 파산 절차 비용, ABS 구조 재조정 과정에서 메자닌 투자자들은 일정 할인을 수용해야 했다.
+
+에쿼티 트랑쉐(Hertz 보유): 파산 과정에서 실질적으로 무가치화됐다. Hertz 모회사가 부담한 손실이 에쿼티 트랑쉐로 집중됐다.
+
+결론: 워터폴은 설계대로 작동했다. 최악의 시나리오(파산)에서도 선순위 투자자는 보호받았다.`,
+        bodyEn:
+`Hertz's ABS was structured with a traditional senior-subordinate waterfall.
+
+AAA senior tranches: fully repaid. While coupon payments were temporarily delayed during bankruptcy, principal and interest were ultimately fully recovered. Bankruptcy isolation worked as designed.
+
+AA/A tranches: fully or nearly fully repaid. Vehicle values held better than expected, and the 2021 used car price surge provided additional cushion.
+
+BBB/BB mezzanine tranches: some losses occurred. Through bankruptcy proceedings and ABS restructuring, mezzanine investors had to accept certain discounts.
+
+Equity tranche (held by Hertz): effectively worthless during bankruptcy proceedings. Losses concentrated in the equity tranche as designed.
+
+Conclusion: the waterfall worked as intended. Even in the worst-case scenario (bankruptcy), senior investors were protected.`,
+      },
+      {
+        heading: "역설 — 파산 후 Hertz 주가 폭등",
+        headingEn: "The Paradox — Hertz Stock Soared After Bankruptcy",
+        body:
+`Hertz 파산에는 이상한 에피소드가 하나 있다. 2020년 5월 파산 신청 후, 소액 투자자들이 대거 몰리면서 Hertz 주식 가격이 폭등했다. 무가치한 주식에 투자하는 '밈 주식' 현상이었다.
+
+Hertz는 심지어 파산 법원으로부터 신규 주식 공모(파산 중 신주 발행)를 승인받으려 했다 — 법원은 투자자들에게 파산 주식의 위험을 고지하는 조건으로 이를 허용했다. 주가가 다시 빠지면서 이 계획은 철회됐다.
+
+ABS 투자자들의 관점에서 이 사건은 또 다른 교훈을 준다: 파산 중에도 ABS SPV는 Hertz 모기업과 분리되어 있었다. 주가가 오르든 내리든 ABS 투자자의 손익은 차량 가치에만 연동됐다. 진정한 파산 격리의 증명이었다.`,
+        bodyEn:
+`Hertz's bankruptcy had a strange episode. After the May 2020 bankruptcy filing, retail investors piled in and Hertz stock price surged — a 'meme stock' phenomenon investing in worthless shares.
+
+Hertz even sought bankruptcy court approval for a new equity offering (issuing new shares while in bankruptcy) — the court allowed it with the condition that investors be warned of the risks of bankrupt stock. The plan was withdrawn as the price fell again.
+
+From ABS investors' perspective, this episode offers another lesson: throughout the bankruptcy, the ABS SPV remained separated from the Hertz parent company. Whether the stock rose or fell, ABS investor returns were tied solely to vehicle values. A true demonstration of bankruptcy remoteness.`,
+      },
+      {
+        heading: "구조화금융의 교훈 — True Sale은 이론이 아니다",
+        headingEn: "Structured Finance Lesson — True Sale Is Not Theoretical",
+        body:
+`Hertz 사건은 구조화금융의 핵심 원리가 실전에서 어떻게 작동하는지를 명확히 보여준다.
+
+파산 격리(Bankruptcy Remoteness): SPV에 이전된 자산은 오리지네이터 파산과 법적으로 분리된다는 원칙이 $140억 규모의 실전에서 검증됐다. 이것은 이론이 아니다.
+
+워터폴의 실효성: AAA 트랑쉐가 BBB 트랑쉐보다 먼저, 더 많이 회수된다는 워터폴 원리가 Hertz 케이스에서 그대로 재현됐다.
+
+담보 자산의 중요성: 차량이라는 실물 자산이 담보였기 때문에 가능했다. 차량은 결국 팔 수 있는 물건이다. 중고차 시장이 존재하는 한, 자동차 ABS는 최후의 방어선이 있다.
+
+COVID 이후 ABS 시장: Hertz 사건은 ABS 구조의 견고성을 재확인시켰다. 2020~2021년 코로나 충격에도 자동차·카드·학자금 ABS의 AAA 트랑쉐는 대부분 무손실을 기록했다.`,
+        bodyEn:
+`The Hertz case clearly demonstrates how the core principles of structured finance work in practice.
+
+Bankruptcy Remoteness: the principle that assets transferred to an SPV are legally separated from the originator's bankruptcy was validated at $14B scale. This is not theoretical.
+
+Waterfall effectiveness: the principle that AAA tranches recover before and more than BBB tranches was replicated exactly in the Hertz case.
+
+Importance of collateral assets: the physical asset collateral — vehicles — made this possible. Vehicles can ultimately be sold. As long as a used car market exists, auto ABS has a last line of defense.
+
+Post-COVID ABS market: the Hertz case reconfirmed the robustness of ABS structures. Through the 2020–2021 COVID shock, AAA tranches of auto, card, and student loan ABS largely suffered no losses.`,
+      },
+    ],
+    keyTerms: [
+      {
+        term: "파산 격리 (Bankruptcy Remoteness)",
+        termEn: "Bankruptcy Remoteness",
+        definition: "SPV에 True Sale로 이전된 자산이 오리지네이터(발행사)의 파산 절차와 법적으로 분리되는 성질. 파산 법원은 해당 자산을 파산 재단의 일부로 취급하지 않는다. Hertz 케이스에서 Hertz Global Holdings가 파산해도 SPV인 Hertz Vehicle Financing LLC의 차량들이 보호된 것이 파산 격리의 실전 사례다. ABS 구조의 가장 핵심적인 법적 보호 장치.",
+        definitionEn: "The property by which assets transferred via True Sale to an SPV are legally separated from the originator's bankruptcy proceedings. Bankruptcy courts treat such assets as outside the bankruptcy estate. Hertz Vehicle Financing LLC's vehicles being protected even as Hertz Global Holdings went bankrupt is the definitive real-world example of bankruptcy remoteness — the most fundamental legal protection mechanism in ABS structures.",
+      },
+      {
+        term: "챕터 11 파산 (Chapter 11 Bankruptcy)",
+        termEn: "Chapter 11 Bankruptcy",
+        definition: "미국 파산법 제11장에 따른 기업 재건 절차. 청산이 아닌 사업 계속 운영을 전제로 채권자·투자자와의 협상을 통해 부채를 재조정한다. ABS 오리지네이터가 챕터 11을 신청해도 True Sale이 성립된 SPV 자산은 이 절차의 영향을 받지 않는다 — 이것이 ABS 구조의 핵심 설계 원리다. Hertz는 2020년 5월 챕터 11을 신청하고 2021년 6월 재건에 성공했다.",
+        definitionEn: "Corporate reorganization proceedings under Chapter 11 of the US Bankruptcy Code. Rather than liquidation, the company continues operations while restructuring debt through negotiations with creditors and investors. When an ABS originator files Chapter 11, SPV assets where True Sale was established are unaffected by the proceedings — this is the core design principle of ABS structures. Hertz filed Chapter 11 in May 2020 and successfully emerged from bankruptcy in June 2021.",
+      },
+      {
+        term: "중고차 잔존가치 (Vehicle Residual Value)",
+        termEn: "Vehicle Residual Value",
+        definition: "렌터카·리스 차량의 계약 종료 시 시장 매각 가능 가격. 자동차 ABS의 핵심 담보 가치 지표. 정상 시장에서는 차량 구매가의 40~60% 수준으로 예측 가능하지만, 시장 충격 시 급락 가능. 2020년 COVID로 하락이 우려됐으나, 2021년 반도체 부족으로 신차 공급이 제한되면서 중고차 가격이 오히려 급등 — Hertz ABS 투자자에게 예상치 못한 호재로 작용했다.",
+        definitionEn: "The market sale price of rental/lease vehicles at contract termination. The critical collateral value metric for auto ABS. In normal markets, predictably 40–60% of purchase price, but can plunge in market shocks. COVID-related declines were feared in 2020, but semiconductor shortages limiting new vehicle supply caused used car prices to surge in 2021 — an unexpected positive for Hertz ABS investors.",
+      },
+    ],
+    relatedMarket101Slugs: ["structured-abs", "structured-waterfall", "structured-overview"],
+    relatedDealSlugs: ["bowie-bonds", "abacus-2007-ac1"],
+    executiveSummary: {
+      ko: [
+        "2020년 5월 COVID로 Hertz 파산 — 차량 담보 ABS ~$140억 투자자들의 운명에 전 세계 주목",
+        "SPV(Hertz Vehicle Financing LLC) 보유 차량은 파산 재단에 귀속되지 않음 — True Sale·파산 격리 원칙이 실전 증명",
+        "AAA 트랑쉐 투자자 전액 회수, 메자닌은 일부 손실, 에쿼티는 실질 무가치화 — 워터폴 설계대로 작동",
+        "2021년 반도체 부족으로 중고차 가격 급등 → 담보 자산 가치 회복 예상 초과",
+        "교훈: ABS의 True Sale·파산 격리는 이론이 아닌 실전 법적 보호 장치",
+      ],
+      en: [
+        "May 2020: COVID drives Hertz to bankruptcy — ~$14B in fleet ABS investor fate watched globally",
+        "SPV (Hertz Vehicle Financing LLC) vehicles excluded from bankruptcy estate — True Sale and bankruptcy remoteness principles proven in practice",
+        "AAA tranche investors fully repaid; mezzanine took partial losses; equity effectively worthless — waterfall worked as designed",
+        "2021 semiconductor shortage drove used car prices up → collateral value recovery exceeded expectations",
+        "Lesson: ABS True Sale and bankruptcy remoteness are real, court-tested legal protections — not just theoretical",
+      ],
+    },
+    assessment: {
+      positives: [
+        "파산 격리 실전 증명: $140억 규모의 실전에서 ABS SPV 구조가 파산법원에서 인정됨",
+        "워터폴 원칙 검증: 선순위 투자자 보호가 설계대로 작동 — 선순위·후순위 구조 신뢰성 제고",
+        "시장 복원력: ABS 구조 덕분에 Hertz 파산이 자본시장 전반의 신용위기로 전이되지 않음",
+        "예상 초과 회수: 반도체 부족→중고차 가격 급등이 담보 가치를 높여 일부 메자닌도 손실 최소화",
+      ],
+      positivesEn: [
+        "Bankruptcy remoteness proven in practice: ABS SPV structure recognized by bankruptcy court at $14B scale",
+        "Waterfall principle validated: senior investor protection worked as designed — strengthening confidence in senior-subordinate structures",
+        "Market resilience: ABS structure prevented Hertz bankruptcy from spreading into broader capital market credit crisis",
+        "Recovery exceeded expectations: semiconductor shortage drove used car prices up, minimizing losses even for some mezzanine investors",
+      ],
+      risks: [
+        "일시적 유동성 충격: AAA 투자자도 파산 과정에서 쿠폰 수취가 일시 지연되는 경험 — 기술적 완벽하지는 않음",
+        "메자닌 투자자 손실: BBB/BB 트랑쉐 투자자들은 파산 절차 비용과 재조정 과정에서 일정 할인 수용",
+        "중고차 시장 의존성: 담보 회수가 결국 중고차 시장 수요에 의존 — 시장 환경이 달랐다면 AAA도 위험했을 수 있음",
+        "운영 복잡성: 파산 중 SPV 운영 유지, 차량 관리, 보험 등 복잡한 운영 이슈 발생",
+      ],
+      risksEn: [
+        "Temporary liquidity disruption: even AAA investors experienced temporary delays in coupon receipt during bankruptcy proceedings — not perfectly clean",
+        "Mezzanine investor losses: BBB/BB tranche investors accepted discounts through bankruptcy costs and restructuring",
+        "Used car market dependency: collateral recovery ultimately depends on used car market demand — different market conditions could have threatened even AAA",
+        "Operational complexity: maintaining SPV operations during bankruptcy, vehicle management, insurance — complex operational issues arose",
+      ],
+    },
+    faq: [
+      {
+        q: "Hertz 파산 중에도 ABS 쿠폰이 지급됐나요?",
+        qEn: "Were ABS coupons paid during Hertz's bankruptcy?",
+        a: "대체로 지급됐지만, 일부 지연이 있었습니다. Hertz는 파산 신청 직후 일부 ABS 이자 지급을 미뤘습니다. 그러나 파산 법원은 SPV가 ABS 계약 조건에 따라 계속 운영되어야 한다고 판결했고, 이후 정상화됐습니다. 최종적으로 AAA/AA 투자자들은 지연 이자를 포함해 모든 금액을 회수했습니다.",
+        aEn: "Largely yes, but with some delays. Hertz initially deferred some ABS interest payments immediately after the bankruptcy filing. However, the bankruptcy court ruled that the SPV must continue operating per its ABS agreements, and payments normalized. Ultimately, AAA/AA investors recovered all amounts including any deferred interest.",
+      },
+      {
+        q: "Hertz 주가가 파산 중에 왜 올랐나요?",
+        qEn: "Why did Hertz's stock price rise during bankruptcy?",
+        a: "2020년 '밈 주식' 현상의 일환이었습니다. 주요 인터넷 포럼(Reddit 등)에서 파산 직후 저가로 거래되는 Hertz 주식에 대한 관심이 급증했고, 소액 투자자들이 대거 매수했습니다. 챕터 11은 청산이 아닌 재건 절차이므로 주주 지분이 완전히 소멸하지 않는 경우도 있다는 기대감도 있었습니다. 실제로 Hertz는 2021년 재건에 성공했고 주주들도 일부 가치를 회수했습니다 — 비록 파산 전 주가 수준에는 훨씬 못 미쳤지만.",
+        aEn: "It was part of the 2020 'meme stock' phenomenon. Major internet forums (Reddit, etc.) generated surging interest in Hertz shares trading at low prices post-bankruptcy, attracting retail investors en masse. There was also hope that since Chapter 11 is reorganization (not liquidation), shareholders might not be completely wiped out. Hertz did successfully emerge from bankruptcy in 2021, and shareholders recovered some value — though far below pre-bankruptcy stock prices.",
+      },
+      {
+        q: "모든 ABS 구조가 Hertz처럼 파산에서 보호받을 수 있나요?",
+        qEn: "Can all ABS structures be protected from bankruptcy like Hertz?",
+        a: "반드시 그렇지는 않습니다. 파산 격리가 작동하려면 세 가지 조건이 충족되어야 합니다: (1) True Sale이 법적으로 인정되어야 합니다 — 단순 담보 제공이 아닌 진정한 소유권 이전. (2) SPV가 오리지네이터와 명확하게 분리된 독립 법인이어야 합니다. (3) SPV가 오리지네이터와 합병(consolidation) 처리되지 않아야 합니다. 법원이 이 조건들 중 하나라도 부정하면 SPV 자산이 파산 재단으로 귀속될 수 있습니다. 이것이 ABS 발행 시 True Sale 법률 의견서를 반드시 요구하는 이유입니다.",
+        aEn: "Not necessarily. For bankruptcy remoteness to work, three conditions must be met: (1) True Sale must be legally recognized — genuine ownership transfer, not mere collateral pledge. (2) The SPV must be a clearly independent legal entity, separated from the originator. (3) The SPV must not be consolidated with the originator by the court. If a court rejects any of these conditions, SPV assets can fall into the bankruptcy estate. This is why True Sale opinion letters from recognized law firms are mandatory for ABS issuance.",
+      },
+    ],
+    references: [
+      { id: 1, author: "Hertz Global Holdings", title: "Form 8-K — Chapter 11 Bankruptcy Filing", source: "SEC EDGAR", year: "2020", url: "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000047987&type=8-K&dateb=&owner=include&count=40" },
+      { id: 2, author: "S&P Global Ratings", title: "Hertz Vehicle Financing LLC ABS Rating Actions", source: "S&P Global Ratings", year: "2020" },
+      { id: 3, author: "SIFMA", title: "US Auto ABS Sector Overview 2020", source: "SIFMA Research", year: "2020" },
+    ],
+  },
+
+  {
+    slug: "blackstone-office-cmbs-2023",
+    title: "Blackstone 오피스 CMBS (2023) — 전략적 디폴트의 교훈",
+    titleEn: "Blackstone Office CMBS (2023) — Lessons from Strategic Default",
+    category: "structure",
+    categoryLabel: "구조화금융",
+    categoryLabelEn: "Structured Finance",
+    excerpt: "세계 최대 사모펀드 Blackstone이 오피스 CMBS 대출 상환을 의도적으로 거부했다. WFH 시대 오피스 부동산의 구조적 위기와 CMBS 투자자의 딜레마.",
+    excerptEn: "Blackstone, the world's largest private equity firm, deliberately chose to stop repaying its office CMBS loans. The structural crisis of office real estate in the WFH era and the CMBS investor's dilemma.",
+    dealYear: 2023,
+    issuer: "Blackstone Real Estate Partners",
+    issuerEn: "Blackstone Real Estate Partners",
+    readingMinutes: 11,
+    tags: ["CMBS", "오피스부동산", "전략적디폴트", "Blackstone", "WFH", "구조화금융"],
+    tagsEn: ["CMBS", "Office Real Estate", "Strategic Default", "Blackstone", "WFH", "Structured Finance"],
+    published: true,
+    snapshot: [
+      { labelKo: "사건", labelEn: "Event", value: "복수의 오피스 CMBS 디폴트" },
+      { labelKo: "대상 자산", labelEn: "Assets", value: "핀란드 오피스 포트폴리오, 미국 오피스 빌딩" },
+      { labelKo: "규모 (핀란드)", labelEn: "Size (Finland)", value: "€531M CMBS" },
+      { labelKo: "발생 시점", labelEn: "Timing", value: "2023년 초~중반" },
+      { labelKo: "배경", labelEn: "Context", value: "재택근무 고착화 + 금리 급등" },
+      { labelKo: "LTV (디폴트 시점)", labelEn: "LTV at Default", value: ">100% (추정)" },
+      { labelKo: "시장 영향", labelEn: "Market Impact", value: "오피스 CMBS 스프레드 급등" },
+    ],
+    sections: [
+      {
+        heading: "왜 세계 최대 사모펀드가 대출 상환을 거부했나",
+        headingEn: "Why the World's Largest PE Firm Chose Not to Repay",
+        body:
+`2023년 초, Blackstone Real Estate Partners는 조용히 계산기를 두드렸다.
+
+핀란드 헬싱키 외곽의 오피스 포트폴리오를 담보로 발행한 €5억 3,100만 CMBS 대출. 2018~2019년 인수 당시 오피스 시장은 활황이었고, LTV(대출-자산가치 비율)는 안정적이었다. 그러나 2020년 COVID 이후 상황이 바뀌었다.
+
+재택근무(WFH) 고착화로 핀란드 오피스 공실률이 급등했다. 임차인들은 계약 갱신을 거부하거나 면적을 줄였다. 건물 가치는 하락했다. 동시에 2022~2023년 금리 급등으로 대출 비용은 치솟았다.
+
+계산 결과: 빌딩 현재 가치 < 대출 원금. Blackstone은 선택을 해야 했다.
+
+A안: 추가 자본을 투입해 LTV를 개선하고 대출을 유지한다.
+B안: 대출 상환을 중단하고 빌딩을 대출기관(CMBS 투자자)에게 넘긴다.
+
+Blackstone은 B안을 선택했다.`,
+        bodyEn:
+`In early 2023, Blackstone Real Estate Partners quietly ran the numbers.
+
+A €531M CMBS loan backed by an office portfolio in suburban Helsinki, Finland. When acquired in 2018–2019, the office market was thriving and the LTV (loan-to-value ratio) was stable. But the situation changed after COVID in 2020.
+
+WFH becoming permanent drove Helsinki office vacancy rates sharply higher. Tenants declined to renew leases or reduced their space. Building values fell. Simultaneously, the 2022–2023 rate surge drove up borrowing costs.
+
+The calculation: current building value < loan principal. Blackstone had to choose.
+
+Option A: inject additional capital to improve LTV and maintain the loan.
+Option B: stop repaying the loan and hand the building to the lender (CMBS investors).
+
+Blackstone chose Option B.`,
+      },
+      {
+        heading: "전략적 디폴트 — 재무적 합리성과 시장 충격",
+        headingEn: "Strategic Default — Financial Rationality and Market Shock",
+        body:
+`'전략적 디폴트(Strategic Default)'란 대출 상환 능력은 있지만, 경제적 관점에서 상환하지 않는 것이 더 유리하다고 판단해 의도적으로 디폴트를 선택하는 것이다.
+
+Blackstone의 논리는 단순했다: 이 빌딩은 더 이상 투자 가치가 없다. 대출을 갚기 위해 추가 자본을 투입하면 그 자본은 회수할 수 없다. 그러므로 손실을 확정하고 자산을 포기하는 것이 펀드 투자자(LP)에게 더 유리하다.
+
+Blackstone은 핀란드 외에도 미국 내 복수의 오피스 빌딩 CMBS에서 유사한 선택을 했다. 2023년 초 뉴욕과 보스턴의 오피스 빌딩 담보 CMBS 대출에서도 상환 거부가 이어졌다.
+
+시장 충격: 세계 최대 사모펀드 Blackstone의 전략적 디폴트는 "오피스 시장에 대한 기관 투자자들의 신뢰가 무너졌다"는 신호로 받아들여졌다. 오피스 CMBS 스프레드가 급등하고, 오피스 담보 대출 리파이낸싱 시장이 사실상 마비됐다.`,
+        bodyEn:
+`'Strategic default' means intentionally choosing default when one has the ability to repay, but judges that not repaying is economically superior.
+
+Blackstone's logic was simple: this building no longer has investment value. Injecting additional capital to repay the loan would be unrecoverable. Therefore, crystallizing the loss and surrendering the asset is better for fund investors (LPs).
+
+Beyond Finland, Blackstone made similar choices on multiple US office building CMBSs. In early 2023, loan repayment refusals continued on CMBS loans backed by office buildings in New York and Boston.
+
+Market shock: Blackstone's strategic defaults were interpreted as a signal that 'institutional investors' confidence in the office market had collapsed.' Office CMBS spreads surged, and the office-collateralized loan refinancing market effectively seized up.`,
+      },
+      {
+        heading: "CMBS 구조에서 디폴트가 일어나면 — 스페셜 서비서의 역할",
+        headingEn: "When Default Hits CMBS Structures — The Special Servicer's Role",
+        body:
+`CMBS 대출에서 디폴트가 발생하면 일반 서비서(Master Servicer)에서 스페셜 서비서(Special Servicer)로 업무가 이전된다.
+
+스페셜 서비서의 역할: 디폴트 대출을 처리해 투자자를 위해 최대 회수율을 달성하는 것. 구체적으로 대출 조건 재협상(loan modification), 담보물 압류 및 관리, 담보물 매각 등을 담당한다.
+
+Blackstone 케이스에서 스페셜 서비서들은 복잡한 상황에 직면했다: 공실 오피스 빌딩을 어떻게 처리할 것인가? 오피스 수요가 구조적으로 감소한 상황에서 매수자를 찾기 어렵고, 개발 전환(주거용, 창고 등)도 경제성이 불확실하다.
+
+결과: 일부 빌딩은 대폭 할인된 가격으로 매각됐다. 일부는 아직도 스페셜 서비싱 상태로 잠겨 있다. CMBS 투자자들은 대기 중이며, BBB 이하 메자닌 투자자들은 원금 손실이 확실시된다.
+
+한 가지 아이러니: Blackstone은 2023년 동시에 신규 오피스가 아닌 물류창고, 데이터센터, 임대주택에 공격적으로 투자했다. "오피스는 포기, 물류·데이터센터는 매수"라는 메시지를 시장에 강하게 보냈다.`,
+        bodyEn:
+`When a CMBS loan defaults, the servicing role transfers from the Master Servicer to the Special Servicer.
+
+Special Servicer's role: to maximize recovery for investors by handling the defaulted loan — specifically through loan modification negotiations, foreclosure and property management, and property disposition.
+
+In the Blackstone cases, special servicers faced complex situations: what to do with vacant office buildings? With structurally declining office demand, finding buyers is difficult, and conversion to other uses (residential, warehouse, etc.) has uncertain economics.
+
+Outcome: some buildings were sold at steep discounts. Others remain in special servicing, with CMBS investors still waiting. BBB and below mezzanine investors face near-certain principal losses.
+
+One irony: Blackstone simultaneously aggressively invested in logistics warehouses, data centers, and rental housing in 2023 — not new offices. The market received a strong message: 'abandon offices, buy logistics and data centers.'`,
+      },
+      {
+        heading: "오피스 CMBS 위기의 구조적 원인",
+        headingEn: "Structural Causes of the Office CMBS Crisis",
+        body:
+`Blackstone의 전략적 디폴트는 증상이고, 진짜 원인은 구조적이다.
+
+WFH의 고착화: COVID 이후 미국·유럽 주요 도시 오피스 공실률이 15~25%로 급등했다. 기업들은 원격·하이브리드 근무를 영구 정책으로 채택했다. 오피스 수요는 10~30% 구조적으로 감소할 것이라는 전망이 지배적이다.
+
+금리 급등의 이중 타격: ① 기존 변동금리 CMBS 대출 이자 비용 급등 → 현금흐름 압박. ② 할인율 상승 → 부동산 자산가치 하락. 양쪽에서 동시에 압박이 왔다.
+
+만기 집중: 2024~2026년 만기 도래하는 오피스 CMBS가 약 $1,500억 규모. 이 중 상당수가 '리파이낸싱 절벽(Refinancing Cliff)'에 직면해 있다 — 현재 가치로는 리파이낸싱이 불가능하고, 그렇다고 대출 상환에 필요한 추가 자본을 조달하기도 어렵다.
+
+도심 vs 외곽, 프라임 vs 비프라임의 양극화도 심해지고 있다. 최신 설비를 갖춘 프라임 오피스는 여전히 수요가 있지만, 구형 외곽 오피스는 공실이 심각하다.`,
+        bodyEn:
+`Blackstone's strategic defaults are symptoms; the real causes are structural.
+
+WFH becoming permanent: post-COVID, major city office vacancy rates in the US and Europe surged to 15–25%. Companies adopted remote and hybrid work as permanent policy. Structural office demand declines of 10–30% are the dominant forecast.
+
+Rate surge's double blow: ① floating-rate CMBS loan interest costs surged → cash flow pressure; ② rising discount rates → real estate asset value decline. Pressure from both sides simultaneously.
+
+Maturity concentration: approximately $150B of office CMBS matures in 2024–2026. A significant portion faces a 'refinancing cliff' where refinancing on existing terms is impossible, yet raising additional capital for loan repayment is equally challenging.
+
+Polarization between prime and non-prime, urban and suburban is intensifying. Class-A prime offices in prime locations still have demand; older suburban offices face severe vacancy.`,
+      },
+      {
+        heading: "CMBS 투자자 교훈 — DSCR과 LTV를 다시 보다",
+        headingEn: "CMBS Investor Lessons — Revisiting DSCR and LTV",
+        body:
+`Blackstone 오피스 CMBS 위기는 CMBS 분석의 핵심 지표들을 다시 점검하게 했다.
+
+DSCR(부채원리금상환비율): "현금흐름이 이자를 감당할 수 있는가"를 측정. 오피스 공실이 늘면서 NOI(순영업수익)가 하락하고, DSCR이 1.0 이하로 떨어지는 사례가 속출했다. DSCR 1.0 이하 = 임대 수입으로 이자도 못 낸다는 의미.
+
+LTV(대출-가치 비율): 발행 시 65%였던 LTV가 자산 가치 하락으로 100%를 초과한 경우도 많다. LTV > 100%는 매각해도 대출을 갚을 수 없다는 뜻 — 전략적 디폴트의 경제적 근거.
+
+교훈: CMBS 분석에서 '현재 공실률'만 보는 것은 불충분하다. 임차인 만기 일정, 갱신 의향, WFH 비율, 빌딩 연식·등급이 미래 현금흐름을 좌우한다. 2018~2022년 발행된 오피스 CMBS는 "WFH 고착화"라는 시나리오를 stress test에 포함하지 않았다.
+
+다음 도미노: 지역 은행들이 보유한 오피스 상업용 부동산(CRE) 대출. CMBS보다 훨씬 큰 규모로, 지역 은행 대차대조표에 직접 남아 있다. SVB 이후 지역 은행 건전성에 대한 우려가 오피스 CRE 대출로 이어지고 있다.`,
+        bodyEn:
+`The Blackstone office CMBS crisis prompted a re-examination of key CMBS analysis metrics.
+
+DSCR (Debt Service Coverage Ratio): measures "can cash flows service interest?" As office vacancies increased, NOI (Net Operating Income) fell, and DSCR dropping below 1.0 became commonplace. DSCR below 1.0 means rental income can't even cover interest.
+
+LTV (Loan-to-Value): LTVs that were 65% at issuance now exceed 100% due to asset value declines in many cases. LTV above 100% means even selling the property won't fully repay the loan — the economic rationale for strategic default.
+
+Lesson: analyzing 'current vacancy rate' alone is insufficient for CMBS. Tenant maturity schedules, renewal intentions, WFH ratios, building age and class determine future cash flows. Office CMBSs issued in 2018–2022 did not include 'WFH becoming permanent' in stress tests.
+
+The next domino: office commercial real estate (CRE) loans held by regional banks. Far larger in scale than CMBS, sitting directly on regional bank balance sheets. Post-SVB concerns about regional bank health are extending to office CRE loans.`,
+      },
+    ],
+    keyTerms: [
+      {
+        term: "전략적 디폴트 (Strategic Default)",
+        termEn: "Strategic Default",
+        definition: "차입자가 상환 능력은 있지만, 경제적 합리성 관점에서 상환하지 않는 것이 유리하다고 판단해 의도적으로 디폴트를 선택하는 행위. 주로 담보 자산 가치가 대출 원금보다 낮을 때(수중 담보, underwater) 발생. 부동산 CMBS에서는 LTV > 100%가 전략적 디폴트의 주요 경제적 유인이 된다. Blackstone의 2023년 오피스 CMBS 디폴트가 대표적 기관투자자 전략적 디폴트 사례.",
+        definitionEn: "When a borrower intentionally chooses default not due to inability to pay, but because it judges that not repaying is economically rational. Primarily occurs when collateral asset value falls below the loan principal (underwater collateral). In real estate CMBS, LTV exceeding 100% is the primary economic incentive for strategic default. Blackstone's 2023 office CMBS defaults are the definitive institutional investor strategic default case.",
+      },
+      {
+        term: "스페셜 서비서 (Special Servicer)",
+        termEn: "Special Servicer",
+        definition: "CMBS 구조에서 연체·부실 대출을 전담 처리하는 기관. 정상 대출은 마스터 서비서가 관리하다가, 일정 요건(연체 60일 이상, 임박한 부도 등) 충족 시 스페셜 서비서로 이관. 스페셜 서비서는 대출 조건 재협상, 담보물 압류, 매각 등을 통해 CMBS 투자자의 손실을 최소화하는 역할. 오피스 위기에서 스페셜 서비서들은 공실 빌딩 처리라는 전례 없는 과제에 직면했다.",
+        definitionEn: "The entity in CMBS structures that handles delinquent and distressed loans. Normal loans are managed by the Master Servicer; upon meeting certain conditions (60+ days delinquent, imminent default, etc.), loans transfer to the Special Servicer. The Special Servicer minimizes CMBS investor losses through loan modification, foreclosure, and disposition. In the office crisis, special servicers faced the unprecedented challenge of dealing with vacant buildings.",
+      },
+      {
+        term: "리파이낸싱 절벽 (Refinancing Cliff)",
+        termEn: "Refinancing Cliff",
+        definition: "대규모 CMBS·부동산 대출이 특정 시기에 동시에 만기 도래하여 리파이낸싱 수요가 집중되는 현상. 2024~2026년 약 $1,500억의 오피스 CMBS 만기가 집중될 예정. 현재 금리와 오피스 자산 가치 하락을 감안하면 상당수가 기존 조건으로 리파이낸싱이 불가능한 '절벽'에 직면. 이는 추가 전략적 디폴트 또는 대출 재조정으로 이어질 가능성이 높다.",
+        definitionEn: "A phenomenon where large volumes of CMBS and real estate loans mature simultaneously, creating concentrated refinancing demand. Approximately $150B of office CMBS is scheduled to mature in 2024–2026. Given current interest rates and office asset value declines, many face a 'cliff' where refinancing on existing terms is impossible. This is likely to lead to additional strategic defaults or loan restructurings.",
+      },
+      {
+        term: "오피스 CMBS 스프레드 (Office CMBS Spread)",
+        termEn: "Office CMBS Spread",
+        definition: "오피스 담보 CMBS 채권의 수익률과 국채 수익률의 차이. 신용 위험을 반영하는 지표로, 스프레드가 넓어질수록 시장이 해당 자산의 위험을 높게 평가한다는 의미. 2023년 Blackstone 디폴트 이후 오피스 CMBS 스프레드가 급등 — 투자자들이 오피스 담보 자산에 높은 위험 프리미엄을 요구하기 시작. 산업·물류 CMBS와의 스프레드 격차가 사상 최대 수준으로 확대됐다.",
+        definitionEn: "The yield difference between office-backed CMBS bonds and government bonds. A credit risk indicator — wider spreads mean markets assess the asset as riskier. After Blackstone's 2023 defaults, office CMBS spreads surged — investors began demanding higher risk premiums for office-backed assets. The spread gap between office and industrial/logistics CMBS widened to record levels.",
+      },
+    ],
+    relatedMarket101Slugs: ["structured-cmbs", "structured-overview", "structured-cases"],
+    relatedDealSlugs: ["svb-2023", "hertz-fleet-abs-2020"],
+    executiveSummary: {
+      ko: [
+        "2023년 Blackstone이 핀란드 오피스 포트폴리오 €531M CMBS 및 미국 복수 오피스 빌딩 CMBS에서 전략적 디폴트 선택",
+        "배경: WFH 고착화로 오피스 공실 급증 + 금리 급등으로 LTV 100% 초과 → 경제적 상환 유인 소멸",
+        "스페셜 서비서로 이관 후 담보물 처리 진행 중 — BBB 이하 CMBS 투자자 손실 확실시",
+        "2024~2026년 $1,500억+ 오피스 CMBS 만기 집중 → 리파이낸싱 절벽 리스크 상존",
+        "교훈: CMBS 분석에서 DSCR·LTV 외에 임차인 만기·WFH 비율·부동산 등급 등 구조적 수요 변화 반영 필수",
+      ],
+      en: [
+        "2023: Blackstone chose strategic default on €531M Finnish office CMBS and multiple US office building CMBSs",
+        "Context: WFH-driven office vacancy surge + rate hikes causing LTV to exceed 100% → economic incentive to repay disappeared",
+        "Transferred to special servicers for property disposition — sub-BBB CMBS investors face near-certain losses",
+        "~$150B+ office CMBS matures in 2024–2026 → refinancing cliff risk remains elevated",
+        "Lesson: CMBS analysis must incorporate structural demand shifts (WFH rate, tenant maturity, building class) beyond DSCR and LTV",
+      ],
+    },
+    assessment: {
+      positives: [
+        "Blackstone 펀드 LP 관점: 추가 손실 자본 투입 없이 손실을 확정하고 자본을 회수 — 펀드 의무에 충실한 결정",
+        "시장 가격 발견: 전략적 디폴트가 오피스 CMBS 시장의 실제 위험을 가격에 반영하는 계기가 됨",
+        "물류·데이터센터로의 자본 재배치: Blackstone은 같은 시기 성장 섹터에 공격적 투자 — 자원 배분 합리화",
+      ],
+      positivesEn: [
+        "From Blackstone LP perspective: crystallizing losses without injecting additional capital — a decision faithful to fund obligations",
+        "Market price discovery: strategic defaults prompted office CMBS markets to price in actual risk",
+        "Capital reallocation to logistics/data centers: Blackstone aggressively invested in growth sectors simultaneously — rational resource allocation",
+      ],
+      risks: [
+        "CMBS 투자자 손실: BBB 이하 메자닌·에쿼티 트랑쉐 투자자 원금 손실 — 특히 연기금·보험사 등 기관투자자 피해",
+        "오피스 시장 신뢰 훼손: 기관투자자 전략적 디폴트가 오피스 부동산 전반의 신용 수축을 가속",
+        "지역 은행 연쇄 우려: CMBS보다 훨씬 큰 규모의 오피스 CRE 대출이 지역 은행에 집중 — 잠재적 시스템 리스크",
+        "평판 리스크: '능력 있는 차입자의 의도적 디폴트'에 대한 대출기관들의 신뢰 저하 — 미래 대출 조건 악화 가능",
+      ],
+      risksEn: [
+        "CMBS investor losses: sub-BBB mezzanine and equity tranche investors suffer principal losses — particularly pension funds and insurers",
+        "Office market confidence damage: institutional investor strategic defaults accelerate credit contraction across office real estate",
+        "Regional bank cascade concern: office CRE loans on regional bank balance sheets far exceed CMBS scale — potential systemic risk",
+        "Reputational risk: deliberate default by capable borrowers reduces lender trust — potential future tightening of loan terms",
+      ],
+    },
+    faq: [
+      {
+        q: "전략적 디폴트는 불법인가요?",
+        qEn: "Is strategic default illegal?",
+        a: "일반적으로 불법이 아닙니다. 대출 계약에서 담보물은 디폴트 시 대출기관에 이전되도록 설계되어 있습니다 — 이것이 대출의 본질적 구조입니다. 차입자가 경제적 판단으로 담보물을 포기하는 것 자체는 계약 내에 설정된 행위입니다. 다만 일부 대출 계약에는 '전략적 디폴트 방지 조항'이나 '재과실(bad boy carve-out)'이 포함되어, 의도적 디폴트 시 차입자에 대한 소구(recourse)가 가능하도록 설계되기도 합니다. Blackstone과 같은 기관 투자자는 대출 계약 시 이러한 조항을 꼼꼼히 검토합니다.",
+        aEn: "Generally not. Loan agreements are designed so that collateral transfers to the lender upon default — this is the fundamental structure of a loan. A borrower choosing to surrender collateral as an economic decision is an act within the contract. However, some loan agreements include 'strategic default prevention clauses' or 'bad boy carve-outs' that allow lender recourse against the borrower for intentional defaults. Institutional investors like Blackstone review such clauses carefully when entering loan agreements.",
+      },
+      {
+        q: "오피스 위기가 2008년 서브프라임과 비슷한 규모의 위기로 번질 수 있나요?",
+        qEn: "Could the office crisis escalate to a 2008 subprime-scale crisis?",
+        a: "현재까지의 컨센서스는 '국지적 심각한 손실은 있지만 시스템 붕괴는 아닐 것'입니다. 이유: 첫째, 오피스 CMBS는 전체 CMBS 시장의 일부이며, 산업·주거 등 다른 섹터는 양호하다. 둘째, CMBS 구조는 트랑쉐화로 손실 흡수가 설계됨. 셋째, 2008년과 달리 현재 은행 자본 규제가 강화됐다. 그러나 지역 은행의 오피스 CRE 집중도가 높은 경우 잠재적 위기가 있다. 또한 2024~2026년 리파이낸싱 절벽이 예상보다 심각하면 규모가 커질 수 있다.",
+        aEn: "Current consensus is 'serious localized losses but not systemic collapse.' Reasons: first, office CMBS is a subset of total CMBS, with industrial, residential, and other sectors remaining healthy. Second, CMBS tranching is designed to absorb losses. Third, bank capital regulations are stronger than in 2008. However, regional banks with high office CRE concentration face potential crises. Additionally, if the 2024–2026 refinancing cliff proves worse than expected, the scale could increase.",
+      },
+      {
+        q: "CMBS 투자자로서 오피스 리스크를 어떻게 평가해야 하나요?",
+        qEn: "How should a CMBS investor assess office risk?",
+        a: "다섯 가지를 확인하세요. ① LTV: 현재 시장가 기준 LTV가 75% 이하인가? 100% 초과면 전략적 디폴트 가능성 높음. ② DSCR: 현재 임대수입이 대출 이자를 1.2배 이상 커버하는가? ③ 임차인 만기: 향후 2~3년 내 만기 도래하는 임차인 비율은? 갱신 의향이 있는가? ④ 빌딩 등급 및 위치: 프라임 도심 A급인가, 외곽 B급인가? A급은 상대적으로 안전. ⑤ 만기 일정: CMBS 자체 만기 시점의 리파이낸싱 가능성 — 금리 환경과 자산 가치 예측이 필요.",
+        aEn: "Check five things. ① LTV: is the current market-value LTV below 75%? Above 100% signals high strategic default probability. ② DSCR: does current rental income cover loan interest 1.2x+? ③ Tenant maturity: what percentage of tenants have leases expiring in the next 2–3 years? What are renewal intentions? ④ Building class and location: Class A urban prime, or suburban Class B? Class A is relatively safer. ⑤ Maturity schedule: assess refinancing feasibility at the CMBS maturity date — requires interest rate environment and asset value forecasting.",
+      },
+    ],
+    references: [
+      { id: 1, author: "Bloomberg", title: "Blackstone Defaults on Finnish CMBS Loan", source: "Bloomberg News", year: "2023" },
+      { id: 2, author: "Moody's Investors Service", title: "US CMBS Office Sector Outlook", source: "Moody's", year: "2023" },
+      { id: 3, author: "MSCI Real Assets", title: "US Office Market Report", source: "MSCI", year: "2023" },
+      { id: 4, author: "TREPP", title: "CMBS Delinquency Report 2023", source: "Trepp LLC", year: "2023", url: "https://www.trepp.com/" },
     ],
   },
 

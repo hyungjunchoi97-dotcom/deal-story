@@ -557,6 +557,40 @@ export default function StructuredOverviewClient({ concept, lang }: Props) {
           <FaqAccordion items={FAQS.map((f) => ({ q: f.q(ko), a: f.a(ko) }))} accent={accent} />
         </motion.section>
 
+        {/* ══ 관련 마켓 케이스 ══════════════════════════════════════════════ */}
+        <motion.section initial="hidden" whileInView="show" viewport={VP} variants={fadeUp()} className="mb-16">
+          <h2 className="text-xl font-black text-gray-900 dark:text-gray-50 mb-2">
+            {ko ? "관련 마켓 케이스" : "Related Market Cases"}
+          </h2>
+          <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+            {ko ? "이 챕터의 개념이 실전에서 어떻게 작동했는지 확인하세요." : "See how the concepts in this chapter played out in real deals."}
+          </p>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {([
+              { slug: "bowie-bonds", icon: "🎸", category: (k: boolean) => k ? "구조화금융" : "Structured Finance", title: (k: boolean) => k ? "보위 본드 (1997) — 미래 로열티를 증권화하다" : "Bowie Bonds (1997) — Securitizing Future Royalties", desc: (k: boolean) => k ? "ABS의 탄생 원리를 음악 로열티 딜로 배운다. SPV, True Sale, 파산 격리의 교과서 케이스." : "Learn ABS principles through a music royalty deal. The textbook case for SPV, True Sale, and bankruptcy remoteness.", year: "1997", badge: "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300" },
+              { slug: "hertz-fleet-abs-2020", icon: "🚗", category: (k: boolean) => k ? "구조화금융" : "Structured Finance", title: (k: boolean) => k ? "Hertz Fleet ABS (2020) — 파산해도 AAA는 살아남는다" : "Hertz Fleet ABS (2020) — AAA Survives Bankruptcy", desc: (k: boolean) => k ? "Hertz 파산에도 SPV 구조가 투자자를 어떻게 보호했는지 — 파산 격리의 실전 증명." : "How the SPV structure protected investors through Hertz's bankruptcy — bankruptcy remoteness proven in practice.", year: "2020", badge: "bg-sky-100 text-sky-800 dark:bg-sky-900/40 dark:text-sky-300" },
+            ]).map((c, i) => (
+              <motion.div key={i} initial="hidden" whileInView="show" viewport={VP} variants={fadeUp(i * 0.08)}>
+                <Link href={`${ko ? "" : "/en"}/market/${c.slug}`}
+                  className="group flex flex-col gap-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/40 p-5 hover:border-indigo-400 dark:hover:border-indigo-600 transition-colors">
+                  <div className="flex items-start gap-3">
+                    <span className="text-2xl shrink-0">{c.icon}</span>
+                    <div className="flex-1 min-w-0">
+                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full mb-2 inline-block ${c.badge}`}>{c.category(ko)}</span>
+                      <p className="text-sm font-bold text-gray-900 dark:text-gray-50 leading-snug group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors mb-1">{c.title(ko)}</p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{c.desc(ko)}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between pt-2 border-t border-gray-200 dark:border-gray-700">
+                    <span className="text-[10px] text-gray-400">{c.year}</span>
+                    <span className="text-xs text-gray-400 group-hover:text-indigo-500 transition-colors">{ko ? "읽기" : "Read"} →</span>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </motion.section>
+
         {/* References */}
         <motion.section initial="hidden" whileInView="show" viewport={VP} variants={fadeUp()} className="mb-12">
           <h2 className="text-lg font-bold text-gray-900 dark:text-gray-50 mb-4">{ko ? "참고 자료" : "References"}</h2>

@@ -738,6 +738,40 @@ export default function StructuredCmbsClient({ concept, lang }: Props) {
           </div>
         </motion.section>
 
+        {/* ══ 관련 마켓 케이스 ══════════════════════════════════════════════ */}
+        <motion.section initial="hidden" whileInView="show" viewport={VP} variants={fadeUp()} className="mb-16">
+          <h2 className="text-xl font-black text-gray-900 dark:text-gray-50 mb-2">
+            {ko ? "관련 마켓 케이스" : "Related Market Cases"}
+          </h2>
+          <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+            {ko ? "이 챕터의 개념이 실전에서 어떻게 작동했는지 확인하세요." : "See how the concepts in this chapter played out in real deals."}
+          </p>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {([
+              { slug: "blackstone-office-cmbs-2023", icon: "🏢", category: (k: boolean) => k ? "구조화금융" : "Structured Finance", title: (k: boolean) => k ? "Blackstone 오피스 CMBS (2023) — 전략적 디폴트" : "Blackstone Office CMBS (2023) — Strategic Default", desc: (k: boolean) => k ? "세계 최대 사모펀드가 WFH 시대 오피스 빌딩 담보 CMBS 상환을 의도적으로 거부했다. DSCR·LTV·스페셜 서비서의 실전." : "The world's largest PE firm deliberately stopped repaying office CMBS in the WFH era. DSCR, LTV, and special servicers in practice.", year: "2023", badge: "bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300" },
+              { slug: "hertz-fleet-abs-2020", icon: "🚗", category: (k: boolean) => k ? "구조화금융" : "Structured Finance", title: (k: boolean) => k ? "Hertz Fleet ABS (2020) — 파산해도 AAA는 살아남는다" : "Hertz Fleet ABS (2020) — AAA Survives Bankruptcy", desc: (k: boolean) => k ? "자동차 ABS vs 오피스 CMBS — 담보 유형에 따라 파산 결과가 어떻게 달라지는지 비교하세요." : "Auto ABS vs office CMBS — compare how bankruptcy outcomes differ based on collateral type.", year: "2020", badge: "bg-sky-100 text-sky-800 dark:bg-sky-900/40 dark:text-sky-300" },
+            ]).map((c, i) => (
+              <motion.div key={i} initial="hidden" whileInView="show" viewport={VP} variants={fadeUp(i * 0.08)}>
+                <Link href={`${ko ? "" : "/en"}/market/${c.slug}`}
+                  className="group flex flex-col gap-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/40 p-5 hover:border-amber-400 dark:hover:border-amber-600 transition-colors">
+                  <div className="flex items-start gap-3">
+                    <span className="text-2xl shrink-0">{c.icon}</span>
+                    <div className="flex-1 min-w-0">
+                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full mb-2 inline-block ${c.badge}`}>{c.category(ko)}</span>
+                      <p className="text-sm font-bold text-gray-900 dark:text-gray-50 leading-snug group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors mb-1">{c.title(ko)}</p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{c.desc(ko)}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between pt-2 border-t border-gray-200 dark:border-gray-700">
+                    <span className="text-[10px] text-gray-400">{c.year}</span>
+                    <span className="text-xs text-gray-400 group-hover:text-amber-500 transition-colors">{ko ? "읽기" : "Read"} →</span>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </motion.section>
+
         <ShareButtons
           title={ko
             ? "CMBS 완전 해설 — 상업용 부동산 모기지가 채권이 되는 과정 & 오피스 CMBS 위기 | Deal Story"

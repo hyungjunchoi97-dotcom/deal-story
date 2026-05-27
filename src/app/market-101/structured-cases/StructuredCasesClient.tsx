@@ -1437,6 +1437,41 @@ export default function StructuredCasesClient({ concept, lang }: Props) {
             </ol>
           </motion.section>
 
+          {/* ══ 관련 마켓 케이스 ══════════════════════════════════════════════ */}
+          <motion.section initial="hidden" whileInView="show" viewport={VP} variants={fadeUp()} className="mb-16">
+            <h2 className="text-xl font-black text-gray-900 dark:text-gray-50 mb-2">
+              {ko ? "관련 마켓 케이스" : "Related Market Cases"}
+            </h2>
+            <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+              {ko ? "이 챕터에서 다룬 사건들의 실제 딜 원문 케이스입니다." : "The actual deal cases behind the events covered in this chapter."}
+            </p>
+            <div className="grid sm:grid-cols-3 gap-4">
+              {([
+                { slug: "abacus-2007-ac1", icon: "📉", category: (k: boolean) => k ? "구조화금융" : "Structured Finance", title: (k: boolean) => k ? "Abacus 2007-AC1 — Goldman CDO 사기" : "Abacus 2007-AC1 — Goldman CDO Fraud", desc: (k: boolean) => k ? "Big Short의 실제 딜. 2008 케이스스터디의 핵심 주인공. SEC $550M 합의 전말." : "The real Big Short deal. Key protagonist in the 2008 case study. Full story of the $550M SEC settlement.", year: "2007", badge: "bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-300" },
+                { slug: "blackstone-office-cmbs-2023", icon: "🏢", category: (k: boolean) => k ? "구조화금융" : "Structured Finance", title: (k: boolean) => k ? "Blackstone 오피스 CMBS (2023)" : "Blackstone Office CMBS (2023)", desc: (k: boolean) => k ? "2023 오피스 CMBS 위기의 실제 딜. 전략적 디폴트·스페셜 서비서·리파이낸싱 절벽의 전말." : "The real deal in the 2023 office CMBS crisis. Strategic default, special servicer, refinancing cliff.", year: "2023", badge: "bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300" },
+                { slug: "hertz-fleet-abs-2020", icon: "🚗", category: (k: boolean) => k ? "구조화금융" : "Structured Finance", title: (k: boolean) => k ? "Hertz Fleet ABS (2020)" : "Hertz Fleet ABS (2020)", desc: (k: boolean) => k ? "COVID CLO 스트레스 케이스와 직결. 파산에서 ABS가 어떻게 구조적으로 버텼는지 실전 확인." : "Directly connected to the COVID CLO stress case. Real-world confirmation of how ABS structurally withstood bankruptcy.", year: "2020", badge: "bg-sky-100 text-sky-800 dark:bg-sky-900/40 dark:text-sky-300" },
+              ]).map((c, i) => (
+                <motion.div key={i} initial="hidden" whileInView="show" viewport={VP} variants={fadeUp(i * 0.08)}>
+                  <Link href={`${ko ? "" : "/en"}/market/${c.slug}`}
+                    className="group flex flex-col gap-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/40 p-4 hover:border-slate-400 transition-colors">
+                    <div className="flex items-start gap-3">
+                      <span className="text-xl shrink-0">{c.icon}</span>
+                      <div className="flex-1 min-w-0">
+                        <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full mb-1.5 inline-block ${c.badge}`}>{c.category(ko)}</span>
+                        <p className="text-xs font-bold text-gray-900 dark:text-gray-50 leading-snug group-hover:text-slate-600 dark:group-hover:text-slate-300 transition-colors mb-1">{c.title(ko)}</p>
+                        <p className="text-[11px] text-gray-500 dark:text-gray-400 leading-relaxed">{c.desc(ko)}</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between pt-2 border-t border-gray-200 dark:border-gray-700">
+                      <span className="text-[10px] text-gray-400">{c.year}</span>
+                      <span className="text-[11px] text-gray-400 group-hover:text-slate-500 transition-colors">{ko ? "읽기" : "Read"} →</span>
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </motion.section>
+
           <ShareButtons
             title={ko ? concept.title : (concept.titleEn ?? concept.title)}
             variant="mid"

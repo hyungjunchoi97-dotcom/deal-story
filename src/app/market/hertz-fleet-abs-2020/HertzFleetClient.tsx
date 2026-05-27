@@ -1,0 +1,722 @@
+"use client";
+
+import Link from "next/link";
+import { motion } from "framer-motion";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+  Cell,
+} from "recharts";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import ShareButtons from "@/components/deal/ShareButtons";
+import FaqAccordion from "@/components/FaqAccordion";
+import type { MarketDeal } from "@/data/market-deals";
+
+type Lang = "ko" | "en";
+
+const EASE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
+const VP = { once: true, margin: "-60px" };
+const fadeUp = (delay = 0) => ({ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: EASE, delay } } });
+const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.07 } } };
+
+const ACCENT = "#0ea5e9";
+const ACCENT_DARK = "#0369a1";
+const ACCENT_LIGHT = "rgb(240 249 255)";
+
+// Visual 0: COVID Timeline
+function CovidTimelineVisual({ lang }: { lang: Lang }) {
+  const ko = lang === "ko";
+  const events = [
+    {
+      dateKo: "2020년 3월",
+      dateEn: "March 2020",
+      titleKo: "COVID 충격",
+      titleEn: "COVID Shock",
+      noteKo: "여행 수요 = 0, 렌터카 수익 증발",
+      noteEn: "Travel demand = 0, rental revenue evaporated",
+      color: "bg-amber-50 dark:bg-amber-900/20",
+      border: "border-amber-200 dark:border-amber-700",
+      dot: "bg-amber-400",
+      text: "text-amber-700 dark:text-amber-300",
+    },
+    {
+      dateKo: "2020년 5월 22일",
+      dateEn: "May 22, 2020",
+      titleKo: "챕터 11 파산 신청",
+      titleEn: "Chapter 11 Filing",
+      noteKo: "100년 역사 Hertz, 델라웨어 파산법원 신청",
+      noteEn: "Century-old Hertz files in Delaware bankruptcy court",
+      color: "bg-red-50 dark:bg-red-900/20",
+      border: "border-red-200 dark:border-red-700",
+      dot: "bg-red-500",
+      text: "text-red-700 dark:text-red-300",
+    },
+    {
+      dateKo: "2020년 6월",
+      dateEn: "June 2020",
+      titleKo: "ABS 투자자 패닉",
+      titleEn: "ABS Investor Panic",
+      noteKo: "$140억 ABS 운명 불명 — 시장 혼란 최고조",
+      noteEn: "$14B ABS fate unknown — market confusion at peak",
+      color: "bg-orange-50 dark:bg-orange-900/20",
+      border: "border-orange-200 dark:border-orange-700",
+      dot: "bg-orange-400",
+      text: "text-orange-700 dark:text-orange-300",
+    },
+    {
+      dateKo: "2021년",
+      dateEn: "2021",
+      titleKo: "중고차 가격 급등",
+      titleEn: "Used Car Prices Surge",
+      noteKo: "반도체 부족 → 신차 공급↓ → 담보 가치 예상 초과",
+      noteEn: "Chip shortage → new car supply↓ → collateral value beats forecast",
+      color: "bg-sky-50 dark:bg-sky-900/20",
+      border: "border-sky-200 dark:border-sky-700",
+      dot: "bg-sky-500",
+      text: "text-sky-700 dark:text-sky-300",
+    },
+    {
+      dateKo: "2021년 6월",
+      dateEn: "June 2021",
+      titleKo: "파산 종결 — 재건 성공",
+      titleEn: "Bankruptcy Exit — Reorganization Complete",
+      noteKo: "AAA 투자자 전액 회수 확인, Hertz 재상장",
+      noteEn: "AAA investors fully repaid confirmed, Hertz relisted",
+      color: "bg-green-50 dark:bg-green-900/20",
+      border: "border-green-200 dark:border-green-700",
+      dot: "bg-green-500",
+      text: "text-green-700 dark:text-green-300",
+    },
+  ];
+
+  return (
+    <motion.div variants={fadeUp(0.1)} className="mt-8">
+      <div className="rounded-2xl overflow-hidden border border-gray-200/60 dark:border-gray-700/60">
+        <div className="bg-gray-50 dark:bg-gray-800/60 px-5 py-3 border-b border-gray-200/60 dark:border-gray-700/60">
+          <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">
+            {ko ? "Hertz 파산 타임라인 — COVID에서 전액 회수까지" : "Hertz Bankruptcy Timeline — COVID to Full Recovery"}
+          </p>
+        </div>
+        <div className="p-5 sm:p-8">
+          {/* Desktop: horizontal */}
+          <div className="hidden sm:flex items-stretch gap-0">
+            {events.map((e, i) => (
+              <div key={i} className="flex-1 relative">
+                <div className={`rounded-xl border p-4 h-full ${e.color} ${e.border}`}>
+                  <div className={`w-3 h-3 rounded-full mb-2 ${e.dot}`} />
+                  <p className={`text-[10px] font-bold uppercase tracking-wide mb-1 ${e.text} opacity-70`}>{ko ? e.dateKo : e.dateEn}</p>
+                  <p className={`text-[12px] font-bold leading-tight mb-1 ${e.text}`}>{ko ? e.titleKo : e.titleEn}</p>
+                  <p className={`text-[10px] leading-snug ${e.text} opacity-80`}>{ko ? e.noteKo : e.noteEn}</p>
+                </div>
+                {i < events.length - 1 && (
+                  <div className="absolute top-1/2 -right-3 transform -translate-y-1/2 z-10 text-gray-300 dark:text-gray-600 text-lg font-bold">→</div>
+                )}
+              </div>
+            ))}
+          </div>
+          {/* Mobile: vertical */}
+          <div className="sm:hidden relative pl-6">
+            <div className="absolute left-2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-amber-300 via-red-400 via-orange-400 via-sky-400 to-green-500" />
+            <div className="space-y-3">
+              {events.map((e, i) => (
+                <div key={i} className={`relative rounded-xl border p-3 ${e.color} ${e.border}`}>
+                  <p className={`text-[10px] font-bold uppercase tracking-wide mb-0.5 ${e.text} opacity-70`}>{ko ? e.dateKo : e.dateEn}</p>
+                  <p className={`text-[12px] font-bold leading-tight ${e.text}`}>{ko ? e.titleKo : e.titleEn}</p>
+                  <p className={`text-[10px] mt-1 opacity-80 ${e.text}`}>{ko ? e.noteKo : e.noteEn}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+// Visual 1: SPV Structure Diagram
+function SpvStructureVisual({ lang }: { lang: Lang }) {
+  const ko = lang === "ko";
+  const steps = [
+    {
+      icon: "🚗",
+      labelKo: "Hertz Global Holdings",
+      labelEn: "Hertz Global Holdings",
+      noteKo: "오리지네이터 — 차량 보유·운영",
+      noteEn: "Originator — owns and operates fleet",
+      bg: "bg-sky-50 dark:bg-sky-900/20",
+      border: "border-sky-200 dark:border-sky-700",
+      text: "text-sky-700 dark:text-sky-300",
+      arrow: "True Sale →",
+    },
+    {
+      icon: "🏛️",
+      labelKo: "Hertz Vehicle\nFinancing LLC (SPV)",
+      labelEn: "Hertz Vehicle\nFinancing LLC (SPV)",
+      noteKo: "파산 격리 법인 — 차량 소유권 보유",
+      noteEn: "Bankruptcy-remote entity — holds vehicle title",
+      bg: "bg-sky-100 dark:bg-sky-900/40",
+      border: "border-sky-400 dark:border-sky-500",
+      text: "text-sky-800 dark:text-sky-200",
+      arrow: "ABS Notes →",
+      highlight: true,
+    },
+    {
+      icon: "📄",
+      labelKo: "ABS 노트 발행\n(~$14B)",
+      labelEn: "ABS Notes Issued\n(~$14B)",
+      noteKo: "트랑쉐 구조: AAA / AA / A / BBB / BB / Equity",
+      noteEn: "Tranched: AAA / AA / A / BBB / BB / Equity",
+      bg: "bg-emerald-50 dark:bg-emerald-900/20",
+      border: "border-emerald-200 dark:border-emerald-700",
+      text: "text-emerald-700 dark:text-emerald-300",
+      arrow: "구매 →",
+    },
+    {
+      icon: "🏦",
+      labelKo: "ABS 투자자\n(기관투자자)",
+      labelEn: "ABS Investors\n(Institutions)",
+      noteKo: "선순위 투자자 전액 회수",
+      noteEn: "Senior investors fully repaid",
+      bg: "bg-gray-50 dark:bg-gray-800",
+      border: "border-gray-200 dark:border-gray-700",
+      text: "text-gray-700 dark:text-gray-300",
+      arrow: "",
+    },
+  ];
+
+  return (
+    <motion.div variants={fadeUp(0.1)} className="mt-8">
+      <div className="rounded-2xl overflow-hidden border border-gray-200/60 dark:border-gray-700/60">
+        <div className="bg-gray-50 dark:bg-gray-800/60 px-5 py-3 border-b border-gray-200/60 dark:border-gray-700/60">
+          <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">
+            {ko ? "Hertz ABS SPV 구조 — 파산 격리의 핵심" : "Hertz ABS SPV Structure — The Key to Bankruptcy Remoteness"}
+          </p>
+        </div>
+        <div className="p-5 sm:p-8">
+          {/* Desktop */}
+          <div className="hidden sm:flex items-start gap-3">
+            {steps.map((s, i) => (
+              <div key={i} className="flex-1 relative">
+                <div className={`rounded-xl border-2 p-4 text-center ${s.bg} ${s.border} ${s.highlight ? "ring-2 ring-sky-400 dark:ring-sky-500" : ""}`}>
+                  <span className="text-2xl mb-2 block">{s.icon}</span>
+                  <p className={`text-[11px] font-bold leading-tight mb-1 whitespace-pre-line ${s.text}`}>{ko ? s.labelKo : s.labelEn}</p>
+                  <p className={`text-[9px] opacity-75 leading-snug ${s.text}`}>{ko ? s.noteKo : s.noteEn}</p>
+                </div>
+                {i < steps.length - 1 && (
+                  <div className="absolute top-1/2 -right-4 transform -translate-y-1/2 z-10 text-[9px] font-bold text-sky-400 dark:text-sky-500 text-center leading-tight">
+                    {ko ? s.arrow : s.arrow.replace("구매", "Buy")}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+          {/* Mobile */}
+          <div className="sm:hidden relative pl-6">
+            <div className="absolute left-2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-sky-300 via-sky-400 to-emerald-400" />
+            <div className="space-y-3">
+              {steps.map((s, i) => (
+                <div key={i} className={`relative rounded-xl border-2 p-3 ${s.bg} ${s.border} ${s.highlight ? "ring-2 ring-sky-400" : ""}`}>
+                  <p className={`text-[12px] font-bold leading-tight ${s.text}`}>{s.icon} {ko ? s.labelKo.replace("\n", " ") : s.labelEn.replace("\n", " ")}</p>
+                  <p className={`text-[10px] mt-1 opacity-75 ${s.text}`}>{ko ? s.noteKo : s.noteEn}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* Bankruptcy isolation callout */}
+          <div className="mt-5 rounded-xl border border-red-200 dark:border-red-700/50 bg-red-50 dark:bg-red-900/15 p-4 flex items-start gap-3">
+            <span className="text-2xl flex-shrink-0">✗</span>
+            <div>
+              <p className="text-[12px] font-bold text-red-700 dark:text-red-300 mb-1">
+                {ko ? "파산 재단 귀속 ✗ — SPV 차량은 Hertz 파산 절차 밖에 있다" : "NOT in Bankruptcy Estate ✗ — SPV vehicles are outside Hertz bankruptcy proceedings"}
+              </p>
+              <p className="text-[11px] text-red-600 dark:text-red-400 leading-relaxed">
+                {ko
+                  ? "True Sale이 성립됐기 때문에 파산 법원은 SPV 자산(~50만 대 차량)을 Hertz 파산 재단의 일부로 취급하지 않았다. 이것이 AAA 투자자 전액 회수의 법적 근거다."
+                  : "Because True Sale was established, the bankruptcy court did not treat the SPV's assets (~500,000 vehicles) as part of Hertz's bankruptcy estate. This is the legal basis for AAA investor full recovery."}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+// Visual 2: Waterfall Tranche Recovery Bar Chart
+const trancheData = [
+  { name: "AAA", recovery: 100, color: "#22c55e" },
+  { name: "AA/A", recovery: 100, color: "#14b8a6" },
+  { name: "BBB/BB", recovery: 80, color: "#f59e0b" },
+  { name: "Equity", recovery: 2, color: "#ef4444" },
+];
+
+function WaterfallChartVisual({ lang }: { lang: Lang }) {
+  const ko = lang === "ko";
+  return (
+    <motion.div variants={fadeUp(0.1)} className="mt-8">
+      <div className="rounded-2xl overflow-hidden border border-gray-200/60 dark:border-gray-700/60">
+        <div className="bg-gray-50 dark:bg-gray-800/60 px-5 py-3 border-b border-gray-200/60 dark:border-gray-700/60">
+          <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">
+            {ko ? "트랑쉐별 원금 회수율 (%) — 워터폴 설계대로 작동" : "Tranche Recovery Rate (%) — Waterfall Worked as Designed"}
+          </p>
+        </div>
+        <div className="p-5 sm:p-8">
+          <div className="h-56">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={trancheData} margin={{ top: 16, right: 16, left: 0, bottom: 8 }}>
+                <XAxis dataKey="name" tick={{ fontSize: 12, fill: "#6b7280", fontWeight: 600 }} />
+                <YAxis domain={[0, 110]} tick={{ fontSize: 10, fill: "#9ca3af" }} tickFormatter={(v) => `${v}%`} />
+                <Tooltip
+                  formatter={(value) => [`${value}%`, ko ? "회수율" : "Recovery Rate"]}
+                  contentStyle={{ fontSize: 11, borderRadius: 8, border: "1px solid #e5e7eb", background: "white" }}
+                />
+                <Bar dataKey="recovery" radius={[6, 6, 0, 0]} label={{ position: "top", fontSize: 11, fontWeight: "bold", formatter: (v: unknown) => `${v}%` }}>
+                  {trancheData.map((entry, i) => (
+                    <Cell key={i} fill={entry.color} />
+                  ))}
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+          <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-3">
+            {trancheData.map((t) => (
+              <div key={t.name} className="rounded-lg p-3 text-center" style={{ background: t.color + "18", border: `1px solid ${t.color}40` }}>
+                <p className="text-[11px] font-bold mb-1" style={{ color: t.color }}>{t.name}</p>
+                <p className="text-xl font-black" style={{ color: t.color }}>{t.recovery}%</p>
+                <p className="text-[9px] mt-0.5" style={{ color: t.color, opacity: 0.8 }}>
+                  {t.recovery === 100 ? (ko ? "전액 회수" : "Full recovery") : t.recovery >= 50 ? (ko ? "일부 손실" : "Partial loss") : (ko ? "실질 무가치" : "Near worthless")}
+                </p>
+              </div>
+            ))}
+          </div>
+          <p className="text-[10px] text-center text-gray-400 dark:text-gray-500 mt-3">
+            {ko ? "* BBB/BB 회수율은 추정치. 파산 절차 비용·재조정 과정의 할인을 반영." : "* BBB/BB recovery is estimated, reflecting bankruptcy costs and restructuring discounts."}
+          </p>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+// Visual 3: ABS vs Equity comparison
+function AbsVsEquityVisual({ lang }: { lang: Lang }) {
+  const ko = lang === "ko";
+  return (
+    <motion.div variants={fadeUp(0.1)} className="mt-8">
+      <div className="rounded-2xl overflow-hidden border border-gray-200/60 dark:border-gray-700/60">
+        <div className="bg-gray-50 dark:bg-gray-800/60 px-5 py-3 border-b border-gray-200/60 dark:border-gray-700/60">
+          <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">
+            {ko ? "ABS 투자자 vs 주식 투자자 — 완전한 분리" : "ABS Investors vs Equity Investors — Complete Separation"}
+          </p>
+        </div>
+        <div className="p-5 sm:p-8">
+          <div className="grid sm:grid-cols-2 gap-4">
+            {/* ABS side */}
+            <motion.div
+              initial={{ opacity: 0, x: -16 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={VP}
+              transition={{ duration: 0.5, ease: EASE }}
+              className="rounded-xl border-2 border-sky-300 dark:border-sky-600 bg-sky-50 dark:bg-sky-900/20 p-5"
+            >
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-2xl">🏛️</span>
+                <div>
+                  <p className="text-[12px] font-black text-sky-700 dark:text-sky-300">{ko ? "ABS 투자자" : "ABS Investors"}</p>
+                  <p className="text-[10px] text-sky-500 dark:text-sky-400">{ko ? "(SPV 분리 구조)" : "(SPV Ring-fenced)"}</p>
+                </div>
+              </div>
+              <div className="space-y-2">
+                {[
+                  { icon: "✅", textKo: "차량 가치에 연동", textEn: "Linked to vehicle value" },
+                  { icon: "✅", textKo: "파산 절차 외부", textEn: "Outside bankruptcy proceedings" },
+                  { icon: "✅", textKo: "AAA 트랑쉐 전액 회수", textEn: "AAA tranche fully repaid" },
+                  { icon: "✅", textKo: "주가 등락과 무관", textEn: "Independent of stock movements" },
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-2">
+                    <span className="text-sm">{item.icon}</span>
+                    <p className="text-[12px] text-sky-700 dark:text-sky-300">{ko ? item.textKo : item.textEn}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-4 rounded-lg bg-sky-100 dark:bg-sky-900/40 p-3 text-center">
+                <p className="text-[10px] text-sky-500 dark:text-sky-400 font-bold uppercase mb-1">{ko ? "최종 결과" : "Final Outcome"}</p>
+                <p className="text-2xl font-black text-sky-600 dark:text-sky-400">{ko ? "전액 회수" : "100% Repaid"}</p>
+              </div>
+            </motion.div>
+            {/* Equity side */}
+            <motion.div
+              initial={{ opacity: 0, x: 16 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={VP}
+              transition={{ duration: 0.5, delay: 0.1, ease: EASE }}
+              className="rounded-xl border-2 border-red-300 dark:border-red-600 bg-red-50 dark:bg-red-900/15 p-5"
+            >
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-2xl">📉</span>
+                <div>
+                  <p className="text-[12px] font-black text-red-700 dark:text-red-300">{ko ? "주식 투자자" : "Equity Investors"}</p>
+                  <p className="text-[10px] text-red-500 dark:text-red-400">{ko ? "(모회사 Hertz)" : "(Parent Hertz Corp)"}</p>
+                </div>
+              </div>
+              <div className="space-y-2">
+                {[
+                  { icon: "❌", textKo: "파산 재단에 귀속", textEn: "Part of bankruptcy estate" },
+                  { icon: "❌", textKo: "주주 지분 최후순위", textEn: "Shareholders last in line" },
+                  { icon: "⚠️", textKo: "파산 중 주가 롤러코스터", textEn: "Meme stock price rollercoaster" },
+                  { icon: "❌", textKo: "파산 전 주가 대비 손실", textEn: "Large loss vs pre-bankruptcy price" },
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-2">
+                    <span className="text-sm">{item.icon}</span>
+                    <p className="text-[12px] text-red-700 dark:text-red-300">{ko ? item.textKo : item.textEn}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-4 rounded-lg bg-red-100 dark:bg-red-900/30 p-3 text-center">
+                <p className="text-[10px] text-red-500 dark:text-red-400 font-bold uppercase mb-1">{ko ? "최종 결과" : "Final Outcome"}</p>
+                <p className="text-2xl font-black text-red-600 dark:text-red-400">{ko ? "대규모 손실" : "Major Losses"}</p>
+              </div>
+            </motion.div>
+          </div>
+          <div className="mt-4 rounded-xl border border-sky-200 dark:border-sky-700/50 bg-sky-50/60 dark:bg-sky-900/10 p-4">
+            <p className="text-[12px] font-bold text-sky-700 dark:text-sky-300 mb-1">
+              {ko ? "핵심 인사이트 — 진정한 파산 격리" : "Key Insight — True Bankruptcy Remoteness"}
+            </p>
+            <p className="text-[11px] text-sky-600 dark:text-sky-400 leading-relaxed">
+              {ko
+                ? "Hertz 주가가 오르든 내리든, ABS 투자자의 손익은 차량 가치에만 연동됐다. SPV 구조가 모기업과의 완전한 법적 분리를 실현했다."
+                : "Regardless of whether Hertz stock rose or fell, ABS investor returns were tied solely to vehicle values. The SPV structure achieved complete legal separation from the parent company."}
+            </p>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+// Visual 4: Three Lesson Cards
+function LessonsVisual({ lang }: { lang: Lang }) {
+  const ko = lang === "ko";
+  const lessons = [
+    {
+      icon: "⚖️",
+      titleKo: "파산 격리 검증",
+      titleEn: "Bankruptcy Remoteness Validated",
+      descKo: "$140억 실전에서 SPV 파산 격리 원칙이 파산법원에 의해 공식 인정됐다. 이것은 구조화금융 역사상 가장 큰 규모의 파산 격리 실전 테스트다.",
+      descEn: "SPV bankruptcy remoteness was officially recognized by the bankruptcy court at $14B scale — the largest real-world test of bankruptcy remoteness in structured finance history.",
+      bg: "bg-sky-50 dark:bg-sky-900/20",
+      border: "border-sky-200 dark:border-sky-700",
+      text: "text-sky-700 dark:text-sky-300",
+      badge: "$14B",
+    },
+    {
+      icon: "🌊",
+      titleKo: "워터폴 원칙 검증",
+      titleEn: "Waterfall Principle Validated",
+      descKo: "선순위→후순위 원금 지급 순서가 실전에서 그대로 작동했다. AAA가 먼저 전액 회수되고, 에쿼티가 마지막에 손실을 흡수했다.",
+      descEn: "The senior-to-subordinate payment order worked exactly as designed in practice. AAA recovered first in full; equity absorbed losses last.",
+      bg: "bg-emerald-50 dark:bg-emerald-900/20",
+      border: "border-emerald-200 dark:border-emerald-700",
+      text: "text-emerald-700 dark:text-emerald-300",
+      badge: "AAA 100%",
+    },
+    {
+      icon: "🚗",
+      titleKo: "담보 자산 중요성",
+      titleEn: "Importance of Collateral Quality",
+      descKo: "차량이라는 실물 담보가 결정적이었다. 중고차 시장이 존재하는 한 자동차 ABS는 최후의 방어선이 있다. 2021년 중고차 가격 급등은 예상치 못한 보너스였다.",
+      descEn: "Physical vehicle collateral was decisive. As long as a used car market exists, auto ABS has a last line of defense. The 2021 used car price surge was an unexpected bonus.",
+      bg: "bg-amber-50 dark:bg-amber-900/20",
+      border: "border-amber-200 dark:border-amber-700",
+      text: "text-amber-700 dark:text-amber-300",
+      badge: ko ? "중고차 시장" : "Used Car Market",
+    },
+  ];
+
+  return (
+    <motion.div variants={fadeUp(0.1)} className="mt-8">
+      <div className="rounded-2xl overflow-hidden border border-gray-200/60 dark:border-gray-700/60">
+        <div className="bg-gray-50 dark:bg-gray-800/60 px-5 py-3 border-b border-gray-200/60 dark:border-gray-700/60">
+          <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">
+            {ko ? "Hertz ABS가 남긴 구조화금융 3대 교훈" : "3 Key Structured Finance Lessons from Hertz ABS"}
+          </p>
+        </div>
+        <div className="p-5 sm:p-8">
+          <div className="grid sm:grid-cols-3 gap-4">
+            {lessons.map((lesson, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={VP}
+                transition={{ duration: 0.45, delay: i * 0.1, ease: EASE }}
+                className={`rounded-xl border p-5 ${lesson.bg} ${lesson.border}`}
+              >
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-2xl">{lesson.icon}</span>
+                  <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full bg-white/60 dark:bg-black/20 ${lesson.text}`}>{lesson.badge}</span>
+                </div>
+                <p className={`text-[13px] font-bold mb-2 ${lesson.text}`}>{ko ? lesson.titleKo : lesson.titleEn}</p>
+                <p className={`text-[11px] leading-relaxed ${lesson.text} opacity-85`}>{ko ? lesson.descKo : lesson.descEn}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+function getVisual(i: number, lang: Lang) {
+  const visuals = [
+    <CovidTimelineVisual key="0" lang={lang} />,
+    <SpvStructureVisual key="1" lang={lang} />,
+    <WaterfallChartVisual key="2" lang={lang} />,
+    <AbsVsEquityVisual key="3" lang={lang} />,
+    <LessonsVisual key="4" lang={lang} />,
+  ];
+  return visuals[i] ?? null;
+}
+
+export default function HertzFleetClient({ deal, lang }: { deal: MarketDeal; lang: Lang }) {
+  const ko = lang === "ko";
+  return (
+    <>
+      <Header />
+      <main className="flex-1">
+        <section className="border-b border-gray-200/60 dark:border-gray-700/60 bg-gray-50 dark:bg-gray-900/50">
+          <div className="max-w-3xl mx-auto px-5 py-10">
+            <div className="flex items-center gap-1.5 text-xs text-gray-400 dark:text-gray-500 mb-4 flex-wrap">
+              <Link href={ko ? "/" : "/en"} className="hover:text-gray-600 dark:hover:text-gray-300 transition-colors">{ko ? "홈" : "Home"}</Link>
+              <span>›</span>
+              <Link href={ko ? "/market" : "/en/market"} className="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">{ko ? "마켓" : "Market"}</Link>
+              <span>›</span>
+              <span className="text-gray-600 dark:text-gray-300">{ko ? "구조화금융" : "Structured Finance"}</span>
+            </div>
+            <div className="inline-flex items-center px-3 py-1 rounded-full text-[11px] font-bold mb-4" style={{ background: ACCENT_LIGHT, color: ACCENT }}>
+              {ko ? deal.categoryLabel : deal.categoryLabelEn}
+            </div>
+            <motion.h1 initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: EASE }} className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 leading-snug mb-2">
+              {ko ? deal.title : deal.titleEn}
+            </motion.h1>
+            {ko && (
+              <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.08 }} className="text-[12px] text-gray-400 dark:text-gray-500 italic mb-4">
+                {deal.titleEn}
+              </motion.p>
+            )}
+            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.15 }} className="text-[15px] text-gray-600 dark:text-gray-400 leading-relaxed">
+              {ko ? deal.excerpt : deal.excerptEn}
+            </motion.p>
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.2 }} className="flex items-center gap-3 mt-5 flex-wrap">
+              <span className="text-[11px] text-gray-400 dark:text-gray-500">{deal.readingMinutes}{ko ? "분 읽기" : " min read"}</span>
+              <span className="text-gray-300 dark:text-gray-600">·</span>
+              <div className="flex gap-1.5 flex-wrap">
+                {(ko ? deal.tags : (deal.tagsEn ?? deal.tags)).slice(0, 6).map((tag) => (
+                  <span key={tag} className="bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 px-2 py-0.5 rounded text-[10px]">{tag}</span>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        <div className="flex justify-end max-w-3xl mx-auto px-5 mb-6 mt-4">
+          <ShareButtons title={ko ? deal.title : deal.titleEn} variant="top" lang={lang} />
+        </div>
+
+        {deal.executiveSummary && (
+          <motion.div variants={fadeUp(0.1)} initial="hidden" whileInView="show" viewport={VP} className="max-w-3xl mx-auto px-5 pt-4">
+            <div className="rounded-xl border-l-4 px-5 py-4" style={{ borderColor: ACCENT, background: ACCENT_LIGHT }}>
+              <p className="text-[10px] font-bold uppercase tracking-widest mb-3" style={{ color: ACCENT }}>{ko ? "핵심 요약" : "Key Takeaways"}</p>
+              <ul className="space-y-2">
+                {(ko ? deal.executiveSummary.ko : deal.executiveSummary.en).map((point, i) => (
+                  <li key={i} className="flex items-start gap-2 text-[13px] leading-relaxed" style={{ color: ACCENT_DARK }}>
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: ACCENT }} />{point}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
+        )}
+
+        <div className="max-w-3xl mx-auto px-5 py-10 space-y-16">
+          <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
+            <motion.div variants={fadeUp()} className="mb-5">
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100 mb-0.5">{ko ? "딜 스냅샷" : "Deal Snapshot"}</h2>
+              <div className="w-8 h-0.5 mt-3" style={{ background: ACCENT }} />
+            </motion.div>
+            <motion.div variants={fadeUp(0.05)} className="rounded-2xl overflow-hidden border-2 border-sky-100 dark:border-sky-900/40">
+              <div className="px-5 py-3 flex items-center gap-2" style={{ background: ACCENT }}>
+                <p className="text-[10px] font-black text-white uppercase tracking-widest">{ko ? "Hertz Fleet ABS — 핵심 수치" : "Hertz Fleet ABS — Key Figures"}</p>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-sky-100 dark:divide-sky-900/30 bg-white dark:bg-gray-950">
+                {deal.snapshot.map((row, i) => (
+                  <motion.div key={row.labelKo} variants={fadeUp(i * 0.06)} className={`px-5 py-4 ${i % 2 === 0 && i === deal.snapshot.length - 1 ? "sm:col-span-2" : ""}`}>
+                    <p className="text-[10px] text-gray-400 dark:text-gray-500 mb-1">{ko ? row.labelKo : row.labelEn}</p>
+                    <p className="text-[14px] font-bold leading-snug text-gray-900 dark:text-gray-100">{row.value}</p>
+                  </motion.div>
+                ))}
+              </div>
+              <div className="grid grid-cols-3 divide-x divide-sky-100 dark:divide-sky-900/30 border-t-2 border-sky-100 dark:border-sky-900/40">
+                <div className="px-4 py-4 text-center bg-gray-50 dark:bg-gray-900">
+                  <p className="text-[10px] text-gray-400 uppercase font-bold mb-1">{ko ? "ABS 잔액" : "ABS Outstanding"}</p>
+                  <p className="text-2xl font-black text-gray-700 dark:text-gray-300">~$14B</p>
+                </div>
+                <div className="px-4 py-4 text-center" style={{ background: ACCENT_LIGHT }}>
+                  <p className="text-[10px] uppercase font-bold mb-1" style={{ color: ACCENT }}>{ko ? "AAA 결과" : "AAA Outcome"}</p>
+                  <p className="text-2xl font-black" style={{ color: ACCENT }}>100%</p>
+                  <p className="text-[9px] mt-0.5" style={{ color: ACCENT }}>{ko ? "전액 회수" : "Full Recovery"}</p>
+                </div>
+                <div className="px-4 py-4 text-center bg-emerald-50 dark:bg-emerald-900/20">
+                  <p className="text-[10px] text-emerald-500 dark:text-emerald-400 uppercase font-bold mb-1">{ko ? "파산 종결" : "Exit"}</p>
+                  <p className="text-xl font-black text-emerald-600 dark:text-emerald-400">2021.6</p>
+                </div>
+              </div>
+            </motion.div>
+          </motion.section>
+
+          {deal.sections.map((section, i) => (
+            <motion.section key={i} variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
+              <motion.div variants={fadeUp()} className="mb-6">
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100 mb-0.5">{ko ? section.heading : section.headingEn}</h2>
+                <div className="w-8 h-0.5 mt-3" style={{ background: ACCENT }} />
+              </motion.div>
+              <div className="pl-4 border-l-2 mb-2" style={{ borderColor: ACCENT + "4d" }}>
+                <div className="space-y-3">
+                  {(ko ? section.body : section.bodyEn).split("\n\n").map((para, j) => (
+                    <motion.p key={j} variants={fadeUp(j * 0.04)} className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">{para}</motion.p>
+                  ))}
+                </div>
+              </div>
+              {getVisual(i, lang)}
+            </motion.section>
+          ))}
+
+          <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
+            <motion.h2 variants={fadeUp()} className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">{ko ? "핵심 용어" : "Key Terms"}</motion.h2>
+            <div className="mt-5 space-y-3">
+              {deal.keyTerms.map((term, i) => (
+                <motion.div key={i} variants={fadeUp()} className="bg-gray-50 dark:bg-gray-900 rounded-xl p-5 border border-gray-100 dark:border-gray-800">
+                  <div className="flex items-center gap-2 mb-2 flex-wrap">
+                    <span className="w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold text-white flex-shrink-0" style={{ background: ACCENT }}>{i + 1}</span>
+                    <span className="font-bold text-gray-900 dark:text-gray-100 text-[14px]">{ko ? term.term : term.termEn}</span>
+                  </div>
+                  <p className="text-[13px] text-gray-700 dark:text-gray-300 leading-relaxed pl-7">{ko ? term.definition : term.definitionEn}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.section>
+
+          {deal.assessment && (
+            <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
+              <motion.h2 variants={fadeUp()} className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">{ko ? "딜 평가" : "Deal Assessment"}</motion.h2>
+              <div className="w-8 h-0.5 mt-3 mb-6" style={{ background: ACCENT }} />
+              <div className="grid sm:grid-cols-2 gap-4">
+                <motion.div variants={fadeUp()} className="rounded-xl border border-sky-200 dark:border-sky-700/50 bg-sky-50 dark:bg-sky-900/15 p-5">
+                  <p className="text-[11px] font-bold uppercase tracking-widest mb-3" style={{ color: ACCENT }}>{ko ? "긍정적 결과" : "Positives"}</p>
+                  <ul className="space-y-2">
+                    {(ko ? deal.assessment.positives : deal.assessment.positivesEn).map((p, i) => (
+                      <li key={i} className="flex items-start gap-2 text-[13px] leading-relaxed" style={{ color: ACCENT_DARK }}>
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: ACCENT }} />{p}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+                <motion.div variants={fadeUp()} className="rounded-xl border border-red-200 dark:border-red-700/50 bg-red-50 dark:bg-red-900/15 p-5">
+                  <p className="text-[11px] font-bold text-red-600 dark:text-red-400 uppercase tracking-widest mb-3">{ko ? "리스크 및 교훈" : "Risks & Lessons"}</p>
+                  <ul className="space-y-2">
+                    {(ko ? deal.assessment.risks : deal.assessment.risksEn).map((r, i) => (
+                      <li key={i} className="flex items-start gap-2 text-[13px] text-red-800 dark:text-red-200 leading-relaxed">
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0" />{r}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              </div>
+            </motion.section>
+          )}
+
+          <ShareButtons title={ko ? deal.title : deal.titleEn} variant="mid" lang={lang} />
+
+          {deal.faq && deal.faq.length > 0 && (
+            <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
+              <motion.h2 variants={fadeUp()} className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">{ko ? "자주 묻는 질문" : "Frequently Asked Questions"}</motion.h2>
+              <div className="w-8 h-0.5 mt-3 mb-6" style={{ background: ACCENT }} />
+              <FaqAccordion items={deal.faq.map((f) => ({ q: ko ? f.q : f.qEn, a: ko ? f.a : f.aEn }))} accent={ACCENT} />
+            </motion.section>
+          )}
+
+          {(deal.relatedDealSlugs?.length || deal.relatedMarket101Slugs?.length) ? (
+            <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
+              <motion.h2 variants={fadeUp()} className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">{ko ? "함께 읽으면 좋은 콘텐츠" : "Related Content"}</motion.h2>
+              <div className="w-8 h-0.5 mt-3 mb-6" style={{ background: ACCENT }} />
+              <div className="grid sm:grid-cols-2 gap-3">
+                {deal.relatedDealSlugs?.map((slug) => (
+                  <motion.div key={slug} variants={fadeUp()}>
+                    <Link href={ko ? `/market/${slug}` : `/en/market/${slug}`}>
+                      <div className="group flex items-center gap-3 px-4 py-3.5 rounded-xl border border-gray-200/60 dark:border-gray-700/60 hover:border-sky-300 dark:hover:border-sky-700 hover:bg-sky-50/40 dark:hover:bg-sky-900/20 transition-all">
+                        <span className="w-7 h-7 rounded-lg bg-sky-100 dark:bg-sky-900/40 flex items-center justify-center text-[11px] font-bold text-sky-600 dark:text-sky-400 flex-shrink-0">M</span>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-[10px] text-gray-400 dark:text-gray-500 font-medium">Market Story</p>
+                          <p className="text-[13px] font-semibold text-gray-800 dark:text-gray-200 group-hover:text-sky-700 dark:group-hover:text-sky-300 transition-colors truncate">
+                            {slug.split("-").map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")}
+                          </p>
+                        </div>
+                        <span className="text-gray-300 dark:text-gray-600 group-hover:text-sky-400 transition-colors text-sm flex-shrink-0">→</span>
+                      </div>
+                    </Link>
+                  </motion.div>
+                ))}
+                {deal.relatedMarket101Slugs?.map((slug) => (
+                  <motion.div key={slug} variants={fadeUp()}>
+                    <Link href={ko ? `/market-101/${slug}` : `/en/market-101/${slug}`}>
+                      <div className="group flex items-center gap-3 px-4 py-3.5 rounded-xl border border-gray-200/60 dark:border-gray-700/60 hover:border-teal-300 dark:hover:border-teal-700 hover:bg-teal-50/40 dark:hover:bg-teal-900/20 transition-all">
+                        <span className="w-7 h-7 rounded-lg bg-teal-100 dark:bg-teal-900/40 flex items-center justify-center text-[11px] font-bold text-teal-600 dark:text-teal-400 flex-shrink-0">101</span>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-[10px] text-gray-400 dark:text-gray-500 font-medium">Market 101</p>
+                          <p className="text-[13px] font-semibold text-gray-800 dark:text-gray-200 group-hover:text-teal-700 dark:group-hover:text-teal-300 transition-colors truncate">
+                            {slug.split("-").map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")}
+                          </p>
+                        </div>
+                        <span className="text-gray-300 dark:text-gray-600 group-hover:text-teal-400 transition-colors text-sm flex-shrink-0">→</span>
+                      </div>
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.section>
+          ) : null}
+
+          {deal.references && deal.references.length > 0 && (
+            <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
+              <motion.h2 variants={fadeUp()} className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">{ko ? "참고 자료" : "References"}</motion.h2>
+              <div className="w-8 h-0.5 mt-3 mb-5" style={{ background: ACCENT }} />
+              <ol className="space-y-2.5">
+                {deal.references.map((ref) => (
+                  <motion.li key={ref.id} variants={fadeUp()} className="flex gap-3 text-[13px] text-gray-600 dark:text-gray-400 leading-relaxed">
+                    <span className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-[9px] font-bold text-white mt-0.5" style={{ background: ACCENT_DARK }}>{ref.id}</span>
+                    <span>
+                      {ref.author && <span className="font-semibold text-gray-800 dark:text-gray-200">{ref.author}. </span>}
+                      {ref.url ? (
+                        <a href={ref.url} target="_blank" rel="noopener noreferrer" className="hover:underline" style={{ color: ACCENT }}>{ref.title}</a>
+                      ) : (
+                        <span>{ref.title}</span>
+                      )}
+                      {ref.source && <span className="text-gray-400 dark:text-gray-500"> — {ref.source}</span>}
+                      {ref.year && <span className="text-gray-400 dark:text-gray-500"> ({ref.year})</span>}
+                    </span>
+                  </motion.li>
+                ))}
+              </ol>
+            </motion.section>
+          )}
+        </div>
+      </main>
+      <Footer />
+    </>
+  );
+}

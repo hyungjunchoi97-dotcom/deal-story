@@ -1,0 +1,635 @@
+"use client";
+
+import Link from "next/link";
+import { motion } from "framer-motion";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  CartesianGrid,
+  ResponsiveContainer,
+  Cell,
+} from "recharts";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import ShareButtons from "@/components/deal/ShareButtons";
+import FaqAccordion from "@/components/FaqAccordion";
+import type { MarketDeal } from "@/data/market-deals";
+
+type Lang = "ko" | "en";
+
+const EASE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
+const VP = { once: true, margin: "-60px" };
+const fadeUp = (delay = 0) => ({ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: EASE, delay } } });
+const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.07 } } };
+
+const ACCENT = "#dc2626";
+const ACCENT_DARK = "#991b1b";
+const ACCENT_LIGHT = "rgb(254 242 242)";
+
+// Visual 0: Deal Origin Flow — Paulson → Goldman → Investors, with info asymmetry
+function DealOriginFlowVisual({ lang }: { lang: Lang }) {
+  const ko = lang === "ko";
+  return (
+    <motion.div variants={fadeUp(0.1)} className="mt-8">
+      <div className="rounded-2xl overflow-hidden border border-gray-200/60 dark:border-gray-700/60">
+        <div className="bg-gray-50 dark:bg-gray-800/60 px-5 py-3 border-b border-gray-200/60 dark:border-gray-700/60">
+          <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">
+            {ko ? "딜 구성 흐름 — 정보 비대칭의 핵심" : "Deal Construction Flow — The Information Asymmetry"}
+          </p>
+        </div>
+        <div className="p-5 sm:p-8">
+          {/* Main flow */}
+          <div className="hidden sm:flex items-center gap-2 mb-6">
+            {/* Paulson box */}
+            <div className="flex-1 rounded-xl border-2 border-red-300 dark:border-red-700 bg-red-50 dark:bg-red-900/20 p-4 text-center relative">
+              <span className="text-2xl mb-2 block">🐻</span>
+              <p className="text-[12px] font-bold text-red-700 dark:text-red-300">{ko ? "폴슨 (Paulson & Co.)" : "Paulson & Co."}</p>
+              <p className="text-[10px] text-red-600 dark:text-red-400 opacity-80 mt-1">{ko ? "포트폴리오 설계 & 숏 포지션" : "Portfolio design & short position"}</p>
+            </div>
+            <div className="flex flex-col items-center gap-1">
+              <span className="text-gray-400 text-sm font-bold">→</span>
+              <p className="text-[9px] text-gray-400 text-center w-16">{ko ? "포트폴리오\n선정 요청" : "Portfolio\nselection req."}</p>
+            </div>
+            {/* Goldman box */}
+            <div className="flex-1 rounded-xl border-2 border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 p-4 text-center">
+              <span className="text-2xl mb-2 block">🏦</span>
+              <p className="text-[12px] font-bold text-gray-700 dark:text-gray-300">{ko ? "Goldman Sachs" : "Goldman Sachs"}</p>
+              <p className="text-[10px] text-gray-500 dark:text-gray-400 opacity-80 mt-1">{ko ? "딜 구성 & 판매" : "Deal structuring & selling"}</p>
+            </div>
+            <div className="flex flex-col items-center gap-1">
+              <span className="text-gray-400 text-sm font-bold">→</span>
+              <p className="text-[9px] text-gray-400 text-center w-16">{ko ? "노트\n판매" : "Notes\nsold"}</p>
+            </div>
+            {/* Investors box */}
+            <div className="flex-1 rounded-xl border-2 border-blue-200 dark:border-blue-700 bg-blue-50 dark:bg-blue-900/20 p-4 text-center">
+              <span className="text-2xl mb-2 block">🏛️</span>
+              <p className="text-[12px] font-bold text-blue-700 dark:text-blue-300">{ko ? "IKB / ACA" : "IKB / ACA"}</p>
+              <p className="text-[10px] text-blue-600 dark:text-blue-400 opacity-80 mt-1">{ko ? "롱 포지션 취득" : "Long position taken"}</p>
+            </div>
+          </div>
+
+          {/* Mobile flow */}
+          <div className="sm:hidden space-y-3 mb-6 relative pl-6">
+            <div className="absolute left-2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-red-400 via-gray-400 to-blue-400" />
+            {[
+              { icon: "🐻", label: ko ? "폴슨 (Paulson & Co.)" : "Paulson & Co.", note: ko ? "포트폴리오 설계 & 숏 포지션" : "Portfolio design & short position", bg: "bg-red-50 dark:bg-red-900/20", border: "border-red-300 dark:border-red-700", text: "text-red-700 dark:text-red-300" },
+              { icon: "🏦", label: "Goldman Sachs", note: ko ? "딜 구성 & 판매" : "Deal structuring & selling", bg: "bg-gray-50 dark:bg-gray-800", border: "border-gray-300 dark:border-gray-600", text: "text-gray-700 dark:text-gray-300" },
+              { icon: "🏛️", label: "IKB / ACA", note: ko ? "롱 포지션 취득" : "Long position taken", bg: "bg-blue-50 dark:bg-blue-900/20", border: "border-blue-200 dark:border-blue-700", text: "text-blue-700 dark:text-blue-300" },
+            ].map((s, i) => (
+              <div key={i} className={`rounded-xl border p-3 ${s.bg} ${s.border}`}>
+                <p className={`text-[12px] font-bold ${s.text}`}>{s.icon} {s.label}</p>
+                <p className={`text-[10px] mt-1 opacity-75 ${s.text}`}>{s.note}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Information asymmetry callout */}
+          <div className="rounded-xl border-2 border-dashed border-red-300 dark:border-red-700 bg-red-50 dark:bg-red-900/15 p-4">
+            <div className="flex items-start gap-3">
+              <span className="text-xl flex-shrink-0">⚠️</span>
+              <div>
+                <p className="text-[12px] font-bold text-red-700 dark:text-red-300 mb-1">
+                  {ko ? "숏 포지션 (투자자 모름)" : "Short Position (Undisclosed to Investors)"}
+                </p>
+                <p className="text-[11px] text-red-600 dark:text-red-400 leading-relaxed">
+                  {ko
+                    ? "폴슨이 포트폴리오를 설계하면서 동시에 해당 포트폴리오에 숏 포지션을 취한다는 사실을 Goldman은 IKB·ACA에게 알리지 않았다. SEC가 핵심 위반 사항으로 지목한 정보 비대칭."
+                    : "Goldman did not disclose to IKB or ACA that Paulson, who designed the portfolio, simultaneously held a short position on it. The SEC identified this as the core information asymmetry violation."}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+// Visual 1: Synthetic CDO Structure diagram
+function SyntheticCdoStructureVisual({ lang }: { lang: Lang }) {
+  const ko = lang === "ko";
+  return (
+    <motion.div variants={fadeUp(0.1)} className="mt-8">
+      <div className="rounded-2xl overflow-hidden border border-gray-200/60 dark:border-gray-700/60">
+        <div className="bg-gray-50 dark:bg-gray-800/60 px-5 py-3 border-b border-gray-200/60 dark:border-gray-700/60">
+          <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">
+            {ko ? "합성 CDO 구조 — 돈이 어떻게 흘렀나" : "Synthetic CDO Structure — Money Flow"}
+          </p>
+        </div>
+        <div className="p-5 sm:p-8">
+          {/* Structure diagram */}
+          <div className="grid grid-cols-3 gap-3 mb-5">
+            {/* Protection Buyer */}
+            <div className="rounded-xl border-2 border-red-300 dark:border-red-700 bg-red-50 dark:bg-red-900/20 p-3 text-center">
+              <span className="text-xl mb-1 block">🐻</span>
+              <p className="text-[11px] font-bold text-red-700 dark:text-red-300">{ko ? "보장 매수자" : "Protection Buyer"}</p>
+              <p className="text-[10px] text-red-600 dark:text-red-400 mt-0.5">{ko ? "폴슨" : "Paulson"}</p>
+            </div>
+            {/* SPV */}
+            <div className="rounded-xl border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 p-3 text-center">
+              <span className="text-xl mb-1 block">🏛️</span>
+              <p className="text-[11px] font-bold text-gray-700 dark:text-gray-300">SPV / Abacus</p>
+              <p className="text-[10px] text-gray-500 dark:text-gray-400 mt-0.5">{ko ? "계약 중심" : "Contract hub"}</p>
+            </div>
+            {/* Investors */}
+            <div className="rounded-xl border-2 border-blue-200 dark:border-blue-700 bg-blue-50 dark:bg-blue-900/20 p-3 text-center">
+              <span className="text-xl mb-1 block">💰</span>
+              <p className="text-[11px] font-bold text-blue-700 dark:text-blue-300">{ko ? "투자자" : "Investors"}</p>
+              <p className="text-[10px] text-blue-600 dark:text-blue-400 mt-0.5">IKB / ACA</p>
+            </div>
+          </div>
+
+          {/* Flow arrows */}
+          <div className="space-y-3 mb-5">
+            {/* Premium flow */}
+            <div className="flex items-center gap-2 rounded-lg bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 px-3 py-2">
+              <span className="text-green-600 dark:text-green-400 font-bold text-sm">↔</span>
+              <div>
+                <p className="text-[11px] font-bold text-green-700 dark:text-green-300">{ko ? "CDS 프리미엄 (폴슨 → SPV)" : "CDS Premium (Paulson → SPV)"}</p>
+                <p className="text-[10px] text-green-600 dark:text-green-400 opacity-80">{ko ? "폴슨이 정기적으로 프리미엄 지급 — 부도 보호 대가" : "Paulson pays periodic premium — cost of default protection"}</p>
+              </div>
+            </div>
+            {/* Notes flow */}
+            <div className="flex items-center gap-2 rounded-lg bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 px-3 py-2">
+              <span className="text-blue-600 dark:text-blue-400 font-bold text-sm">↔</span>
+              <div>
+                <p className="text-[11px] font-bold text-blue-700 dark:text-blue-300">{ko ? "노트 원금 (투자자 → SPV)" : "Note Principal (Investors → SPV)"}</p>
+                <p className="text-[10px] text-blue-600 dark:text-blue-400 opacity-80">{ko ? "IKB·ACA가 SPV 노트 매입 — 스프레드 수익 기대" : "IKB/ACA purchase SPV notes — expecting spread income"}</p>
+              </div>
+            </div>
+            {/* Loss flow */}
+            <div className="flex items-center gap-2 rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 px-3 py-2">
+              <span className="text-red-600 dark:text-red-400 font-bold text-sm">→</span>
+              <div>
+                <p className="text-[11px] font-bold text-red-700 dark:text-red-300">{ko ? "손실 보상 (SPV → 폴슨) | RMBS 부도 시" : "Loss Payment (SPV → Paulson) | On RMBS Default"}</p>
+                <p className="text-[10px] text-red-600 dark:text-red-400 opacity-80">{ko ? "서브프라임 RMBS 부도 → 폴슨에게 보상 → 투자자 원금 손실" : "Subprime RMBS default → Paulson paid → investors lose principal"}</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 px-4 py-3">
+            <p className="text-[11px] text-gray-600 dark:text-gray-400 leading-relaxed">
+              {ko
+                ? "핵심: 실제 RMBS 보유 없이 CDS만으로 $2B 노출 구축. 폴슨이 설계한 포트폴리오가 부도나면 폴슨이 이익, 투자자가 손실. 이 구조 자체는 합법이지만 — 폴슨의 존재를 숨긴 것이 문제였다."
+                : "Key: $2B exposure created via CDS alone, with no actual RMBS. When the portfolio Paulson designed defaulted, Paulson profited and investors lost. The structure itself was legal — hiding Paulson's role was the problem."}
+            </p>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+// Visual 2: Timeline collapse chart
+const collapseTimelineData = [
+  { name: "발행\n(2007.04)", nameEn: "Issuance\n(Apr 2007)", value: 100, fill: "#dc2626" },
+  { name: "부실화\n(2008.01, 99%)", nameEn: "Collapse\n(Jan 2008, 99%)", value: 99, fill: "#991b1b" },
+  { name: "SEC 기소\n(2010.04)", nameEn: "SEC Charge\n(Apr 2010)", value: 0, fill: "#7f1d1d" },
+];
+
+function CollapseTimelineChart({ lang }: { lang: Lang }) {
+  const ko = lang === "ko";
+  const data = collapseTimelineData.map((d) => ({ ...d, name: ko ? d.name : d.nameEn }));
+
+  return (
+    <motion.div variants={fadeUp(0.1)} className="mt-8">
+      <div className="rounded-2xl overflow-hidden border border-gray-200/60 dark:border-gray-700/60">
+        <div className="bg-gray-50 dark:bg-gray-800/60 px-5 py-3 border-b border-gray-200/60 dark:border-gray-700/60">
+          <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">
+            {ko ? "Abacus 2007-AC1 붕괴 타임라인" : "Abacus 2007-AC1 Collapse Timeline"}
+          </p>
+        </div>
+        <div className="p-5 sm:p-8">
+          <div className="h-52">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={data} margin={{ top: 8, right: 16, left: 0, bottom: 16 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#fecaca" />
+                <XAxis
+                  dataKey="name"
+                  tick={{ fontSize: 9, fill: "#9ca3af" }}
+                  interval={0}
+                />
+                <YAxis
+                  domain={[0, 105]}
+                  tick={{ fontSize: 9, fill: "#9ca3af" }}
+                  tickFormatter={(v) => `${v}%`}
+                />
+                <Tooltip
+                  formatter={(value) => [`${value}%`, ko ? "기초자산 부실화율" : "Impairment Rate"]}
+                  contentStyle={{ fontSize: 11, borderRadius: 8, border: "1px solid #e5e7eb", background: "white" }}
+                />
+                <Bar dataKey="value" radius={[4, 4, 0, 0]} label={{ position: "top", fontSize: 10, fontWeight: "bold", fill: "#dc2626" }}>
+                  {data.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={entry.fill} />
+                  ))}
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+          <div className="mt-4 grid grid-cols-3 gap-3">
+            {[
+              { label: ko ? "발행 규모" : "Issue Size", value: "$2B", color: "text-red-600 dark:text-red-400" },
+              { label: ko ? "9개월 후 부실화" : "9-Month Impairment", value: "99%+", color: "text-red-700 dark:text-red-300" },
+              { label: ko ? "SEC 합의금" : "SEC Settlement", value: "$550M", color: "text-red-800 dark:text-red-200" },
+            ].map((item) => (
+              <div key={item.label} className="rounded-xl bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 p-3 text-center">
+                <p className="text-[9px] text-gray-500 dark:text-gray-400 mb-1">{item.label}</p>
+                <p className={`text-lg font-black ${item.color}`}>{item.value}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+// Visual 3: Settlement comparison cards
+function SettlementComparisonVisual({ lang }: { lang: Lang }) {
+  const ko = lang === "ko";
+  const cards = [
+    {
+      icon: "🏦",
+      titleKo: "Goldman 합의금",
+      titleEn: "Goldman Settlement",
+      value: "$550M",
+      noteKo: "SEC 역대 최대 합의금 (2010년 기준)\n'불충분한 정보' 인정",
+      noteEn: "Largest SEC settlement at the time (2010)\n'Incomplete information' acknowledged",
+      bg: "bg-gray-50 dark:bg-gray-900",
+      border: "border-gray-200 dark:border-gray-700",
+      valueColor: "text-gray-700 dark:text-gray-300",
+    },
+    {
+      icon: "🐻",
+      titleKo: "폴슨 수익",
+      titleEn: "Paulson Profit",
+      value: "$37억",
+      noteKo: "2007년 전체 수익 ~$3.7B\nAbacus 딜만 ~$1B\n기소 없음",
+      noteEn: "Total 2007 profit ~$3.7B\nAbacus deal alone ~$1B\nNot charged",
+      bg: "bg-green-50 dark:bg-green-900/20",
+      border: "border-green-200 dark:border-green-800",
+      valueColor: "text-green-700 dark:text-green-300",
+    },
+    {
+      icon: "💸",
+      titleKo: "IKB / ACA 손실",
+      titleEn: "IKB / ACA Loss",
+      value: "~$10억",
+      noteKo: "IKB ~$1.5억\nACA ~$9억+\n두 기관 합산",
+      noteEn: "IKB ~$150M\nACA ~$900M+\nCombined losses",
+      bg: "bg-red-50 dark:bg-red-900/20",
+      border: "border-red-200 dark:border-red-800",
+      valueColor: "text-red-700 dark:text-red-300",
+    },
+  ];
+
+  return (
+    <motion.div variants={fadeUp(0.1)} className="mt-8">
+      <div className="rounded-2xl overflow-hidden border border-gray-200/60 dark:border-gray-700/60">
+        <div className="bg-gray-50 dark:bg-gray-800/60 px-5 py-3 border-b border-gray-200/60 dark:border-gray-700/60">
+          <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">
+            {ko ? "누가 얼마를 잃고, 얼마를 벌었나" : "Who Lost and Who Gained"}
+          </p>
+        </div>
+        <div className="p-5 sm:p-8">
+          <div className="grid sm:grid-cols-3 gap-4">
+            {cards.map((card, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={VP}
+                transition={{ duration: 0.45, delay: i * 0.1, ease: EASE }}
+                className={`rounded-xl border-2 p-5 text-center ${card.bg} ${card.border}`}
+              >
+                <span className="text-3xl block mb-3">{card.icon}</span>
+                <p className="text-[11px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-2">
+                  {ko ? card.titleKo : card.titleEn}
+                </p>
+                <p className={`text-3xl font-black mb-3 ${card.valueColor}`}>{card.value}</p>
+                <p className="text-[10px] text-gray-500 dark:text-gray-400 leading-relaxed whitespace-pre-line">
+                  {ko ? card.noteKo : card.noteEn}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+// Visual 4: Three vulnerability lesson cards
+function ThreeLessonsVisual({ lang }: { lang: Lang }) {
+  const ko = lang === "ko";
+  const lessons = [
+    {
+      icon: "🔍",
+      titleKo: "정보 비대칭",
+      titleEn: "Information Asymmetry",
+      bodyKo: "복잡한 구조는 정보 격차를 만든다. 포트폴리오 설계자가 숏 포지션을 취한다는 사실은 투자 판단의 핵심 변수였다. 구조가 복잡할수록 숨길 공간이 넓어진다.",
+      bodyEn: "Complexity creates information gaps. The fact that the portfolio designer held a short position was a critical variable for investment decisions. The more complex the structure, the more room to hide.",
+      accentBg: "bg-red-50 dark:bg-red-900/20",
+      accentBorder: "border-red-200 dark:border-red-700",
+      accentText: "text-red-700 dark:text-red-300",
+    },
+    {
+      icon: "📊",
+      titleKo: "등급의 한계",
+      titleEn: "Ratings Limitations",
+      bodyKo: "AAA 등급 트랑쉐가 9개월 만에 전손. 등급 모델은 서브프라임 모기지 간 높은 상관관계를 반영하지 못했다. '등급은 구조를 평가하지, 의도를 평가하지 않는다.'",
+      bodyEn: "AAA-rated tranches suffered total loss in nine months. Rating models failed to capture high correlation between subprime mortgages. 'Ratings evaluate structure, not intent.'",
+      accentBg: "bg-amber-50 dark:bg-amber-900/20",
+      accentBorder: "border-amber-200 dark:border-amber-700",
+      accentText: "text-amber-700 dark:text-amber-300",
+    },
+    {
+      icon: "⚖️",
+      titleKo: "인센티브 미정렬",
+      titleEn: "Incentive Misalignment",
+      bodyKo: "Goldman은 판매 수수료, 폴슨은 설계 수익, 투자자는 정보 없는 리스크. 세 당사자의 인센티브가 전혀 다른 방향을 가리켰다. 이해충돌이 구조 전체에 내재됐다.",
+      bodyEn: "Goldman earned fees from selling, Paulson profited from designing, investors bore risk without full information. Three parties' incentives pointed in completely different directions. Conflicts of interest were embedded throughout.",
+      accentBg: "bg-purple-50 dark:bg-purple-900/20",
+      accentBorder: "border-purple-200 dark:border-purple-700",
+      accentText: "text-purple-700 dark:text-purple-300",
+    },
+  ];
+
+  return (
+    <motion.div variants={fadeUp(0.1)} className="mt-8">
+      <div className="rounded-2xl overflow-hidden border border-gray-200/60 dark:border-gray-700/60">
+        <div className="bg-gray-50 dark:bg-gray-800/60 px-5 py-3 border-b border-gray-200/60 dark:border-gray-700/60">
+          <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">
+            {ko ? "CDO 구조의 세 가지 근본적 취약점" : "Three Fundamental CDO Vulnerabilities"}
+          </p>
+        </div>
+        <div className="p-5 sm:p-8">
+          <div className="grid sm:grid-cols-3 gap-4">
+            {lessons.map((lesson, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.97 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={VP}
+                transition={{ duration: 0.4, delay: i * 0.1, ease: EASE }}
+                className={`rounded-xl border-2 p-5 ${lesson.accentBg} ${lesson.accentBorder}`}
+              >
+                <span className="text-3xl block mb-3">{lesson.icon}</span>
+                <p className={`text-[13px] font-bold mb-3 ${lesson.accentText}`}>
+                  {ko ? lesson.titleKo : lesson.titleEn}
+                </p>
+                <p className={`text-[11px] leading-relaxed ${lesson.accentText} opacity-90`}>
+                  {ko ? lesson.bodyKo : lesson.bodyEn}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+function getVisual(i: number, lang: Lang) {
+  const visuals = [
+    <DealOriginFlowVisual key="0" lang={lang} />,
+    <SyntheticCdoStructureVisual key="1" lang={lang} />,
+    <CollapseTimelineChart key="2" lang={lang} />,
+    <SettlementComparisonVisual key="3" lang={lang} />,
+    <ThreeLessonsVisual key="4" lang={lang} />,
+  ];
+  return visuals[i] ?? null;
+}
+
+export default function AbacusClient({ deal, lang }: { deal: MarketDeal; lang: Lang }) {
+  const ko = lang === "ko";
+  return (
+    <>
+      <Header />
+      <main className="flex-1">
+        <section className="border-b border-gray-200/60 dark:border-gray-700/60 bg-gray-50 dark:bg-gray-900/50">
+          <div className="max-w-3xl mx-auto px-5 py-10">
+            <div className="flex items-center gap-1.5 text-xs text-gray-400 dark:text-gray-500 mb-4 flex-wrap">
+              <Link href={ko ? "/" : "/en"} className="hover:text-gray-600 dark:hover:text-gray-300 transition-colors">{ko ? "홈" : "Home"}</Link>
+              <span>›</span>
+              <Link href={ko ? "/market" : "/en/market"} className="hover:text-red-600 dark:hover:text-red-400 transition-colors">{ko ? "마켓" : "Market"}</Link>
+              <span>›</span>
+              <span className="text-gray-600 dark:text-gray-300">{ko ? "구조화금융" : "Structured Finance"}</span>
+            </div>
+            <div className="inline-flex items-center px-3 py-1 rounded-full text-[11px] font-bold mb-4" style={{ background: ACCENT_LIGHT, color: ACCENT }}>
+              {ko ? deal.categoryLabel : deal.categoryLabelEn}
+            </div>
+            <motion.h1 initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: EASE }} className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 leading-snug mb-2">
+              {ko ? deal.title : deal.titleEn}
+            </motion.h1>
+            {ko && <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.08 }} className="text-[12px] text-gray-400 dark:text-gray-500 italic mb-4">{deal.titleEn}</motion.p>}
+            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.15 }} className="text-[15px] text-gray-600 dark:text-gray-400 leading-relaxed">
+              {ko ? deal.excerpt : deal.excerptEn}
+            </motion.p>
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.2 }} className="flex items-center gap-3 mt-5 flex-wrap">
+              <span className="text-[11px] text-gray-400 dark:text-gray-500">{deal.readingMinutes}{ko ? "분 읽기" : " min read"}</span>
+              <span className="text-gray-300 dark:text-gray-600">·</span>
+              <div className="flex gap-1.5 flex-wrap">
+                {(ko ? deal.tags : (deal.tagsEn ?? deal.tags)).slice(0, 6).map((tag) => (
+                  <span key={tag} className="bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 px-2 py-0.5 rounded text-[10px]">{tag}</span>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        <div className="flex justify-end max-w-3xl mx-auto px-5 mb-6 mt-4">
+          <ShareButtons title={ko ? deal.title : deal.titleEn} variant="top" lang={lang} />
+        </div>
+
+        {deal.executiveSummary && (
+          <motion.div variants={fadeUp(0.1)} initial="hidden" whileInView="show" viewport={VP} className="max-w-3xl mx-auto px-5 pt-4">
+            <div className="rounded-xl border-l-4 px-5 py-4" style={{ borderColor: ACCENT, background: ACCENT_LIGHT }}>
+              <p className="text-[10px] font-bold uppercase tracking-widest mb-3" style={{ color: ACCENT }}>{ko ? "핵심 요약" : "Key Takeaways"}</p>
+              <ul className="space-y-2">
+                {(ko ? deal.executiveSummary.ko : deal.executiveSummary.en).map((point, i) => (
+                  <li key={i} className="flex items-start gap-2 text-[13px] leading-relaxed" style={{ color: ACCENT_DARK }}>
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: ACCENT }} />{point}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
+        )}
+
+        <div className="max-w-3xl mx-auto px-5 py-10 space-y-16">
+          <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
+            <motion.div variants={fadeUp()} className="mb-5">
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100 mb-0.5">{ko ? "딜 스냅샷" : "Deal Snapshot"}</h2>
+              <div className="w-8 h-0.5 mt-3" style={{ background: ACCENT }} />
+            </motion.div>
+            <motion.div variants={fadeUp(0.05)} className="rounded-2xl overflow-hidden border-2 border-red-100 dark:border-red-900/40">
+              <div className="px-5 py-3 flex items-center gap-2" style={{ background: ACCENT }}>
+                <p className="text-[10px] font-black text-white uppercase tracking-widest">{ko ? "Abacus 2007-AC1 — 핵심 수치" : "Abacus 2007-AC1 — Key Figures"}</p>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-red-100 dark:divide-red-900/30 bg-white dark:bg-gray-950">
+                {deal.snapshot.map((row, i) => (
+                  <motion.div key={row.labelKo} variants={fadeUp(i * 0.06)} className={`px-5 py-4 ${i % 2 === 0 && i === deal.snapshot.length - 1 ? "sm:col-span-2" : ""}`}>
+                    <p className="text-[10px] text-gray-400 dark:text-gray-500 mb-1">{ko ? row.labelKo : row.labelEn}</p>
+                    <p className="text-[14px] font-bold leading-snug text-gray-900 dark:text-gray-100">{row.value}</p>
+                  </motion.div>
+                ))}
+              </div>
+              <div className="grid grid-cols-3 divide-x divide-red-100 dark:divide-red-900/30 border-t-2 border-red-100 dark:border-red-900/40">
+                <div className="px-4 py-4 text-center bg-gray-50 dark:bg-gray-900">
+                  <p className="text-[10px] text-gray-400 uppercase font-bold mb-1">{ko ? "발행 연도" : "Year"}</p>
+                  <p className="text-2xl font-black text-gray-700 dark:text-gray-300">2007</p>
+                </div>
+                <div className="px-4 py-4 text-center" style={{ background: ACCENT_LIGHT }}>
+                  <p className="text-[10px] uppercase font-bold mb-1" style={{ color: ACCENT }}>{ko ? "합성 노출" : "Synthetic Exposure"}</p>
+                  <p className="text-2xl font-black" style={{ color: ACCENT }}>$2B</p>
+                </div>
+                <div className="px-4 py-4 text-center bg-red-100 dark:bg-red-900/30">
+                  <p className="text-[10px] uppercase font-bold mb-1 text-red-600 dark:text-red-400">{ko ? "SEC 합의" : "SEC Settlement"}</p>
+                  <p className="text-lg font-black text-red-700 dark:text-red-300">$550M</p>
+                  <p className="text-[9px] mt-0.5 text-red-500 dark:text-red-400">{ko ? "역대 최대" : "Record at time"}</p>
+                </div>
+              </div>
+            </motion.div>
+          </motion.section>
+
+          {deal.sections.map((section, i) => (
+            <motion.section key={i} variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
+              <motion.div variants={fadeUp()} className="mb-6">
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100 mb-0.5">{ko ? section.heading : section.headingEn}</h2>
+                <div className="w-8 h-0.5 mt-3" style={{ background: ACCENT }} />
+              </motion.div>
+              <div className="pl-4 border-l-2 mb-2" style={{ borderColor: ACCENT + "4d" }}>
+                <div className="space-y-3">
+                  {(ko ? section.body : section.bodyEn).split("\n\n").map((para, j) => (
+                    <motion.p key={j} variants={fadeUp(j * 0.04)} className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">{para}</motion.p>
+                  ))}
+                </div>
+              </div>
+              {getVisual(i, lang)}
+            </motion.section>
+          ))}
+
+          <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
+            <motion.h2 variants={fadeUp()} className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">{ko ? "핵심 용어" : "Key Terms"}</motion.h2>
+            <div className="mt-5 space-y-3">
+              {deal.keyTerms.map((term, i) => (
+                <motion.div key={i} variants={fadeUp()} className="bg-gray-50 dark:bg-gray-900 rounded-xl p-5 border border-gray-100 dark:border-gray-800">
+                  <div className="flex items-center gap-2 mb-2 flex-wrap">
+                    <span className="w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold text-white flex-shrink-0" style={{ background: ACCENT }}>{i + 1}</span>
+                    <span className="font-bold text-gray-900 dark:text-gray-100 text-[14px]">{ko ? term.term : term.termEn}</span>
+                  </div>
+                  <p className="text-[13px] text-gray-700 dark:text-gray-300 leading-relaxed pl-7">{ko ? term.definition : term.definitionEn}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.section>
+
+          {deal.assessment && (
+            <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
+              <motion.h2 variants={fadeUp()} className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">{ko ? "딜 평가" : "Deal Assessment"}</motion.h2>
+              <div className="w-8 h-0.5 mt-3 mb-6" style={{ background: ACCENT }} />
+              <div className="grid sm:grid-cols-2 gap-4">
+                <motion.div variants={fadeUp()} className="rounded-xl border border-emerald-200 dark:border-emerald-700/50 bg-emerald-50 dark:bg-emerald-900/15 p-5">
+                  <p className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-widest mb-3">{ko ? "긍정적 결과" : "Positives"}</p>
+                  <ul className="space-y-2">
+                    {(ko ? deal.assessment.positives : deal.assessment.positivesEn).map((p, i) => (
+                      <li key={i} className="flex items-start gap-2 text-[13px] text-emerald-800 dark:text-emerald-200 leading-relaxed">
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0" />{p}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+                <motion.div variants={fadeUp()} className="rounded-xl border border-red-200 dark:border-red-700/50 bg-red-50 dark:bg-red-900/15 p-5">
+                  <p className="text-[11px] font-bold text-red-600 dark:text-red-400 uppercase tracking-widest mb-3">{ko ? "리스크 및 교훈" : "Risks & Lessons"}</p>
+                  <ul className="space-y-2">
+                    {(ko ? deal.assessment.risks : deal.assessment.risksEn).map((r, i) => (
+                      <li key={i} className="flex items-start gap-2 text-[13px] text-red-800 dark:text-red-200 leading-relaxed">
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0" />{r}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              </div>
+            </motion.section>
+          )}
+
+          <ShareButtons title={ko ? deal.title : deal.titleEn} variant="mid" lang={lang} />
+
+          {deal.faq && deal.faq.length > 0 && (
+            <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
+              <motion.h2 variants={fadeUp()} className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">{ko ? "자주 묻는 질문" : "Frequently Asked Questions"}</motion.h2>
+              <div className="w-8 h-0.5 mt-3 mb-6" style={{ background: ACCENT }} />
+              <FaqAccordion items={deal.faq.map((f) => ({ q: ko ? f.q : f.qEn, a: ko ? f.a : f.aEn }))} accent={ACCENT} />
+            </motion.section>
+          )}
+
+          {(deal.relatedDealSlugs?.length || deal.relatedMarket101Slugs?.length) ? (
+            <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
+              <motion.h2 variants={fadeUp()} className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">{ko ? "함께 읽으면 좋은 콘텐츠" : "Related Content"}</motion.h2>
+              <div className="w-8 h-0.5 mt-3 mb-6" style={{ background: ACCENT }} />
+              <div className="grid sm:grid-cols-2 gap-3">
+                {deal.relatedDealSlugs?.map((slug) => (
+                  <motion.div key={slug} variants={fadeUp()}>
+                    <Link href={ko ? `/market/${slug}` : `/en/market/${slug}`}>
+                      <div className="group flex items-center gap-3 px-4 py-3.5 rounded-xl border border-gray-200/60 dark:border-gray-700/60 hover:border-red-300 dark:hover:border-red-700 hover:bg-red-50/40 dark:hover:bg-red-900/20 transition-all">
+                        <span className="w-7 h-7 rounded-lg bg-red-100 dark:bg-red-900/40 flex items-center justify-center text-[11px] font-bold text-red-600 dark:text-red-400 flex-shrink-0">M</span>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-[10px] text-gray-400 dark:text-gray-500 font-medium">Market Story</p>
+                          <p className="text-[13px] font-semibold text-gray-800 dark:text-gray-200 group-hover:text-red-700 dark:group-hover:text-red-300 transition-colors truncate">
+                            {slug.split("-").map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")}
+                          </p>
+                        </div>
+                        <span className="text-gray-300 dark:text-gray-600 group-hover:text-red-400 transition-colors text-sm flex-shrink-0">→</span>
+                      </div>
+                    </Link>
+                  </motion.div>
+                ))}
+                {deal.relatedMarket101Slugs?.map((slug) => (
+                  <motion.div key={slug} variants={fadeUp()}>
+                    <Link href={ko ? `/market-101/${slug}` : `/en/market-101/${slug}`}>
+                      <div className="group flex items-center gap-3 px-4 py-3.5 rounded-xl border border-gray-200/60 dark:border-gray-700/60 hover:border-teal-300 dark:hover:border-teal-700 hover:bg-teal-50/40 dark:hover:bg-teal-900/20 transition-all">
+                        <span className="w-7 h-7 rounded-lg bg-teal-100 dark:bg-teal-900/40 flex items-center justify-center text-[11px] font-bold text-teal-600 dark:text-teal-400 flex-shrink-0">101</span>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-[10px] text-gray-400 dark:text-gray-500 font-medium">Market 101</p>
+                          <p className="text-[13px] font-semibold text-gray-800 dark:text-gray-200 group-hover:text-teal-700 dark:group-hover:text-teal-300 transition-colors truncate">
+                            {slug.split("-").map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")}
+                          </p>
+                        </div>
+                        <span className="text-gray-300 dark:text-gray-600 group-hover:text-teal-400 transition-colors text-sm flex-shrink-0">→</span>
+                      </div>
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.section>
+          ) : null}
+
+          {deal.references && deal.references.length > 0 && (
+            <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
+              <motion.h2 variants={fadeUp()} className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">{ko ? "참고 자료" : "References"}</motion.h2>
+              <div className="w-8 h-0.5 mt-3 mb-5" style={{ background: ACCENT }} />
+              <ol className="space-y-2.5">
+                {deal.references.map((ref) => (
+                  <motion.li key={ref.id} variants={fadeUp()} className="flex gap-3 text-[13px] text-gray-600 dark:text-gray-400 leading-relaxed">
+                    <span className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-[9px] font-bold text-white mt-0.5" style={{ background: ACCENT_DARK }}>{ref.id}</span>
+                    <span>
+                      {ref.author && <span className="font-semibold text-gray-800 dark:text-gray-200">{ref.author}. </span>}
+                      {ref.url ? <a href={ref.url} target="_blank" rel="noopener noreferrer" className="hover:underline" style={{ color: ACCENT }}>{ref.title}</a> : <span>{ref.title}</span>}
+                      {ref.source && <span className="text-gray-400 dark:text-gray-500"> — {ref.source}</span>}
+                      {ref.year && <span className="text-gray-400 dark:text-gray-500"> ({ref.year})</span>}
+                    </span>
+                  </motion.li>
+                ))}
+              </ol>
+            </motion.section>
+          )}
+        </div>
+      </main>
+      <Footer />
+    </>
+  );
+}
