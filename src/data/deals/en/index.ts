@@ -65,6 +65,31 @@ import kraftUnilever from "./kraft-unilever";
 import hanmiPharmaControl from "./hanmi-pharma-control";
 import coucheTard7eleven from "./couche-tard-7eleven";
 import airgasAirProducts from "./airgas-air-products";
+// New deals — Activism (added batch)
+import pershingSquareAllergan from "./pershing-square-allergan";
+import pershingSquareHerbalife from "./pershing-square-herbalife";
+import janaWholeFoods from "./jana-whole-foods";
+import elliottAtt from "./elliott-att";
+import elliottTwitter from "./elliott-twitter";
+import icahnTimeWarner from "./icahn-time-warner";
+import starboardDardenOliveGarden from "./starboard-darden-olive-garden";
+import thirdPointShell from "./third-point-shell";
+import thirdPointYahoo from "./third-point-yahoo";
+import trianDupont from "./trian-dupont";
+// New deals — LBO / M&A (added batch)
+import kkrDollarGeneral from "./kkr-dollar-general";
+import kkrToysRUs from "./kkr-toys-r-us";
+import kkrTxuEnergyFuture from "./kkr-txu-energy-future";
+import blackstoneHilton2007 from "./blackstone-hilton-2007";
+import bcPartnersPetsmart from "./bc-partners-petsmart";
+import threeGCapitalBurgerKing from "./3g-capital-burger-king";
+import bayerMonsanto from "./bayer-monsanto";
+import silverLakeDellTakeprivate from "./silver-lake-dell-takeprivate";
+// New deals — LevFin / Distressed (added batch)
+import apolloCaesars from "./apollo-caesars";
+import iheartmediaClearChannel from "./iheartmedia-clear-channel";
+import jcrewIpTransfer from "./jcrew-ip-transfer";
+import sertaSimmonsUptier from "./serta-simmons-uptier";
 
 /**
  * English deal registry — ordered by closedAt descending
@@ -87,14 +112,18 @@ export const ALL_DEALS_EN: DealData[] = [
   warnerDiscoveryMerger,   // 2022-04-08
   microsoftNuance,         // 2022-03-04
   nvidiaArm,               // terminated 2022-02-08
+  thirdPointShell,         // 2022-02-01 (activism)
   skhynixIntelNand,        // 2021-12-30
   ibmKyndryl,              // 2021-11-04 (restructuring)
   salesforceSlack,         // 2021-07-21
   hanjinKcgi,              // 2021-06-30 (activism)
   engineNo1Exxon,          // 2021-05-26 (activism)
+  elliottAtt,              // 2021-05-17 (activism)
   lvmhTiffany,             // 2021-01-07
   siemensBreakup,          // 2020-09-28 (restructuring)
+  sertaSimmonsUptier,      // 2020-06-22 (uptier exchange)
   danaherAcquisitions,     // multiple deals (latest: Cytiva 2020-03)
+  elliottTwitter,          // 2020-03-09 (activism)
   thirdPointNestle,        // 2019-09-01 (activism)
   dowdupont,               // 2019-06-01 (restructuring)
   disneyFox,               // 2019-03-20
@@ -102,10 +131,13 @@ export const ALL_DEALS_EN: DealData[] = [
   elliottHyundai,          // 2019-01-10 (activism)
   qualcommNxp,             // terminated 2018-07-26
   attTimeWarner,           // 2018-06-14
+  bayerMonsanto,           // 2018-06-07
   microsoftGithub,         // 2018-06-04
   salesforceMulesoft,      // 2018-05-01
+  pershingSquareHerbalife, // 2018-03-01 (activism, short)
   trianPg,                 // 2017-12-15 (activism)
   amazonWholeFoods,        // 2017-08-28
+  janaWholeFoods,          // 2017-08-28 (activism)
   kraftUnilever,           // 2017-02-19 (control, withdrawn)
   microsoftLinkedin,       // 2016-12-08
   abInBevSabmiller,        // 2016-10-10
@@ -113,19 +145,34 @@ export const ALL_DEALS_EN: DealData[] = [
   mbkHomeplus,             // 2015-11-30
   elliottSamsung,          // 2015-09-01 (activism)
   ebayPaypalSpinoff,       // 2015-07-17
+  trianDupont,             // 2015-05-13 (activism)
+  bcPartnersPetsmart,      // 2015-03-11
   lvmhHermes,              // 2014-12-17 (control)
+  pershingSquareAllergan,  // 2014-11-17 (activism)
+  starboardDardenOliveGarden, // 2014-10-10 (activism)
   metaWhatsapp,            // 2014-10-06
   thirdPointSony,          // 2014-08-07 (activism)
   valueactMicrosoft,       // 2014-02-04 (activism)
+  silverLakeDellTakeprivate, // 2013-10-29
   abbottAbbvieSpinoff,     // 2013-01-01
   metaInstagram,           // 2012-09-06
   porscheVolkswagen,       // 2012-08-01 (control)
+  thirdPointYahoo,         // 2012-07-16 (activism)
   pershingSquareCpRail,    // 2012-05-17 (activism)
+  jcrewIpTransfer,         // 2011-03-07 (LBO, trap door)
   airgasAirProducts,       // 2011-02-11 (control, withdrawn)
+  threeGCapitalBurgerKing, // 2010-10-19
   bhpRioTinto,             // 2008-11-25 (control, withdrawn)
+  iheartmediaClearChannel, // 2008-07-30 (LBO)
   jpmorganBearStearns,     // 2008-05-30 (financial crisis)
+  apolloCaesars,           // 2008-01-28 (LBO)
+  blackstoneHilton2007,    // 2007-10-24 (LBO)
+  kkrTxuEnergyFuture,      // 2007-10-10 (LBO)
+  kkrDollarGeneral,        // 2007-07-07 (LBO)
   googleYoutube,           // 2006-10-31
   disneyPixar,             // 2006-05-05
+  icahnTimeWarner,         // 2006-03-01 (activism)
+  kkrToysRUs,              // 2005-07-21 (LBO)
   oraclePeoplesoft,        // 2004-12-28 (control)
   hpCompaq,                // 2002-05-03
   aolTimeWarner,           // 2001-01-11
