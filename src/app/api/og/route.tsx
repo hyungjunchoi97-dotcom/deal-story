@@ -40,14 +40,17 @@ const OG_CATEGORY: Record<DealCategory, { bg: string; fg: string }> = {
 };
 
 // ── 공통 컬러 토큰 (globals.css 와 동일) ───────────────────────
+//  · OG 카드는 단일톤 + 작은 액센트로 "에디토리얼" 톤을 유지한다.
+//  · brand 컬러는 와이어 라인/도트에만 매우 절제해서 사용.
 const COLOR = {
-  bg: "#ffffff",
-  text: "#191f28",
-  textMuted: "#6b7684",
-  textSubtle: "#b0b8c1",
-  amber: "#f59e0b",   // 금액 강조 전용 — 다른 곳에 쓰지 말 것
-  divider: "#e5e8eb",
-  brand: "#3182f6",
+  bg: "#fafaf9",          // 약간의 따뜻한 오프화이트 (sophistication)
+  text: "#0f172a",        // slate-900 — 진하고 명료
+  textStrong: "#020617",  // 거의 검정 — 헤드라인
+  textMuted: "#64748b",   // slate-500
+  textSubtle: "#94a3b8",  // slate-400
+  amber: "#d97706",       // amber-600 — 금액 강조 (조금 더 차분한 톤)
+  divider: "#e2e8f0",     // slate-200
+  brand: "#0f172a",       // 브랜드 도트도 슬레이트로 통일
 } as const;
 
 // ── 폰트 1회 캐시 (Edge worker 인스턴스 단위) ───────────────────
@@ -127,11 +130,17 @@ export async function GET(req: NextRequest) {
   const siteHost = getSiteHost();
 
   // ── 사이트 기본 OG (slug 없거나 못 찾음) ──────────────────────
+  //  에디토리얼 매거진 커버 스타일: 얇은 상단 룰 + 큰 디스플레이 워드마크 +
+  //  미니멀한 카운터형 메타데이터.
   if (!deal) {
     const tagline =
       lang === "en"
-        ? "Archive of landmark M&A, PE, and IPO deals"
-        : "M&A · PE · IPO 딜 아카이브";
+        ? "Landmark deals, dissected."
+        : "랜드마크 딜, 해부.";
+    const subtagline =
+      lang === "en"
+        ? "An archive of M&A, PE, and capital markets."
+        : "M&A · PE · 자본시장 딜 아카이브";
 
     return new ImageResponse(
       (
@@ -141,11 +150,42 @@ export async function GET(req: NextRequest) {
             height: "100%",
             display: "flex",
             flexDirection: "column",
-            padding: "80px",
+            padding: "72px 88px",
             background: COLOR.bg,
             fontFamily,
           }}
         >
+          {/* 상단 얇은 룰 + 카운터형 메타 */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              paddingBottom: 20,
+              borderBottom: `1px solid ${COLOR.divider}`,
+              fontSize: 22,
+              color: COLOR.textMuted,
+              letterSpacing: "0.04em",
+              textTransform: "uppercase",
+              fontWeight: 700,
+            }}
+          >
+            <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+              <div
+                style={{
+                  width: 8,
+                  height: 8,
+                  borderRadius: 9999,
+                  background: COLOR.amber,
+                  display: "flex",
+                }}
+              />
+              <span>Deal Story</span>
+            </div>
+            <span>Vol. 01</span>
+          </div>
+
+          {/* 메인 헤드라인 영역 */}
           <div
             style={{
               flex: 1,
@@ -157,53 +197,45 @@ export async function GET(req: NextRequest) {
             <div
               style={{
                 display: "flex",
-                fontSize: 120,
+                fontSize: 124,
                 fontWeight: 700,
-                color: COLOR.text,
-                letterSpacing: "-0.03em",
-              }}
-            >
-              Deal Story
-            </div>
-            <div
-              style={{
-                display: "flex",
-                marginTop: 28,
-                fontSize: 40,
-                color: COLOR.textMuted,
+                color: COLOR.textStrong,
+                letterSpacing: "-0.04em",
+                lineHeight: 1,
               }}
             >
               {tagline}
             </div>
+            <div
+              style={{
+                display: "flex",
+                marginTop: 32,
+                fontSize: 36,
+                color: COLOR.textMuted,
+                letterSpacing: "-0.01em",
+              }}
+            >
+              {subtagline}
+            </div>
           </div>
 
-          {/* 워터마크 */}
+          {/* 하단 워터마크 — 미니멀 */}
           <div
             style={{
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              paddingTop: 24,
+              paddingTop: 20,
               borderTop: `1px solid ${COLOR.divider}`,
-              fontSize: 24,
+              fontSize: 22,
               color: COLOR.textMuted,
+              letterSpacing: "0.04em",
+              textTransform: "uppercase",
+              fontWeight: 700,
             }}
           >
-            <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-              <div
-                style={{
-                  width: 10,
-                  height: 10,
-                  borderRadius: 9999,
-                  background: COLOR.brand,
-                  display: "flex",
-                }}
-              />
-              <span style={{ fontWeight: 700, color: COLOR.text }}>
-                Deal Story
-              </span>
-            </div>
-            <span>{siteHost}</span>
+            <span>{lang === "en" ? "Read the archive" : "딜 아카이브 보기"}</span>
+            <span style={{ color: COLOR.textStrong }}>{siteHost}</span>
           </div>
         </div>
       ),
@@ -231,46 +263,66 @@ export async function GET(req: NextRequest) {
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          padding: "80px",
+          padding: "72px 88px",
           background: COLOR.bg,
           fontFamily,
         }}
       >
-        {/* 상단 — 카테고리 칩 */}
-        <div style={{ display: "flex" }}>
+        {/* 상단 — 브랜드 룰 + 카테고리 칩 */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            paddingBottom: 20,
+            borderBottom: `1px solid ${COLOR.divider}`,
+            fontSize: 22,
+            color: COLOR.textMuted,
+            letterSpacing: "0.04em",
+            textTransform: "uppercase",
+            fontWeight: 700,
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+            <div
+              style={{
+                width: 8,
+                height: 8,
+                borderRadius: 9999,
+                background: COLOR.amber,
+                display: "flex",
+              }}
+            />
+            <span>Deal Story</span>
+          </div>
           <div
             style={{
               display: "flex",
               background: cat.bg,
               color: cat.fg,
-              fontSize: 26,
+              fontSize: 20,
               fontWeight: 700,
-              padding: "10px 22px",
+              padding: "8px 18px",
               borderRadius: 9999,
-              letterSpacing: "0.01em",
+              letterSpacing: "0.04em",
+              textTransform: "uppercase",
             }}
           >
             {categoryLabel}
           </div>
         </div>
 
-        {/* 중앙 — 헤드라인 + 인수자→피인수자 + 금액
-            (Satori 는 flex-row 내부 텍스트의 wrap 후 박스 높이 계산이 약해서,
-             column flex + gap + 각 텍스트 div 의 width:100% 로 명시) */}
+        {/* 중앙 — 헤드라인 + 거래 라인 */}
         <div
           style={{
             flex: 1,
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            gap: 28,
-            marginTop: 32,
-            marginBottom: 32,
+            gap: 32,
           }}
         >
-          {/* 헤드라인 — flexDirection:column 으로 텍스트 wrap 시 박스 높이가
-              제대로 늘어나도록 강제 (Satori의 flex-row 텍스트 wrap 박스 높이
-              계산 이슈 회피). minHeight 로 한 번 더 안전 마진. */}
+          {/* 헤드라인 */}
           <div
             style={{
               display: "flex",
@@ -279,48 +331,63 @@ export async function GET(req: NextRequest) {
               minHeight: hSize * 1.15,
               fontSize: hSize,
               fontWeight: 700,
-              color: COLOR.text,
-              letterSpacing: "-0.02em",
-              lineHeight: 1.15,
+              color: COLOR.textStrong,
+              letterSpacing: "-0.03em",
+              lineHeight: 1.12,
               wordBreak: "keep-all",
             }}
           >
             {deal.title}
           </div>
 
+          {/* 인수자 → 피인수자 (얇은 슬레이트 톤) */}
           <div
             style={{
               display: "flex",
               width: "100%",
               alignItems: "center",
-              gap: 16,
-              fontSize: 32,
-              color: COLOR.text,
+              gap: 18,
+              fontSize: 28,
+              color: COLOR.textMuted,
+              letterSpacing: "-0.005em",
             }}
           >
-            <span style={{ display: "flex", fontWeight: 700 }}>
+            <span style={{ display: "flex", fontWeight: 700, color: COLOR.text }}>
               {deal.acquirerLabel}
             </span>
-            <span style={{ display: "flex", color: COLOR.textSubtle }}>→</span>
-            <span style={{ display: "flex", fontWeight: 700 }}>
+            <span style={{ display: "flex", color: COLOR.textSubtle, fontSize: 24 }}>
+              ──→
+            </span>
+            <span style={{ display: "flex", fontWeight: 700, color: COLOR.text }}>
               {deal.targetLabel}
             </span>
           </div>
+        </div>
 
+        {/* 하단 — 금액(앰버) + 일자 + 호스트 (한 줄 푸터) */}
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            paddingTop: 22,
+            borderTop: `1px solid ${COLOR.divider}`,
+          }}
+        >
           <div
             style={{
               display: "flex",
-              width: "100%",
               alignItems: "baseline",
-              gap: 20,
+              gap: 18,
             }}
           >
             <span
               style={{
                 display: "flex",
-                fontSize: 52,
+                fontSize: 46,
                 fontWeight: 700,
                 color: COLOR.amber,
+                letterSpacing: "-0.02em",
               }}
             >
               {dealValue}
@@ -328,42 +395,28 @@ export async function GET(req: NextRequest) {
             <span
               style={{
                 display: "flex",
-                fontSize: 28,
+                fontSize: 22,
                 color: COLOR.textMuted,
+                letterSpacing: "0.04em",
+                textTransform: "uppercase",
+                fontWeight: 700,
               }}
             >
-              · {dateDisplay}
+              {dateDisplay}
             </span>
           </div>
-        </div>
-
-        {/* 하단 — 워터마크 */}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            paddingTop: 24,
-            borderTop: `1px solid ${COLOR.divider}`,
-            fontSize: 24,
-            color: COLOR.textMuted,
-          }}
-        >
-          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-            <div
-              style={{
-                width: 10,
-                height: 10,
-                borderRadius: 9999,
-                background: COLOR.brand,
-                display: "flex",
-              }}
-            />
-            <span style={{ fontWeight: 700, color: COLOR.text }}>
-              Deal Story
-            </span>
-          </div>
-          <span>{siteHost}</span>
+          <span
+            style={{
+              display: "flex",
+              fontSize: 22,
+              color: COLOR.textStrong,
+              letterSpacing: "0.04em",
+              textTransform: "uppercase",
+              fontWeight: 700,
+            }}
+          >
+            {siteHost}
+          </span>
         </div>
       </div>
     ),
