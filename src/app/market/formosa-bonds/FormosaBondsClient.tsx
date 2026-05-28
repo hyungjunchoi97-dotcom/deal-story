@@ -11,6 +11,8 @@ import Footer from "@/components/Footer";
 import ShareButtons from "@/components/deal/ShareButtons";
 import FaqAccordion from "@/components/FaqAccordion";
 import type { MarketDeal } from "@/data/market-deals";
+import SeriesNav from "@/components/SeriesNav";
+import { getMarketDealNav } from "@/data/market-deals";
 
 type Lang = "ko" | "en";
 const EASE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
@@ -298,6 +300,19 @@ export default function FormosaBondsClient({ deal, lang }: { deal: MarketDeal; l
             </motion.section>
           )}
         </div>
+          {/* Series Nav — same-category prev/next */}
+          {(() => {
+            const { prev, next } = getMarketDealNav(deal.slug);
+            if (!prev && !next) return null;
+            const basePath = lang === "en" ? "/en/market" : "/market";
+            return (
+              <SeriesNav
+                lang={lang}
+                prev={prev ? { href: `${basePath}/${prev.slug}`, title: lang === "en" ? prev.titleEn : prev.title } : null}
+                next={next ? { href: `${basePath}/${next.slug}`, title: lang === "en" ? next.titleEn : next.title } : null}
+              />
+            );
+          })()}
       </main>
       <Footer />
     </>

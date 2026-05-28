@@ -2,15 +2,13 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import DealCard from "@/components/home/DealCard";
 import { ALL_DEALS_EN } from "@/data/deals/en";
-import { ALL_CONCEPTS } from "@/data/market-concepts";
 import { ALL_MARKET101_CONCEPTS } from "@/data/market-101-concepts";
 
 export const metadata: Metadata = {
-  title: "Deal Story — Deal & Capital Markets Archive",
+  title: "Deal Story — Where M&A becomes a story",
   description:
-    "Deal Story (M&A·PE·IPO archive) and Market Story (DCM·ECM·S&T archive) — your financial knowledge hub.",
+    "Global M&A, PE, and IPO deals — structure, valuation, and aftermath. A capital markets archive read like an editorial.",
   alternates: {
     canonical: "/en",
     languages: { ko: "/", en: "/en", "x-default": "/" },
@@ -18,140 +16,72 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "Deal Story",
-    locale: "en_US",
-    alternateLocale: ["ko_KR"],
-    images: [{ url: "/api/og?lang=en", width: 1200, height: 630, alt: "Deal Story" }],
+    title: "Deal Story — Where M&A becomes a story",
+    description:
+      "Global M&A, PE, and IPO deals — structure, valuation, and aftermath.",
   },
-  twitter: { card: "summary_large_image", images: ["/api/og?lang=en"] },
 };
 
-const SECTIONS = [
-  {
-    key: "deals",
-    href: "/en/deals",
-    badge: "M&A · PE · IPO",
-    badgeBg: "bg-blue-50 dark:bg-blue-900/30",
-    badgeFg: "text-blue-700 dark:text-blue-300",
-    accentBar: "bg-blue-500",
-    title: "Deal Story",
-    desc: "In-depth analysis of landmark M&A, PE, and IPO transactions — structure, valuation, and post-deal outcomes.",
-    count: `${ALL_DEALS_EN.length} deals`,
-    cta: "Browse deals →",
-    ctaColor: "text-blue-600 dark:text-blue-400",
-  },
-  {
-    key: "market",
-    href: "/en/market",
-    badge: "DCM · ECM · S&T",
-    badgeBg: "bg-teal-50 dark:bg-teal-900/30",
-    badgeFg: "text-teal-700 dark:text-teal-300",
-    accentBar: "bg-teal-500",
-    title: "Market Story",
-    desc: "Capital markets knowledge archive — DCM, ECM, S&T, Chinese Wall, and Syndication explained with real deal examples.",
-    count: `${ALL_CONCEPTS.length} concepts`,
-    cta: "Browse market →",
-    ctaColor: "text-teal-600 dark:text-teal-400",
-  },
-  {
-    key: "deal101",
-    href: "/en/deal-101",
-    badge: "Concept Dictionary",
-    badgeBg: "bg-violet-50 dark:bg-violet-900/30",
-    badgeFg: "text-violet-700 dark:text-violet-300",
-    accentBar: "bg-violet-500",
-    title: "Deal 101",
-    desc: "Essential M&A and PE concepts — from EV/EBITDA to LBO, syndication, and break-up fees, all in one place.",
-    count: "29 concepts",
-    cta: "Learn concepts →",
-    ctaColor: "text-violet-600 dark:text-violet-400",
-  },
-  {
-    key: "market101",
-    href: "/en/market-101",
-    badge: "Markets Dictionary",
-    badgeBg: "bg-teal-50 dark:bg-teal-900/30",
-    badgeFg: "text-teal-700 dark:text-teal-300",
-    accentBar: "bg-teal-400",
-    title: "Market 101",
-    desc: "Capital markets concept dictionary — DCM, ECM, S&T, and regulation explained with real deal examples.",
-    count: `${ALL_MARKET101_CONCEPTS.length} concepts`,
-    cta: "Browse Market 101 →",
-    ctaColor: "text-teal-600 dark:text-teal-400",
-  },
-] as const;
-
-const RECENT_DEALS = ALL_DEALS_EN.slice(0, 6);
-
-export default function HubPageEn() {
+export default function LandingPageEn() {
   return (
     <>
       <Header />
-      <main className="flex-1">
+      <main className="flex-1 flex items-center justify-center min-h-[calc(100vh-3.5rem)] px-5 py-16 sm:py-24">
+        <div className="max-w-2xl mx-auto w-full text-center">
+          {/* Eyebrow */}
+          <p className="text-[10px] sm:text-[11px] font-semibold tracking-[0.25em] text-gray-400 dark:text-gray-500 uppercase mb-6 sm:mb-8">
+            Deal &amp; Capital Markets Archive
+          </p>
 
-        {/* ── Hero ── */}
-        <section className="border-b border-gray-200/60 dark:border-gray-700/60">
-          <div className="max-w-3xl mx-auto px-5 py-10">
-            <p className="text-xs font-semibold tracking-widest text-gray-400 dark:text-gray-500 uppercase mb-3">
-              Financial Knowledge Hub
-            </p>
-            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
-              Deal Story
-            </h1>
-            <p className="mt-3 text-base text-gray-500 dark:text-gray-400 leading-relaxed">
-              Deal Story (M&amp;A·PE·IPO archive) and Market Story (DCM·ECM·S&amp;T archive) —
-              explore landmark deals and capital markets structures in one place.
-            </p>
-          </div>
-        </section>
+          {/* Wordmark */}
+          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-gray-900 dark:text-gray-100 leading-[1.05]">
+            Deal Story
+          </h1>
 
-        {/* ── Section cards ── */}
-        <section className="max-w-3xl mx-auto px-5 py-10">
-          <h2 className="text-sm font-bold text-gray-900 dark:text-gray-100 mb-4">
-            Explore Archives
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
-            {SECTIONS.map((s) => (
-              <Link key={s.key} href={s.href}>
-                <div className="group relative bg-white dark:bg-gray-900 rounded-xl border border-gray-200/60 dark:border-gray-700/60 p-5 h-full flex flex-col hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer overflow-hidden">
-                  <div className={`absolute inset-x-0 top-0 h-0.5 ${s.accentBar}`} />
-                  <span className={`self-start text-[10px] font-bold px-2 py-0.5 rounded-full mb-3 ${s.badgeBg} ${s.badgeFg}`}>
-                    {s.badge}
-                  </span>
-                  <h3 className="text-[15px] font-bold text-gray-900 dark:text-gray-100 mb-1.5 leading-tight">
-                    {s.title}
-                  </h3>
-                  <p className="text-[12px] text-gray-500 dark:text-gray-400 leading-relaxed flex-1 mb-3 line-clamp-3">
-                    {s.desc}
-                  </p>
-                  <div className="flex items-center justify-between mt-auto">
-                    <span className="text-[10px] text-gray-400 dark:text-gray-500">{s.count}</span>
-                    <span className={`text-[11px] font-semibold ${s.ctaColor} group-hover:underline`}>
-                      {s.cta}
-                    </span>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
+          {/* Tagline */}
+          <p className="mt-6 sm:mt-8 text-lg sm:text-xl text-gray-700 dark:text-gray-300 font-medium leading-relaxed">
+            Where M&amp;A becomes a story
+          </p>
 
-          {/* ── Recent Deals ── */}
-          <div className="flex items-baseline justify-between mb-5">
-            <h2 className="text-base font-bold text-gray-900 dark:text-gray-100">
-              Recent Deals
-            </h2>
+          {/* Subline */}
+          <p className="mt-3 text-sm sm:text-[15px] text-gray-500 dark:text-gray-400 leading-relaxed max-w-md mx-auto">
+            Structure, valuation, and the aftermath
+            <br className="hidden sm:inline" />
+            <span className="sm:hidden"> </span>
+            of the deals that shaped markets.
+          </p>
+
+          {/* CTAs */}
+          <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
               href="/en/deals"
-              className="text-xs text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 text-sm font-semibold hover:bg-gray-700 dark:hover:bg-white transition-colors"
             >
-              View all →
+              Browse deals →
+            </Link>
+            <Link
+              href="/en/deal-101"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-7 py-3.5 rounded-full border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 text-sm font-semibold hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+            >
+              Deal 101
             </Link>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {RECENT_DEALS.map((deal) => (
-              <DealCard key={deal.slug} deal={deal} lang="en" />
-            ))}
+
+          {/* Trust signals */}
+          <div className="mt-12 sm:mt-16 flex items-center justify-center gap-5 sm:gap-7 text-[11px] sm:text-[12px] text-gray-400 dark:text-gray-500 font-medium">
+            <span>
+              <span className="text-gray-700 dark:text-gray-300 font-semibold">{ALL_DEALS_EN.length}</span>
+              <span className="ml-1">deals</span>
+            </span>
+            <span aria-hidden className="text-gray-300 dark:text-gray-700">·</span>
+            <span>
+              <span className="text-gray-700 dark:text-gray-300 font-semibold">{ALL_MARKET101_CONCEPTS.length}</span>
+              <span className="ml-1">concepts</span>
+            </span>
+            <span aria-hidden className="text-gray-300 dark:text-gray-700">·</span>
+            <span>KO · EN</span>
           </div>
-        </section>
+        </div>
       </main>
       <Footer />
     </>

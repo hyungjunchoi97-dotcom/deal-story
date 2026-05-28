@@ -20,6 +20,8 @@ import Footer from "@/components/Footer";
 import ShareButtons from "@/components/deal/ShareButtons";
 import FaqAccordion from "@/components/FaqAccordion";
 import type { MarketConcept } from "@/data/market-101-concepts";
+import SeriesNav from "@/components/SeriesNav";
+import { getMarket101Nav } from "@/data/market-101-concepts";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 type Lang = "ko" | "en";
@@ -1353,6 +1355,19 @@ export default function EcmIpoAllocationClient({ concept, lang }: { concept: Mar
             </Link>
           </div>
         </div>
+          {/* Series Nav — same-category prev/next */}
+          {(() => {
+            const { prev, next } = getMarket101Nav("ecm-ipo-allocation");
+            if (!prev && !next) return null;
+            const basePath = lang === "en" ? "/en/market-101" : "/market-101";
+            return (
+              <SeriesNav
+                lang={lang}
+                prev={prev ? { href: `${basePath}/${prev.slug}`, title: lang === "en" ? (prev.titleEn ?? prev.title) : prev.title } : null}
+                next={next ? { href: `${basePath}/${next.slug}`, title: lang === "en" ? (next.titleEn ?? next.title) : next.title } : null}
+              />
+            );
+          })()}
       </main>
       <Footer />
     </>

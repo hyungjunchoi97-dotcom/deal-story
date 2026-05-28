@@ -5754,3 +5754,21 @@ export function getPublishedDeals(): MarketDeal[] {
 export function getDealsByCategory(category: DealCategory): MarketDeal[] {
   return ALL_MARKET_DEALS.filter((d) => d.category === category);
 }
+
+/**
+ * 같은 카테고리 내에서 prev/next 마켓딜 반환.
+ * ALL_MARKET_DEALS 배열 순서 기준 (=교육적 흐름순).
+ */
+export function getMarketDealNav(slug: string): { prev: MarketDeal | null; next: MarketDeal | null } {
+  const current = getMarketDealBySlug(slug);
+  if (!current) return { prev: null, next: null };
+  const siblings = ALL_MARKET_DEALS.filter(
+    (d) => d.category === current.category && d.published
+  );
+  const idx = siblings.findIndex((d) => d.slug === slug);
+  if (idx < 0) return { prev: null, next: null };
+  return {
+    prev: idx > 0 ? siblings[idx - 1] : null,
+    next: idx < siblings.length - 1 ? siblings[idx + 1] : null,
+  };
+}

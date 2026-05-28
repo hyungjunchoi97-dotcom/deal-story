@@ -13,6 +13,7 @@ import {
 } from "recharts";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ShareButtons from "@/components/deal/ShareButtons";
 import type { InvestorStory } from "@/data/investor-stories";
 import { STORY_CATEGORY_META } from "@/data/investor-stories";
 
@@ -993,6 +994,11 @@ export default function StoriesClient({ story, lang }: { story: InvestorStory; l
           </div>
         </section>
 
+        {/* ── Share — top ── */}
+        <div className="max-w-3xl mx-auto px-5 pt-6 flex justify-end">
+          <ShareButtons title={ko ? story.title : story.titleEn} variant="top" lang={lang} />
+        </div>
+
         {/* ── Executive Summary ─────────────────────────────────────────────── */}
         <div className="max-w-3xl mx-auto px-5 pt-8">
           {story.executiveSummary && (
@@ -1047,6 +1053,11 @@ export default function StoriesClient({ story, lang }: { story: InvestorStory; l
         {/* ── Story-specific rich body ─────────────────────────────────────── */}
         <div className="max-w-3xl mx-auto px-5 py-10">
           {renderBody()}
+        </div>
+
+        {/* ── Share — mid ── */}
+        <div className="max-w-3xl mx-auto px-5">
+          <ShareButtons title={ko ? story.title : story.titleEn} variant="mid" lang={lang} />
         </div>
 
         {/* ── Assessment ───────────────────────────────────────────────────── */}
@@ -1133,6 +1144,9 @@ export default function StoriesClient({ story, lang }: { story: InvestorStory; l
                 </ol>
               </motion.section>
             )}
+
+            {/* ── Share — bottom ── */}
+            <ShareButtons title={ko ? story.title : story.titleEn} variant="bottom" lang={lang} />
 
             {/* ── Navigation ── */}
             <div className="mt-14 pt-6 border-t border-gray-100 dark:border-gray-800 flex flex-wrap items-center gap-4">

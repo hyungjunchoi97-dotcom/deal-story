@@ -6238,3 +6238,20 @@ export function getMarket101RelatedConcepts(slugs: string[]): MarketConcept[] {
     .map((s) => getMarket101ConceptBySlug(s))
     .filter((c): c is MarketConcept => c !== undefined);
 }
+
+/**
+ * 같은 카테고리 내에서 prev/next 마켓 101 컨셉 반환.
+ * ALL_MARKET101_CONCEPTS 배열 순서 기준 (=교육적 흐름순).
+ * article 과 term 을 함께 포함한다.
+ */
+export function getMarket101Nav(slug: string): { prev: MarketConcept | null; next: MarketConcept | null } {
+  const current = getMarket101ConceptBySlug(slug);
+  if (!current) return { prev: null, next: null };
+  const siblings = ALL_MARKET101_CONCEPTS.filter((c) => c.category === current.category);
+  const idx = siblings.findIndex((c) => c.slug === slug);
+  if (idx < 0) return { prev: null, next: null };
+  return {
+    prev: idx > 0 ? siblings[idx - 1] : null,
+    next: idx < siblings.length - 1 ? siblings[idx + 1] : null,
+  };
+}
