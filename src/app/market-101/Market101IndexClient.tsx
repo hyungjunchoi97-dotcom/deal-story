@@ -388,7 +388,7 @@ export default function Market101IndexClient() {
               articles={f.articles}
               terms={f.terms}
               extraGroups={f.extraGroups}
-              defaultOpen={i === 0}
+              defaultOpen={false}
             />
           </motion.div>
         ))}

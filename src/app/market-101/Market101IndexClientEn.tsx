@@ -230,7 +230,7 @@ export default function Market101IndexClientEn() {
             <CategoryFolder
               catKey={f.key} label={f.label} labelEn={f.labelEn}
               dotColor={f.dotColor} articles={f.articles} terms={f.terms}
-              defaultOpen={i === 0}
+              defaultOpen={false}
             />
           </motion.div>
         ))}
