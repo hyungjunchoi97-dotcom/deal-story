@@ -1121,6 +1121,18 @@ Barings headquarters discovered an empty desk and £860M in losses on February 2
         a: "아니다. 대지진은 타이밍을 앞당겼을 뿐이다. 1995년 초 이미 88888 계좌의 누적 손실이 £2억을 넘었고, 마진 자금 조달 자체가 한계에 봉착했을 것이다. 붕괴는 피할 수 없었고, 지진은 단지 가장 극적인 방아쇠였다.",
         aEn: "No. The earthquake only accelerated the timeline. By early 1995, account 88888 already held over £200M in cumulative losses, and margin funding would have hit its limits regardless. Collapse was inevitable — the earthquake was simply the most dramatic trigger.",
       },
+      {
+        q: "리슨이 가짜 거래를 어떻게 만들었나? 시스템이 정말 못 잡았나?",
+        qEn: "How did Leeson fabricate trades? Did the system really not catch them?",
+        a: "리슨은 백오피스 경험으로 어떤 거래가 자동 확인을 트리거하는지 정확히 알고 있었다. (1) 만기가 먼 포워드 계약을 헤지로 입력해 검증 시점까지 시간을 벌고, (2) 의심 거래는 취소·재입력으로 우회했으며, (3) 결제 부서와 트레이딩을 본인이 동시에 통제했기 때문에 내부 모순 검증이 작동하지 않았다. 시스템은 알람을 수백 건 띄웠지만, 그 알람을 검토할 사람이 바로 리슨이었다.",
+        aEn: "Leeson knew exactly which trades triggered auto-confirmation thanks to his back-office background. He (1) entered far-dated forward contracts as hedges to buy time before reconciliation, (2) cancelled and re-entered suspicious trades, and (3) controlled both trading and settlement himself — so internal cross-checks couldn't fire. The system produced hundreds of alerts, but the person tasked with reviewing them was Leeson himself.",
+      },
+      {
+        q: "ING가 베어링스를 단돈 £1에 인수한 이유는?",
+        qEn: "Why did ING acquire Barings for just £1?",
+        a: "베어링스의 부채(£8.6억 트레이딩 손실 + 채권자 청구권)가 자산을 압도해 순자산이 마이너스였다. ING는 £1이라는 상징적 가격에 베어링스를 인수하되, 채권자 청구권 일부를 부담하는 조건이었다. ING는 자산운용·증권 사업을 흡수해 ING Barings를 출범시켰고, 232년 베어링스 브랜드는 이렇게 사실상 사라졌다.",
+        aEn: "Barings' liabilities (the £860M loss + creditor claims) overwhelmed its assets — net equity was negative. ING acquired Barings for the symbolic £1 while assuming a portion of creditor claims, absorbing the asset management and securities businesses to form ING Barings. The 232-year-old Barings brand effectively vanished.",
+      },
     ],
 
     references: [
@@ -1331,6 +1343,18 @@ NY Fed President William McDonough personally brokered a deal where 14 Wall Stre
         a: "두 가지 이유다. 첫째, 그들의 모델은 실제로 맞았다 — 단지 타임 호라이즌 문제였다. 스프레드는 결국 수렴했다. 문제는 레버리지로 인해 '결국'까지 버틸 자금이 없었던 것이다. 둘째, 지적 과신 — 모델이 가정하는 세계와 현실 세계가 달라질 수 있다는 가능성을 충분히 고려하지 않았다.",
         aEn: "Two reasons. First, their models were actually correct — it was a time horizon problem. Spreads did eventually converge. The problem was that extreme leverage left no capital to wait. Second, intellectual hubris — they insufficiently considered the possibility that the model's assumed world and the real world could diverge.",
       },
+      {
+        q: "LTCM 파트너들은 그 뒤 어떻게 됐나?",
+        qEn: "What happened to the LTCM partners afterward?",
+        a: "메리웨더는 1999년 JWM Associates를 설립해 다시 채권 차익 거래를 시작했지만, 2008년 금융위기에서 또 한 번 큰 손실을 보고 청산했다. 2010년 JM Advisors를 또 만들었다. 숄즈와 머튼은 학계로 돌아갔다 — 숄즈는 스탠퍼드 명예교수, 머튼은 하버드·MIT 교수로 활동했다. 데이비드 멀린스는 사실상 금융 업계에서 자취를 감췄다.",
+        aEn: "Meriwether founded JWM Associates in 1999 and resumed fixed-income arbitrage — but lost heavily in the 2008 crisis and wound it down. He launched yet another firm, JM Advisors, in 2010. Scholes and Merton returned to academia — Scholes as Stanford emeritus, Merton at Harvard and MIT. David Mullins largely disappeared from public finance.",
+      },
+      {
+        q: "구제 컨소시엄에 참여한 은행들은 결국 돈을 회수했나?",
+        qEn: "Did the bailout consortium banks ultimately recover their money?",
+        a: "그렇다 — 실제로 이익을 봤다. 14개 은행이 출자한 $36억으로 LTCM의 포지션을 인수한 뒤, 1999~2000년 시장이 정상화되면서 스프레드가 모델 예측대로 수렴했다. 컨소시엄은 약 10% 수익을 내고 청산을 마쳤다. 아이러니하게도 LTCM의 베팅 자체는 옳았던 것이다 — 단지 LTCM이 그때까지 버틸 자본이 없었을 뿐.",
+        aEn: "Yes — they actually profited. The $3.6B consortium took over LTCM's positions; as markets normalized in 1999–2000, spreads converged exactly as the models predicted. The consortium wound down the book at roughly a 10% gain. The irony: LTCM's bets were right — they simply didn't have the capital to wait that long.",
+      },
     ],
 
     references: [
@@ -1510,6 +1534,18 @@ Lehman's bankruptcy was the trigger that converted the 2008 financial crisis int
         a: "공식 설명은 '리먼을 구제할 법적 권한이 없었다'는 것이었다 — 연준의 긴급 대출은 충분한 담보가 있어야 하는데, 리먼의 자산이 담보 요건을 충족하지 못했다는 논리다. 그러나 많은 전문가들은 정치적 판단도 작용했다고 본다. 베어스턴스 구제 직후 의회와 언론의 비판이 거세졌고, 폴슨 재무장관은 같은 방식을 반복하기 어려웠다.",
         aEn: "The official explanation was lack of legal authority — Fed emergency loans require adequate collateral, and Lehman's assets didn't qualify. But many experts believe political judgment also played a role. Congressional and media criticism was fierce immediately after the Bear Stearns rescue, making it politically difficult for Treasury Secretary Paulson to repeat the approach with Lehman.",
       },
+      {
+        q: "풀드는 파산 후 어떤 처벌을 받았나?",
+        qEn: "What punishment did Fuld face after the bankruptcy?",
+        a: "형사 처벌은 없었다. SEC와 법무부 조사가 있었지만 형사 기소까지 가지 못했다. 풀드는 의회 청문회에서 2008년 보수를 추궁받으며 \"제가 책임을 인정한다\"고 했지만, 실제로 받은 보너스는 토해내지 않았다. 그는 2009년 'Matrix Advisors'라는 작은 자문사를 차렸고 2016년 'Matrix Private Capital Group'으로 재출범했다. 사실상 월가 변두리로 밀려났지만 법적 처벌은 없었다 — 이것이 2008년 위기 후 '아무도 감옥에 가지 않았다'는 비판의 핵심 사례다.",
+        aEn: "No criminal charges. SEC and DOJ investigations occurred but never reached indictment. At Congressional hearings, Fuld said \"I take responsibility\" while being grilled about his 2008 compensation, yet didn't return his bonuses. He launched a small advisory firm 'Matrix Advisors' in 2009 and rebranded as Matrix Private Capital Group in 2016. He was pushed to Wall Street's margins, but never punished legally — a defining example of the post-2008 'nobody went to jail' critique.",
+      },
+      {
+        q: "한국개발은행(KDB)이 리먼을 인수했다면 한국 경제는 어떻게 됐을까?",
+        qEn: "What would have happened to Korea if KDB had acquired Lehman?",
+        a: "재앙이었을 가능성이 높다. KDB가 협상하던 가격($6~8/주)으로 25% 지분만 인수했어도 약 $20~25억 투자였다. 만약 풀드의 요구대로 $17~22/주에 25%를 인수했더라면 $50~70억 손실을 봤을 것이다. 2008년 9월 리먼 파산 시 KDB의 지분 가치는 거의 0이 됐을 것이고, 한국 정부와 KDB는 막대한 정치·금융 부담을 안았을 것이다. KDB가 가격 협상에서 후퇴하지 않은 것이 사후적으로 한국 금융계에 가장 큰 '안 한 결정'이 됐다.",
+        aEn: "Likely catastrophic. Acquiring a 25% stake at KDB's bid range ($6–8/share) would have been a $2.0–2.5B investment. Had they accepted Fuld's demand of $17–22/share for 25%, losses would have been $5.0–7.0B. At Lehman's September 2008 collapse, KDB's equity would have been near-zero, creating massive political and financial fallout for the Korean government. KDB's refusal to budge on price is, in hindsight, one of the most consequential 'undecisions' in Korean financial history.",
+      },
     ],
 
     references: [
@@ -1688,6 +1724,18 @@ The 10–12% annual returns were entirely fictional. Notably, even during the 20
         qEn: "Why did the SEC repeatedly ignore Markopolos's warnings?",
         a: "여러 원인이 복합됐다. SEC 조사관들이 복잡한 파생상품 전략을 검증할 전문성이 부족했고, 매도프의 명성과 인맥이 의심을 낮췄다. SEC의 조직 문화가 유명인 조사를 꺼리는 방향이었다. SEC는 이후 이 실패에 대해 공식 사과하고 조사 절차를 대폭 개혁했다.",
         aEn: "Multiple causes combined. SEC examiners lacked expertise to verify complex derivatives strategies. Madoff's reputation and connections lowered suspicion. SEC organizational culture discouraged investigating prominent figures. The SEC subsequently formally apologized and substantially reformed its examination procedures.",
+      },
+      {
+        q: "매도프의 피해자들은 돈을 돌려받았나?",
+        qEn: "Did Madoff's victims get their money back?",
+        a: "부분적으로 돌려받았다. 법원이 임명한 트러스티 어빙 피카드(Irving Picard)가 16년에 걸쳐 자산 회수 소송을 진행해 약 $146억을 회수했다 — 실제 손실(원금 기준 $170억) 대비 약 86% 회수율로, 폰지 사기 역사상 가장 높은 회수율이다. 그러나 '가짜 수익'까지 포함한 $650억 잔고로 보면 22% 수준이다. 환수 소송은 매도프 자산뿐 아니라 '회수 가능 이익(clawback)' — 즉 사기를 알지 못하고 일찍 환매받은 투자자들의 가짜 수익까지 환수했다.",
+        aEn: "Partially. Court-appointed trustee Irving Picard pursued asset recovery for 16 years, returning approximately $14.6B — about 86% of actual principal losses ($17B), the highest recovery rate in Ponzi-scheme history. Measured against the $65B fake balance, it's only 22%. Recoveries came from Madoff's assets and 'clawbacks' — pursuing fictitious 'profits' from investors who had redeemed early without knowing about the fraud.",
+      },
+      {
+        q: "매도프는 정말 50년간 사기를 쳤나? 언제부터인지 확정됐나?",
+        qEn: "Did Madoff really run the fraud for 50 years? When did it actually start?",
+        a: "정확한 시작 시점은 끝까지 확정되지 않았다. 매도프 본인은 1990년대 초라고 주장했지만, 조사관들과 전 직원 증언은 1970년대 후반 또는 1980년대 초로 본다. 일부 분석은 1960년대 후반 - 매도프가 합법적 마켓메이킹 외에 비공식적으로 자금을 운용하기 시작한 시점 - 까지 거슬러 올라간다. 100% 합법적이었던 초기에서 어느 순간 폰지로 전환됐는지는 매도프가 옥중에서 사망(2021)할 때까지 명확히 밝히지 않았다.",
+        aEn: "The exact start date was never definitively established. Madoff himself claimed early 1990s, but investigators and former employees testified to the late 1970s or early 1980s. Some analyses trace it back to the late 1960s — when Madoff began running informal investment accounts alongside his legitimate market-making business. The exact point at which a fully legal operation became a Ponzi was never clarified before Madoff's death in prison in 2021.",
       },
     ],
 
@@ -1887,6 +1935,18 @@ Fed Chairman Ben Bernanke, receiving news of the European market plunge, made an
         a: "거의 없다. 케르비엘은 개인 계좌로 자금을 빼돌리지 않았다. 그는 단지 성과를 내고 인정받고 싶었다고 주장했다. 프랑스 법원은 처음에 €49억 전액 배상을 명령했지만, 2016년 대법원은 소시에테제네랄의 내부통제 실패도 인정해 배상액을 €10만으로 대폭 감액했다.",
         aEn: "Almost nothing. Kerviel did not divert funds to personal accounts. He claimed he simply wanted to generate results and gain recognition. French courts initially ordered repayment of the full €4.9B, but the 2016 Supreme Court significantly reduced this to €100,000, acknowledging Société Générale's own internal control failures.",
       },
+      {
+        q: "케르비엘의 3일 청산이 글로벌 증시 폭락의 진짜 원인이었나?",
+        qEn: "Did Kerviel's 3-day liquidation actually cause the global market plunge?",
+        a: "부분적 원인이다. 2008년 1월 21~23일 유럽 증시는 7~10% 폭락했고, 연준은 1월 22일 긴급 75bp 금리 인하를 단행했다. 당시 시장 공포는 (1) 서브프라임 위기 확산, (2) 미국 경기 침체 우려가 주된 요인이었고, SocGen의 €490억 청산은 이 공포를 증폭시키는 촉매로 작용했다. 사후 분석에 따르면 SocGen 매도 압력이 없었다면 유럽 증시 낙폭이 절반 수준이었을 것이라는 추정이 있다 — 즉 '주범'은 아니지만 '주요 공범'이었다.",
+        aEn: "Partially. European markets fell 7–10% on January 21–23, 2008, prompting the Fed's emergency 75bp cut on January 22nd. Market fear was primarily driven by (1) the spreading subprime crisis and (2) US recession concerns; SocGen's €49B liquidation acted as a catalyst that amplified that fear. Post-hoc analysis suggests European decline would have been roughly half without the SocGen selling pressure — not the primary cause, but a major accomplice.",
+      },
+      {
+        q: "SocGen은 이 사건 이후 어떻게 변했나?",
+        qEn: "How did Société Générale change after this event?",
+        a: "리스크 관리 체계를 전면 개편했다. (1) 모든 트레이딩 데스크에 독립적 'risk control' 인력 배치, (2) 백오피스↔프론트오피스 이직 시 강화된 모니터링, (3) 알고리즘 기반 이상 거래 탐지 시스템 도입, (4) Daily VaR 한도 외에 'gross notional' 한도 추가. 그러나 SocGen은 2008년 위기 후에도 LIBOR 조작·러시아 제재 위반 등 추가 컴플라이언스 문제로 어려움을 겪었다. CEO 다니엘 부통(Daniel Bouton)은 결국 2009년 사임했다.",
+        aEn: "Comprehensive risk management overhaul. (1) Independent risk-control personnel placed on every trading desk, (2) enhanced monitoring for back-to-front office transitions, (3) algorithmic anomaly detection systems introduced, (4) added 'gross notional' limits alongside daily VaR limits. Yet SocGen continued facing compliance issues post-2008 — LIBOR manipulation, Russia sanctions violations. CEO Daniel Bouton eventually resigned in 2009.",
+      },
     ],
 
     references: [
@@ -2080,6 +2140,18 @@ He now works as a philanthropist, having donated hundreds of millions to cancer 
         a: "규모와 속도 면에서 불가능했을 가능성이 높다. $310억은 은행 신디케이트 대출만으로는 거의 불가능한 규모였다. 밀켄의 고수익 채권 발행 능력이 없었다면, 이 규모의 LBO는 훨씬 작은 규모로 이루어지거나 성사되지 않았을 것이다. KKR의 핵심 경쟁력 중 하나는 밀켄과의 관계에서 나오는 자금 조달 능력이었다.",
         aEn: "At that scale and speed, almost certainly not. $31B was nearly impossible to finance through bank syndicate loans alone. Without Milken's high-yield bond issuance capacity, an LBO of this magnitude would have been far smaller or wouldn't have happened at all. One of KKR's core competitive advantages was its access to Milken's financing network.",
       },
+      {
+        q: "정크본드가 정말로 '저평가'됐나? 학문적 증거는?",
+        qEn: "Were junk bonds genuinely 'undervalued'? What's the academic evidence?",
+        a: "초기 데이터는 밀켄의 주장을 지지했다. 1980년대 초 W. Braddock Hickman의 1958년 NBER 연구와 Edward Altman의 후속 연구는 BB 이하 채권의 디폴트 손실을 감안해도 투자등급 대비 200~300bp 초과 수익률이 있었음을 보여줬다. 그러나 1989~1991년 정크본드 디폴트율이 10%를 넘으면서 이 '저평가' 가설이 흔들렸다. 현재 학계 컨센서스: 분산된 정크본드 포트폴리오는 일관되게 초과수익을 내지만, 그 초과분 상당 부분은 단순 보상이 아닌 '유동성 프리미엄'과 '디폴트 클러스터링 리스크'에 대한 보상이다.",
+        aEn: "Early data supported Milken's thesis. W. Braddock Hickman's 1958 NBER study and Edward Altman's subsequent research showed that even after default losses, sub-BB bonds had earned 200–300bp of excess return over investment-grade. But the thesis was shaken when junk-bond default rates exceeded 10% in 1989–91. Current academic consensus: diversified junk bond portfolios consistently deliver excess returns, but much of that excess is compensation for liquidity premium and default-clustering risk — not free money.",
+      },
+      {
+        q: "밀켄은 왜 트럼프 대통령에게 사면됐나? 사면이 정당한가?",
+        qEn: "Why did Trump pardon Milken? Was the pardon justified?",
+        a: "2020년 2월 트럼프는 밀켄을 '완전 사면(Full Pardon)'했다. 이유: (1) 밀켄이 1993년 출소 후 자선 활동, 특히 전립선암 연구에 수억 달러를 기부했다는 점, (2) 원래 기소된 98개 혐의 중 6개만 유죄 인정했고 이마저도 '기술적 위반'이었다는 변호인 측 주장. 비판: (1) 1989년 유죄 인정한 시세조종·내부자거래는 명백한 시장 신뢰 훼손, (2) 밀켄이 이미 1993년 SEC 평생 증권업계 추방 명령을 받았는데도 사면됨, (3) 사면 시점이 트럼프 1기 임기 말 정치적 동맹 관련 사면 시즌과 겹침. 정당성에 대한 학계·법조계 평가는 여전히 갈린다.",
+        aEn: "Trump granted Milken a 'Full Pardon' in February 2020. Reasons: (1) Milken's extensive post-1993 philanthropy, especially hundreds of millions donated to prostate cancer research; (2) defense argument that of the original 98 counts, only 6 'technical violations' were pleaded guilty to. Criticism: (1) the 1989 guilty plea covered clear market manipulation and insider trading; (2) Milken had already received a lifetime SEC bar in 1993; (3) the pardon timing coincided with Trump's first-term political-ally pardon spree. Academic and legal opinion remains divided on its legitimacy.",
+      },
     ],
 
     references: [
@@ -2264,6 +2336,18 @@ Yet his insights survived him. Edwin Lefèvre's *Reminiscences of a Stock Operat
         qEn: "Did Livermore know in advance about the 1929 crash? Did he have inside information?",
         a: "내부 정보의 증거는 없다. 리버모어의 접근법은 가격 움직임과 시장 심리를 분석하는 것이었다. 1929년 여름 시장은 이미 과열 신호를 보내고 있었다 — 거래량, 투기적 열기, 신용 증가. 리버모어는 이 신호들을 읽고 단계적으로 공매도를 구축했다. 내부 정보보다는 탁월한 관찰력과 심리적 독립성(다수가 탐욕에 취했을 때 홀로 두려움을 갖는 것)의 결과였다.",
         aEn: "There's no evidence of inside information. Livermore's approach was analyzing price action and market psychology. In summer 1929, markets already showed overheating signals — volume patterns, speculative fever, credit expansion. Livermore read these signals and built short positions gradually. The results came from exceptional observation and psychological independence (feeling fear when the crowd was greedy), not inside information.",
+      },
+      {
+        q: "리버모어의 트레이딩 원칙은 현대 시장에서도 통하나?",
+        qEn: "Do Livermore's trading principles still work in modern markets?",
+        a: "원칙 자체는 살아있다 — '추세 따라가기', '손절 빠르게', '수익 포지션 키우기', '내부 정보 믿지 마라' — 모두 현대 기술적 분석과 트렌드 추종 전략의 핵심이다. Renaissance Technologies, Two Sigma 같은 정량 헤지펀드도 본질적으로는 가격 움직임에서 비대칭 베팅 기회를 찾는다는 점에서 리버모어의 후예다. 다만 (1) 초고빈도 알고리즘 트레이딩 시대에 개인이 시장 심리를 읽는 우위는 크게 줄었고, (2) 리버모어 시대에는 합법적이었던 시세조종 기법(블록 매집·풀 운영)이 현재는 불법이라는 차이가 있다.",
+        aEn: "The principles remain alive — 'follow the trend', 'cut losses fast', 'let winners run', 'don't trade on tips' — all are cornerstones of modern technical analysis and trend-following strategies. Quant funds like Renaissance Technologies and Two Sigma are essentially Livermore's heirs in seeking asymmetric bets in price action. Two key differences: (1) in the high-frequency algorithmic era, individual edge in reading market psychology has shrunk dramatically, and (2) techniques legal in Livermore's day (block accumulation, pool operations) are now illegal.",
+      },
+      {
+        q: "《어느 주식 투자자의 회고록》은 실화인가 소설인가?",
+        qEn: "Is 'Reminiscences of a Stock Operator' real or fiction?",
+        a: "공식적으로는 '소설'이다. 작가 에드윈 르페브르(Edwin Lefèvre)가 1923년 The Saturday Evening Post에 12회 연재한 작품으로, 주인공 'Larry Livingston'은 가상의 트레이더다. 그러나 르페브르가 1922~23년 리버모어와 수개월간 직접 인터뷰하며 그의 거래와 인생을 거의 그대로 기록했다는 것이 정설이다. 리버모어 본인도 이 책을 '내 자서전에 가장 가까운 것'이라고 인정했다. 80% 이상의 사건과 인물이 실제 리버모어 경험에 기반하며, 일부 디테일과 대사만 문학적 윤색이 가해졌다.",
+        aEn: "Officially fiction. Edwin Lefèvre serialized it in 12 installments in The Saturday Evening Post in 1923, with protagonist 'Larry Livingston' presented as a fictional trader. But it's well established that Lefèvre conducted months of direct interviews with Livermore in 1922–23 and recorded his trades and life almost verbatim. Livermore himself acknowledged the book as 'the closest thing to my autobiography.' Over 80% of events and characters are based on real Livermore experiences; only some details and dialogue received literary polish.",
       },
     ],
 
@@ -2489,6 +2573,18 @@ Volcker passed away in December 2019 at age 92.`,
         a: "2022~2023년 연준은 볼커 이후 최대 속도의 금리 인상을 단행했다 — 0.25%에서 5.25~5.5%까지. 그러나 볼커와의 차이는: (1) 2022년 인플레이션 출발점(9%)이 1979년보다 낮았다, (2) 연준은 20% 금리까지 올리지 않았다, (3) 노동시장이 놀라울 정도로 견조해 실업률 급등 없이 인플레이션이 내려왔다('소프트 랜딩'). 볼커의 방식이 더 극단적이었고, 시대적·경제적 맥락도 달랐다.",
         aEn: "The 2022–2023 Fed executed the fastest rate hike cycle since Volcker — from 0.25% to 5.25–5.5%. But differences include: (1) the 2022 inflation starting point (~9%) was lower than 1979; (2) the Fed didn't reach 20%; (3) a surprisingly resilient labor market allowed inflation to fall without a spike in unemployment (the 'soft landing'). Volcker's approach was more extreme, and the economic context was fundamentally different.",
       },
+      {
+        q: "볼커의 정책이 1982년 멕시코 디폴트의 원인이었나?",
+        qEn: "Did Volcker's policy cause the 1982 Mexican default?",
+        a: "직접적인 주요 원인이었다. 1970년대 멕시코·브라질·아르헨티나 등 중남미 국가들은 미국 시중은행으로부터 변동금리 달러 차입을 대규모로 받았다. 볼커가 미국 금리를 20%까지 올리자, (1) 이들 국가의 달러 부채 이자가 동시에 폭증했고, (2) 달러 강세로 자국 통화 표시 부채 부담이 커졌으며, (3) 원자재 가격 하락으로 수출 수익까지 줄었다. 1982년 8월 멕시코가 디폴트를 선언하면서 'Latin American Debt Crisis'가 시작됐다 — 이는 1980년대 중남미의 '잃어버린 10년'을 만들었다. 볼커의 정책 비용은 미국 국내 실업률 10.8%뿐 아니라 개도국 전체의 채무 위기까지 포함했다.",
+        aEn: "Yes — a direct major cause. In the 1970s, Latin American countries (Mexico, Brazil, Argentina) had borrowed heavily in floating-rate dollar loans from US commercial banks. When Volcker pushed US rates to 20%, (1) interest costs on their dollar debt simultaneously exploded, (2) dollar strength inflated local-currency debt burdens, and (3) commodity price declines further crushed export revenues. Mexico's August 1982 default triggered the Latin American Debt Crisis — creating the 1980s 'lost decade' across Latin America. Volcker's policy cost wasn't just 10.8% US unemployment, but also emerging-market debt crises worldwide.",
+      },
+      {
+        q: "볼커 룰(Volcker Rule)은 무엇이고 볼커 의장과 관련 있나?",
+        qEn: "What is the Volcker Rule and is it related to Chairman Volcker?",
+        a: "관련 있다. '볼커 룰'은 2010년 도드-프랭크 법(Dodd-Frank Act) 619조로, 상업은행이 자기자본으로 트레이딩(proprietary trading)하는 것을 금지하고 헤지펀드·사모펀드 보유를 제한하는 규정이다. 오바마 대통령이 2009년 폴 볼커를 경제회복자문위원회 의장으로 임명하면서 그의 제안에 따라 도입됐다. 볼커의 논리: '예금자 보호 받는 은행이 투기적 트레이딩으로 위기를 만들면 안 된다'. 이 규칙은 2020년 트럼프 행정부에서 일부 완화됐고, 일부 자산운용 권한이 은행에 다시 허용됐다.",
+        aEn: "Yes, directly related. The 'Volcker Rule' is Section 619 of the 2010 Dodd-Frank Act, prohibiting commercial banks from proprietary trading with their own capital and restricting their hedge fund and PE holdings. President Obama appointed Paul Volcker as chair of the Economic Recovery Advisory Board in 2009, and the rule was adopted based on his proposal. Volcker's logic: 'Banks with deposit insurance shouldn't be creating crises through speculative trading.' The rule was partially loosened under the Trump administration in 2020, allowing banks some asset-management activities again.",
+      },
     ],
 
     references: [
@@ -2687,6 +2783,18 @@ In October 2009, Wasserstein died suddenly of a brain hemorrhage — aged 62.`,
         a: "항상은 아니다. 와서스타인의 논리는 전략적 자산을 놓치는 기회비용이 과잉 지불 비용보다 크다는 것이다. 이는 희소한 전략적 자산의 경우 맞을 수 있다. 그러나 경쟁 입찰 심리에 휩쓸려 과잉 지불하는 '승자의 저주(Winner's Curse)' 현상도 실재한다. RJR 나비스코의 경우 KKR은 이후 차입금 부담으로 오랫동안 고전했다.",
         aEn: "Not always. Wasserstein's logic was that the opportunity cost of losing a strategic asset outweighs the cost of overpaying. This can be correct for truly scarce strategic assets. But the 'Winner's Curse' — overpaying due to competitive bid psychology — is also real. In RJR Nabisco's case, KKR struggled for years under the resulting debt burden.",
       },
+      {
+        q: "'Highly Confident Letter'는 와서스타인이 만든 건가 밀켄이 만든 건가?",
+        qEn: "Who invented the 'Highly Confident Letter' — Wasserstein or Milken?",
+        a: "밀켄과 드렉셀이 발명했다. 1980년대 중반 드렉셀은 적대적 인수자에게 \"우리가 이 인수에 필요한 자금을 조달할 고도의 확신이 있다\"는 비공식 서한을 발행하기 시작했다. 법적 구속력은 없었지만 밀켄의 정크본드 네트워크 신뢰성이 워낙 강해 시장은 이를 사실상의 자금 조달 보증으로 받아들였다. 와서스타인은 이 도구를 M&A 자문 측면에서 적극 활용한 사람이지 발명자는 아니다. 와서스타인은 'Bid 'em Up' 철학과 '부티크 IB 모델'을 만들었지만, Highly Confident Letter는 밀켄의 발명품이다.",
+        aEn: "Milken and Drexel invented it. In the mid-1980s, Drexel began issuing informal letters to hostile acquirers stating they were 'highly confident' of raising acquisition financing. Not legally binding, but Milken's junk-bond network was so credible that markets treated it as a de facto financing guarantee. Wasserstein actively leveraged this tool from the M&A advisory side, but did not invent it. Wasserstein created the 'Bid 'em Up' philosophy and the boutique IB model — but the Highly Confident Letter was Milken's innovation.",
+      },
+      {
+        q: "Wasserstein Perella는 왜 결국 매각됐나?",
+        qEn: "Why was Wasserstein Perella ultimately sold?",
+        a: "2001년 와서스타인이 라자드(Lazard) 회장으로 옮기면서 Wasserstein Perella는 동력을 잃었고, 같은 해 독일 Dresdner Bank에 $14억에 매각됐다. 매각 이유: (1) 창업자 와서스타인의 라자드行 — 부티크 IB는 핵심 파트너 한 명에 절대 의존하는 구조라 이탈은 치명적, (2) Dresdner의 글로벌 IB 확장 야망 — 와서스타인 브랜드와 클라이언트 관계를 사려 했음, (3) 부티크 IB로는 종합 금융 서비스 경쟁에서 한계를 느꼈다. 그러나 합병 후 Dresdner Kleinwort Wasserstein은 시너지를 내지 못했고, 2009년 글로벌 금융위기 후 Commerzbank가 인수하면서 Wasserstein 브랜드는 사라졌다.",
+        aEn: "When Wasserstein moved to Lazard as chairman in 2001, Wasserstein Perella lost momentum and was sold to Germany's Dresdner Bank for $1.4B the same year. Reasons: (1) Founder Wasserstein's departure to Lazard — boutique IBs depend absolutely on a few key partners, making such a loss catastrophic; (2) Dresdner's global IB expansion ambition — they wanted the Wasserstein brand and client relationships; (3) the boutique model felt limiting against full-service competitors. The merged Dresdner Kleinwort Wasserstein never produced synergies, and the Wasserstein brand disappeared when Commerzbank acquired Dresdner after the 2009 financial crisis.",
+      },
     ],
 
     references: [
@@ -2862,6 +2970,18 @@ On January 17, 1956, Ford Motor went public with $660 million in shares. Approxi
         qEn: "Why did Weinberg accept so many board seats?",
         a: "두 가지 이유다. 첫째, 전략적 목적이었다 — 이사회 참여는 기업의 핵심 의사결정 현장에 있는 것이었고, 자연스럽게 자문 기회로 이어졌다. 둘째, 개인적 성향이었다 — 와인버그는 비즈니스 관계를 진정으로 즐겼고, 다양한 산업의 경영진들과 교류하는 것을 좋아했다. 당시에는 이해충돌 규정이 훨씬 느슨했고, 이 관행은 업계에서 일반적으로 받아들여졌다.",
         aEn: "Two reasons. First, strategic purpose — board membership placed him in the room where core decisions were made, naturally leading to advisory mandates. Second, personal inclination — Weinberg genuinely enjoyed business relationships and the exchange with executives across diverse industries. Conflict-of-interest regulations were far looser then, and this practice was generally accepted in the industry.",
+      },
+      {
+        q: "와인버그가 어떻게 헨리 포드 2세의 신뢰를 얻었나?",
+        qEn: "How did Weinberg earn Henry Ford II's trust?",
+        a: "전쟁 중 형성된 개인적 인연이 결정적이었다. 와인버그는 제2차 세계대전 중 War Production Board에서 일하며 헨리 포드 2세를 처음 만났다. 1945년 포드 1세 사망 후 회사 재건을 맡은 HF2가 경영 자문을 구할 때 와인버그가 비공식 멘토 역할을 했다 — 무료로, 10년 이상. 와인버그는 GM·크라이슬러 등 경쟁사도 자문하지 않았고, 포드 가문의 신뢰를 독점했다. 1956년 IPO 주관 결정은 사실 10년 전부터 예정돼 있던 셈이다 — 이것이 와인버그가 보여준 '관계의 자본화'의 정수다.",
+        aEn: "A personal relationship forged during the war was decisive. Weinberg first met Henry Ford II while serving on the War Production Board during WWII. After Ford Sr. died in 1945 and HF2 took over the company's rebuilding, Weinberg served as an unofficial mentor — for free, for over a decade. Weinberg never advised GM or Chrysler, monopolizing the Ford family's trust. The decision to underwrite the 1956 IPO was, in effect, predetermined ten years earlier — the essence of Weinberg's 'capitalizing relationships' philosophy.",
+      },
+      {
+        q: "와인버그 이후 골드만삭스는 어떻게 그의 유산을 이어갔나?",
+        qEn: "How did Goldman Sachs continue Weinberg's legacy after him?",
+        a: "직계 후계자로 거스 레비(Gus Levy, 1969~1976)가 시니어 파트너를 이어받았고, 이후 존 화이트헤드(John Whitehead)와 존 와인버그(John Weinberg — 시드니의 아들, 1976~1990)가 공동 경영했다. 화이트헤드는 1979년 'Business Principles' 14개 조항을 정립해 와인버그의 비공식 철학을 공식 문서화했다 — 그중 첫 번째가 \"Our clients' interests always come first\"였다. 골드만삭스는 1999년 IPO를 통해 파트너십을 상장사로 전환했지만, '신뢰받는 조언자' 모델 자체는 지금까지 핵심 정체성으로 유지된다. 그러나 2010년 SEC의 Abacus 사기 기소 이후 '클라이언트 우선' 원칙이 흔들렸다는 비판이 제기됐다.",
+        aEn: "Direct successor Gus Levy (senior partner 1969–1976) took over, followed by joint leadership of John Whitehead and John Weinberg (Sidney's son, 1976–1990). Whitehead codified Weinberg's informal philosophy into the official 14-point 'Business Principles' in 1979 — the first principle being \"Our clients' interests always come first.\" Goldman converted from partnership to public company via its 1999 IPO, but the 'trusted advisor' model remains its core identity. However, the SEC's 2010 Abacus fraud charges sparked widespread criticism that the 'clients first' principle had been eroded.",
       },
     ],
 
@@ -3054,6 +3174,18 @@ Rohatyn later served as US Ambassador to France under the Clinton administration
         qEn: "What would have happened if New York City had actually declared bankruptcy?",
         a: "1975년에는 지자체 파산(Chapter 9)이 현재처럼 잘 정비된 법률 체계가 없었다. 전례 없는 법적·행정적 혼란이 발생했을 것이다. 실질적 영향으로는 경찰·소방·교육 서비스 붕괴, 지하철 운행 중단, 시 채권을 보유한 소규모 저축은행들의 연쇄 파산, 미국 지방채 시장 전체의 신뢰도 하락이 예상됐다. 일부 경제학자들은 이것이 1970년대 후반 미국 경제를 훨씬 더 깊은 침체로 빠뜨렸을 것이라고 본다.",
         aEn: "In 1975, the municipal bankruptcy (Chapter 9) legal framework wasn't as developed as today — unprecedented legal and administrative chaos would have followed. Practical impacts would have included collapse of police, fire, and education services, subway shutdowns, cascading failures at small savings banks holding city bonds, and a collapse in confidence across US municipal bond markets. Some economists believe this would have plunged the US economy into a far deeper recession in the late 1970s.",
+      },
+      {
+        q: "MAC 구조는 다른 도시에도 적용됐나? 디트로이트는?",
+        qEn: "Was the MAC structure applied to other cities, like Detroit?",
+        a: "디트로이트는 다른 길을 갔다. 2013년 디트로이트는 $180억 부채로 미국 역사상 최대 지자체 파산을 선언했다 — MAC 같은 사전 구제 구조가 시도됐지만 미시간 주 정부가 뉴욕주만큼 적극 개입하지 못했고, 노조와의 협상도 결렬됐다. 결과적으로 디트로이트는 Chapter 9 파산을 통해 부채를 재구조화했다 (연금·채권자 모두 손실 분담). MAC 모델이 작동하려면 (1) 주 정부의 강력한 신용도 + (2) 정치적 의지 + (3) 노조의 협력이 모두 필요한데, 디트로이트는 이 세 가지가 모두 부족했다. 반면 푸에르토리코 부채 구조조정(2017~2022)은 MAC와 유사한 PROMESA 구조를 활용했다.",
+        aEn: "Detroit took a different path. In 2013, Detroit filed the largest municipal bankruptcy in US history with $18B in debt — MAC-style pre-bankruptcy rescue structures were attempted, but Michigan's state government couldn't intervene as aggressively as New York had, and labor negotiations collapsed. Detroit instead restructured its debt via Chapter 9 (with both pensioners and creditors taking losses). The MAC model requires (1) strong state credit, (2) political will, and (3) union cooperation — Detroit lacked all three. Puerto Rico's 2017–2022 debt restructuring under PROMESA, however, leveraged a MAC-like structure.",
+      },
+      {
+        q: "'Ford to City: Drop Dead' 헤드라인은 실제로 포드 대통령이 한 말인가?",
+        qEn: "Did President Ford actually say 'Drop Dead' to New York City?",
+        a: "정확히 그런 말은 하지 않았다. 1975년 10월 29일 포드 대통령은 내셔널 프레스 클럽 연설에서 \"연방 정부가 뉴욕시 파산을 막기 위한 자금을 지원하지 않을 것\"이라 선언했다. 뉴욕 데일리 뉴스가 다음날 1면에 \"FORD TO CITY: DROP DEAD\"라는 헤드라인을 실었다 — 이는 포드의 실제 발언이 아니라 신문의 윤색이었다. 그러나 이 헤드라인이 정치적 파장을 일으켜 결국 포드 행정부가 1975년 11월 \"Seasonal Financing Act\"를 통해 $23억 단기 융자를 제공하는 방향으로 입장을 선회하게 만들었다. 포드는 1976년 대선에서 뉴욕주를 잃었고, 이 헤드라인이 한 원인이라는 평가가 있다.",
+        aEn: "He didn't say it literally. On October 29, 1975, President Ford declared at a National Press Club speech that the federal government would not provide funds to prevent NYC's bankruptcy. The New York Daily News ran the headline 'FORD TO CITY: DROP DEAD' on its front page the next day — this was the paper's framing, not Ford's actual words. The headline created such political shockwaves that Ford reversed course and signed the Seasonal Financing Act in November 1975, providing $2.3B in short-term loans. Ford lost New York state in the 1976 presidential election, and many cite this headline as a contributing factor.",
       },
     ],
 
@@ -3260,6 +3392,18 @@ He built the leveraged finance machine — and that machine keeps running after 
         qEn: "Could KKR and Blackstone have grown to their current scale without Jimmy Lee?",
         a: "훨씬 어려웠을 것이다. KKR의 1980년대 대형 LBO들, 특히 RJR 나비스코는 지미 리의 신디케이션 능력 없이는 그 규모로 자금 조달이 불가능했다. PE 산업의 성장은 자금 조달 규모가 얼마나 커질 수 있느냐에 직결된다. 지미 리는 그 한계를 매번 더 높이 올렸다. 물론 다른 뱅커들이 비슷한 역할을 했을 수 있지만, 그 속도와 규모는 달랐을 것이다.",
         aEn: "It would have been far more difficult. KKR's major 1980s LBOs, particularly RJR Nabisco, couldn't have been financed at that scale without Lee's syndication capabilities. PE industry growth is directly tied to how large financings can grow. Lee kept raising that ceiling. Other bankers could potentially have played a similar role, but the speed and scale would have been different.",
+      },
+      {
+        q: "지미 리가 만든 신디케이션 구조가 2008년 금융위기에 어떤 영향을 미쳤나?",
+        qEn: "How did Lee's syndication structure impact the 2008 financial crisis?",
+        a: "양면적 영향이었다. 긍정적: 리스크 분산 메커니즘으로 단일 은행의 노출을 줄였다. 부정적: (1) 2005~2007년 LBO 붐을 기록적 규모로 끌어올린 것이 시스템 리스크 확대에 일조, (2) 'covenant-lite' 대출 — 채무자 보호 조항이 약화된 신디케이션 론 — 의 확산으로 부실 시 회수율이 떨어졌다, (3) 신디케이션을 통해 위험이 분산된 것처럼 보였지만, 실제로는 같은 리스크 풀(연금·뮤추얼펀드)에 집중되어 진정한 분산이 아니었다. 2008년 LevFin 시장은 한때 동결됐지만, 지미 리는 JPMorgan을 통해 시장 재개의 핵심 역할을 했다.",
+        aEn: "Mixed effects. Positive: risk distribution reduced single-bank exposure. Negative: (1) the syndication market enabled record-size LBOs in 2005–2007, contributing to systemic risk; (2) 'covenant-lite' loans — syndicated debt with weakened lender protections — became widespread, reducing recovery rates in distress; (3) syndication created the illusion of distributed risk, but the same risk pools (pensions, mutual funds) concentrated the exposure, so it wasn't real diversification. The LevFin market briefly froze in 2008, but Lee played a central role in restarting it through JPMorgan.",
+      },
+      {
+        q: "다이렉트 렌딩 시장이 커지면서 지미 리의 신디케이션 모델은 무너지고 있나?",
+        qEn: "Is direct lending eroding Jimmy Lee's syndication model?",
+        a: "도전받고 있지만 무너진 것은 아니다. 2010년대 후반부터 Ares·Blackstone Credit·Golub Capital 등 'private credit' (직접 대출) 펀드들이 급성장해 2024년 기준 약 $1.7조 시장이 됐다 — 신디케이션 시장($1.4조)과 거의 비등하다. PE 펀드들은 점점 신디케이션 대신 단일 사모 크레딧 펀드와 직접 거래한다 — 더 빠르고, 더 유연하고, 공시 의무 없음. 그러나 (1) 메가 LBO ($10B+) 는 여전히 신디케이션이 필요하고, (2) 사모 크레딧 시장도 결국 기관 LP들의 자금이 흘러들어가는 점에서 본질적 구조는 비슷하다. 지미 리의 후계자들은 'private credit 부서'를 별도 운영하며 두 모델을 병행한다.",
+        aEn: "It's being challenged but not collapsing. From the late 2010s, private credit funds like Ares, Blackstone Credit, and Golub Capital have grown explosively, reaching ~$1.7T in 2024 — roughly matching the syndicated loan market ($1.4T). PE funds increasingly deal with single private credit funds instead of syndicates — faster, more flexible, no disclosure obligations. But (1) mega-LBOs ($10B+) still require syndication, and (2) private credit ultimately taps the same institutional LP capital, so the underlying structure is similar. Jimmy Lee's successors at JPMorgan now run dedicated private credit divisions alongside syndication — a parallel model.",
       },
     ],
 
