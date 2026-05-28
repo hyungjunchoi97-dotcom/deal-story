@@ -50,9 +50,17 @@ import attTimeWarner from "./att-time-warner";
 // 신규 추가 딜 — 행동주의
 import engineNo1Exxon from "./engine-no1-exxon";
 import icahnApple from "./icahn-apple";
+import icahnTimeWarner from "./icahn-time-warner";
 import trianDisney from "./trian-disney";
+import trianDupont from "./trian-dupont";
 import elliottHyundai from "./elliott-hyundai";
+import elliottTwitter from "./elliott-twitter";
+import thirdPointShell from "./third-point-shell";
 import thirdPointNestle from "./third-point-nestle";
+import thirdPointYahoo from "./third-point-yahoo";
+import janaWholeFoods from "./jana-whole-foods";
+import elliottAtt from "./elliott-att";
+import pershingSquareHerbalife from "./pershing-square-herbalife";
 // 신규 추가 딜 — 구조조정
 import dowdupont from "./dowdupont-breakup";
 import jjKenvue from "./jj-kenvue";
@@ -79,6 +87,8 @@ import kkrTxuEnergyFuture from "./kkr-txu-energy-future";
 import silverLakeDell from "./silver-lake-dell-takeprivate";
 import bcPartnersPetsmart from "./bc-partners-petsmart";
 import g3CapitalBurgerKing from "./3g-capital-burger-king";
+import starboardDardenOliveGarden from "./starboard-darden-olive-garden";
+import pershingSquareAllergan from "./pershing-square-allergan";
 
 /**
  * 딜 레지스트리 — 새 딜 추가 시 import 후 배열에 추가
@@ -102,15 +112,18 @@ export const ALL_DEALS: DealData[] = [
   warnerDiscoveryMerger,   // 2022-04-08
   microsoftNuance,         // 2022-03-04
   nvidiaArm,               // terminated 2022-02-08
+  thirdPointShell,         // 2022-02-01 (activism — ESG 행동주의의 한계)
   skhynixIntelNand,        // 2021-12-30
   ibmKyndryl,              // 2021-11-04 (restructuring)
   salesforceSlack,         // 2021-07-21
   hanjinKcgi,              // 2021-06-30 (activism)
   engineNo1Exxon,          // 2021-05-26 (activism)
+  elliottAtt,              // 2021-05-17 (activism — AT&T $134B 인수 후처리, DirecTV+WarnerMedia 분리)
   lvmhTiffany,             // 2021-01-07
   siemensBreakup,          // 2020-09-28 (restructuring)
   sertaSimmons,            // 2020-06-22 (LevFin 업티어 익스체인지)
   danaherAcquisitions,     // multiple deals (latest: Cytiva 2020-03)
+  elliottTwitter,          // 2020-03-09 (activism — 겸직 CEO 압박, Dorsey 사임 도화선)
   thirdPointNestle,        // 2019-09-01 (activism)
   dowdupont,               // 2019-06-01 (restructuring)
   disneyFox,               // 2019-03-20
@@ -121,8 +134,10 @@ export const ALL_DEALS: DealData[] = [
   bayerMonsanto,           // 2018-06-07 (ma + 신디케이티드론)
   microsoftGithub,         // 2018-06-04
   salesforceMulesoft,      // 2018-05-01
+  pershingSquareHerbalife, // 2018-03-01 (activism — Ackman vs Icahn, 역대 최장 공매도 대결)
   trianPg,                 // 2017-12-15 (activism)
   amazonWholeFoods,        // 2017-08-28
+  janaWholeFoods,          // 2017-08-28 (activism — Amazon 매각 촉발)
   kraftUnilever,           // 2017-02-19 (control, withdrawn)
   microsoftLinkedin,       // 2016-12-08
   abInBevSabmiller,        // 2016-10-10
@@ -130,8 +145,11 @@ export const ALL_DEALS: DealData[] = [
   mbkHomeplus,             // 2015-11-30
   elliottSamsung,          // 2015-09-01 (activism)
   ebayPaypalSpinoff,       // 2015-07-17
+  trianDupont,             // 2015-05-13 (activism — proxy fight loss → $130B merger)
   bcPartnersPetsmart,      // 2015-03-11 (LBO 교육 — 아마존 공포 역발상)
   lvmhHermes,              // 2014-12-17 (control)
+  pershingSquareAllergan,    // 2014-11-17 (activism — 토홀드 전략, 화이트 나이트 Actavis)
+  starboardDardenOliveGarden, // 2014-10-10 (activism — 294페이지 덱, 이사회 전원 교체)
   metaWhatsapp,            // 2014-10-06
   thirdPointSony,          // 2014-08-07 (activism)
   valueactMicrosoft,       // 2014-02-04 (activism)
@@ -139,6 +157,7 @@ export const ALL_DEALS: DealData[] = [
   abbottAbbvieSpinoff,     // 2013-01-01
   metaInstagram,           // 2012-09-06
   porscheVolkswagen,       // 2012-08-01 (control)
+  thirdPointYahoo,         // 2012-07-16 (activism)
   pershingSquareCpRail,    // 2012-05-17 (activism)
   jcrewIpTransfer,         // 2011-03-07 (LevFin Trap Door 케이스)
   airgasAirProducts,       // 2011-02-11 (control, withdrawn)
@@ -153,6 +172,7 @@ export const ALL_DEALS: DealData[] = [
   kkrToysRUs,              // 2005-07-21 (LevFin 케이스)
   googleYoutube,           // 2006-10-31
   disneyPixar,             // 2006-05-05
+  icahnTimeWarner,         // 2006-03-01 (activism)
   oraclePeoplesoft,        // 2004-12-28 (control)
   hpCompaq,                // 2002-05-03
   aolTimeWarner,           // 2001-01-11

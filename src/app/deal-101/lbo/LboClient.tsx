@@ -86,10 +86,10 @@ const STAKEHOLDERS = [
 
 // ── 핵심 문서 ─────────────────────────────────────────────────
 const KEY_DOCS = [
-  { name: "LBO 모델", color: "blue", desc: "레버리지 수준·IRR·MoM(Money-on-Money) 배수를 시나리오별로 시뮬레이션하는 재무 모델. 입력값: Entry Multiple, Exit Multiple, 레버리지 비율, 보유 기간, EBITDA 성장률. PE 투자심의위원회(IC) 승인의 핵심 근거." },
-  { name: "Credit Agreement (인수금융 약정서)", color: "violet", desc: "Senior Debt·Junior Debt의 금리, 만기, 상환 일정, 재무 코버넌트(Net Debt/EBITDA 한도, 이자 커버리지 비율)가 담긴 대출 계약서. 코버넌트 위반 시 기한이익상실(EOD) 조항이 발동된다." },
-  { name: "Management Incentive Plan (MIP)", color: "amber", desc: "경영진에게 성과 연동 인센티브(스톡옵션 또는 Sweet Equity)를 설계하는 문서. IRR 또는 MoM 기준치 달성 시 경영진 지분 가치가 비선형으로 증가하는 구조(Ratchet)가 일반적이다." },
-  { name: "Exit 시나리오 분석", color: "rose", desc: "IPO·전략적 매각(Trade Sale)·세컨더리 바이아웃(SBO) 세 가지 경로별 예상 수익을 비교한다. 보유 기간(3·5·7년)과 Exit Multiple 변화에 따른 IRR 민감도 분석이 포함된다." },
+  { nameKo: "LBO 모델", nameEn: "LBO Model", color: "blue", desc: "레버리지 수준·IRR·MoM(Money-on-Money) 배수를 시나리오별로 시뮬레이션하는 재무 모델. 입력값: Entry Multiple, Exit Multiple, 레버리지 비율, 보유 기간, EBITDA 성장률. PE 투자심의위원회(IC) 승인의 핵심 근거.", descEn: "Financial model simulating leverage levels, IRR, and MoM (Money-on-Money) multiples across scenarios. Inputs: Entry Multiple, Exit Multiple, leverage ratio, holding period, EBITDA growth rate. The primary basis for PE Investment Committee (IC) approval." },
+  { nameKo: "Credit Agreement (인수금융 약정서)", nameEn: "Credit Agreement (Acquisition Finance)", color: "violet", desc: "Senior Debt·Junior Debt의 금리, 만기, 상환 일정, 재무 코버넌트(Net Debt/EBITDA 한도, 이자 커버리지 비율)가 담긴 대출 계약서. 코버넌트 위반 시 기한이익상실(EOD) 조항이 발동된다.", descEn: "Loan agreement covering interest rates, maturities, amortization schedules, and financial covenants (Net Debt/EBITDA cap, interest coverage ratio) for Senior and Junior Debt. Covenant breaches trigger an Event of Default (EOD)." },
+  { nameKo: "Management Incentive Plan (MIP)", nameEn: "Management Incentive Plan (MIP)", color: "amber", desc: "경영진에게 성과 연동 인센티브(스톡옵션 또는 Sweet Equity)를 설계하는 문서. IRR 또는 MoM 기준치 달성 시 경영진 지분 가치가 비선형으로 증가하는 구조(Ratchet)가 일반적이다.", descEn: "Document structuring performance-linked incentives (stock options or Sweet Equity) for management. A Ratchet mechanism is typical — management equity value increases non-linearly when IRR or MoM thresholds are hit." },
+  { nameKo: "Exit 시나리오 분석", nameEn: "Exit Scenario Analysis", color: "rose", desc: "IPO·전략적 매각(Trade Sale)·세컨더리 바이아웃(SBO) 세 가지 경로별 예상 수익을 비교한다. 보유 기간(3·5·7년)과 Exit Multiple 변화에 따른 IRR 민감도 분석이 포함된다.", descEn: "Compares expected returns across three exit paths: IPO, Trade Sale, and Secondary Buyout (SBO). Includes IRR sensitivity analysis by holding period (3, 5, 7 years) and exit multiple changes." },
 ];
 
 // ── 케이스 스터디 ────────────────────────────────────────────────
@@ -151,7 +151,12 @@ const SUCCESS_FACTORS = [
   { factor: "DD 품질", success: "산업 구조 변화·리스크 충분히 검토", failure: "현재 EBITDA만 보고 미래 변화 간과", color: "teal" },
 ];
 
-export default function LboClient() {
+interface Props {
+  lang?: "ko" | "en";
+}
+
+export default function LboClient({ lang = "ko" }: Props) {
+  const ko = lang !== "en";
   return (
     <>
       <Header />
@@ -379,8 +384,8 @@ export default function LboClient() {
                 const c = COLOR_MAP[doc.color];
                 return (
                   <div key={i} className="p-4 rounded-xl border border-gray-100 dark:border-gray-700 text-sm">
-                    <span className={`inline-block text-xs font-semibold rounded px-2 py-0.5 mb-2 ${c.badge}`}>{doc.name}</span>
-                    <p className="text-gray-500 dark:text-gray-400 leading-relaxed">{doc.desc}</p>
+                    <span className={`inline-block text-xs font-semibold rounded px-2 py-0.5 mb-2 ${c.badge}`}>{ko ? doc.nameKo : doc.nameEn}</span>
+                    <p className="text-gray-500 dark:text-gray-400 leading-relaxed">{ko ? doc.desc : doc.descEn}</p>
                   </div>
                 );
               })}

@@ -290,10 +290,10 @@ const GREENSHOE_DATA = [
 ];
 
 // ── LG에너지솔루션 IPO 배분 데이터 ─────────────────────────────────────────────
-const LGES_ALLOCATION_DATA = [
-  { name: "기관 (Institution)", target: 60, actual: 74 },
-  { name: "일반 (Retail)",      target: 20, actual: 26 },
-  { name: "우리사주 (Employee)", target: 20, actual: 0  },
+const LGES_ALLOCATION_RAW = [
+  { nameKo: "기관 (Institution)", nameEn: "Institution", target: 60, actual: 74 },
+  { nameKo: "일반 (Retail)",      nameEn: "Retail",      target: 20, actual: 26 },
+  { nameKo: "우리사주 (Employee)", nameEn: "Employee",   target: 20, actual: 0  },
 ];
 
 // ── FAQ ────────────────────────────────────────────────────────────────────────
@@ -535,7 +535,7 @@ function LgesAllocationChart({ ko }: { ko: boolean }) {
       </div>
       <div className="p-5">
         <ResponsiveContainer width="100%" height={220}>
-          <BarChart data={LGES_ALLOCATION_DATA} margin={{ top: 10, right: 10, left: -10, bottom: 5 }}>
+          <BarChart data={LGES_ALLOCATION_RAW.map((d) => ({ ...d, name: ko ? d.nameKo : d.nameEn }))} margin={{ top: 10, right: 10, left: -10, bottom: 5 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
             <XAxis dataKey="name" tick={{ fontSize: 11, fill: "#6b7280" }} />
             <YAxis tick={{ fontSize: 10, fill: "#6b7280" }} unit="%" domain={[0, 80]} />

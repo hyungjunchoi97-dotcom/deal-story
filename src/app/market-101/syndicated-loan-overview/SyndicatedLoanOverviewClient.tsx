@@ -69,12 +69,11 @@ const MARKET_DATA = [
 ];
 
 // BIS RWA 집중 리스크 시뮬레이션: 한 은행이 혼자 빌려줄 경우 vs 20개 분산
-const CONCENTRATION_DATA = [
-  { name: ko_label("단독 대출", "Single Lender"), rwa: 100, color: "#f87171" },
-  { name: ko_label("10개 분산", "10-Bank Syndicate"), rwa: 12, color: "#fb923c" },
-  { name: ko_label("20개 분산", "20-Bank Syndicate"), rwa: 6, color: ACCENT },
+const CONCENTRATION_DATA_RAW = [
+  { nameKo: "단독 대출", nameEn: "Single Lender", rwa: 100, color: "#f87171" },
+  { nameKo: "10개 분산", nameEn: "10-Bank Syndicate", rwa: 12, color: "#fb923c" },
+  { nameKo: "20개 분산", nameEn: "20-Bank Syndicate", rwa: 6, color: ACCENT },
 ];
-function ko_label(ko: string, en: string) { return ko; } // placeholder, replaced inline
 
 // 스프레드 비교 (bps over SOFR)
 const SPREAD_DATA = [
@@ -175,6 +174,10 @@ const FAQ_EN = [
 // ── 메인 컴포넌트 ────────────────────────────────────────────────────────────
 export default function SyndicatedLoanOverviewClient({ concept, lang }: Props) {
   const ko = lang === "ko";
+  const concentrationData = CONCENTRATION_DATA_RAW.map((d) => ({
+    ...d,
+    name: ko ? d.nameKo : d.nameEn,
+  }));
 
   return (
     <>

@@ -85,35 +85,38 @@ const STAKEHOLDERS = [
 const ADDBACK_SPECTRUM = [
   {
     tier: "✅ 일반적으로 인정",
+    tierEn: "✅ Generally Accepted",
     color: "border-emerald-200 dark:border-emerald-800/40 bg-emerald-50/50 dark:bg-emerald-950/10",
     labelColor: "text-emerald-700 dark:text-emerald-400",
     items: [
-      { name: "진짜 1회성 법적 비용", detail: "단발성 소송 합의금, 특정 분쟁 관련 법무 비용 (반복 업종 제외)" },
-      { name: "오너 과잉 보상 조정", detail: "오너 운영 기업의 시장 급여 초과분 — PE 인수 후 절감될 비용" },
-      { name: "IPO/딜 관련 자문 비용", detail: "당해 거래를 위한 IB·법무 비용 — 구조적으로 반복 불가" },
-      { name: "자연재해·일회성 재난 손실", detail: "홍수·화재 등 보험 처리되지 않은 실제 1회성 손실" },
+      { nameKo: "진짜 1회성 법적 비용", nameEn: "Genuine One-time Legal Costs", detail: "단발성 소송 합의금, 특정 분쟁 관련 법무 비용 (반복 업종 제외)", detailEn: "Single litigation settlements, costs for specific disputes (excluding habitually litigious sectors)" },
+      { nameKo: "오너 과잉 보상 조정", nameEn: "Owner Compensation Normalization", detail: "오너 운영 기업의 시장 급여 초과분 — PE 인수 후 절감될 비용", detailEn: "Excess compensation above market rate at owner-operated businesses — savings realizable post-PE acquisition" },
+      { nameKo: "IPO/딜 관련 자문 비용", nameEn: "IPO / Deal-related Advisory Fees", detail: "당해 거래를 위한 IB·법무 비용 — 구조적으로 반복 불가", detailEn: "IB and legal fees for the current transaction — structurally non-recurring" },
+      { nameKo: "자연재해·일회성 재난 손실", nameEn: "Natural Disaster / One-time Casualty Losses", detail: "홍수·화재 등 보험 처리되지 않은 실제 1회성 손실", detailEn: "Uninsured losses from floods, fires, and similar one-off events" },
     ],
   },
   {
     tier: "⚠️ 논란 — 증거 요구",
+    tierEn: "⚠️ Contested — Requires Evidence",
     color: "border-amber-200 dark:border-amber-800/40 bg-amber-50/50 dark:bg-amber-950/10",
     labelColor: "text-amber-700 dark:text-amber-400",
     items: [
-      { name: "구조조정 비용", detail: "2년 연속 등장하면 FDD 거부 — Valeant는 8분기 연속 '비반복' 처리" },
-      { name: "CEO 교체·전략 검토 비용", detail: "1회성으로 분류하지만 '변환 프로그램'이 3~4년 지속되는 경우 다수" },
-      { name: "코로나 정상화 (2020~2022)", detail: "팬데믹 손실 add-back — 업종별 타당성 차이 크고 남용 사례 광범위" },
-      { name: "신규 사업 Pre-opening 비용", detail: "성장 중인 기업에서 구조적으로 반복 — WeWork 패턴과 동일" },
+      { nameKo: "구조조정 비용", nameEn: "Restructuring Charges", detail: "2년 연속 등장하면 FDD 거부 — Valeant는 8분기 연속 '비반복' 처리", detailEn: "Appearing for 2+ consecutive years → FDD rejection. Valeant ran 8 straight quarters of 'non-recurring' restructuring" },
+      { nameKo: "CEO 교체·전략 검토 비용", nameEn: "CEO Transition / Strategic Review Costs", detail: "1회성으로 분류하지만 '변환 프로그램'이 3~4년 지속되는 경우 다수", detailEn: "Labeled one-time, but 'transformation programs' routinely run 3–4 years" },
+      { nameKo: "코로나 정상화 (2020~2022)", nameEn: "COVID Normalization (2020–2022)", detail: "팬데믹 손실 add-back — 업종별 타당성 차이 크고 남용 사례 광범위", detailEn: "Pandemic loss add-backs — wide variation by sector, rampant abuse in practice" },
+      { nameKo: "신규 사업 Pre-opening 비용", nameEn: "New Location Pre-opening Costs", detail: "성장 중인 기업에서 구조적으로 반복 — WeWork 패턴과 동일", detailEn: "Structurally recurring at growth-stage businesses — identical to WeWork's pattern" },
     ],
   },
   {
     tier: "❌ FDD에서 거의 거부",
+    tierEn: "❌ Routinely Rejected by FDD",
     color: "border-rose-200 dark:border-rose-800/40 bg-rose-50/50 dark:bg-rose-950/10",
     labelColor: "text-rose-600 dark:text-rose-400",
     items: [
-      { name: "주식 기반 보상 (SBC)", detail: "Buffett: '이게 보상이 아니면 뭔가? 비용이 아니면 어디로 가나?' — 경제적 희석은 실재" },
-      { name: "미실현 시너지 예상치", detail: "아직 달성 안 된 비용 절감을 EBITDA에 add-back. Run-rate 증거 없으면 거부" },
-      { name: "SG&A 전체 제외 (WeWork형)", detail: "핵심 영업비용을 '비핵심'으로 재분류. Community-Adjusted EBITDA의 핵심 문제" },
-      { name: "반복 등장 M&A 통합 비용", detail: "Serial acquirer의 통합비용 — 매 인수마다 '1회성'. 실질적으로 영구 비용" },
+      { nameKo: "주식 기반 보상 (SBC)", nameEn: "Stock-Based Compensation (SBC)", detail: "Buffett: '이게 보상이 아니면 뭔가? 비용이 아니면 어디로 가나?' — 경제적 희석은 실재", detailEn: "Buffett: 'If compensation isn't an expense, what is it? Where does it go if not to P&L?' — economic dilution is real" },
+      { nameKo: "미실현 시너지 예상치", nameEn: "Unrealized Synergy Projections", detail: "아직 달성 안 된 비용 절감을 EBITDA에 add-back. Run-rate 증거 없으면 거부", detailEn: "Adding back cost savings not yet achieved. Rejected without run-rate evidence" },
+      { nameKo: "SG&A 전체 제외 (WeWork형)", nameEn: "Full SG&A Exclusion (WeWork-style)", detail: "핵심 영업비용을 '비핵심'으로 재분류. Community-Adjusted EBITDA의 핵심 문제", detailEn: "Reclassifying core operating expenses as 'non-core' — the central problem with Community-Adjusted EBITDA" },
+      { nameKo: "반복 등장 M&A 통합 비용", nameEn: "Serial M&A Integration Costs", detail: "Serial acquirer의 통합비용 — 매 인수마다 '1회성'. 실질적으로 영구 비용", detailEn: "Integration costs from serial acquirers add-backed every deal — effectively a permanent cost" },
     ],
   },
 ];
@@ -249,9 +252,11 @@ interface RelatedDeal {
 
 interface Props {
   relatedDeals: RelatedDeal[];
+  lang?: "ko" | "en";
 }
 
-export default function AdjustedEbitdaClient({ relatedDeals }: Props) {
+export default function AdjustedEbitdaClient({ relatedDeals, lang = "ko" }: Props) {
+  const ko = lang !== "en";
   return (
     <>
       <Header />
@@ -459,13 +464,13 @@ export default function AdjustedEbitdaClient({ relatedDeals }: Props) {
             <motion.div variants={stagger(0.08)} className="space-y-4">
               {ADDBACK_SPECTRUM.map((tier) => (
                 <motion.div key={tier.tier} variants={fadeUp} className={`rounded-xl border p-5 ${tier.color}`}>
-                  <p className={`text-xs font-bold mb-3 ${tier.labelColor}`}>{tier.tier}</p>
+                  <p className={`text-xs font-bold mb-3 ${tier.labelColor}`}>{ko ? tier.tier : tier.tierEn}</p>
                   <div className="space-y-3">
                     {tier.items.map((item) => (
-                      <div key={item.name} className="flex gap-3">
+                      <div key={item.nameKo} className="flex gap-3">
                         <div className="flex-1">
-                          <p className="text-sm font-bold text-gray-900 dark:text-gray-100">{item.name}</p>
-                          <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed mt-0.5">{item.detail}</p>
+                          <p className="text-sm font-bold text-gray-900 dark:text-gray-100">{ko ? item.nameKo : item.nameEn}</p>
+                          <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed mt-0.5">{ko ? item.detail : item.detailEn}</p>
                         </div>
                       </div>
                     ))}

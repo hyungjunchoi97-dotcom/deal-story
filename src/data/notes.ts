@@ -104,13 +104,15 @@ export type NoteCalloutDef = {
   bodyEn?: string;
 };
 
-export type PBRPoint          = { year: string; KOSPI: number; SP500: number; TOPIX: number };
-export type TaxRateBar        = { country: string; countryEn: string; rate: number; color: string };
-export type IndexPoint        = { year: string; KOSPI: number; Nikkei: number };
+export type PBRPoint             = { year: string; KOSPI: number; SP500: number; TOPIX: number };
+export type TaxRateBar           = { country: string; countryEn: string; rate: number; color: string };
+export type IndexPoint           = { year: string; KOSPI: number; Nikkei: number };
 export type ReserveSharePoint    = { year: string; share: number };
 export type PrivilegeGapPoint    = { category: string; categoryEn: string; dollarRole: number; usShare: number };
 export type FedBalanceSheetPoint = { year: string; assets: number };
 export type RepoCrisisPoint      = { date: string; repoRate: number; fedRate: number };
+export type CurrencyMixPoint     = { year: string; USD: number; EUR: number; JPY: number; GBP: number; CNY: number; other: number };
+export type StablecoinPoint      = { year: string; USDT: number; USDC: number; other: number };
 
 export type NoteChartDef =
   | { id: "pbr-comparison";    title: string; titleEn?: string; caption?: string; captionEn?: string; data: PBRPoint[] }
@@ -119,7 +121,9 @@ export type NoteChartDef =
   | { id: "reserve-share";     title: string; titleEn?: string; caption?: string; captionEn?: string; data: ReserveSharePoint[] }
   | { id: "privilege-gap";     title: string; titleEn?: string; caption?: string; captionEn?: string; data: PrivilegeGapPoint[] }
   | { id: "fed-balance-sheet"; title: string; titleEn?: string; caption?: string; captionEn?: string; data: FedBalanceSheetPoint[]; annotations?: { year: string; label: string; labelEn?: string }[] }
-  | { id: "repo-crisis";       title: string; titleEn?: string; caption?: string; captionEn?: string; data: RepoCrisisPoint[] };
+  | { id: "repo-crisis";       title: string; titleEn?: string; caption?: string; captionEn?: string; data: RepoCrisisPoint[] }
+  | { id: "currency-mix";      title: string; titleEn?: string; caption?: string; captionEn?: string; data: CurrencyMixPoint[] }
+  | { id: "stablecoin-growth"; title: string; titleEn?: string; caption?: string; captionEn?: string; data: StablecoinPoint[] };
 
 export type NoteBlock =
   | { type: "text";    body: string; bodyEn?: string }
@@ -269,6 +273,7 @@ const koreaDiscount: NoteData = {
               label: "재무 압박형",
               labelEn: "Financial Activist",
               value: "자사주 매입·배당 확대 요구",
+              valueEn: "Demand buybacks & dividend expansion",
               sub: "Elliott, Starboard Value 대표적",
               subEn: "Elliott, Starboard Value are prime examples",
               color: "text-blue-600 dark:text-blue-400",
@@ -277,6 +282,7 @@ const koreaDiscount: NoteData = {
               label: "지배구조 개입형",
               labelEn: "Governance Activist",
               value: "이사회 교체·독립이사 확대",
+              valueEn: "Board overhaul & independent director push",
               sub: "KCGI 한진칼 캠페인 유형",
               subEn: "KCGI's Hanjin KAL campaign",
               color: "text-purple-600 dark:text-purple-400",
@@ -285,6 +291,7 @@ const koreaDiscount: NoteData = {
               label: "전략 개입형",
               labelEn: "Strategic Activist",
               value: "M&A 반대·사업부 분리 요구",
+              valueEn: "Block M&A · demand spin-offs",
               sub: "Elliott의 삼성물산 합병 반대(2015)",
               subEn: "Elliott vs Samsung C&T merger (2015)",
               color: "text-red-600 dark:text-red-400",
@@ -306,6 +313,14 @@ const koreaDiscount: NoteData = {
               ["KCGI", "한진칼", "2019–20", "이사회 교체", "제한적 성과"],
               ["Elliott", "삼성물산", "2022", "배당 확대 요구", "일부 수용"],
               ["Align Partners", "SM엔터테인먼트", "2023", "계약 재검토·매각 촉구", "성공 — 카카오 인수 완료"],
+            ],
+            rowsEn: [
+              ["Sovereign", "SK Corp.", "2003–04", "Governance Reform", "Partial success — dividend increase"],
+              ["Elliott", "Samsung C&T / Cheil", "2015", "Oppose Merger", "Failed — merger completed"],
+              ["Elliott", "Hyundai Motor Group", "2018", "Governance Restructuring", "Partial withdrawal"],
+              ["KCGI", "Hanjin KAL", "2019–20", "Board Replacement", "Limited outcome"],
+              ["Elliott", "Samsung C&T", "2022", "Dividend Expansion", "Partially accepted"],
+              ["Align Partners", "SM Entertainment", "2023", "Contract review & sale push", "Success — Kakao acquisition"],
             ],
             caption: "출처: 각사 공시, 언론 보도 취합. Align×SM은 2023년 국내 행동주의 캠페인 최초 '완전 성공' 사례로 평가됨.",
             captionEn:
@@ -492,6 +507,13 @@ const koreaDiscount: NoteData = {
                 "반대",
               ],
             ],
+            rowsEn: [
+              ["Fiduciary Duty Expansion", "'Company' → 'Company & Shareholders'", "Pending", "Strong opposition"],
+              ["Separate Audit Committee Election", "3% voting cap on largest shareholder", "Partial adoption", "Opposed"],
+              ["Cumulative Voting Mandate", "Minority shareholder board seat rights", "Not adopted", "Strong opposition"],
+              ["e-Vote Mandate", "Improve AGM accessibility", "Partially adopted", "Accepted"],
+              ["Multiple Derivative Suit", "Subsidiary director liability", "Pending", "Opposed"],
+            ],
             caption:
               "출처: 법무부 상법 일부개정법률안 검토보고(2024). 이사 충실의무 확대가 통과될 경우 오너 일가에게만 유리한 합병·분할에 대한 소수주주 소송이 가능해진다.",
             captionEn:
@@ -523,6 +545,7 @@ const koreaDiscount: NoteData = {
               label: "개선된 것",
               labelEn: "What Has Improved",
               value: "밸류업 공시 증가 · 자사주 매입 확대 · 행동주의 성공 사례",
+              valueEn: "More Value-up disclosures · Rising buybacks · Activism wins",
               sub: "Align×SM, 배당성향 소폭 상승, 기관 스튜어드십 활성화",
               subEn: "Align×SM success, modest dividend ratio improvement, institutional stewardship growth",
               color: "text-emerald-600 dark:text-emerald-400",
@@ -531,6 +554,7 @@ const koreaDiscount: NoteData = {
               label: "여전한 것",
               labelEn: "What Hasn't Changed",
               value: "PBR 0.9~1.0배 · 이사 충실의무 미통과 · 상속세 구조 동결",
+              valueEn: "PBR 0.9–1.0x · Fiduciary duty bill stalled · Tax structure frozen",
               sub: "글로벌 최저 수준 PBR, 핵심 세금 구조 변화 없음",
               subEn: "PBR near global lows, core tax structure untouched",
               color: "text-red-600 dark:text-red-400",
@@ -539,6 +563,7 @@ const koreaDiscount: NoteData = {
               label: "불확실한 것",
               labelEn: "What Remains Uncertain",
               value: "상법 개정 타임라인 · 밸류업 실효성 · 사이클 꺾임 시나리오",
+              valueEn: "Commercial law timeline · Value-up efficacy · Cycle downturn scenario",
               sub: "반도체 다음 사이클 저점에서 진짜 테스트 시작",
               subEn: "The real test starts at the next semiconductor cycle trough",
               color: "text-amber-600 dark:text-amber-400",
@@ -825,6 +850,13 @@ const dollarHegemony1: NoteData = {
               ["④", "수입국", "수입 결제 → 달러 필요", "달러 수요 구조적 유지"],
               ["⑤", "미국", "군사 안보 제공", "체계 유지 비용 지불"],
             ],
+            rowsEn: [
+              ["①", "Oil Exporters (OPEC)", "Oil exports → receive dollars", "Creates dollar demand"],
+              ["②", "Oil Exporters (OPEC)", "Surplus dollars → buy US Treasuries", "Stabilizes US rates, finances deficit"],
+              ["③", "United States", "Issue Treasuries → expand dollar supply", "Maintains global dollar liquidity"],
+              ["④", "Importing nations", "Import settlement → need dollars", "Structural dollar demand sustained"],
+              ["⑤", "United States", "Provide military security", "System maintenance cost"],
+            ],
             caption:
               "페트로달러 체계는 단순한 통화 협약이 아닌 안보-경제 복합 구조다. 석유 = 달러, 달러 = 국채, 국채 = 안보가 하나의 고리로 연결된다.",
             captionEn:
@@ -845,6 +877,7 @@ const dollarHegemony1: NoteData = {
               label: "① 시뇨리지(Seigniorage)",
               labelEn: "① Seigniorage",
               value: "달러 인쇄 비용으로 실물 조달",
+              valueEn: "Acquire real goods by printing dollars",
               sub: "미국은 종이(달러)를 주고 실제 상품과 서비스를 받는다. 연간 수천억 달러 규모로 추산",
               subEn: "The US exchanges paper (dollars) for real goods and services — estimated at hundreds of billions per year",
               color: "text-sky-600 dark:text-sky-400",
@@ -853,6 +886,7 @@ const dollarHegemony1: NoteData = {
               label: "② 저금리 프리미엄",
               labelEn: "② Low Borrowing Cost",
               value: "미국 국채 = 세계 안전자산",
+              valueEn: "US Treasuries = Global Safe Asset",
               sub: "전 세계가 달러 안전자산을 원하기 때문에 미국은 구조적으로 낮은 금리로 차입 가능",
               subEn: "Global demand for dollar safe assets lets the US borrow at structurally lower rates than any other sovereign",
               color: "text-sky-600 dark:text-sky-400",
@@ -861,6 +895,7 @@ const dollarHegemony1: NoteData = {
               label: "③ 제재 무기화",
               labelEn: "③ Sanctions as Weapon",
               value: "SWIFT 달러 결제망 통제",
+              valueEn: "Control over SWIFT dollar payment network",
               sub: "달러 결제망에서 배제 = 실질적 경제 봉쇄. 이란·러시아 제재의 근거",
               subEn: "Exclusion from the dollar payment network equals effective economic blockade — the basis for Iran and Russia sanctions",
               color: "text-sky-600 dark:text-sky-400",
@@ -930,14 +965,38 @@ const dollarHegemony1: NoteData = {
     },
     // ── 7 ──────────────────────────────────────────────────────────────────────
     {
-      heading: "원화 포지션 — 한국에게 달러 패권은 무엇인가",
-      headingEn: "The Won's Position — What Dollar Hegemony Means for Korea",
+      heading: "신흥국의 딜레마 — 달러 패권 안에서 살아가기",
+      headingEn: "The Emerging Market Dilemma — Living Inside Dollar Hegemony",
       blocks: [
         {
           type: "text",
-          body: "한국은 달러 패권 체계 안에서 **준내부자** 포지션에 있다.\n\n수출 주도 경제 구조상, 한국 기업들은 달러로 수출 대금을 받고 달러로 원자재를 구입한다. 원/달러 환율은 한국 기업 수익성의 핵심 변수다. 한국은행은 약 4,200억 달러의 외환보유고를 운용하는데, 이 대부분이 달러 표시 자산 — 주로 미국 국채다.\n\n결정적인 것은 **연준 FX 스왑라인**이다. 2008년 금융위기, 2020년 코로나 위기 때 한국은행은 연준과 600억 달러 규모의 스왑라인을 체결했다. 이는 달러 유동성 위기 시 한국이 연준에서 직접 달러를 빌릴 수 있다는 의미다. 스왑라인을 보유한 나라는 한국을 포함해 소수에 불과하다 — 이것이 '준내부자'의 증거다.\n\n**그러나 이 포지션은 달러 패권의 수혜이면서 동시에 종속이기도 하다.** 연준이 금리를 올리면 달러가 강해지고 원화가 약해지며, 수입 물가가 오르고, 외채 기업들의 부담이 커진다. 2편에서 다룰 연준 대차대조표와 레포 시장 이야기가 한국과 직결되는 이유다.",
+          body: "달러 패권은 미국에게 '과도한 특권'이다. 그러나 신흥국(Emerging Markets)에게는 구조적 딜레마다.\n\n**달러의 원죄(Original Sin)**: 신흥국 기업과 정부는 국제 금융시장에서 자국 통화로 차입하기 어렵다. 달러 표시 외채를 발행해야 한다. 자국 통화로 수익을 내면서 달러로 빚을 갚아야 하는 구조 — 연준이 금리를 올리면 달러가 강해지고, 갚아야 할 빚의 실질 부담이 자동으로 늘어난다. 이것이 '원죄'다.\n\n**중앙은행의 보험료**: 신흥국 중앙은행들은 달러 유동성 위기에 대비해 외환보유고를 쌓는다. 그 보유고의 대부분이 다시 미국 국채다. IMF가 2024년 발표한 COFER 데이터에 따르면, 신흥국 중앙은행 외환보유고의 약 60%는 여전히 달러 자산이다. **달러 패권에 종속된 나라들이 달러 패권을 유지하는 자금을 대고 있는 아이러니**다.\n\n국가별 포지션은 다르다. 연준 FX 스왑라인(한국, 멕시코, 브라질, 싱가포르 등 소수 국가 보유)은 위기 시 직접 달러를 빌릴 수 있는 '달러 네트워크 멤버십'이다. 반면 스왑라인이 없는 터키, 아르헨티나, 이집트 등은 달러 위기 시 IMF 구제금융에 의존하거나, 자체 외환보유고를 소진하는 수밖에 없다.",
           bodyEn:
-            "Korea occupies a **semi-insider** position within the dollar hegemony system.\n\nGiven its export-driven economic structure, Korean companies receive export revenues in dollars and pay for raw materials in dollars. The USD/KRW exchange rate is a core variable of Korean corporate profitability. The Bank of Korea manages approximately $420 billion in foreign exchange reserves — mostly dollar-denominated assets, primarily US Treasuries.\n\nThe decisive element is the **Fed FX Swap Line**. During the 2008 financial crisis and the 2020 COVID crisis, the Bank of Korea secured a $60 billion swap line with the Fed — meaning Korea can borrow dollars directly from the Fed in a dollar liquidity crisis. Countries holding Fed swap lines are a small, privileged group. Korea is one of them. That's what 'semi-insider' means.\n\n**But this position is simultaneously a benefit and a dependency.** When the Fed raises rates, the dollar strengthens, the won weakens, import prices rise, and dollar-indebted Korean firms face growing pressure. This is precisely why the Fed balance sheet and repo market story — which we cover in Part 2 — directly concerns Korea.",
+            "Dollar hegemony is an 'exorbitant privilege' for the United States. For emerging markets (EMs), it is a structural dilemma.\n\n**Original Sin**: EM corporations and governments struggle to borrow in international markets using their own currencies. They issue dollar-denominated debt. They earn revenues in local currency but repay debt in dollars — so when the Fed raises rates, the dollar strengthens and the real burden of their obligations automatically grows. This is 'original sin.'\n\n**The insurance premium central banks pay**: EM central banks stockpile FX reserves against dollar liquidity crises. Most of those reserves are US Treasuries. IMF COFER data for 2024 shows roughly 60% of EM central bank reserves are still dollar assets. **An irony: the countries most dependent on dollar hegemony are the ones financing it.**\n\nPositions vary significantly. The Fed FX Swap Line (held by a small group including South Korea, Mexico, Brazil, and Singapore) is a 'dollar network membership' — direct access to Fed dollars in a crisis. Countries without swap lines — Turkey, Argentina, Egypt — must rely on IMF bailouts or drain their own reserves when dollar stress hits.",
+        },
+        {
+          type: "table",
+          table: {
+            id: "em-dollar-exposure",
+            title: "신흥국 달러 패권 노출 유형",
+            titleEn: "Emerging Market Exposure to Dollar Hegemony",
+            headers: ["유형", "국가 예시", "연준 스왑라인", "달러 취약성"],
+            headersEn: ["Type", "Examples", "Fed Swap Line", "Dollar Vulnerability"],
+            rows: [
+              ["준내부자", "한국, 멕시코, 브라질, 싱가포르", "있음 ✓", "낮음 — 위기 시 직접 달러 조달"],
+              ["중간 그룹", "인도, 인도네시아, 태국, 남아공", "없음", "중간 — 충분한 보유고 보유"],
+              ["취약 그룹", "터키, 아르헨티나, 이집트", "없음", "높음 — 달러 강세 시 위기 반복"],
+              ["격리 시도국", "러시아, 이란, 북한", "없음 (제재)", "극단적 — 대안 시스템 구축 시도"],
+            ],
+            rowsEn: [
+              ["Semi-Insiders", "South Korea, Mexico, Brazil, Singapore", "Yes ✓", "Low — direct dollar access in crises"],
+              ["Middle Tier", "India, Indonesia, Thailand, S. Africa", "No", "Medium — adequate reserve buffers"],
+              ["Vulnerable Group", "Turkey, Argentina, Egypt", "No", "High — repeat crises during dollar strength"],
+              ["Isolation Seekers", "Russia, Iran, North Korea", "No (sanctioned)", "Extreme — building alternative systems"],
+            ],
+            caption: "출처: IMF, Federal Reserve. 스왑라인 보유 여부는 달러 유동성 위기 시 가장 중요한 안전판이다.",
+            captionEn: "Sources: IMF, Federal Reserve. Swap line access is the single most important safety valve in a dollar liquidity crisis.",
+          },
         },
         {
           type: "callout",
@@ -1096,6 +1155,7 @@ const dollarHegemony2: NoteData = {
               label: "레포시장 규모",
               labelEn: "Repo Market Size",
               value: "약 $10조+ (일일 거래)",
+              valueEn: "~$10T+ (daily volume)",
               sub: "미국 내 시장만 $4~5조. 글로벌 포함 시 $10조 상회",
               subEn: "US domestic alone: $4–5T. Including global: exceeds $10T",
               color: "text-sky-600 dark:text-sky-400",
@@ -1104,6 +1164,7 @@ const dollarHegemony2: NoteData = {
               label: "최선호 담보",
               labelEn: "Preferred Collateral",
               value: "미국 국채 (US Treasury)",
+              valueEn: "US Treasuries",
               sub: "담보 품질 기준 최상위 — 신용위험 제로, 유동성 극대",
               subEn: "Top-tier collateral — near-zero credit risk, maximum liquidity",
               color: "text-sky-600 dark:text-sky-400",
@@ -1112,6 +1173,7 @@ const dollarHegemony2: NoteData = {
               label: "거래 만기",
               labelEn: "Typical Tenor",
               value: "주로 overnight (1일)",
+              valueEn: "Mainly overnight (1 day)",
               sub: "하루짜리 거래지만 매일 반복 롤오버 — 사실상 단기 자금 조달 인프라",
               subEn: "One-day trades rolled daily — effectively short-term funding infrastructure",
               color: "text-sky-600 dark:text-sky-400",
@@ -1217,6 +1279,12 @@ const dollarHegemony2: NoteData = {
               ["③", "국채 대규모 발행 (빚 갚기)", "TGA 급증", "대규모 흡수", "강한 긴축 충격"],
               ["④", "정상화 — 정기 지출 재개", "TGA 점진 감소", "정상화", "중립"],
             ],
+            rowsEn: [
+              ["①", "Debt ceiling hit — no new issuance", "TGA balance falls", "Supply increases", "Easing (equities ↑)"],
+              ["②", "Debt ceiling deal reached", "TGA refill begins", "Supply decreases", "Tightening (equities ↓ possible)"],
+              ["③", "Large Treasury issuance (catching up)", "TGA surges", "Large-scale absorption", "Strong tightening shock"],
+              ["④", "Normalization — regular spending resumes", "TGA gradually falls", "Normalized", "Neutral"],
+            ],
             caption:
               "2023년 6월 부채한도 타결 직후, 재무부가 3개월 내 약 $1조의 국채를 발행해 TGA를 재충전하자 시중 유동성이 급격히 줄어들었다. 이것이 같은 해 하반기 금리 급등의 숨겨진 원인 중 하나다.",
             captionEn:
@@ -1308,6 +1376,7 @@ const dollarHegemony2: NoteData = {
               label: "규칙 기반 통화정책",
               labelEn: "Rules-Based Monetary Policy",
               value: "재량적 결정 최소화",
+              valueEn: "Minimize discretionary decisions",
               sub: "테일러 준칙(Taylor Rule)류의 공식적 가이드라인 선호. 연준의 '임기응변식' 정책 비판",
               subEn: "Prefers formal guidelines like the Taylor Rule. Critical of the Fed's 'discretionary' policy approach",
               color: "text-amber-600 dark:text-amber-400",
@@ -1316,6 +1385,7 @@ const dollarHegemony2: NoteData = {
               label: "공격적 QT",
               labelEn: "Aggressive QT",
               value: "대차대조표 축소 가속화",
+              valueEn: "Accelerate balance sheet reduction",
               sub: "\"연준 대차대조표가 너무 크다\" 비판. 파월보다 빠른 속도의 국채 매각 선호",
               subEn: "\"The Fed balance sheet is too large.\" Favors faster Treasury runoff than Powell",
               color: "text-amber-600 dark:text-amber-400",
@@ -1324,6 +1394,7 @@ const dollarHegemony2: NoteData = {
               label: "트럼프와의 긴장",
               labelEn: "Tension with Trump",
               value: "금리 인하 압박 vs 인플레 억제",
+              valueEn: "Rate-cut pressure vs. inflation control",
               sub: "트럼프는 금리 인하를 원하지만, 워시는 인플레 재발 우려로 신중한 입장 — Fed 독립성 갈등 가능",
               subEn: "Trump wants rate cuts; Warsh is cautious about inflation re-acceleration — potential Fed independence friction",
               color: "text-amber-600 dark:text-amber-400",
@@ -1340,14 +1411,14 @@ const dollarHegemony2: NoteData = {
     },
     // ── 7 ──────────────────────────────────────────────────────────────────────
     {
-      heading: "원화 포지션 — 유동성 긴축의 최전선",
-      headingEn: "The Won's Position — On the Front Line of Liquidity Tightening",
+      heading: "글로벌 투자자 시각 — 배관의 압력이 어디서 새는가",
+      headingEn: "Global Investor Perspective — Where the Plumbing Pressure Leaks",
       blocks: [
         {
           type: "text",
-          body: "달러 유동성이 긴축될 때 가장 먼저 타격을 받는 것은 신흥국 통화다. 원화는 그 최전선에 있다.\n\n메커니즘은 단순하다: 연준 QT → 달러 유동성 감소 → 달러 수요 증가 → 달러 강세 → 원/달러 환율 상승(원화 약세) → 수입 물가 상승, 외채 부담 증가, 자본 유출 압력.\n\n**그러나 한국의 포지션은 단순하지 않다.** 한국은 FX 스왑라인을 보유하고 있고, 외환보유고도 $4,200억으로 충분하다. 한국은행은 외환시장에 개입할 실탄을 갖추고 있다.\n\n실제 위협은 **속도**다. 워시 체제에서 QT가 시장이 소화할 수 있는 속도보다 빠르게 진행된다면, 단기 달러 조달 비용(크로스커런시 베이시스 스왑 스프레드)이 급등할 수 있다. 한국 기업과 금융기관들이 달러를 빌릴 때 치르는 프리미엄이 급격히 올라가는 상황이다.\n\n한국에서 달러 패권 배관을 가장 직접적으로 체감하는 순간은 금융위기나 QT 쇼크 때다. 그때마다 **원/달러 환율이 배관의 압력계** 역할을 한다.",
+          body: "달러 유동성 배관이 조여들 때, 그 압력은 가장 약한 고리에서 새어나온다. 글로벌 금융시장에서 이 '약한 고리'는 신흥국 자산과 단기 달러 조달 시장이다.\n\n**크로스커런시 베이시스 스왑(CCBS)**: 달러 패권 배관의 스트레스를 측정하는 가장 정밀한 지표 중 하나다. 비달러권 기관이 달러를 단기 조달할 때 치르는 '프리미엄'이다. 정상 시에는 0에 가깝지만, QT가 과속되거나 위기가 오면 급등한다. 2008년 금융위기 당시 엔화 CCBS는 -100bp에 달했다. 유로화도 -70bp까지 벌어졌다. 이 숫자가 커질수록 달러를 빌리는 비용이 기준금리보다 훨씬 높아진다.\n\n**신흥국 자본 흐름**: 연준이 QT를 진행하면 '위험 회피(risk-off)' 모드가 된다. 신흥국 주식·채권에서 자금이 빠져나와 미국 국채로 이동한다. 이것을 '달러 스마일(Dollar Smile)' 이론이라 부른다 — 미국 경제가 매우 좋아도, 아주 나빠도 달러가 강해진다. 신흥국 통화는 그 반대편에 있다.\n\n**워시 체제의 글로벌 임팩트**: 공격적 QT + 규칙 기반 정책은 시장 예측 가능성을 높이는 반면, 달러 유동성의 탄력성을 줄인다. 위기 시 연준이 '재량적으로' 개입하는 여지가 좁아지면, 신흥국은 더 빠르게, 더 깊이 달러 조달 위기에 노출될 수 있다. 그 전선에 가장 먼저 서 있는 나라들 — 스왑라인 없는 터키, 달러 외채 많은 아르헨티나, 그리고 제재받는 러시아 — 은 가장 먼저 배관의 균열을 느낀다.",
           bodyEn:
-            "When dollar liquidity tightens, emerging market currencies are hit first. The Korean won is on that front line.\n\nThe mechanism is straightforward: Fed QT → less dollar liquidity → more dollar demand → stronger dollar → higher USD/KRW (weaker won) → rising import prices, heavier foreign debt burden, capital outflow pressure.\n\n**But Korea's position is not simple.** Korea holds a Fed swap line and maintains ~$420 billion in foreign exchange reserves — sufficient firepower for the Bank of Korea to intervene in FX markets.\n\nThe real threat is **speed**. If QT under Warsh proceeds faster than markets can absorb, short-term dollar funding costs (cross-currency basis swap spreads) could spike. That means Korean corporations and financial institutions face a sudden premium surge when borrowing dollars.\n\nThe moments when Koreans feel dollar hegemony's plumbing most directly are financial crises and QT shocks. In those moments, **the USD/KRW exchange rate acts as the pressure gauge for the plumbing.**",
+            "When the dollar liquidity plumbing tightens, pressure leaks at the weakest link. In global financial markets, those weak links are emerging market assets and short-term dollar funding markets.\n\n**Cross-Currency Basis Swaps (CCBS)**: One of the most precise gauges of stress in dollar hegemony's plumbing — the 'premium' non-dollar institutions pay to borrow dollars short-term. Near zero in normal times; spikes during QT overshoot or crisis. During the 2008 financial crisis, the JPY CCBS reached -100bp. EUR hit -70bp. The wider this spread, the more dollar borrowing costs exceed the policy rate benchmark.\n\n**EM capital flows**: When the Fed runs QT, markets shift into risk-off mode — capital exits EM equities and bonds and flows into US Treasuries. This is what the 'Dollar Smile' theory describes: the dollar strengthens when the US economy is very strong and when it's very weak. Emerging market currencies sit on the other side of that smile.\n\n**The Warsh regime's global impact**: Aggressive QT + rules-based policy increases market predictability but reduces dollar liquidity flexibility. If the Fed's room for 'discretionary' intervention narrows in a crisis, EMs face faster and deeper dollar funding stress. The countries first in line — Turkey without a swap line, Argentina with heavy dollar debt, Russia under sanctions — feel the plumbing crack earliest.",
         },
         {
           type: "callout",
@@ -1462,6 +1533,604 @@ const dollarHegemony2: NoteData = {
   ],
 };
 
+// ══════════════════════════════════════════════════════════════════════════════
+// NOTE #4 — 달러 패권 시리즈 3편: 탈달러화는 가능한가
+// ══════════════════════════════════════════════════════════════════════════════
+
+const dollarHegemony3: NoteData = {
+  slug: "dollar-hegemony-3",
+  category: "macro",
+  status: "published",
+  title: "달러 패권 ③ — 탈달러화는 가능한가",
+  titleEn: "Dollar Hegemony ③ — Can Dedollarization Actually Happen?",
+  description:
+    "BRICS 선언, 위안화 국제화, mBridge — 탈달러화 주장은 넘쳐나지만 인프라의 현실은 냉혹하다. 선언과 실체 사이의 간극을 데이터로 해부한다.",
+  descriptionEn:
+    "BRICS declarations, yuan internationalization, mBridge — dedollarization rhetoric overflows, but the infrastructure reality is sobering. We dissect the gap between declarations and substance with data.",
+  date: "2026-05-28",
+  readingMinutes: 18,
+  keyPoints: [
+    "BRICS 2023 요하네스버그 선언 이후 탈달러화 선언이 급증했지만 — 실제 달러 외환보유고 비중 하락 속도는 연 0.5%p 미만이다",
+    "위안화 국제화의 결정적 장벽: 자본시장 폐쇄 — 중국이 자본계정을 개방하지 않는 한 위안화는 진정한 기축통화가 될 수 없다",
+    "mBridge는 CBDC 기반 다자 결제 플랫폼이지만 — 참여국 간 신뢰 구조와 법제도 차이가 확장의 결정적 장벽이다",
+    "달러 대안의 딜레마: 신뢰받는 통화가 되려면 자본시장을 열어야 하고, 자본시장을 열면 국내 금융 안정이 위협받는다",
+    "결론: 달러는 '쇠퇴'하는 게 아니라 '다극화' 중이다 — 하지만 대안 통화의 부상이 아닌 탈중앙화된 파편화다",
+  ],
+  keyPointsEn: [
+    "Post-BRICS 2023 Johannesburg Summit, dedollarization declarations surged — but actual dollar reserve share decline runs below 0.5pp per year",
+    "The yuan's decisive barrier: closed capital markets — until China opens its capital account, the yuan cannot become a true reserve currency",
+    "mBridge is a CBDC-based multilateral payment platform — but cross-country trust structures and legal differences are critical barriers to scale",
+    "The alternative currency dilemma: to earn trust you must open capital markets; but open capital markets destabilize domestic finance",
+    "Conclusion: the dollar is not 'declining' but 'multipolarizing' — fragmentation without a rising alternative",
+  ],
+  sections: [
+    // ── 1 ──────────────────────────────────────────────────────────────────────
+    {
+      heading: "탈달러화 선언의 역사 — 항상 있었다",
+      headingEn: "The History of Dedollarization Declarations — They Never Stop",
+      blocks: [
+        {
+          type: "text",
+          body: "탈달러화는 새로운 이야기가 아니다.\n\n1960년대 드골의 달러 공격, 1970년대 페트로달러 체제 성립 이후의 OPEC 반발, 1997년 아시아 금융위기 이후의 IMF·달러 체제 비판, 2008년 금융위기 이후 중국의 SDR 강화 요구 — 수십 년간 탈달러화는 반복적으로 선언됐고, 반복적으로 실현되지 않았다.\n\n가장 최근의 파고는 두 가지 사건이 만들었다:\n\n① **2022년 러시아 제재**: 러시아의 $3,000억 규모 외환보유고가 동결됐다. '달러 자산을 쌓아두면 미국이 빼앗을 수 있다'는 것이 현실로 증명됐다.\n\n② **2023년 BRICS 확대**: 사우디아라비아, UAE, 이란, 이집트, 에티오피아, 아르헨티나(이후 철회)를 포함해 BRICS가 11개국으로 확대됐다. 요하네스버그 정상회담에서 공동 통화 논의가 공식 의제로 올랐다.",
+          bodyEn:
+            "Dedollarization is not a new story.\n\nDe Gaulle's dollar attack in the 1960s, OPEC pushback after the petrodollar system took hold in the 1970s, post-1997 Asian Financial Crisis critiques of the IMF-dollar system, China's call for enhanced SDR use after the 2008 financial crisis — dedollarization has been declared repeatedly for decades, and repeatedly failed to materialize.\n\nThe most recent wave was triggered by two events:\n\n① **2022 Russia sanctions**: Russia's ~$300 billion in FX reserves were frozen. The reality that 'the US can seize dollar assets you've stockpiled' was proved.\n\n② **2023 BRICS expansion**: Saudi Arabia, UAE, Iran, Egypt, Ethiopia, and Argentina (subsequently withdrew) were admitted, expanding BRICS to 11 nations. The Johannesburg Summit formally put a common currency on the agenda.",
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "warning",
+            heading: "제재가 가르쳐 준 것",
+            headingEn: "What Sanctions Taught the World",
+            body: "러시아 외환보유고 동결은 모든 중앙은행에 신호를 보냈다. '달러 자산을 쌓는 것이 언제나 안전하지는 않다.' 그러나 이것이 달러에서 도망치는 것을 의미하지는 않는다. 대안이 없기 때문이다. 실제로 일어난 것은 '금 매입 증가'와 '달러 자산의 관할권 다변화'였다 — 탈달러화가 아닌 탈집중화다.",
+            bodyEn:
+              "Russia's reserve freeze sent a signal to every central bank: 'holding dollar assets is not always safe.' But this does not mean fleeing the dollar — because there is no alternative. What actually happened was increased gold purchases and geographic diversification of dollar assets — de-concentration, not de-dollarization.",
+          },
+        },
+      ],
+    },
+    // ── 2 ──────────────────────────────────────────────────────────────────────
+    {
+      heading: "글로벌 준비통화 지형 — 실제 숫자",
+      headingEn: "The Global Reserve Currency Landscape — The Real Numbers",
+      blocks: [
+        {
+          type: "text",
+          body: "IMF COFER 데이터가 보여주는 준비통화 지형은 생각보다 변화가 느리다.",
+          bodyEn:
+            "The IMF COFER data on reserve currency composition shows a landscape changing more slowly than the rhetoric suggests.",
+        },
+        {
+          type: "chart",
+          chart: {
+            id: "currency-mix",
+            title: "글로벌 외환보유고 통화 구성 변화 (1999–2024, %)",
+            titleEn: "Global FX Reserve Currency Composition (1999–2024, %)",
+            caption:
+              "출처: IMF COFER (2024). 달러 비중 하락에도 불구하고 유로·위안화의 상승분이 미미함을 주목. 위안화는 2016년 SDR 편입 이후에도 3% 미만에 머물고 있다.",
+            captionEn:
+              "Source: IMF COFER (2024). Note that despite the dollar share decline, gains by euro and yuan are modest. The yuan remains below 3% even after its 2016 SDR inclusion.",
+            data: [
+              { year: "1999", USD: 71, EUR: 18, JPY: 6, GBP: 3, CNY: 0, other: 2 },
+              { year: "2005", USD: 67, EUR: 24, JPY: 4, GBP: 4, CNY: 0, other: 1 },
+              { year: "2010", USD: 62, EUR: 26, JPY: 4, GBP: 4, CNY: 0, other: 4 },
+              { year: "2015", USD: 66, EUR: 19, JPY: 4, GBP: 5, CNY: 1, other: 5 },
+              { year: "2020", USD: 59, EUR: 21, JPY: 6, GBP: 5, CNY: 2, other: 7 },
+              { year: "2024", USD: 58, EUR: 20, JPY: 6, GBP: 5, CNY: 3, other: 8 },
+            ],
+          },
+        },
+        {
+          type: "text",
+          body: "25년간 달러 비중은 71%에서 58%로 13%포인트 하락했다. 그런데 그 공백을 메운 것이 무엇인지 보라.\n\n유로는 18%에서 20%로 불과 2%포인트 증가했다. 위안화는 0%에서 3%로 — 절대 수준은 여전히 미미하다. 실제로 달러의 빈자리를 채운 것은 특정 대안 통화가 아니라 **'기타'** 항목이다 — 캐나다 달러, 호주 달러, 한국 원화, 노르웨이 크로네 등 소규모 통화들로의 분산이다. 이것은 탈달러화가 아니라 **다변화(diversification)**다.",
+          bodyEn:
+            "Over 25 years, the dollar share fell 13 percentage points from 71% to 58%. But look at what filled that gap.\n\nThe euro gained just 2 percentage points, from 18% to 20%. The yuan went from 0% to 3% — still a minor absolute level. What actually filled the dollar's space was not a specific alternative currency but **'other'** — diversification into smaller currencies like the Canadian dollar, Australian dollar, Korean won, and Norwegian krone. This is **diversification**, not dedollarization.",
+        },
+      ],
+    },
+    // ── 3 ──────────────────────────────────────────────────────────────────────
+    {
+      heading: "위안화의 결정적 장벽 — 자본시장 폐쇄",
+      headingEn: "The Yuan's Decisive Barrier — Closed Capital Markets",
+      blocks: [
+        {
+          type: "text",
+          body: "중국은 세계 2위 경제 대국이다. 무역 규모는 미국과 비슷하다. 2016년 SDR(특별인출권)에도 편입됐다. 그런데 왜 위안화는 3%에 머무는가?\n\n**답은 하나다: 자본계정 폐쇄.**\n\n달러가 기축통화인 이유 중 하나는 미국 금융시장이 **완전 개방**되어 있기 때문이다. 누구든 미국 국채를 살 수 있고, 팔 수 있고, 담보로 잡을 수 있다. 레포시장에서 밤새 달러를 빌릴 수 있다. 자본이 자유롭게 들어오고 나갈 수 있다.\n\n중국은 다르다. 위안화 표시 자산을 외국인이 자유롭게 사고팔기 어렵다. 자본 유출입에 제한이 있다. CIPS(중국 국제결제시스템)는 SWIFT의 대안으로 만들어졌지만 — 참여 금융기관 수와 거래 규모가 SWIFT의 수십 분의 1에 불과하다. **중국이 자본계정을 개방하지 않는 한, 위안화는 진정한 기축통화가 될 수 없다.**",
+          bodyEn:
+            "China is the world's second-largest economy. Its trade volume rivals the US. The yuan was added to the SDR basket in 2016. So why does the yuan sit at 3%?\n\n**One answer: a closed capital account.**\n\nOne reason the dollar is the reserve currency is that US financial markets are **fully open** — anyone can buy, sell, or pledge US Treasuries as collateral, borrow dollars overnight in the repo market, and move capital freely in and out.\n\nChina is different. Foreign investors face significant restrictions on buying and selling renminbi-denominated assets. Capital flows are controlled. CIPS (Cross-Border Interbank Payment System) was built as a SWIFT alternative — but its participating institutions and transaction volumes are a fraction of SWIFT's. **Until China opens its capital account, the yuan cannot become a true reserve currency.**",
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "insight",
+            heading: "위안화의 딜레마",
+            headingEn: "The Yuan's Dilemma",
+            body: "자본계정을 열면 기축통화에 한 발 다가선다. 그러나 자본계정을 열면 핫머니(hot money)가 자유롭게 들어오고 나가고, 환율 변동성이 커지며, 국내 금융 안정이 위협받는다. 중국 정부가 자본계정 개방을 꺼리는 이유다. 트리핀 딜레마의 중국판이다.",
+            bodyEn:
+              "Opening the capital account brings the yuan one step closer to reserve currency status. But open capital accounts let hot money flow in and out freely, amplifying exchange rate volatility and threatening domestic financial stability. This is why Beijing resists opening. It's the Triffin Dilemma, Chinese edition.",
+          },
+        },
+        {
+          type: "metrics",
+          items: [
+            {
+              label: "CIPS vs SWIFT",
+              labelEn: "CIPS vs SWIFT",
+              value: "CIPS 일 평균 약 $700억 처리",
+              valueEn: "CIPS processes ~$70B per day",
+              sub: "SWIFT 일 평균 $5조+ 대비 1% 수준. 참여 금융기관도 수백 곳 vs SWIFT 11,000곳+",
+              subEn: "vs SWIFT's $5T+ per day — roughly 1%. CIPS has hundreds of member institutions vs SWIFT's 11,000+",
+              color: "text-red-600 dark:text-red-400",
+            },
+            {
+              label: "위안화 외환 거래 비중",
+              labelEn: "Yuan FX Transaction Share",
+              value: "전체 FX 거래의 약 7%",
+              valueEn: "~7% of global FX transactions",
+              sub: "달러 88%의 1/12 수준. 2013년 2.2%에서 성장했으나 기축통화와는 여전히 거리가 멀다",
+              subEn: "1/12 of the dollar's 88%. Grew from 2.2% in 2013 but far from reserve currency scale",
+              color: "text-amber-600 dark:text-amber-400",
+            },
+            {
+              label: "위안화 SDR 편입 비중",
+              labelEn: "Yuan SDR Weight",
+              value: "12.28% (2022 기준)",
+              valueEn: "12.28% (as of 2022)",
+              sub: "달러(43.4%), 유로(29.3%) 다음으로 3위. 그러나 SDR 비중 ≠ 실제 사용량",
+              subEn: "3rd after USD (43.4%) and EUR (29.3%). But SDR weight ≠ actual usage",
+              color: "text-sky-600 dark:text-sky-400",
+            },
+          ],
+        },
+      ],
+    },
+    // ── 4 ──────────────────────────────────────────────────────────────────────
+    {
+      heading: "mBridge — CBDC 다자 결제의 야심과 현실",
+      headingEn: "mBridge — The Ambition and Reality of CBDC Multilateral Payments",
+      blocks: [
+        {
+          type: "text",
+          body: "**mBridge(다자 CBDC 브릿지)**는 BIS 혁신허브와 중국, 홍콩, 태국, UAE, 사우디아라비아 중앙은행이 공동 개발하는 CBDC 기반 국제 결제 플랫폼이다. 2024년 최소기능제품(MVP) 단계에 진입했다.\n\n아이디어는 매력적이다: SWIFT를 거치지 않고, 각국 CBDC를 직접 교환하여 실시간 국가간 결제를 가능하게 한다는 것이다. 이론상 달러 중개 없이도 무역 결제가 가능해진다.\n\n**그러나 현실의 장벽은 세 겹이다:**\n\n① **신뢰의 문제**: 참여국들이 서로의 CBDC를 실제로 신뢰하는가? 원유 수출국이 위안화 CBDC를 기꺼이 받을 것인가? 각국 중앙은행이 상대방 시스템을 신뢰하는가?\n\n② **법제도 차이**: 국가간 거래에서 분쟁이 발생했을 때 어느 나라 법이 적용되는가? 스마트 컨트랙트 기반 거래의 법적 지위는?\n\n③ **규모의 경제**: SWIFT는 11,000개 금융기관, 200개 국가를 연결한다. mBridge가 이 규모에 도달하려면 얼마나 걸리는가?",
+          bodyEn:
+            "**mBridge (Multi-CBDC Bridge)** is a CBDC-based international payment platform jointly developed by the BIS Innovation Hub and central banks of China, Hong Kong, Thailand, UAE, and Saudi Arabia. It reached the Minimum Viable Product (MVP) stage in 2024.\n\nThe idea is appealing: bypass SWIFT, directly exchange each country's CBDC, enabling real-time cross-border payments without dollar intermediation.\n\n**But reality presents three layers of barriers:**\n\n① **The trust problem**: Do participating countries actually trust each other's CBDCs? Will oil exporters willingly accept yuan CBDCs? Will each central bank trust the other's system?\n\n② **Legal framework differences**: When disputes arise in cross-border transactions, which country's law applies? What is the legal status of smart contract-based transactions?\n\n③ **Economies of scale**: SWIFT connects 11,000 financial institutions across 200 countries. How long before mBridge approaches that scale?",
+        },
+        {
+          type: "table",
+          table: {
+            id: "dedollar-alternatives",
+            title: "주요 탈달러화 시도 — 현황 및 한계",
+            titleEn: "Major Dedollarization Attempts — Status and Limitations",
+            headers: ["이니셔티브", "주요 주체", "현황", "결정적 한계"],
+            headersEn: ["Initiative", "Key Players", "Status", "Critical Limitation"],
+            rows: [
+              ["mBridge", "BIS, 중국, UAE, 태국, 사우디", "MVP 단계", "신뢰·법제도·규모 장벽"],
+              ["CIPS", "중국 인민은행", "운영 중", "참여기관·거래량 SWIFT의 1% 미만"],
+              ["BRICS 공동통화", "러시아·중국 주도", "논의 단계", "주권 포기 거부, 환율 합의 불가"],
+              ["위안화 원유결제", "사우디·중국 시도", "일부 시행", "사우디의 페트로달러 의존도 유지"],
+              ["Petro (베네수엘라)", "베네수엘라", "사실상 폐기", "신뢰 결여, 하이퍼인플레 동반"],
+            ],
+            rowsEn: [
+              ["mBridge", "BIS, China, UAE, Thailand, Saudi", "MVP stage", "Trust, legal, scale barriers"],
+              ["CIPS", "People's Bank of China", "Operational", "Institution count & volume <1% of SWIFT"],
+              ["BRICS Common Currency", "Russia & China-led", "Discussion stage", "Sovereignty conflicts, FX rate deadlock"],
+              ["Yuan Oil Pricing", "Saudi-China attempts", "Partial", "Saudi maintains petrodollar dependence"],
+              ["Petro (Venezuela)", "Venezuela", "Effectively defunct", "Zero credibility, accompanied by hyperinflation"],
+            ],
+            caption: "출처: BIS, IMF, 각국 중앙은행 발표 취합. 탈달러화 이니셔티브들은 공통적으로 신뢰 문제와 규모의 경제 부재로 한계에 봉착한다.",
+            captionEn: "Sources: BIS, IMF, central bank statements. Dedollarization initiatives share a common failure pattern: trust deficits and absence of economies of scale.",
+          },
+        },
+      ],
+    },
+    // ── 5 ──────────────────────────────────────────────────────────────────────
+    {
+      heading: "금의 귀환 — 탈달러화인가, 보험인가",
+      headingEn: "The Return of Gold — Dedollarization or Insurance?",
+      blocks: [
+        {
+          type: "text",
+          body: "2022년 러시아 제재 이후 신흥국 중앙은행들의 금 매입이 급증했다. 2022년 전 세계 중앙은행 순금 매입은 약 **1,136톤** — 55년 만의 최고치였다. 2023년에도 1,037톤으로 높은 수준이 유지됐다.\n\n중국과 인도가 특히 공격적이었다. 중국 인민은행은 2022~2023년 2년간 약 600톤의 금을 공식 보유고에 추가했다. 폴란드, 체코, 터키 등 유럽 신흥국들도 금 보유를 크게 늘렸다.\n\n**이것은 탈달러화인가?** 정확히는 아니다. 금은 달러의 '대안'이 아니라 **'헤지'**다. 금을 더 많이 보유한다는 것이 달러 자산을 팔고 금으로 갔다는 의미가 아닌 경우가 많다. 오히려 달러 외환보유고를 유지하면서 추가로 금을 사는 형태다.\n\n달러 패권에 대한 실질적 대안이 없는 상황에서, 금은 '달러가 동결될 경우'를 대비한 보험료다. 그 보험료가 늘어나고 있다는 것은, 달러 패권의 무기화에 대한 경계심이 높아진다는 신호지 — 달러 패권의 종식이 아니다.",
+          bodyEn:
+            "After the 2022 Russia sanctions, EM central bank gold purchases surged. In 2022, global central bank net gold purchases reached approximately **1,136 tonnes** — a 55-year record. 2023 remained elevated at 1,037 tonnes.\n\nChina and India were particularly aggressive. The People's Bank of China added roughly 600 tonnes to official reserves over 2022–2023. Poland, Czech Republic, Turkey, and other European EMs also substantially increased gold holdings.\n\n**Is this dedollarization?** Not precisely. Gold is not a 'replacement' for the dollar but a **'hedge'**. Holding more gold often doesn't mean selling dollar assets — it typically means adding gold while maintaining dollar reserves.\n\nWith no viable alternative to dollar hegemony, gold is the insurance premium against 'dollar freeze scenarios.' Growing premiums signal rising wariness about the weaponization of dollar hegemony — not the end of dollar hegemony itself.",
+        },
+      ],
+    },
+    // ── 6 ──────────────────────────────────────────────────────────────────────
+    {
+      heading: "결론 — 달러는 쇠퇴하지 않는다, 파편화된다",
+      headingEn: "Conclusion — The Dollar Isn't Declining, It's Fragmenting",
+      blocks: [
+        {
+          type: "text",
+          body: "데이터가 말해주는 것은 명확하다: **달러 패권은 쇠퇴하는 것이 아니라, 세계가 달러에 의존하는 방식이 조용히 다변화되고 있다.**\n\n외환보유고에서 달러 비중이 줄어드는 것은 사실이다. 그러나 그 속도는 연 0.3~0.5%포인트 수준이다. 현재 속도로는 달러가 50% 아래로 떨어지는 데 수십 년이 걸린다. 그리고 그 때도 '대안' 단일 통화가 달러를 대체하는 형태가 아닐 가능성이 높다.\n\n더 현실적인 시나리오는 **블록화(블록화된 다극 체제)**다:\n- 달러 블록: 미국 동맹국, 달러 무역 인보이싱, SWIFT 체제\n- 위안화 블록: 일대일로 국가들, 위안화 결제 확대, CIPS 체제\n- 유로 블록: EU 역내 무역, 디지털 유로\n- 중립 자산: 금, SDR, CBDC 실험\n\n이 블록들이 완전히 분리되는 것이 아니라, 부분적으로 겹치며 마찰을 만드는 세계 — 그것이 탈달러화의 실체다.\n\n**그리고 그 세계에서도 달러는 여전히 가장 중요한 통화다.** 배관이 너무 깊이 박혀있기 때문이다.",
+          bodyEn:
+            "The data speaks clearly: **dollar hegemony is not declining — the way the world depends on the dollar is quietly diversifying.**\n\nThe dollar's reserve share is falling, true. But the pace is around 0.3–0.5pp per year. At current speed, it would take decades to fall below 50%. And even then, it likely won't look like a single 'alternative' currency displacing the dollar.\n\nThe more realistic scenario is **block fragmentation (a blockified multipolar system)**:\n- Dollar bloc: US allies, dollar trade invoicing, SWIFT\n- Yuan bloc: Belt and Road countries, yuan payment expansion, CIPS\n- Euro bloc: EU internal trade, digital euro\n- Neutral assets: gold, SDR, CBDC experiments\n\nThese blocks won't fully separate — they'll partially overlap and create friction: **that is what dedollarization actually looks like.**\n\n**And in that world, the dollar is still the most important currency.** Because the plumbing is too deeply embedded to rip out.",
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "quote",
+            body: "탈달러화는 달러의 종말이 아닌, 달러 없이도 살아남으려는 시도다. 그리고 그 시도는 아직 성공하지 못했다.",
+            bodyEn:
+              "Dedollarization is not the end of the dollar — it's an attempt to survive without it. And that attempt has not yet succeeded.",
+          },
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "insight",
+            heading: "다음 편 예고 — 달러 제국 2.0",
+            headingEn: "Next: Dollar Empire 2.0",
+            body: "역설적으로, 달러 패권을 가장 적극적으로 확장하는 힘은 지금 민간 부문에서 나오고 있다. 스테이블코인이다. 테더(USDT)는 이미 미국 국채 $1,000억+의 보유자이고, GENIUS Act는 달러 스테이블코인을 미국 규제 아래에서 글로벌 디지털 달러로 만들려 한다. 4편에서 달러의 재설계를 다룬다.",
+            bodyEn:
+              "Ironically, the force most aggressively expanding dollar hegemony is now coming from the private sector: stablecoins. Tether (USDT) already holds $100B+ in US Treasuries, and the GENIUS Act aims to make dollar stablecoins the global digital dollar under US regulation. Part 4 covers the redesign of the dollar.",
+          },
+        },
+      ],
+    },
+  ],
+  references: [
+    {
+      id: 1,
+      author: "IMF",
+      title: "Currency Composition of Official Foreign Exchange Reserves (COFER)",
+      source: "IMF Data",
+      year: "2024",
+      url: "https://data.imf.org/?sk=E6A5F467-C14B-4AA8-9F6D-5A09EC4E62A4",
+    },
+    {
+      id: 2,
+      author: "Bank for International Settlements",
+      title: "Project mBridge: Connecting Economies Through CBDC",
+      source: "BIS Innovation Hub",
+      year: "2024",
+      url: "https://www.bis.org/about/bisih/topics/cbdc/mcbdc_bridge.htm",
+    },
+    {
+      id: 3,
+      author: "World Gold Council",
+      title: "Central Bank Gold Reserves Survey",
+      source: "World Gold Council Annual Report",
+      year: "2024",
+      url: "https://www.gold.org/goldhub/research/central-bank-gold-reserves-survey-2024",
+    },
+    {
+      id: 4,
+      author: "Eichengreen, B.",
+      title: "Sanctions, SWIFT, and China's Cross-Border Interbank Payments System",
+      source: "CIGI Papers No. 248",
+      year: "2022",
+    },
+    {
+      id: 5,
+      author: "Prasad, E.",
+      title: "The Future of Money: How the Digital Revolution Is Transforming Currencies and Finance",
+      source: "Harvard University Press",
+      year: "2021",
+    },
+    {
+      id: 6,
+      author: "Gourinchas, P.O.",
+      title: "The Dollar Hegemon? Evidence and Implications for Policy Makers",
+      source: "6th IMF Annual Research Conference",
+      year: "2023",
+      url: "https://www.imf.org/en/Publications/WP",
+    },
+    {
+      id: 7,
+      author: "People's Bank of China",
+      title: "RMB Internationalization Report",
+      source: "PBoC Annual Report",
+      year: "2024",
+      url: "http://www.pbc.gov.cn",
+    },
+    {
+      id: 8,
+      author: "Setser, B.",
+      title: "The Weaponization of Finance and the Future of the Dollar",
+      source: "Council on Foreign Relations Blog",
+      year: "2022",
+      url: "https://www.cfr.org/blog",
+    },
+    {
+      id: 9,
+      author: "SWIFT",
+      title: "RMB Tracker: Monthly Reporting on Renminbi Usage",
+      source: "SWIFT gpi",
+      year: "2024",
+      url: "https://www.swift.com/our-solutions/compliance-and-shared-services/business-intelligence/renminbi/rmb-tracker",
+    },
+    {
+      id: 10,
+      author: "Farrell, H. & Newman, A.",
+      title: "Underground Empire: How America Weaponized the World Economy",
+      source: "Henry Holt & Company",
+      year: "2023",
+    },
+  ],
+};
+
+// ══════════════════════════════════════════════════════════════════════════════
+// NOTE #5 — 달러 패권 시리즈 4편: 스테이블코인과 달러 제국 2.0
+// ══════════════════════════════════════════════════════════════════════════════
+
+const dollarHegemony4: NoteData = {
+  slug: "dollar-hegemony-4",
+  category: "macro",
+  status: "published",
+  title: "달러 패권 ④ — 스테이블코인과 달러 제국 2.0",
+  titleEn: "Dollar Hegemony ④ — Stablecoins and Dollar Empire 2.0",
+  description:
+    "달러 패권의 가장 강력한 확장은 지금 민간 암호화폐 시장에서 일어나고 있다. 테더, GENIUS Act, 디지털 위안 — 달러는 쇠퇴하는 것이 아니라 재설계되고 있다.",
+  descriptionEn:
+    "The most powerful expansion of dollar hegemony is now happening in the private crypto market. Tether, the GENIUS Act, digital yuan — the dollar is not declining; it is being redesigned.",
+  date: "2026-05-28",
+  readingMinutes: 16,
+  keyPoints: [
+    "스테이블코인 시장의 97%+는 달러 페그 — USDT(테더)와 USDC가 전체의 85% 이상을 차지",
+    "테더(USDT)는 2025년 기준 미국 국채 약 $1,200억 보유 — 노르웨이, 인도보다 많다",
+    "GENIUS Act(2025): 달러 스테이블코인에 미국 규제 프레임워크를 적용 — 달러의 '민간 위임 확장'",
+    "디지털 위안(e-CNY)은 국내 결제 앱 수준에 머물고 있다 — 국제화는 자본계정 폐쇄로 막혀 있다",
+    "결론: 달러는 재설계되고 있다 — 국가 발행에서 민간 스테이블코인으로, 브레튼우즈에서 코드로",
+  ],
+  keyPointsEn: [
+    "97%+ of the stablecoin market is dollar-pegged — USDT (Tether) and USDC account for 85%+",
+    "Tether holds ~$120B in US Treasuries as of 2025 — more than Norway or India",
+    "The GENIUS Act (2025): applies a US regulatory framework to dollar stablecoins — dollar hegemony's 'private-sector delegation'",
+    "The digital yuan (e-CNY) remains a domestic payment app — internationalization is blocked by the closed capital account",
+    "Conclusion: the dollar is being redesigned — from state issuance to private stablecoins, from Bretton Woods to code",
+  ],
+  sections: [
+    // ── 1 ──────────────────────────────────────────────────────────────────────
+    {
+      heading: "스테이블코인 — 달러의 가장 빠른 성장 채널",
+      headingEn: "Stablecoins — The Dollar's Fastest-Growing Channel",
+      blocks: [
+        {
+          type: "text",
+          body: "2020년, 전체 스테이블코인 시가총액은 약 $250억이었다. 2024년 말, $1,800억을 넘어섰다. 4년 만에 7배 성장이다.\n\n이 시장의 **97% 이상이 달러 페그**다. 스테이블코인이 성장한다는 것은 달러로 결제하고 달러로 저축하고 달러로 투자하는 사람이 전 세계적으로 폭발적으로 늘어난다는 의미다. 그것도 은행 계좌 없이, 국경을 가로질러, 24시간 실시간으로.\n\n달러 패권의 전통적 채널은 무역 인보이싱, 국채, SWIFT 결제망이었다. 스테이블코인은 네 번째 채널로 부상하고 있다. 그리고 이것은 미국 정부가 만든 것이 아니다 — 민간이 만들었고, 이제 미국 정부가 이것을 규제 안으로 끌어들이고 있다.",
+          bodyEn:
+            "In 2020, the total stablecoin market cap was approximately $25 billion. By end-2024, it exceeded $180 billion — a 7× expansion in four years.\n\n**97%+ of this market is dollar-pegged.** The growth of stablecoins means an explosive rise in the number of people globally paying, saving, and investing in dollars — without bank accounts, across borders, 24 hours a day in real time.\n\nThe traditional channels of dollar hegemony were trade invoicing, Treasuries, and SWIFT. Stablecoins are emerging as a fourth channel. And critically: this was not created by the US government — the private sector built it, and now the US government is pulling it inside the regulatory framework.",
+        },
+        {
+          type: "chart",
+          chart: {
+            id: "stablecoin-growth",
+            title: "스테이블코인 시가총액 성장 (2018–2024, $B)",
+            titleEn: "Stablecoin Market Cap Growth (2018–2024, USD Billions)",
+            caption:
+              "출처: CoinGecko, DefiLlama (2024). USDT(테더)가 압도적 1위를 유지. 2022년 LUNA 붕괴로 알고리즘 스테이블코인 시장 전체가 수축했으나, 달러 페그 스테이블코인(USDT, USDC)은 오히려 신뢰를 강화했다.",
+            captionEn:
+              "Sources: CoinGecko, DefiLlama (2024). USDT maintains dominant #1 position. The 2022 LUNA collapse wiped out algorithmic stablecoins, but dollar-pegged stablecoins (USDT, USDC) actually strengthened their credibility.",
+            data: [
+              { year: "2018", USDT: 2, USDC: 0, other: 0 },
+              { year: "2019", USDT: 4, USDC: 1, other: 1 },
+              { year: "2020", USDT: 20, USDC: 4, other: 1 },
+              { year: "2021", USDT: 78, USDC: 40, other: 12 },
+              { year: "2022", USDT: 66, USDC: 44, other: 6 },
+              { year: "2023", USDT: 92, USDC: 25, other: 8 },
+              { year: "2024", USDT: 120, USDC: 40, other: 20 },
+            ],
+          },
+        },
+      ],
+    },
+    // ── 2 ──────────────────────────────────────────────────────────────────────
+    {
+      heading: "테더 — 세계 최대의 비공식 달러 수출기관",
+      headingEn: "Tether — The World's Largest Unofficial Dollar Exporter",
+      blocks: [
+        {
+          type: "text",
+          body: "테더(Tether Limited)는 영국령 버진아일랜드에 등록된 민간 기업이다. 그들이 발행하는 USDT는 **달러와 1:1 교환** 보장을 내세운다. 이 약속을 지키기 위해 테더는 발행한 USDT만큼의 준비 자산을 보유해야 한다.\n\n그 준비 자산의 구성이 핵심이다. 2025년 기준, 테더의 준비 자산 중 **약 80% 이상이 미국 국채(US Treasury Bills)**다. 그 규모는 약 **$1,200억**에 달한다.\n\n이것이 무엇을 의미하는가? 테더는 **노르웨이, 인도, 독일보다 많은 미국 국채를 보유한 존재**가 됐다. 세계 15위권의 미국 국채 보유 기관이다.\n\n**테더의 존재는 달러 패권의 아이러니를 극단으로 끌어간다.** 테더를 가장 많이 사용하는 사람들은 달러 계좌를 열기 어려운 신흥국 주민들이다 — 베네수엘라, 아르헨티나, 나이지리아, 러시아. 그들은 달러 자산에 직접 접근할 수 없어서 USDT를 쓴다. 그 결과 테더를 통해 미국 국채 수요가 구조적으로 늘어난다. **달러 체제에서 벗어나려는 사람들이 달러 체제를 강화하고 있다.**",
+          bodyEn:
+            "Tether Limited is a private company registered in the British Virgin Islands. The USDT it issues promises a **1:1 dollar exchange** guarantee. To keep this promise, Tether must hold reserve assets matching USDT in circulation.\n\nThe composition of those reserves is the key. As of 2025, **over 80% of Tether's reserves are US Treasury Bills** — approximately **$120 billion** in total.\n\nWhat does this mean? Tether has become an entity that **holds more US Treasuries than Norway, India, or Germany** — among the world's top 15 US Treasury holders.\n\n**Tether's existence takes the irony of dollar hegemony to the extreme.** Tether's heaviest users are people in emerging markets who struggle to access dollar bank accounts — Venezuelans, Argentinians, Nigerians, Russians. Unable to access dollar assets directly, they use USDT. The result: through Tether, structural demand for US Treasuries grows. **People trying to escape the dollar system are reinforcing it.**",
+        },
+        {
+          type: "metrics",
+          items: [
+            {
+              label: "USDT 발행량",
+              labelEn: "USDT in Circulation",
+              value: "약 $1,200억 (2025년 기준)",
+              valueEn: "~$120B (as of 2025)",
+              sub: "전체 스테이블코인 시장의 약 65% 점유. 2020년의 $200억에서 급성장",
+              subEn: "~65% of the total stablecoin market. Surged from $20B in 2020",
+              color: "text-emerald-600 dark:text-emerald-400",
+            },
+            {
+              label: "테더의 미국 국채 보유",
+              labelEn: "Tether's US Treasury Holdings",
+              value: "약 $1,000억+ (준비 자산의 80%+)",
+              valueEn: "~$100B+ (80%+ of reserves)",
+              sub: "노르웨이($870억), 인도($880억) 국채 보유량 초과 — 세계 15위권",
+              subEn: "Exceeds Norway ($87B) and India ($88B) — top-15 global Treasury holder",
+              color: "text-sky-600 dark:text-sky-400",
+            },
+            {
+              label: "주요 사용 지역",
+              labelEn: "Primary Usage Regions",
+              value: "신흥국 달러화 지역",
+              valueEn: "Dollarized emerging markets",
+              sub: "베네수엘라·아르헨티나·나이지리아·러시아·동남아 — 은행 접근 어려운 지역의 달러 대체재",
+              subEn: "Venezuela, Argentina, Nigeria, Russia, SE Asia — dollar substitute where banking is inaccessible",
+              color: "text-amber-600 dark:text-amber-400",
+            },
+          ],
+        },
+      ],
+    },
+    // ── 3 ──────────────────────────────────────────────────────────────────────
+    {
+      heading: "GENIUS Act — 달러의 민간 위임",
+      headingEn: "The GENIUS Act — The Dollar's Private-Sector Delegation",
+      blocks: [
+        {
+          type: "text",
+          body: "2025년 3월, 미국 상원에서 **GENIUS Act(Guiding and Establishing National Innovation for US Stablecoins Act)**가 통과됐다. 역사상 처음으로 달러 스테이블코인에 연방 규제 프레임워크가 적용되는 법이다.\n\n핵심 내용:\n\n① **발행 기관 요건**: 달러 스테이블코인을 발행하려면 미국 연방 또는 주정부 인가 기관이어야 한다. 은행, 지급결제 전문 회사, 또는 FRB(연준) 인가 기관.\n\n② **준비 자산 요건**: 발행액의 100%를 달러 또는 단기 미국 국채로 보유. 다른 자산은 불가.\n\n③ **달러 페그 강제**: 달러 스테이블코인은 반드시 달러와 1:1 유지.\n\n**이것이 달러 패권에 갖는 의미**: GENIUS Act는 스테이블코인을 '규제 밖의 위험 자산'에서 '미국 규제 하의 디지털 달러 인프라'로 전환한다. 동시에, 단기 미국 국채 수요를 구조적으로 확보한다 — 달러 스테이블코인이 1달러 발행될 때마다 1달러어치 미국 국채가 매입되는 구조다.\n\n트럼프 행정부는 이것을 '미국 금융 혁신'으로 홍보하지만 — 본질은 달러 패권의 민간 위임이자, 국채 수요의 구조적 확보다.",
+          bodyEn:
+            "In March 2025, the US Senate passed the **GENIUS Act (Guiding and Establishing National Innovation for US Stablecoins Act)** — the first federal regulatory framework ever applied to dollar stablecoins.\n\nKey provisions:\n\n① **Issuer requirements**: Dollar stablecoin issuers must be federally or state-chartered institutions — banks, payment companies, or Federal Reserve-licensed entities.\n\n② **Reserve requirements**: 100% of issued stablecoins backed by dollars or short-term US Treasuries. No other assets permitted.\n\n③ **Dollar peg mandatory**: Dollar stablecoins must maintain a strict 1:1 dollar peg.\n\n**What this means for dollar hegemony**: The GENIUS Act converts stablecoins from 'unregulated risky assets' to 'digital dollar infrastructure under US regulation.' Simultaneously, it structurally secures short-term US Treasury demand — every dollar stablecoin issued triggers a dollar of Treasury purchases.\n\nThe Trump administration brands this as 'American financial innovation' — but the substance is private-sector delegation of dollar hegemony and structural anchoring of Treasury demand.",
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "insight",
+            heading: "GENIUS Act의 지정학적 함의",
+            headingEn: "GENIUS Act's Geopolitical Implications",
+            body: "GENIUS Act를 통과한 달러 스테이블코인은 미국 규제 아래서 글로벌 디지털 달러로 기능할 수 있다. 이는 인터넷 연결만 있으면 어디서든 달러에 접근할 수 있다는 의미다. 탈달러화를 시도하는 국가들이 규제로 막으려 해도, 그 국가의 시민들이 암호화폐 지갑으로 USDT를 보유하는 것을 완전히 막기는 어렵다.",
+            bodyEn:
+              "Dollar stablecoins passing GENIUS Act can function as global digital dollars under US regulation — meaning anyone with internet access can hold dollars. Even countries attempting dedollarization struggle to fully prevent their citizens from holding USDT via crypto wallets.",
+          },
+        },
+      ],
+    },
+    // ── 4 ──────────────────────────────────────────────────────────────────────
+    {
+      heading: "디지털 위안 — 과대 평가된 경쟁자",
+      headingEn: "The Digital Yuan — An Overhyped Competitor",
+      blocks: [
+        {
+          type: "text",
+          body: "중국의 **e-CNY(디지털 위안)**는 세계 최대 중앙은행 디지털화폐(CBDC) 프로젝트다. 2020년부터 파일럿 테스트를 시작해, 2024년까지 누적 거래액 약 **7조 위안(약 $1조)**을 기록했다.\n\n그러나 맥락이 중요하다. 이 거래 대부분은 중국 **국내** 결제다. 베이징 지하철, 편의점, 디디추싱(디디 앱) — 알리페이, 위챗페이와 경쟁하는 국내 결제 앱 수준이다.\n\n**국제 결제에서의 e-CNY 활용은 아직 극히 제한적이다.** 이유는 세 가지:\n\n① 자본계정 폐쇄 — 위안화 CBDC도 자본계정 통제에서 자유롭지 않다\n② 신뢰 부족 — 외국 기업과 개인이 e-CNY를 자발적으로 보유할 유인이 약하다\n③ 중국 정부의 완전한 추적 가능성에 대한 거부감 — e-CNY는 익명성이 없다\n\n**결론: e-CNY는 달러 스테이블코인의 진지한 경쟁자가 아니다.** 중국 국내에서 디지털 결제 인프라를 현대화하는 프로젝트이며, 달러 패권에 대한 도전은 부수적 목표다.",
+          bodyEn:
+            "China's **e-CNY (digital yuan)** is the world's largest central bank digital currency (CBDC) project. Pilot testing began in 2020, and cumulative transactions reached approximately **¥7 trillion (~$1 trillion)** by 2024.\n\nBut context matters. Most transactions are **domestic** Chinese payments — Beijing subway, convenience stores, DiDi rides. This is a domestic payment app competing with Alipay and WeChat Pay.\n\n**International use of e-CNY remains extremely limited**, for three reasons:\n\n① Closed capital account — yuan CBDC is not free from capital controls\n② Trust deficit — foreign businesses and individuals have weak incentives to hold e-CNY voluntarily\n③ Resistance to Chinese government's complete transaction traceability — e-CNY has no anonymity\n\n**Conclusion: e-CNY is not a serious competitor to dollar stablecoins.** It is a project to modernize domestic digital payment infrastructure in China, with challenging dollar hegemony as a secondary objective.",
+        },
+        {
+          type: "table",
+          table: {
+            id: "stablecoin-vs-cbdc",
+            title: "달러 스테이블코인 vs 디지털 위안 비교",
+            titleEn: "Dollar Stablecoins vs Digital Yuan Comparison",
+            headers: ["항목", "달러 스테이블코인(USDT/USDC)", "디지털 위안(e-CNY)"],
+            headersEn: ["Category", "Dollar Stablecoins (USDT/USDC)", "Digital Yuan (e-CNY)"],
+            rows: [
+              ["발행 주체", "민간 기업 (테더, Circle)", "중국 인민은행"],
+              ["사용 가능 지역", "인터넷 연결 어디서나", "주로 중국 국내"],
+              ["익명성", "상대적 익명 가능", "없음 — 완전 추적"],
+              ["규제 체계", "GENIUS Act (미국)", "중국 인민은행 규정"],
+              ["국제 채택도", "빠르게 증가 중", "극히 제한적"],
+              ["준비 자산", "미국 국채/달러", "중국 인민은행 직접 발행"],
+            ],
+            rowsEn: [
+              ["Issuer", "Private firms (Tether, Circle)", "People's Bank of China"],
+              ["Geographic reach", "Anywhere with internet", "Mainly within China"],
+              ["Anonymity", "Relative anonymity possible", "None — fully traceable"],
+              ["Regulatory framework", "GENIUS Act (US)", "PBoC regulations"],
+              ["International adoption", "Rapidly growing", "Extremely limited"],
+              ["Reserve assets", "US Treasuries / dollars", "Direct PBoC issuance"],
+            ],
+            caption: "달러 스테이블코인의 가장 큰 경쟁 우위는 '규제는 있지만 국가 추적은 없는' 구조다 — e-CNY와 정반대다.",
+            captionEn: "The dollar stablecoin's biggest competitive advantage: 'regulated but not state-surveilled' — the opposite of e-CNY.",
+          },
+        },
+      ],
+    },
+    // ── 5 ──────────────────════════════════════════════════════════════════════
+    {
+      heading: "시리즈 결론 — 달러는 재설계 중이다",
+      headingEn: "Series Conclusion — The Dollar Is Being Redesigned",
+      blocks: [
+        {
+          type: "text",
+          body: "4편에 걸친 달러 패권 시리즈를 마무리하며, 하나의 명제로 요약한다:\n\n**달러 패권은 쇠퇴하는 것이 아니라 재설계되고 있다.**\n\n1편에서 봤듯이, 달러 패권은 세 번의 결정적 설계 — 브레튼우즈, 닉슨 쇼크, 페트로달러 — 로 만들어진 것이다. 자연발생적 시장 결과물이 아니라 의도적 구조물이다.\n\n2편에서 봤듯이, 달러 패권은 레포시장이라는 배관으로 작동한다. 그 배관의 수도꼭지는 연준 대차대조표다. 캐빈 워시 체제에서 그 수도꼭지가 더 조여질 것이다.\n\n3편에서 봤듯이, 탈달러화 선언은 넘쳐나지만 인프라의 현실은 냉혹하다. 위안화는 자본계정 폐쇄라는 결정적 장벽에 막혀있고, BRICS 공동통화는 주권 충돌로 무산되고 있다.\n\n그리고 4편이 보여주는 것: 달러는 가장 혁신적인 방식으로 재설계되고 있다. 스테이블코인이라는 민간 채널을 통해 달러는 은행 계좌 없이도, 국경을 초월하여, 24시간 접근 가능한 디지털 달러로 진화하고 있다. GENIUS Act는 이것을 미국 규제 아래로 끌어들이며 '달러 제국 2.0'을 공식화한다.\n\n**투자자에게 함의하는 것은 분명하다**: 달러가 약해진다는 내러티브로 포지션을 잡는 것은 조심해야 한다. 배관은 더 조여지고 있고, 새로운 채널은 더 빠르게 달러를 전 세계로 뿌리고 있다. 탈달러화에 베팅하는 것은 인프라의 현실이 아닌 선언에 베팅하는 것이다.",
+          bodyEn:
+            "Concluding a four-part series on dollar hegemony, a single proposition summarizes everything:\n\n**Dollar hegemony is not declining — it is being redesigned.**\n\nAs Part 1 showed, dollar hegemony was created through three decisive designs: Bretton Woods, the Nixon Shock, the petrodollar. Not a natural market outcome — an intentional structure.\n\nAs Part 2 showed, dollar hegemony operates through the plumbing of the repo market. The faucet controlling that plumbing is the Fed balance sheet. Under Kevin Warsh, that faucet will tighten further.\n\nAs Part 3 showed, dedollarization declarations overflow but infrastructure reality is sobering. The yuan is blocked by the decisive barrier of a closed capital account; the BRICS common currency is collapsing under sovereignty conflicts.\n\nAnd what Part 4 reveals: the dollar is being redesigned in its most innovative form yet. Through the private-sector channel of stablecoins, the dollar is evolving into a digital dollar — accessible without bank accounts, across borders, 24 hours a day. The GENIUS Act formalizes 'Dollar Empire 2.0' by pulling this under US regulation.\n\n**The investment implication is clear**: positioning on a 'weakening dollar' narrative requires caution. The plumbing is tightening, and new channels are distributing dollars across the globe faster than ever. Betting on dedollarization is betting on declarations over infrastructure reality.",
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "quote",
+            body: "달러는 금에서 석유로, 석유에서 국채로, 국채에서 코드로 — 매번 새로운 뒷받침을 찾아냈다. 그리고 매번, 대안론자들은 틀렸다.",
+            bodyEn:
+              "The dollar has moved from gold to oil, from oil to Treasuries, from Treasuries to code — finding new backing each time. And each time, the dedollarization advocates were wrong.",
+          },
+        },
+      ],
+    },
+  ],
+  references: [
+    {
+      id: 1,
+      author: "Tether Limited",
+      title: "Tether Transparency Report — Reserve Composition",
+      source: "Tether.to",
+      year: "2025",
+      url: "https://tether.to/en/transparency",
+    },
+    {
+      id: 2,
+      author: "US Senate Banking Committee",
+      title: "GENIUS Act: Guiding and Establishing National Innovation for US Stablecoins",
+      source: "US Senate",
+      year: "2025",
+      url: "https://www.banking.senate.gov",
+    },
+    {
+      id: 3,
+      author: "CoinGecko",
+      title: "Stablecoin Market Cap Report 2024",
+      source: "CoinGecko Annual Report",
+      year: "2024",
+      url: "https://www.coingecko.com/research",
+    },
+    {
+      id: 4,
+      author: "People's Bank of China",
+      title: "Progress in Research and Development of E-CNY in China",
+      source: "PBoC White Paper",
+      year: "2024",
+      url: "http://www.pbc.gov.cn/en/3688110/3688172/4157443/4293696/2021071614584691871.pdf",
+    },
+    {
+      id: 5,
+      author: "Gorton, G. & Zhang, J.",
+      title: "Taming Wildcat Stablecoins",
+      source: "University of Chicago Law Review",
+      year: "2023",
+      url: "https://doi.org/10.2139/ssrn.3888752",
+    },
+    {
+      id: 6,
+      author: "Bank for International Settlements",
+      title: "The Financial Stability Implications of Digital Assets",
+      source: "BIS Quarterly Review",
+      year: "2023",
+      url: "https://www.bis.org/publ/qtrpdf/r_qt2309b.htm",
+    },
+    {
+      id: 7,
+      author: "Prasad, E.",
+      title: "Gaining Currency: The Rise of the Renminbi",
+      source: "Oxford University Press",
+      year: "2017",
+    },
+    {
+      id: 8,
+      author: "Catalini, C. & de Gortari, A.",
+      title: "On the Economic Design of Stablecoins",
+      source: "NBER Working Paper No. 30578",
+      year: "2022",
+      url: "https://www.nber.org/papers/w30578",
+    },
+    {
+      id: 9,
+      author: "Chainalysis",
+      title: "The 2024 Crypto Crime Report: Stablecoin Usage in High-Risk Jurisdictions",
+      source: "Chainalysis Annual Report",
+      year: "2024",
+      url: "https://www.chainalysis.com/reports",
+    },
+    {
+      id: 10,
+      author: "Federal Reserve",
+      title: "Exploring a US Central Bank Digital Currency (CBDC)",
+      source: "Federal Reserve Discussion Paper",
+      year: "2022",
+      url: "https://www.federalreserve.gov/publications/files/money-and-payments-20220120.pdf",
+    },
+  ],
+};
+
 // ── Export ─────────────────────────────────────────────────────────────────────
 
-export const ALL_NOTES: NoteData[] = [koreaDiscount, dollarHegemony1, dollarHegemony2];
+export const ALL_NOTES: NoteData[] = [koreaDiscount, dollarHegemony1, dollarHegemony2, dollarHegemony3, dollarHegemony4];

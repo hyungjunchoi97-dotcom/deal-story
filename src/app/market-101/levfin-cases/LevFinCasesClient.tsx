@@ -348,12 +348,12 @@ const SIX_LESSONS = [
 ];
 
 // ── Bar chart data (returns comparison) ──────────────────────────────────────
-const RETURNS_CHART = [
-  { name: "Hilton\n(Blackstone)", irr: 21, mom: 2.6, color: "bg-emerald-500", textColor: "text-emerald-600 dark:text-emerald-400" },
-  { name: "RJR Nabisco\n(KKR)", irr: 9, mom: 1.2, color: "bg-amber-400", textColor: "text-amber-600 dark:text-amber-400" },
-  { name: "Toys R Us\n(KKR+Bain)", irr: 0, mom: 0, color: "bg-rose-500", textColor: "text-rose-600 dark:text-rose-400" },
-  { name: "Caesars\n(Apollo+TPG)", irr: 0, mom: 0, color: "bg-rose-400", textColor: "text-rose-600 dark:text-rose-400" },
-  { name: "홈플러스\n(MBK)", irr: 3, mom: 1.1, color: "bg-gray-400", textColor: "text-gray-600 dark:text-gray-400" },
+const RETURNS_CHART_RAW = [
+  { nameKo: "Hilton\n(Blackstone)",  nameEn: "Hilton\n(Blackstone)",  irr: 21, mom: 2.6, color: "bg-emerald-500", textColor: "text-emerald-600 dark:text-emerald-400" },
+  { nameKo: "RJR Nabisco\n(KKR)",    nameEn: "RJR Nabisco\n(KKR)",    irr: 9,  mom: 1.2, color: "bg-amber-400",  textColor: "text-amber-600 dark:text-amber-400" },
+  { nameKo: "Toys R Us\n(KKR+Bain)", nameEn: "Toys R Us\n(KKR+Bain)", irr: 0,  mom: 0,   color: "bg-rose-500",  textColor: "text-rose-600 dark:text-rose-400" },
+  { nameKo: "Caesars\n(Apollo+TPG)", nameEn: "Caesars\n(Apollo+TPG)", irr: 0,  mom: 0,   color: "bg-rose-400",  textColor: "text-rose-600 dark:text-rose-400" },
+  { nameKo: "홈플러스\n(MBK)",       nameEn: "Homeplus\n(MBK)",       irr: 3,  mom: 1.1, color: "bg-gray-400",  textColor: "text-gray-600 dark:text-gray-400" },
 ];
 const maxIrr = 21;
 
@@ -428,6 +428,10 @@ const SOURCES = [
 export default function LevFinCasesClient({ concept, lang }: Props) {
   const ko = lang === "ko";
   const base = lang === "ko" ? "/market-101" : "/en/market-101";
+  const RETURNS_CHART = RETURNS_CHART_RAW.map((d) => ({
+    ...d,
+    name: ko ? d.nameKo : d.nameEn,
+  }));
   const prev = LEVFIN_SERIES[thisCh - 1] ?? null;
   const next = LEVFIN_SERIES[thisCh + 1] ?? null;
 

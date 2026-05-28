@@ -188,11 +188,11 @@ function LineChartTooltip({
 }
 
 // ── 차트 데이터 ──────────────────────────────────────────────────────────────
-const LOSS_DATA = [
-  { name: "2008 RMBS/CDO", loss: 2700, color: "#ef4444" },
-  { name: "2020 CLO AAA",  loss: 0,    color: "#22c55e" },
-  { name: "2023 CMBS",     loss: 85,   color: "#f59e0b" },
-  { name: "한국 PF ABS",   loss: 20,   color: "#8b5cf6" },
+const LOSS_DATA_RAW = [
+  { nameKo: "2008 RMBS/CDO", nameEn: "2008 RMBS/CDO", loss: 2700, color: "#ef4444" },
+  { nameKo: "2020 CLO AAA",  nameEn: "2020 CLO AAA",  loss: 0,    color: "#22c55e" },
+  { nameKo: "2023 CMBS",     nameEn: "2023 CMBS",     loss: 85,   color: "#f59e0b" },
+  { nameKo: "한국 PF ABS",   nameEn: "Korea PF ABS",  loss: 20,   color: "#8b5cf6" },
 ];
 
 const CLO_PRICE_DATA = [
@@ -260,6 +260,10 @@ const FAQ_EN = [
 // ── 메인 컴포넌트 ────────────────────────────────────────────────────────────
 export default function StructuredCasesClient({ concept, lang }: Props) {
   const ko = lang === "ko";
+  const LOSS_DATA = LOSS_DATA_RAW.map((d) => ({
+    ...d,
+    name: ko ? d.nameKo : d.nameEn,
+  }));
 
   return (
     <>
