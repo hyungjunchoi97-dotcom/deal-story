@@ -16,6 +16,11 @@ import Footer from "@/components/Footer";
 import ShareButtons from "@/components/deal/ShareButtons";
 import type { InvestorStory } from "@/data/investor-stories";
 import { STORY_CATEGORY_META } from "@/data/investor-stories";
+import {
+  LeesonBody, LtcmBody, FuldBody, MadoffBody, KervielBody,
+  MilkenBody, LivermoreBody, VolckerBody,
+  WassersteinBody, WeinbergBody, RohatynBody, JimmyLeeBody,
+} from "./StoryBodies";
 
 type Lang = "ko" | "en";
 
@@ -893,13 +898,38 @@ export default function StoriesClient({ story, lang }: { story: InvestorStory; l
   const homeHref = ko ? "/" : "/en";
 
   function renderBody() {
+    const p = { ko, story, accent, accentLight, accentDark };
     switch (story.slug) {
       case "soros-pound-1992":
-        return <SorosBody ko={ko} story={story} accent={accent} accentLight={accentLight} accentDark={accentDark} />;
+        return <SorosBody {...p} />;
       case "bill-hwang-archegos-2021":
-        return <ArchegosBody ko={ko} story={story} accent={accent} accentLight={accentLight} accentDark={accentDark} />;
+        return <ArchegosBody {...p} />;
       case "buffett-japan-2020":
-        return <BuffettBody ko={ko} story={story} accent={accent} accentLight={accentLight} accentDark={accentDark} />;
+        return <BuffettBody {...p} />;
+      case "leeson-barings-1995":
+        return <LeesonBody {...p} />;
+      case "meriwether-ltcm-1998":
+        return <LtcmBody {...p} />;
+      case "fuld-lehman-2008":
+        return <FuldBody {...p} />;
+      case "madoff-ponzi-2008":
+        return <MadoffBody {...p} />;
+      case "kerviel-socgen-2008":
+        return <KervielBody {...p} />;
+      case "milken-junk-bonds-1986":
+        return <MilkenBody {...p} />;
+      case "livermore-1929":
+        return <LivermoreBody {...p} />;
+      case "volcker-inflation-1979":
+        return <VolckerBody {...p} />;
+      case "wasserstein-bid-em-up":
+        return <WassersteinBody {...p} />;
+      case "weinberg-goldman-sachs":
+        return <WeinbergBody {...p} />;
+      case "rohatyn-nyc-bankruptcy-1975":
+        return <RohatynBody {...p} />;
+      case "jimmy-lee-jpmorgan":
+        return <JimmyLeeBody {...p} />;
       default:
         return <GenericBody story={story} ko={ko} accent={accent} />;
     }
