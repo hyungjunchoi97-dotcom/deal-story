@@ -3850,4 +3850,181 @@ const aiCycle3: NoteData = {
   ],
 };
 
-export const ALL_NOTES: NoteData[] = [koreaDiscount, dollarHegemony1, dollarHegemony2, dollarHegemony3, dollarHegemony4, aiCycle1, aiCycle2, aiCycle3, aiCycle4, aiCycle6];
+// ══════════════════════════════════════════════════════════════════════════════
+// NOTE #11 — AI Capital Cycle ⑤ — 다음 병목 (광·신경망)
+// ══════════════════════════════════════════════════════════════════════════════
+
+const aiCycle5: NoteData = {
+  slug: "ai-capital-cycle-5",
+  category: "macro",
+  status: "published",
+  series: "ai-capital-cycle",
+  seriesOrder: 5,
+  title: "AI 자본 사이클 ⑤ — 다음 병목, 광·신경망",
+  titleEn: "AI Capital Cycle ⑤ — The Next Bottleneck: Optical & Networking",
+  description:
+    "1849 골드러시에서 부자가 된 건 광부가 아니라 곡괭이 판 Levi Strauss였다. AI에서 GPU 다음 병목은 — 광이다. 800G에서 1.6T로의 전환이 2026-27 핵심 사이클. Lumentum, Coherent, Astera Labs, Marvell가 이미 그 사이클의 베네피셔리다.",
+  descriptionEn:
+    "In the 1849 gold rush, the rich weren't the miners — it was Levi Strauss who sold the picks. After GPU, the next bottleneck in AI is — optical. The 800G to 1.6T transition is the 2026-27 core cycle. Lumentum, Coherent, Astera Labs, Marvell are already the cycle's beneficiaries.",
+  date: "2026-05-29",
+  readingMinutes: 18,
+  keyPoints: [
+    "사이클의 끝에서 부자가 되는 건 주인공이 아니라 다음 병목을 쥔 자다. AI에서 GPU 다음 병목 = 광 트랜시버 (800G → 1.6T 전환)",
+    "Lumentum (LITE) Q2 FY26 매출 $665M (+65.5% YoY), AI+cloud 비중 60%+. Cloud Light 인수로 NVIDIA 광 트랜시버 직접 공급",
+    "Coherent (COHR) Q2 FY26 매출 $1.70B (+17.5%), 1.6T 트랜시버 ramp가 예상보다 빠르게 (CEO Anderson). orders extend through 2028",
+    "Astera Labs (ALAB) Q3 2025 매출 $230.6M (+104% YoY), NG 영업이익률 41.7%. PCIe Gen6 retimer Aries 6가 Q3 매출의 20%+. NVIDIA NVLink Fusion 통합 (2025.5)",
+    "Marvell AI 매출 FY26 ~$6B+ (+46% YoY). custom AI silicon (AWS Trainium, MS Maia) + Nova 2 (업계 첫 1.6T DSP). Broadcom과 합쳐 custom ASIC 95% 점유",
+    "Arista FY25 매출 $9.0B (+28.6%), Ultra Ethernet Consortium 주도. Meta가 가장 큰 Ethernet AI 클러스터에 Arista 7700R4 채택. AI 네트워킹 FY26 가이던스 $3.25B (2배 상향)",
+    "1.6T 광 트랜시버 시장: 2024 <0.5M units → 2026E >5M units. EML 칩 40-60% 공급 부족 through 2027 (McKinsey). InP 웨이퍼 캐파가 단일 보틀넥",
+    "한국 직접 노출 제한적 (한국 강점이 메모리이지 III-V InP 아님). 오이솔루션 2025 매출 +79% — 한국 광 부품 회복 신호. 간접: 삼성 Silicon Photonics 2028 양산 목표",
+  ],
+  keyPointsEn: [
+    "At the end of a cycle, the rich aren't the protagonists — they're the ones holding the next bottleneck. After GPU in AI = optical transceivers (800G → 1.6T transition)",
+    "Lumentum (LITE) Q2 FY26 revenue $665M (+65.5% YoY), AI+cloud 60%+ of mix. Cloud Light acquisition gives direct NVIDIA optical transceiver supply",
+    "Coherent (COHR) Q2 FY26 revenue $1.70B (+17.5%), 1.6T transceiver ramp faster than expected (CEO Anderson). Orders extend through 2028",
+    "Astera Labs (ALAB) Q3 2025 revenue $230.6M (+104% YoY), NG OM 41.7%. PCIe Gen6 retimer Aries 6 was >20% of Q3. NVIDIA NVLink Fusion integration (May 2025)",
+    "Marvell AI revenue FY26 ~$6B+ (+46% YoY). Custom AI silicon (AWS Trainium, MS Maia) + Nova 2 (industry's first 1.6T DSP). Combined with Broadcom = 95% of custom ASIC",
+    "Arista FY25 revenue $9.0B (+28.6%), leads Ultra Ethernet Consortium. Meta chose Arista 7700R4 for its largest Ethernet AI cluster. AI networking FY26 guidance doubled to $3.25B",
+    "1.6T optical transceiver market: 2024 <0.5M units → 2026E >5M units. EML chips 40-60% undersupplied through 2027 (McKinsey). InP wafer capacity is the single bottleneck",
+    "Korea direct exposure limited (Korea's strength is memory, not III-V InP). OE Solutions 2025 revenue +79% — Korean optical components recovery signal. Indirect: Samsung Silicon Photonics 2028 mass production target",
+  ],
+  sections: [
+    {
+      heading: "Levi Strauss의 운율 — 사이클의 부자는 곡괭이를 판 자다",
+      headingEn: "The Levi Strauss Echo — The Rich Sold the Picks",
+      blocks: [
+        {
+          type: "text",
+          body: "1849년 캘리포니아 골드러시. 가장 부자가 된 사람은 누구였나. *광부가 아니다* . 광부 대부분은 가난하게 돌아갔다. 부자가 된 건 — 광부들에게 *곡괭이와 작업복을 판 사람* 들이었다. Levi Strauss가 1853년 샌프란시스코에서 denim 작업복을 만들기 시작했고, 1873년 특허받은 청바지로 미국 패션의 단일 표준이 됐다. *그 모든 광부들의 노동 위에서 — 곡괭이와 청바지를 판 자가 사이클의 진짜 부자가 됐다* .\n\n이게 자본 사이클의 반복되는 패턴이다. 1860-80년대 미국 철도 사이클에서 부자가 된 건 — 철도 회사가 아니라 *철도 옆에 토지를 사놓은 사람들과, 철도가 필요한 강철을 만든 Carnegie 였다* . 1920년대 자동차 사이클의 부자는 — Ford와 GM뿐 아니라 *고무를 만든 Goodyear, 도로를 깐 시멘트 회사들* . 1990-2000년대 인터넷 사이클의 부자는 — Pets.com이나 Webvan이 아니라 *광섬유를 깐 Corning, 라우터를 판 Cisco* (그리고 단기적으로는 Lucent도). 석유 사이클에서 정유사 → 파이프라인 → 주유소로 병목이 이동하면서, 매 단계마다 다른 사람이 부자가 됐다.\n\n**병목은 이동한다** . 그리고 사이클의 매 단계마다 *다음 병목을 쥔 자* 가 가장 큰 매출 성장을 누린다.\n\n2026년 AI 자본 사이클에서 GPU(NVIDIA)는 지난 사이클의 주인공이었다. 그러나 GPU의 절대 매출 곡선이 둔화되기 *전에* , 사이클의 자본 흐름은 이미 다음 병목으로 이동하기 시작했다. **광** 이다.",
+          bodyEn:
+            "The 1849 California Gold Rush. Who got rich? *Not the miners*. Most miners went home poor. The rich were the ones who *sold picks and work clothes to the miners*. Levi Strauss began making denim work clothes in San Francisco in 1853; his 1873-patented jeans became the single standard of American fashion. *On all those miners' labor — those who sold picks and jeans became the real wealth of the cycle*.\n\nThis is the repeating pattern of capital cycles. In the 1860-80s US railroad cycle, the rich weren't the railroad companies — they were *the people who bought land alongside the rails, and Carnegie who made the steel the railroads needed*. The 1920s auto-cycle rich were not only Ford and GM but also *Goodyear who made the tires, and the cement companies that paved the roads*. The 1990s-2000s internet-cycle rich were not Pets.com or Webvan but *Corning who laid the fiber, Cisco who sold the routers* (and short-term, Lucent too). In oil cycles, as bottleneck moved from refining → pipelines → gas stations, different people got rich at each stage.\n\n**The bottleneck moves**. At every stage of the cycle, *whoever holds the next bottleneck* enjoys the largest revenue growth.\n\nIn the 2026 AI capital cycle, GPU (NVIDIA) was the protagonist of the last stage. But *before* the GPU's absolute revenue curve slows, the cycle's capital has already begun moving to the next bottleneck. **Optical**.",
+        },
+      ],
+    },
+    {
+      heading: "왜 광이 다음 병목인가",
+      headingEn: "Why Optical Is the Next Bottleneck",
+      blocks: [
+        {
+          type: "text",
+          body: "구조적 이유. 현대 AI 학습 클러스터는 *rack을 넘어선다* . NVIDIA Blackwell NVL72 한 rack에 GPU 72개, NVLink 1.8 TB/s 대역폭 (PCIe Gen5의 약 14배). 그러나 frontier 모델 학습은 *수천 개 GPU* 가 *여러 rack 간에* 통신한다. Rack 간 통신은 — *광* 으로 한다.\n\nJensen Huang이 2025년 3월 GTC에서 한 말: \"데이터센터가 stadium 크기가 되면, 새로운 것이 필요하다 — 그게 silicon photonics다.\"\n\n두 가지 다른 네트워크가 존재한다:\n- **Scale-up (rack 내부)** : NVLink/NVSwitch — 현재는 copper 중심이지만, GPU 수가 늘면서 점진적으로 광/CPO(co-packaged optics)로 이동.\n- **Scale-out (rack 간)** : InfiniBand 또는 Ethernet — *이미 광* . 800G → 1.6T 트랜시버 수요를 만든다.\n\n공급이 제약된 이유. **EML(electro-absorption modulated laser) 칩이 2027년까지 40-60% 공급 부족** (McKinsey 분석). InP 웨이퍼 캐파가 단일 choke point. DSP 공급: Broadcom이 800G/1.6T용 PAM4 DSP의 **80%+ 점유** ; Marvell(Inphi 인수)이 유일한 #2.\n\n한 개의 1.6T 트랜시버에 ~8개 EML 칩 + 1개 DSP + 고급 silicon photonics 패키징. *Blackwell GPU 한 장당 약 1.5-3개 광 포트가 필요* . NVIDIA가 수백만 개 GPU를 출하하면, 광 트랜시버 수요는 그 1.5-3배.\n\nLightCounting 예측: AI 클러스터 광 시장은 **$5B (2024) → $10B+ (2026)** , 2030년 $100B 시장. 800G 출하 2025년 +60% (~20M units). 1.6T는 2026년 5M units+ — *볼륨 ramp의 해* .",
+          bodyEn:
+            "Structural reason. Modern AI training clusters *outgrow the rack*. NVIDIA Blackwell NVL72 packs 72 GPUs into one rack with 1.8 TB/s NVLink (about 14x PCIe Gen5). But frontier model training has *thousands of GPUs* communicating *across many racks*. Inter-rack communication runs on — *optics*.\n\nJensen Huang at GTC 2025: \"When the data centers are now the size of a stadium, we need something new — and that's where silicon photonics comes in.\"\n\nTwo distinct networks:\n- **Scale-up (inside rack)**: NVLink/NVSwitch — currently copper-dominated, but moving to optical/CPO (co-packaged optics) as GPU counts per domain grow.\n- **Scale-out (between racks)**: InfiniBand or Ethernet — *already optical*. Drives 800G → 1.6T transceiver demand.\n\nWhy supply is constrained. **EML (electro-absorption modulated laser) chips 40-60% undersupplied through 2027** (per McKinsey analysis). InP wafer capacity is the single chokepoint. DSP supply: Broadcom holds **>80% share** of the high-end PAM4 DSPs used in 800G/1.6T modules; Marvell (Inphi acquisition) is the only credible #2.\n\nOne 1.6T transceiver requires ~8 EML chips + 1 DSP + advanced silicon photonics packaging. *Every Blackwell GPU pulls roughly 1.5-3 optical ports*. When NVIDIA ships millions of GPUs, optical transceiver demand is 1.5-3x that.\n\nLightCounting forecast: AI cluster optics market grows **$5B (2024) → $10B+ (2026)**, $100B market by 2030. 800G shipments +60% in 2025 (~20M units). 1.6T expected >5M units in 2026 — *the volume ramp year*.",
+        },
+      ],
+    },
+    {
+      heading: "베네피셔리 — Lumentum, Coherent, Astera Labs, Marvell, Arista",
+      headingEn: "The Beneficiaries — Lumentum, Coherent, Astera Labs, Marvell, Arista",
+      blocks: [
+        {
+          type: "text",
+          body: "사이클이 옮겨가고 있다는 것을 보여주는 가장 강력한 데이터는 — *베네피셔리들의 매출 가속* 이다.\n\n**Lumentum (LITE)** . 광 부품·트랜시버 회사. 2023년 11월 Cloud Light를 \\$750M에 인수 — 800G/1.6T 트랜시버 직접 공급망 확보. NVIDIA, Google, Meta, MSFT, AMZN이 고객.\n- FY25 (2025.6 종료): 매출 \\$1.65B\n- Q1 FY26: \\$533.8M (+58% YoY)\n- Q2 FY26 (2025.12): \\$665.5M (+65.5% YoY), NG-GM 42.5% (+1,020bps YoY), NG-OM 25.2%\n- *AI+cloud 매출 비중 60%+*\n- 이전 가이던스 \"Q FY26 600M\" 을 *2 분기 일찍 달성*\n\n**Coherent (COHR)** . II-VI/Coherent 합병 후 70%+ 매출이 데이터센터·통신. InP 웨이퍼부터 트랜시버까지 vertical.\n- Q1 FY26: \\$1.58B (+19% YoY pro-forma)\n- Q2 FY26: \\$1.70B (+17.5% YoY)\n- 첫 1.6T 트랜시버 매출: Q4 FY25 (2025.6 분기)\n- CEO Jim Anderson: \"1.6T 모듈이 1년 전 예상보다 *훨씬 빠르게* ramp 중. orders extend **through 2028**.\"\n- 캐파 전환: 3인치 → 6인치 InP 웨이퍼 — *웨이퍼당 4배 칩, 절반 비용*\n\n**Astera Labs (ALAB)** . PCIe/CXL retimer, fabric switch. 2024.3 IPO. AI 서버의 \"connectivity glue\" .\n- 2024 매출 +242% YoY\n- Q3 2025: \\$230.6M (+104% YoY), NG-OM 41.7%\n- Aries 6 (PCIe Gen6 retimer) — Q3 매출의 20%+. 시장의 유일한 양산 Gen6 retimer\n- Scorpio (fabric switch) — Q2 2025 매출의 10%+, 회사 사상 가장 빠른 ramp\n- 2025.5 NVIDIA NVLink Fusion 통합 — hyperscaler가 custom XPU를 만들어 NVIDIA GPU와 NVLink로 직접 통신할 수 있게 Astera silicon 사용\n- 시총 \\$55-56B (2026.5 기준), forward sales 50-60배 — *bottleneck rotation thesis의 premium proxy*\n\n**Marvell (MRVL)** . 두 다리: custom AI silicon (AWS Trainium 2/3, MS Maia) + 광 DSP (Inphi heritage, Nova 2가 업계 첫 1.6T DSP).\n- FY26 매출 ~\\$8.2B (+42% YoY); 데이터센터 매출 >\\$6B (+46%)\n- FY27 가이던스: 매출 >+30% to ~\\$11B; 데이터센터 +40%\n- FY28 가이던스: ~\\$15B; \"second tier-1 hyperscaler XPU 양산 시작\"\n- Broadcom + Marvell = custom ASIC 시장 ~95% 점유\n\n**Arista (ANET)** . Ethernet-vs-InfiniBand 베팅. Ultra Ethernet Consortium 주도.\n- FY25 매출 \\$9.0B (+28.6%), Q4에 사상 처음 분기 순이익 \\$1B 돌파\n- **FY26 AI 네트워킹 목표 \\$3.25B로 2배 상향** (이전 \\$1.5B)\n- Meta + Microsoft가 매출의 40-48%\n- Meta의 가장 큰 Ethernet AI 클러스터에 Arista 7700R4 채택",
+          bodyEn:
+            "The strongest data showing the cycle is moving is — *the revenue acceleration of the beneficiaries*.\n\n**Lumentum (LITE).** Optical components and transceivers. Acquired Cloud Light for $750M in Nov 2023 — direct 800G/1.6T transceiver supply chain. Customers: NVIDIA, Google, Meta, MSFT, AMZN.\n- FY25 (ended June 2025): revenue $1.65B\n- Q1 FY26: $533.8M (+58% YoY)\n- Q2 FY26 (Dec 2025): $665.5M (+65.5% YoY), NG-GM 42.5% (+1,020bps YoY), NG-OM 25.2%\n- *AI+cloud revenue mix 60%+*\n- Prior guidance \"~$600M Q FY26\" hit *two quarters early*\n\n**Coherent (COHR).** Post-II-VI/Coherent merger, 70%+ revenue from data center and comms. Vertical from InP wafer to transceiver.\n- Q1 FY26: $1.58B (+19% YoY pro-forma)\n- Q2 FY26: $1.70B (+17.5% YoY)\n- First 1.6T transceiver revenue: Q4 FY25 (June 2025 quarter)\n- CEO Jim Anderson: \"1.6T modules ramping *much faster* than expected a year ago. Orders extend **through 2028**.\"\n- Capacity shift: 3-inch → 6-inch InP wafers — *4x chips per wafer, half the cost*\n\n**Astera Labs (ALAB).** PCIe/CXL retimers, fabric switches. IPO March 2024. The \"connectivity glue\" of AI servers.\n- 2024 revenue +242% YoY\n- Q3 2025: $230.6M (+104% YoY), NG-OM 41.7%\n- Aries 6 (PCIe Gen6 retimer) — >20% of Q3 revenue. The only Gen6 retimer in volume\n- Scorpio (fabric switch) — >10% of Q2 2025 revenue, fastest ramp in company history\n- May 2025 NVIDIA NVLink Fusion integration — hyperscalers can build custom XPUs that talk directly to NVIDIA GPUs via NVLink using Astera silicon\n- Market cap $55-56B (May 2026), trading 50-60x forward sales — *premium proxy on the bottleneck rotation thesis*\n\n**Marvell (MRVL).** Two pillars: custom AI silicon (AWS Trainium 2/3, MS Maia) + optical DSP (Inphi heritage, Nova 2 = industry's first 1.6T DSP).\n- FY26 revenue ~$8.2B (+42% YoY); data center revenue >$6B (+46%)\n- FY27 guidance: revenue >+30% to ~$11B; data center +40%\n- FY28 guidance: ~$15B; \"second tier-1 hyperscaler XPU ramping\"\n- Broadcom + Marvell = ~95% of custom ASIC market\n\n**Arista (ANET).** The Ethernet-vs-InfiniBand bet. Leads Ultra Ethernet Consortium.\n- FY25 revenue $9.0B (+28.6%), first-ever $1B quarterly net income in Q4\n- **FY26 AI networking target doubled to $3.25B** (from prior $1.5B)\n- Meta + Microsoft = 40-48% of revenue\n- Meta chose Arista 7700R4 for its largest Ethernet AI cluster",
+        },
+        {
+          type: "chart",
+          chart: {
+            id: "optical-mix",
+            title: "Lumentum 매출 mix 변화 (Telecom → AI/DC, FY22-FY26, $B)",
+            titleEn: "Lumentum Revenue Mix Shift (Telecom → AI/DC, FY22-FY26, $B)",
+            caption:
+              "출처: Lumentum 분기 earnings (SEC 8-K), Cloud Light 인수 (2023.11). FY22의 telecom 중심 매출이 FY26 DC 60%+ 로 완전 재편. 이게 \"광 사이클이 통신 사이클에서 AI 사이클로 옮겨간\" 정량 증거.",
+            captionEn:
+              "Source: Lumentum quarterly earnings (SEC 8-K), Cloud Light acquisition (Nov 2023). FY22's telecom-dominated mix completely reshaped to DC 60%+ by FY26. Quantitative proof that 'the optical cycle shifted from telecom to AI'.",
+            data: [
+              { fy: "FY22", dc: 0.30, telecom: 1.10, industrial: 0.20 },
+              { fy: "FY23", dc: 0.40, telecom: 0.95, industrial: 0.18 },
+              { fy: "FY24", dc: 0.65, telecom: 0.75, industrial: 0.15 },
+              { fy: "FY25", dc: 1.00, telecom: 0.50, industrial: 0.15 },
+              { fy: "FY26E", dc: 1.80, telecom: 0.45, industrial: 0.15 },
+            ],
+          },
+        },
+      ],
+    },
+    {
+      heading: "CXL과 PCIe Gen6/7 — Astera Labs가 쥔 두 번째 병목",
+      headingEn: "CXL and PCIe Gen 6/7 — Astera's Second Bottleneck",
+      blocks: [
+        {
+          type: "text",
+          body: "광이 첫 번째 다음 병목이라면, **CXL(Compute Express Link) 과 PCIe Gen6/Gen7 retimer가 두 번째 병목** 이다.\n\n구조적 이유. AI 서버 내부에서 GPU-CPU-메모리-storage가 PCIe로 통신한다. PCIe Gen5 (32 Gb/s)에서 Gen6 (64 Gb/s)으로 갈 때, copper trace 거리가 절반으로 줄어든다. 즉, *retimer 없이는 신호가 충분히 멀리 도달하지 못한다* . Astera Labs의 Aries 6가 시장에서 유일한 양산 Gen6 retimer다.\n\nCXL은 memory pooling/sharing 기술. 여러 서버가 메모리 풀을 공유. CXL 1.0 (2019) → 2.0 (2020) → 3.0 (2022) → 3.1 (2024). **CXL 4.0이 2025년 11월 18일 발표** , PCIe Gen7 위에서 동작. 2025년부터 새 서버의 90%+가 CXL 가능. *2026년이 multi-rack memory pool의 첫 본격 deployment 해* .\n\nWhy this matters: CXL이 작동하면 — *데이터센터 전체의 메모리를 풀로 공유* 할 수 있다. HBM은 비싸지만 한정. CXL을 통해 외부 DRAM을 GPU가 접근 가능하면, AI 모델 학습 시 메모리 제약이 풀린다. *Astera가 그 가능을 만드는 silicon을 만든다* .\n\n그래서 Astera의 매출 trajectory가 그대로 \"AI 사이클의 두 번째 병목 해소 속도\" 의 proxy다.",
+          bodyEn:
+            "If optical is the first next-bottleneck, **CXL (Compute Express Link) and PCIe Gen6/Gen7 retimers are the second**.\n\nStructural reason. Inside AI servers, GPU-CPU-memory-storage communicate over PCIe. Going from PCIe Gen5 (32 Gb/s) to Gen6 (64 Gb/s) halves the reachable copper trace distance. *Without a retimer, the signal doesn't reach far enough*. Astera Labs' Aries 6 is the only Gen6 retimer in volume production.\n\nCXL is memory pooling/sharing technology. Multiple servers share memory pools. CXL 1.0 (2019) → 2.0 (2020) → 3.0 (2022) → 3.1 (2024). **CXL 4.0 announced Nov 18, 2025**, running on PCIe Gen7. From 2025, 90%+ of new servers are CXL-capable. *2026 is the first real deployment year of multi-rack memory pools*.\n\nWhy this matters: when CXL works — *the entire data center's memory can be shared as a pool*. HBM is expensive and limited. If CXL lets GPUs access external DRAM, training memory constraints relax. *Astera makes the silicon that enables this*.\n\nSo Astera's revenue trajectory is the direct proxy for \"how fast AI's second bottleneck is unclogging.\"",
+        },
+        {
+          type: "chart",
+          chart: {
+            id: "cxl-adoption",
+            title: "PCIe Gen5 → Gen6 → Gen7 채택률 (신규 서버 deployment %)",
+            titleEn: "PCIe Gen5 → Gen6 → Gen7 Adoption (% of New Server Deployments)",
+            caption:
+              "출처: ServeTheHome, SemiAnalysis, AsteraLabs IR. CXL 4.0 발표 (2025.11.18), Gen7 첫 사양 출시. 2026 Gen6 본격 deployment, 2027 Gen7 시작. Astera Aries 6가 시장 단독 양산.",
+            captionEn:
+              "Sources: ServeTheHome, SemiAnalysis, Astera Labs IR. CXL 4.0 announced Nov 18, 2025, Gen7 first spec released. 2026 Gen6 broad deployment; 2027 Gen7 starts. Astera Aries 6 is the only Gen6 retimer in volume.",
+            data: [
+              { year: "2024", Gen5: 80, Gen6: 15, Gen7: 0 },
+              { year: "2025", Gen5: 60, Gen6: 35, Gen7: 5 },
+              { year: "2026", Gen5: 35, Gen6: 55, Gen7: 10 },
+              { year: "2027", Gen5: 15, Gen6: 60, Gen7: 25 },
+              { year: "2028", Gen5: 5,  Gen6: 50, Gen7: 45 },
+            ],
+          },
+        },
+      ],
+    },
+    {
+      heading: "한국 — 광에서는 직접 베타가 약하다 (그러나)",
+      headingEn: "Korea — Direct Optical Beta Is Weak (But)",
+      blocks: [
+        {
+          type: "text",
+          body: "솔직하게 — *한국은 광에서 직접 베타가 약하다* . 한국의 반도체 DNA는 메모리(DRAM/NAND/HBM)이지, III-V 반도체(InP/GaAs)가 아니다. EML/InP 공급망은 일본·미국·유럽이 강세 (Mitsubishi, Sumitomo, Lumentum, Coherent). 한국 fab(SK siltron, DB HiTek)은 InP 캐파가 없다.\n\n한국 상장 광 종목 (대부분 소형주):\n- **오이솔루션 (OE Solutions, 138080)** — 한국 최대 datacom 트랜시버 pure-play. 2024 매출 -30.4% (3인치 InP 사이클 저점) → 2025 매출 **+79.2%** to ~₩57.3B (800G/1.6T pull-in). 2026.5 1.6T+CPO 로드맵 발표.\n- **옵티코어 (Opticore)** — 2025.12 ₩4.0B 400G/800G AI DC 트랜시버 공급 계약 (전년 매출의 17.2%).\n- **빛과전자 (BNE Technology)** — 800G/1.6T 퀄 마무리, **2H 2026 매출 inflection 예상** .\n- **라이콤 (Lightcom)** — optical amplifier, fiber laser. AI DC 직접성 낮음.\n- **RFHIC** — GaN PA + photonics package facility 투자 발표 (2026.5).\n\n*그러나 한국이 진짜 이기는 곳은 광이 아니라 HBM이다* (Memo 4 참조). 한국 투자자가 광에 노출하려면 — 미국 LITE/COHR/ALAB/MRVL/ANET을 직접 사는 것이 정직한 답.\n\n한국이 *간접적으로* 광에 영향받는 두 가지 경로:\n1. **SK하이닉스 HBM이 더 잘 팔리려면** — 광이 빨리 풀려야 한다 (광이 막히면 데이터센터 클러스터를 확장 못함 → HBM 수요 둔화).\n2. **삼성 Silicon Photonics 2028 양산 로드맵** — 2027 launch / 2028 mass production. CMM-D (CXL 3.1) memory module을 OCP Global Summit 2025.10에서 공개. 성공하면 한국이 5년 후에 광 직접 베타를 만든다.\n\n지금은 — *한국 광 베타는 SK하이닉스 HBM의 함수* 로 보는 게 가장 정확하다.",
+          bodyEn:
+            "Honestly — *Korea has weak direct beta in optical*. Korea's semiconductor DNA is memory (DRAM/NAND/HBM), not III-V (InP/GaAs). EML/InP supply chains favor Japan, US, Europe (Mitsubishi, Sumitomo, Lumentum, Coherent). Korean fabs (SK siltron, DB HiTek) lack InP capacity.\n\nKorean listed optical names (mostly small caps):\n- **OE Solutions (138080)** — Korea's biggest datacom transceiver pure-play. 2024 revenue -30.4% (3-inch InP cycle bottom) → 2025 revenue **+79.2%** to ~₩57.3B (800G/1.6T pull-in). 1.6T+CPO roadmap announced May 2026.\n- **Opticore** — Dec 2025: ₩4.0B 400G/800G AI DC transceiver supply contract (17.2% of prior year revenue).\n- **BNE Technology** — 800G/1.6T qualification ending; **revenue inflection expected H2 2026**.\n- **Lightcom** — optical amplifiers, fiber laser. Less direct AI DC exposure.\n- **RFHIC** — GaN PA + photonics package facility investment announced (May 2026).\n\n*But Korea's real win is not optical — it's HBM* (see Memo 4). Korean investors wanting optical exposure: honest answer is to buy LITE/COHR/ALAB/MRVL/ANET directly in the US market.\n\nTwo *indirect* paths by which Korea benefits from optical:\n1. **For SK Hynix HBM to sell more** — optical must unclog (if optical bottlenecks, data center clusters can't expand → HBM demand softens).\n2. **Samsung Silicon Photonics 2028 mass production roadmap** — 2027 launch / 2028 mass production. Samsung showed CMM-D (CXL 3.1) memory module at OCP Global Summit Oct 2025. If successful, Korea creates a direct optical beta 5 years out.\n\nFor now — *Korean optical beta is most accurately viewed as a function of SK Hynix HBM*.",
+        },
+      ],
+    },
+    {
+      heading: "결론 — 다음 병목을 누가 쥐는가",
+      headingEn: "Conclusion — Who Holds the Next Bottleneck",
+      blocks: [
+        {
+          type: "text",
+          body: "이 메모의 단일 명제는 단순하다 — **사이클의 끝에서 부자가 되는 건 주인공이 아니라 다음 병목을 쥔 자다** .\n\n1849 골드러시에서 부자는 광부가 아니라 Levi Strauss였다. 1990-2000 인터넷에서 부자는 Pets.com이 아니라 Corning과 Cisco였다 (단기적으로는 Lucent도 — 1편 Memo 참조). 2026 AI에서 — 다음 부자가 누구일지는 *이미 결정되고 있다* . 지표가 보인다.\n\n*첫째* , 광 트랜시버. Lumentum, Coherent — 둘 다 1년 전 예상보다 빠르게 매출 ramp. 800G → 1.6T 전환이 2026-27 핵심. **Coherent CEO의 \"orders extend through 2028\"** 발언이 사이클의 4-5년 가시성을 시사.\n\n*둘째* , CXL/PCIe retimer. Astera Labs가 시장 단독 양산 Gen6 retimer. 매출이 분기마다 +100%+. NVIDIA NVLink Fusion 통합으로 \"hyperscaler custom XPU + NVDA GPU 하이브리드\" 의 핵심 silicon.\n\n*셋째* , custom ASIC silicon. Marvell + Broadcom이 합쳐 95% 점유. Marvell이 FY26 \\$6B → FY28 \\$15B (\"second tier-1 XPU 진입\") 가이던스를 제시.\n\n*넷째* , Ethernet 네트워킹. Arista가 Ultra Ethernet Consortium을 주도하며, AI 네트워킹 가이던스를 2배 상향. NVIDIA InfiniBand vs Ethernet 사이의 architectural 전쟁의 다음 단계.\n\n이 4개의 베네피셔리는 *NVDA보다 valuation 부담이 적으면서* — NVDA보다 *오래* 사이클을 탈 수 있다. *광 사이클은 GPU 사이클보다 2-4분기 lag* 다. GPU 사이클이 peak를 친 후에도, 광 사이클은 그 quarter들 더 ramp 한다 (Coherent의 \"orders through 2028\" 가 그 증거).\n\n한국 시각에서: 직접 노출은 약하지만 — *SK하이닉스의 HBM 매출이 광 사이클에 함수* 다. 광이 막히면 클러스터를 확장 못 하고, HBM도 안 팔린다. 그래서 한국 투자자도 — *Lumentum/Coherent/Astera의 분기 매출을 SK하이닉스의 leading indicator* 로 봐야 한다.\n\n*NVIDIA가 GPU 사이클의 NVIDIA였다면, Lumentum이 광 사이클의 NVIDIA가 될 수 있다. 단, GPU 사이클이 멈추기 전에* .",
+          bodyEn:
+            "The single proposition of this memo: **at the end of a cycle, the rich aren't the protagonists — they're the ones holding the next bottleneck**.\n\nIn 1849 the rich were Levi Strauss, not the miners. In the 1990s-2000s internet, the rich were Corning and Cisco, not Pets.com (short-term Lucent too — see Memo 1). In 2026 AI — the next rich are *already being decided*. The indicators show.\n\n*First*, optical transceivers. Lumentum, Coherent — both ramping faster than expected a year ago. The 800G → 1.6T transition is the 2026-27 core. **Coherent CEO's \"orders extend through 2028\"** signals 4-5 years of cycle visibility.\n\n*Second*, CXL/PCIe retimers. Astera Labs is the only Gen6 retimer in volume. Quarterly revenue growth +100%+. NVIDIA NVLink Fusion integration makes Astera the key silicon for \"hyperscaler custom XPU + NVDA GPU hybrid.\"\n\n*Third*, custom ASIC silicon. Marvell + Broadcom = 95% combined share. Marvell guides FY26 $6B → FY28 $15B (\"second tier-1 XPU entering\").\n\n*Fourth*, Ethernet networking. Arista leads Ultra Ethernet Consortium, doubled AI networking guidance. The next stage of the architectural war between NVIDIA InfiniBand and Ethernet.\n\nThese four beneficiaries carry *less valuation burden than NVDA* — and can ride the cycle *longer* than NVDA. *The optical cycle lags the GPU cycle by 2-4 quarters*. Even after GPU peaks, optical can ramp for those quarters (Coherent's \"orders through 2028\" is the evidence).\n\nFrom the Korean view: direct exposure is weak — but *SK Hynix HBM revenue is a function of the optical cycle*. If optical bottlenecks, clusters can't expand, and HBM doesn't sell. So Korean investors should also — *use Lumentum/Coherent/Astera quarterly revenue as a leading indicator for SK Hynix*.\n\n*If NVIDIA was the NVIDIA of the GPU cycle, Lumentum may become the NVIDIA of the optical cycle. Just — before the GPU cycle stops.*",
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "insight",
+            heading: "다음 메모 — 와트가 칩을 이긴 날 (이미 발행)",
+            headingEn: "Next Memo — When Watts Beat Chips (already published)",
+            body: "Memo 6에서 — 광까지 풀려도 결국 막히는 것이 전력이라는 것을 본다. AI 사이클의 결정변수가 칩에서 광으로, 광에서 와트로 이동하는 마지막 단계.",
+            bodyEn:
+              "Memo 6 examines how even when optical unclogs, what ultimately bottlenecks is power. The last stage where the binding variable moves from chips to optics to watts.",
+          },
+        },
+      ],
+    },
+  ],
+  references: [
+    { id: 1, author: "Lumentum Holdings", title: "Q2 FY26 8-K Earnings Release", source: "SEC EDGAR", year: "2026", url: "https://www.sec.gov/Archives/edgar/data/0001633978/000162828026005005/lite_ex991xq2fy26.htm" },
+    { id: 2, author: "Coherent Corp", title: "FY26 Quarterly Filings", source: "SEC EDGAR", year: "2025-2026", url: "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000820318" },
+    { id: 3, author: "Astera Labs", title: "S-1 IPO Filing (Feb 2024) + subsequent 10-Q", source: "SEC EDGAR", year: "2024-2026", url: "https://www.sec.gov/Archives/edgar/data/0001736297/000119312524040419/d285484ds1.htm" },
+    { id: 4, author: "Marvell Technology", title: "Q1 FY27 8-K Earnings Release", source: "SEC EDGAR", year: "2026", url: "https://www.sec.gov/Archives/edgar/data/0001835632/000183563226000014/q127_8kx522026ex-991.htm" },
+    { id: 5, author: "Arista Networks", title: "Q4 FY25 8-K Earnings Release", source: "SEC EDGAR", year: "2025", url: "https://www.sec.gov/Archives/edgar/data/0001596532/000159653225000018/ex991q424-earningsrelease.htm" },
+    { id: 6, author: "NVIDIA Corporation", title: "GTC 2025 Keynote — Spectrum-X / Quantum-X CPO Photonics", source: "NVIDIA", year: "2025-03", url: "https://nvidianews.nvidia.com/news/nvidia-announces-spectrum-x-photonics-co-packaged-optics-networking-switches-to-scale-ai-factories-to-millions-of-gpus" },
+    { id: 7, author: "LightCounting Market Research", title: "March 2025 — NVIDIA CPO is the First Step in a Long Journey", source: "LightCounting", year: "2025", url: "https://www.lightcounting.com/research-note/march-2025-nvidias-cpo-is-the-first-step-in-a-long-journey-395" },
+    { id: 8, author: "LightCounting Market Research", title: "March 2026 — Ethernet Optics ($100B by 2030)", source: "LightCounting", year: "2026", url: "https://www.lightcounting.com/newsletter/en/march-2026-ethernet-optics-382" },
+    { id: 9, author: "Cignal AI", title: "800GbE Optics Shipments to Grow 60% in 2025", source: "Cignal AI", year: "2025", url: "https://cignal.ai/2025/05/800gbe-optics-shipments-to-grow-60-in-2025/" },
+    { id: 10, author: "Ultra Ethernet Consortium", title: "Specification + ESUN scale-up workstream", source: "UEC / Linux Foundation", year: "2023-2025", url: "https://ultraethernet.org/" },
+    { id: 11, author: "Astera Labs / NVIDIA", title: "Expanded NVLink Fusion ecosystem integration (May 2025)", source: "Astera Labs Press Release", year: "2025-05", url: "https://www.asteralabs.com/news/astera-labs-expands-collaboration-with-nvidia-to-advance-nvlink-fusion-ecosystem/" },
+    { id: 12, author: "OE Solutions / 더벨 / 머니투데이", title: "한국 광 부품 회복 2025-26 (오이솔루션 +79%)", source: "한국 언론 / IR", year: "2025-2026", url: "https://www.mt.co.kr/stock/2026/05/08/2026050814134942456" },
+  ],
+};
+
+export const ALL_NOTES: NoteData[] = [koreaDiscount, dollarHegemony1, dollarHegemony2, dollarHegemony3, dollarHegemony4, aiCycle1, aiCycle2, aiCycle3, aiCycle4, aiCycle5, aiCycle6];
