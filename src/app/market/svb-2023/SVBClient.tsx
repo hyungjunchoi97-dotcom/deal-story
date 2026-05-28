@@ -329,7 +329,7 @@ export default function SVBClient({
                       {ko ? row.labelKo : row.labelEn}
                     </p>
                     <p className="text-[14px] font-bold leading-snug text-gray-900 dark:text-gray-100">
-                      {row.value}
+                      {ko ? row.value : (row.valueEn ?? row.value)}
                     </p>
                   </motion.div>
                 ))}

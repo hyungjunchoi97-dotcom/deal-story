@@ -372,7 +372,7 @@ function StatsCallout({ ko }: { ko: boolean }) {
       border: "border-emerald-200 dark:border-emerald-700",
     },
     {
-      val: "14년+",
+      val: ko ? "14년+" : "14+ years",
       label: ko ? "디폴트 없이 유지 중 (2024 기준)" : "Without default (as of 2024)",
       color: "text-green-600 dark:text-green-400",
       bg: "bg-green-50 dark:bg-green-900/20",
@@ -521,7 +521,7 @@ export default function MexicoCenturyClient({
                       {ko ? row.labelKo : row.labelEn}
                     </span>
                     <span className="text-[12px] font-semibold text-right leading-snug text-gray-800 dark:text-gray-200">
-                      {row.value}
+                      {ko ? row.value : (row.valueEn ?? row.value)}
                     </span>
                   </motion.div>
                 ))}

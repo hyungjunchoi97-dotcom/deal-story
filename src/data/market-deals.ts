@@ -19,6 +19,8 @@ export type DealSnapshotRow = {
   labelKo: string;
   labelEn: string;
   value: string;
+  /** 영문 페이지에서 사용할 값. 미지정 시 value 사용 (숫자·고유명사 등 언어 독립 값) */
+  valueEn?: string;
 };
 
 export type MarketDealFaq = {
@@ -106,10 +108,10 @@ export const ALL_MARKET_DEALS: MarketDeal[] = [
       { labelKo: "발행사", labelEn: "Issuer", value: "World Bank (IBRD)" },
       { labelKo: "발행연도", labelEn: "Year", value: "2008" },
       { labelKo: "발행규모", labelEn: "Size", value: "SEK 2.3B (~$440M)" },
-      { labelKo: "만기", labelEn: "Maturity", value: "6년" },
+      { labelKo: "만기", labelEn: "Maturity", value: "6년", valueEn: "6 years" },
       { labelKo: "주관사", labelEn: "Lead Manager", value: "SEB" },
       { labelKo: "등급", labelEn: "Rating", value: "AAA/Aaa" },
-      { labelKo: "의의", labelEn: "Significance", value: "세계 최초 그린본드" },
+      { labelKo: "의의", labelEn: "Significance", value: "세계 최초 그린본드", valueEn: "World's first green bond" },
     ],
     sections: [
       {
@@ -400,10 +402,10 @@ The lesson of World Bank 2008: with clear demand and a credible verification fra
       { labelKo: "발행연도", labelEn: "Year", value: "1997" },
       { labelKo: "발행규모", labelEn: "Size", value: "$55M" },
       { labelKo: "쿠폰", labelEn: "Coupon", value: "7.9%" },
-      { labelKo: "만기", labelEn: "Maturity", value: "10년" },
+      { labelKo: "만기", labelEn: "Maturity", value: "10년", valueEn: "10 years" },
       { labelKo: "주관사", labelEn: "Lead Manager", value: "Fahnestock & Co." },
       { labelKo: "투자자", labelEn: "Investor", value: "Prudential Insurance" },
-      { labelKo: "담보", labelEn: "Collateral", value: "25개 앨범 로열티 (~287곡)" },
+      { labelKo: "담보", labelEn: "Collateral", value: "25개 앨범 로열티 (~287곡)", valueEn: "25 album royalties (~287 songs)" },
     ],
     sections: [
       {
@@ -683,7 +685,7 @@ Bowie Bonds was a creative and pioneering deal. But the most important lesson is
       { labelKo: "총 규모", labelEn: "Total Program", value: "€800B+ (NGEU)" },
       { labelKo: "SURE 규모", labelEn: "SURE Program", value: "€100B" },
       { labelKo: "등급", labelEn: "Rating", value: "AAA/Aaa" },
-      { labelKo: "의의", labelEn: "Significance", value: "유럽 최초 공동부채" },
+      { labelKo: "의의", labelEn: "Significance", value: "유럽 최초 공동부채", valueEn: "Europe's first joint debt" },
     ],
     sections: [
       {
@@ -960,10 +962,10 @@ The evolution of EU joint debt is also a measure of the depth of European integr
       { labelKo: "발행사", labelEn: "Issuer", value: "Republic of Argentina" },
       { labelKo: "발행연도", labelEn: "Year", value: "June 2017" },
       { labelKo: "발행규모", labelEn: "Size", value: "$2.75B" },
-      { labelKo: "만기", labelEn: "Maturity", value: "100년 (2117)" },
+      { labelKo: "만기", labelEn: "Maturity", value: "100년 (2117)", valueEn: "100 years (2117)" },
       { labelKo: "쿠폰", labelEn: "Coupon", value: "7.125%" },
       { labelKo: "오더북", labelEn: "Orderbook", value: "$9.75B (3.5x)" },
-      { labelKo: "디폴트", labelEn: "Default", value: "2020 (9번째)" },
+      { labelKo: "디폴트", labelEn: "Default", value: "2020 (9번째)", valueEn: "2020 (9th default)" },
     ],
     sections: [
       {
@@ -1221,8 +1223,8 @@ Third: the implications of 100 years. A century bond is fundamentally a bet on t
     snapshot: [
       { labelKo: "발행사", labelEn: "Issuer", value: "Republic of Austria" },
       { labelKo: "발행연도", labelEn: "Year", value: "Sept 2017" },
-      { labelKo: "발행규모", labelEn: "Size", value: "€3.5B (총 tap 포함)" },
-      { labelKo: "만기", labelEn: "Maturity", value: "100년 (2117)" },
+      { labelKo: "발행규모", labelEn: "Size", value: "€3.5B (총 tap 포함)", valueEn: "€3.5B (incl. taps)" },
+      { labelKo: "만기", labelEn: "Maturity", value: "100년 (2117)", valueEn: "100 years (2117)" },
       { labelKo: "쿠폰", labelEn: "Coupon", value: "2.1%" },
       { labelKo: "등급", labelEn: "Rating", value: "AA+/Aa1" },
       { labelKo: "최고가", labelEn: "Peak Price", value: "230 (2020)" },
@@ -1522,7 +1524,7 @@ Key lessons from Austria's century bond:
       { labelKo: "발행사", labelEn: "Issuer", value: "United Mexican States" },
       { labelKo: "발행연도", labelEn: "Year", value: "Oct 2010" },
       { labelKo: "발행규모", labelEn: "Size", value: "$1B" },
-      { labelKo: "만기", labelEn: "Maturity", value: "100년 (2110)" },
+      { labelKo: "만기", labelEn: "Maturity", value: "100년 (2110)", valueEn: "100 years (2110)" },
       { labelKo: "쿠폰", labelEn: "Coupon", value: "5.75%" },
       { labelKo: "발행 스프레드", labelEn: "Issue Spread", value: "T+175bp" },
       { labelKo: "주관사", labelEn: "Lead Managers", value: "Barclays, Deutsche Bank, HSBC" },
@@ -2075,10 +2077,10 @@ Korea's 1998 deal is not simply a survival story. It is a template for how a sov
       { labelKo: "발행사", labelEn: "Issuer", value: "Credit Suisse Group AG" },
       { labelKo: "사건 일자", labelEn: "Event Date", value: "19 March 2023" },
       { labelKo: "AT1 상각 규모", labelEn: "AT1 Written Down", value: "CHF 16B ($17B)" },
-      { labelKo: "주주 수령액", labelEn: "Equity Recovery", value: "CHF 3B (UBS 주식)" },
+      { labelKo: "주주 수령액", labelEn: "Equity Recovery", value: "CHF 3B (UBS 주식)", valueEn: "CHF 3B (UBS shares)" },
       { labelKo: "인수자", labelEn: "Acquirer", value: "UBS Group AG" },
-      { labelKo: "트리거", labelEn: "Trigger", value: "PONV (FINMA 결정)" },
-      { labelKo: "의의", labelEn: "Significance", value: "자본구조 위계 역전" },
+      { labelKo: "트리거", labelEn: "Trigger", value: "PONV (FINMA 결정)", valueEn: "PONV (FINMA decision)" },
+      { labelKo: "의의", labelEn: "Significance", value: "자본구조 위계 역전", valueEn: "Capital structure hierarchy inverted" },
     ],
     sections: [
       {
@@ -2350,10 +2352,10 @@ The AT1 primary market reopened after this event. Investors keep coming because 
     snapshot: [
       { labelKo: "발행사", labelEn: "Issuer", value: "Deutsche Bank AG" },
       { labelKo: "사건연도", labelEn: "Year", value: "Jan–Feb 2016" },
-      { labelKo: "이슈", labelEn: "Issue", value: "ADI 부족 → AT1 쿠폰 미지급 공포" },
+      { labelKo: "이슈", labelEn: "Issue", value: "ADI 부족 → AT1 쿠폰 미지급 공포", valueEn: "Insufficient ADI → AT1 coupon non-payment fear" },
       { labelKo: "주가 낙폭", labelEn: "Stock Decline", value: "~30% (Jan 2016)" },
-      { labelKo: "AT1 가격 낙폭", labelEn: "AT1 Price Drop", value: "~100→70 (일부)" },
-      { labelKo: "결과", labelEn: "Outcome", value: "전액 쿠폰 지급 (공포 해소)" },
+      { labelKo: "AT1 가격 낙폭", labelEn: "AT1 Price Drop", value: "~100→70 (일부)", valueEn: "~100→70 (partial)" },
+      { labelKo: "결과", labelEn: "Outcome", value: "전액 쿠폰 지급 (공포 해소)", valueEn: "Full coupon paid (fear resolved)" },
     ],
     sections: [
       {
@@ -2632,10 +2634,10 @@ History repeats. But each iteration tends to be more severe.`,
     snapshot: [
       { labelKo: "발행사", labelEn: "Issuer", value: "Banco Santander S.A." },
       { labelKo: "사건일", labelEn: "Event Date", value: "12 February 2019" },
-      { labelKo: "해당 채권", labelEn: "Bond", value: "€1.5B 6.25% AT1 (2014 발행)" },
+      { labelKo: "해당 채권", labelEn: "Bond", value: "€1.5B 6.25% AT1 (2014 발행)", valueEn: "€1.5B 6.25% AT1 (issued 2014)" },
       { labelKo: "첫 콜 날짜", labelEn: "First Call Date", value: "12 February 2019" },
-      { labelKo: "결정", labelEn: "Decision", value: "콜 미행사 (No-Call)" },
-      { labelKo: "리셋 쿠폰", labelEn: "Reset Coupon", value: "5.435% (하락)" },
+      { labelKo: "결정", labelEn: "Decision", value: "콜 미행사 (No-Call)", valueEn: "No-Call (call not exercised)" },
+      { labelKo: "리셋 쿠폰", labelEn: "Reset Coupon", value: "5.435% (하락)", valueEn: "5.435% (lower)" },
     ],
     sections: [
       {
@@ -2927,10 +2929,10 @@ This is not an AT1-specific issue. Many market 'conventions' depend not on contr
     tagsEn: ["Covered Bond", "Pfandbrief", "Germany", "Dual Recourse", "Structured"],
     published: true,
     snapshot: [
-      { labelKo: "기원", labelEn: "Origin", value: "1769 (프리드리히 대왕)" },
+      { labelKo: "기원", labelEn: "Origin", value: "1769 (프리드리히 대왕)", valueEn: "1769 (Frederick the Great)" },
       { labelKo: "현재 잔액", labelEn: "Current Outstanding", value: "€400B+" },
-      { labelKo: "구조", labelEn: "Structure", value: "이중청구권 (Dual Recourse)" },
-      { labelKo: "등급", labelEn: "Rating", value: "주로 AAA" },
+      { labelKo: "구조", labelEn: "Structure", value: "이중청구권 (Dual Recourse)", valueEn: "Dual Recourse" },
+      { labelKo: "등급", labelEn: "Rating", value: "주로 AAA", valueEn: "Mostly AAA" },
     ],
     sections: [
       {
@@ -3162,7 +3164,7 @@ In South Korea, a Covered Bond Act was passed in 2014, and domestic banks increa
       { labelKo: "발행사", labelEn: "Issuer", value: "Federal Republic of Germany" },
       { labelKo: "기간", labelEn: "Period", value: "2016–2019" },
       { labelKo: "최저 수익률", labelEn: "Lowest Yield", value: "-0.71% (2019)" },
-      { labelKo: "잔액 (최대)", labelEn: "Peak Outstanding", value: "~$17T 글로벌 음수익률채" },
+      { labelKo: "잔액 (최대)", labelEn: "Peak Outstanding", value: "~$17T 글로벌 음수익률채", valueEn: "~$17T global negative-yield bonds" },
     ],
     sections: [
       {
@@ -3409,8 +3411,8 @@ Ultimately, the negative yield era proved how fragile the assumption that 'bond 
     tagsEn: ["Formosa", "Taiwan", "ALM", "Call Option", "Extension Risk"],
     published: true,
     snapshot: [
-      { labelKo: "시장", labelEn: "Market", value: "대만 (TWD/USD)" },
-      { labelKo: "주요 수요층", labelEn: "Key Buyers", value: "대만 보험사 (ALM)" },
+      { labelKo: "시장", labelEn: "Market", value: "대만 (TWD/USD)", valueEn: "Taiwan (TWD/USD)" },
+      { labelKo: "주요 수요층", labelEn: "Key Buyers", value: "대만 보험사 (ALM)", valueEn: "Taiwanese insurers (ALM)" },
       { labelKo: "전성기", labelEn: "Peak", value: "2013–2018" },
     ],
     sections: [
@@ -3642,8 +3644,8 @@ After 2020, new Formosa bond issuance plummeted. Global AT1 and Tier 2 issuance 
     tagsEn: ["Panda Bond", "Samurai Bond", "China", "Japan", "Geopolitics"],
     published: true,
     snapshot: [
-      { labelKo: "시장 1", labelEn: "Market 1", value: "판다본드 (CNY, 중국 역내)" },
-      { labelKo: "시장 2", labelEn: "Market 2", value: "사무라이본드 (JPY, 일본)" },
+      { labelKo: "시장 1", labelEn: "Market 1", value: "판다본드 (CNY, 중국 역내)", valueEn: "Panda bonds (CNY, onshore China)" },
+      { labelKo: "시장 2", labelEn: "Market 2", value: "사무라이본드 (JPY, 일본)", valueEn: "Samurai bonds (JPY, Japan)" },
     ],
     sections: [
       {
@@ -4117,7 +4119,7 @@ The lesson from Aramco's bond experience: transparency (financial disclosure) lo
       { labelKo: "발행사", labelEn: "Issuer", value: "Verizon Communications" },
       { labelKo: "발행연도", labelEn: "Year", value: "2013" },
       { labelKo: "발행규모", labelEn: "Size", value: "$49B" },
-      { labelKo: "목적", labelEn: "Purpose", value: "Vodafone 지분 인수 자금" },
+      { labelKo: "목적", labelEn: "Purpose", value: "Vodafone 지분 인수 자금", valueEn: "Vodafone stake acquisition financing" },
     ],
     sections: [
       {
@@ -4360,7 +4362,7 @@ Verizon's true legacy was changing the psychological ceiling of 'what size is po
       { labelKo: "첫 발행", labelEn: "First Issue", value: "2013" },
       { labelKo: "누적 발행", labelEn: "Cumulative Issuance", value: "$100B+" },
       { labelKo: "등급", labelEn: "Rating", value: "Aaa/AAA" },
-      { labelKo: "목적", labelEn: "Purpose", value: "자사주매입·배당 재원 (세금 회피)" },
+      { labelKo: "목적", labelEn: "Purpose", value: "자사주매입·배당 재원 (세금 회피)", valueEn: "Buybacks & dividends (tax avoidance)" },
     ],
     sections: [
       {
@@ -4609,10 +4611,10 @@ Through the 2020s, Apple continued issuing $10–20 billion annually. The purpos
     published: true,
     snapshot: [
       { labelKo: "발행사", labelEn: "Issuer", value: "Republic of Argentina" },
-      { labelKo: "디폴트 연도", labelEn: "Default Year", value: "2001년 12월" },
-      { labelKo: "디폴트 규모", labelEn: "Default Size", value: "$1,000억+ (당시 역사상 최대)" },
+      { labelKo: "디폴트 연도", labelEn: "Default Year", value: "2001년 12월", valueEn: "December 2001" },
+      { labelKo: "디폴트 규모", labelEn: "Default Size", value: "$1,000억+ (당시 역사상 최대)", valueEn: "$100B+ (largest ever at the time)" },
       { labelKo: "채권교환 참여율", labelEn: "Exchange Participation", value: "93% (2005+2010)" },
-      { labelKo: "합의·해결", labelEn: "Resolution", value: "2016년 $46억 지급" },
+      { labelKo: "합의·해결", labelEn: "Resolution", value: "2016년 $46억 지급", valueEn: "$4.6B settlement in 2016" },
       { labelKo: "엘리엇 수익률", labelEn: "Elliott Return", value: "~1,500%" },
     ],
     executiveSummary: {
@@ -4709,11 +4711,11 @@ Through the 2020s, Apple continued issuing $10–20 billion annually. The purpos
     published: true,
     snapshot: [
       { labelKo: "발행사", labelEn: "Issuer", value: "Hellenic Republic (Greece)" },
-      { labelKo: "재조정 완료", labelEn: "Completion", value: "2012년 3월" },
+      { labelKo: "재조정 완료", labelEn: "Completion", value: "2012년 3월", valueEn: "March 2012" },
       { labelKo: "명목 헤어컷", labelEn: "Nominal Haircut", value: "53.5%" },
       { labelKo: "NPV 손실", labelEn: "NPV Loss", value: "~75%" },
-      { labelKo: "재조정 규모", labelEn: "Bonds Restructured", value: "€2,060억" },
-      { labelKo: "CAC 소급 적용", labelEn: "CAC Retrofitted", value: "95.7% 참여 강제" },
+      { labelKo: "재조정 규모", labelEn: "Bonds Restructured", value: "€2,060억", valueEn: "€206B" },
+      { labelKo: "CAC 소급 적용", labelEn: "CAC Retrofitted", value: "95.7% 참여 강제", valueEn: "95.7% forced participation" },
     ],
     executiveSummary: {
       ko: [
@@ -4808,12 +4810,12 @@ Through the 2020s, Apple continued issuing $10–20 billion annually. The purpos
     tagsEn: ["China", "Real Estate", "Dollar Bond", "Default", "EM", "Evergrande"],
     published: true,
     snapshot: [
-      { labelKo: "사건 시작", labelEn: "Trigger", value: "2020년 8월 Three Red Lines" },
-      { labelKo: "Evergrande 총부채", labelEn: "Evergrande Total Debt", value: "$3,000억+" },
-      { labelKo: "역외 달러채 디폴트", labelEn: "Offshore USD Bond Defaults", value: "$1,000억+" },
-      { labelKo: "Evergrande 역외 회수율", labelEn: "Evergrande Offshore Recovery", value: "~2~5센트" },
-      { labelKo: "디폴트 개발사", labelEn: "Defaulted Developers", value: "30개+ (2021~2024)" },
-      { labelKo: "현황", labelEn: "Status", value: "진행 중 (구조조정 継続)" },
+      { labelKo: "사건 시작", labelEn: "Trigger", value: "2020년 8월 Three Red Lines", valueEn: "August 2020 Three Red Lines" },
+      { labelKo: "Evergrande 총부채", labelEn: "Evergrande Total Debt", value: "$3,000억+", valueEn: "$300B+" },
+      { labelKo: "역외 달러채 디폴트", labelEn: "Offshore USD Bond Defaults", value: "$1,000억+", valueEn: "$100B+" },
+      { labelKo: "Evergrande 역외 회수율", labelEn: "Evergrande Offshore Recovery", value: "~2~5센트", valueEn: "~2-5 cents" },
+      { labelKo: "디폴트 개발사", labelEn: "Defaulted Developers", value: "30개+ (2021~2024)", valueEn: "30+ (2021-2024)" },
+      { labelKo: "현황", labelEn: "Status", value: "진행 중 (구조조정 継続)", valueEn: "Ongoing (restructuring continues)" },
     ],
     executiveSummary: {
       ko: [
@@ -4909,11 +4911,11 @@ Through the 2020s, Apple continued issuing $10–20 billion annually. The purpos
     tagsEn: ["ALM", "Bank Run", "HTM", "Rate Crisis", "US", "FDIC", "Startups"],
     published: true,
     snapshot: [
-      { labelKo: "은행 폐쇄일",        labelEn: "Closure Date",         value: "2023년 3월 10일" },
-      { labelKo: "총 자산",             labelEn: "Total Assets",          value: "$2,090억" },
-      { labelKo: "HTM 포트폴리오",      labelEn: "HTM Portfolio",         value: "$913억" },
-      { labelKo: "미실현 손실 (HTM)",   labelEn: "Unrealized Loss (HTM)", value: "–$152억" },
-      { labelKo: "하루 인출 시도액",    labelEn: "Single-Day Run",        value: "$420억" },
+      { labelKo: "은행 폐쇄일",        labelEn: "Closure Date",         value: "2023년 3월 10일", valueEn: "March 10, 2023" },
+      { labelKo: "총 자산",             labelEn: "Total Assets",          value: "$2,090억", valueEn: "$209B" },
+      { labelKo: "HTM 포트폴리오",      labelEn: "HTM Portfolio",         value: "$913억", valueEn: "$91.3B" },
+      { labelKo: "미실현 손실 (HTM)",   labelEn: "Unrealized Loss (HTM)", value: "–$152억", valueEn: "–$15.2B" },
+      { labelKo: "하루 인출 시도액",    labelEn: "Single-Day Run",        value: "$420억", valueEn: "$42B" },
       { labelKo: "무보험 예금 비율",    labelEn: "Uninsured Deposits",    value: "~94%" },
     ],
     sections: [],
@@ -5060,9 +5062,9 @@ Through the 2020s, Apple continued issuing $10–20 billion annually. The purpos
     snapshot: [
       { labelKo: "발행사", labelEn: "Issuer", value: "Goldman Sachs (ACA Management)" },
       { labelKo: "발행연도", labelEn: "Year", value: "2007" },
-      { labelKo: "발행규모", labelEn: "Size", value: "$2B (합성 노출)" },
-      { labelKo: "담보", labelEn: "Collateral", value: "90개 서브프라임 RMBS CDS" },
-      { labelKo: "포트폴리오 선정", labelEn: "Portfolio Selection", value: "Paulson & Co. (공개 안 됨)" },
+      { labelKo: "발행규모", labelEn: "Size", value: "$2B (합성 노출)", valueEn: "$2B (synthetic exposure)" },
+      { labelKo: "담보", labelEn: "Collateral", value: "90개 서브프라임 RMBS CDS", valueEn: "90 subprime RMBS CDS" },
+      { labelKo: "포트폴리오 선정", labelEn: "Portfolio Selection", value: "Paulson & Co. (공개 안 됨)", valueEn: "Paulson & Co. (not disclosed)" },
       { labelKo: "투자자 손실", labelEn: "Investor Loss", value: "~$1B (IKB·ACA)" },
       { labelKo: "Paulson 수익", labelEn: "Paulson Gain", value: "~$1B" },
       { labelKo: "SEC 합의금", labelEn: "SEC Settlement", value: "$550M (2010)" },
@@ -5290,12 +5292,12 @@ What Michael Burry, Paulson, and Steve Eisman in The Big Short recognized was no
     published: true,
     snapshot: [
       { labelKo: "발행사", labelEn: "Issuer", value: "Hertz Vehicle Financing LLC (SPV)" },
-      { labelKo: "파산 신청", labelEn: "Bankruptcy Filing", value: "2020년 5월 22일" },
-      { labelKo: "ABS 잔액", labelEn: "ABS Outstanding", value: "~$14B (파산 시점)" },
-      { labelKo: "기초자산", labelEn: "Collateral", value: "약 50만 대 렌터카 차량" },
-      { labelKo: "AAA 투자자 결과", labelEn: "AAA Investor Outcome", value: "전액 회수" },
-      { labelKo: "차량 담보 회수율", labelEn: "Vehicle Recovery Rate", value: "~90%+ (예상 대비 양호)" },
-      { labelKo: "파산 종결", labelEn: "Bankruptcy Exit", value: "2021년 6월 (재건)" },
+      { labelKo: "파산 신청", labelEn: "Bankruptcy Filing", value: "2020년 5월 22일", valueEn: "May 22, 2020" },
+      { labelKo: "ABS 잔액", labelEn: "ABS Outstanding", value: "~$14B (파산 시점)", valueEn: "~$14B (at bankruptcy)" },
+      { labelKo: "기초자산", labelEn: "Collateral", value: "약 50만 대 렌터카 차량", valueEn: "~500,000 rental cars" },
+      { labelKo: "AAA 투자자 결과", labelEn: "AAA Investor Outcome", value: "전액 회수", valueEn: "Full recovery" },
+      { labelKo: "차량 담보 회수율", labelEn: "Vehicle Recovery Rate", value: "~90%+ (예상 대비 양호)", valueEn: "~90%+ (better than expected)" },
+      { labelKo: "파산 종결", labelEn: "Bankruptcy Exit", value: "2021년 6월 (재건)", valueEn: "June 2021 (reorganized)" },
     ],
     sections: [
       {
@@ -5511,13 +5513,13 @@ Post-COVID ABS market: the Hertz case reconfirmed the robustness of ABS structur
     tagsEn: ["CMBS", "Office Real Estate", "Strategic Default", "Blackstone", "WFH", "Structured Finance"],
     published: true,
     snapshot: [
-      { labelKo: "사건", labelEn: "Event", value: "복수의 오피스 CMBS 디폴트" },
-      { labelKo: "대상 자산", labelEn: "Assets", value: "핀란드 오피스 포트폴리오, 미국 오피스 빌딩" },
+      { labelKo: "사건", labelEn: "Event", value: "복수의 오피스 CMBS 디폴트", valueEn: "Multiple office CMBS defaults" },
+      { labelKo: "대상 자산", labelEn: "Assets", value: "핀란드 오피스 포트폴리오, 미국 오피스 빌딩", valueEn: "Finnish office portfolio, US office buildings" },
       { labelKo: "규모 (핀란드)", labelEn: "Size (Finland)", value: "€531M CMBS" },
-      { labelKo: "발생 시점", labelEn: "Timing", value: "2023년 초~중반" },
-      { labelKo: "배경", labelEn: "Context", value: "재택근무 고착화 + 금리 급등" },
-      { labelKo: "LTV (디폴트 시점)", labelEn: "LTV at Default", value: ">100% (추정)" },
-      { labelKo: "시장 영향", labelEn: "Market Impact", value: "오피스 CMBS 스프레드 급등" },
+      { labelKo: "발생 시점", labelEn: "Timing", value: "2023년 초~중반", valueEn: "Early-to-mid 2023" },
+      { labelKo: "배경", labelEn: "Context", value: "재택근무 고착화 + 금리 급등", valueEn: "Entrenched remote work + rate spike" },
+      { labelKo: "LTV (디폴트 시점)", labelEn: "LTV at Default", value: ">100% (추정)", valueEn: ">100% (estimated)" },
+      { labelKo: "시장 영향", labelEn: "Market Impact", value: "오피스 CMBS 스프레드 급등", valueEn: "Office CMBS spreads spiked" },
     ],
     sections: [
       {

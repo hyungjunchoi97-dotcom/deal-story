@@ -300,7 +300,7 @@ export default function GreeceDebtClient({
                       {ko ? row.labelKo : row.labelEn}
                     </span>
                     <span className="text-[12px] font-semibold text-right leading-snug text-gray-800 dark:text-gray-200">
-                      {row.value}
+                      {ko ? row.value : (row.valueEn ?? row.value)}
                     </span>
                   </motion.div>
                 ))}

@@ -984,7 +984,7 @@ export default function CreditSuisseAT1Client({
                             : "text-gray-900 dark:text-gray-100"
                         }`}
                       >
-                        {row.value}
+                        {ko ? row.value : (row.valueEn ?? row.value)}
                       </p>
                     </motion.div>
                   );

@@ -689,7 +689,7 @@ export default function BlackstoneOfficeClient({ deal, lang }: { deal: MarketDea
                     <p className="text-[10px] text-gray-400 dark:text-gray-500 mb-1">
                       {ko ? row.labelKo : row.labelEn}
                     </p>
-                    <p className="text-[14px] font-bold leading-snug text-gray-900 dark:text-gray-100">{row.value}</p>
+                    <p className="text-[14px] font-bold leading-snug text-gray-900 dark:text-gray-100">{ko ? row.value : (row.valueEn ?? row.value)}</p>
                   </motion.div>
                 ))}
               </div>

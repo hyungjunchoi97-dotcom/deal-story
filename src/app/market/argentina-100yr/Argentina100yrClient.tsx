@@ -349,7 +349,7 @@ function DefaultTimeline({ ko }: { ko: boolean }) {
 function StatsCallout({ ko }: { ko: boolean }) {
   const stats = [
     {
-      val: "8번",
+      val: ko ? "8번" : "8x",
       label: ko ? "발행 전 디폴트 횟수" : "Defaults before issuance",
       color: "text-red-600 dark:text-red-400",
       bg: "bg-red-50 dark:bg-red-900/20",
@@ -363,7 +363,7 @@ function StatsCallout({ ko }: { ko: boolean }) {
       border: "border-blue-200 dark:border-blue-700",
     },
     {
-      val: "3년",
+      val: ko ? "3년" : "3 years",
       label: ko ? "발행에서 9번째 디폴트까지" : "From issuance to 9th default",
       color: "text-orange-600 dark:text-orange-400",
       bg: "bg-orange-50 dark:bg-orange-900/20",
@@ -522,7 +522,7 @@ export default function Argentina100yrClient({
                       {ko ? row.labelKo : row.labelEn}
                     </span>
                     <span className="text-[12px] font-semibold text-right leading-snug text-gray-800 dark:text-gray-200">
-                      {row.value}
+                      {ko ? row.value : (row.valueEn ?? row.value)}
                     </span>
                   </motion.div>
                 ))}

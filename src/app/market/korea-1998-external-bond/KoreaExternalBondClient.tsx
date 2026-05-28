@@ -227,7 +227,7 @@ function DealSnapshotViz({ deal, lang }: { deal: MarketDeal; lang: Lang }) {
                   ? "text-teal-600 dark:text-teal-400 font-black"
                   : "text-gray-800 dark:text-gray-200"
               }`}>
-                {row.value}
+                {ko ? row.value : (row.valueEn ?? row.value)}
               </span>
             </motion.div>
           ))}
@@ -677,7 +677,7 @@ export default function KoreaExternalBondClient({
                         ? "text-teal-600 dark:text-teal-400 font-black"
                         : "text-gray-800 dark:text-gray-200"
                     }`}>
-                      {row.value}
+                      {ko ? row.value : (row.valueEn ?? row.value)}
                     </span>
                   </motion.div>
                 ))}
