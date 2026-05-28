@@ -17,7 +17,7 @@ const CAT_META: Record<string, { icon: string; desc: string }> = {
   sovereign:  { icon: "🌐", desc: "Sovereign — government bonds, EM debt, century bonds" },
   structured: { icon: "🧩", desc: "Structured Finance — ABS, CLO, CDO, CMBS" },
   levfin:     { icon: "💰", desc: "Leveraged Finance — HY bonds, leveraged loans, LBO" },
-  syndloan:   { icon: "🏦", desc: "Syndicated Loans — MLA, agent bank, IG vs leveraged loans" },
+  syndloan:   { icon: "🤝", desc: "Syndicated Loans — MLA, agent bank, IG vs leveraged loans" },
 };
 
 const EASE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
@@ -76,14 +76,20 @@ function TermRow({ concept, index }: { concept: MarketConcept; index: number }) 
   );
 }
 
+// ── 합병 서브섹션 타입 ────────────────────────────────────────────────────
+type ExtraGroup = { label: string; dotColor: string; items: MarketConcept[] };
+
 function CategoryFolder({
-  catKey, label, labelEn, dotColor, articles, terms, defaultOpen,
+  catKey, labelEn, dotColor, articles, terms, extraGroups = [], defaultOpen,
 }: {
-  catKey: string; label: string; labelEn: string; dotColor: string;
-  articles: MarketConcept[]; terms: MarketConcept[]; defaultOpen: boolean;
+  catKey: string; labelEn: string; dotColor: string;
+  articles: MarketConcept[]; terms: MarketConcept[];
+  extraGroups?: ExtraGroup[];
+  defaultOpen: boolean;
 }) {
   const [open, setOpen] = useState(defaultOpen);
-  const total = articles.length + terms.length;
+  const extraTotal = extraGroups.reduce((s, g) => s + g.items.length, 0);
+  const total = articles.length + terms.length + extraTotal;
   const cc = CATEGORY_COLOR[catKey as keyof typeof CATEGORY_COLOR];
   const meta = CAT_META[catKey];
 
@@ -106,9 +112,9 @@ function CategoryFolder({
                 {articles.length} articles
               </span>
             )}
-            {terms.length > 0 && (
+            {(terms.length + extraTotal) > 0 && (
               <span className="text-[10px] px-2 py-0.5 rounded-full font-semibold bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400">
-                {terms.length} terms
+                {terms.length + extraTotal} terms
               </span>
             )}
           </div>
@@ -141,7 +147,7 @@ function CategoryFolder({
                   {articles.map((c, i) => <ArticleRow key={c.slug} concept={c} index={i} />)}
                 </div>
               )}
-              {articles.length > 0 && terms.length > 0 && (
+              {articles.length > 0 && (terms.length + extraTotal) > 0 && (
                 <div className="flex items-center gap-2 my-2 px-3.5">
                   <div className="flex-1 h-px bg-gray-100 dark:bg-gray-800" />
                   <span className="text-[10px] text-gray-400 dark:text-gray-500 font-medium">Glossary</span>
@@ -153,6 +159,24 @@ function CategoryFolder({
                   {terms.map((c, i) => <TermRow key={c.slug} concept={c} index={articles.length + i} />)}
                 </div>
               )}
+
+              {/* extraGroups — merged subsections (FIG, Sovereign nested in DCM) */}
+              {extraGroups.map((grp, gi) => (
+                <div key={grp.label}>
+                  <div className="flex items-center gap-2 mt-3 mb-1 px-3.5">
+                    <span className={`w-2 h-2 rounded-full flex-shrink-0 ${grp.dotColor}`} />
+                    <span className="text-[10px] font-bold text-gray-500 dark:text-gray-400">{grp.label}</span>
+                    <div className="flex-1 h-px bg-gray-100 dark:bg-gray-800" />
+                  </div>
+                  {grp.items.map((c, i) => (
+                    <TermRow
+                      key={c.slug}
+                      concept={c}
+                      index={articles.length + terms.length + extraGroups.slice(0, gi).reduce((s, g) => s + g.items.length, 0) + i}
+                    />
+                  ))}
+                </div>
+              ))}
             </div>
           </motion.div>
         )}
@@ -161,18 +185,44 @@ function CategoryFolder({
   );
 }
 
+// ── FIG·Sovereign → nested inside DCM folder ────────────────────────────────
+/** Categories that should be merged into the DCM folder as nested subsections */
+const MERGE_INTO_DCM: Array<{ key: string; label: string }> = [
+  { key: "fig",      label: "FIG (Financial Institutions)" },
+  { key: "sovereign", label: "Sovereign" },
+];
+
 export default function Market101IndexClientEn() {
   const totalCount = ALL_MARKET101_CONCEPTS.length;
+  const mergedKeys = MERGE_INTO_DCM.map((m) => m.key);
 
-  const folders = MARKET_101_CATEGORIES.map((cat) => {
-    const all = ALL_MARKET101_CONCEPTS.filter((c) => c.category === cat.key);
-    return {
-      ...cat,
-      articles: all.filter((c) => c.entryType === "article"),
-      terms: all.filter((c) => c.entryType === "term" || !c.entryType),
-      total: all.length,
-    };
-  });
+  // Group by category, excluding categories merged into DCM
+  const folders = MARKET_101_CATEGORIES
+    .filter((cat) => !mergedKeys.includes(cat.key))
+    .map((cat) => {
+      const all = ALL_MARKET101_CONCEPTS.filter((c) => c.category === cat.key);
+      // DCM gets extraGroups (FIG + Sovereign nested)
+      const extraGroups: ExtraGroup[] = cat.key === "dcm"
+        ? MERGE_INTO_DCM.map((m) => {
+            const mCat = MARKET_101_CATEGORIES.find((c) => c.key === m.key);
+            return {
+              label: m.label,
+              dotColor: mCat?.dotColor ?? "bg-gray-400",
+              items: ALL_MARKET101_CONCEPTS.filter(
+                (c) => c.category === m.key && (c.entryType === "term" || !c.entryType)
+              ),
+            };
+          }).filter((g) => g.items.length > 0)
+        : [];
+      const extraTotal = extraGroups.reduce((s, g) => s + g.items.length, 0);
+      return {
+        ...cat,
+        articles: all.filter((c) => c.entryType === "article"),
+        terms: all.filter((c) => c.entryType === "term" || !c.entryType),
+        extraGroups,
+        total: all.length + extraTotal,
+      };
+    });
 
   const populated = folders.filter((f) => f.total > 0);
 
@@ -196,6 +246,13 @@ export default function Market101IndexClientEn() {
             <span className={`w-1.5 h-1.5 rounded-full ${f.dotColor}`} />
             {f.labelEn}
             <span className="opacity-70">{f.total}</span>
+            {/* DCM에 합병된 카테고리 표시 (작은 점) */}
+            {f.key === "dcm" && MERGE_INTO_DCM.map((m) => {
+              const mCat = MARKET_101_CATEGORIES.find((c) => c.key === m.key);
+              return mCat ? (
+                <span key={m.key} className={`w-1.5 h-1.5 rounded-full ${mCat.dotColor}`} title={mCat.labelEn} />
+              ) : null;
+            })}
           </div>
         ))}
       </motion.div>
@@ -204,8 +261,12 @@ export default function Market101IndexClientEn() {
         {populated.map((f, i) => (
           <motion.div key={f.key} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, ease: EASE, delay: i * 0.06 }}>
             <CategoryFolder
-              catKey={f.key} label={f.label} labelEn={f.labelEn}
-              dotColor={f.dotColor} articles={f.articles} terms={f.terms}
+              catKey={f.key}
+              labelEn={f.labelEn}
+              dotColor={f.dotColor}
+              articles={f.articles}
+              terms={f.terms}
+              extraGroups={f.extraGroups}
               defaultOpen={false}
             />
           </motion.div>
