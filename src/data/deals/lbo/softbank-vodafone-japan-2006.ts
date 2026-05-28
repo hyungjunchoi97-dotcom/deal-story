@@ -301,12 +301,15 @@ const deal: LboDeal = {
     fundName: "Softbank Corp (Masayoshi Son)",
     portfolioName: "Vodafone K.K. → Softbank Mobile",
     dealTitle: "Softbank × Vodafone Japan — ¥1.97조 일본 사상 최대 LBO",
+    dealTitleEn: "Softbank × Vodafone Japan — Japan's Largest-Ever LBO at ¥1.97T",
     dealSize: "¥1.97T (~$15.5B) EV",
     entryMultiple: "8.6× EBITDA",
     moic: "~10×",
     irr: "~22%",
     holdYears: "12+년 (현재 진행)",
+    holdYearsEn: "12+ yrs (ongoing)",
     closeDate: "2006년 4월 27일",
+    closeDateEn: "Apr 27, 2006",
   },
 
   concepts: [

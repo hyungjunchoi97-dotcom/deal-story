@@ -421,7 +421,7 @@ export default function LboPageClient({
                         {ko ? tranche.tranche : tranche.trancheEn}
                       </p>
                       <p className="text-[11px] text-gray-400 dark:text-gray-500">
-                        {tranche.rate} · {ko ? tranche.maturity : tranche.maturityEn}
+                        {ko ? tranche.rate : (tranche.rateEn ?? tranche.rate)} · {ko ? tranche.maturity : tranche.maturityEn}
                       </p>
                     </div>
 
@@ -766,19 +766,19 @@ export default function LboPageClient({
                   {deal.tombstone.portfolioInitials}
                 </div>
               </div>
-              <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1">{deal.tombstone.dealTitle}</p>
+              <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1">{ko ? deal.tombstone.dealTitle : (deal.tombstone.dealTitleEn ?? deal.tombstone.dealTitle)}</p>
               <p className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
-                {deal.tombstone.fundName} × {deal.tombstone.portfolioName}
+                {ko ? deal.tombstone.fundName : (deal.tombstone.fundNameEn ?? deal.tombstone.fundName)} × {ko ? deal.tombstone.portfolioName : (deal.tombstone.portfolioNameEn ?? deal.tombstone.portfolioName)}
               </p>
               <div className="flex items-center justify-center gap-4 flex-wrap">
                 <div>
                   <p className="text-[10px] text-gray-400">Deal Size</p>
-                  <p className="text-lg font-extrabold text-amber-500">{deal.tombstone.dealSize}</p>
+                  <p className="text-lg font-extrabold text-amber-500">{ko ? deal.tombstone.dealSize : (deal.tombstone.dealSizeEn ?? deal.tombstone.dealSize)}</p>
                 </div>
                 <div className="w-px h-8 bg-gray-200 dark:bg-gray-700" />
                 <div>
                   <p className="text-[10px] text-gray-400">{ko ? "진입 배수" : "Entry Multiple"}</p>
-                  <p className="text-lg font-extrabold text-gray-900 dark:text-gray-100">{deal.tombstone.entryMultiple}</p>
+                  <p className="text-lg font-extrabold text-gray-900 dark:text-gray-100">{ko ? deal.tombstone.entryMultiple : (deal.tombstone.entryMultipleEn ?? deal.tombstone.entryMultiple)}</p>
                 </div>
                 {deal.tombstone.moic && (
                   <>
@@ -799,7 +799,7 @@ export default function LboPageClient({
                   </>
                 )}
               </div>
-              <p className="text-[10px] text-gray-400 mt-3">{deal.tombstone.closeDate}</p>
+              <p className="text-[10px] text-gray-400 mt-3">{ko ? deal.tombstone.closeDate : (deal.tombstone.closeDateEn ?? deal.tombstone.closeDate)}</p>
             </motion.div>
           </motion.section>
 

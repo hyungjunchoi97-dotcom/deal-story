@@ -290,7 +290,9 @@ const deal: LboDeal = {
     moic: "2.6x",
     irr: "16.7%",
     holdYears: "11년",
+    holdYearsEn: "11 yrs",
     closeDate: "2007년 10월",
+    closeDateEn: "Oct 2007",
   },
 
   concepts: [

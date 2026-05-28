@@ -7,7 +7,8 @@ export interface LboCapitalTranche {
   tranche: string;       // "1L Senior Secured Term Loan"
   trancheEn: string;
   amountBn: number;      // $B
-  rate: string;          // "LIBOR + 300bp"
+  rate: string;          // "LIBOR + 300bp" — KO 텍스트가 있을 수 있음 (e.g. "에쿼티", "고정 6~7%")
+  rateEn?: string;       // EN 변형. 없으면 rate 그대로 사용 (영문/숫자 라벨용)
   maturity: string;      // "7년"
   maturityEn: string;
   color: string;         // Tailwind bg class
@@ -93,14 +94,21 @@ export interface LboTombstone {
   portfolioInitials: string;
   portfolioBg: string;
   fundName: string;
+  fundNameEn?: string;          // EN 변형. 없으면 fundName 그대로
   portfolioName: string;
+  portfolioNameEn?: string;
   dealTitle: string;
+  dealTitleEn?: string;
   dealSize: string;
+  dealSizeEn?: string;
   entryMultiple: string;
+  entryMultipleEn?: string;
   moic?: string;
   irr?: string;
-  holdYears?: string;
-  closeDate: string;
+  holdYears?: string;            // "11년"
+  holdYearsEn?: string;          // "11 yrs"
+  closeDate: string;             // "2007년 10월"
+  closeDateEn?: string;          // "Oct 2007"
 }
 
 export interface LboDeal {
