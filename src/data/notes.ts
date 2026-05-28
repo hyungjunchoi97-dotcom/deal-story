@@ -204,6 +204,26 @@ export function getNoteBySlug(slug: string): NoteData | undefined {
   return ALL_NOTES.find((n) => n.slug === slug);
 }
 
+/**
+ * 같은 시리즈 내에서 prev/next 노트를 찾는다.
+ * seriesOrder 오름차순 기준. 시리즈가 없으면 null/null 반환.
+ */
+export function getSeriesNav(slug: string): { prev: NoteData | null; next: NoteData | null } {
+  const current = getNoteBySlug(slug);
+  if (!current || !current.series || current.seriesOrder == null) {
+    return { prev: null, next: null };
+  }
+  const siblings = ALL_NOTES
+    .filter((n) => n.series === current.series && n.status === "published" && n.seriesOrder != null)
+    .sort((a, b) => (a.seriesOrder ?? 0) - (b.seriesOrder ?? 0));
+  const idx = siblings.findIndex((n) => n.slug === slug);
+  if (idx < 0) return { prev: null, next: null };
+  return {
+    prev: idx > 0 ? siblings[idx - 1] : null,
+    next: idx < siblings.length - 1 ? siblings[idx + 1] : null,
+  };
+}
+
 // ══════════════════════════════════════════════════════════════════════════════
 // NOTE #1 — 코리아 디스카운트: KOSPI 10,000 시대, 구조적 할인은 끝났는가
 // ══════════════════════════════════════════════════════════════════════════════

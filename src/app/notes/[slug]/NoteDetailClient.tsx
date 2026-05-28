@@ -30,7 +30,8 @@ import type {
   CurrencyMixPoint,
   StablecoinPoint,
 } from "@/data/notes";
-import { NOTE_CATEGORY_META } from "@/data/notes";
+import { NOTE_CATEGORY_META, getSeriesNav } from "@/data/notes";
+import SeriesNav from "@/components/SeriesNav";
 
 type Lang = "ko" | "en";
 
@@ -330,8 +331,19 @@ function FedBalanceSheetChart({ chart, lang }: { chart: NoteChartDef & { id: "fe
 }
 
 // ── Repo Crisis Chart ──────────────────────────────────────────────────────────
+const KO_TO_EN_MONTH: Record<string, string> = {
+  "1월": "Jan", "2월": "Feb", "3월": "Mar", "4월": "Apr",
+  "5월": "May", "6월": "Jun", "7월": "Jul", "8월": "Aug",
+  "9월": "Sep", "10월": "Oct", "11월": "Nov", "12월": "Dec",
+};
+function localizeDate(date: string, lang: Lang): string {
+  if (lang !== "en") return date;
+  return KO_TO_EN_MONTH[date] ?? date;
+}
+
 function RepoCrisisChart({ chart, lang }: { chart: NoteChartDef & { id: "repo-crisis" }; lang: Lang }) {
-  const data = chart.data as RepoCrisisPoint[];
+  const rawData = chart.data as RepoCrisisPoint[];
+  const data = rawData.map((d) => ({ ...d, date: localizeDate(d.date, lang) }));
   const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
   const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
   return (
@@ -950,6 +962,28 @@ export default function NoteDetailClient({
           ))}
 
           <References refs={note.references} lang={lang} />
+
+          {/* Series Navigation — 시리즈 이전/다음 글 */}
+          {(() => {
+            const { prev, next } = getSeriesNav(note.slug);
+            if (!prev && !next) return null;
+            const notePath = lang === "en" ? "/en/notes" : "/notes";
+            return (
+              <SeriesNav
+                lang={lang}
+                prev={prev ? {
+                  href: `${notePath}/${prev.slug}`,
+                  title: lang === "en" ? (prev.titleEn ?? prev.title) : prev.title,
+                  orderLabel: prev.seriesOrder != null ? (lang === "en" ? `Part ${prev.seriesOrder}` : `${prev.seriesOrder}편`) : undefined,
+                } : null}
+                next={next ? {
+                  href: `${notePath}/${next.slug}`,
+                  title: lang === "en" ? (next.titleEn ?? next.title) : next.title,
+                  orderLabel: next.seriesOrder != null ? (lang === "en" ? `Part ${next.seriesOrder}` : `${next.seriesOrder}편`) : undefined,
+                } : null}
+              />
+            );
+          })()}
 
           {/* Back link */}
           <div className="mt-12 pt-8 border-t border-gray-200/60 dark:border-gray-700/60">

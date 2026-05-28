@@ -35,10 +35,10 @@ const thisCh = 0;
 
 // ── Market Stats ──────────────────────────────────────────────────────────────
 const MARKET_STATS = [
-  { label: (ko: boolean) => ko ? "ABS 시장 (미국)" : "US ABS Market", size: "$2.8조", detail: (ko: boolean) => ko ? "자동차·카드·학자금 포함, 2024" : "Auto, card, student loans, 2024", color: "bg-indigo-500", pct: 60 },
-  { label: (ko: boolean) => ko ? "CLO 시장 (글로벌)" : "Global CLO Market", size: "$1.1조", detail: (ko: boolean) => ko ? "레버리지드론 기반, 2024 신기록" : "Leveraged loan backed, 2024 record", color: "bg-violet-500", pct: 40 },
-  { label: (ko: boolean) => ko ? "CMBS 시장 (미국)" : "US CMBS Market", size: "$0.9조", detail: (ko: boolean) => ko ? "상업용 부동산 모기지, 2024" : "Commercial RE mortgages, 2024", color: "bg-purple-500", pct: 32 },
-  { label: (ko: boolean) => ko ? "글로벌 증권화 잔액" : "Global Securitization Outstanding", size: "$13조", detail: (ko: boolean) => ko ? "ABS+CLO+CMBS+CDO+RMBS 합산" : "ABS+CLO+CMBS+CDO+RMBS total", color: "bg-blue-500", pct: 100 },
+  { label: (ko: boolean) => ko ? "ABS 시장 (미국)" : "US ABS Market", size: (ko: boolean) => ko ? "$2.8조" : "$2.8T", detail: (ko: boolean) => ko ? "자동차·카드·학자금 포함, 2024" : "Auto, card, student loans, 2024", color: "bg-indigo-500", pct: 60 },
+  { label: (ko: boolean) => ko ? "CLO 시장 (글로벌)" : "Global CLO Market", size: (ko: boolean) => ko ? "$1.1조" : "$1.1T", detail: (ko: boolean) => ko ? "레버리지드론 기반, 2024 신기록" : "Leveraged loan backed, 2024 record", color: "bg-violet-500", pct: 40 },
+  { label: (ko: boolean) => ko ? "CMBS 시장 (미국)" : "US CMBS Market", size: (ko: boolean) => ko ? "$0.9조" : "$0.9T", detail: (ko: boolean) => ko ? "상업용 부동산 모기지, 2024" : "Commercial RE mortgages, 2024", color: "bg-purple-500", pct: 32 },
+  { label: (ko: boolean) => ko ? "글로벌 증권화 잔액" : "Global Securitization Outstanding", size: (ko: boolean) => ko ? "$13조" : "$13T", detail: (ko: boolean) => ko ? "ABS+CLO+CMBS+CDO+RMBS 합산" : "ABS+CLO+CMBS+CDO+RMBS total", color: "bg-blue-500", pct: 100 },
 ];
 
 // ── Securitization Flow ───────────────────────────────────────────────────────
@@ -75,10 +75,10 @@ const CRISIS_2008 = [
 
 // ── Korea Structured Finance ──────────────────────────────────────────────────
 const KOREA_STRUCTURED = [
-  { name: (ko: boolean) => ko ? "PF ABS (프로젝트파이낸스 ABS)" : "PF ABS (Project Finance ABS)",        desc: (ko: boolean) => ko ? "아파트 분양대금 채권을 SPV에 넣어 유동화. 건설사 리스크 대신 분양 현금흐름 담보." : "Securitizing pre-sale receivables from apartment developments. Backed by presale cash flows rather than builder credit.", size: "~30조원", color: "bg-indigo-500" },
-  { name: (ko: boolean) => ko ? "카드·캐피탈 ABS" : "Card / Capital ABS",                              desc: (ko: boolean) => ko ? "신한·삼성·현대카드 등 카드사와 캐피탈사의 매출채권 유동화. 국내 ABS 발행의 핵심." : "Securitization of receivables from Shinhan, Samsung, Hyundai Card. Core of domestic ABS issuance.", size: "~15조원/년", color: "bg-violet-500" },
-  { name: (ko: boolean) => ko ? "유동화전문회사(SPC)" : "SPC (Special Purpose Company)",              desc: (ko: boolean) => ko ? "한국형 SPV. 자산유동화법에 근거. 자본금 최소, 파산 격리 구조." : "Korean SPV structure. Governed by the Asset-Backed Securitization Act. Minimal capital, bankruptcy-remote structure.", size: "법인격 보유", color: "bg-purple-500" },
-  { name: (ko: boolean) => ko ? "커버드본드 (이중상환청구권부채권)" : "Covered Bonds",                 desc: (ko: boolean) => ko ? "EU 모델을 참고해 2014년 도입. 모기지·공공 부문 자산 담보. 발행사 청구권+자산 청구권 이중 보호." : "Introduced in 2014 modeled on EU. Backed by mortgage or public sector assets. Dual recourse: issuer + covered pool.", size: "~5조원 잔액", color: "bg-blue-500" },
+  { name: (ko: boolean) => ko ? "PF ABS (프로젝트파이낸스 ABS)" : "PF ABS (Project Finance ABS)",        desc: (ko: boolean) => ko ? "아파트 분양대금 채권을 SPV에 넣어 유동화. 건설사 리스크 대신 분양 현금흐름 담보." : "Securitizing pre-sale receivables from apartment developments. Backed by presale cash flows rather than builder credit.", size: (ko: boolean) => ko ? "~30조원" : "~₩30T", color: "bg-indigo-500" },
+  { name: (ko: boolean) => ko ? "카드·캐피탈 ABS" : "Card / Capital ABS",                              desc: (ko: boolean) => ko ? "신한·삼성·현대카드 등 카드사와 캐피탈사의 매출채권 유동화. 국내 ABS 발행의 핵심." : "Securitization of receivables from Shinhan, Samsung, Hyundai Card. Core of domestic ABS issuance.", size: (ko: boolean) => ko ? "~15조원/년" : "~₩15T/yr", color: "bg-violet-500" },
+  { name: (ko: boolean) => ko ? "유동화전문회사(SPC)" : "SPC (Special Purpose Company)",              desc: (ko: boolean) => ko ? "한국형 SPV. 자산유동화법에 근거. 자본금 최소, 파산 격리 구조." : "Korean SPV structure. Governed by the Asset-Backed Securitization Act. Minimal capital, bankruptcy-remote structure.", size: (ko: boolean) => ko ? "법인격 보유" : "Legal entity", color: "bg-purple-500" },
+  { name: (ko: boolean) => ko ? "커버드본드 (이중상환청구권부채권)" : "Covered Bonds",                 desc: (ko: boolean) => ko ? "EU 모델을 참고해 2014년 도입. 모기지·공공 부문 자산 담보. 발행사 청구권+자산 청구권 이중 보호." : "Introduced in 2014 modeled on EU. Backed by mortgage or public sector assets. Dual recourse: issuer + covered pool.", size: (ko: boolean) => ko ? "~5조원 잔액" : "~₩5T outstanding", color: "bg-blue-500" },
 ];
 
 // ── FAQs ───────────────────────────────────────────────────────────────────────
@@ -197,7 +197,7 @@ export default function StructuredOverviewClient({ concept, lang }: Props) {
             {MARKET_STATS.map((m, i) => (
               <motion.div key={i} initial="hidden" whileInView="show" viewport={VP} variants={fadeUp(i * 0.08)}
                 className="rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/40 p-5">
-                <p className="font-black text-3xl text-gray-900 dark:text-gray-50 mb-1">{m.size}</p>
+                <p className="font-black text-3xl text-gray-900 dark:text-gray-50 mb-1">{m.size(ko)}</p>
                 <p className="font-bold text-sm text-gray-700 dark:text-gray-300 mb-2">{m.label(ko)}</p>
                 <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1.5 mb-2">
                   <div className={`h-1.5 rounded-full ${m.color}`} style={{ width: `${m.pct}%` }} />
@@ -519,7 +519,7 @@ export default function StructuredOverviewClient({ concept, lang }: Props) {
                   <div className="flex-1">
                     <div className="flex items-center gap-2 flex-wrap mb-1.5">
                       <span className="font-bold text-sm text-gray-900 dark:text-gray-50">{item.name(ko)}</span>
-                      <span className={`ml-auto text-[10px] font-bold px-2 py-0.5 rounded-full text-white ${item.color}`}>{item.size}</span>
+                      <span className={`ml-auto text-[10px] font-bold px-2 py-0.5 rounded-full text-white ${item.color}`}>{item.size(ko)}</span>
                     </div>
                     <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">{item.desc(ko)}</p>
                   </div>

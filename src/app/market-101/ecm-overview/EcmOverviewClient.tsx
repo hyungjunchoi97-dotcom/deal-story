@@ -317,17 +317,19 @@ function IpoMarketCallout({ ko }: { ko: boolean }) {
         </p>
       </div>
       <div className="p-5 sm:p-6">
-        <div className="flex items-end gap-2 h-28">
+        <div className="grid grid-cols-6 gap-2">
           {IPO_CYCLE.map((item, i) => (
-            <div key={i} className="flex-1 flex flex-col items-center gap-1">
+            <div key={i} className="flex flex-col items-center gap-1">
               <span className="text-[9px] font-bold text-gray-500 dark:text-gray-400">{item.vol}</span>
-              <motion.div
-                className={`w-full rounded-t-md ${item.peak ? "bg-blue-500" : item.low ? "bg-red-300 dark:bg-red-700" : "bg-blue-300 dark:bg-blue-700"}`}
-                initial={{ height: 0 }}
-                whileInView={{ height: `${item.bar}%` }}
-                viewport={VP}
-                transition={{ duration: 0.7, delay: i * 0.08, ease: EASE }}
-              />
+              <div className="w-full h-28 flex items-end">
+                <motion.div
+                  className={`w-full rounded-t-md ${item.peak ? "bg-blue-500" : item.low ? "bg-red-300 dark:bg-red-700" : "bg-blue-300 dark:bg-blue-700"}`}
+                  initial={{ height: 0 }}
+                  whileInView={{ height: `${item.bar}%` }}
+                  viewport={VP}
+                  transition={{ duration: 0.7, delay: i * 0.08, ease: EASE }}
+                />
+              </div>
               <span className="text-[9px] text-gray-400 dark:text-gray-500">{item.year}</span>
               <span className={`text-[8px] font-semibold text-center leading-tight ${item.peak ? "text-blue-600 dark:text-blue-400" : item.low ? "text-red-500 dark:text-red-400" : "text-gray-400"}`}>
                 {item.label(ko)}
