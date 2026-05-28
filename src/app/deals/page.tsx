@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import DealsClient from "./deals-client";
+import DealsFolderClient from "./DealsFolderClient";
 import { ALL_DEALS } from "@/data/deals";
 import { ALL_LBO_DEALS } from "@/data/deals/lbo";
 import { SITE_URL } from "@/lib/site";
@@ -106,7 +106,7 @@ export default function DealsPage() {
 
         {/* 필터 + 카드 그리드 */}
         <div className="max-w-4xl mx-auto px-5 py-8">
-          <DealsClient initialDeals={ALL_DEALS} lboDeals={ALL_LBO_DEALS} />
+          <DealsFolderClient deals={ALL_DEALS} lboDeals={ALL_LBO_DEALS} lang="ko" />
         </div>
 
       </main>
