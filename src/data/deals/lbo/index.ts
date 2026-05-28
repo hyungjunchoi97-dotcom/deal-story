@@ -4,9 +4,11 @@
  */
 import type { LboDeal } from "@/lib/lbo-deal-data";
 import blackstoneHilton from "./blackstone-hilton-2007";
+import hca2006 from "./hca-2006";
 
 export const ALL_LBO_DEALS: LboDeal[] = [
   blackstoneHilton, // 2007-10-24
+  hca2006,          // 2006-11-17
 ];
 
 export function getLboDealBySlug(slug: string): LboDeal | undefined {
