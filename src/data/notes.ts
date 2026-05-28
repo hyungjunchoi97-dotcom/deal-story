@@ -570,9 +570,9 @@ const koreaDiscount: NoteData = {
         },
         {
           type: "text",
-          body: "**양도소득세 — 또 다른 층위**: 대주주 요건을 충족하는 주주(KOSPI 종목 1% 이상 또는 10억 원 이상 보유)는 주식 양도 시 양도소득세를 납부한다(대기업 기준 최대 25%). 이는 연말마다 대주주 요건 직전의 매도 압박을 만들어내는 고질적인 지수 하방 압력 요인이 되어 왔다. 정부가 수차례 대주주 요건 완화를 시도했으나 조세 형평성 논란으로 번번이 무산됐다.",
+          body: "**양도소득세 — 또 다른 층위**: 대주주 요건을 충족하는 주주(KOSPI 종목 1% 이상 또는 **50억 원 이상 보유**)는 주식 양도 시 양도소득세를 납부한다(대기업 기준 최대 25%). 이는 연말마다 대주주 요건 직전의 매도 압박을 만들어내는 고질적인 지수 하방 압력 요인이 되어 왔다. 2023년 말 정부가 종전 10억 원 기준을 50억 원으로 상향(2024년 거래분부터 적용)하면서 연말 매도 압박은 다소 완화됐지만, 조세 형평성 논란과 정권 교체에 따른 재논의가 반복되고 있어 구조적 불확실성은 남아 있다.",
           bodyEn:
-            "**Capital gains tax — another layer**: Shareholders meeting the 'major shareholder' threshold (≥1% of a KOSPI stock or ≥KRW 1 billion in holdings) pay capital gains tax on stock sales (up to 25% for large-cap holdings). This has created a chronic year-end selling pressure dynamic as investors race to stay below the threshold. The government has repeatedly attempted to ease the definition, but efforts have stalled over tax equity debates.",
+            "**Capital gains tax — another layer**: Shareholders meeting the 'major shareholder' threshold (≥1% of a KOSPI stock or **≥KRW 5 billion in holdings**) pay capital gains tax on stock sales (up to 25% for large-cap holdings). This has created a chronic year-end selling pressure dynamic as investors race to stay below the threshold. The government raised the threshold from KRW 1 billion to KRW 5 billion in late 2023 (applied to trades from 2024), easing some year-end pressure — but recurring debates over tax equity and political turnover keep this rule structurally uncertain.",
         },
       ],
     },
