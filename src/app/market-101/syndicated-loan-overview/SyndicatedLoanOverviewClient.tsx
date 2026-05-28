@@ -97,12 +97,12 @@ function AnalogyBox({ children }: { children: React.ReactNode }) {
 }
 
 // ── 실무 박스 컴포넌트 ───────────────────────────────────────────────────────
-function PracticeBox({ title, children }: { title: string; children: React.ReactNode }) {
+function PracticeBox({ title, children, ko = true }: { title: string; children: React.ReactNode; ko?: boolean }) {
   return (
     <div className="my-5 rounded-xl border border-teal-200 dark:border-teal-700/50 bg-teal-50/60 dark:bg-teal-900/15 p-5">
       <div className="flex items-center gap-2 mb-2">
         <span className="text-[11px] font-bold px-2 py-0.5 rounded-full text-white" style={{ background: ACCENT }}>
-          실무
+          {ko ? "실무" : "In Practice"}
         </span>
         <span className="text-[13px] font-bold text-teal-800 dark:text-teal-200">{title}</span>
       </div>
@@ -215,6 +215,7 @@ export default function SyndicatedLoanOverviewClient({ concept, lang }: Props) {
             </div>
             <ShareButtons
               title={ko ? concept.title : (concept.titleEn || concept.title)}
+              lang={lang}
             />
           </motion.div>
 
@@ -383,7 +384,7 @@ export default function SyndicatedLoanOverviewClient({ concept, lang }: Props) {
               ))}
             </div>
 
-            <PracticeBox title={ko ? "Analyst 관점: IM에서 뭘 써야 하는가" : "Analyst View: What Goes Into an IM"}>
+            <PracticeBox ko={ko} title={ko ? "Analyst 관점: IM에서 뭘 써야 하는가" : "Analyst View: What Goes Into an IM"}>
               {ko
                 ? <>IM(Information Memorandum)은 신디론 딜의 심장입니다. 전형적인 IM 목차는 이렇습니다:
                   <br /><br />
@@ -472,7 +473,7 @@ export default function SyndicatedLoanOverviewClient({ concept, lang }: Props) {
               </ResponsiveContainer>
             </div>
 
-            <PracticeBox title={ko ? "Associate 관점: 두 팀의 문화 차이" : "Associate View: Cultural Differences Between Teams"}>
+            <PracticeBox ko={ko} title={ko ? "Associate 관점: 두 팀의 문화 차이" : "Associate View: Cultural Differences Between Teams"}>
               {ko
                 ? <>IG DCM 팀과 LevFin 팀은 같은 은행 안에서도 문화가 완전히 다릅니다.
                 <br /><br />
@@ -628,7 +629,7 @@ export default function SyndicatedLoanOverviewClient({ concept, lang }: Props) {
               </div>
             </div>
 
-            <PracticeBox title={ko ? "MD 관점: 언더라이트 결정의 실제 논리" : "MD View: The Real Logic Behind the Underwrite Decision"}>
+            <PracticeBox ko={ko} title={ko ? "MD 관점: 언더라이트 결정의 실제 논리" : "MD View: The Real Logic Behind the Underwrite Decision"}>
               {ko
                 ? <>언더라이트 여부는 결국 "이 시장이 이 딜을 받아줄 것인가"에 대한 MD의 판단입니다. 고려 요소:
                   <br /><br />
@@ -765,6 +766,7 @@ export default function SyndicatedLoanOverviewClient({ concept, lang }: Props) {
 
           <ShareButtons
             title={ko ? concept.title : (concept.titleEn || concept.title)}
+            lang={lang}
           />
 
         </div>

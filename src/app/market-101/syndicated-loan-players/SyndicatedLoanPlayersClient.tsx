@@ -252,7 +252,7 @@ export default function SyndicatedLoanPlayersClient({ concept, lang }: Props) {
                 </span>
               ))}
             </div>
-            <ShareButtons title={ko ? concept.title : (concept.titleEn || concept.title)} />
+            <ShareButtons title={ko ? concept.title : (concept.titleEn || concept.title)} lang={lang} />
           </motion.div>
 
           {/* ── 챕터 네비게이션 ── */}
@@ -1412,7 +1412,7 @@ export default function SyndicatedLoanPlayersClient({ concept, lang }: Props) {
             </div>
           </motion.section>
 
-          <ShareButtons title={ko ? concept.title : (concept.titleEn || concept.title)} />
+          <ShareButtons title={ko ? concept.title : (concept.titleEn || concept.title)} lang={lang} />
         </div>
       </main>
       <Footer />

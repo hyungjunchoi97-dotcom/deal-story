@@ -47,7 +47,7 @@ const ARB_TABLE = [
     spread: "SOFR + 80bp",
     ccbsBasis: "—",
     usdEquiv: "SOFR + 80bp",
-    arb: "기준",
+    arb: (ko: boolean) => ko ? "기준" : "Baseline",
     arbBp: 0,
     flag: "🇺🇸",
     color: "bg-gray-50 dark:bg-gray-800/40",
@@ -61,7 +61,7 @@ const ARB_TABLE = [
     spread: "EUR MS + 65bp",
     ccbsBasis: "−18bp",
     usdEquiv: "SOFR + 47bp",
-    arb: "33bp 절감",
+    arb: (ko: boolean) => ko ? "33bp 절감" : "33bp saving",
     arbBp: 33,
     flag: "🇪🇺",
     color: "bg-emerald-50 dark:bg-emerald-900/20",
@@ -75,7 +75,7 @@ const ARB_TABLE = [
     spread: "JGB + 60bp",
     ccbsBasis: "−50bp",
     usdEquiv: "SOFR + 10bp",
-    arb: "70bp 절감",
+    arb: (ko: boolean) => ko ? "70bp 절감" : "70bp saving",
     arbBp: 70,
     flag: "🇯🇵",
     color: "bg-red-50 dark:bg-red-900/20",
@@ -87,9 +87,9 @@ const ARB_TABLE = [
     market: (ko: boolean) => ko ? "TWD 포모사본드" : "TWD Formosa Bond",
     currency: "USD",
     spread: "USD + 45bp",
-    ccbsBasis: "— (USD 표시)",
+    ccbsBasis: (ko: boolean) => ko ? "— (USD 표시)" : "— (USD-denominated)",
     usdEquiv: "SOFR + 45bp",
-    arb: "35bp 절감",
+    arb: (ko: boolean) => ko ? "35bp 절감" : "35bp saving",
     arbBp: 35,
     flag: "🇹🇼",
     color: "bg-blue-50 dark:bg-blue-900/20",
@@ -183,7 +183,7 @@ const BOOK_TIMELINE = [
     time: "11:00",
     event: (ko: boolean) => ko ? "딜 확정" : "Deal Priced",
     book: "EUR 1,800mn",
-    coverage: "3.0× (EUR 600mn 기준)",
+    coverage: (ko: boolean) => ko ? "3.0× (EUR 600mn 기준)" : "3.0× (vs. EUR 600mn target)",
     decision: (ko: boolean) => ko ? "IPT 대비 −8bp 타이트닝. EUR 600mn 확정. 결제일 T+5. ISIN 부여. 투자자 배분 통보 개시." : "−8bp tight vs. IPT. EUR 600mn confirmed. Settlement T+5. ISIN assigned. Allocation notifications sent.",
     tighten: null,
     color: "border-teal-300 bg-teal-50 dark:bg-teal-900/20",
@@ -397,14 +397,16 @@ export default function DcmExecutionClient({ concept, lang }: Props) {
                     </div>
                     <div>
                       <span className="text-gray-400 dark:text-gray-500 mr-1">CCBS</span>
-                      <span className="font-mono font-bold text-gray-700 dark:text-gray-300">{row.ccbsBasis}</span>
+                      <span className="font-mono font-bold text-gray-700 dark:text-gray-300">
+                        {typeof row.ccbsBasis === "function" ? row.ccbsBasis(ko) : row.ccbsBasis}
+                      </span>
                     </div>
                     <div>
                       <span className="text-gray-400 dark:text-gray-500 mr-1">{ko ? "USD 환산" : "USD equiv."}</span>
                       <span className="font-mono font-bold text-gray-700 dark:text-gray-300">{row.usdEquiv}</span>
                     </div>
                     <div>
-                      <span className={`font-bold text-sm ${row.arbColor}`}>{row.arb}</span>
+                      <span className={`font-bold text-sm ${row.arbColor}`}>{row.arb(ko)}</span>
                     </div>
                   </div>
                 </div>
@@ -643,11 +645,14 @@ export default function DcmExecutionClient({ concept, lang }: Props) {
                             {ko ? "북" : "Book"}: <span className="font-bold text-gray-700 dark:text-gray-300">{item.book}</span>
                           </span>
                         )}
-                        {item.coverage !== "—" && (
-                          <span className="text-xs text-gray-500 dark:text-gray-400 font-mono">
-                            {ko ? "커버" : "Cover"}: <span className="font-bold text-gray-700 dark:text-gray-300">{item.coverage}</span>
-                          </span>
-                        )}
+                        {(() => {
+                          const cov = typeof item.coverage === "function" ? item.coverage(ko) : item.coverage;
+                          return cov !== "—" ? (
+                            <span className="text-xs text-gray-500 dark:text-gray-400 font-mono">
+                              {ko ? "커버" : "Cover"}: <span className="font-bold text-gray-700 dark:text-gray-300">{cov}</span>
+                            </span>
+                          ) : null;
+                        })()}
                       </div>
                       <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed mb-2">{item.decision(ko)}</p>
                       {item.tighten && (

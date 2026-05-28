@@ -224,7 +224,7 @@ export default function SyndicatedLoanDocsClient({ concept, lang }: Props) {
                 <span key={t} className="text-[11px] px-2 py-0.5 rounded-full bg-cyan-50 dark:bg-cyan-900/20 text-cyan-700 dark:text-cyan-300 border border-cyan-200/60 dark:border-cyan-700/40">{t}</span>
               ))}
             </div>
-            <ShareButtons title={ko ? concept.title : (concept.titleEn || concept.title)} />
+            <ShareButtons title={ko ? concept.title : (concept.titleEn || concept.title)} lang={lang} />
           </motion.div>
 
           {/* ── 챕터 네비게이션 ── */}
@@ -1125,7 +1125,7 @@ export default function SyndicatedLoanDocsClient({ concept, lang }: Props) {
             </ol>
           </motion.section>
 
-          <ShareButtons title={ko ? concept.title : (concept.titleEn || concept.title)} />
+          <ShareButtons title={ko ? concept.title : (concept.titleEn || concept.title)} lang={lang} />
 
         </div>
       </main>
