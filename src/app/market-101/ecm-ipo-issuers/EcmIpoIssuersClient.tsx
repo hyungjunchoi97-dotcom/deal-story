@@ -212,6 +212,7 @@ const CASE_STUDIES = [
     tagLabel: (ko: boolean) => ko ? "성공 사례" : "Success Case",
     tagColor: "bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300",
     title: "쿠팡 (Coupang) NYSE 2021",
+    titleEn: "Coupang NYSE 2021",
     type: (ko: boolean) => ko ? "VC 백 스타트업 → 글로벌 상장" : "VC-backed Startup → Global Listing",
     amount: "$4.6bn",
     valuation: "$84bn",
@@ -226,6 +227,7 @@ const CASE_STUDIES = [
     tagLabel: (ko: boolean) => ko ? "성공 사례" : "Success Case",
     tagColor: "bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300",
     title: "LG에너지솔루션 코스피 2022",
+    titleEn: "LG Energy Solution KOSPI 2022",
     type: (ko: boolean) => ko ? "계열사 분리상장 교과서" : "Conglomerate Spin-off Textbook",
     amount: "12.75조원 ($10.7bn)",
     valuation: "70조원",
@@ -240,6 +242,7 @@ const CASE_STUDIES = [
     tagLabel: (ko: boolean) => ko ? "실패 사례" : "Failed Case",
     tagColor: "bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300",
     title: "크래프톤 코스피 2021",
+    titleEn: "Krafton KOSPI 2021",
     type: (ko: boolean) => ko ? "단일 IP 리스크 + PER 과도" : "Single IP Risk + Excessive PER",
     amount: "4.3조원",
     valuation: "53조원 → 36조원 (공모가 하향)",
@@ -429,7 +432,7 @@ export default function EcmIpoIssuersClient({ concept, lang }: Props) {
               sub: (ko: boolean) => ko ? "VC·PE·SOE·분리상장·성숙기업" : "VC · PE · SOE · Spin-off · Mature",
             },
             {
-              stat: "18개월",
+              stat: ko ? "18개월" : "18 months",
               label: (ko: boolean) => ko ? "IPO 평균 준비 기간" : "Avg. IPO Preparation Time",
               sub: (ko: boolean) => ko ? "감사 → 신고서 → 로드쇼" : "Audit → Filing → Roadshow",
             },
@@ -850,7 +853,7 @@ export default function EcmIpoIssuersClient({ concept, lang }: Props) {
                     </span>
                   </div>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 dark:text-gray-50 mb-1">{cs.title}</h3>
+                <h3 className="text-lg font-bold text-gray-900 dark:text-gray-50 mb-1">{ko ? cs.title : cs.titleEn}</h3>
                 <div className="text-xs font-semibold text-gray-400 dark:text-gray-500 mb-3">{cs.type(ko)}</div>
                 <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{cs.body(ko)}</p>
               </motion.div>

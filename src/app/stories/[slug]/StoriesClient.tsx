@@ -158,17 +158,17 @@ function SorosBody({ ko, story, accent, accentLight, accentDark }: {
         <div className="grid grid-cols-3 divide-x rounded-2xl overflow-hidden border-2" style={{ borderColor: accentLight }}>
           <div className="px-4 py-5 text-center" style={{ background: accentLight }}>
             <p className="text-[10px] font-bold mb-1" style={{ color: accentDark }}>{ko ? "포지션 규모" : "Position Size"}</p>
-            <p className="text-3xl font-black" style={{ color: accent }}>$100억</p>
+            <p className="text-3xl font-black" style={{ color: accent }}>{ko ? "$100억" : "$10B"}</p>
             <p className="text-[11px] font-medium mt-1" style={{ color: accent }}>{ko ? "파운드화 공매도" : "GBP Short"}</p>
           </div>
           <div className="px-4 py-5 text-center bg-emerald-50 dark:bg-emerald-900/20">
             <p className="text-[10px] font-bold text-emerald-600 mb-1">{ko ? "단 하루 수익" : "Single-Day Profit"}</p>
-            <p className="text-3xl font-black text-emerald-600 dark:text-emerald-400">$10억</p>
+            <p className="text-3xl font-black text-emerald-600 dark:text-emerald-400">{ko ? "$10억" : "$1B"}</p>
             <p className="text-[11px] font-medium text-emerald-500 mt-1">Black Wednesday</p>
           </div>
           <div className="px-4 py-5 text-center bg-rose-50 dark:bg-rose-900/20">
             <p className="text-[10px] font-bold text-rose-600 mb-1">{ko ? "영란은행 개입액" : "BoE Intervention"}</p>
-            <p className="text-3xl font-black text-rose-600 dark:text-rose-400">$270억</p>
+            <p className="text-3xl font-black text-rose-600 dark:text-rose-400">{ko ? "$270억" : "$27B"}</p>
             <p className="text-[11px] font-medium text-rose-500 mt-1">{ko ? "전액 소진, 방어 실패" : "All spent, failed"}</p>
           </div>
         </div>
@@ -395,17 +395,17 @@ function ArchegosBody({ ko, story, accent, accentLight, accentDark }: {
         <div className="grid grid-cols-3 divide-x rounded-2xl overflow-hidden border-2" style={{ borderColor: "#e5e7eb" }}>
           <div className="px-4 py-5 text-center bg-gray-100 dark:bg-gray-800">
             <p className="text-[10px] font-bold text-gray-500 mb-1">{ko ? "추정 노셔널 규모" : "Est. Notional Size"}</p>
-            <p className="text-3xl font-black text-gray-700 dark:text-gray-200">$1,000억</p>
+            <p className="text-3xl font-black text-gray-700 dark:text-gray-200">{ko ? "$1,000억" : "$100B"}</p>
             <p className="text-[11px] font-medium text-gray-500 mt-1">{ko ? "TRS 기반" : "TRS-based"}</p>
           </div>
           <div className="px-4 py-5 text-center bg-red-50 dark:bg-red-900/20">
             <p className="text-[10px] font-bold text-red-500 mb-1">{ko ? "빌 황 손실" : "Hwang's Loss"}</p>
-            <p className="text-3xl font-black text-red-600 dark:text-red-400">~$200억</p>
+            <p className="text-3xl font-black text-red-600 dark:text-red-400">{ko ? "~$200억" : "~$20B"}</p>
             <p className="text-[11px] font-medium text-red-400 mt-1">{ko ? "4 거래일" : "4 trading days"}</p>
           </div>
           <div className="px-4 py-5 text-center bg-orange-50 dark:bg-orange-900/20">
             <p className="text-[10px] font-bold text-orange-500 mb-1">{ko ? "프라임 브로커 총손실" : "PB Total Losses"}</p>
-            <p className="text-3xl font-black text-orange-600 dark:text-orange-400">~$100억</p>
+            <p className="text-3xl font-black text-orange-600 dark:text-orange-400">{ko ? "~$100억" : "~$10B"}</p>
             <p className="text-[11px] font-medium text-orange-400 mt-1">{ko ? "CS·노무라 등" : "CS, Nomura, etc."}</p>
           </div>
         </div>
@@ -598,12 +598,12 @@ function BuffettBody({ ko, story, accent, accentLight, accentDark }: {
         <div className="grid grid-cols-3 divide-x rounded-2xl overflow-hidden border-2" style={{ borderColor: accentLight }}>
           <div className="px-4 py-5 text-center" style={{ background: accentLight }}>
             <p className="text-[10px] font-bold mb-1" style={{ color: accentDark }}>{ko ? "초기 투자액" : "Initial Investment"}</p>
-            <p className="text-3xl font-black" style={{ color: accent }}>$62억</p>
+            <p className="text-3xl font-black" style={{ color: accent }}>{ko ? "$62억" : "$6.2B"}</p>
             <p className="text-[11px] font-medium mt-1" style={{ color: accent }}>{ko ? "엔화 채권 발행" : "Funded by yen bonds"}</p>
           </div>
           <div className="px-4 py-5 text-center bg-emerald-100 dark:bg-emerald-900/30">
             <p className="text-[10px] font-bold text-emerald-700 mb-1">{ko ? "2023년 평가이익" : "2023 Unrealized Gain"}</p>
-            <p className="text-3xl font-black text-emerald-600 dark:text-emerald-400">3배+</p>
+            <p className="text-3xl font-black text-emerald-600 dark:text-emerald-400">{ko ? "3배+" : "3x+"}</p>
             <p className="text-[11px] font-medium text-emerald-500 mt-1">{ko ? "취득원가 대비" : "vs. acquisition cost"}</p>
           </div>
           <div className="px-4 py-5 text-center bg-teal-50 dark:bg-teal-900/20">
@@ -1036,7 +1036,7 @@ export default function StoriesClient({ story, lang }: { story: InvestorStory; l
                     className={`px-5 py-4 ${i % 2 === 0 && i === story.snapshot.length - 1 ? "sm:col-span-2" : ""}`}
                   >
                     <p className="text-[10px] text-gray-400 dark:text-gray-500 mb-1">{ko ? row.labelKo : row.labelEn}</p>
-                    <p className="text-[14px] font-bold leading-snug text-gray-900 dark:text-gray-100">{row.value}</p>
+                    <p className="text-[14px] font-bold leading-snug text-gray-900 dark:text-gray-100">{ko ? row.value : (row.valueEn ?? row.value)}</p>
                   </motion.div>
                 ))}
               </div>
