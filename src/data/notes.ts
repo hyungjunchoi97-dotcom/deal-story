@@ -3641,4 +3641,213 @@ const aiCycle2: NoteData = {
   ],
 };
 
-export const ALL_NOTES: NoteData[] = [koreaDiscount, dollarHegemony1, dollarHegemony2, dollarHegemony3, dollarHegemony4, aiCycle1, aiCycle2, aiCycle4, aiCycle6];
+// ══════════════════════════════════════════════════════════════════════════════
+// NOTE #10 — AI Capital Cycle ③ — IPO 파도, 1999와 다른 점
+// ══════════════════════════════════════════════════════════════════════════════
+
+const aiCycle3: NoteData = {
+  slug: "ai-capital-cycle-3",
+  category: "macro",
+  status: "published",
+  series: "ai-capital-cycle",
+  seriesOrder: 3,
+  title: "AI 자본 사이클 ③ — IPO 파도, 1999와 다른 점",
+  titleEn: "AI Capital Cycle ③ — The IPO Wave, and What's Different from 1999",
+  description:
+    "2026년 5월 22일 OpenAI가 S-1을 비공개 제출했다. 9월 상장 목표, valuation $1T+. SpaceX가 6월 12일 데뷔 예정, $75B 조달. Anthropic은 $900B 라운드 협상 중. 닷컴 1999년 IPO 파도가 cycle top을 *만들지는 않았지만* 확인했다. 2026도 같을까 — 결정적으로 다른 한 가지를 제외하면.",
+  descriptionEn:
+    "May 22, 2026: OpenAI confidentially filed its S-1. September listing target, $1T+ valuation. SpaceX debuts June 12 raising $75B+. Anthropic in talks at $900B. The 1999 dotcom IPO wave didn't make the cycle top — it confirmed it. Will 2026 be the same — except for one decisive difference.",
+  date: "2026-05-29",
+  readingMinutes: 19,
+  keyPoints: [
+    "OpenAI S-1 confidentially filed 2026.5.22 (CNBC). 9월 상장 목표, valuation $852B-$1T+ 추정. Sam Altman: 'ready by September'. GS+MS 21-bank syndicate. 예상 raise $50-100B+ (역대 최대)",
+    "Anthropic: Series G $30B at $380B (2026.2) → 2026.5 협상 $30B+ at $900B. 매출 $30B run-rate, 2027 흑자 가능 (leaked deck). IPO timing Q4 2026-2027",
+    "Cursor: Series D $29.3B → $50B 협상 → xAI $60B 인수 옵션. ARR $2B. 2027 IPO 가장 유력 후보. Cognition $26B, Lovable $6.6B, Replit $9B",
+    "SpaceX: 2026.6.12 데뷔 예정 (SPCX), $75B raise, $1.25T-1.75T cap. xAI를 포함한 묶음. 역대 최대 단일 IPO",
+    "1999 비교: 547개 IPO / $69B raise / 1999년 평균 first-day +68%. 5년 생존율 ~50%. 2026 빅3(SpaceX·OpenAI·Anthropic)이 인플레 조정 시 1999년 약 300개 IPO 합산과 맞먹는 규모",
+    "결정적 차이: 1999년 IPO는 적자 회사의 primary 자금. 2026년 IPO는 이미 잘 funded된 회사의 *insider liquidity*. OpenAI는 IPO 전에 이미 $10.3B secondary로 cashout",
+    "Howard Marks (2025.12 메모): 두 가지 거품 가능성 — '회사의 행동' vs '투자자의 행동'. 후자가 먼저 보이기 시작",
+    "투자자 watch: OpenAI IPO 첫날 pop, 첫 down round (Pets.com 모먼트), MSFT의 OpenAI 27% 지분 mark-up이 회계 EPS에 미치는 영향",
+  ],
+  keyPointsEn: [
+    "OpenAI S-1 confidentially filed May 22, 2026 (CNBC). September listing target, valuation $852B-$1T+. Sam Altman: 'ready by September'. GS+MS 21-bank syndicate. Expected raise $50-100B+ (largest ever)",
+    "Anthropic: Series G $30B at $380B (Feb 2026) → May 2026 in talks at $30B+ at $900B. $30B revenue run-rate, profitability possible 2027 (leaked deck). IPO timing Q4 2026-2027",
+    "Cursor: Series D $29.3B → $50B in talks → xAI $60B option. ARR $2B. Most likely 2027 IPO candidate. Cognition $26B, Lovable $6.6B, Replit $9B",
+    "SpaceX: June 12, 2026 debut (SPCX), $75B raise, $1.25T-1.75T cap. Includes xAI in bundle. Largest single IPO ever",
+    "1999 comparison: 547 IPOs / $69B raise / avg first-day +68%. 5-year survival ~50%. 2026 Big 3 (SpaceX/OpenAI/Anthropic) in inflation-adjusted terms equal ~300 dotcom IPOs combined",
+    "Decisive difference: 1999 IPOs were primary funding for unprofitable companies. 2026 IPOs are *insider liquidity* for already-funded companies. OpenAI did $10.3B secondary at $500B before IPO",
+    "Howard Marks (Dec 2025 memo): two bubble possibilities — 'company behavior' vs 'investor behavior'. The latter is starting to appear first",
+    "Investor watch: OpenAI IPO first-day pop, first down round (Pets.com moment), MSFT mark-up of 27% OpenAI stake on accounting EPS",
+  ],
+  sections: [
+    {
+      heading: "2026년 5월 22일 — S-1 한 통이 도착했다",
+      headingEn: "May 22, 2026 — One S-1 Arrives",
+      blocks: [
+        {
+          type: "text",
+          body: "2026년 5월 22일. OpenAI가 SEC에 **S-1을 비공개로 제출**했다 (CNBC, TechCrunch 5월 20일 보도). 9월 상장 목표 — Sam Altman이 \"ready by September\" 라고 공개적으로 말했다. Goldman Sachs와 Morgan Stanley가 주관, 21개 은행 syndicate. 예상 단일 raise $50-100B+ . 만약 100억 달러 규모라면 사우디 Aramco($25.6B)의 2-4배, 역대 최대 단일 IPO 기록을 2-4배로 갈아엽는다.\n\n같은 달. SpaceX (xAI 포함)가 6월 12일 데뷔 예정 (티커 SPCX). $75B+ raise, valuation $1.25T-1.75T. 그 자체로 역대 최대 단일 IPO 기록을 만들고, *그 한 달 뒤에 OpenAI가 그 기록을 또 갈아엎는다* . Anthropic은 5월 협상 중인 라운드가 $30B at **$900B post-money** (Bloomberg). Q4 2026 또는 2027년 IPO 가능성. Cursor의 ARR이 $2B에 도달했고, xAI가 $60B에 인수할 옵션을 보유 중이다.\n\n2026년은 — *AI 자본의 capital markets 검증* 의 해다. 그리고 그 검증의 시점이 — 1999년의 데자뷔처럼 보인다.\n\n*그러나 결정적으로 다른 한 가지가 있다* .",
+          bodyEn:
+            "May 22, 2026. OpenAI confidentially filed its S-1 with the SEC (CNBC, TechCrunch broke May 20). September listing target — Sam Altman said publicly \"ready by September.\" Goldman Sachs and Morgan Stanley lead a 21-bank syndicate. Expected single raise: $50-100B+. At $100B that would be 2-4x Saudi Aramco's $25.6B — rewriting the largest IPO record 2-4 times over.\n\nSame month. SpaceX (with xAI bundled) debuts June 12, ticker SPCX. $75B+ raise, $1.25T-1.75T valuation. By itself the largest IPO ever, and *a month later OpenAI rewrites that record again*. Anthropic in talks May 2026 at $30B+ raise at **$900B post-money** (Bloomberg). Q4 2026 or 2027 IPO likely. Cursor's ARR reached $2B; xAI holds an option to acquire it for $60B.\n\n2026 is the year of *capital markets validation for AI capital*. And the timing — looks like a 1999 déjà vu.\n\n*But one thing is decisively different.*",
+        },
+        {
+          type: "table",
+          table: {
+            id: "ai-ipo-pipeline-2026",
+            title: "2026 AI IPO 파이프라인 (5월 기준)",
+            titleEn: "2026 AI IPO Pipeline (as of May)",
+            headers: ["회사", "ARR", "Valuation", "Raise 목표", "Timing", "주관사"],
+            headersEn: ["Company", "ARR", "Valuation", "Raise Target", "Timing", "Underwriters"],
+            rows: [
+              ["OpenAI", "$25B+ (run-rate)", "$852B-$1T+", "$50-100B+", "S-1 filed 2026.5.22, 9월 상장 목표", "GS+MS (21-bank syndicate)"],
+              ["Anthropic", "$30B (run-rate)", "$380B → $900B (협상)", "$60B+ (estimated)", "Q4 2026 / 2027", "GS, JPM, MS (early talks)"],
+              ["SpaceX (incl. xAI)", "$18.7B (Starlink $11.4B)", "$1.25T → $1.75T", "$75B+", "**Pricing Jun 11, debut Jun 12 (SPCX)**", "복수"],
+              ["Databricks", "$5.4B (+55%)", "$134B", "TBD", "S-1 H2 2026 가능", "TBD"],
+              ["Canva", "$4B (+35%)", "$42B", "TBD", "2026 가능, Nasdaq 유력", "TBD"],
+              ["Cursor (Anysphere)", "$2B (Feb)", "$29.3B → $50B → xAI $60B 옵션", "비IPO (private 라운드)", "2027 IPO 후보 1순위", "n/a"],
+              ["Cognition (Devin)", "$492M (May)", "$26B", "비IPO", "2027+", "n/a"],
+              ["Stripe", "n/a (수익성)", "$159B (Feb)", "n/a", "\"top 20 priorities 아님\" (Collison)", "n/a"],
+              ["Figure AI (humanoid)", "≈ 0", "$39B", "비IPO", "2027+", "n/a"],
+              ["Mistral", "n/a", "$13.7B (€11.7B)", "€4B 인프라 부채 우선", "2027-2028", "n/a"],
+            ],
+            rowsEn: [
+              ["OpenAI", "$25B+ (run-rate)", "$852B-$1T+", "$50-100B+", "S-1 filed May 22, 2026; Sept listing", "GS+MS (21-bank syndicate)"],
+              ["Anthropic", "$30B (run-rate)", "$380B → $900B (talks)", "$60B+ (estimated)", "Q4 2026 / 2027", "GS, JPM, MS (early talks)"],
+              ["SpaceX (incl. xAI)", "$18.7B (Starlink $11.4B)", "$1.25T → $1.75T", "$75B+", "**Pricing June 11, debut June 12 (SPCX)**", "multiple"],
+              ["Databricks", "$5.4B (+55%)", "$134B", "TBD", "S-1 H2 2026 possible", "TBD"],
+              ["Canva", "$4B (+35%)", "$42B", "TBD", "2026 possible, Nasdaq likely", "TBD"],
+              ["Cursor (Anysphere)", "$2B (Feb)", "$29.3B → $50B → xAI $60B option", "no IPO yet (private rounds)", "2027 IPO candidate #1", "n/a"],
+              ["Cognition (Devin)", "$492M (May)", "$26B", "no IPO yet", "2027+", "n/a"],
+              ["Stripe", "n/a (profitable)", "$159B (Feb)", "n/a", "\"not top 20 priorities\" (Collison)", "n/a"],
+              ["Figure AI (humanoid)", "≈ 0", "$39B", "no IPO yet", "2027+", "n/a"],
+              ["Mistral", "n/a", "$13.7B (€11.7B)", "€4B infra debt first", "2027-2028", "n/a"],
+            ],
+            caption: "출처: CNBC, TechCrunch, Bloomberg, Renaissance Capital 2026 Outlook. 2026 한 해에 SpaceX+OpenAI+Anthropic 3개만 합쳐도 raise 목표가 $200B+ — 1999년 IPO 총 raise $69B의 3배.",
+            captionEn: "Sources: CNBC, TechCrunch, Bloomberg, Renaissance Capital 2026 Outlook. SpaceX+OpenAI+Anthropic alone target $200B+ in 2026 — 3x the entire 1999 IPO market of $69B.",
+          },
+        },
+      ],
+    },
+    {
+      heading: "1999년의 IPO 파도 — 무엇이 일어났는가",
+      headingEn: "The 1999 IPO Wave — What Happened",
+      blocks: [
+        {
+          type: "text",
+          body: "1999년의 IPO 파도를 보지 않고는 2026년을 평가할 수 없다.\n\n**정량 데이터** :\n- 1999년 IPO 총 수: **547개** (그중 인터넷 IPO 289개)\n- 1999년 합산 raise: **$69B+** ($24.66B는 인터넷 IPO만)\n- 1999년 평균 first-day pop: **+68%** (인터넷 IPO는 +90% 평균)\n- 117개 IPO (23%) 가 첫날 두 배 이상 상승\n- **VA Linux** (Dec 9, 1999): 첫날 **+698%** , 역대 최대 first-day record. $132M raise → 시총 $9.5B (당시 MSFT IPO 시총의 12배). 1년 안에 $8.49/sh로 추락\n- 1999 IPO의 **28%만이 첫 해 흑자**\n- 1999 IPO class의 **5년 생존율 ~50%** (Ritter 학술 데이터)\n\n**상징적 IPO 결말** :\n- Pets.com: IPO 2000.2.10 ($11/sh, $82.5M raise). 11월 6일 청산. **268일** 만에 IPO에서 청산까지.\n- Webvan: 1999 IPO. 2001년 파산. 총 손실 $1.5B+\n- eToys: 1999 IPO. 2001년 파산\n- Drkoop.com: 1999 IPO. 2002년 파산\n- 1100+ 인터넷 회사가 2000-2002년 파산 신청\n\n*1999 IPO 파도는 cycle top을 만들지 않았다 — 그저 확인했을 뿐이다* . 2000년 3월 NASDAQ 피크는 IPO 파도 *이후* 에 왔고, 시장이 정점을 인식한 건 *사후* 였다. Greenspan의 \"irrational exuberance\" 발언은 1996년 12월 — 3년 너무 일찍이었다.\n\n**1999 IPO 파도의 본질** : 적자 회사에 *primary capital* (회사가 직접 받는 자금)을 공급. 그 자금이 더 빠른 성장에 쓰였고, 더 큰 capex 사이클을 만들었고, 결국 그 capex가 회수되지 않으면서 cycle이 종료됐다.\n\n*이게 2026과 결정적으로 다른 부분이다* .",
+          bodyEn:
+            "You can't evaluate 2026 without seeing 1999's IPO wave.\n\n**Quantitative data**:\n- 1999 total IPOs: **547** (of which 289 internet IPOs)\n- 1999 combined raise: **$69B+** ($24.66B from internet alone)\n- 1999 avg first-day pop: **+68%** (internet IPOs averaged +90%)\n- 117 IPOs (23%) doubled on day one\n- **VA Linux** (Dec 9, 1999): first-day **+698%**, all-time record. $132M raise → $9.5B market cap (12x MSFT's IPO cap). Within a year: $8.49/sh\n- Only **28%** of 1999 IPOs had positive net income in year 1\n- 1999 IPO class **5-year survival ~50%** (Ritter academic data)\n\n**Symbolic IPO endings**:\n- Pets.com: IPO Feb 10, 2000 ($11/sh, $82.5M raise). Liquidated Nov 6. **268 days** from IPO to dissolution.\n- Webvan: 1999 IPO. Bankrupt 2001. Total losses $1.5B+\n- eToys: 1999 IPO. Bankrupt 2001\n- Drkoop.com: 1999 IPO. Bankrupt 2002\n- 1,100+ internet companies filed for bankruptcy during 2000-2002\n\n*The 1999 IPO wave did not make the cycle top — it merely confirmed it*. The March 2000 NASDAQ peak came *after* the IPO wave; the market recognized the peak only *ex-post*. Greenspan's \"irrational exuberance\" came in December 1996 — three years too early.\n\n**Essence of the 1999 IPO wave**: it supplied *primary capital* (cash directly to the company) to unprofitable companies. That capital funded faster growth, created bigger capex cycles, and ultimately the capex didn't get recouped — and the cycle ended.\n\n*This is the decisive difference from 2026*.",
+        },
+      ],
+    },
+    {
+      heading: "결정적 차이 — 2026 IPO는 primary가 아니라 insider liquidity",
+      headingEn: "The Decisive Difference — 2026 IPOs Are Insider Liquidity, Not Primary",
+      blocks: [
+        {
+          type: "text",
+          body: "1999년 인터넷 IPO와 2026년 AI IPO의 가장 중요한 차이는 — *IPO의 자본시장 기능 자체가 다르다* 는 것이다.\n\n**1999년** : 인터넷 회사가 *capital을 조달하기 위해* IPO를 했다. Pets.com이 \\$82.5M raise는 광고와 운영비를 위한 자금. 사모 시장이 더 이상 자금을 대주지 않거나, 대주는 가격이 IPO보다 낮을 때 — 회사는 *상장 외에 선택지가 없었다* . IPO는 생존 자금이었다.\n\n**2026년** : OpenAI, Anthropic, Cursor — 모두 *이미 사모 시장에서 천문학적으로 funded* 됐다. OpenAI는 IPO 전에 이미 \\$110B+ 누적 펀딩. Anthropic은 \\$64B+. Cursor는 사실 IPO 전에 xAI에 \\$60B에 매각될 수도 있다. 이 회사들에게 IPO는 *자금 조달의 마지막 수단* 이 아니다 — 그 반대로 *insider들이 cashout할 마지막 단계* 다.\n\nOpenAI가 2025년 10월에 했던 것을 보자. **$10.3B secondary tender at $500B valuation** . *IPO 전에 이미 insider들이 한 라운드의 cashout을 끝낸 것* 이다. SoftBank의 $40B 라운드 (2025.3 ~ 2025.12) 도 일부는 secondary였다. *Insider들은 이미 거의 다 팔았다* .\n\n그래서 2026 AI IPO 파도는 — 1999와 표면적으로 닮았지만 *경제학적으로는 정반대* 다.\n\n*1999는 capital이 회사로 흘러들어가는 파도* 였다. *2026은 capital이 회사에서 흘러나오는 파도* 다.\n\n그래서 IPO 성공 / 실패의 의미도 다르다. 1999 IPO 실패 = 회사가 자금을 못 받아 파산. 2026 IPO 실패 = insider들이 cashout 못함, 회사는 이미 funded되어 있어 운영은 계속. 그러나 — *insider cashout 실패가 라운드 valuation 하락으로 이어지면, 같은 회사들이 다음 라운드를 받지 못한다* . Memo 1의 회로가 그 마디에서 끊긴다.",
+          bodyEn:
+            "The most important difference between 1999 internet IPOs and 2026 AI IPOs is — *the capital markets function of the IPO itself is different*.\n\n**1999**: internet companies went public *to raise capital*. Pets.com's $82.5M raise was for advertising and operations. When private markets stopped funding, or funded at lower prices than IPO would — the company had *no choice but to list*. IPO was survival capital.\n\n**2026**: OpenAI, Anthropic, Cursor — all are *already astronomically funded by private markets*. OpenAI is $110B+ cumulative pre-IPO. Anthropic is $64B+. Cursor might even be acquired by xAI at $60B before going public. For these companies, IPO is not *the last resort for capital* — it is the opposite: *the final step where insiders cash out*.\n\nLook at what OpenAI did in October 2025. **$10.3B secondary tender at $500B valuation**. *Before the IPO, insiders already finished one round of cashout*. Parts of SoftBank's $40B round (March-Dec 2025) were also secondary. *Insiders have already sold most of what they wanted to*.\n\nSo the 2026 AI IPO wave — looks like 1999 on the surface but is *economically the opposite*.\n\n*1999 was a wave of capital flowing into companies*. *2026 is a wave of capital flowing out of companies*.\n\nThe meaning of IPO success/failure also differs. 1999 IPO failure = company can't get cash → bankruptcy. 2026 IPO failure = insiders can't cash out, but the company is already funded and operations continue. But — *if insider cashout failure leads to lower round valuations, those same companies can't raise their next rounds*. Memo 1's circuit breaks at that node.",
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "warning",
+            heading: "Howard Marks (2025.12 메모): 두 종류의 거품",
+            headingEn: "Howard Marks (Dec 2025 memo): Two Kinds of Bubbles",
+            body: "Howard Marks가 2025년 12월 메모 \"Is It a Bubble?\" 에서 정리한 분석: 거품은 두 가지 형태로 나타난다 — 첫째는 *회사의 행동* 거품 (회사가 과도하게 capex하거나 인수합병하거나). 둘째는 *투자자의 행동* 거품 (투자자가 과도한 valuation에 베팅). 2026년 AI에서는 — *둘 다 동시에 일어나고 있다* . 회사들은 \\$700B+ capex를 약속하고, 투자자들은 \\$1T+ valuation에 베팅한다. Marks: \"투자자의 행동 거품이 회사의 행동 거품보다 먼저 보이기 시작한다.\" 그게 OpenAI/Anthropic/Cursor의 secondary 라운드들이다.",
+            bodyEn:
+              "Howard Marks's December 2025 memo \"Is It a Bubble?\" frames it: bubbles appear in two forms — first, *company behavior* bubble (companies overinvesting or over-acquiring). Second, *investor behavior* bubble (investors betting on excessive valuations). In 2026 AI, *both are happening simultaneously*. Companies promise $700B+ capex; investors bet on $1T+ valuations. Marks: \"The investor behavior bubble tends to appear first.\" That's what OpenAI / Anthropic / Cursor secondary rounds are.",
+          },
+        },
+      ],
+    },
+    {
+      heading: "Burry, Chanos, 그리고 메가캡 IPO의 산수",
+      headingEn: "Burry, Chanos, and the Mega-Cap IPO Math",
+      blocks: [
+        {
+          type: "text",
+          body: "**Michael Burry** 가 5월 2026 X 포스트에서 한 말: \"AI IPO 파도는 *피투성이 자동차 사고의 현장, 사고가 일어나기 직전 몇 분* 이다.\" 인플레이션 조정 시 — SpaceX + OpenAI + Anthropic 세 IPO의 합산 raise는 *1999년 약 300개 IPO 합산과 맞먹는 규모* 다. 한 해에 메가캡 3개로.\n\n**Jim Chanos** 가 2026년 초에 한 말: AI는 \"이 사이클의 displacement idea\" — 1990년대 인터넷이 했던 같은 역할. NVDA의 capital spending needs가 \"\\$13B 매출에 대비해 수천억 달러\" . 1999년 vendor financing 약 \\$100B를 \"훨씬 초과하는 패턴\" .\n\n**BofA의 Michael Hartnett** : AI가 미국 주식시장 시가총액에서 차지하는 비중이 — 1920년대, Nifty Fifty, 1989 일본, 닷컴 — 모든 지난 100년 거품의 정점이었던 **48%를 초과** 했다.\n\n그러나 — *이 모든 비판은 1999년 사이클을 정확히 묘사한 사람들이 한 것이기도 하다* . Burry는 GFC를 예측했지만 그 외 여러 번 일찍 약세 베팅을 했다. Chanos는 Enron을 잡았지만 NVDA에 대한 short은 2024년에 비싸게 잃었다. Hartnett는 strategist일 뿐 timing을 제시하지 못한다.\n\n*Marks의 핵심 통찰* : *언제* 사이클이 끝나는지는 알 수 없다. 그러나 *어떻게* 끝나는지는 패턴이 있다. **IPO 파도 이후 1-3년** 이 닷컴 패턴이었다. 2026 IPO 파도가 6-12월에 정점을 친다면, 사이클 정점은 — *2027 또는 2028* 가능성이 가장 높다.",
+          bodyEn:
+            "**Michael Burry** in a May 2026 X post: the AI IPO wave is *\"the scene of the bloody car crash, minutes before it happens.\"* Inflation-adjusted — SpaceX + OpenAI + Anthropic combined raise = *roughly equal to ~300 1999 IPOs combined*. In one year, in three megacaps.\n\n**Jim Chanos** in early 2026: AI is \"the displacement idea of this cycle\" — the same role the internet played in the 1990s. NVDA's capital spending needs are \"in the hundreds of billions of dollars against $13B in revenue.\" A pattern that \"far exceeds the approximately $100 billion in 1990s vendor financing.\"\n\n**BofA's Michael Hartnett**: AI's share of US equity market cap has **surpassed the 48% peak** that defined every bubble of the past century (1920s, Nifty Fifty, Japan 1989, dotcom).\n\nBut — *all these critics also include those who described 1999 accurately*. Burry predicted GFC but has been early on multiple bear bets since. Chanos caught Enron but lost expensively shorting NVDA in 2024. Hartnett is a strategist who doesn't time.\n\n*Marks's core insight*: you can't know *when* a cycle ends. But *how* it ends has patterns. **1-3 years after the IPO wave** was the dotcom pattern. If the 2026 IPO wave peaks in June-December, the cycle peak is most likely — *2027 or 2028*.",
+        },
+        {
+          type: "chart",
+          chart: {
+            id: "pe-spread",
+            title: "Mag 7 vs S&P 493 Forward P/E 스프레드 (2020-2026)",
+            titleEn: "Mag 7 vs S&P 493 Forward P/E Spread (2020-2026)",
+            caption:
+              "출처: FactSet, Yardeni Research (2026). Mag 7 forward P/E ~28x, S&P 493 ~23.5x. 프리미엄 19% — 10년 최저. 단, AI 집중도는 시가총액 기준 35% (Mag 7 시총/S&P 500) — 역대 최고.",
+            captionEn:
+              "Sources: FactSet, Yardeni Research (2026). Mag 7 forward P/E ~28x, S&P 493 ~23.5x. Premium 19% — 10-yr low. But AI concentration is 35% (Mag 7 cap / S&P 500) — all-time high.",
+            data: [
+              { year: "'20", mag7: 28, sp493: 18 },
+              { year: "'21", mag7: 32, sp493: 21 },
+              { year: "'22", mag7: 24, sp493: 16 },
+              { year: "'23", mag7: 27, sp493: 17 },
+              { year: "'24", mag7: 30, sp493: 19 },
+              { year: "'25", mag7: 31, sp493: 20 },
+              { year: "'26", mag7: 28, sp493: 23.5 },
+            ],
+          },
+        },
+      ],
+    },
+    {
+      heading: "한국 시장의 함의 — KOSPI cascade",
+      headingEn: "Korean Market Implications — KOSPI Cascade",
+      blocks: [
+        {
+          type: "text",
+          body: "OpenAI/Anthropic IPO가 한국 시장에 어떻게 cascade되는가.\n\n**상승 시나리오** (OpenAI IPO 성공, $1T+ valuation, 첫날 +30%):\n- MSFT의 OpenAI 27% 지분 → 회계 mark-up 약 $135B+ unrealized gain. MSFT EPS에 일회성 +30-50% 영향 (FASB ASC 321)\n- AMZN의 Anthropic 약 14-19% 지분 → 향후 Anthropic IPO 성공 시 유사 mark-up $100-190B\n- MSFT/AMZN의 capex 자신감 유지 → HBM·CoWoS 수요 지속 → SK하이닉스·삼성 영업이익 안정\n- KOSPI semi 비중 직접 수혜\n\n**하락 시나리오** (OpenAI IPO 첫주 issue price 하향 돌파 — *Pets.com 모먼트* ):\n- MSFT 마크다운 → 빅테크 P/E 다중 압축\n- 빅테크 capex 가이던스 하향 검토 → HBM 가격 하방 압력\n- SK하이닉스·삼성 multiple 압축 + KOSPI cascade\n- 한국 시장이 *미국 capital markets 검증 실패의 첫 외부 victim* 이 된다\n\n**한국 투자자가 직접 OpenAI/Anthropic 베팅할 방법** :\n- 사모 secondary (Forge, Hiive 등) — *그러나* Anthropic이 2026년 5월 12일 \"이런 플랫폼들은 인가받지 않음, 이사회 승인 없는 transfer는 무효\" 라고 공식 경고. 한국 HNW investor 일부 위험.\n- IPO 후 — US listing 정상 접근 (키움/미래에셋/토스). FX와 settlement 고려.\n- 간접: MSFT (OpenAI) + AMZN (Anthropic)\n\n**한국 AI IPO 후보** : Upstage. 2025년 underwriter 선정, 2026 H2 KOSDAQ 상장 신청. 자체 모델 Solar Pro 2 (31B 파라미터) — 전 세계 frontier 10위권 자칭. 예상 valuation ₩2-3T+. 한국 첫 generative AI IPO.\n\n**SK텔레콤 Anthropic 지분** : 2023.8 \\$100M 투자. 약 0.3% 지분. 2026년 \\$900B valuation 기준 mark-to-IPO **~₩2.6-3T+** . SKT 시총 ₩20T의 13-15%에 해당. 한국 기업 중 OpenAI/Anthropic IPO에 가장 직접적으로 노출된 단일 종목.",
+          bodyEn:
+            "How will OpenAI/Anthropic IPO cascade into the Korean market?\n\n**Bullish scenario** (OpenAI IPO success, $1T+ valuation, first-day +30%):\n- MSFT's 27% OpenAI stake → accounting mark-up ~$135B+ unrealized gain. MSFT EPS one-time impact +30-50% (FASB ASC 321)\n- AMZN's ~14-19% Anthropic stake → similar mark-up $100-190B if Anthropic IPO succeeds\n- MSFT/AMZN capex confidence preserved → HBM/CoWoS demand sustained → SK Hynix/Samsung operating profit stable\n- KOSPI semi weight directly benefits\n\n**Bearish scenario** (OpenAI IPO breaks issue price in first week — *Pets.com moment*):\n- MSFT markdown → Big Tech P/E multiple compression\n- Big Tech capex guidance revision → HBM price pressure downside\n- SK Hynix/Samsung multiple compression + KOSPI cascade\n- Korean market becomes *the first external victim of US capital markets validation failure*\n\n**How Korean investors can directly bet on OpenAI/Anthropic**:\n- Private secondary (Forge, Hiive, etc.) — *but* Anthropic warned May 12, 2026: \"these platforms are not authorized; transfers without board approval are void.\" Risk for some Korean HNW investors.\n- Post-IPO — normal US listing access (Kiwoom, Mirae Asset, Toss). Consider FX and settlement.\n- Indirect: MSFT (OpenAI) + AMZN (Anthropic)\n\n**Korean AI IPO candidates**: Upstage. Underwriter selected 2025, KOSDAQ filing H2 2026. Own model Solar Pro 2 (31B params) — claims top-10 frontier ranking. Expected valuation ₩2-3T+. Korea's first generative AI IPO.\n\n**SK Telecom Anthropic stake**: $100M invested Aug 2023. ~0.3% stake. At 2026 $900B valuation, mark-to-IPO **~₩2.6-3T+**. Equivalent to 13-15% of SKT's ₩20T market cap. The single Korean stock most directly exposed to OpenAI/Anthropic IPO.",
+        },
+      ],
+    },
+    {
+      heading: "결론 — IPO는 cycle top을 만들지 않는다, 그저 확인한다",
+      headingEn: "Conclusion — IPOs Don't Make the Top, They Confirm It",
+      blocks: [
+        {
+          type: "text",
+          body: "이 메모의 단일 명제는 단순하다 — **IPO는 cycle top을 만들지 않는다. 그저 확인할 뿐이다** .\n\n1999년 IPO 파도는 — Pets.com, Webvan, Drkoop.com을 거치며 — *cycle top을 만든 것이 아니라, 그것을 사후에 알려준 신호* 였다. NASDAQ 정점은 IPO 파도의 정점 *이후* 에 왔다. 2026년 AI IPO 파도도 — *cycle top을 만들지 않을 것이다* . 그저 cycle이 어디까지 갔는지를 보여줄 뿐이다.\n\n그러나 결정적 차이가 있다. 1999는 *primary capital* 파도였고, 그 자본이 capex를 만들고 사이클을 연장했다. 2026은 *insider liquidity* 파도다. Insiders는 이미 secondary로 cashout했다. *IPO 자체가 capex 자금이 아니다* . 그래서 2026 IPO 파도의 자본시장 충격은 — 1999보다 *지연되어* 나타날 가능성이 높다.\n\n그렇다면 무엇을 봐야 하는가?\n\n*첫째* , **OpenAI IPO 첫주 가격 행동** . Issue price를 break하면 (즉 첫날 또는 첫주 내 issue price 아래로 떨어지면) — 그건 Pets.com 모먼트의 mega 버전. 2026년 capital markets에서 가장 큰 단일 catalyst.\n\n*둘째* , **첫 down round** . OpenAI보다 작은 회사 — Cursor, Cognition, Lovable, Replit, Mistral 중 하나 — 가 다음 라운드 valuation을 낮춰 받으면, 그건 Memo 1 회로의 *첫 균열* 이다.\n\n*셋째* , **MSFT/AMZN의 mark-up vs markdown** . OpenAI/Anthropic IPO 후 대형 빅테크의 mark-to-market unrealized gain/loss가 — 빅테크 EPS와 forward 가이던스에 어떤 영향을 주는가.\n\n*Howard Marks의 표현으로 — 우리는 알 수 없다. 그러나 IPO 파도 이후 1-3년이 닷컴 패턴이었다. 2026 IPO 파도가 시점이라면, 2027-2028이 그 1-3년이다* .",
+          bodyEn:
+            "The single proposition of this memo: **IPOs don't make the cycle top. They merely confirm it.**\n\nThe 1999 IPO wave — through Pets.com, Webvan, Drkoop.com — *didn't make* the cycle top; it was *the ex-post signal that announced it*. The NASDAQ peak came *after* the IPO wave's peak. The 2026 AI IPO wave will *also not make* the cycle top. It will merely show how far the cycle has gone.\n\nBut a decisive difference. 1999 was a *primary capital* wave; that capital created capex and extended the cycle. 2026 is an *insider liquidity* wave. Insiders already cashed out via secondary. *IPO itself is not capex funding*. So the capital-markets shock of 2026's IPO wave is likely to appear *with a delay* relative to 1999.\n\nWhat then to watch?\n\n*First*, **OpenAI's first-week price action**. If it breaks issue price (i.e., falls below issue price within the first day or week) — that's a mega-version of the Pets.com moment. The single biggest catalyst in 2026 capital markets.\n\n*Second*, **the first down round**. If a smaller company than OpenAI — Cursor, Cognition, Lovable, Replit, or Mistral — accepts a next round at a lower valuation, that is *the first crack* in Memo 1's circuit.\n\n*Third*, **MSFT/AMZN mark-up vs markdown**. After OpenAI/Anthropic IPO, how does Big Tech's mark-to-market unrealized gain/loss affect EPS and forward guidance?\n\n*In Marks's framing — we can't know. But the dotcom pattern was 1-3 years after the IPO wave. If 2026's IPO wave is the timer, that 1-3 years is 2027-2028.*",
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "insight",
+            heading: "다음 메모 — 패권의 바깥 (이미 발행)",
+            headingEn: "Next Memo — Empire's Periphery (already published)",
+            body: "Memo 4 에서 — IPO가 검증할 그 비즈니스의 supply chain이 한국·대만에 묶여 있다는 사실을 본다. 패권의 자본 검증과 supply 검증이 같은 사이클의 두 면.",
+            bodyEn:
+              "Memo 4 examines how the supply chain that IPO validates is bound to Korea and Taiwan. Capital validation and supply validation are two faces of the same cycle.",
+          },
+        },
+      ],
+    },
+  ],
+  references: [
+    { id: 1, author: "CNBC", title: "OpenAI confidentially files for IPO (May 20, 2026)", source: "CNBC", year: "2026-05-20", url: "https://www.cnbc.com/2026/05/20/openai-ipo-filing.html" },
+    { id: 2, author: "TechCrunch", title: "OpenAI barrels toward September IPO", source: "TechCrunch", year: "2026-05-20", url: "https://techcrunch.com/2026/05/20/openai-barrels-toward-ipo-that-may-happen-in-september/" },
+    { id: 3, author: "Bloomberg", title: "Anthropic in talks to raise $30B at $900B", source: "Bloomberg", year: "2026-05-12", url: "https://www.bloomberg.com/news/articles/2026-05-12/anthropic-in-talks-to-raise-30-billion-at-900-billion-valuation" },
+    { id: 4, author: "Bloomberg", title: "SpaceX IPO: $1.75T, $75B raise", source: "Bloomberg", year: "2026-05-21", url: "https://www.bloomberg.com/news/articles/2026-05-21/spacex-ipo-ai-plans-starlink-growth-and-risks" },
+    { id: 5, author: "Howard Marks", title: "Is It a Bubble? (memo)", source: "Oaktree Capital", year: "2025-12", url: "https://www.oaktreecapital.com/insights/memo/is-it-a-bubble" },
+    { id: 6, author: "Howard Marks", title: "AI Hurtles Ahead (memo)", source: "Oaktree Capital", year: "2026-02", url: "https://www.oaktreecapital.com/insights/memo/ai-hurtles-ahead" },
+    { id: 7, author: "Jay Ritter", title: "IPO Statistics — 1999 academic dataset", source: "University of Florida", year: "updated 2025", url: "https://site.warrington.ufl.edu/ritter/files/IPO-Statistics.pdf" },
+    { id: 8, author: "Renaissance Capital", title: "IPO Outlook 2026", source: "Renaissance Capital", year: "2026", url: "https://www.renaissancecapital.com/review/IPO_Outlook_2026_Public.pdf" },
+    { id: 9, author: "WilmerHale", title: "Internet IPOs Conclude Sensational Year 1999", source: "WilmerHale archive", year: "1999-12", url: "https://www.wilmerhale.com/en/insights/publications/internet-ipos-conclude-a-sensational-year-in-1999-december-1999" },
+    { id: 10, author: "CelebrityNetWorth (compiled)", title: "Pets.com: 268 days IPO to liquidation", source: "various", year: "compiled 2025", url: "https://www.celebritynetworth.com/articles/entertainment-articles/took-pets-com-just-268-days-go-ipo-complete-liquidation-thats-disaster/" },
+    { id: 11, author: "Microsoft Corporation", title: "Form 8-K — OpenAI Restructuring Disclosure (Oct 28, 2025)", source: "SEC EDGAR", year: "2025-10-28", url: "https://www.sec.gov/Archives/edgar/data/0000789019/000119312525256310/msft-ex99_2.htm" },
+    { id: 12, author: "Anthropic", title: "Warning against unauthorized secondary platforms", source: "Anthropic / TechCrunch", year: "2026-05-12", url: "https://techcrunch.com/2026/05/12/anthropic-warns-investors-against-secondary-platforms-offering-access-to-its-shares/" },
+    { id: 13, author: "Benzinga", title: "Michael Burry compares OpenAI/Anthropic/SpaceX IPO hype to dotcom", source: "Benzinga", year: "2026-05", url: "https://www.benzinga.com/markets/tech/26/05/52814875/michael-burry-compares-openai-anthropic-spacex-ipo-hype-to-dot-com-bubble" },
+    { id: 14, author: "SK Telecom", title: "$100M Anthropic strategic investment", source: "SKT Press Release", year: "2023-08", url: "https://news.sktelecom.com/en/699" },
+  ],
+};
+
+export const ALL_NOTES: NoteData[] = [koreaDiscount, dollarHegemony1, dollarHegemony2, dollarHegemony3, dollarHegemony4, aiCycle1, aiCycle2, aiCycle3, aiCycle4, aiCycle6];
