@@ -12,7 +12,7 @@ export type NoteCategory = "macro" | "strategy" | "market" | "essay" | "activism
  * 시리즈물 그룹핑 식별자. 새 시리즈 추가 시 ID 등록 → 메타데이터 정의 → 각 노트에 부여.
  * 시리즈에 속하지 않는 노트는 series 필드를 비워두면 인덱스에서 단일 카드로 렌더된다.
  */
-export type NoteSeriesId = "dollar-hegemony";
+export type NoteSeriesId = "dollar-hegemony" | "ai-capital-cycle";
 
 export const NOTE_SERIES_META: Record<
   NoteSeriesId,
@@ -33,6 +33,15 @@ export const NOTE_SERIES_META: Record<
     descEn: "How the dollar became the world's money — and how it's being redesigned",
     icon: "💵",
     accent: "#0ea5e9",
+    category: "macro",
+  },
+  "ai-capital-cycle": {
+    label: "AI 자본 사이클",
+    labelEn: "AI Capital Cycle",
+    desc: "$600B의 회로 — AI 자본이 어디로 흐르고, 어디서 끊어지는가",
+    descEn: "The $600B circuit — where AI capital flows, where it could break",
+    icon: "🔌",
+    accent: "#8b5cf6",
     category: "macro",
   },
 };
