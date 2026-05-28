@@ -196,6 +196,68 @@ export type CircularFlowEdge = {
   detailEn?: string;
 };
 
+// HBM 점유율 — 3-segment stacked (SK하이닉스 / 삼성 / 마이크론)
+export type HbmSharePoint = {
+  quarter: string;     // "23Q1" ...
+  skhynix: number;     // %
+  samsung: number;
+  micron: number;
+};
+
+// NVDA 데이터센터 매출 — 분기별 single line + annotation 지원
+export type NvdaDcRevenuePoint = {
+  quarter: string;     // "FY23Q4" ...
+  revenue: number;     // $B
+  event?: string;
+};
+
+// 광/네트워킹 — DC 매출 mix (Lumentum, Coherent 등 활용)
+export type OpticalMixPoint = {
+  fy: string;
+  dc: number;          // datacom $B
+  telecom: number;     // telecom $B
+  industrial: number;  // industrial $B
+};
+
+// CXL/PCIe 채택 — generation roadmap (Astera Labs 등)
+export type CxlAdoptionPoint = {
+  year: string;
+  Gen5: number;        // % of new server deployments
+  Gen6: number;
+  Gen7: number;
+};
+
+// IEA 데이터센터 전력 수요 — 시나리오별
+export type DcPowerDemandPoint = {
+  year: string;
+  base: number;        // TWh
+  high?: number;       // high scenario
+  low?: number;
+};
+
+// 인터커넥션 큐 — 미국 그리드 적체 (LBNL Queued Up)
+export type InterconnectionQueuePoint = {
+  year: string;
+  totalGW: number;     // active queue GW
+  withdrawnGW?: number;
+};
+
+// Anthropic Economic Index — 직업별 AI 침투율 시계열
+export type AiPenetrationPoint = {
+  period: string;      // "25Q1" ...
+  software: number;    // % AI usage in occupation
+  finance: number;
+  legal: number;
+  customer: number;    // customer service
+};
+
+// Mag 7 vs S&P 493 forward P/E 스프레드
+export type PeSpreadPoint = {
+  year: string;
+  mag7: number;        // forward P/E
+  sp493: number;
+};
+
 export type NoteChartDef =
   | { id: "pbr-comparison";    title: string; titleEn?: string; caption?: string; captionEn?: string; data: PBRPoint[] }
   | { id: "tax-rates";         title: string; titleEn?: string; caption?: string; captionEn?: string; data: TaxRateBar[] }
@@ -209,7 +271,15 @@ export type NoteChartDef =
   | { id: "capex-fcf-combo";   title: string; titleEn?: string; caption?: string; captionEn?: string; data: CapexFcfPoint[] }
   | { id: "lucent-financing";  title: string; titleEn?: string; caption?: string; captionEn?: string; data: LucentFinancingPoint[] }
   | { id: "cisco-lost-decade"; title: string; titleEn?: string; caption?: string; captionEn?: string; data: CiscoLostDecadePoint[]; annotations?: { year: string; label: string; labelEn?: string }[] }
-  | { id: "circular-flow";     title: string; titleEn?: string; caption?: string; captionEn?: string; nodes: CircularFlowNode[]; edges: CircularFlowEdge[] };
+  | { id: "circular-flow";     title: string; titleEn?: string; caption?: string; captionEn?: string; nodes: CircularFlowNode[]; edges: CircularFlowEdge[] }
+  | { id: "hbm-share";         title: string; titleEn?: string; caption?: string; captionEn?: string; data: HbmSharePoint[] }
+  | { id: "nvda-dc-revenue";   title: string; titleEn?: string; caption?: string; captionEn?: string; data: NvdaDcRevenuePoint[]; annotations?: { quarter: string; label: string; labelEn?: string }[] }
+  | { id: "optical-mix";       title: string; titleEn?: string; caption?: string; captionEn?: string; data: OpticalMixPoint[] }
+  | { id: "cxl-adoption";      title: string; titleEn?: string; caption?: string; captionEn?: string; data: CxlAdoptionPoint[] }
+  | { id: "dc-power-demand";   title: string; titleEn?: string; caption?: string; captionEn?: string; data: DcPowerDemandPoint[] }
+  | { id: "queue-growth";      title: string; titleEn?: string; caption?: string; captionEn?: string; data: InterconnectionQueuePoint[] }
+  | { id: "ai-penetration";    title: string; titleEn?: string; caption?: string; captionEn?: string; data: AiPenetrationPoint[] }
+  | { id: "pe-spread";         title: string; titleEn?: string; caption?: string; captionEn?: string; data: PeSpreadPoint[] };
 
 export type NoteBlock =
   | { type: "text";    body: string; bodyEn?: string }
@@ -2720,4 +2790,339 @@ const aiCycle1: NoteData = {
   ],
 };
 
-export const ALL_NOTES: NoteData[] = [koreaDiscount, dollarHegemony1, dollarHegemony2, dollarHegemony3, dollarHegemony4, aiCycle1];
+// ══════════════════════════════════════════════════════════════════════════════
+// NOTE #7 — AI Capital Cycle ④ — 패권의 바깥 (HBM·CoWoS)
+//   참고: 4편을 먼저 쓰는 이유는 시리즈 글로벌-한국 균형의 척추가 이 편이기
+//   때문. Part 2-3-5-7 은 리서치 완료 순서대로 작성.
+// ══════════════════════════════════════════════════════════════════════════════
+
+const aiCycle4: NoteData = {
+  slug: "ai-capital-cycle-4",
+  category: "macro",
+  status: "published",
+  series: "ai-capital-cycle",
+  seriesOrder: 4,
+  title: "AI 자본 사이클 ④ — 패권의 바깥",
+  titleEn: "AI Capital Cycle ④ — Empire's Periphery",
+  description:
+    "NVIDIA가 분기마다 $46B 매출을 만들 수 있는 건 — HBM 75%를 한국이, CoWoS 100%를 대만이 만들어주기 때문이다. 미국 AI 패권은 자기 영토에서 자급자족하지 않는다. 영국 제국이 인도 아편과 미국 면화에 의지했던 것과 같은 구조다.",
+  descriptionEn:
+    "NVIDIA's $46B quarterly revenue is possible because 75% of HBM is made in Korea and nearly 100% of CoWoS in Taiwan. The US AI empire does not produce its own bread. The British Empire depended on Indian opium and American cotton — same structure, different century.",
+  date: "2026-05-29",
+  readingMinutes: 18,
+  keyPoints: [
+    "NVDA FY26 Q2 데이터센터 매출 $46.7B (전체 매출의 90%). 이 단일 숫자가 AI 사이클의 정의 변수다 — 그 숫자가 가능했던 건 HBM과 CoWoS 두 공급의 동시 해소 덕분",
+    "2025 Q1, SK하이닉스가 사상 처음 삼성을 메모리 매출에서 추월. HBM 점유율 Q2'25 기준 SK하이닉스 62%, 삼성 17%, 마이크론 21% — 삼성의 NVDA 퀄 실패가 단일 분기에 점유율 24%p 빼앗김",
+    "TSMC CoWoS 캐파: 2024말 35K wafers/월 → 2026말 130K wafers/월 (CAGR 80%). NVDA가 그 캐파의 60%+ 선점. 사실상 대만 단독 공급",
+    "영국 제국이 인도 아편과 미국 면화에 의지했듯, 미국 AI 패권은 한국 HBM과 대만 CoWoS에 의지한다. 의존은 패권의 결함이 아니라 패권의 *구조* 다",
+    "Broadcom AI 매출 Q1 FY26 $8.2B (+74% YoY), backlog $73B — ASIC의 NVDA 점유 침식 시작. 그러나 ASIC도 결국 TSMC 패키징에 의지",
+    "CHIPS Act + TSMC Arizona + Micron NY는 의존을 풀려는 시도지만, 수요 증가 속도(연 +60%)가 capa 증설 속도(연 +25%)를 초과 — 의존은 단기에 풀리지 않는다",
+    "투자자가 봐야 할 단일 변수: 삼성 HBM4 12-Hi NVDA 퀄 통과 여부. 통과 = 듀오폴리 회복 + 삼성 +20-30% catalyst; 실패 = SK하이닉스 모노폴리 굳히기",
+  ],
+  keyPointsEn: [
+    "NVIDIA's FY26 Q2 data center revenue: $46.7B (90% of total). This single number defines the AI cycle — and it was only possible because HBM and CoWoS supply unlocked together",
+    "Q1 2025: SK Hynix passed Samsung in memory revenue for the first time ever. HBM share Q2'25: SK Hynix 62%, Samsung 17%, Micron 21% — Samsung's failure on NVIDIA qualification cost 24 percentage points in one quarter",
+    "TSMC CoWoS capacity: ~35K wafers/month end-2024 → 130K wafers/month end-2026 (80% CAGR). NVIDIA pre-allocated 60%+. In effect, single-source Taiwan",
+    "Just as the British Empire depended on Indian opium and American cotton, US AI hegemony depends on Korean HBM and Taiwanese CoWoS. The dependence is not a flaw — it is the *structure*",
+    "Broadcom AI revenue Q1 FY26: $8.2B (+74% YoY), backlog $73B — ASIC encroachment on NVIDIA share begins. But ASICs still depend on TSMC packaging",
+    "CHIPS Act + TSMC Arizona + Micron NY try to unwind the dependence. But demand growth (+60% YoY) outpaces capacity build (+25% YoY) — the dependence is not breaking in the short term",
+    "The single variable to watch: Samsung HBM4 12-Hi NVIDIA qualification. Pass = duopoly restored + Samsung +20-30% catalyst; fail = SK Hynix monopoly hardens",
+  ],
+  sections: [
+    // ── 1. 단일 곡선 ──────────────────────────────────────────────────────────
+    {
+      heading: "단일 곡선 — 사이클을 정의하는 한 숫자",
+      headingEn: "One Curve — The Single Number That Defines the Cycle",
+      blocks: [
+        {
+          type: "text",
+          body: "AI 사이클을 정의하는 단일 숫자가 있다. NVIDIA의 데이터센터 분기 매출이다.\n\nFY23 Q4 (2023년 1월말 기준) $4.3B. FY26 Q2 (2025년 7월말) $46.7B. 11배. 같은 회사의 같은 사업부가 10분기 만에 한 자릿수 $B에서 50에 가까운 $B로 갔다. 회사 전체 매출의 90%가 그 한 사업부에서 나온다.\n\n이 곡선은 두 가지를 말한다. 첫째, AI 자본 사이클이 정량적으로 *얼마나* 큰지 — NVDA의 한 사업부가 한 분기에 Lucent가 1999년 한 해 전체로 번 매출의 약 2배다. 둘째, 사이클의 분기 trajectory는 *공급 제약* 의 함수라는 것 — NVDA가 더 많이 팔지 못한 분기가 있다면, 그건 수요가 없어서가 아니라 *공급할 GPU가 없어서* 였다.\n\nGPU의 공급이 풀리려면 두 가지가 동시에 풀려야 한다. **HBM** 과 **CoWoS** 다. 둘 다 NVIDIA가 만들지 않는다. 둘 다 미국에서 만들어지지 않는다. 하나는 한국이, 하나는 대만이 만든다.\n\n그래서 이 곡선은 — 표면적으로는 NVIDIA의 매출이지만 — 실제로는 *한국·대만 공급이 풀린 만큼만 가능했던 곡선* 이다.",
+          bodyEn:
+            "There is one number that defines the AI cycle. It is NVIDIA's quarterly data center revenue.\n\nFY23 Q4 (ended January 2023): $4.3B. FY26 Q2 (ended July 2025): $46.7B. An 11x increase. The same business segment of the same company went from low single-digit $B to nearly $50B in ten quarters. 90% of the company's total revenue now comes from that one segment.\n\nThis curve says two things. First, *how big* the AI capital cycle is quantitatively — one NVIDIA segment in one quarter makes roughly twice what Lucent made in all of 1999. Second, the curve's quarterly trajectory is a function of *supply constraint* — if there were quarters where NVIDIA shipped less, it wasn't because demand was missing. It was because there weren't enough GPUs to ship.\n\nFor GPU supply to flow, two things must unlock simultaneously. **HBM** and **CoWoS**. NVIDIA makes neither. Neither is made in the United States. One comes from Korea. The other comes from Taiwan.\n\nSo this curve — on the surface NVIDIA's revenue — is actually *the curve of how much Korean and Taiwanese supply unlocked*.",
+        },
+        {
+          type: "chart",
+          chart: {
+            id: "nvda-dc-revenue",
+            title: "NVIDIA 데이터센터 분기 매출 (FY23 Q4 → FY26 Q2, $B)",
+            titleEn: "NVIDIA Data Center Quarterly Revenue (FY23 Q4 → FY26 Q2, $B)",
+            caption:
+              "출처: NVIDIA quarterly earnings releases (SEC 8-K). FY26 기준 데이터센터가 총 매출의 ~90%. 분기 sequential 성장 둔화가 시작되는 시점이 사이클 변곡점.",
+            captionEn:
+              "Source: NVIDIA quarterly earnings releases (SEC 8-K). Data center ~90% of total revenue as of FY26. The inflection point will be the quarter where sequential growth visibly decelerates.",
+            data: [
+              { quarter: "FY23Q4", revenue: 4.3 },
+              { quarter: "FY24Q1", revenue: 4.3 },
+              { quarter: "FY24Q2", revenue: 10.3 },
+              { quarter: "FY24Q3", revenue: 14.5 },
+              { quarter: "FY24Q4", revenue: 18.4, event: "H100 ramp" },
+              { quarter: "FY25Q1", revenue: 22.6 },
+              { quarter: "FY25Q2", revenue: 26.3 },
+              { quarter: "FY25Q3", revenue: 30.8 },
+              { quarter: "FY25Q4", revenue: 35.6 },
+              { quarter: "FY26Q1", revenue: 39.1 },
+              { quarter: "FY26Q2", revenue: 46.7, event: "Blackwell 본격 ramp" },
+            ],
+            annotations: [
+              { quarter: "FY24Q4", label: "H100 본격 ramp", labelEn: "H100 ramp" },
+              { quarter: "FY26Q2", label: "Blackwell 시작", labelEn: "Blackwell ramp" },
+            ],
+          },
+        },
+      ],
+    },
+    // ── 2. SK하이닉스가 처음 삼성을 넘었을 때 ────────────────────────────────
+    {
+      heading: "SK하이닉스가 처음 삼성을 넘었을 때",
+      headingEn: "When SK Hynix Passed Samsung — For the First Time",
+      blocks: [
+        {
+          type: "text",
+          body: "2025년 1분기. SK하이닉스의 메모리 매출이 사상 처음으로 삼성전자를 추월했다. KOSPI에서 보면 이건 단순한 분기 데이터가 아니다. **40년 만의 권력 이동의 첫 증명** 이다.\n\n그 권력의 이름은 HBM(High Bandwidth Memory)이다. AI 학습용 GPU 위에 12층, 16층으로 쌓이는 메모리. 일반 DRAM 가격의 3-5배. NVIDIA H100 한 장에 80GB, B100/B200에는 192GB가 들어간다. GPU의 본질적 가치는 절반 이상이 그 위에 쌓인 HBM에서 나온다.\n\nHBM 시장은 사실상 듀오폴리 + 1이다. SK하이닉스, 삼성, 마이크론. 그런데 2025 Q2 점유율이 — SK하이닉스 **62%** , 삼성 **17%** , 마이크론 **21%** 이다 (Counterpoint Research). 1년 전 (Q2 2024)에는 SK하이닉스 ~50%, 삼성 41%, 마이크론 9%였다. 단 4분기 만에 삼성의 점유율이 24%p 사라졌다.\n\n무엇이 일어났는가. *삼성이 NVIDIA의 HBM3E 12-Hi 퀄 통과에 실패했다* . NVIDIA는 GPU 한 장에 HBM 8-12개를 쌓는데, 그 안정성이 GPU 전체의 신뢰성을 결정한다. 발열 제어, 신호 무결성, TSV(through-silicon via) 수율 — 삼성이 SK하이닉스보다 일관되게 한 세대 뒤처졌다. 그 사이 마이크론이 차분히 점유를 늘렸다.\n\n시장은 이걸 \"한국 vs 한국\"의 싸움으로 본다. 더 정확히는 — *NVIDIA의 단일 퀄 결정이 한국 메모리 매출 ₩6조 이상을 한 회사에서 다른 회사로 이동시킨* 사건이다.",
+          bodyEn:
+            "Q1 2025. SK Hynix's memory revenue passed Samsung's for the first time in history. Viewed from KOSPI, this isn't just a quarterly data point. It is **the first proof of a 40-year power shift**.\n\nThat power has a name: HBM (High Bandwidth Memory). The memory stacked 12 or 16 layers high on top of AI training GPUs. Priced at 3-5x normal DRAM. NVIDIA H100 carries 80GB; B100/B200 carries 192GB. More than half of a GPU's essential value comes from the HBM stacked on top.\n\nThe HBM market is effectively a duopoly + 1. SK Hynix, Samsung, Micron. But Q2 2025 share was — SK Hynix **62%**, Samsung **17%**, Micron **21%** (Counterpoint Research). A year earlier (Q2 2024): SK Hynix ~50%, Samsung 41%, Micron 9%. In four quarters, Samsung lost 24 percentage points.\n\nWhat happened? *Samsung failed NVIDIA's HBM3E 12-Hi qualification.* NVIDIA stacks 8-12 HBM modules on each GPU; their reliability determines the entire GPU's reliability. Thermal control, signal integrity, TSV (through-silicon via) yield — Samsung was a generation behind SK Hynix on each. Meanwhile, Micron quietly built share.\n\nThe market sees this as \"Korea vs Korea.\" More precisely: *NVIDIA's single qualification decision moved over ₩6 trillion in memory revenue from one Korean company to another*.",
+        },
+        {
+          type: "chart",
+          chart: {
+            id: "hbm-share",
+            title: "HBM 점유율 분기 추이 (Q2'24 → Q2'25)",
+            titleEn: "HBM Market Share — Quarterly Trajectory (Q2'24 → Q2'25)",
+            caption:
+              "출처: Counterpoint Research, TrendForce. 삼성 점유율이 41% → 17%로 단 4분기 만에 -24%p. NVIDIA의 HBM3E 12-Hi 퀄 통과 실패가 원인. HBM4(2026) 퀄이 다음 분기점.",
+            captionEn:
+              "Sources: Counterpoint Research, TrendForce. Samsung's share fell from 41% to 17% in just four quarters — driven by failed NVIDIA HBM3E 12-Hi qualification. HBM4 (2026) qualification is the next inflection.",
+            data: [
+              { quarter: "Q2'24", skhynix: 50, samsung: 41, micron: 9 },
+              { quarter: "Q3'24", skhynix: 54, samsung: 35, micron: 11 },
+              { quarter: "Q4'24", skhynix: 58, samsung: 28, micron: 14 },
+              { quarter: "Q1'25", skhynix: 61, samsung: 22, micron: 17 },
+              { quarter: "Q2'25", skhynix: 62, samsung: 17, micron: 21 },
+            ],
+          },
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "insight",
+            heading: "단일 catalyst — 삼성 HBM4 12-Hi NVIDIA 퀄",
+            headingEn: "Single Catalyst — Samsung HBM4 12-Hi NVIDIA Qualification",
+            body: "2026년 한국 시장 단일 최대 catalyst다. 통과하면 듀오폴리 회복 + 삼성 +20-30% catalyst + SK하이닉스 점유 일부 반납. 실패하면 SK하이닉스 사실상 모노폴리 확정. NVIDIA Rubin 출시 (2026 하반기) 시점에 결정. UBS는 SK하이닉스가 HBM4 NVIDIA 공급의 70% 점유할 것으로 추정. 삼성이 이 결정을 뒤집을 수 있는 마지막 분기점.",
+            bodyEn:
+              "The single biggest catalyst for the Korean market in 2026. Pass = duopoly restored + Samsung +20-30% catalyst + SK Hynix gives up some share. Fail = SK Hynix locks in effective monopoly. Decision lands around NVIDIA Rubin launch (H2 2026). UBS estimates SK Hynix at 70% of HBM4 supply to NVIDIA. The last quarter where Samsung can reverse the verdict.",
+          },
+        },
+      ],
+    },
+    // ── 3. CoWoS — 대만이 쥔 다른 손 ──────────────────────────────────────────
+    {
+      heading: "CoWoS — 대만이 쥔 다른 손",
+      headingEn: "CoWoS — The Other Hand, Held by Taiwan",
+      blocks: [
+        {
+          type: "text",
+          body: "HBM이 한국이라면, CoWoS는 대만이다.\n\nCoWoS(Chip-on-Wafer-on-Substrate)는 GPU 다이와 HBM 스택을 하나의 인터포저 위에 패키징하는 TSMC의 advanced packaging 공정이다. 이게 없으면 GPU는 칩 한 장으로 존재하지 못한다. NVIDIA의 H100·B100·B200·Rubin — 모든 데이터센터 GPU가 CoWoS를 거친다.\n\nCoWoS는 사실상 TSMC 단독 공급이다. Samsung과 Intel이 비슷한 패키징을 시도하지만, 수율과 캐파에서 의미 있는 경쟁자가 없다. 그래서 NVIDIA가 2025-26에 *얼마나 출하할 수 있는가* 는 TSMC의 CoWoS 캐파에 의해 정의된다.\n\n그 캐파 곡선:\n- 2024년 말: 약 35,000 wafers/월\n- 2025년 말: 약 70,000 wafers/월 (+100%)\n- 2026년 말: 약 130,000 wafers/월 (+86%)\n- CAGR: 약 80%\n\nNVIDIA가 그 캐파의 **60% 이상을 선점** 했다 (2025-26 기준). 즉, AMD MI300X, Broadcom TPU, AWS Trainium 등 다른 ASIC들이 받을 수 있는 캐파는 나머지 40% 안에서 경쟁한다. TSMC capex는 2025년 $40-42B, 2026-27년 $50B. CoWoS 캐파 증설에 그 절반 이상이 들어간다.\n\n이 사실의 함의: **AI 사이클의 분기 trajectory는 미국 자본의 의지가 아니라 대만 공장의 캐파 ramp 곡선에 의해 정의된다** . 빅테크가 1조 달러를 약속해도, TSMC가 캐파를 못 늘리면 그 자본은 분기 매출로 전환되지 않는다.",
+          bodyEn:
+            "If HBM is Korea, CoWoS is Taiwan.\n\nCoWoS (Chip-on-Wafer-on-Substrate) is TSMC's advanced packaging process that mounts a GPU die and HBM stacks on a single interposer. Without it, a GPU does not exist as a single chip. NVIDIA H100, B100, B200, Rubin — every data center GPU passes through CoWoS.\n\nCoWoS is, in practice, sole-sourced from TSMC. Samsung and Intel attempt similar packaging, but neither has meaningful capacity or yield. So how much NVIDIA can *ship* in 2025-26 is defined by TSMC's CoWoS capacity.\n\nThe capacity curve:\n- End 2024: ~35,000 wafers/month\n- End 2025: ~70,000 wafers/month (+100%)\n- End 2026: ~130,000 wafers/month (+86%)\n- CAGR: ~80%\n\nNVIDIA pre-allocated **more than 60%** of that capacity (2025-26 basis). Meaning AMD MI300X, Broadcom TPUs, AWS Trainium and other ASICs compete for the remaining 40%. TSMC capex: $40-42B in 2025, $50B in 2026-27 — more than half going to CoWoS expansion.\n\nThe implication: **the AI cycle's quarterly trajectory is defined not by US capital's will but by Taiwanese factory capacity ramp curves**. Big Tech can promise a trillion dollars, but if TSMC can't add capacity, that capital does not convert into quarterly revenue.",
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "quote",
+            body: "When the supply chain says no, the cycle stops. No amount of capital can argue with a wafer that doesn't exist.",
+            bodyEn: "When the supply chain says no, the cycle stops. No amount of capital can argue with a wafer that doesn't exist.",
+            heading: "— Semiconductor industry maxim, repeated by TSMC executives at OFC 2025",
+            headingEn: "— Semiconductor industry maxim, repeated by TSMC executives at OFC 2025",
+          },
+        },
+      ],
+    },
+    // ── 4. 영국 제국의 메아리 ─────────────────────────────────────────────────
+    {
+      heading: "영국 제국의 메아리 — 면화와 아편",
+      headingEn: "Echo of the British Empire — Cotton and Opium",
+      blocks: [
+        {
+          type: "text",
+          body: "이 의존을 이해하려면, 한 가지 역사적 패턴을 봐야 한다. **역사상 어떤 패권도 자기 영토 안에서 완결된 적이 없다** .\n\n19세기 영국 제국을 보자. 산업혁명을 만든 핵심 자원은 두 가지였다 — 면화와 아편. 면화는 랭커셔의 방직공장을 돌렸다. 아편은 중국과의 무역적자를 메우기 위한 무기였다 (영국이 중국 차를 수입하면서 발생한 적자). 그런데 영국은 면화를 키우지 못했다. 미국 남부의 노예 농장에서 수입했다. 아편도 키우지 못했다. 인도 벵골에서 생산했다.\n\n영국 제국의 산업 동력은 미국 면화에 의존했다. 영국 제국의 무역 흑자는 인도 아편에 의존했다. 두 의존이 모두 사라진 순간 — 미국 남북전쟁(1861-65)으로 면화 공급이 끊기고, 청일전쟁 이후 중국이 아편을 통제하면서 — 영국 제국의 경제 동력의 핵심 두 다리가 무너졌다.\n\n같은 패턴이 20세기 미국 석유 패권에도 있었다. 미국이 1970년대까지 석유의 50%+ 를 수입했다. 그 핵심 공급자는 사우디아라비아였다. 사우디가 1973년 석유 금수 조치를 했을 때 — 미국 패권이 한 분기 만에 흔들렸다.\n\n그리고 2026년의 미국 AI 패권을 보자. **자본은 미국 (빅테크), 모델은 미국 (OpenAI, Anthropic), 칩 설계도 미국 (NVDA, AMD, Broadcom). 그러나 HBM은 한국, CoWoS는 대만** . 산업혁명 시대 영국이 면화와 아편에 의존한 것과 같은 위치다.\n\n이건 패권의 결함이 아니다. 패권의 *구조* 다. **진짜 강한 패권은 자기 영토에서 자급자족하지 않는다** . 자급자족하려고 시도하면, 그 시도 자체가 패권의 비용이 된다 (CHIPS Act가 그 시도다). 의존을 인정하고 그 의존을 안정화하는 것이 — 의존을 풀려는 시도보다 패권을 더 오래 유지한다.",
+          bodyEn:
+            "To understand this dependence, we have to see one historical pattern. **No hegemon in history has ever been self-sufficient within its own territory.**\n\nLook at 19th-century Britain. The two core resources of the Industrial Revolution were cotton and opium. Cotton fed the Lancashire mills. Opium was a weapon to close Britain's trade deficit with China (the deficit caused by tea imports). But Britain didn't grow cotton. It imported from American slave plantations. Britain didn't grow opium either. It produced opium in Bengal, India.\n\nThe industrial engine of the British Empire depended on American cotton. The trade surplus of the British Empire depended on Indian opium. The moment both dependencies vanished — the American Civil War (1861-65) cut off cotton supply, and post-Sino-Japanese War China regained control of opium — two core legs of British imperial economics collapsed.\n\nThe same pattern held for 20th-century American oil hegemony. The US imported 50%+ of its oil through the 1970s. The core supplier was Saudi Arabia. When Saudi Arabia imposed the 1973 oil embargo, American hegemony shook within one quarter.\n\nNow look at American AI hegemony in 2026. **Capital is American (Big Tech). Models are American (OpenAI, Anthropic). Chip design is American (NVIDIA, AMD, Broadcom). But HBM is Korean. CoWoS is Taiwanese.** Same position as Britain depending on cotton and opium during the Industrial Revolution.\n\nThis is not a flaw of hegemony. It is the *structure* of hegemony. **A truly strong hegemon does not self-supply within its own territory.** When it tries to, the attempt itself becomes the cost of hegemony (CHIPS Act is that attempt). Accepting the dependence and stabilizing it — rather than trying to break it — usually preserves hegemony longer.",
+        },
+      ],
+    },
+    // ── 5. ASIC의 반격 + CHIPS Act ────────────────────────────────────────────
+    {
+      heading: "ASIC의 반격, 그리고 CHIPS Act가 풀려는 매듭",
+      headingEn: "The ASIC Counter-Attack — and the Knot CHIPS Act Tries to Untie",
+      blocks: [
+        {
+          type: "text",
+          body: "패권의 의존을 풀려는 두 가지 시도가 있다. 하나는 *NVIDIA의 GPU 의존을 다른 칩으로 풀자* 는 시도 — ASIC. 다른 하나는 *한국·대만 공급망 의존을 미국 내 생산으로 풀자* 는 시도 — CHIPS Act.\n\n**ASIC의 반격** . Broadcom이 Google TPU, Meta MTIA, OpenAI Titan을 만든다. Marvell이 AWS Trainium2/3, Microsoft Maia를 만든다. 둘 다 NVIDIA 의존을 자사 ASIC으로 대체하려는 hyperscaler의 결정이다.\n\nBroadcom AI 매출: FY25 Q4 $6.5B → FY26 Q1 $8.2B (+74% YoY), backlog $73B. CEO Hock Tan은 2027년까지 \"AI 매출 $100B line of sight\" 라고 발언했다. 이게 진짜면, Broadcom AI 매출이 NVDA DC 매출의 절반 가까이가 된다. ASIC vs GPU의 비중이 산업 전체에서 빠르게 이동 중이다 — 2026년 ASIC 기반 AI 서버가 시장의 28%를 차지할 전망 (Trendforce).\n\n그런데 — *ASIC도 결국 TSMC 패키징에 의지한다* . Broadcom의 Google TPU도, Marvell의 AWS Trainium도, 결국 TSMC의 CoWoS 라인을 거친다. ASIC이 NVDA 점유를 빼앗아도, *대만 의존은 풀리지 않는다* . 같은 호수 안에서 물고기만 바뀌는 것이다.\n\n**CHIPS Act** 가 풀려는 매듭은 더 근본적이다. TSMC Arizona Fab 21 (3nm, 2024 가동), Samsung Taylor TX (4nm, 2025), Micron Boise/Clay NY (DRAM, 2026-27). 합산 $200B+의 capex. 의도는 — 미국 본토에서 첨단 노드를 생산해, 한국·대만 의존을 줄이는 것.\n\n하지만 산수가 안 맞는다. 미국 신규 capa 증설 속도: 연 ~25%. AI 수요 증가 속도: 연 ~60%. *수요가 capa보다 2배 이상 빠르게 증가* 한다. CHIPS Act가 의존을 푸는 게 아니라, 의존의 *비율* 만 약간 늦춘다. 단기 5년 안에 한국·대만 의존이 풀릴 수 없다는 것이 — 정량적 결론이다.\n\n한국 자본시장 시각으로는 이게 좋은 소식이다. 미국이 의존을 풀려고 노력할수록, 그 노력의 성공이 늦어질수록, SK하이닉스·삼성·TSMC의 가격 결정력은 길어진다.",
+          bodyEn:
+            "Two attempts try to unwind the dependence. One says *let's break NVIDIA's GPU monopoly with other chips* — ASICs. The other says *let's break the Korea-Taiwan supply chain monopoly by building in the US* — CHIPS Act.\n\n**The ASIC counter-attack.** Broadcom makes Google TPU, Meta MTIA, OpenAI Titan. Marvell makes AWS Trainium2/3, Microsoft Maia. Both are hyperscaler decisions to replace NVIDIA dependence with in-house silicon.\n\nBroadcom AI revenue: FY25 Q4 $6.5B → FY26 Q1 $8.2B (+74% YoY), backlog $73B. CEO Hock Tan stated \"line of sight to $100B AI revenue by 2027.\" If real, Broadcom's AI revenue would be roughly half of NVDA's DC revenue. The ASIC vs GPU split is shifting fast across the industry — ASIC-based AI servers projected to be 28% of the market by 2026 (Trendforce).\n\nBut — *ASICs also depend on TSMC packaging in the end*. Broadcom's Google TPU, Marvell's AWS Trainium — all pass through TSMC's CoWoS line. Even when ASICs take share from NVDA, *the Taiwan dependence does not break*. The fish change in the same lake.\n\n**The knot CHIPS Act tries to untie** is more fundamental. TSMC Arizona Fab 21 (3nm, 2024 production), Samsung Taylor TX (4nm, 2025), Micron Boise/Clay NY (DRAM, 2026-27). Combined $200B+ capex. The intent — produce leading-edge nodes on US soil and reduce Korea/Taiwan dependence.\n\nBut the math doesn't work. US new capacity build pace: ~25% per year. AI demand growth pace: ~60% per year. *Demand is growing more than 2x as fast as capacity*. CHIPS Act doesn't unwind dependence — it merely slows the *ratio* slightly. The quantitative conclusion: Korea-Taiwan dependence cannot break within the next 5 years.\n\nFrom the Korean capital markets perspective, this is good news. The more the US tries to break the dependence, and the more those attempts are delayed, the longer SK Hynix, Samsung, and TSMC keep their pricing power.",
+        },
+        {
+          type: "table",
+          table: {
+            id: "ai-chip-dependency-matrix",
+            title: "AI 칩 supply chain 의존도 매트릭스",
+            titleEn: "AI Chip Supply Chain Dependency Matrix",
+            headers: ["층위", "기능", "주공급자 (국가)", "대안 가능성", "단기 풀림 여부"],
+            headersEn: ["Layer", "Function", "Primary Supplier (Country)", "Alternative Possibility", "Short-term Unwind?"],
+            rows: [
+              ["설계 (GPU)", "NVIDIA Blackwell/Rubin", "NVDA (US)", "AMD MI300X · Broadcom/Marvell ASIC", "부분 (ASIC 점유 확대)"],
+              ["설계 (CPU)", "x86, ARM", "Intel·AMD·ARM (US/UK)", "다수 경쟁", "이미 다극"],
+              ["HBM", "GPU 위 메모리 스택", "SK하이닉스 62% (KR)", "Samsung · Micron", "낮음 (5년+ 의존)"],
+              ["DRAM", "기본 메모리", "Samsung 40% · SK하이닉스 30% (KR)", "Micron · 중국 CXMT", "낮음 (한국 듀오폴리)"],
+              ["NAND", "스토리지", "Samsung 35% · SK하이닉스 20% (KR)", "Kioxia · WD/SanDisk · Micron", "이미 다극"],
+              ["파운드리 (3nm-)", "GPU/CPU 제조", "TSMC ~90% (TW)", "Samsung Foundry · Intel Foundry", "매우 낮음"],
+              ["CoWoS 패키징", "GPU+HBM 통합", "TSMC ~100% (TW)", "Samsung · Intel 시도", "매우 낮음 (3년+)"],
+              ["EUV 장비", "노광", "ASML 100% (NL)", "없음", "불가 (EUV 단독)"],
+              ["DUV 장비", "노광", "ASML·Nikon·Canon (NL/JP)", "기존 다극", "이미 다극"],
+            ],
+            rowsEn: [
+              ["Design (GPU)", "NVIDIA Blackwell/Rubin", "NVDA (US)", "AMD MI300X · Broadcom/Marvell ASIC", "Partial (ASIC share gains)"],
+              ["Design (CPU)", "x86, ARM", "Intel·AMD·ARM (US/UK)", "Many competitors", "Already multi-polar"],
+              ["HBM", "GPU-stacked memory", "SK Hynix 62% (KR)", "Samsung · Micron", "Low (5+ year dependence)"],
+              ["DRAM", "Base memory", "Samsung 40% · SK Hynix 30% (KR)", "Micron · China CXMT", "Low (Korean duopoly)"],
+              ["NAND", "Storage", "Samsung 35% · SK Hynix 20% (KR)", "Kioxia · WD/SanDisk · Micron", "Already multi-polar"],
+              ["Foundry (3nm-)", "GPU/CPU manufacture", "TSMC ~90% (TW)", "Samsung Foundry · Intel Foundry", "Very low"],
+              ["CoWoS packaging", "GPU+HBM integration", "TSMC ~100% (TW)", "Samsung · Intel attempts", "Very low (3+ years)"],
+              ["EUV equipment", "Lithography", "ASML 100% (NL)", "None", "Impossible (EUV sole)"],
+              ["DUV equipment", "Lithography", "ASML·Nikon·Canon (NL/JP)", "Existing multi-polar", "Already multi-polar"],
+            ],
+            caption: "출처: 각사 분기 데이터, Counterpoint, TrendForce. 5개 핵심 층위 중 3개(HBM, 파운드리, CoWoS)가 한국·대만 단일 의존. 단기 풀림 불가.",
+            captionEn: "Sources: Company quarterly data, Counterpoint, TrendForce. 3 of 5 critical layers (HBM, foundry, CoWoS) are single-sourced from Korea or Taiwan. Short-term unwind impossible.",
+          },
+        },
+      ],
+    },
+    // ── 6. 결론 ───────────────────────────────────────────────────────────────
+    {
+      heading: "결론 — 패권은 결국 의존이다",
+      headingEn: "Conclusion — Hegemony, in the End, Is Dependence",
+      blocks: [
+        {
+          type: "text",
+          body: "이 메모의 단일 명제는 단순하다 — **진짜 강한 패권은 자기 영토에서 자급자족하지 않는다** .\n\n영국 제국이 그랬다. 산업혁명의 동력이 미국 면화에 의존했다. 무역 흑자가 인도 아편에 의존했다. 의존이 패권을 약하게 만든 게 아니라, 그 의존을 *안정화하는 능력* 이 패권을 길게 유지했다.\n\n미국 AI 패권도 같다. NVDA 데이터센터 매출의 매 한 분기가 — 한국 SK하이닉스의 HBM 출하와 대만 TSMC의 CoWoS 캐파에 직접 함수다. 그 사실은 패권의 약점이 아니다. 패권의 *구조* 다.\n\n투자자 시각에서는 두 가지 함의가 있다.\n\n첫째, **한국 메모리 듀오폴리는 사이클이 도는 동안 가격 결정력을 유지한다** . CHIPS Act가 풀려고 노력해도, 수요가 capa보다 2배 빠르게 증가하는 한, SK하이닉스의 HBM 점유 62%는 단기에 흔들리지 않는다. KOSPI 사상최고는 우연이 아니라 — 빅테크 capex의 함수다.\n\n둘째, **단일 catalyst — 삼성 HBM4 12-Hi NVIDIA 퀄 통과 — 가 한국 시장 2026의 가장 큰 단일 이벤트다** . 통과하면 듀오폴리 회복, 삼성 +20-30% catalyst, SK하이닉스 점유 일부 반납. 실패하면 SK하이닉스 모노폴리 굳히기, 삼성 메모리 비즈니스 구조적 위기. 어느 쪽이 되든, 결정은 *NVIDIA가 한다* . 한국 시장의 가장 큰 단일 결정 변수가 — 미국 회사의 퀄 결정이라는 것 자체가 — 의존의 구조를 가장 명확하게 보여준다.\n\nLucent가 1999년에 했던 자기 매출 회로(Memo 1)는 *자본의 회로* 였다. SK하이닉스와 TSMC가 2026년에 만들고 있는 것은 — *공급의 회로* 다. 미국 자본이 한국·대만 공급을 거쳐야만 미국 매출이 된다.\n\n*회로는 미국 안에서 완결되지 않는다.* 영국 제국이 그랬듯이.",
+          bodyEn:
+            "The single proposition of this memo is simple — **a truly strong hegemon does not self-supply within its own territory**.\n\nThe British Empire was like that. Its industrial engine depended on American cotton. Its trade surplus depended on Indian opium. The dependence did not weaken the empire — the *capacity to stabilize* that dependence is what extended the empire's life.\n\nAmerican AI hegemony is the same. Every quarter of NVDA's data center revenue is a direct function of Korean SK Hynix HBM shipments and Taiwanese TSMC CoWoS capacity. That fact is not a weakness of hegemony. It is its *structure*.\n\nFrom an investor's view, two implications.\n\nFirst, **the Korean memory duopoly maintains pricing power while the cycle runs**. No matter how hard CHIPS Act tries, as long as demand grows 2x faster than capacity, SK Hynix's 62% HBM share does not shake in the short term. KOSPI's record highs are not coincidence — they are a function of Big Tech capex.\n\nSecond, **a single catalyst — Samsung HBM4 12-Hi NVIDIA qualification — is the largest single event for the Korean market in 2026**. Pass = duopoly restored, Samsung +20-30% catalyst, SK Hynix gives up some share. Fail = SK Hynix locks in monopoly, Samsung memory business in structural crisis. Either way, *NVIDIA decides*. The fact that the largest single decision variable for the Korean market is *an American company's qualification verdict* — that itself shows the structure of dependence more clearly than anything.\n\nThe self-revenue circuit Lucent ran in 1999 (Memo 1) was *a capital circuit*. What SK Hynix and TSMC are running in 2026 is *a supply circuit*. American capital must pass through Korean and Taiwanese supply to become American revenue.\n\n*The circuit does not close within America.* Just as it did not for the British Empire.",
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "insight",
+            heading: "다음 메모 — 다음 병목 (광)",
+            headingEn: "Next Memo — The Next Bottleneck (Optical)",
+            body: "GPU 다음 병목은 광이다. 800G → 1.6T 광 트랜시버 전환이 2026-27 핵심 사이클. Lumentum, Coherent, Astera Labs — Levi Strauss의 골드러시 운율. 다음 메모에서 다룬다.",
+            bodyEn:
+              "The next bottleneck after GPU is optical. The 800G → 1.6T optical transceiver transition is the 2026-27 core cycle. Lumentum, Coherent, Astera Labs — the Levi Strauss gold-rush echo. Next memo.",
+          },
+        },
+      ],
+    },
+  ],
+  references: [
+    {
+      id: 1,
+      author: "NVIDIA Corporation",
+      title: "Form 10-K Annual Report (FY2026) and quarterly 8-Ks",
+      source: "SEC EDGAR",
+      year: "2025-2026",
+      url: "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001045810&type=10-K",
+      note: "데이터센터 매출, 고객 집중도 (FY26 10-K: 단일 고객 22%, 또 한 고객 14%)",
+    },
+    {
+      id: 2,
+      author: "Counterpoint Research",
+      title: "HBM Market Share Tracker (quarterly)",
+      source: "Counterpoint",
+      year: "2025",
+      url: "https://www.counterpointresearch.com/insights/hbm-market-share-tracker/",
+    },
+    {
+      id: 3,
+      author: "TrendForce",
+      title: "DRAM/HBM Industry Reports",
+      source: "TrendForce",
+      year: "2025-2026",
+      url: "https://www.trendforce.com/",
+    },
+    {
+      id: 4,
+      author: "SemiWiki",
+      title: "CoWoS Capacity Set to Skyrocket by 2026",
+      source: "SemiWiki",
+      year: "2025",
+      url: "https://semiwiki.com/forum/threads/cowos-capacity-set-to-skyrocket-by-2026-massive-growth-in-advanced-packaging.21773/",
+    },
+    {
+      id: 5,
+      author: "TSMC",
+      title: "Quarterly Earnings Releases (AI/HPC revenue mix)",
+      source: "TSMC Investor Relations",
+      year: "2025-2026",
+      url: "https://investor.tsmc.com/",
+    },
+    {
+      id: 6,
+      author: "UBS Equity Research",
+      title: "Korea Memory Sector — HBM4 outlook",
+      source: "UBS Research",
+      year: "2026",
+      note: "SK하이닉스 HBM4 NVDA 공급 70% 점유 추정",
+    },
+    {
+      id: 7,
+      author: "Broadcom Inc.",
+      title: "Quarterly Earnings Releases (AI revenue)",
+      source: "Broadcom IR / SEC EDGAR",
+      year: "2025-2026",
+      url: "https://investors.broadcom.com/",
+    },
+    {
+      id: 8,
+      author: "Marvell Technology",
+      title: "Quarterly Earnings Releases (Custom AI silicon)",
+      source: "Marvell IR / SEC EDGAR",
+      year: "2025-2026",
+      url: "https://investor.marvell.com/",
+    },
+    {
+      id: 9,
+      author: "Beckert, S.",
+      title: "Empire of Cotton: A Global History",
+      source: "Knopf",
+      year: "2014",
+      note: "19세기 영국 제국의 미국 면화 의존성 — 패권과 의존의 역사적 패턴",
+    },
+    {
+      id: 10,
+      author: "KED Global",
+      title: "SK Hynix Surpasses Samsung in Memory Revenue (Q1 2025)",
+      source: "Korea Economic Daily Global",
+      year: "2025",
+      url: "https://www.kedglobal.com/",
+    },
+    {
+      id: 11,
+      author: "US Department of Commerce",
+      title: "CHIPS and Science Act — Implementation Updates",
+      source: "USDOC",
+      year: "2025-2026",
+      url: "https://www.commerce.gov/issues/chips",
+      note: "TSMC Arizona, Samsung Taylor, Micron NY/Idaho — capex 약속 및 진척",
+    },
+    {
+      id: 12,
+      author: "ASML Holding NV",
+      title: "Annual Report 2025 — EUV/DUV backlog",
+      source: "ASML IR",
+      year: "2025",
+      url: "https://www.asml.com/en/investors",
+      note: "EUV 48대 출하, backlog €38.8B (FY25)",
+    },
+  ],
+};
+
+export const ALL_NOTES: NoteData[] = [koreaDiscount, dollarHegemony1, dollarHegemony2, dollarHegemony3, dollarHegemony4, aiCycle1, aiCycle4];

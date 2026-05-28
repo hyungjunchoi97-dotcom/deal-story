@@ -33,6 +33,14 @@ import type {
   CapexFcfPoint,
   LucentFinancingPoint,
   CiscoLostDecadePoint,
+  HbmSharePoint,
+  NvdaDcRevenuePoint,
+  OpticalMixPoint,
+  CxlAdoptionPoint,
+  DcPowerDemandPoint,
+  InterconnectionQueuePoint,
+  AiPenetrationPoint,
+  PeSpreadPoint,
 } from "@/data/notes";
 import { NOTE_CATEGORY_META, getSeriesNav } from "@/data/notes";
 import SeriesNav from "@/components/SeriesNav";
@@ -747,6 +755,256 @@ function CircularFlowChart({ chart, lang }: { chart: NoteChartDef & { id: "circu
   );
 }
 
+// ── HBM Share — 3-segment stacked bar (SK하이닉스/삼성/마이크론) ──────────────
+function HbmShareChart({ chart, lang }: { chart: NoteChartDef & { id: "hbm-share" }; lang: Lang }) {
+  const data = chart.data as HbmSharePoint[];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={260}>
+        <BarChart data={data} margin={{ top: 8, right: 16, bottom: 0, left: -8 }} barSize={28}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} vertical={false} />
+          <XAxis dataKey="quarter" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
+          <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `${v}%`} domain={[0, 100]} />
+          <Tooltip
+            content={({ active, payload, label }) => {
+              if (!active || !payload?.length) return null;
+              return (
+                <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl px-4 py-3 text-xs space-y-1.5">
+                  <p className="font-semibold text-gray-600 dark:text-gray-300 mb-1">{label}</p>
+                  {[...payload].reverse().map((p) => (
+                    <div key={String(p.dataKey)} className="flex items-center justify-between gap-4">
+                      <span className="flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full" style={{ background: p.color as string }} />
+                        <span className="text-gray-500 dark:text-gray-400">{p.name}</span>
+                      </span>
+                      <span className="font-mono font-bold text-gray-800 dark:text-gray-100">{p.value}%</span>
+                    </div>
+                  ))}
+                </div>
+              );
+            }}
+          />
+          <Legend wrapperStyle={{ fontSize: 11, paddingTop: 12 }} />
+          <Bar dataKey="micron"  name="Micron"      stackId="a" fill="#10b981" />
+          <Bar dataKey="samsung" name="Samsung"     stackId="a" fill="#f59e0b" />
+          <Bar dataKey="skhynix" name="SK Hynix"    stackId="a" fill="#dc2626" radius={[3, 3, 0, 0]} />
+        </BarChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
+// ── NVDA Data Center 분기 매출 ─────────────────────────────────────────────────
+function NvdaDcRevenueChart({ chart, lang }: { chart: NoteChartDef & { id: "nvda-dc-revenue" }; lang: Lang }) {
+  const data = chart.data as NvdaDcRevenuePoint[];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  const annotations = chart.annotations ?? [];
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={260}>
+        <BarChart data={data} margin={{ top: 8, right: 16, bottom: 0, left: -8 }} barSize={18}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} vertical={false} />
+          <XAxis dataKey="quarter" tick={{ fontSize: 9 }} tickLine={false} axisLine={false} interval={1} />
+          <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `$${v}B`} />
+          <Tooltip
+            content={({ active, payload, label }) => {
+              if (!active || !payload?.length) return null;
+              return (
+                <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl px-4 py-3 text-xs">
+                  <p className="font-semibold text-gray-600 dark:text-gray-300 mb-1">{label}</p>
+                  <p className="font-mono font-bold text-emerald-600 dark:text-emerald-400">${payload[0].value}B</p>
+                </div>
+              );
+            }}
+          />
+          {annotations.map((ann) => (
+            <ReferenceLine key={ann.quarter} x={ann.quarter} stroke="#f59e0b" strokeDasharray="4 3" strokeWidth={1.5}
+              label={{ value: lang === "en" ? (ann.labelEn ?? ann.label) : ann.label, position: "top", fontSize: 9, fill: "#f59e0b" }} />
+          ))}
+          <Bar dataKey="revenue" name={lang === "en" ? "DC Revenue" : "데이터센터 매출"} fill="#76b900" radius={[3, 3, 0, 0]} />
+        </BarChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
+// ── Optical Mix (DC vs Telecom vs Industrial) ─────────────────────────────────
+function OpticalMixChart({ chart, lang }: { chart: NoteChartDef & { id: "optical-mix" }; lang: Lang }) {
+  const data = chart.data as OpticalMixPoint[];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={240}>
+        <BarChart data={data} margin={{ top: 8, right: 16, bottom: 0, left: -8 }} barSize={32}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} vertical={false} />
+          <XAxis dataKey="fy" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
+          <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `$${v}B`} />
+          <Tooltip
+            content={({ active, payload, label }) => {
+              if (!active || !payload?.length) return null;
+              const total = (payload as unknown as { value: number }[]).reduce((s, p) => s + (p.value ?? 0), 0);
+              return (
+                <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl px-4 py-3 text-xs space-y-1.5">
+                  <p className="font-semibold text-gray-600 dark:text-gray-300 mb-1">{label}</p>
+                  {[...payload].reverse().map((p) => (
+                    <div key={String(p.dataKey)} className="flex items-center justify-between gap-4">
+                      <span className="flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full" style={{ background: p.color as string }} />
+                        <span className="text-gray-500 dark:text-gray-400">{p.name}</span>
+                      </span>
+                      <span className="font-mono font-bold text-gray-800 dark:text-gray-100">${p.value}B</span>
+                    </div>
+                  ))}
+                  <div className="border-t border-gray-200 dark:border-gray-700 pt-1.5 mt-1 flex justify-between">
+                    <span className="text-gray-400">{lang === "en" ? "Total" : "합계"}</span>
+                    <span className="font-mono font-bold text-gray-800 dark:text-gray-100">${total.toFixed(2)}B</span>
+                  </div>
+                </div>
+              );
+            }}
+          />
+          <Legend wrapperStyle={{ fontSize: 11, paddingTop: 12 }} />
+          <Bar dataKey="industrial" name={lang === "en" ? "Industrial" : "산업"}    stackId="a" fill="#94a3b8" />
+          <Bar dataKey="telecom"    name="Telecom"  stackId="a" fill="#3b82f6" />
+          <Bar dataKey="dc"         name={lang === "en" ? "Datacom (AI)" : "데이터센터 (AI)"} stackId="a" fill="#10b981" radius={[3, 3, 0, 0]} />
+        </BarChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
+// ── CXL/PCIe Adoption (Gen5 → Gen6 → Gen7 전환) ──────────────────────────────
+function CxlAdoptionChart({ chart, lang }: { chart: NoteChartDef & { id: "cxl-adoption" }; lang: Lang }) {
+  const data = chart.data as CxlAdoptionPoint[];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={240}>
+        <BarChart data={data} margin={{ top: 8, right: 16, bottom: 0, left: -8 }} barSize={36}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} vertical={false} />
+          <XAxis dataKey="year" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
+          <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `${v}%`} domain={[0, 100]} />
+          <Tooltip content={<ChartTooltip />} />
+          <Legend wrapperStyle={{ fontSize: 11, paddingTop: 12 }} />
+          <Bar dataKey="Gen5" name="PCIe Gen 5" stackId="a" fill="#94a3b8" />
+          <Bar dataKey="Gen6" name="PCIe Gen 6" stackId="a" fill="#8b5cf6" />
+          <Bar dataKey="Gen7" name="PCIe Gen 7" stackId="a" fill="#dc2626" radius={[3, 3, 0, 0]} />
+        </BarChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
+// ── Data Center Power Demand (IEA 시나리오) ──────────────────────────────────
+function DcPowerDemandChart({ chart, lang }: { chart: NoteChartDef & { id: "dc-power-demand" }; lang: Lang }) {
+  const data = chart.data as DcPowerDemandPoint[];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  const hasScenarios = data.some((d) => d.high != null || d.low != null);
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={250}>
+        <LineChart data={data} margin={{ top: 8, right: 16, bottom: 0, left: -8 }}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} />
+          <XAxis dataKey="year" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
+          <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `${v} TWh`} />
+          <Tooltip content={<ChartTooltip />} />
+          <Legend wrapperStyle={{ fontSize: 11, paddingTop: 12 }} />
+          {hasScenarios && (
+            <Line type="monotone" dataKey="high" name={lang === "en" ? "High Scenario" : "고시나리오"}
+              stroke="#ef4444" strokeWidth={2} dot={false} strokeDasharray="4 3" />
+          )}
+          <Line type="monotone" dataKey="base" name={lang === "en" ? "Base Scenario" : "기준 시나리오"}
+            stroke="#0ea5e9" strokeWidth={2.5} dot={{ r: 3 }} />
+          {hasScenarios && (
+            <Line type="monotone" dataKey="low" name={lang === "en" ? "Low Scenario" : "저시나리오"}
+              stroke="#94a3b8" strokeWidth={2} dot={false} strokeDasharray="4 3" />
+          )}
+        </LineChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
+// ── Interconnection Queue Growth (LBNL) ──────────────────────────────────────
+function QueueGrowthChart({ chart, lang }: { chart: NoteChartDef & { id: "queue-growth" }; lang: Lang }) {
+  const data = chart.data as InterconnectionQueuePoint[];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={240}>
+        <BarChart data={data} margin={{ top: 8, right: 16, bottom: 0, left: -8 }} barSize={28}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} vertical={false} />
+          <XAxis dataKey="year" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
+          <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `${v} GW`} />
+          <Tooltip content={<ChartTooltip />} />
+          <Legend wrapperStyle={{ fontSize: 11, paddingTop: 12 }} />
+          <Bar dataKey="totalGW" name={lang === "en" ? "Active Queue" : "큐 적체"}
+            fill="#0ea5e9" radius={[3, 3, 0, 0]} />
+        </BarChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
+// ── AI Penetration by Occupation (Anthropic Economic Index) ──────────────────
+function AiPenetrationChart({ chart, lang }: { chart: NoteChartDef & { id: "ai-penetration" }; lang: Lang }) {
+  const data = chart.data as AiPenetrationPoint[];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={260}>
+        <LineChart data={data} margin={{ top: 8, right: 16, bottom: 0, left: -8 }}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} />
+          <XAxis dataKey="period" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
+          <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `${v}%`} />
+          <Tooltip content={<ChartTooltip />} />
+          <Legend wrapperStyle={{ fontSize: 11, paddingTop: 12 }} />
+          <Line type="monotone" dataKey="software" name={lang === "en" ? "Software Eng." : "소프트웨어"}
+            stroke="#dc2626" strokeWidth={2.5} dot={{ r: 3 }} />
+          <Line type="monotone" dataKey="customer" name={lang === "en" ? "Customer Svc." : "고객 서비스"}
+            stroke="#f59e0b" strokeWidth={2.5} dot={{ r: 3 }} />
+          <Line type="monotone" dataKey="finance" name={lang === "en" ? "Finance / Accounting" : "재무·회계"}
+            stroke="#0ea5e9" strokeWidth={2.5} dot={{ r: 3 }} />
+          <Line type="monotone" dataKey="legal" name={lang === "en" ? "Legal" : "법무"}
+            stroke="#8b5cf6" strokeWidth={2.5} dot={{ r: 3 }} />
+        </LineChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
+// ── Mag 7 vs S&P 493 Forward P/E Spread ──────────────────────────────────────
+function PeSpreadChart({ chart, lang }: { chart: NoteChartDef & { id: "pe-spread" }; lang: Lang }) {
+  const data = chart.data as PeSpreadPoint[];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={250}>
+        <LineChart data={data} margin={{ top: 8, right: 16, bottom: 0, left: -8 }}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} />
+          <XAxis dataKey="year" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
+          <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `${v}x`} />
+          <Tooltip content={<ChartTooltip />} />
+          <Legend wrapperStyle={{ fontSize: 11, paddingTop: 12 }} />
+          <Line type="monotone" dataKey="mag7" name={lang === "en" ? "Mag 7 Forward P/E" : "Mag 7 Forward P/E"}
+            stroke="#dc2626" strokeWidth={2.5} dot={{ r: 3 }} />
+          <Line type="monotone" dataKey="sp493" name={lang === "en" ? "S&P 493 Forward P/E" : "S&P 493 Forward P/E"}
+            stroke="#94a3b8" strokeWidth={2} dot={{ r: 3 }} strokeDasharray="5 3" />
+        </LineChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
 // ── Generic chart dispatcher ───────────────────────────────────────────────────
 function NoteChart({ chart, lang }: { chart: NoteChartDef; lang: Lang }) {
   if (chart.id === "pbr-comparison") return <PBRChart chart={chart} lang={lang} />;
@@ -762,6 +1020,14 @@ function NoteChart({ chart, lang }: { chart: NoteChartDef; lang: Lang }) {
   if (chart.id === "lucent-financing") return <LucentFinancingChart chart={chart} lang={lang} />;
   if (chart.id === "cisco-lost-decade") return <CiscoLostDecadeChart chart={chart} lang={lang} />;
   if (chart.id === "circular-flow") return <CircularFlowChart chart={chart} lang={lang} />;
+  if (chart.id === "hbm-share") return <HbmShareChart chart={chart} lang={lang} />;
+  if (chart.id === "nvda-dc-revenue") return <NvdaDcRevenueChart chart={chart} lang={lang} />;
+  if (chart.id === "optical-mix") return <OpticalMixChart chart={chart} lang={lang} />;
+  if (chart.id === "cxl-adoption") return <CxlAdoptionChart chart={chart} lang={lang} />;
+  if (chart.id === "dc-power-demand") return <DcPowerDemandChart chart={chart} lang={lang} />;
+  if (chart.id === "queue-growth") return <QueueGrowthChart chart={chart} lang={lang} />;
+  if (chart.id === "ai-penetration") return <AiPenetrationChart chart={chart} lang={lang} />;
+  if (chart.id === "pe-spread") return <PeSpreadChart chart={chart} lang={lang} />;
   return null;
 }
 
