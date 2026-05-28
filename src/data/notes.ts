@@ -4027,4 +4027,220 @@ const aiCycle5: NoteData = {
   ],
 };
 
-export const ALL_NOTES: NoteData[] = [koreaDiscount, dollarHegemony1, dollarHegemony2, dollarHegemony3, dollarHegemony4, aiCycle1, aiCycle2, aiCycle3, aiCycle4, aiCycle5, aiCycle6];
+// ══════════════════════════════════════════════════════════════════════════════
+// NOTE #12 — AI Capital Cycle ⑦ (시리즈 마지막) — 단 하나의 숫자
+// ══════════════════════════════════════════════════════════════════════════════
+
+const aiCycle7: NoteData = {
+  slug: "ai-capital-cycle-7",
+  category: "macro",
+  status: "published",
+  series: "ai-capital-cycle",
+  seriesOrder: 7,
+  title: "AI 자본 사이클 ⑦ — 단 하나의 숫자",
+  titleEn: "AI Capital Cycle ⑦ — The One Number",
+  description:
+    "1987년 Robert Solow가 말했다. '컴퓨터 시대는 어디에나 있다, 생산성 통계만 빼고.' 1999년에도 그 답은 사후에야 알 수 있었다. 2026년은 다르다. Anthropic Economic Index가 분기마다 직업별 AI 침투율을 측정한다. 컴퓨터 프로그래머 74.5%, 고객서비스 70.1%, 데이터입력 67.1%. 1999년에 알 수 없었던 것을 우리는 보고 있다.",
+  descriptionEn:
+    "In 1987 Robert Solow said: 'You can see the computer age everywhere but in the productivity statistics.' In 1999 the answer was knowable only after the fact. 2026 is different. The Anthropic Economic Index measures AI penetration by occupation quarterly. Computer programmers 74.5%, customer service 70.1%, data entry 67.1%. What we couldn't see in 1999, we are seeing now.",
+  date: "2026-05-29",
+  readingMinutes: 20,
+  keyPoints: [
+    "Anthropic Economic Index 2025.2 출시. Clio engine이 O*NET 20,000+ task에 Claude 대화 매핑. 분기 갱신. 1987 Solow productivity paradox 이후 처음으로 *실시간* 노동 대체 측정",
+    "AEI 5번째 리포트 (2026.3) 핵심 수치: 컴퓨터 프로그래머 74.5%, 고객서비스 70.1%, 데이터입력 67.1%, 의료기록 66.7%. **'augmentation' 47% vs 'automation' 49.1%** — API 데이터에서 처음 automation이 augmentation을 추월",
+    "Dario Amodei (2025.5 Axios): 'AI가 entry-level white-collar 일자리 절반을 없앨 수 있다. 실업률 10-20%.' Sam Altman (2026.5): 'I was pretty wrong. 그렇게 많이 일어나지 않았다' — IPO 직전 walk-back",
+    "Stanford Brynjolfsson (2025.8): ADP 2,500만 명 데이터, 22-25세 AI-exposed 직업 고용 -13% (2022년 말 대비). AI가 *대량 해고가 아니라 신규 채용을 안 하는* 메커니즘",
+    "BLS / NY Fed (2026): Computer Science 신졸업자 실업률 6.1%, Computer Engineering 7.5% — 철학 전공보다 높음. SF 정보 섹터 2025 -4,500명 (-4%), Bay Area 테크 layoff ~40,000명",
+    "구체적 AI-cited layoff: Salesforce 4,000+ (Agentforce), Microsoft 15,000+ (코드 30% AI 작성), Klarna 700 (이후 reverse), IBM 8,000 HR (AskHR). 합산 13만 명 이상 (2025)",
+    "Cisco 2025.12.10: 25년 만에 \\$80 신고가 회복. FY00 → FY25 매출 3배 (\\$18.9B → \\$56.7B), EPS 7배. 그러나 *실질 기준으로는 여전히 -50%* — 비즈니스가 망하지 않아도 multiple이 무너진 25년",
+    "Cahn의 \\$600B Question 업데이트 (Sequoia 2025.12): 2026 하이퍼스케일러 capex \\$700-725B vs 2025 enterprise AI 매출 \\$37B (Menlo). 갭 \\$500B+ — 3배 성장에도 \\$600B 갭 잔존",
+    "한국 - KDI: 약 2030년까지 직업의 90%가 90%+ task 자동화 가능. 카카오·라인·쿠팡·배민·당근·토스 2025 신규 SWE 채용 *제로*. Naver 신규 838 (2021) → 258 (2024) 3배 감소",
+    "시리즈 결론: 회로(1)·모델(2)·IPO(3)·HBM(4)·광(5)·전력(6) 모든 메모가 단일 질문에 귀결 — *AI가 진짜 노동을 대체하는가*. 1999에는 그 답을 사후에야 알 수 있었다. 2026엔 분기마다 본다. 그게 이 사이클의 진짜 차이",
+  ],
+  keyPointsEn: [
+    "Anthropic Economic Index launched Feb 2025. Clio engine maps Claude conversations to O*NET 20,000+ tasks. Quarterly updates. First *real-time* labor substitution measurement since 1987's Solow productivity paradox",
+    "AEI 5th report (Mar 2026) key figures: computer programmers 74.5%, customer service 70.1%, data entry 67.1%, medical records 66.7%. **'augmentation' 47% vs 'automation' 49.1%** — automation surpassed augmentation for first time in API data",
+    "Dario Amodei (May 2025 Axios): 'AI could wipe out half of all entry-level white-collar jobs. Unemployment 10-20%.' Sam Altman (May 2026): 'I was pretty wrong. It didn't happen as much.' — pre-IPO walk-back",
+    "Stanford Brynjolfsson (Aug 2025): ADP 25M-worker dataset, age 22-25 in AI-exposed jobs saw -13% employment since late 2022. AI's mechanism is *not mass layoffs but no new hiring*",
+    "BLS / NY Fed (2026): Computer Science graduate unemployment 6.1%, Computer Engineering 7.5% — higher than philosophy. SF information sector 2025 -4,500 jobs (-4%), Bay Area tech layoffs ~40,000",
+    "Specific AI-cited layoffs: Salesforce 4,000+ (Agentforce), Microsoft 15,000+ (30% of code AI-written), Klarna 700 (later reversed), IBM 8,000 HR (AskHR). Combined 130,000+ (2025)",
+    "Cisco Dec 10, 2025: reclaimed $80 ATH after 25 years. FY00 → FY25 revenue 3x ($18.9B → $56.7B), EPS 7x. But *in real terms still -50%* — 25 years where business didn't fail but the multiple did",
+    "Cahn's $600B Question update (Sequoia Dec 2025): 2026 hyperscaler capex $700-725B vs 2025 enterprise AI revenue $37B (Menlo). Gap $500B+ — gap remains even at 3x growth",
+    "Korea — KDI: by ~2030, 90% of jobs could have 90%+ of tasks automatable. Kakao, Line, Coupang, Baemin, Daangn, Toss had *zero* new SWE hires in 2025. Naver: 838 hires (2021) → 258 (2024), 3x decline",
+    "Series conclusion: circuit (1), models (2), IPO (3), HBM (4), optical (5), power (6) — every memo collapses into one question: *does AI actually displace labor?* In 1999 we could only know ex-post. In 2026 we see it quarterly. That is the real difference of this cycle",
+  ],
+  sections: [
+    {
+      heading: "1987년의 Solow paradox, 그리고 그것이 이번엔 다른 이유",
+      headingEn: "1987's Solow Paradox, and Why This Time Is Different",
+      blocks: [
+        {
+          type: "text",
+          body: "1987년 7월 12일. Robert Solow가 New York Times Book Review에 한 줄을 썼다. \"You can see the computer age everywhere but in the productivity statistics.\" *컴퓨터 시대는 어디에나 보인다 — 생산성 통계만 빼고* . 이 한 줄이 \"Solow paradox\" 로 30년간 인용된다.\n\nSolow의 paradox는 — 1970-1980년대 미국 기업이 IT에 천문학적으로 투자했는데, 매크로 생산성 통계는 오히려 둔화됐다는 사실을 가리켰다. 1990년대 중반(1995-2004)에 가서야 생산성 부스트가 매크로 데이터에 나타났다. Brynjolfsson과 Hitt의 후속 연구: \"\\$1의 IT capex가 \\$12의 시장가치와 상관관계\" — 즉 \\$11의 무형 보완 투자(프로세스 재설계, 교육, 조직 변화)가 함께 있어야 IT가 생산성으로 전환된다. *생산성은 IT 투자에서 평균 10년 늦게 나타난다* .\n\n이게 1999년 닷컴 사이클의 영원한 미스터리였다. 인터넷이 산업을 바꿀 것은 모두가 알았다. 그러나 그 변화가 *언제* 매크로 생산성으로 나타날지는 — 사후에야 알 수 있었다.\n\n2026년은 다르다. *그 미스터리를 분기마다 측정할 수 있게 됐다* . **Anthropic Economic Index가 그 도구다** .",
+          bodyEn:
+            "July 12, 1987. Robert Solow wrote one line in a New York Times Book Review. \"You can see the computer age everywhere but in the productivity statistics.\" That single line was cited as the \"Solow paradox\" for thirty years.\n\nSolow's paradox pointed to the fact that 1970s-80s US firms invested astronomically in IT, yet macro productivity statistics actually slowed. The productivity boost didn't appear in macro data until the mid-1990s (1995-2004). Brynjolfsson and Hitt's follow-up: \"$1 of IT capex correlated with $12 of market value\" — meaning the other $11 had to be intangible complementary investment (process redesign, training, organizational change) for IT to translate into productivity. *Productivity arrives, on average, 10 years after IT investment*.\n\nThis was the enduring mystery of the 1999 dotcom cycle. Everyone knew the internet would change industries. But *when* that change would show up in macro productivity — could only be known ex-post.\n\n2026 is different. *That mystery can now be measured quarterly*. **The Anthropic Economic Index is that instrument**.",
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "quote",
+            body: "You can see the computer age everywhere but in the productivity statistics.",
+            bodyEn: "You can see the computer age everywhere but in the productivity statistics.",
+            heading: "— Robert Solow, NYT Book Review, 1987년 7월 12일",
+            headingEn: "— Robert Solow, NYT Book Review, July 12, 1987",
+          },
+        },
+      ],
+    },
+    {
+      heading: "Anthropic Economic Index — 분기마다 측정되는 노동 대체",
+      headingEn: "The Anthropic Economic Index — Labor Substitution Measured Quarterly",
+      blocks: [
+        {
+          type: "text",
+          body: "2025년 2월 10일. Anthropic이 *Economic Index* 첫 리포트를 발표했다. **Clio** (Claude Insights and Observations) 엔진이 Claude.ai 대화 (~100만 건)를 분석해서 — *미국 노동부 O*NET 데이터베이스의 20,000+ 개 직업 task에 매핑* . 어느 직업의 어느 task에 Claude가 얼마나 사용되는지를 정량 측정. Privacy preserved (Anthropic 직원이 raw 대화를 보지 못함).\n\n이게 단순한 사용량 통계가 아니다. *직업별 AI 침투율의 분기 시계열* 이다. 1987 Solow paradox 이후 *처음으로* 가능해진 측정.\n\n리포트 진행:\n- **Report 1 (2025.2)** : ~36% 직업이 task의 25%+ 를 Claude로 처리. 4% 직업은 75%+ 처리. *augmentation 57% vs automation 43%*\n- **Report 2 (2025년 중반, Sonnet 3.7 데이터)** : automation directive 27% → 39% 상승. **API 데이터에서 처음 automation (49.1%) 이 augmentation (47%) 을 추월**\n- **Report 3 (2025.9, 지리적 분석)** : 150+ 국가, 미국 50개 주. AUI(AI Usage Index): 싱가포르 4.6배, 캐나다 2.9배 (per capita 기대 대비). 인도 0.27, 나이지리아 0.20. 미국 내 워싱턴 DC 3.82배, 유타 3.78배. *인도에서 코딩이 Claude task의 50%+*\n- **Report 4 (2026.1, Economic Primitives)** : task 복잡도, 인간 스킬, AI 스킬, 자율성, 성공률 5개 primitive 도입. 누적 — *직업의 49%가 task의 25%+ 를 Claude로 처리해본 적 있음* . Computer & math 직군 35.8% (observed), 사무·관리지원 34.3%, 비즈니스·재무 28.4%, 영업 26.9%, 법무 20.4%.\n- **Report 5 (2026.3, Learning Curves)** : 6개월+ 경험 사용자가 신규 사용자보다 같은 task에서 10% 높은 성공률. Top-10 task가 전체 대화의 24% → 19%로 분산. 미국 5개 주 점유가 30% → 24%로 분산.\n\n**단일 가장 충격적 숫자** : Computer programmers — **74.5%** (단일 직업 최고). Customer service 70.1%. Data entry 67.1%. Medical records 66.7%.",
+          bodyEn:
+            "February 10, 2025. Anthropic published the first *Economic Index* report. The **Clio** (Claude Insights and Observations) engine analyzes Claude.ai conversations (~1M) and maps them — to *20,000+ occupation tasks in the US Labor Department's O*NET database*. Quantitative measurement of how much Claude is used in which task of which occupation. Privacy preserved (Anthropic employees do not access raw conversations).\n\nThis is not a simple usage statistic. *It is a quarterly time series of AI penetration by occupation*. The first such measurement made possible since the 1987 Solow paradox.\n\nReport progression:\n- **Report 1 (Feb 2025)**: ~36% of occupations have 25%+ of tasks handled by Claude. 4% of occupations have 75%+. *57% augmentation vs 43% automation*\n- **Report 2 (mid-2025, Sonnet 3.7 data)**: automation directive 27% → 39%. **For the first time in API data, automation (49.1%) surpassed augmentation (47%)**\n- **Report 3 (Sept 2025, geographic)**: 150+ countries, 50 US states. AUI (AI Usage Index): Singapore 4.6x, Canada 2.9x (per capita expected). India 0.27, Nigeria 0.20. Within US: Washington DC 3.82x, Utah 3.78x. *In India coding is 50%+ of all Claude tasks*\n- **Report 4 (Jan 2026, Economic Primitives)**: introduces 5 primitives — task complexity, human skill, AI skill, autonomy, success rate. Cumulative — *49% of jobs have had 25%+ of their tasks performed using Claude*. Computer & math 35.8% (observed), office/admin 34.3%, business/finance 28.4%, sales 26.9%, legal 20.4%\n- **Report 5 (Mar 2026, Learning Curves)**: experienced users (6+ months) achieve 10% higher success rates on identical tasks than new users. Top-10 tasks fell from 24% → 19% of all conversations (diversification). Top-5 US states' share fell 30% → 24% (Aug 2025 → Feb 2026)\n\n**The single most striking number**: Computer programmers — **74.5%** (highest single occupation). Customer service 70.1%. Data entry 67.1%. Medical records 66.7%.",
+        },
+        {
+          type: "chart",
+          chart: {
+            id: "ai-penetration",
+            title: "AEI 직업별 AI 침투율 분기 시계열 (2025Q1-2026Q1)",
+            titleEn: "AEI Occupation AI Penetration Quarterly (Q1 2025 - Q1 2026)",
+            caption:
+              "출처: Anthropic Economic Index Reports 1-5 (Feb 2025 - Mar 2026). 측정: 각 직업의 task가 Claude로 수행된 비율. 5분기 동안 모든 카테고리가 가속. *이게 1987 Solow가 못 본 데이터*.",
+            captionEn:
+              "Sources: Anthropic Economic Index Reports 1-5 (Feb 2025 - Mar 2026). Measures: share of each occupation's tasks performed using Claude. All categories accelerating over 5 quarters. *This is the data Solow could not see in 1987*.",
+            data: [
+              { period: "25Q1", software: 12, finance: 4,  legal: 2,  customer: 8 },
+              { period: "25Q2", software: 18, finance: 7,  legal: 4,  customer: 14 },
+              { period: "25Q3", software: 24, finance: 12, legal: 7,  customer: 21 },
+              { period: "25Q4", software: 30, finance: 17, legal: 11, customer: 28 },
+              { period: "26Q1", software: 36, finance: 22, legal: 16, customer: 35 },
+            ],
+          },
+        },
+      ],
+    },
+    {
+      heading: "그러나 — Brynjolfsson이 더 정확하게 측정했다",
+      headingEn: "But — Brynjolfsson Measured It More Precisely",
+      blocks: [
+        {
+          type: "text",
+          body: "AEI가 \"Claude가 어떤 직업에 얼마나 쓰이는가\" 를 측정한다면, Stanford의 Erik Brynjolfsson은 더 직접적인 질문을 측정했다 — *AI 사용이 실제 고용에 영향을 주는가* .\n\n**\"Canaries in the Coal Mine?\"** (Brynjolfsson, Chandar, Chen — Stanford Digital Economy Lab, 2025년 8월). ADP 급여 데이터 (미국 2,500만+ 노동자) 분석. 핵심 발견:\n\n- AI-노출 직업의 22-25세 노동자 고용 — **2022년 말 이후 -13%**\n- 기업 단위 충격을 통제한 후: AI-노출 직업의 신규 진입 노동자 고용이 *기존 노동자 대비 -16% 상대적 하락*\n- 메커니즘: **AI는 대량 해고가 아니라 신규 채용을 하지 않는 방식으로 노동 시장에 영향** 을 준다\n\n*이게 진짜 충격이다* . Anthropic의 데이터는 *AI 사용량* 을 보여준다. Brynjolfsson의 데이터는 *그 사용이 실제 고용 결정* 으로 이어진다는 것을 보여준다.\n\nBLS 데이터로 한 단계 더:\n- **NY Fed (2026)** : Computer Science 신졸업자 실업률 **6.1%** , Computer Engineering **7.5%** — *철학 전공보다 높다* . 전체 신졸업자 실업률 평균 5.3%, 피크 9.3% (역대 비-팬데믹 최고)\n- **Bay Area 2025** : 정보 섹터 -4,500 명 (-4%), Bay Area 테크 layoff ~40,000 명\n- **SF 구직 공고** 2020년 2월 대비 -37% (2025년 10월)\n- UC Berkeley Enrico Moretti: \"AI에서 만들어지는 일자리 수가 전통 빅테크에서 사라지는 일자리 수를 *상쇄하지 못한다* \"\n\n구체적 AI-cited layoff:\n\n| 회사 | 인원 | 시점 | AI 연결 |\n|---|---|---|---|\n| Salesforce | 4,000 + <1,000 | 2025.9 + 2026.2 | Agentforce/Einstein Copilot |\n| Microsoft | 15,000+ | 2025 | 코드 30% AI 작성; >40% 엔지니어 |\n| Meta | ~8,000 | 2025-26 | AI 인프라 비용 pivot |\n| IBM | ~8,000 HR | 2024-25 | AskHR 챗봇 (94% 처리) |\n| Klarna | 700 → reverse | 2024 → 2025 | AI customer service (이후 reverse) |\n| Duolingo | 10% 계약직 | 2024 | GPT-4 번역 |\n\n합산 130,000+ 명 (2025년 단일년).",
+          bodyEn:
+            "If AEI measures \"how much Claude is used in which occupation,\" Stanford's Erik Brynjolfsson measured a more direct question — *does AI usage actually affect employment*.\n\n**\"Canaries in the Coal Mine?\"** (Brynjolfsson, Chandar, Chen — Stanford Digital Economy Lab, August 2025). Analyzed ADP payroll data covering 25M+ US workers. Core finding:\n\n- Workers age 22-25 in AI-exposed jobs — employment **-13% since late 2022**\n- After controlling for firm-level shocks: new entrants in AI-exposed jobs saw *-16% relative employment decline vs experienced workers*\n- Mechanism: **AI affects the labor market not by mass layoffs but by not hiring**\n\n*This is the real shock*. Anthropic's data shows *AI usage*. Brynjolfsson's data shows *that usage translates into actual employment decisions*.\n\nBLS data goes one step further:\n- **NY Fed (2026)**: Computer Science graduate unemployment **6.1%**, Computer Engineering **7.5%** — *higher than philosophy*. Overall recent-graduate unemployment averaged 5.3%, peaked 9.3% (highest non-pandemic since 2014)\n- **Bay Area 2025**: information sector -4,500 jobs (-4%), Bay Area tech layoffs ~40,000\n- **SF job postings** -37% vs Feb 2020 (Oct 2025)\n- UC Berkeley Enrico Moretti: \"The number of jobs being created in AI *is not enough to offset* the job losses at traditional Big Tech\"\n\nSpecific AI-cited layoffs:\n\n| Company | Count | Date | AI link |\n|---|---|---|---|\n| Salesforce | 4,000 + <1,000 | Sept 2025 + Feb 2026 | Agentforce/Einstein Copilot |\n| Microsoft | 15,000+ | 2025 | 30% code AI-written; >40% engineers |\n| Meta | ~8,000 | 2025-26 | AI infra cost pivot |\n| IBM | ~8,000 HR | 2024-25 | AskHR chatbot (94% handled) |\n| Klarna | 700 → reversed | 2024 → 2025 | AI customer service (reversed) |\n| Duolingo | 10% contractors | 2024 | GPT-4 translation |\n\nCombined: 130,000+ in 2025 alone.",
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "quote",
+            body: "AI could wipe out half of all entry-level white-collar jobs. Unemployment could spike to 10-20% in the next 1-5 years.",
+            bodyEn: "AI could wipe out half of all entry-level white-collar jobs. Unemployment could spike to 10-20% in the next 1-5 years.",
+            heading: "— Dario Amodei, Axios 'White-Collar Bloodbath' 인터뷰, 2025년 5월 28일",
+            headingEn: "— Dario Amodei, Axios 'White-Collar Bloodbath' interview, May 28, 2025",
+          },
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "quote",
+            body: "I'm delighted to be wrong about this. I thought there would have been more impact on entry-level white-collar jobs being eliminated by now than has actually happened.",
+            bodyEn: "I'm delighted to be wrong about this. I thought there would have been more impact on entry-level white-collar jobs being eliminated by now than has actually happened.",
+            heading: "— Sam Altman, Commonwealth Bank of Australia, 2026년 5월 26일 (OpenAI IPO 4일 전)",
+            headingEn: "— Sam Altman, Commonwealth Bank of Australia, May 26, 2026 (four days before OpenAI IPO filing)",
+          },
+        },
+      ],
+    },
+    {
+      heading: "그래서 — Cisco의 25년이 가르치는 진짜 교훈",
+      headingEn: "Therefore — The Real Lesson of Cisco's 25 Years",
+      blocks: [
+        {
+          type: "text",
+          body: "Memo 1에서 우리는 — Cisco가 2025년 12월 10일 **25년 만에 \\$80 신고가를 회복** 했다 — 는 사실로 시작했다. 그 25년 동안 Cisco의 비즈니스는:\n- FY00 → FY25 매출 **$18.9B → $56.7B (3.0배)**\n- FY00 → FY25 GAAP EPS **$0.36 → $2.61 (7.25배)**\n- 매년 영업현금흐름 \\$10B+\n\n*비즈니스는 망하지 않았다* . 매출 3배, EPS 7배. 그러나 — *실질 기준으로는 여전히 -50%* . 2000년 \\$80과 2025년 \\$80은, 인플레이션을 감안하면 같은 가치가 아니다.\n\n이게 시리즈 전체의 가장 차가운 교훈이다.\n\nLucent처럼 회로가 무너지면 회사 자체가 사라진다. 그러나 *Cisco처럼 회로는 멈춰도 비즈니스는 살아남는* 시나리오에서도 — 투자자는 25년을 기다려야 회복한다. 그 25년 동안 비즈니스는 3배 성장하지만, multiple은 150x → single digit로 압축된다. *비즈니스 성공과 주식 성공은 다른 일이다* .\n\n2026년 AI 사이클에서 *NVIDIA가 Lucent가 될지 Cisco가 될지는 아직 모른다* . 그러나 — Cisco 시나리오라도 — 현재 \\$80에 산 투자자가 *그 가격을 회복하는 데 25년이 걸린다면* , 그 25년 동안 AI 비즈니스는 폭발적으로 성장하더라도 portfolio 차원에서는 *제로 수익* 이다.\n\n**Cahn의 \\$600B Question 업데이트 (Sequoia 2025.12)** : 2026년 하이퍼스케일러 capex \\$700-725B vs 2025년 enterprise AI 매출 \\$37B (Menlo Ventures). **갭 \\$500B+** . 매출이 3배 성장해도 (~\\$110B 추정) 갭이 \\$600B+ 잔존. *현재 capex 페이스가 매출 페이스보다 훨씬 빠르다* .\n\n이게 Marks의 \"투자자의 행동\" 거품(Memo 3 참조)의 정량 증거다.",
+          bodyEn:
+            "In Memo 1 we began with — Cisco reclaiming its **$80 all-time high after 25 years** on December 10, 2025. Over those 25 years, Cisco's business:\n- FY00 → FY25 revenue **$18.9B → $56.7B (3.0x)**\n- FY00 → FY25 GAAP EPS **$0.36 → $2.61 (7.25x)**\n- Operating cash flow $10B+ every year\n\n*The business didn't fail*. Revenue 3x, EPS 7x. But — *in real terms still -50%*. $80 in 2000 and $80 in 2025 are not the same value after inflation.\n\nThis is the coldest lesson of the entire series.\n\nIf the circuit collapses like Lucent, the company itself disappears. But even in the *Cisco scenario where the circuit stops but the business survives* — the investor must wait 25 years for recovery. Over those 25 years the business triples but the multiple compresses from 150x → single digits. *Business success and stock success are different things*.\n\nIn the 2026 AI cycle, *we don't yet know whether NVIDIA becomes Lucent or Cisco*. But — even in the Cisco scenario — if an investor who buys at $80 today *takes 25 years to recover that price*, then over those 25 years the AI business may grow explosively but at the portfolio level the return is *zero*.\n\n**Cahn's $600B Question update (Sequoia Dec 2025)**: 2026 hyperscaler capex $700-725B vs 2025 enterprise AI revenue $37B (Menlo Ventures). **Gap $500B+**. Even with 3x revenue growth (~$110B est.), the gap remains $600B+. *Current capex pace far outruns revenue pace*.\n\nThis is the quantitative evidence for Marks's \"investor behavior\" bubble (see Memo 3).",
+        },
+        {
+          type: "chart",
+          chart: {
+            id: "pe-spread",
+            title: "Mag 7 vs S&P 493 forward P/E 스프레드 (2020-2026)",
+            titleEn: "Mag 7 vs S&P 493 Forward P/E Spread (2020-2026)",
+            caption:
+              "출처: FactSet, Yardeni Research 2026.5. Mag 7 28x vs S&P 493 23.5x — premium 19%, 10년 최저. 그러나 AI 집중도 (Mag 7 시총 / S&P 500) **35% — 역대 최고**, Hartnett의 \"모든 100년 거품의 48% 임계\" 에 근접.",
+            captionEn:
+              "Sources: FactSet, Yardeni Research May 2026. Mag 7 28x vs S&P 493 23.5x — premium 19%, 10-yr low. But AI concentration (Mag 7 cap / S&P 500) is **35% — all-time high**, approaching Hartnett's '48% peak of every 100-yr bubble'.",
+            data: [
+              { year: "'20", mag7: 28, sp493: 18 },
+              { year: "'21", mag7: 32, sp493: 21 },
+              { year: "'22", mag7: 24, sp493: 16 },
+              { year: "'23", mag7: 27, sp493: 17 },
+              { year: "'24", mag7: 30, sp493: 19 },
+              { year: "'25", mag7: 31, sp493: 20 },
+              { year: "'26", mag7: 28, sp493: 23.5 },
+            ],
+          },
+        },
+      ],
+    },
+    {
+      heading: "한국 — 사무직 일자리의 미래는 이미 시작됐다",
+      headingEn: "Korea — The Future of White-Collar Jobs Has Already Started",
+      blocks: [
+        {
+          type: "text",
+          body: "한국 노동시장에서도 같은 데이터가 보이기 시작했다.\n\n**Korea Employment Information Service (2025-2035 Outlook)** : 분석된 170개 직업 중 93.4%는 고용 유지 또는 증가. 6.6% (12개 직업) 만 약간 감소 — 캐셔/은행창구직원, 디자인/편집 보조. 표면적으로는 평온하다.\n\n그러나 *개발자 시장에는 이미 큰 변화* 가 왔다.\n- **2025년 카카오·라인·쿠팡·배달의민족·당근·토스 — 신규 SWE 채용 *제로* 또는 거의 제로** . 오직 Naver만 정기 채용 유지.\n- **Naver 신규 채용** : 838명 (2021) → 258명 (2024). *3배 감소* .\n- **Kakao 신규 채용** : 994명 (2021) → 314명 (2024).\n- 카카오 공개 발표: \"AI가 대체 가능한 역할의 신규 채용을 제한할 것.\"\n- 익명 한 중견 SW 회사: 25년 만에 처음으로 *2025년 단 한 명도 신입 개발자를 안 뽑음* .\n- 한국 신입 개발자 채용 — 2021년 대비 *절반 이하* . 피크 -77% 예상.\n\n**KDI 연구** : AI 생산성 효과는 *젊은 세대* (남성 30-44세, 여성 15-29세) + *대학 졸업자* 에 집중. 이들 그룹에서 고용과 임금에 음의 효과. KDI는 *2030년쯤 직업의 90%가 90%+ task 자동화 가능* 으로 추정. 한국 기업 69.2%가 채용에서 AI 역량을 고려.\n\n*표면적 평온함과 신규 채용 시장의 collapse가 동시에 일어난다* . Brynjolfsson이 미국에서 찾은 패턴 (\"대량 해고가 아니라 신규 채용 안 함\") 이 한국에서도 같다 — *오히려 더 빠르고 더 깊게* .\n\n한국 사회는 \"코딩만 잘하면 취직 걱정 없다\" 는 시대의 종료를 — Anthropic Economic Index의 분기 데이터보다 *더 빨리* 체감한다.",
+          bodyEn:
+            "The same data is starting to show in Korea's labor market.\n\n**Korea Employment Information Service (2025-2035 Outlook)**: of 170 occupations analyzed, 93.4% maintain or grow employment. Only 6.6% (12 occupations) show slight decline — cashiers, bank tellers, design/editing assistants. On the surface it looks calm.\n\nBut *the developer market has already seen massive change*.\n- **In 2025, Kakao, Line, Coupang, Baemin (delivery), Daangn, Toss — new SWE hiring *zero or near zero***. Only Naver maintained routine hiring.\n- **Naver new hires**: 838 (2021) → 258 (2024). *3x decline*.\n- **Kakao new hires**: 994 (2021) → 314 (2024).\n- Kakao publicly stated: \"will restrict new hires for roles AI can replace.\"\n- One anonymous mid-size Korean SW company: for the first time in 25 years, *hired zero new developers in 2025*.\n- Korean junior developer hiring — *less than half* of 2021 levels. Peak decline expected -77%.\n\n**KDI research**: AI productivity effects concentrated in *younger cohorts* (men 30-44, women 15-29) + *college-educated workers*. Negative effects on employment and wages in these groups. KDI estimates that *by ~2030, 90% of jobs could have 90%+ of tasks automatable*. Korean firms 69.2% consider AI competency in hiring decisions.\n\n*The surface calm and the collapse of the new-hire market happen simultaneously*. The pattern Brynjolfsson found in the US (\"not mass layoffs but no new hiring\") is the same in Korea — *only faster and deeper*.\n\nKorean society is feeling the end of \"just be good at coding and you'll be hired\" — *faster than* the Anthropic Economic Index's quarterly data.",
+        },
+      ],
+    },
+    {
+      heading: "결론 — 우리는 모른다. 그러나 처음으로 — 우리는 보고 있다",
+      headingEn: "Conclusion — We Do Not Know. But for the First Time — We Are Seeing",
+      blocks: [
+        {
+          type: "text",
+          body: "이 시리즈는 7개 메모로 — 표면적으로 — 매우 다른 주제를 다뤘다.\n\n1. 자본의 회로 (NVDA→OpenAI→MSFT→NVDA)\n2. 모델 빅2와 Claude Code\n3. IPO 파도, 1999와 다른 점\n4. 패권의 바깥 (HBM·CoWoS)\n5. 다음 병목 (광·신경망)\n6. 와트가 칩을 이긴 날 (전력)\n7. 단 하나의 숫자 (Anthropic Economic Index)\n\n그러나 *모든 7개 메모는 단일 질문에 귀결* 된다. **AI 자본 사이클의 \\$700B+ capex가 회수되는가** . 회수되려면, 그 capex로 만든 매출이 — *진짜 노동을 대체* 해야 한다. 진짜 enterprise customer가 진짜 돈을 내고, 진짜 직업의 진짜 task가 대체되어야 한다.\n\n1999년에는 그 질문의 답을 *사후에야* 알 수 있었다. Solow paradox가 30년간 유효했던 이유다. 인터넷 capex가 회수되었는지 — 매크로 데이터로 보면 *수년 후에야* 명확해졌다.\n\n2026년은 다르다. **Anthropic Economic Index가 그 질문을 분기마다 측정한다** . Claude Code의 매출이 분기마다 검증된다. Cisco 25년의 교훈이 fresh data로 매핑된다. 직업별 침투율, 신규 채용 데이터, Bay Area layoff — *모두 실시간으로 볼 수 있다* .\n\n그래서 이 시리즈의 마지막 명제는 단순하다:\n\n*우리는 모른다. AI capex 사이클이 회수될지, 못 될지. Cisco 25년이 될지, Lucent -99% 가 될지. NVIDIA가 사이클의 진짜 부자일지, Lumentum이 될지. SK하이닉스가 메모리 권력을 유지할지, 삼성이 HBM4로 회복할지.*\n\n*그러나 처음으로 — 우리는 보고 있다. 분기마다.*\n\n*1999년의 Solow paradox가 30년 후에야 풀린 미스터리였다면, 2026년의 AI 사이클은 — 매분기 측정 가능한 fact다. 그게 이 사이클의 진짜 차이다.*\n\n**우리가 봐야 할 단일 숫자는 — Anthropic Economic Index의 다음 분기 침투율** . 가속이면 진짜 노동 대체가 일어나는 중. 정체나 둔화면 — Cisco 25년 시나리오가 진짜로 시작된다.\n\n그게 시리즈의 단일 watch metric이다. 다른 모든 데이터는 — 이 한 숫자에 대한 *지지 증거 또는 반박* 일 뿐이다.",
+          bodyEn:
+            "This series, across 7 memos — on the surface — covered very different subjects.\n\n1. The circuit of capital (NVDA→OpenAI→MSFT→NVDA)\n2. The model duopoly and Claude Code\n3. The IPO wave, what differs from 1999\n4. Empire's periphery (HBM·CoWoS)\n5. The next bottleneck (optical & networking)\n6. When watts beat chips (power)\n7. The one number (Anthropic Economic Index)\n\nBut *all 7 memos collapse into one question*. **Will the AI capital cycle's $700B+ capex be recouped?** For it to be recouped, the revenue generated by that capex must — *actually displace labor*. Real enterprise customers must pay real money, and real tasks of real jobs must be substituted.\n\nIn 1999, we could only know the answer to that question *ex-post*. That's why the Solow paradox stayed valid for 30 years. Whether internet capex was recouped — only became clear in macro data *years later*.\n\n2026 is different. **The Anthropic Economic Index measures that question quarterly**. Claude Code's revenue is validated quarterly. Cisco's 25-year lesson is mapped against fresh data. Occupation penetration, new-hire data, Bay Area layoffs — *all visible in real time*.\n\nSo the series's final proposition is simple:\n\n*We do not know. Whether the AI capex cycle will be recouped or not. Whether it becomes Cisco's 25 years or Lucent's -99%. Whether NVIDIA is the cycle's real rich or Lumentum is. Whether SK Hynix keeps memory power or Samsung recovers via HBM4.*\n\n*But for the first time — we are seeing. Quarterly.*\n\n*If the 1999 Solow paradox was a mystery only solved 30 years later, the 2026 AI cycle is — a fact measurable every quarter. That is the real difference of this cycle.*\n\n**The single number we should watch is — the next quarter's AEI penetration rate**. If accelerating, real labor substitution is happening. If stalled or decelerating — the Cisco 25-year scenario truly begins.\n\nThat is the series's single watch metric. Every other data point is — merely *supporting evidence or refutation* of this one number.",
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "insight",
+            heading: "시리즈 끝",
+            headingEn: "End of the Series",
+            body: "AI 자본 사이클 시리즈는 여기서 끝납니다. 7개 메모를 다 읽었다면 — 자본의 회로, 모델의 단위경제학, IPO의 의미, 공급망의 지정학, 다음 병목의 운율, 물리적 인프라의 산수, 그리고 노동 대체의 첫 정량 데이터를 — 모두 손에 넣었습니다. 분기마다 Anthropic Economic Index와 NVDA DC 매출 sequential 성장률을 추적하면, 사이클의 어디에 있는지 알 수 있을 것입니다. 그것이 이 시리즈의 약속이었습니다.",
+            bodyEn:
+              "The AI Capital Cycle series ends here. If you've read all seven memos — you now hold the circuit of capital, the model unit economics, the meaning of IPOs, the geopolitics of supply chains, the rhyme of the next bottleneck, the math of physical infrastructure, and the first quantitative data on labor substitution. Track the Anthropic Economic Index and NVDA DC sequential growth every quarter, and you will know where in the cycle we are. That was the promise of this series.",
+          },
+        },
+      ],
+    },
+  ],
+  references: [
+    { id: 1, author: "Anthropic", title: "Economic Index — Quarterly Reports (Feb 2025 - Mar 2026, 5 reports)", source: "Anthropic", year: "2025-2026", url: "https://www.anthropic.com/economic-index" },
+    { id: 2, author: "Anthropic", title: "Introducing the Anthropic Economic Index (Feb 10, 2025)", source: "Anthropic", year: "2025-02-10", url: "https://www.anthropic.com/news/the-anthropic-economic-index" },
+    { id: 3, author: "Anthropic", title: "Clio methodology paper (arXiv 2412.13678)", source: "arXiv", year: "2024", url: "https://arxiv.org/pdf/2412.13678" },
+    { id: 4, author: "Brynjolfsson, Chandar, Chen", title: "Canaries in the Coal Mine? Six Facts about Recent Employment Effects of AI", source: "Stanford Digital Economy Lab", year: "2025-08", url: "https://digitaleconomy.stanford.edu/publication/canaries-in-the-coal-mine-six-facts-about-the-recent-employment-effects-of-artificial-intelligence/" },
+    { id: 5, author: "Brynjolfsson, Rock, Syverson", title: "Productivity J-Curve (NBER WP 25148)", source: "NBER", year: "2018", url: "https://www.nber.org/papers/w25148" },
+    { id: 6, author: "Solow, Robert", title: "We'd Better Watch Out (book review)", source: "New York Times Book Review", year: "1987-07-12", note: "'You can see the computer age everywhere but in the productivity statistics.' — Solow paradox 원전" },
+    { id: 7, author: "Axios (VandeHei, Allen)", title: "Behind the Curtain: A white-collar bloodbath", source: "Axios", year: "2025-05-28", url: "https://www.axios.com/2025/05/28/ai-jobs-white-collar-unemployment-anthropic" },
+    { id: 8, author: "TIME / Fortune", title: "Sam Altman walks back AI jobs apocalypse warnings (May 2026)", source: "TIME / Fortune", year: "2026-05-26", url: "https://time.com/article/2026/05/26/sam-altman-ai-job-losses-openAI-/" },
+    { id: 9, author: "NY Fed", title: "Labor Market for Recent College Graduates", source: "Federal Reserve Bank of New York", year: "2026", url: "https://www.newyorkfed.org/research/college-labor-market" },
+    { id: 10, author: "BLS", title: "OEWS Tables May 2025 (Computer & Mathematical Occupations)", source: "Bureau of Labor Statistics", year: "2025", url: "https://www.bls.gov/oes/tables.htm" },
+    { id: 11, author: "Bloomberg", title: "Cisco shares finally top dot-com record after 25+ years", source: "Bloomberg", year: "2025-12-10", url: "https://www.bloomberg.com/news/articles/2025-12-10/cisco-shares-finally-top-dot-com-record-after-more-than-25-years" },
+    { id: 12, author: "Sequoia Capital (David Cahn)", title: "AI in 2026 — A Tale of Two AIs", source: "Sequoia", year: "2025-12-03", url: "https://sequoiacap.com/article/ai-in-2026-the-tale-of-two-ais/" },
+    { id: 13, author: "Menlo Ventures", title: "2025 State of GenAI in the Enterprise (\\$37B enterprise spend)", source: "Menlo Ventures", year: "2025", url: "https://menlovc.com/perspective/2025-the-state-of-generative-ai-in-the-enterprise/" },
+    { id: 14, author: "한국개발연구원(KDI)", title: "AI 노동시장 영향 보고서", source: "KDI", year: "2025", url: "https://www.kdi.re.kr/research/reportView?pub_no=18370" },
+    { id: 15, author: "Microsoft", title: "Work Trend Index 2026 — Agents, human agency", source: "Microsoft", year: "2026-04", url: "https://www.microsoft.com/en-us/worklab/work-trend-index" },
+  ],
+};
+
+export const ALL_NOTES: NoteData[] = [koreaDiscount, dollarHegemony1, dollarHegemony2, dollarHegemony3, dollarHegemony4, aiCycle1, aiCycle2, aiCycle3, aiCycle4, aiCycle5, aiCycle6, aiCycle7];
