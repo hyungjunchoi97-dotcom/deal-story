@@ -1,7 +1,7 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import CategoryHero from "@/components/CategoryHero";
 import DealsFolderClient from "./DealsFolderClient";
 import { ALL_DEALS } from "@/data/deals";
 import { ALL_LBO_DEALS } from "@/data/deals/lbo";
@@ -71,38 +71,15 @@ export default function DealsPage() {
       <Header />
       <main className="flex-1">
 
-        {/* 페이지 헤더 */}
-        <section className="border-b border-gray-200/60 dark:border-gray-700/60">
-          <div className="max-w-4xl mx-auto px-5 py-10">
-
-            {/* 브레드크럼 */}
-            <div className="flex items-center gap-1.5 text-xs text-gray-400 dark:text-gray-500 mb-3">
-              <Link href="/" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                홈
-              </Link>
-              <span>›</span>
-              <span className="text-gray-600 dark:text-gray-300 font-medium">딜 아카이브</span>
-            </div>
-
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">딜 아카이브</h1>
-            <p className="mt-2 text-sm text-gray-500 dark:text-gray-400 leading-relaxed max-w-2xl">
-              $689억 Microsoft-Activision부터 KKR·RJR Nabisco까지 — M&A·PE 딜의 배경,
-              밸류에이션, 사후 평가를 해부합니다.{" "}
-              총 <span className="font-semibold text-gray-700 dark:text-gray-300">{ALL_DEALS.length}개</span> 딜.
-            </p>
-
-            {/* 크로스링크 — Market Story */}
-            <div className="mt-4">
-              <Link
-                href="/market"
-                className="inline-flex items-center gap-1.5 text-xs text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800/60 rounded-full px-3 py-1 hover:bg-teal-100 dark:hover:bg-teal-900/40 transition-colors"
-              >
-                <span className="font-bold text-[10px] bg-teal-600 text-white rounded px-1 py-0.5 leading-none">M</span>
-                자본시장 랜드마크 딜 → Market Story
-              </Link>
-            </div>
-          </div>
-        </section>
+        <CategoryHero
+          lang="ko"
+          breadcrumb="딜 아카이브"
+          title="딜 아카이브"
+          description="Microsoft의 $68.7B Activision 베팅부터 KKR의 LBO of the century까지 — 84개 랜드마크 딜의 배경 · 구조 · 가치평가 · 후속 성과."
+          crossLinks={[
+            { key: "market", href: "/market", label: "자본시장 랜드마크 → Market Story", badge: "M" },
+          ]}
+        />
 
         {/* 필터 + 카드 그리드 */}
         <div className="max-w-4xl mx-auto px-5 py-8">

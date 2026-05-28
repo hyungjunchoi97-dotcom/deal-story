@@ -1,7 +1,7 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import CategoryHero from "@/components/CategoryHero";
 import {
   ALL_INVESTOR_STORIES,
   STORY_CATEGORY_META,
@@ -82,73 +82,43 @@ export default function StoriesPageEn() {
       />
       <Header />
       <main className="flex-1">
-        {/* ── Masthead ── */}
-        <section className="border-b border-gray-200/60 dark:border-gray-700/60">
-          <div className="max-w-4xl mx-auto px-5 py-10">
-            <div className="flex items-center gap-1.5 text-xs text-gray-400 dark:text-gray-500 mb-3">
-              <Link href="/en" className="hover:text-violet-600 dark:hover:text-violet-400 transition-colors">
-                Home
-              </Link>
-              <span>›</span>
-              <span className="text-gray-600 dark:text-gray-300 font-medium">Investor Stories</span>
-            </div>
+        <CategoryHero
+          lang="en"
+          breadcrumb="Investor Stories"
+          title="Investor Stories"
+          description="The day Soros broke the Bank of England, the two years Volcker fought inflation with 20% rates, and how a janitor named Weinberg built Goldman Sachs — 15 legendary figures who made financial history."
+          crossLinks={[
+            { key: "market", href: "/en/market", label: "Capital markets landmark deals → Market Story", badge: "M" },
+            { key: "deals", href: "/en/deals", label: "M&A · PE deals → Deal Archive", badge: "D" },
+          ]}
+        />
 
-            <div className="inline-flex items-center px-2.5 py-1 rounded-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-[11px] font-bold mb-3">
-              The people who shaped finance
-            </div>
-
-            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
-              Investor Stories
-            </h1>
-            <p className="mt-3 text-base text-gray-500 dark:text-gray-400 leading-relaxed max-w-2xl">
-              The day Soros broke the Bank of England, the two years Volcker fought inflation with 20% rates,
-              and how a janitor named Weinberg built Goldman Sachs — {publishedCount} legendary figures who made financial history.
-            </p>
-
-            {/* Cross-links */}
-            <div className="mt-4 flex flex-wrap gap-2 items-center">
-              <Link
-                href="/en/market"
-                className="inline-flex items-center gap-1.5 text-xs text-violet-600 dark:text-violet-400 bg-violet-50 dark:bg-violet-900/20 border border-violet-200 dark:border-violet-800/60 rounded-full px-3 py-1 hover:bg-violet-100 dark:hover:bg-violet-900/40 transition-colors"
-              >
-                <span className="font-bold text-[10px] bg-violet-600 text-white rounded px-1 py-0.5 leading-none">M</span>
-                Capital markets landmark deals → Market Story
-              </Link>
-              <Link
-                href="/en/deals"
-                className="inline-flex items-center gap-1.5 text-xs text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800/60 rounded-full px-3 py-1 hover:bg-blue-100 dark:hover:bg-blue-900/40 transition-colors"
-              >
-                <span className="font-bold text-[10px] bg-blue-600 text-white rounded px-1 py-0.5 leading-none">D</span>
-                M&amp;A · PE deals → Deal Archive
-              </Link>
-            </div>
-
-            {/* Category badges */}
-            <div className="flex flex-wrap gap-2 mt-5">
-              {STORY_CATEGORIES.map((cat) => {
-                const meta = STORY_CATEGORY_META[cat];
-                const count = ALL_INVESTOR_STORIES.filter((s) => s.category === cat).length;
-                const pubCount = ALL_INVESTOR_STORIES.filter(
-                  (s) => s.category === cat && s.published
-                ).length;
-                if (count === 0) return null;
-                return (
-                  <div
-                    key={cat}
-                    className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-medium ${meta.bg} ${meta.fg}`}
-                  >
-                    <span className="font-black">{meta.letter}.</span>
-                    {meta.labelEn}
-                    <span className="opacity-60">{pubCount}/{count}</span>
-                  </div>
-                );
-              })}
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-[11px] font-medium text-gray-500 dark:text-gray-400">
-                {publishedCount}/{totalCount} published
-              </div>
+        {/* ── Category badges ── */}
+        <div className="max-w-3xl mx-auto px-5 pt-6">
+          <div className="flex flex-wrap gap-2">
+            {STORY_CATEGORIES.map((cat) => {
+              const meta = STORY_CATEGORY_META[cat];
+              const count = ALL_INVESTOR_STORIES.filter((s) => s.category === cat).length;
+              const pubCount = ALL_INVESTOR_STORIES.filter(
+                (s) => s.category === cat && s.published
+              ).length;
+              if (count === 0) return null;
+              return (
+                <div
+                  key={cat}
+                  className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-medium ${meta.bg} ${meta.fg}`}
+                >
+                  <span className="font-black">{meta.letter}.</span>
+                  {meta.labelEn}
+                  <span className="opacity-60">{pubCount}/{count}</span>
+                </div>
+              );
+            })}
+            <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-[11px] font-medium text-gray-500 dark:text-gray-400">
+              {publishedCount}/{totalCount} published
             </div>
           </div>
-        </section>
+        </div>
 
         {/* ── Category folders ── */}
         <div className="max-w-4xl mx-auto px-5 py-10">

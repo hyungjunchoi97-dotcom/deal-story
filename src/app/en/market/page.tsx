@@ -1,7 +1,7 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import CategoryHero from "@/components/CategoryHero";
 import { ALL_MARKET_DEALS, DEAL_CATEGORY_META, type DealCategory } from "@/data/market-deals";
 import { SITE_URL } from "@/lib/site";
 import MarketIndexClient from "@/app/market/MarketIndexClient";
@@ -78,66 +78,41 @@ export default function MarketPageEn() {
       <Header />
       <main className="flex-1">
 
-        {/* ── Masthead ── */}
-        <section className="border-b border-gray-200/60 dark:border-gray-700/60">
-          <div className="max-w-4xl mx-auto px-5 py-10">
-            <div className="flex items-center gap-1.5 text-xs text-gray-400 dark:text-gray-500 mb-3">
-              <Link href="/en" className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
-                Home
-              </Link>
-              <span>›</span>
-              <span className="text-gray-600 dark:text-gray-300 font-medium">Market Story</span>
-            </div>
+        <CategoryHero
+          lang="en"
+          breadcrumb="Market Story"
+          title="Market Story"
+          description="The first green bond, a hedge fund that seized a warship, $17B of AT1 wiped to zero, Korea's post-IMF return — 24 landmark deals that changed capital market rules."
+          crossLinks={[
+            { key: "deals", href: "/en/deals", label: "M&A & PE deal analysis → Deal Archive", badge: "D" },
+          ]}
+        />
 
-            <div className="inline-flex items-center px-2.5 py-1 rounded-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-[11px] font-bold mb-3">
-              Deals That Changed the Rules
-            </div>
-
-            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
-              Market Story
-            </h1>
-            <p className="mt-3 text-base text-gray-500 dark:text-gray-400 leading-relaxed max-w-2xl">
-              The first green bond, a hedge fund that seized a warship, $17B of AT1 wiped to zero,
-              Korea&apos;s post-IMF return — {publishedCount} landmark deals that changed capital market
-              rules or left lessons too important to forget.
-            </p>
-
-            {/* Cross-link — Deal Archive */}
-            <div className="mt-4 mb-5">
-              <Link
-                href="/en/deals"
-                className="inline-flex items-center gap-1.5 text-xs text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800/60 rounded-full px-3 py-1 hover:bg-blue-100 dark:hover:bg-blue-900/40 transition-colors"
-              >
-                <span className="font-bold text-[10px] bg-blue-600 text-white rounded px-1 py-0.5 leading-none">D</span>
-                M&amp;A &amp; PE deal analysis → Deal Archive
-              </Link>
-            </div>
-
-            {/* Category badges */}
-            <div className="flex flex-wrap gap-2 mt-2">
-              {CATEGORIES.map((cat) => {
-                const meta = DEAL_CATEGORY_META[cat];
-                const count = ALL_MARKET_DEALS.filter((d) => d.category === cat).length;
-                const pub = ALL_MARKET_DEALS.filter(
-                  (d) => d.category === cat && d.published
-                ).length;
-                return (
-                  <div
-                    key={cat}
-                    className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-medium ${meta.bg} ${meta.fg}`}
-                  >
-                    <span className="font-black">{meta.letter}.</span>
-                    {meta.labelEn}
-                    <span className="opacity-60">{pub}/{count}</span>
-                  </div>
-                );
-              })}
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-[11px] font-medium text-gray-500 dark:text-gray-400">
-                {publishedCount}/{ALL_MARKET_DEALS.length} published
-              </div>
+        {/* ── Category badges ── */}
+        <div className="max-w-3xl mx-auto px-5 pt-6">
+          <div className="flex flex-wrap gap-2">
+            {CATEGORIES.map((cat) => {
+              const meta = DEAL_CATEGORY_META[cat];
+              const count = ALL_MARKET_DEALS.filter((d) => d.category === cat).length;
+              const pub = ALL_MARKET_DEALS.filter(
+                (d) => d.category === cat && d.published
+              ).length;
+              return (
+                <div
+                  key={cat}
+                  className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-medium ${meta.bg} ${meta.fg}`}
+                >
+                  <span className="font-black">{meta.letter}.</span>
+                  {meta.labelEn}
+                  <span className="opacity-60">{pub}/{count}</span>
+                </div>
+              );
+            })}
+            <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-[11px] font-medium text-gray-500 dark:text-gray-400">
+              {publishedCount}/{ALL_MARKET_DEALS.length} published
             </div>
           </div>
-        </section>
+        </div>
 
         {/* ── Category folders ── */}
         <div className="max-w-4xl mx-auto px-5 py-10">
