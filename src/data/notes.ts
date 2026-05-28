@@ -3125,4 +3125,317 @@ const aiCycle4: NoteData = {
   ],
 };
 
-export const ALL_NOTES: NoteData[] = [koreaDiscount, dollarHegemony1, dollarHegemony2, dollarHegemony3, dollarHegemony4, aiCycle1, aiCycle4];
+// ══════════════════════════════════════════════════════════════════════════════
+// NOTE #8 — AI Capital Cycle ⑥ — 와트가 칩을 이긴 날 (전력)
+// ══════════════════════════════════════════════════════════════════════════════
+
+const aiCycle6: NoteData = {
+  slug: "ai-capital-cycle-6",
+  category: "macro",
+  status: "published",
+  series: "ai-capital-cycle",
+  seriesOrder: 6,
+  title: "AI 자본 사이클 ⑥ — 와트가 칩을 이긴 날",
+  titleEn: "AI Capital Cycle ⑥ — When Watts Beat Chips",
+  description:
+    "AI 사이클의 결정변수는 칩이 아니라 GW다. 미국 인터커넥션 큐 2,290 GW 적체, PJM capacity 가격 +833%, MSFT가 Three Mile Island를 20년 PPA로 재가동. 1882년 에디슨의 Pearl Street가 산업혁명을 정의했듯, 2026년 데이터센터 전력이 AI 사이클을 정의한다.",
+  descriptionEn:
+    "The AI cycle's binding variable is not chips but GWs. US interconnection queue stuck at 2,290 GW. PJM capacity prices +833%. Microsoft signs a 20-year PPA to restart Three Mile Island. Just as Edison's 1882 Pearl Street defined the industrial revolution, 2026 data center power defines the AI cycle.",
+  date: "2026-05-29",
+  readingMinutes: 19,
+  keyPoints: [
+    "글로벌 데이터센터 전력 수요: 485 TWh(2025) → 950 TWh(2030), IEA. 미국·중국이 증가분의 80%",
+    "미국 데이터센터 전력 점유율 4%(2023) → 9-17%(2030), EPRI. 60% 상향 조정",
+    "미국 인터커넥션 큐 적체: 2,290 GW (현 가동 발전 용량의 약 2배). 평균 대기 4년+",
+    "PJM 2025-26 capacity auction 가격 +833%. 버지니아 Data Center Alley가 단일 변수",
+    "원자력 르네상스: MSFT-Constellation Three Mile Island 20년 PPA (835MW, 2027 재가동), AWS-Talen Susquehanna 1.92GW",
+    "한국 용인 클러스터 10GW (원전 10기 규모) 필요, 현재 0.6GW. 송전망 3법 통과, i-SMR 2028 표준 승인",
+    "투자자 핵심 watch: PJM 다음 capacity auction 결과, 신규 원전 PPA 발표, Vertiv/Eaton/Quanta backlog",
+  ],
+  keyPointsEn: [
+    "Global data center power demand: 485 TWh (2025) → 950 TWh (2030), IEA. US+China account for 80% of the growth",
+    "US data center share of total electricity: 4% (2023) → 9-17% (2030), EPRI. Forecast raised 60%",
+    "US interconnection queue backlog: 2,290 GW (~2x current installed generation). Median wait 4+ years",
+    "PJM 2025-26 capacity auction prices +833%. Virginia's Data Center Alley is the single variable",
+    "Nuclear renaissance: MSFT-Constellation Three Mile Island 20-yr PPA (835MW, 2027 restart), AWS-Talen Susquehanna 1.92GW",
+    "Korea Yongin cluster needs 10GW (equivalent to 10 reactors), currently 0.6GW. Grid 3-laws passed, i-SMR design approval targeted 2028",
+    "Investor watch: PJM next capacity auction, new nuclear PPA announcements, Vertiv/Eaton/Quanta backlog",
+  ],
+  sections: [
+    // ── 1. Pearl Street, 그리고 GW 산수 ───────────────────────────────────────
+    {
+      heading: "1882년 Pearl Street — 산업의 결정변수가 와트가 된 날",
+      headingEn: "1882, Pearl Street — The Day Watts Became the Binding Variable",
+      blocks: [
+        {
+          type: "text",
+          body: "1882년 9월 4일, 토마스 에디슨이 맨해튼 Pearl Street에 세계 최초의 상업 발전소를 가동했다. 처음 며칠간 그는 단 85명의 고객, 400개의 전구를 켰다. 그러나 그 작은 시작이 의미한 것은 — *산업혁명의 결정변수가 그 순간부터 와트(W)가 됐다는 것* . 공장이 얼마나 큰지가 아니라, 얼마나 전기를 공급받을 수 있는지가 생산을 결정했다.\n\n2026년 AI 자본 사이클도 같은 변곡점에 도착했다. **결정변수가 칩에서 와트로 이동했다.**\n\nNVIDIA가 매 분기 GPU를 더 출하해도, 그 GPU를 돌릴 전기가 없으면 매출은 매분기 매출이 되지 않는다. Microsoft가 Stargate에 $500B를 약속해도, 그 데이터센터에 송전선이 연결되지 않으면 약속은 spreadsheet에 머문다. 그래서 2026년의 AI 사이클은 — 빅테크 CFO의 capex 발표가 아니라 — *PJM의 capacity auction 결과와 ERCOT의 인터커넥션 큐 길이* 가 정의한다.\n\nIEA의 2026년 \"Electricity\" 리포트는 그 사실을 정량화한다. 글로벌 데이터센터 전력 수요는 **2025년 485 TWh에서 2030년 950 TWh로 두 배** 가 된다. 미국과 중국이 그 증가분의 80%를 차지한다. EPRI는 미국 데이터센터의 전력 점유율을 2023년 4%에서 2030년 **9-17%** 로 — 60% 상향 조정했다.\n\n이 숫자가 의미하는 것: 전력은 더 이상 AI 사이클의 *부속 변수* 가 아니다. *결정 변수* 다.",
+          bodyEn:
+            "September 4, 1882. Thomas Edison powered up the world's first commercial generating station on Pearl Street in Manhattan. In its first days, it lit 400 light bulbs for 85 customers. But that small beginning meant one thing — *from that moment, the binding variable of the Industrial Revolution became the watt*. Not how big the factory was. How much electricity it could draw.\n\nThe 2026 AI capital cycle has arrived at the same inflection. **The binding variable has shifted from chips to watts.**\n\nEven if NVIDIA ships more GPUs every quarter, no electricity means no quarterly revenue. Even if Microsoft promises $500B to Stargate, no transmission line means the promise stays on a spreadsheet. So the 2026 AI cycle is defined not by Big Tech CFO capex announcements but by *PJM capacity auction results and ERCOT interconnection queue lengths*.\n\nThe IEA's 2026 Electricity report quantifies this. Global data center power demand doubles **from 485 TWh in 2025 to 950 TWh in 2030**. The US and China account for 80% of that growth. EPRI raised its forecast of US data center electricity share from 4% (2023) to **9-17% by 2030** — a 60% upward revision.\n\nWhat this means: power is no longer an *auxiliary variable* of the AI cycle. It is *the binding variable*.",
+        },
+        {
+          type: "chart",
+          chart: {
+            id: "dc-power-demand",
+            title: "글로벌 데이터센터 전력 수요 (2020-2030, TWh)",
+            titleEn: "Global Data Center Electricity Demand (2020-2030, TWh)",
+            caption:
+              "출처: IEA Electricity 2026 / Energy and AI (2025), EPRI Powering Intelligence 2026. 기준 시나리오 950 TWh, 고시나리오 1,200 TWh. 미·중이 증가분의 80%.",
+            captionEn:
+              "Sources: IEA Electricity 2026 / Energy and AI (2025), EPRI Powering Intelligence 2026. Base scenario 950 TWh; high scenario 1,200 TWh. US+China account for 80% of growth.",
+            data: [
+              { year: "2020", base: 240, high: 240, low: 240 },
+              { year: "2022", base: 320, high: 320, low: 320 },
+              { year: "2024", base: 415, high: 415, low: 415 },
+              { year: "2025", base: 485, high: 510, low: 470 },
+              { year: "2026", base: 580, high: 650, low: 540 },
+              { year: "2028", base: 760, high: 900, low: 670 },
+              { year: "2030", base: 950, high: 1200, low: 800 },
+            ],
+          },
+        },
+      ],
+    },
+    // ── 2. 인터커넥션 큐 — 2,290 GW의 적체 ────────────────────────────────────
+    {
+      heading: "인터커넥션 큐 — 2,290 GW가 줄을 서 있다",
+      headingEn: "The Interconnection Queue — 2,290 GW Waiting in Line",
+      blocks: [
+        {
+          type: "text",
+          body: "전력이 결정변수가 됐다는 것을 단일 숫자로 보여주는 것이 있다. 미국 인터커넥션 큐다.\n\n인터커넥션 큐는 — 새 발전소를 짓고 송전망에 연결하려고 신청한 프로젝트의 대기 줄이다. Lawrence Berkeley National Lab의 \"Queued Up 2025\" 보고서가 그 길이를 측정한다.\n\n**2024년 말 기준: 2,290 GW.** 미국 전체의 현 가동 발전 용량(약 1,300 GW)의 **거의 2배** . 10,300개 프로젝트. 그중 발전(gen) 1,400 GW + 스토리지 890 GW.\n\n이게 무엇을 의미하는가. *미국이 전기를 더 만들 수 있는 캐파가 줄에 서 있다* . 단지 — 그 줄이 안 움직인다. 인터커넥션 신청부터 COD(가동 시작)까지의 중간값은 2000-2007년 <2년이었다. 2018-2024년에는 **4년+** 가 됐다. 2024년에만 112 GW의 솔라/스토리지 프로젝트가 큐에서 *철회* 됐다 — 너무 오래 기다리지 못해서.\n\n이 적체가 풀려야 — 데이터센터가 새 전력을 받을 수 있다. 그러나 적체는 풀리지 않고 있다. *역으로 길어지고 있다* . FERC, PJM, ERCOT, MISO — 각 ISO가 큐 reform을 시도하지만, 데이터센터 수요 증가가 reform 속도를 앞지른다.",
+          bodyEn:
+            "One number shows that power has become the binding variable. The US interconnection queue.\n\nThe queue is — a backlog of projects applying to build new generation and connect to the grid. Lawrence Berkeley National Lab's \"Queued Up 2025\" measures its length.\n\n**As of end-2024: 2,290 GW.** That is **nearly 2x** all currently operating US generation capacity (~1,300 GW). 10,300 projects. Of those, 1,400 GW generation + 890 GW storage.\n\nWhat this means: *the US has plenty of capacity standing in line to build more electricity*. The line just doesn't move. Median time from interconnection application to COD (commercial operation date) was <2 years in 2000-2007. By 2018-2024 it was **4+ years**. In 2024 alone, 112 GW of solar/storage projects *withdrew* from the queue — they couldn't wait that long.\n\nThis backlog must unclog for data centers to get new power. But it's not unclogging. *It's getting longer*. FERC, PJM, ERCOT, MISO — each ISO attempts queue reform, but data center demand growth outpaces reform speed.",
+        },
+        {
+          type: "chart",
+          chart: {
+            id: "queue-growth",
+            title: "미국 인터커넥션 큐 적체 추이 (활성 대기 GW)",
+            titleEn: "US Interconnection Queue Backlog Growth (Active GW Waiting)",
+            caption:
+              "출처: LBNL \"Queued Up\" 시리즈 (2018-2025), Berkeley Lab. 2024년 말 2,290 GW = 미국 현 가동 발전용량의 약 2배. 평균 대기 4년+.",
+            captionEn:
+              "Source: LBNL \"Queued Up\" series (2018-2025), Berkeley Lab. End-2024: 2,290 GW = roughly 2x current US installed generation capacity. Median wait 4+ years.",
+            data: [
+              { year: "2014", totalGW: 560 },
+              { year: "2017", totalGW: 720 },
+              { year: "2019", totalGW: 980 },
+              { year: "2021", totalGW: 1380 },
+              { year: "2022", totalGW: 1670 },
+              { year: "2023", totalGW: 1950 },
+              { year: "2024", totalGW: 2290 },
+            ],
+          },
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "warning",
+            heading: "PJM 833% 충격 — 단일 데이터포인트가 가르쳐주는 것",
+            headingEn: "PJM's +833% Shock — What One Data Point Teaches",
+            body: "PJM(중대서양 지역 ISO, 버지니아 데이터센터 Alley 관할)의 2025-26 capacity auction 가격이 전년 대비 **+833%** . 단일 분기 ISO 경매 사상 최대 폭. 원인: 버지니아 Data Center Alley 5GW+ 가동 + 추가 GW 개발. Dominion의 2024 IRP는 2039년까지 27GW 신규 발전 (21GW 재생 + 5.9GW 가스) 필요. 단일 경매가 +833% 폭등하는 것은 — 가격 메커니즘이 '전력이 부족하다'를 시장에 알리는 정점이다. 다음 경매도 같으면, 이건 capex 사이클의 새 상한선이다.",
+            bodyEn:
+              "PJM (the mid-Atlantic ISO that includes Virginia's Data Center Alley) saw 2025-26 capacity auction prices rise **+833% YoY** — the largest single ISO auction jump on record. Cause: Virginia Data Center Alley 5GW+ operating + further GW under development. Dominion's 2024 IRP calls for 27GW new generation by 2039 (21GW renewable + 5.9GW gas). When a single auction explodes +833%, the price mechanism is screaming that power is the binding constraint. If the next auction does the same, this is the new ceiling on the capex cycle.",
+          },
+        },
+      ],
+    },
+    // ── 3. 원자력 르네상스 ────────────────────────────────────────────────────
+    {
+      heading: "원자력 르네상스 — Three Mile Island가 깨어난다",
+      headingEn: "The Nuclear Renaissance — Three Mile Island Wakes Up",
+      blocks: [
+        {
+          type: "text",
+          body: "전력이 결정변수가 되자, 빅테크가 한 일은 — *직접 원전을 사기 시작한 것* 이다.\n\n2024년 9월 20일. Microsoft가 Constellation Energy와 **20년 PPA(전력구매계약)** 를 체결했다. 대상: **Three Mile Island Unit 1** , 835MW. 1979년 *Unit 2* 의 부분 노심용융 사고로 미국 원전 산업이 한 세대 멈춘 그 발전소다. Unit 1은 별개로 2019년까지 가동되다가 경제성으로 폐쇄됐다. MSFT의 PPA가 그 발전소를 깨운다. **2027년 재가동 예정** (기존 계획보다 1년 앞당김). DOE가 $1B 융자 지원.\n\n3개월 후. AWS가 Talen Energy와 17년 PPA를 체결했다. 대상: Susquehanna 원전, **1.92 GW** . 별도로 Talen이 보유한 데이터센터 캠퍼스를 $650M에 인수했다. \"동일 부지 in-front-of-the-meter\" 구조 — 그리드를 거치지 않고 원전이 데이터센터에 직접 전기를 공급한다. (이게 가능하려면 FERC 규제 우회가 필요하다. 그게 2025년 정치 이슈가 됐다.)\n\nGoogle은 Kairos Power와 SMR(소형 모듈 원자로) 7기, 합산 500MW 계약. Amazon은 X-Energy와 5GW SMR 약정. Meta는 Vistra와 LOI.\n\n이 모든 거래의 공통점: *전력의 unit economics가 변했다* . PPA 단가가 메가와트시 기준 통상 $40-50에서 데이터센터 전용으로는 $80-150까지 상승. 빅테크는 더 비싼 전기를 — 더 안정적이고, 더 오래, 더 깨끗한 전기를 — 사겠다고 약속한다. 그 약속이 원전 운영사의 자본 비용을 정당화하고, 폐쇄됐던 원전을 깨운다.\n\n이건 산업 정책이 만든 게 아니다. *전력 단가 시장이 만든 것* 이다.",
+          bodyEn:
+            "Once power became the binding variable, Big Tech did one thing — *they started buying nuclear directly*.\n\nSeptember 20, 2024. Microsoft signed a **20-year PPA** with Constellation Energy. Target: **Three Mile Island Unit 1**, 835MW. The plant where Unit 2's 1979 partial meltdown stopped the US nuclear industry for a generation. Unit 1 ran separately until economic shutdown in 2019. MSFT's PPA wakes it. **Restart planned 2027** (one year earlier than prior schedule). DOE backed it with $1B in loans.\n\nThree months later. AWS signed a 17-year PPA with Talen Energy. Target: Susquehanna nuclear, **1.92 GW**. Separately, AWS bought Talen's data center campus for $650M. \"Co-located in-front-of-the-meter\" structure — nuclear powers the data center directly, bypassing the grid. (This requires a FERC regulatory workaround. It became a political issue in 2025.)\n\nGoogle: contract with Kairos Power for 7 SMRs, 500MW combined. Amazon: 5GW SMR commitment with X-Energy. Meta: LOI with Vistra.\n\nWhat all these deals have in common: *the unit economics of electricity changed*. Typical PPA prices of $40-50 per MWh rose to $80-150 for data-center-dedicated supply. Big Tech is promising to pay more for electricity — more stable, longer term, cleaner. That promise justifies the operator's cost of capital and wakes shuttered nuclear plants.\n\nIndustrial policy didn't make this happen. *The electricity-price market did*.",
+        },
+        {
+          type: "table",
+          table: {
+            id: "bigtech-nuclear-ppa",
+            title: "빅테크 원전 PPA 매트릭스 (2024-2026)",
+            titleEn: "Big Tech Nuclear PPA Matrix (2024-2026)",
+            headers: ["발표일", "구매자", "대상 발전소/공급자", "용량", "구조"],
+            headersEn: ["Date", "Buyer", "Plant / Supplier", "Capacity", "Structure"],
+            rows: [
+              ["2024.9", "Microsoft", "Constellation / Three Mile Island Unit 1", "835 MW", "20년 PPA (2027 재가동)"],
+              ["2024.3 / 2024.12", "Amazon", "Talen / Susquehanna 캠퍼스", "1.92 GW", "17년 PPA + 데이터센터 $650M 인수"],
+              ["2024.10", "Google", "Kairos Power (SMR 7기)", "500 MW", "장기 PPA, 2030년대 가동"],
+              ["2024.10", "Amazon", "X-Energy (SMR)", "최대 5 GW", "SMR 개발 약정"],
+              ["2024.10", "Amazon", "Energy Northwest (SMR)", "320 MW (확장 960 MW)", "워싱턴주 SMR"],
+              ["2025.1", "Meta", "Vistra Energy", "공개 안 됨 (NDA)", "Comanche Peak/원전 LOI"],
+              ["2025.6", "Microsoft", "Helion Energy (Fusion)", "50 MW (계획)", "2028 목표 — 첫 상업 fusion PPA"],
+            ],
+            rowsEn: [
+              ["Sept 2024", "Microsoft", "Constellation / Three Mile Island Unit 1", "835 MW", "20-yr PPA (2027 restart)"],
+              ["Mar / Dec 2024", "Amazon", "Talen / Susquehanna campus", "1.92 GW", "17-yr PPA + $650M data center campus acquisition"],
+              ["Oct 2024", "Google", "Kairos Power (7 SMRs)", "500 MW", "Long-term PPA, 2030s online"],
+              ["Oct 2024", "Amazon", "X-Energy (SMR)", "Up to 5 GW", "SMR development commitment"],
+              ["Oct 2024", "Amazon", "Energy Northwest (SMR)", "320 MW (extend 960 MW)", "Washington State SMR"],
+              ["Jan 2025", "Meta", "Vistra Energy", "Undisclosed (NDA)", "Comanche Peak / nuclear LOI"],
+              ["June 2025", "Microsoft", "Helion Energy (Fusion)", "50 MW (planned)", "2028 target — first commercial fusion PPA"],
+            ],
+            caption: "출처: 각사 보도자료, Constellation/Talen/Vistra IR, DCD coverage. 누적 약 9.5 GW의 빅테크 원전 약정. 단, 실제 가동은 2027-2030년대.",
+            captionEn: "Sources: Company press releases, Constellation/Talen/Vistra IR, DCD coverage. Cumulative ~9.5 GW of Big Tech nuclear commitments. Actual generation comes online 2027-2030s.",
+          },
+        },
+      ],
+    },
+    // ── 4. 보이지 않는 베네피셔리 — 변압기·쿨링·송전 ─────────────────────────
+    {
+      heading: "보이지 않는 베네피셔리 — 변압기·쿨링·송전",
+      headingEn: "The Invisible Beneficiaries — Transformers, Cooling, Transmission",
+      blocks: [
+        {
+          type: "text",
+          body: "전력 사이클에서 가장 먼저 가격이 오른 건 발전소가 아니다. *전력을 운반하고 데이터센터에 안정적으로 공급하는 인프라* 다.\n\nVertiv (VRT). 데이터센터 쿨링·UPS·전력관리 회사. 주가 2022 말 ~$15 → 2025 ~$130 (8.5배). 매출 2022 $5.7B → 2025 ~$10B. AI 데이터센터의 단위면적당 전력 밀도가 일반 서버 대비 5-10배 높아지면서, 액체 쿨링(liquid cooling)이 필수가 됐다. Vertiv가 그 표준이다. 마진도 확장 (2025 영업이익률 ~22%).\n\nEaton (ETN). 전력관리, 변압기, 데이터센터 백업. 매출 2022 $20.8B → 2025 ~$28B. *변압기 lead time이 4년+* . 즉, 지금 주문해도 4년 후에 받는다. Eaton의 backlog가 사이클의 단일 가시성 지표다.\n\nQuanta Services (PWR). 송전선 건설·유지. 매출 2022 $17.1B → 2025 ~$28B. 인터커넥션 큐를 풀려면 송전선이 늘어나야 한다. Quanta가 그걸 짓는다. Backlog 2025 말 ~$36B (전년 +35%).\n\nGE Vernova (GEV). 가스터빈, 송전 설비. GE에서 2024년 4월 분사. 분사 직후 시총 $30B → 2025 ~$95B. AI 데이터센터가 베이스로드로 천연가스를 다시 원하면서, GE Vernova의 가스터빈 backlog가 전년 +40%.\n\nHitachi Energy. 변압기 단독 글로벌 1위. backlog 2025년 말 $30B+. 변압기 lead time이 6년에 달하는 분기도 있다.\n\n이 회사들의 공통점: *NVIDIA처럼 화려하지 않지만, GPU가 도착해도 이들 회사 제품이 없으면 데이터센터가 작동하지 않는다* . 사이클의 두 번째 줄에 서 있는 베네피셔리다.",
+          bodyEn:
+            "In a power cycle, the first prices to rise weren't at the power plants. They were *the infrastructure that delivers and stabilizes that power to the data center*.\n\nVertiv (VRT). Data center cooling, UPS, power management. Stock from ~$15 end-2022 to ~$130 by 2025 (8.5x). Revenue $5.7B (2022) to ~$10B (2025). As AI data centers ran 5-10x denser power per square foot than conventional servers, liquid cooling became mandatory. Vertiv is the standard. Margins expanded (2025 operating margin ~22%).\n\nEaton (ETN). Power management, transformers, data center backup. Revenue $20.8B (2022) → ~$28B (2025). *Transformer lead time is 4+ years*. Order today, receive in four years. Eaton's backlog is a single visibility metric for the cycle.\n\nQuanta Services (PWR). Transmission line construction and maintenance. Revenue $17.1B (2022) → ~$28B (2025). For the interconnection queue to unclog, more transmission must be built. Quanta builds it. Backlog end-2025: ~$36B (+35% YoY).\n\nGE Vernova (GEV). Gas turbines, transmission equipment. Spun off from GE in April 2024. Market cap $30B at spin → ~$95B by 2025. As AI data centers brought baseload natural gas back, GE Vernova's gas turbine backlog grew +40% YoY.\n\nHitachi Energy. Sole global #1 in transformers. Backlog end-2025: $30B+. Transformer lead time touches 6 years in some quarters.\n\nWhat these companies share: *they aren't glamorous like NVIDIA, but no data center runs without them, even after the GPU arrives*. They are the second-row beneficiaries of the cycle.",
+        },
+      ],
+    },
+    // ── 5. 한국 — 용인 클러스터와 i-SMR ──────────────────────────────────────
+    {
+      heading: "한국 — 용인 클러스터와 i-SMR의 시간",
+      headingEn: "Korea — The Yongin Cluster and the i-SMR Clock",
+      blocks: [
+        {
+          type: "text",
+          body: "한국은 미국 전력 위기의 미니어처다 — 더 작은 영토에 더 집중된 수요.\n\n**용인 반도체 클러스터** . 삼성전자와 SK하이닉스가 향후 30년간 ₩600조+ 투자. 가동되려면 2053년까지 **10 GW+ 전력 필요** — 원전 10기 규모. 현재 용인 지역 데이터센터·반도체 전력 공급은 **0.6 GW** . 부족분이 9 GW 이상이다.\n\n한국전력은 이미 송전망 부담의 한계에 있다. 송전선 신규 건설 사업의 **55%+ 가 지연** (2025년 10월 기준). 2013-2023년 송전 +14%, 배전 +22%만 늘었다 — 수요 증가율의 절반 이하. 신규 데이터센터 전력 공급 확정 기간이 KEPCO 기준 **2-3개월 → 12개월** 로 길어졌다.\n\n그 해법으로 두 가지가 진행 중이다.\n\n첫째, **송전망 3법** 통과 (2025년). 민간 송전망 참여 허용 — KEPCO 단독에서 한전+민간 컨소시엄으로. 단기적으로 송전선 신규 건설 속도 가속화 가능.\n\n둘째, **i-SMR** (소형 모듈 원자로). KHNP + KAERI 공동 개발. 170 MWe. 2025년 말 표준설계 완료, **2028년 표준설계 승인 목표** . SMR 특별법 통과로 데이터센터 직접 PPA 허용. 이게 미국 MSFT-Three Mile Island 구조의 한국판이다. 두산에너빌리티가 SMR 압력용기 단독 공급자.\n\n한국 시장에서 보면: 전력 인프라 베타가 한국 자본시장에서도 작동한다. LS일렉트릭(변압기), 두산에너빌리티(SMR), 한전기술(엔지니어링), HD현대일렉트릭(변압기). 미국 Vertiv·Eaton 같은 단일 megacap은 없지만 — 같은 layer에서 같은 사이클을 탄다.\n\n한국 데이터센터 시장 자체도 폭증한다. Mordor Intelligence: $0.58B (2025) → $1.89B (2030). IT 부하 1.96 → 6.32 천 MW. 이 수요가 한국 그리드 위에 추가된다.",
+          bodyEn:
+            "Korea is a miniature of the US power crisis — a smaller territory with even more concentrated demand.\n\n**The Yongin Semiconductor Cluster**. Samsung and SK Hynix to invest KRW ₩600 trillion+ over 30 years. To operate, by 2053 it will need **10+ GW** — the equivalent of 10 reactors. Current Yongin-area data center and semiconductor supply: **0.6 GW**. The gap is over 9 GW.\n\nKEPCO is already at the limit of grid load. **55%+ of new transmission projects are delayed** (as of October 2025). 2013-2023: transmission grew only +14%, distribution +22% — less than half of demand growth. Time-to-grant for new data center power supply: KEPCO median was 2-3 months, now stretched to **12 months**.\n\nTwo solutions are in progress.\n\nFirst, **Grid 3-Laws** passed (2025). Private capital allowed to participate in transmission construction — moving from KEPCO-sole to KEPCO + private consortium. Short-term acceleration possible.\n\nSecond, **i-SMR** (innovative small modular reactor). Joint KHNP + KAERI development. 170 MWe. Standard design completed end-2025; **standard design approval targeted 2028**. SMR Special Act passed allowing direct data-center PPAs. This is Korea's version of the MSFT-Three Mile Island structure. Doosan Enerbility is the sole supplier of the SMR pressure vessel.\n\nFrom a Korean market view: power infrastructure beta works in the Korean capital market too. LS ELECTRIC (transformers), Doosan Enerbility (SMR), Korea Engineering, HD Hyundai Electric (transformers). There's no single megacap like Vertiv or Eaton in Korea — but the same layer rides the same cycle.\n\nThe Korean data center market itself is exploding. Mordor Intelligence: $0.58B (2025) → $1.89B (2030). IT load 1.96 → 6.32 thousand MW. That demand is added on top of the Korean grid.",
+        },
+      ],
+    },
+    // ── 6. 결론 ───────────────────────────────────────────────────────────────
+    {
+      heading: "결론 — 칩은 와트가 결정한다",
+      headingEn: "Conclusion — Chips Are Decided by Watts",
+      blocks: [
+        {
+          type: "text",
+          body: "이 메모의 단일 명제는 단순하다 — **AI 자본 사이클의 결정변수는 칩이 아니라 와트다** .\n\nNVIDIA가 GPU를 더 만들 수 있는 분기에 — 미국 그리드가 전기를 더 공급할 수 없다면, 매출은 그만큼 만들어지지 않는다. Microsoft가 Three Mile Island를 깨우는 것, AWS가 Susquehanna 캠퍼스를 사는 것, Google이 Kairos와 SMR을 계약하는 것 — 이 모든 거래는 *전력의 unit economics가 바뀌었다는 동일한 사실을 다른 각도에서 인정하는 것* 이다.\n\nPearl Street가 1882년에 했던 것 — 산업의 결정변수를 와트로 만든 일 — 이 2026년 AI 사이클에서 다시 일어났다. 이번엔 더 빨리, 더 비싸게, 더 글로벌하게.\n\n투자자에게 시사점은 두 가지다.\n\n첫째, **전력 인프라 베타가 칩 베타보다 길 수 있다** . 1.6T 광 트랜시버 사이클이 GPU 사이클보다 2-4분기 lag하듯, 전력 인프라 사이클은 더 길다 — 변압기 4년 lead time, 송전선 건설 5-10년, 원전 재가동 3년, SMR 첫 가동 5-7년. *사이클이 더 길다는 것은 매출 가시성이 더 길다는 것* 이다. Vertiv·Eaton·Quanta·Constellation·두산에너빌리티의 5년 backlog가 의미 있는 이유다.\n\n둘째, **위기의 첫 균열은 송전 cost spike** 에서 나온다. PJM 다음 capacity auction이 또 +500% 이상 폭등하면 — 그건 *데이터센터 capex의 ROIC 산수를 위협하는 시점* 이다. 빅테크의 capex 가이던스가 처음으로 \"전력 비용\" 을 위험 요인으로 인정할 때가, 사이클의 자본 비용이 본격적으로 압박받는 시점이다.\n\n*1882년 Pearl Street 이후 산업은 와트로 측정됐다. 2026년 AI도 같다.*",
+          bodyEn:
+            "The single proposition of this memo: **the binding variable of the AI capital cycle is not chips but watts**.\n\nIn a quarter where NVIDIA can make more GPUs — if the US grid can't supply more electricity, revenue doesn't grow accordingly. Microsoft restarting Three Mile Island, AWS buying the Susquehanna campus, Google contracting Kairos for SMRs — every one of these deals is *recognition from a different angle of the same fact: the unit economics of electricity changed*.\n\nWhat Pearl Street did in 1882 — making watts the binding variable of industry — is happening again in 2026 with AI. This time faster, more expensively, more globally.\n\nTwo implications for investors.\n\nFirst, **power infrastructure beta can be longer than chip beta**. Just as 1.6T optical transceivers lag the GPU cycle by 2-4 quarters, power infrastructure cycles are longer — transformer 4-yr lead time, transmission 5-10 yr build, nuclear restart 3 yr, first SMR 5-7 yr. *A longer cycle means longer revenue visibility*. That's why Vertiv, Eaton, Quanta, Constellation, and Doosan Enerbility's 5-year backlogs matter.\n\nSecond, **the first crack of the crisis comes from transmission cost spikes**. If the next PJM capacity auction explodes another +500%+ — that's *the point where data center capex ROIC math is threatened*. The first quarter Big Tech capex guidance acknowledges \"power cost\" as a risk factor is the quarter the cycle's cost of capital starts to be pressured.\n\n*Since Pearl Street in 1882, industry has been measured in watts. The 2026 AI cycle is no different.*",
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "insight",
+            heading: "다음 메모 — 단 하나의 숫자 (시리즈 마지막)",
+            headingEn: "Next Memo — The One Number (Series Finale)",
+            body: "회로(Memo 1), 모델(2), IPO(3), 칩(4), 광(5), 전력(6) — 모든 메모가 동일한 단일 질문에 귀결된다. AI가 진짜 노동을 대체하는가. 1999년에는 그 질문을 사후에야 알 수 있었다. Anthropic Economic Index가 처음으로 분기마다 그 답을 준다. 시리즈 마지막 메모.",
+            bodyEn:
+              "Circuit (Memo 1), models (2), IPO (3), chips (4), optical (5), power (6) — every memo collapses into one single question. Does AI actually displace labor? In 1999, that question could only be answered ex-post. Anthropic's Economic Index, for the first time, answers it quarterly. The series finale.",
+          },
+        },
+      ],
+    },
+  ],
+  references: [
+    {
+      id: 1,
+      author: "International Energy Agency (IEA)",
+      title: "Electricity 2026 / Energy and AI",
+      source: "IEA Reports",
+      year: "2025-2026",
+      url: "https://www.iea.org/reports/electricity-2026",
+      note: "글로벌 데이터센터 전력 수요 485 → 950 TWh 공식 데이터",
+    },
+    {
+      id: 2,
+      author: "EPRI",
+      title: "Powering Intelligence 2026 — Analyzing AI's Electricity Demand",
+      source: "EPRI",
+      year: "2026",
+      url: "https://www.epri.com/research/products/000000003002028924",
+      note: "미국 DC 전력 점유율 4% → 9-17% 시나리오",
+    },
+    {
+      id: 3,
+      author: "Lawrence Berkeley National Laboratory",
+      title: "Queued Up 2025 — Characteristics of Power Plants Seeking Transmission Interconnection",
+      source: "LBNL Energy Markets & Policy",
+      year: "2025",
+      url: "https://emp.lbl.gov/queues",
+      note: "인터커넥션 큐 2,290 GW 1차 자료",
+    },
+    {
+      id: 4,
+      author: "Microsoft / Constellation Energy",
+      title: "Three Mile Island Unit 1 20-Year PPA Announcement",
+      source: "Constellation Investor Relations / DCD",
+      year: "2024-09-20",
+      url: "https://www.datacenterdynamics.com/en/news/three-mile-island-nuclear-power-plant-to-return-as-microsoft-signs-20-year-835mw-ai-data-center-ppa/",
+    },
+    {
+      id: 5,
+      author: "Amazon Web Services / Talen Energy",
+      title: "Susquehanna PPA + Data Center Campus Acquisition ($650M)",
+      source: "Talen Energy IR",
+      year: "2024",
+      url: "https://www.talenenergy.com/",
+    },
+    {
+      id: 6,
+      author: "PJM Interconnection",
+      title: "2025-26 Capacity Auction Results (+833% YoY)",
+      source: "PJM IR",
+      year: "2024-2025",
+      url: "https://www.pjm.com/markets-and-operations/rpm",
+    },
+    {
+      id: 7,
+      author: "Federal Energy Regulatory Commission (FERC)",
+      title: "Order 2023 — Interconnection Queue Reform",
+      source: "FERC",
+      year: "2023-2025",
+      url: "https://www.ferc.gov/",
+    },
+    {
+      id: 8,
+      author: "Cushman & Wakefield",
+      title: "Korea Data Centres & Power Challenge 2025",
+      source: "Cushman & Wakefield Research",
+      year: "2025",
+      url: "https://www.cushmanwakefield.com/en/south-korea/insights",
+    },
+    {
+      id: 9,
+      author: "한국수력원자력(KHNP) / 한국원자력연구원(KAERI)",
+      title: "i-SMR 표준설계 진행 현황",
+      source: "World Nuclear News, KHNP IR",
+      year: "2025",
+      url: "https://www.world-nuclear-news.org/articles/standard-design-approval-sought-for-i-smr",
+    },
+    {
+      id: 10,
+      author: "Vertiv Holdings",
+      title: "2025 Annual Report — Liquid Cooling, Backlog",
+      source: "Vertiv IR / SEC EDGAR",
+      year: "2025",
+      url: "https://investors.vertiv.com/",
+    },
+    {
+      id: 11,
+      author: "Eaton Corporation",
+      title: "2025 Annual Report — Transformer Backlog and Lead Times",
+      source: "Eaton IR / SEC EDGAR",
+      year: "2025",
+      url: "https://www.eaton.com/us/en-us/company/investor-relations.html",
+    },
+    {
+      id: 12,
+      author: "GE Vernova",
+      title: "2025 Annual Report (post April 2024 spinoff)",
+      source: "GE Vernova IR / SEC EDGAR",
+      year: "2025",
+      url: "https://www.gevernova.com/investors",
+    },
+  ],
+};
+
+export const ALL_NOTES: NoteData[] = [koreaDiscount, dollarHegemony1, dollarHegemony2, dollarHegemony3, dollarHegemony4, aiCycle1, aiCycle4, aiCycle6];
