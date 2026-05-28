@@ -102,7 +102,14 @@ export default function Header() {
                   {label}
                 </Link>
               ))}
-              <LanguageSwitcher />
+
+              {/* 언어 스위처 — 메뉴와 시각적으로 분리해서 작은 컴팩트 토글로 노출 */}
+              <div className="mt-3 pt-3 px-4 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between gap-3">
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500">
+                  {lang === "en" ? "Language" : "언어"}
+                </span>
+                <LanguageSwitcher />
+              </div>
             </div>
           </nav>
         </div>

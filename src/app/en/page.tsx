@@ -25,7 +25,7 @@ export default function LandingPageEn() {
     <>
       <Header />
       <main className="flex-1 flex items-center justify-center min-h-[calc(100vh-3.5rem)] px-5 py-20 sm:py-24">
-        <div className="max-w-2xl mx-auto w-full text-center">
+        <div className="max-w-3xl mx-auto w-full text-center">
           {/* Headline — parallel inquiry */}
           <h1 className="text-[22px] sm:text-[26px] md:text-[32px] font-semibold tracking-tight text-gray-900 dark:text-gray-100 leading-[1.25]">
             How capital markets work.

@@ -162,7 +162,7 @@ export function LeesonBody({ ko, story, accent, accentLight }: BodyProps) {
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis dataKey="year" tick={{ fontSize: 11 }} />
               <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => `£${v}M`} />
-              <Tooltip formatter={(v: number) => [`£${v}M`, ko ? "손실" : "Loss"]} />
+              <Tooltip formatter={(v) => [`£${v}M`, ko ? "손실" : "Loss"]} />
               <Bar dataKey="loss" radius={[6, 6, 0, 0]}>
                 {leesonLossData.map((d, i) => (
                   <Cell key={i} fill={i === leesonLossData.length - 1 ? "#dc2626" : "#f87171"} />
@@ -183,7 +183,7 @@ export function LeesonBody({ ko, story, accent, accentLight }: BodyProps) {
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis dataKey="date" tick={{ fontSize: 11 }} />
               <YAxis domain={[16500, 19500]} tick={{ fontSize: 11 }} />
-              <Tooltip formatter={(v: number) => [v.toLocaleString(), "Nikkei 225"]} />
+              <Tooltip formatter={(v) => [Number(v).toLocaleString(), "Nikkei 225"]} />
               <ReferenceLine x={quakeLabel} stroke="#dc2626" strokeDasharray="4 4" label={{ value: ko ? "지진" : "Quake", fill: "#dc2626", fontSize: 11 }} />
               <Line type="monotone" dataKey="price" stroke={accent} strokeWidth={2.5} dot={{ r: 3 }} />
             </LineChart>
@@ -256,7 +256,7 @@ export function LtcmBody({ ko, story, accent, accentLight }: BodyProps) {
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis dataKey="period" tick={{ fontSize: 11 }} />
               <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => `$${v}B`} />
-              <Tooltip formatter={(v: number) => [`$${v}B`, ko ? "자기자본" : "Equity"]} />
+              <Tooltip formatter={(v) => [`$${v}B`, ko ? "자기자본" : "Equity"]} />
               <ReferenceLine x="1998.8" stroke="#dc2626" strokeDasharray="4 4" label={{ value: ko ? "러시아 디폴트" : "Russia default", fill: "#dc2626", fontSize: 10, position: "top" }} />
               <Area type="monotone" dataKey="value" stroke={accent} strokeWidth={2.5} fill="url(#ltcmGrad)" />
             </AreaChart>
@@ -278,7 +278,7 @@ export function LtcmBody({ ko, story, accent, accentLight }: BodyProps) {
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis type="number" scale="log" domain={[1, 2000]} tick={{ fontSize: 11 }} tickFormatter={(v) => `$${v}B`} />
               <YAxis type="category" dataKey="label" tick={{ fontSize: 12 }} width={60} />
-              <Tooltip formatter={(v: number) => [`$${v}B`, ""]} />
+              <Tooltip formatter={(v) => [`$${v}B`, ""]} />
               <Bar dataKey="value" radius={[0, 6, 6, 0]}>
                 {[{ fill: "#10b981" }, { fill: "#f59e0b" }, { fill: "#dc2626" }].map((d, i) => <Cell key={i} fill={d.fill} />)}
               </Bar>
@@ -351,7 +351,7 @@ export function FuldBody({ ko, story, accent, accentLight }: BodyProps) {
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis dataKey="year" tick={{ fontSize: 11 }} />
               <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => `${v}×`} />
-              <Tooltip formatter={(v: number) => [`${v}×`, ko ? "레버리지" : "Leverage"]} />
+              <Tooltip formatter={(v) => [`${v}×`, ko ? "레버리지" : "Leverage"]} />
               <Bar dataKey="leverage" radius={[6, 6, 0, 0]}>
                 {fuldLeverageData.map((d, i) => (
                   <Cell key={i} fill={d.leverage >= 30 ? "#dc2626" : d.leverage >= 25 ? "#f59e0b" : "#fbbf24"} />
@@ -378,7 +378,7 @@ export function FuldBody({ ko, story, accent, accentLight }: BodyProps) {
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis dataKey="date" tick={{ fontSize: 11 }} />
               <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => `$${v}`} />
-              <Tooltip formatter={(v: number) => [`$${v}`, ko ? "주가" : "Price"]} />
+              <Tooltip formatter={(v) => [`$${v}`, ko ? "주가" : "Price"]} />
               <ReferenceLine x="Sep 9" stroke="#dc2626" strokeDasharray="4 4" label={{ value: ko ? "KDB 결렬" : "KDB talks fail", fill: "#dc2626", fontSize: 10, position: "top" }} />
               <Area type="monotone" dataKey="price" stroke="#dc2626" strokeWidth={2.5} fill="url(#fuldGrad)" />
             </AreaChart>
@@ -446,7 +446,7 @@ export function MadoffBody({ ko, story, accent, accentLight }: BodyProps) {
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis dataKey="year" tick={{ fontSize: 11 }} />
               <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => `${v}%`} />
-              <Tooltip formatter={(v: number) => [`${v}%`, ""]} />
+              <Tooltip formatter={(v) => [`${v}%`, ""]} />
               <ReferenceLine y={0} stroke="#9ca3af" />
               <Line type="monotone" dataKey="madoff" stroke="#dc2626" strokeWidth={3} name="Madoff" dot={{ r: 4 }} />
               <Line type="monotone" dataKey="sp500" stroke="#3b82f6" strokeWidth={2} name="S&P 500" dot={{ r: 3 }} strokeDasharray="4 4" />
@@ -521,7 +521,7 @@ export function KervielBody({ ko, story, accent, accentLight }: BodyProps) {
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis dataKey="date" tick={{ fontSize: 11 }} />
               <YAxis domain={[5000, 5800]} tick={{ fontSize: 11 }} />
-              <Tooltip formatter={(v: number) => [v.toLocaleString(), "Eurostoxx 50"]} />
+              <Tooltip formatter={(v) => [Number(v).toLocaleString(), "Eurostoxx 50"]} />
               <Area type="monotone" dataKey="price" stroke="#dc2626" strokeWidth={2.5} fill="url(#kvGrad)" />
             </AreaChart>
           </ResponsiveContainer>
@@ -594,7 +594,7 @@ export function MilkenBody({ ko, story, accent, accentLight }: BodyProps) {
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis dataKey="year" tick={{ fontSize: 11 }} />
               <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => `$${v}B`} />
-              <Tooltip formatter={(v: number) => [`$${v}B`, ko ? "시장 규모" : "Market size"]} />
+              <Tooltip formatter={(v) => [`$${v}B`, ko ? "시장 규모" : "Market size"]} />
               <ReferenceLine x="1989" stroke="#dc2626" strokeDasharray="4 4" label={{ value: ko ? "밀켄 기소" : "Milken indicted", fill: "#dc2626", fontSize: 10, position: "top" }} />
               <Area type="monotone" dataKey="size" stroke={accent} strokeWidth={2.5} fill="url(#milkenGrad)" />
             </AreaChart>
@@ -685,7 +685,7 @@ export function LivermoreBody({ ko, story, accent, accentLight }: BodyProps) {
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis dataKey="date" tick={{ fontSize: 10 }} />
               <YAxis tick={{ fontSize: 11 }} />
-              <Tooltip formatter={(v: number) => [v, "DJIA"]} />
+              <Tooltip formatter={(v) => [v, "DJIA"]} />
               <ReferenceLine x="Oct 24 (Thu)" stroke="#dc2626" strokeDasharray="4 4" label={{ value: "Black Thu", fill: "#dc2626", fontSize: 10, position: "top" }} />
               <ReferenceLine x="Oct 29 (Tue)" stroke="#7f1d1d" strokeDasharray="4 4" label={{ value: "Black Tue", fill: "#7f1d1d", fontSize: 10, position: "top" }} />
               <Area type="monotone" dataKey="djia" stroke="#dc2626" strokeWidth={2.5} fill="url(#livGrad)" />
@@ -704,7 +704,7 @@ export function LivermoreBody({ ko, story, accent, accentLight }: BodyProps) {
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis dataKey="year" tick={{ fontSize: 11 }} />
               <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => `$${v}M`} />
-              <Tooltip formatter={(v: number, _n: string, p) => [`$${v}M`, p.payload.status]} />
+              <Tooltip formatter={(v, _n, p) => [`$${v}M`, p.payload.status]} />
               <Line type="monotone" dataKey="wealth" stroke={accent} strokeWidth={2.5} dot={{ r: 5, fill: accent }} />
             </LineChart>
           </ResponsiveContainer>
@@ -751,7 +751,7 @@ export function VolckerBody({ ko, story, accent, accentLight }: BodyProps) {
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis dataKey="year" tick={{ fontSize: 11 }} />
               <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => `${v}%`} />
-              <Tooltip formatter={(v: number) => [`${v}%`, ""]} />
+              <Tooltip formatter={(v) => [`${v}%`, ""]} />
               <ReferenceLine x="1979" stroke="#dc2626" strokeDasharray="4 4" label={{ value: ko ? "볼커 취임" : "Volcker takes office", fill: "#dc2626", fontSize: 10, position: "top" }} />
               <Line type="monotone" dataKey="rate" stroke="#dc2626" strokeWidth={3} name={ko ? "기준금리" : "Fed Rate"} dot={{ r: 3 }} />
               <Line type="monotone" dataKey="inflation" stroke="#f59e0b" strokeWidth={2.5} name="CPI" dot={{ r: 3 }} />
@@ -820,7 +820,7 @@ export function WassersteinBody({ ko, story, accent, accentLight }: BodyProps) {
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis dataKey="round" tick={{ fontSize: 11 }} />
               <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => `$${v}`} />
-              <Tooltip formatter={(v: number) => [`$${v}`, ""]} />
+              <Tooltip formatter={(v) => [`$${v}`, ""]} />
               <Bar dataKey="kkr" fill="#3b82f6" name="KKR" radius={[4, 4, 0, 0]} />
               <Bar dataKey="mgmt" fill="#f59e0b" name={ko ? "경영진" : "Management"} radius={[4, 4, 0, 0]} />
             </BarChart>
@@ -1008,7 +1008,7 @@ export function JimmyLeeBody({ ko, story, accent, accentLight }: BodyProps) {
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis dataKey="year" tick={{ fontSize: 11 }} />
               <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => `$${v}B`} />
-              <Tooltip formatter={(v: number) => [`$${v}B`, ko ? "시장 규모" : "Market size"]} />
+              <Tooltip formatter={(v) => [`$${v}B`, ko ? "시장 규모" : "Market size"]} />
               <ReferenceLine x="2015" stroke="#dc2626" strokeDasharray="4 4" label={{ value: ko ? "리 사망" : "Lee dies", fill: "#dc2626", fontSize: 10, position: "top" }} />
               <Area type="monotone" dataKey="size" stroke={accent} strokeWidth={2.5} fill="url(#leeGrad)" />
             </AreaChart>
