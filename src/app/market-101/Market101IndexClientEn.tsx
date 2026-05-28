@@ -10,14 +10,14 @@ import {
   type MarketConcept,
 } from "@/data/market-101-concepts";
 
-const CAT_META: Record<string, { icon: string; desc: string }> = {
-  dcm:        { icon: "📊", desc: "Debt Capital Markets — bond issuance, syndication, pricing" },
-  ecm:        { icon: "📈", desc: "Equity Capital Markets — IPO, follow-on, block deals" },
-  fig:        { icon: "🏦", desc: "Financial Institutions — bank capital, AT1, CoCo, bail-in" },
-  sovereign:  { icon: "🌐", desc: "Sovereign — government bonds, EM debt, century bonds" },
-  structured: { icon: "🧩", desc: "Structured Finance — ABS, CLO, CDO, CMBS" },
-  levfin:     { icon: "💰", desc: "Leveraged Finance — HY bonds, leveraged loans, LBO" },
-  syndloan:   { icon: "🤝", desc: "Syndicated Loans — MLA, agent bank, IG vs leveraged loans" },
+const CAT_META: Record<string, { letter?: string; icon: string; desc: string }> = {
+  dcm:        { letter: "A", icon: "📊", desc: "Debt Capital Markets — bond issuance, syndication, pricing" },
+  ecm:        { letter: "B", icon: "📈", desc: "Equity Capital Markets — IPO, follow-on, block deals" },
+  fig:        {              icon: "🏦", desc: "Financial Institutions — bank capital, AT1, CoCo, bail-in" },
+  sovereign:  {              icon: "🌐", desc: "Sovereign — government bonds, EM debt, century bonds" },
+  structured: { letter: "C", icon: "🧩", desc: "Structured Finance — ABS, CLO, CDO, CMBS" },
+  levfin:     { letter: "D", icon: "💰", desc: "Leveraged Finance — HY bonds, leveraged loans, LBO" },
+  syndloan:   { letter: "E", icon: "🤝", desc: "Syndicated Loans — MLA, agent bank, IG vs leveraged loans" },
 };
 
 const EASE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
@@ -101,9 +101,17 @@ function CategoryFolder({
     }`}>
       <button onClick={() => setOpen(!open)} className="w-full flex items-center gap-3.5 px-5 py-4 text-left group">
         <div className={`w-1 self-stretch rounded-full flex-shrink-0 ${dotColor}`} />
-        <span className={`text-[18px] transition-all duration-200 ${open ? "grayscale-0" : "grayscale-[30%]"}`}>
-          {meta?.icon ?? "📁"}
-        </span>
+        {meta?.letter ? (
+          <div
+            className={`w-7 h-7 rounded-lg flex items-center justify-center text-[12px] font-black text-white flex-shrink-0 transition-all duration-200 ${dotColor} ${open ? "" : "opacity-80"}`}
+          >
+            {meta.letter}
+          </div>
+        ) : (
+          <span className={`text-[18px] transition-all duration-200 ${open ? "grayscale-0" : "grayscale-[30%]"}`}>
+            {meta?.icon ?? "📁"}
+          </span>
+        )}
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2.5 flex-wrap">
             <span className="text-[15px] font-bold text-gray-900 dark:text-gray-100">{labelEn}</span>
@@ -241,9 +249,12 @@ export default function Market101IndexClientEn() {
         <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gray-100 dark:bg-gray-800 text-[12px] font-semibold text-gray-600 dark:text-gray-400">
           {totalCount} total
         </div>
-        {populated.map((f) => (
+        {populated.map((f) => {
+          const letter = CAT_META[f.key]?.letter;
+          return (
           <div key={f.key} className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-medium ${CATEGORY_COLOR[f.key as keyof typeof CATEGORY_COLOR]?.bg ?? ""} ${CATEGORY_COLOR[f.key as keyof typeof CATEGORY_COLOR]?.fg ?? ""}`}>
             <span className={`w-1.5 h-1.5 rounded-full ${f.dotColor}`} />
+            {letter && <span className="font-black">{letter}.</span>}
             {f.labelEn}
             <span className="opacity-70">{f.total}</span>
             {/* DCM에 합병된 카테고리 표시 (작은 점) */}
@@ -254,7 +265,8 @@ export default function Market101IndexClientEn() {
               ) : null;
             })}
           </div>
-        ))}
+          );
+        })}
       </motion.div>
 
       <div className="space-y-3">

@@ -10,15 +10,17 @@ import {
   type MarketConcept,
 } from "@/data/market-101-concepts";
 
-// ── 카테고리 아이콘 & 설명 ─────────────────────────────────────────────────
-const CAT_META: Record<string, { icon: string; desc: string; descEn: string }> = {
-  dcm:        { icon: "📊", desc: "부채자본시장 — 채권 발행·신디케이션·프라이싱", descEn: "Debt Capital Markets — bond issuance, syndication, pricing" },
-  ecm:        { icon: "📈", desc: "주식자본시장 — IPO·유상증자·블록딜", descEn: "Equity Capital Markets — IPO, follow-on, block deals" },
-  fig:        { icon: "🏦", desc: "금융기관 — 은행 자본구조·AT1·CoCo·베일인", descEn: "Financial Institutions — bank capital, AT1, CoCo, bail-in" },
-  sovereign:  { icon: "🌐", desc: "소버린 — 국채·EM 채권·세기채", descEn: "Sovereign — government bonds, EM debt, century bonds" },
-  structured: { icon: "🧩", desc: "구조화금융 — ABS·CLO·CDO·CMBS", descEn: "Structured Finance — ABS, CLO, CDO, CMBS" },
-  levfin:     { icon: "💰", desc: "레버리지드 파이낸스 — HY채권·레버드론·LBO", descEn: "Leveraged Finance — HY bonds, leveraged loans, LBO" },
-  syndloan:   { icon: "🤝", desc: "신디케이티드론 — MLA·에이전트은행·IG론 vs 레버리지드론", descEn: "Syndicated Loans — MLA, agent bank, IG vs leveraged loans" },
+// ── 카테고리 letter·아이콘·설명 ────────────────────────────────────────────
+// letter는 populated 순서(dcm·ecm·structured·levfin·syndloan)에 맞춰 A~E.
+// FIG·Sovereign은 DCM 폴더에 병합되므로 letter 미부여.
+const CAT_META: Record<string, { letter?: string; icon: string; desc: string; descEn: string }> = {
+  dcm:        { letter: "A", icon: "📊", desc: "부채자본시장 — 채권 발행·신디케이션·프라이싱", descEn: "Debt Capital Markets — bond issuance, syndication, pricing" },
+  ecm:        { letter: "B", icon: "📈", desc: "주식자본시장 — IPO·유상증자·블록딜", descEn: "Equity Capital Markets — IPO, follow-on, block deals" },
+  fig:        {              icon: "🏦", desc: "금융기관 — 은행 자본구조·AT1·CoCo·베일인", descEn: "Financial Institutions — bank capital, AT1, CoCo, bail-in" },
+  sovereign:  {              icon: "🌐", desc: "소버린 — 국채·EM 채권·세기채", descEn: "Sovereign — government bonds, EM debt, century bonds" },
+  structured: { letter: "C", icon: "🧩", desc: "구조화금융 — ABS·CLO·CDO·CMBS", descEn: "Structured Finance — ABS, CLO, CDO, CMBS" },
+  levfin:     { letter: "D", icon: "💰", desc: "레버리지드 파이낸스 — HY채권·레버드론·LBO", descEn: "Leveraged Finance — HY bonds, leveraged loans, LBO" },
+  syndloan:   { letter: "E", icon: "🤝", desc: "신디케이티드론 — MLA·에이전트은행·IG론 vs 레버리지드론", descEn: "Syndicated Loans — MLA, agent bank, IG vs leveraged loans" },
 };
 
 // ── 애니메이션 ─────────────────────────────────────────────────────────────
@@ -155,10 +157,18 @@ function CategoryFolder({
         {/* 컬러 액센트 바 */}
         <div className={`w-1 self-stretch rounded-full flex-shrink-0 ${dotColor}`} />
 
-        {/* 폴더 아이콘 */}
-        <span className={`text-[18px] transition-all duration-200 ${open ? "grayscale-0" : "grayscale-[30%]"}`}>
-          {meta?.icon ?? "📁"}
-        </span>
+        {/* 레터 배지 (없으면 폴더 아이콘 폴백) */}
+        {meta?.letter ? (
+          <div
+            className={`w-7 h-7 rounded-lg flex items-center justify-center text-[12px] font-black text-white flex-shrink-0 transition-all duration-200 ${dotColor} ${open ? "" : "opacity-80"}`}
+          >
+            {meta.letter}
+          </div>
+        ) : (
+          <span className={`text-[18px] transition-all duration-200 ${open ? "grayscale-0" : "grayscale-[30%]"}`}>
+            {meta?.icon ?? "📁"}
+          </span>
+        )}
 
         {/* 레이블 & 설명 */}
         <div className="flex-1 min-w-0">
@@ -326,23 +336,27 @@ export default function Market101IndexClient() {
         <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gray-100 dark:bg-gray-800 text-[12px] font-semibold text-gray-600 dark:text-gray-400">
           총 {totalCount}편
         </div>
-        {populated.map((f) => (
-          <div
-            key={f.key}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-medium ${CATEGORY_COLOR[f.key as keyof typeof CATEGORY_COLOR]?.bg ?? ""} ${CATEGORY_COLOR[f.key as keyof typeof CATEGORY_COLOR]?.fg ?? ""}`}
-          >
-            <span className={`w-1.5 h-1.5 rounded-full ${f.dotColor}`} />
-            {f.label}
-            <span className="opacity-70">{f.total}</span>
-            {/* DCM에 합병된 카테고리 표시 */}
-            {f.key === "dcm" && MERGE_INTO_DCM.map((m) => {
-              const mCat = MARKET_101_CATEGORIES.find((c) => c.key === m.key);
-              return mCat ? (
-                <span key={m.key} className={`w-1.5 h-1.5 rounded-full ${mCat.dotColor}`} title={mCat.label} />
-              ) : null;
-            })}
-          </div>
-        ))}
+        {populated.map((f) => {
+          const letter = CAT_META[f.key]?.letter;
+          return (
+            <div
+              key={f.key}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-medium ${CATEGORY_COLOR[f.key as keyof typeof CATEGORY_COLOR]?.bg ?? ""} ${CATEGORY_COLOR[f.key as keyof typeof CATEGORY_COLOR]?.fg ?? ""}`}
+            >
+              <span className={`w-1.5 h-1.5 rounded-full ${f.dotColor}`} />
+              {letter && <span className="font-black">{letter}.</span>}
+              {f.label}
+              <span className="opacity-70">{f.total}</span>
+              {/* DCM에 합병된 카테고리 표시 */}
+              {f.key === "dcm" && MERGE_INTO_DCM.map((m) => {
+                const mCat = MARKET_101_CATEGORIES.find((c) => c.key === m.key);
+                return mCat ? (
+                  <span key={m.key} className={`w-1.5 h-1.5 rounded-full ${mCat.dotColor}`} title={mCat.label} />
+                ) : null;
+              })}
+            </div>
+          );
+        })}
       </motion.div>
 
       {/* ── 폴더 목록 (데이터 있는 것) ── */}

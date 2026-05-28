@@ -99,22 +99,22 @@ const KO_CATEGORIES = ["밸류에이션", "딜 구조", "LBO 시리즈", "실사
 const EN_CATEGORIES = ["Valuation", "Deal Structure", "Due Diligence", "Regulatory & Legal", "Strategy"] as const;
 
 // ── KO 카테고리 메타데이터 ─────────────────────────────────────────────────────
-const KO_CAT_META: Record<string, { icon: string; desc: string; dot: string; badgeBg: string; badgeFg: string }> = {
-  "밸류에이션":  { icon: "📊", desc: "기업가치·멀티플·프리미엄·SaaS 지표",      dot: "bg-blue-400",    badgeBg: "bg-blue-50 dark:bg-blue-900/30",    badgeFg: "text-blue-700 dark:text-blue-300"    },
-  "딜 구조":    { icon: "🏗️", desc: "M&A 프로세스·공개매수·스핀오프·통합",       dot: "bg-amber-400",   badgeBg: "bg-amber-50 dark:bg-amber-900/30",   badgeFg: "text-amber-700 dark:text-amber-300"  },
-  "LBO 시리즈": { icon: "💰", desc: "LBO 101 — 자본구조·리턴 분석·딜 프로세스", dot: "bg-indigo-400",  badgeBg: "bg-indigo-50 dark:bg-indigo-900/30", badgeFg: "text-indigo-700 dark:text-indigo-300" },
-  "실사":       { icon: "🔍", desc: "재무·상업·법무 실사 방법론",                dot: "bg-violet-400",  badgeBg: "bg-violet-50 dark:bg-violet-900/30", badgeFg: "text-violet-700 dark:text-violet-300" },
-  "규제·법률":  { icon: "⚖️", desc: "반독점·안보심사·섹터 규제 리스크",           dot: "bg-rose-400",    badgeBg: "bg-rose-50 dark:bg-rose-900/30",    badgeFg: "text-rose-700 dark:text-rose-300"    },
-  "전략":       { icon: "🎯", desc: "전략적 M&A·플랫폼·해자·수직통합",           dot: "bg-emerald-400", badgeBg: "bg-emerald-50 dark:bg-emerald-900/30",badgeFg: "text-emerald-700 dark:text-emerald-300"},
+const KO_CAT_META: Record<string, { letter: string; icon: string; desc: string; dot: string; badgeBg: string; badgeFg: string }> = {
+  "밸류에이션":  { letter: "A", icon: "📊", desc: "기업가치·멀티플·프리미엄·SaaS 지표",      dot: "bg-blue-400",    badgeBg: "bg-blue-50 dark:bg-blue-900/30",    badgeFg: "text-blue-700 dark:text-blue-300"    },
+  "딜 구조":    { letter: "B", icon: "🏗️", desc: "M&A 프로세스·공개매수·스핀오프·통합",       dot: "bg-amber-400",   badgeBg: "bg-amber-50 dark:bg-amber-900/30",   badgeFg: "text-amber-700 dark:text-amber-300"  },
+  "LBO 시리즈": { letter: "C", icon: "💰", desc: "LBO 101 — 자본구조·리턴 분석·딜 프로세스", dot: "bg-indigo-400",  badgeBg: "bg-indigo-50 dark:bg-indigo-900/30", badgeFg: "text-indigo-700 dark:text-indigo-300" },
+  "실사":       { letter: "D", icon: "🔍", desc: "재무·상업·법무 실사 방법론",                dot: "bg-violet-400",  badgeBg: "bg-violet-50 dark:bg-violet-900/30", badgeFg: "text-violet-700 dark:text-violet-300" },
+  "규제·법률":  { letter: "E", icon: "⚖️", desc: "반독점·안보심사·섹터 규제 리스크",           dot: "bg-rose-400",    badgeBg: "bg-rose-50 dark:bg-rose-900/30",    badgeFg: "text-rose-700 dark:text-rose-300"    },
+  "전략":       { letter: "F", icon: "🎯", desc: "전략적 M&A·플랫폼·해자·수직통합",           dot: "bg-emerald-400", badgeBg: "bg-emerald-50 dark:bg-emerald-900/30",badgeFg: "text-emerald-700 dark:text-emerald-300"},
 };
 
 // ── EN 카테고리 메타데이터 ─────────────────────────────────────────────────────
-const EN_CAT_META: Record<string, { icon: string; desc: string; dot: string; badgeBg: string; badgeFg: string }> = {
-  "Valuation":          { icon: "📊", desc: "EV/EBITDA, multiples, premiums & SaaS metrics",          dot: "bg-blue-400",    badgeBg: "bg-blue-50 dark:bg-blue-900/30",    badgeFg: "text-blue-700 dark:text-blue-300"    },
-  "Deal Structure":     { icon: "🏗️", desc: "M&A process, LBO, spin-offs & integration",              dot: "bg-amber-400",   badgeBg: "bg-amber-50 dark:bg-amber-900/30",   badgeFg: "text-amber-700 dark:text-amber-300"  },
-  "Due Diligence":      { icon: "🔍", desc: "Financial, commercial & legal diligence methods",         dot: "bg-violet-400",  badgeBg: "bg-violet-50 dark:bg-violet-900/30", badgeFg: "text-violet-700 dark:text-violet-300" },
-  "Regulatory & Legal": { icon: "⚖️", desc: "Antitrust, national security & sector regulation",       dot: "bg-rose-400",    badgeBg: "bg-rose-50 dark:bg-rose-900/30",    badgeFg: "text-rose-700 dark:text-rose-300"    },
-  "Strategy":           { icon: "🎯", desc: "Strategic M&A, platforms, moats & vertical integration", dot: "bg-emerald-400", badgeBg: "bg-emerald-50 dark:bg-emerald-900/30",badgeFg: "text-emerald-700 dark:text-emerald-300"},
+const EN_CAT_META: Record<string, { letter: string; icon: string; desc: string; dot: string; badgeBg: string; badgeFg: string }> = {
+  "Valuation":          { letter: "A", icon: "📊", desc: "EV/EBITDA, multiples, premiums & SaaS metrics",          dot: "bg-blue-400",    badgeBg: "bg-blue-50 dark:bg-blue-900/30",    badgeFg: "text-blue-700 dark:text-blue-300"    },
+  "Deal Structure":     { letter: "B", icon: "🏗️", desc: "M&A process, LBO, spin-offs & integration",              dot: "bg-amber-400",   badgeBg: "bg-amber-50 dark:bg-amber-900/30",   badgeFg: "text-amber-700 dark:text-amber-300"  },
+  "Due Diligence":      { letter: "C", icon: "🔍", desc: "Financial, commercial & legal diligence methods",         dot: "bg-violet-400",  badgeBg: "bg-violet-50 dark:bg-violet-900/30", badgeFg: "text-violet-700 dark:text-violet-300" },
+  "Regulatory & Legal": { letter: "D", icon: "⚖️", desc: "Antitrust, national security & sector regulation",       dot: "bg-rose-400",    badgeBg: "bg-rose-50 dark:bg-rose-900/30",    badgeFg: "text-rose-700 dark:text-rose-300"    },
+  "Strategy":           { letter: "E", icon: "🎯", desc: "Strategic M&A, platforms, moats & vertical integration", dot: "bg-emerald-400", badgeBg: "bg-emerald-50 dark:bg-emerald-900/30",badgeFg: "text-emerald-700 dark:text-emerald-300"},
 };
 
 // ── 딜 연결 수 (모듈 로드 시 1회 계산) ────────────────────────────────────────
@@ -220,7 +220,7 @@ function CategoryFolder({
   concepts: ConceptItem[];
   defaultOpen: boolean;
   lang: Lang;
-  catMeta: Record<string, { icon: string; desc: string; dot: string; badgeBg: string; badgeFg: string }>;
+  catMeta: Record<string, { letter: string; icon: string; desc: string; dot: string; badgeBg: string; badgeFg: string }>;
   dealCounts: Record<string, number>;
 }) {
   const [open, setOpen] = useState(defaultOpen);
@@ -246,10 +246,12 @@ function CategoryFolder({
         {/* 컬러 액센트 바 */}
         <div className={`w-1 self-stretch rounded-full flex-shrink-0 ${meta.dot}`} />
 
-        {/* 아이콘 */}
-        <span className={`text-[18px] transition-all duration-200 ${open ? "" : "opacity-60"}`}>
-          {meta.icon}
-        </span>
+        {/* 레터 배지 */}
+        <div
+          className={`w-7 h-7 rounded-lg flex items-center justify-center text-[12px] font-black text-white flex-shrink-0 transition-all duration-200 ${meta.dot} ${open ? "" : "opacity-80"}`}
+        >
+          {meta.letter}
+        </div>
 
         {/* 레이블 & 설명 */}
         <div className="flex-1 min-w-0">
@@ -389,7 +391,7 @@ export default function Deal101IndexClient({ lang = "ko" }: { lang?: Lang }) {
                 className={`inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full ${m.badgeBg} ${m.badgeFg}`}
               >
                 <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${m.dot}`} />
-                {cat} {count}
+                {m.letter}. {cat} {count}
               </span>
             );
           })}
