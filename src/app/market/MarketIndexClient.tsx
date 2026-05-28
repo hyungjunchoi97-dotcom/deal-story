@@ -324,7 +324,7 @@ export default function MarketIndexClient({ lang = "ko" }: { lang?: Lang }) {
               key={cat}
               cat={cat}
               deals={deals}
-              defaultOpen={i === 0}
+              defaultOpen={false}
               lang={lang}
             />
           );

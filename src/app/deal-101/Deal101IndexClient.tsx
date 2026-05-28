@@ -405,7 +405,7 @@ export default function Deal101IndexClient({ lang = "ko" }: { lang?: Lang }) {
               key={cat}
               category={cat}
               concepts={concepts}
-              defaultOpen={i === 0}
+              defaultOpen={false}
               lang={lang}
               catMeta={catMeta}
               dealCounts={dealCounts}
