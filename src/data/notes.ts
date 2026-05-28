@@ -153,6 +153,49 @@ export type RepoCrisisPoint      = { date: string; repoRate: number; fedRate: nu
 export type CurrencyMixPoint     = { year: string; USD: number; EUR: number; JPY: number; GBP: number; CNY: number; other: number };
 export type StablecoinPoint      = { year: string; USDT: number; USDC: number; other: number };
 
+// ── AI Capital Cycle 차트 데이터 타입 ────────────────────────────────────────
+export type CapexFcfPoint = {
+  year: string;        // "'20", "'21" ...
+  MSFT: number;        // capex $B
+  GOOGL: number;
+  META: number;
+  AMZN: number;
+  ORCL: number;
+  totalFcf: number;    // 5사 합산 FCF, 라인 오버레이용
+};
+
+export type LucentFinancingPoint = {
+  fy: string;          // "FY97", "FY98" ...
+  commitments: number; // 고객 financing 약정 $B
+  provisions: number;  // 충당금/상각 $B
+};
+
+export type CiscoLostDecadePoint = {
+  year: string;        // "'00", "'01" ... or "FY00"
+  stockIdx: number;    // 100 = 2000.3 피크
+  revenueIdx: number;  // 100 = FY00 피크
+  event?: string;      // annotation key
+};
+
+// 회로형 자금 흐름 다이어그램 — Recharts 가 아닌 custom SVG 로 렌더
+// 3개 노드 + 3-4개 화살표로 단순 삼각형/사각형 회로를 그림
+export type CircularFlowNode = {
+  id: string;
+  label: string;
+  labelEn?: string;
+  sub?: string;        // 부가 설명 (예: "GPU 공급자")
+  subEn?: string;
+  color: string;       // hex
+};
+export type CircularFlowEdge = {
+  from: string;        // node id
+  to: string;
+  amount: string;      // "$100B equity"
+  amountEn?: string;
+  detail?: string;     // 부가 (예: "milestone-gated")
+  detailEn?: string;
+};
+
 export type NoteChartDef =
   | { id: "pbr-comparison";    title: string; titleEn?: string; caption?: string; captionEn?: string; data: PBRPoint[] }
   | { id: "tax-rates";         title: string; titleEn?: string; caption?: string; captionEn?: string; data: TaxRateBar[] }
@@ -162,7 +205,11 @@ export type NoteChartDef =
   | { id: "fed-balance-sheet"; title: string; titleEn?: string; caption?: string; captionEn?: string; data: FedBalanceSheetPoint[]; annotations?: { year: string; label: string; labelEn?: string }[] }
   | { id: "repo-crisis";       title: string; titleEn?: string; caption?: string; captionEn?: string; data: RepoCrisisPoint[] }
   | { id: "currency-mix";      title: string; titleEn?: string; caption?: string; captionEn?: string; data: CurrencyMixPoint[] }
-  | { id: "stablecoin-growth"; title: string; titleEn?: string; caption?: string; captionEn?: string; data: StablecoinPoint[] };
+  | { id: "stablecoin-growth"; title: string; titleEn?: string; caption?: string; captionEn?: string; data: StablecoinPoint[] }
+  | { id: "capex-fcf-combo";   title: string; titleEn?: string; caption?: string; captionEn?: string; data: CapexFcfPoint[] }
+  | { id: "lucent-financing";  title: string; titleEn?: string; caption?: string; captionEn?: string; data: LucentFinancingPoint[] }
+  | { id: "cisco-lost-decade"; title: string; titleEn?: string; caption?: string; captionEn?: string; data: CiscoLostDecadePoint[]; annotations?: { year: string; label: string; labelEn?: string }[] }
+  | { id: "circular-flow";     title: string; titleEn?: string; caption?: string; captionEn?: string; nodes: CircularFlowNode[]; edges: CircularFlowEdge[] };
 
 export type NoteBlock =
   | { type: "text";    body: string; bodyEn?: string }
@@ -2204,4 +2251,473 @@ const dollarHegemony4: NoteData = {
 
 // ── Export ─────────────────────────────────────────────────────────────────────
 
-export const ALL_NOTES: NoteData[] = [koreaDiscount, dollarHegemony1, dollarHegemony2, dollarHegemony3, dollarHegemony4];
+// ══════════════════════════════════════════════════════════════════════════════
+// NOTE #6 — AI Capital Cycle ① — 거울 속의 자본
+// ══════════════════════════════════════════════════════════════════════════════
+
+const aiCycle1: NoteData = {
+  slug: "ai-capital-cycle-1",
+  category: "macro",
+  status: "published",
+  series: "ai-capital-cycle",
+  seriesOrder: 1,
+  title: "AI 자본 사이클 ① — 거울 속의 자본",
+  titleEn: "AI Capital Cycle ① — Money in the Mirror",
+  description:
+    "NVIDIA가 OpenAI에 100억 달러를 투자한다. OpenAI는 Microsoft에 2,500억 달러 컴퓨트를 약속한다. Microsoft는 NVIDIA의 단일 최대 고객이다. 돈이 한 바퀴 돌아왔다. 1999년 Lucent가 했던 것과 같은 회로다 — 단 한 가지를 제외하면.",
+  descriptionEn:
+    "NVIDIA invests $100B in OpenAI. OpenAI commits $250B to Microsoft Azure. Microsoft is NVIDIA's single largest customer. The money came around in a circle — the same circuit Lucent ran in 1999. Except for one thing.",
+  date: "2026-05-29",
+  readingMinutes: 20,
+  keyPoints: [
+    "AI 자본 사이클의 정의적 특징은 capex 규모($600B)가 아니라 그 자금이 *회로* 로 흐른다는 사실이다 — NVIDIA → OpenAI → Microsoft → NVIDIA",
+    "1999년 Lucent는 vendor financing $7-8B 약정으로 새 진입자(WinStar·WorldCom 등)에게 자금을 대고 그들이 Lucent 장비를 사게 했다. 결과: $3.5B 충당금, 주가 $82 → $0.58 (-95%)",
+    "Cisco는 비즈니스가 망하지 않았다. FY00→FY01 매출이 오히려 +18% 성장했다. 그러나 주가는 -89%. multiple이 150x P/E → single digits로 압축됐다. 25년 만에 처음 신고가를 회복했다 (2025.12)",
+    "차이: 1999는 통신사 채권 발행($1.6T)으로 자금을 조달했다. 2025는 빅테크 영업현금흐름(70%+)으로 self-fund한다. 시스템 디폴트 리스크는 다르다",
+    "같음: 매수자와 매도자가 같은 사람이라는 사실. NVIDIA의 \"우리는 vendor financing 하지 않는다\"는 회계상 진실. Chanos: \"적자 회사에 돈을 넣어 그 자금으로 칩을 사게 하는 구조는 경제학적으로 같다\"",
+    "회로의 가장 약한 마디는 — 다음 라운드 valuation을 받지 못하는 첫 모델 회사다. 그 신호가 첫 균열",
+  ],
+  keyPointsEn: [
+    "The defining feature of the AI capital cycle is not capex size ($600B) but its *circular* structure — NVIDIA → OpenAI → Microsoft → NVIDIA",
+    "In 1999, Lucent's $7-8B vendor financing book funded new entrants (WinStar, WorldCom) who then bought Lucent equipment. Result: $3.5B in write-downs; stock from $82 to $0.58 (-95%)",
+    "Cisco's business never failed — FY00 to FY01 revenue actually grew +18%. The stock fell -89%. Multiple compressed from 150x P/E to single digits. It took 25 years to reclaim its 2000 high (Dec 2025)",
+    "Different: 1999 was funded by telecom debt issuance ($1.6T). 2025 is self-funded by Big Tech operating cash flow (70%+). The systemic default risk is different",
+    "Same: buyer and seller are the same person. NVIDIA's \"we don't do vendor financing\" is accounting-true. Chanos's rebuttal: \"channeling money into unprofitable companies that then use it to buy chips is economically equivalent\"",
+    "The weakest node in the circuit is the first model company that fails to raise its next round. That hesitation is the first crack",
+  ],
+  sections: [
+    // ── 1. 도입 ────────────────────────────────────────────────────────────────
+    {
+      heading: "2025년 9월 22일의 장면",
+      headingEn: "September 22, 2025 — A Scene",
+      blocks: [
+        {
+          type: "text",
+          body: "2025년 9월 22일. NVIDIA가 발표한다. OpenAI에 **최대 1,000억 달러를 투자** 하기로 했다. 정확한 구조: 10기가와트 규모의 데이터센터 구축 단계마다 자본이 들어간다. 약 400-500만 개의 GPU. 한 GW가 약 350억 달러어치 NVIDIA 칩이라면, 10GW = **3,500억 달러의 NVIDIA 매출** 이다 — NVIDIA 자신의 출자금 일부로 자금이 조달되는.\n\n같은 가을. Microsoft와 OpenAI는 6년에 걸친 새 계약을 발표한다. OpenAI는 Azure에서 **2,500억 달러 어치 컴퓨트** 를 사기로 약속한다 (2025-2030). 별도로 Oracle과는 5년에 3,000억 달러 계약을 맺는다.\n\nMicrosoft는 NVIDIA의 단일 최대 고객이다. NVIDIA FY26 10-K가 공개한 사실: 매출의 22%가 한 고객, 14%가 또 한 고객 — 합쳐 36%가 두 명에게서 온다. 시장은 그 둘이 Microsoft와 Meta라고 본다.\n\n돈이 한 바퀴 돌아왔다. NVIDIA가 OpenAI에 자본을 넣고, OpenAI가 Microsoft/Oracle에 컴퓨트를 약속하고, Microsoft/Oracle이 NVIDIA에서 GPU를 사고, NVIDIA가 매출을 인식한다. 회로가 완성됐다.\n\n*매수자와 매도자가 같은 사람일 때, 시장 가격은 무엇을 의미하는가.*",
+          bodyEn:
+            "September 22, 2025. NVIDIA announces it will invest **up to $100 billion in OpenAI**. The structure: capital is gated to each gigawatt of data center deployment. About 4-5 million GPUs. If one GW equals roughly $35 billion in NVIDIA chips, then 10 GW = **$350 billion in NVIDIA revenue** — partly funded by NVIDIA's own equity check.\n\nThe same autumn. Microsoft and OpenAI close a restructured deal. OpenAI commits to buy **$250 billion of Azure compute** over six years (2025-2030). Separately, OpenAI signs a $300 billion, five-year contract with Oracle.\n\nMicrosoft is NVIDIA's single largest customer. NVIDIA's FY26 10-K reveals: one customer = 22% of revenue, another = 14%. Together, two customers account for 36%. The market reads these as Microsoft and Meta.\n\nThe money came around in a circle. NVIDIA puts capital into OpenAI; OpenAI commits compute to Microsoft and Oracle; Microsoft and Oracle buy GPUs from NVIDIA; NVIDIA recognizes revenue. The circuit is complete.\n\n*When the buyer and the seller are the same person, what does the market price actually mean?*",
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "quote",
+            body: "그들은 돈이 없다(They have no money).",
+            bodyEn: "They have no money.",
+            heading: "— Jensen Huang, NVIDIA가 OpenAI에 100억 달러를 출자하기로 한 직후 (2025년 9월)",
+            headingEn: "— Jensen Huang, shortly after NVIDIA committed $100B to OpenAI (Sept 2025)",
+          },
+        },
+      ],
+    },
+    // ── 2. Lucent / 1999 거울 ─────────────────────────────────────────────────
+    {
+      heading: "1999년의 거울 — Lucent가 했던 것",
+      headingEn: "The 1999 Mirror — What Lucent Did",
+      blocks: [
+        {
+          type: "text",
+          body: "1996년 4월, AT&T가 통신장비 사업부를 분사해 만든 회사가 Lucent Technologies였다. 그 직후의 몇 년은 통신장비 산업의 황금기였다. 광섬유가 깔리고, 인터넷 백본이 깔리고, 새 통신 사업자(CLEC, ISP, 장거리 사업자)가 폭발적으로 등장했다.\n\n이 새 사업자들 — WinStar, NorthPoint, ICG, Global Crossing — 은 자본이 없었다. 그들이 장비를 사려면 누군가가 돈을 빌려줘야 했다. Lucent가 그 누군가였다.\n\n구조는 단순했다. Lucent가 약정을 통해 새 통신사에 신용을 제공하면, 새 통신사가 그 신용으로 Lucent 장비를 매입한다. Lucent는 매출을 인식한다. 새 통신사가 망하면? 충당금을 잡는다. 하지만 사이클이 도는 동안은, 모두가 이긴다.\n\nLucent는 2000회계연도 SEC 공시에서 **약 70억 달러의 고객 financing 약정** 을 공개했다. 그중 16억 달러가 실제로 인출돼 있었다. Lucent는 명시적으로 \"이건 정상적인 산업 관행\"이라고 말했고, 한 분기 콜에서 임원은 회사가 \"은행에 더 가까워질 것\"이라고 밝혔다 — vendor financing을 더 공격적으로 늘리겠다는 의미였다.",
+          bodyEn:
+            "In April 1996, AT&T spun off its telecom equipment business and named it Lucent Technologies. The years that followed were a golden age for telecom equipment. Fiber was being laid. Internet backbones were being built. New telecom operators (CLECs, ISPs, long-haul carriers) emerged at extraordinary speed.\n\nThese new entrants — WinStar, NorthPoint, ICG, Global Crossing — had no capital. To buy equipment, someone had to lend them money. Lucent was that someone.\n\nThe structure was simple. Lucent extended credit to the new carriers; the new carriers used that credit to buy Lucent equipment; Lucent booked the revenue. When a carrier went bankrupt, Lucent took a provision. But while the cycle was running, everyone won.\n\nIn its fiscal year 2000 SEC filings, Lucent disclosed **approximately $7 billion in customer financing commitments**. $1.6 billion was actually drawn. Lucent publicly defended this as \"normal industry practice,\" and an executive told one earnings call that the company would become \"more like a bank\" — meaning it would expand vendor financing aggressively.",
+        },
+        {
+          type: "chart",
+          chart: {
+            id: "lucent-financing",
+            title: "Lucent 고객 financing 약정 vs 충당금 (FY1997-2002, $B)",
+            titleEn: "Lucent Customer Financing Commitments vs. Write-down Provisions (FY1997-2002, $B)",
+            caption:
+              "출처: Lucent Technologies 10-K filings (FY2000, FY2001, FY2002), SEC EDGAR. 약정 잔액 $7-8B 가 정점이었고, FY01-02에 $3.5B 충당금으로 결산됐다.",
+            captionEn:
+              "Source: Lucent Technologies 10-K filings (FY2000, FY2001, FY2002), SEC EDGAR. Peak commitments reached $7-8B; FY01-02 write-downs totaled $3.5B.",
+            data: [
+              { fy: "FY97", commitments: 1.5, provisions: 0.1 },
+              { fy: "FY98", commitments: 3.0, provisions: 0.2 },
+              { fy: "FY99", commitments: 5.0, provisions: 0.3 },
+              { fy: "FY00", commitments: 7.0, provisions: 0.5 },
+              { fy: "FY01", commitments: 8.1, provisions: 2.2 },
+              { fy: "FY02", commitments: 6.5, provisions: 1.3 },
+            ],
+          },
+        },
+        {
+          type: "text",
+          body: "회로는 1999년까지 완벽하게 돌았다. Lucent 주가는 1999년 12월 20일 **$82.31** 에 닿았다. 시가총액 2,580억 달러. 당시 세계에서 시가총액 상위 10대 기업이었다.\n\n그러나 회로의 끝은 가장 약한 마디에서 시작됐다.\n\n2001년 4월, WinStar Communications가 파산을 신청했다. Lucent의 노출은 약정 20억 달러 중 인출 7억 달러. 그 7억 달러는 거의 전액 상각됐다. (몇 년 후 법원은 Lucent가 WinStar 파산관재인에게 약 3억 달러를 추가로 지불하도록 명령한다.)\n\n2001년에는 다른 customer들도 무너졌다 — NorthPoint, ICG, Global Crossing, PSINet. 2002년 7월 WorldCom이 파산했다. Lucent의 FY2001 충당금: 22억 달러. FY2002 충당금: 13억 달러. 합쳐 35억 달러.\n\n회로가 멈췄다. Lucent의 주가는 2002년 10월 11일 **$0.58** 에 닿았다. 피크 대비 -99.3%. (split 조정 후 기준으로도 -95%.) 직원 수는 16만 5천 명에서 3만 명으로 줄었다. CEO Richard McGinn은 2000년 10월에 해임됐다. CFO Deborah Hopkins는 2001년 5월에 교체됐다. 2004년 SEC는 매출 인식 부정행위에 대해 2,500만 달러 합의를 받아냈다.\n\nLucent는 살아남지 못했다. 2006년 Alcatel과 합병됐다. 그 합병회사도 결국 노키아에 흡수됐다.",
+          bodyEn:
+            "The circuit ran flawlessly through 1999. Lucent's stock hit **$82.31** on December 20, 1999. Market cap: $258 billion. It was a top-10 company in the world by market value.\n\nBut the end of the circuit started at its weakest node.\n\nIn April 2001, WinStar Communications filed for bankruptcy. Lucent's exposure was $700 million drawn from a $2 billion commitment. Almost the entire $700 million was written down. (Years later, a court would order Lucent to pay roughly $300 million more to WinStar's bankruptcy trustee.)\n\nOther customers fell in 2001 — NorthPoint, ICG, Global Crossing, PSINet. WorldCom filed in July 2002. Lucent's FY2001 provisions: $2.2 billion. FY2002: $1.3 billion. Combined: $3.5 billion.\n\nThe circuit stopped. Lucent's stock hit **$0.58** on October 11, 2002. From peak: -99.3% (-95% on a split-adjusted basis). Headcount fell from 165,000 to 30,500. CEO Richard McGinn was fired in October 2000. CFO Deborah Hopkins was replaced in May 2001. In 2004, the SEC settled revenue-recognition fraud charges for $25 million.\n\nLucent did not survive. It merged with Alcatel in 2006. The merged entity was eventually absorbed by Nokia.",
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "insight",
+            heading: "회로의 본질 — 진입자에게 자본을 빌려준 자가 매출을 인식한다",
+            headingEn: "The Anatomy of a Circuit — Whoever Lends to the Entrant Books the Revenue",
+            body: "Richmond Fed의 2003년 논문(Couper, Hejkal, Wolman)이 기록한 정량적 사실 하나: 장거리 광섬유 시장의 기존 사업자(AT&T, MCI, WorldCom, Sprint) 점유율은 **1996년 72% → 1999년 30%** 로 추락했다. 새 진입자들이 폭발적으로 점유했고, 그 진입자들은 Lucent/Nortel/Cisco의 vendor financing으로 자본을 받았다. 즉 *capex 폭증의 진짜 메커니즘은 vendor financing이 새 진입자를 만든 것이었다*. 2025년 NVIDIA의 GPU 신용·지분이 OpenAI·Anthropic·xAI·Mistral 같은 \"AI native 신진입자\"의 부상을 자금화하고 있는 구조와 정확히 같다.",
+            bodyEn:
+              "One quantitative fact from the 2003 Richmond Fed paper (Couper, Hejkal, Wolman): the long-haul fiber market share of incumbents (AT&T, MCI, WorldCom, Sprint) collapsed from **72% in 1996 to 30% in 1999**. New entrants took share explosively — and those entrants were capitalized by vendor financing from Lucent, Nortel, and Cisco. In other words, *the actual mechanism behind the capex boom was that vendor financing created the new entrants*. NVIDIA's GPU credit and equity stakes today are doing the same thing for the \"AI-native new entrants\" — OpenAI, Anthropic, xAI, Mistral.",
+          },
+        },
+      ],
+    },
+    // ── 3. Cisco — 비즈니스는 멈추지 않았다 ───────────────────────────────────
+    {
+      heading: "Cisco가 가르쳐준 것 — 비즈니스는 멈추지 않았다",
+      headingEn: "What Cisco Taught — The Business Didn't Stop",
+      blocks: [
+        {
+          type: "text",
+          body: "Lucent의 이야기는 극단적이다. 회계 부정행위, CEO 해임, 시가총액 99% 증발, 결국 해체. 어떤 면에서는 너무 깨끗한 caution tale이다 — *비즈니스가 잘못 운영됐기 때문이다.*\n\n그러나 그 사이클의 진짜 교훈은 Lucent가 아니다. **Cisco** 다.\n\n2000년 3월 27일. Cisco Systems가 Microsoft를 제치고 세계에서 가장 가치 있는 회사가 됐다. 시가총액 5,690억 달러. 주가 $80.06 (split 조정 후). Forward P/E는 약 150배. 모든 사람이 Cisco의 라우터로 인터넷이 깔린다는 걸 알았고, 모든 사람이 Cisco 주식을 사야 한다고 생각했다.\n\n2002년 10월 8일. Cisco 주가가 **$8.60** 에 닿았다. 피크 대비 -89%.\n\n여기까지는 Lucent 이야기와 비슷해 보인다. 그런데 매출을 보면:\n\n- FY2000 (2000년 7월말): 매출 **$18.9B**\n- FY2001: 매출 **$22.3B** (+18% 성장)\n- FY2002: 매출 **$18.9B** (-15%)\n- FY2003: 매출 **$18.9B** (flat)\n\n*비즈니스는 망하지 않았다.* FY01 매출은 오히려 사상 최대였다. FY02-03에 약간 후퇴했지만, 그 후 Cisco는 계속 성장해 FY24 매출 538억 달러로 약 3배가 됐다.\n\n그러나 주가는 -89%였다. 그리고 25년 만인 **2025년 12월 10일** , 주가가 처음으로 다시 $80.25 — 2000년 피크 — 를 회복했다. 25년 8개월 13일.",
+          bodyEn:
+            "Lucent's story is extreme. Accounting fraud, CEO firing, 99% market cap evaporation, eventual dissolution. In one sense, it's too clean a cautionary tale — *because the business was managed badly.*\n\nBut the real lesson of that cycle is not Lucent. It's **Cisco**.\n\nOn March 27, 2000, Cisco Systems passed Microsoft to become the most valuable company in the world. Market cap: $569 billion. Stock price: $80.06 (split-adjusted). Forward P/E: about 150x. Everyone knew Cisco routers were building the internet. Everyone thought they should own Cisco stock.\n\nOn October 8, 2002, Cisco hit **$8.60**. From peak: -89%.\n\nUp to here, the story sounds like Lucent's. But look at revenue:\n\n- FY2000 (ending July 2000): **$18.9B**\n- FY2001: **$22.3B** (+18% growth)\n- FY2002: **$18.9B** (-15%)\n- FY2003: **$18.9B** (flat)\n\n*The business didn't fail.* FY01 revenue was actually a record high. After modest declines in FY02-03, Cisco kept growing — FY24 revenue was $53.8 billion, roughly 3x the FY00 peak.\n\nBut the stock fell -89%. And then, 25 years later, on **December 10, 2025**, the stock finally reclaimed $80.25 — the 2000 peak. 25 years, 8 months, 13 days.",
+        },
+        {
+          type: "chart",
+          chart: {
+            id: "cisco-lost-decade",
+            title: "Cisco의 25년 — 주가 vs 매출 (FY00 = 100)",
+            titleEn: "Cisco's Lost Decade — Stock vs Revenue (FY00 = 100)",
+            caption:
+              "출처: Cisco 10-K filings, CNBC (2025.12.10 신고가 회복 보도). 매출은 FY01 +18%, 이후 약간 후퇴 → FY24 약 285. 주가는 -89% 후 25년 만에 100 회복.",
+            captionEn:
+              "Sources: Cisco 10-K filings, CNBC (Dec 10, 2025 record-high coverage). Revenue grew +18% in FY01, modestly declined, then resumed growth — FY24 index ~285. Stock collapsed -89% and took 25 years to recover to 100.",
+            data: [
+              { year: "'00", stockIdx: 100, revenueIdx: 100, event: "peak" },
+              { year: "'01", stockIdx: 31,  revenueIdx: 118 },
+              { year: "'02", stockIdx: 11,  revenueIdx: 100, event: "trough" },
+              { year: "'03", stockIdx: 21,  revenueIdx: 100 },
+              { year: "'04", stockIdx: 26,  revenueIdx: 116 },
+              { year: "'05", stockIdx: 22,  revenueIdx: 130 },
+              { year: "'07", stockIdx: 35,  revenueIdx: 188 },
+              { year: "'10", stockIdx: 27,  revenueIdx: 213 },
+              { year: "'15", stockIdx: 36,  revenueIdx: 261 },
+              { year: "'20", stockIdx: 49,  revenueIdx: 261 },
+              { year: "'24", stockIdx: 75,  revenueIdx: 285 },
+              { year: "'25", stockIdx: 100, revenueIdx: 285, event: "recovery" },
+            ],
+            annotations: [
+              { year: "'02", label: "트로프", labelEn: "Trough" },
+              { year: "'25", label: "25년 만에 회복", labelEn: "Recovered 25y later" },
+            ],
+          },
+        },
+        {
+          type: "text",
+          body: "이게 사이클의 진짜 교훈이다.\n\nCisco는 비즈니스가 망해서 -89%가 된 것이 아니다. 회로가 멈췄기 때문에 그렇게 됐다. 더 정확히: *시장이 회로의 영구성을 가격에 반영한 multiple이 수축했기 때문* 이다. P/E 150배는 회로가 영원히 돈다는 가정을 가격에 박은 것이고, 회로가 멈추자 그 multiple이 일자릿수로 압축됐다.\n\n비즈니스의 성공과 주식의 성공은 다른 일이었다. 5,690억 달러의 시가총액 피크에서, Cisco를 산 투자자가 *피크 가격까지 자신의 자본을 회복하는 데 25년이 걸렸다.* 그 동안 Cisco의 매출은 3배가 됐고, Cisco는 영업현금흐름을 매년 100억 달러씩 만들었다. 그러나 그 시작가가 너무 비쌌다.\n\nNVIDIA가 Cisco가 될지 Lucent가 될지는 아직 모른다. 그러나 Cisco의 25년은 이 한 가지를 분명히 가르쳐준다:\n\n*회로의 영구성에 가격을 매긴 multiple은, 회로가 멈추면, multiple만 무너진다. 비즈니스가 망하지 않아도.*",
+          bodyEn:
+            "This is the real lesson of the cycle.\n\nCisco didn't fall -89% because the business failed. It fell because the circuit stopped. More precisely: *because the multiple that priced in the circuit's permanence compressed.* A 150x P/E embedded an assumption that the circuit would run forever; when it stopped, that multiple compressed to single digits.\n\nBusiness success and stock success are different things. At a $569 billion peak market cap, investors who bought Cisco at the top took *25 years to recover their capital to the peak price.* Over that time, Cisco's revenue tripled and the company generated $10+ billion in operating cash flow every year. But the entry price was too expensive.\n\nWhether NVIDIA becomes Cisco or Lucent, we don't yet know. But Cisco's 25 years teaches one thing clearly:\n\n*A multiple that prices in the permanence of the circuit collapses when the circuit stops — even if the business never fails.*",
+        },
+      ],
+    },
+    // ── 4. 2025년의 회로 ──────────────────────────────────────────────────────
+    {
+      heading: "2025년의 회로 — 같은 패턴, 다른 손",
+      headingEn: "The 2025 Circuit — Same Pattern, Different Hands",
+      blocks: [
+        {
+          type: "text",
+          body: "1999년의 회로를 보고 나면, 2025년의 회로를 다시 보게 된다. 다이어그램으로 그려보면 단순하다.",
+          bodyEn:
+            "Once you've seen the 1999 circuit, the 2025 circuit looks different. Drawn as a diagram, it's simple.",
+        },
+        {
+          type: "chart",
+          chart: {
+            id: "circular-flow",
+            title: "NVIDIA → OpenAI → Microsoft → NVIDIA 회로 (2025년 발표 약정 기준)",
+            titleEn: "The NVIDIA → OpenAI → Microsoft → NVIDIA Circuit (2025 announced commitments)",
+            caption:
+              "출처: NVIDIA IR (2025.9.22), Microsoft 8-K (2025.10.28), Bloomberg AI Circular Deals (2026). 세 화살표가 한 바퀴를 돈다. 매수자가 매도자에게 자본을 출자하고, 매도자가 그 자본으로 매수자에게서 사고, 매수자가 매출을 인식한다.",
+            captionEn:
+              "Sources: NVIDIA IR (Sept 22, 2025), Microsoft 8-K (Oct 28, 2025), Bloomberg AI Circular Deals (2026). Three arrows close one loop. The buyer puts capital into the seller; the seller uses that capital to buy from the buyer; the buyer recognizes revenue.",
+            nodes: [
+              { id: "openai",    label: "OpenAI",    sub: "모델 회사",         subEn: "Model Lab",       color: "#10b981" },
+              { id: "nvidia",    label: "NVIDIA",    sub: "GPU 공급자",        subEn: "GPU Supplier",     color: "#76b900" },
+              { id: "microsoft", label: "Microsoft", sub: "클라우드 호스트",    subEn: "Cloud Host",       color: "#3b82f6" },
+            ],
+            edges: [
+              { from: "nvidia",    to: "openai",    amount: "$100B 출자 (LOI)",  amountEn: "$100B equity (LOI)",  detail: "10GW 가동 단계별 분할",  detailEn: "Staged per 10GW deployment" },
+              { from: "openai",    to: "microsoft", amount: "$250B Azure 약정",   amountEn: "$250B Azure commit",   detail: "2025-2030, 6년",         detailEn: "2025-2030, 6 years" },
+              { from: "microsoft", to: "nvidia",    amount: "NVDA 매출의 ~22%", amountEn: "~22% of NVDA revenue", detail: "단일 최대 고객 (FY26 10-K)", detailEn: "Single largest customer (FY26 10-K)" },
+            ],
+          },
+        },
+        {
+          type: "text",
+          body: "이 회로 옆에 거의 똑같은 형태의 두 번째 회로가 있다.\n\nAmazon이 Anthropic에 누적 약 160억 달러를 출자했다 (2023년 9월부터). 2025년 말 추가로 200억 달러까지 commercial milestone 기반으로 약정했다. Anthropic은 **Project Rainier** — AWS가 인디애나에 110억 달러를 들여 지은, 약 50만 개의 Trainium2 칩으로 구성된 전용 클러스터 — 를 Claude 학습에 사용한다. AWS는 그 컴퓨트 매출을 인식한다.\n\nMicrosoft-OpenAI와 정확히 같은 패턴이다. 단지 주연이 다를 뿐이다.\n\n그리고 그 옆에 더 있다. NVIDIA는 OpenAI에만 출자한 것이 아니다. CoreWeave 지분 6-7%를 보유하고 ($2B PIPE, IPO anchor order), xAI 라운드에 참여하고, Mistral·Lambda·Inflection·Perplexity·Reka·Cohere·Wayve·Figure 등에 광범위하게 투자해놓았다. AMD는 2025년 10월 OpenAI에 6GW 약정 — 그 대가로 OpenAI에게 AMD 주식의 약 10%(주당 $0.01에 1억 6천만 주)를 워런트로 제공했다. 즉, 모델 회사가 GPU를 사면 GPU 회사 지분을 받는 구조. 회로가 한 단계 더 꼬여 있다.\n\n전체 그림을 정리하면 이렇다.",
+          bodyEn:
+            "Beside this circuit sits a second one with almost identical shape.\n\nAmazon has invested roughly $16 billion cumulatively in Anthropic since September 2023. In late 2025, it committed up to $20 billion more on commercial milestones. Anthropic uses **Project Rainier** — a roughly $11 billion AWS-built cluster in Indiana with about 500,000 Trainium2 chips — to train Claude. AWS recognizes the compute revenue.\n\nExactly the same pattern as Microsoft-OpenAI. Just different protagonists.\n\nAnd there's more around the edges. NVIDIA didn't only invest in OpenAI. It owns 6-7% of CoreWeave ($2B PIPE plus IPO anchor order), participated in xAI rounds, and has stakes in Mistral, Lambda, Inflection, Perplexity, Reka, Cohere, Wayve, Figure. In October 2025, AMD signed a 6 GW commitment with OpenAI — in exchange, AMD gave OpenAI warrants on roughly 10% of AMD stock (160 million shares at $0.01 per share). The model company that buys GPUs gets equity in the GPU company. The circuit twists one more time.\n\nHere's the full picture.",
+        },
+        {
+          type: "table",
+          table: {
+            id: "ai-circuit-flows",
+            title: "AI 자본 회로 — 2025년 발표 약정 매트릭스",
+            titleEn: "AI Capital Circuit — 2025 Announced Commitments Matrix",
+            headers: ["발표일", "From → To", "약정 금액", "구조"],
+            headersEn: ["Announced", "From → To", "Amount", "Structure"],
+            rows: [
+              ["2019-23", "MSFT → OpenAI", "$13B 누적 (funded $11.6B)", "출자 + 전환사채"],
+              ["2025.1",  "SoftBank/Oracle/MGX → Stargate JV", "목표 $500B/4년", "CapEx 합작"],
+              ["2025.9",  "OpenAI → Oracle", "$300B/5년 (2027-31)", "클라우드 구매"],
+              ["2025.9",  "NVIDIA → OpenAI", "최대 $100B (LOI)", "출자, milestone-gated"],
+              ["2025.9",  "OpenAI → NVIDIA", "10GW (~$350B GPU)", "다년 구매"],
+              ["2025.10", "AMD → OpenAI", "10% AMD 워런트 (160M주 @ $0.01)", "주식 워런트"],
+              ["2025.10", "OpenAI → AMD", "6GW MI300 구매 약정", "다년 구매"],
+              ["2025.10", "MSFT ↔ OpenAI 재편", "MSFT 지분 $135B (27%); OpenAI → Azure $250B", "출자 + 클라우드"],
+              ["2025.11", "AWS → Anthropic", "+$20B (commercial milestone)", "출자/약정"],
+              ["2025.12", "SoftBank → OpenAI", "$40B 라운드 완료 (Dec 30, $300B post)", "출자"],
+            ],
+            rowsEn: [
+              ["2019-23", "MSFT → OpenAI", "$13B cumulative (funded $11.6B)", "Equity + convertible"],
+              ["Jan 2025",  "SoftBank/Oracle/MGX → Stargate JV", "$500B target by 2029", "JV CapEx vehicle"],
+              ["Sept 2025",  "OpenAI → Oracle", "$300B / 5yr (2027-31)", "Cloud purchase"],
+              ["Sept 2025",  "NVIDIA → OpenAI", "Up to $100B (LOI)", "Equity, milestone-gated"],
+              ["Sept 2025",  "OpenAI → NVIDIA", "10 GW (~$350B GPUs)", "Multi-year purchase"],
+              ["Oct 2025", "AMD → OpenAI", "10% AMD warrants (160M @ $0.01)", "Equity warrant"],
+              ["Oct 2025", "OpenAI → AMD", "6 GW MI300 commitment", "Multi-year purchase"],
+              ["Oct 2025", "MSFT ↔ OpenAI restructure", "MSFT stake $135B (27%); OpenAI → Azure $250B", "Equity + cloud"],
+              ["Nov 2025", "AWS → Anthropic", "+$20B (commercial milestone)", "Equity / commit"],
+              ["Dec 2025", "SoftBank → OpenAI", "$40B round closed (Dec 30, $300B post)", "Equity"],
+            ],
+            caption: "이 표의 모든 줄에서 — 자본을 출자한 회사가, 같은 카운터파티에게서 매출을 인식한다.",
+            captionEn: "In every row of this table — the company providing capital recognizes revenue from the same counterparty.",
+          },
+        },
+        {
+          type: "text",
+          body: "여기에 더해 자금 출처도 봐야 한다. 1999년 통신사들은 회사채와 은행 대출로 capex를 댔다. 2025년 하이퍼스케일러는 영업현금흐름으로 댄다 — 적어도 표면적으로는. 그러나 2026년 가이던스를 보면 그 self-funding이 처음으로 무너진다.",
+          bodyEn:
+            "Beyond the circuit, look at the funding source. In 1999, telecom carriers funded capex with corporate bonds and bank loans. In 2025, hyperscalers fund it from operating cash flow — at least on the surface. But the 2026 guidance shows that self-funding pattern breaking for the first time.",
+        },
+        {
+          type: "chart",
+          chart: {
+            id: "capex-fcf-combo",
+            title: "빅5 하이퍼스케일러 CapEx 추이 vs 합산 FCF ($B)",
+            titleEn: "Big 5 Hyperscaler CapEx vs Combined FCF ($B)",
+            caption:
+              "출처: 각사 10-K/10-Q (MSFT, GOOGL, META, AMZN, ORCL), Apollo Academy (Feb 2026), Futurum (2026). 2026년 합산 CapEx ~$700B (전년 +55%); 합산 FCF는 처음으로 cross-over 위험권에 진입.",
+            captionEn:
+              "Sources: 10-K/10-Q filings for MSFT, GOOGL, META, AMZN, ORCL; Apollo Academy (Feb 2026); Futurum (2026). 2026 combined CapEx ~$700B (+55% YoY); combined FCF enters cross-over risk zone for the first time.",
+            data: [
+              { year: "'20", MSFT: 18, GOOGL: 22, META: 16, AMZN: 35, ORCL: 2,  totalFcf: 165 },
+              { year: "'21", MSFT: 24, GOOGL: 25, META: 19, AMZN: 55, ORCL: 4,  totalFcf: 175 },
+              { year: "'22", MSFT: 27, GOOGL: 31, META: 32, AMZN: 60, ORCL: 5,  totalFcf: 155 },
+              { year: "'23", MSFT: 28, GOOGL: 32, META: 28, AMZN: 48, ORCL: 7,  totalFcf: 180 },
+              { year: "'24", MSFT: 56, GOOGL: 52, META: 39, AMZN: 78, ORCL: 15, totalFcf: 195 },
+              { year: "'25", MSFT: 80, GOOGL: 75, META: 70, AMZN: 100, ORCL: 25, totalFcf: 145 },
+              { year: "'26E", MSFT: 130, GOOGL: 180, META: 135, AMZN: 200, ORCL: 50, totalFcf: 80 },
+            ],
+          },
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "quote",
+            body: "독립 연구소가 자금을 조달하려면 무엇을 해야 하나? 컴퓨트 비용을 낼 수 있도록 어떤 수치를 시장에 내놓아야 한다.",
+            bodyEn: "What do you expect an independent lab that is trying to raise money to do? They have to put some numbers out there so they can actually go raise money to pay their compute bills.",
+            heading: "— Satya Nadella, OpenAI의 매출 전망을 옹호하며 (2025)",
+            headingEn: "— Satya Nadella, defending OpenAI's revenue projections (2025)",
+          },
+        },
+      ],
+    },
+    // ── 5. 무엇이 같고 무엇이 다른가 ─────────────────────────────────────────
+    {
+      heading: "무엇이 같고 무엇이 다른가",
+      headingEn: "What Is the Same, What Is Different",
+      blocks: [
+        {
+          type: "text",
+          body: "두 회로를 나란히 놓고 보면, 정직한 비교는 둘 다 해야 한다 — *무엇이 같은지* 와 *무엇이 다른지* .\n\n**다른 점이 먼저다.** 1999년 Lucent의 vendor financing은 회계상 *매출채권/대출* 이었다. 고객이 paying 못하면 충당금을 잡아야 했고, 결국 손익에 반영됐다. 2025년 NVIDIA의 OpenAI 출자는 회계상 *자본 투자* 다. 마크업/마크다운이 발생할 수는 있지만, 매출 인식과 분리돼 있다. 자금 출처도 다르다. 1999년 통신사들은 약 1.6조 달러의 회사채를 발행해 capex를 댔다. 2025년 하이퍼스케일러는 영업현금흐름의 약 70%를 capex로 돌리고 있다 — 부족분은 회사채(2025년 빅테크 신규 발행 ~$108B)로 메꾸지만, 비율은 1999와 비교가 안 된다.\n\n그래서 NVIDIA의 공식 입장은 — 회계상 — 진실이다.",
+          bodyEn:
+            "Placing the two circuits side by side, an honest comparison has to do both — *what's the same* and *what's different*.\n\n**The differences come first.** In 1999, Lucent's vendor financing was, in accounting terms, *receivables and loans*. When customers couldn't pay, provisions had to be taken, and they hit the P&L. In 2025, NVIDIA's investment in OpenAI is, in accounting terms, *equity*. Marks-up and marks-down can happen, but they're separated from revenue recognition. The funding source is also different. In 1999, telecom carriers issued roughly $1.6 trillion in corporate bonds to fund capex. In 2025, hyperscalers convert ~70% of operating cash flow into capex — the gap is filled by bonds ($108B newly issued by Big Tech in 2025), but the ratio is incomparable to 1999.\n\nSo NVIDIA's official position is — in accounting terms — true.",
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "quote",
+            body: "Lucent와 달리, NVIDIA는 매출 성장을 위해 vendor financing 방식에 의존하지 않습니다.",
+            bodyEn: "Unlike Lucent, NVIDIA does not rely on vendor financing arrangements to grow revenue.",
+            heading: "— NVIDIA 공식 입장, 회로 비판에 대한 답변 (2025년 11월)",
+            headingEn: "— NVIDIA official statement, responding to circular-financing critiques (Nov 2025)",
+          },
+        },
+        {
+          type: "text",
+          body: "이게 회계상 진실이라는 점은 인정해야 한다. 그러나 **경제학적으로는** 어떨까. Jim Chanos의 표현이 가장 깔끔하다:\n\n> *\"[NVIDIA가 하는 일은] 적자 회사에 돈을 넣어 그들이 그 자금으로 칩을 사게 하는 구조다.\"*\n\n출자 → 그 자본이 컴퓨트 약정으로 → 그 컴퓨트 약정이 GPU 매입으로 → 그 GPU 매입이 NVIDIA 매출로 — 회계상 다섯 단계의 분리가 있어도, 경제학적으로는 *같은 회사가 결국 자기 돈으로 자기 매출을 만들고 있다.* Chanos는 이걸 \"1990년대 vendor financing의 100억 달러 규모를 훨씬 초과하는 패턴\"이라고 평가한다.\n\n그래서 같은 점은 단순하다:\n\n1. 매수자와 매도자가 같은 사람 (또는 같은 자금 풀)\n2. 새 진입자(OpenAI/Anthropic/xAI)가 자본을 받아 인프라 수요를 만든다 — Lucent가 WinStar에게 자본을 줘 Lucent 장비를 사게 한 것과 같은 구조\n3. 회로가 도는 동안은 모든 참가자가 이긴다 — *비즈니스가 진짜 작동하는지에 대한 검증 없이*",
+          bodyEn:
+            "This accounting truth deserves recognition. But **economically**, how does it look? Jim Chanos's framing is the cleanest:\n\n> *\"[What NVIDIA does is] channel money into unprofitable companies that then use those funds to buy chips.\"*\n\nEquity in → capital becomes compute commitment → compute commitment becomes GPU purchase → GPU purchase becomes NVIDIA revenue. Even with five layers of accounting separation, economically *the same company is ultimately making its own revenue with its own money.* Chanos calls this a \"pattern that far exceeds the approximately $100 billion in 1990s vendor financing.\"\n\nSo the similarities are simple:\n\n1. Buyer and seller are the same person (or the same capital pool)\n2. New entrants (OpenAI, Anthropic, xAI) receive capital to create infrastructure demand — same structure as Lucent giving WinStar capital to buy Lucent equipment\n3. While the circuit runs, every participant wins — *without any validation that the business actually works*",
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "warning",
+            heading: "두 사이클의 핵심 분기 — 자기검증의 부재",
+            headingEn: "The Critical Divergence — The Absence of Self-Validation",
+            body: "Lucent 시대의 운명은 새 통신사들이 매출을 만들 수 있는가에 달려 있었다. 그들은 거의 만들지 못했다 (소비자/기업 수요가 광섬유의 약 3%만 점등시켰다 — WSJ 2002). 2025년 AI 사이클의 운명은 새 모델 회사들이 매출을 만들 수 있는가에 달려 있다. OpenAI는 2024년 매출 약 $3.7B → 2025년 ARR $10-13B로 성장 중이다. 그러나 컴퓨트 비용은 2026년 약 $50B, 2030년까지 누적 $600B+. **매출이 비용을 잡을 수 있는지 — 그게 회로의 자기검증이다. 1999년에는 그 검증이 실패했다. 2025년의 답은 아직 모른다.**",
+            bodyEn:
+              "Lucent's fate depended on whether the new carriers could generate revenue. They mostly couldn't (consumer/enterprise demand lit only about 3% of the fiber laid — WSJ 2002). The 2025 AI cycle's fate depends on whether the new model companies can generate revenue. OpenAI grew from ~$3.7B (2024) to $10-13B ARR (2025). But compute costs reach ~$50B in 2026 and $600B+ cumulative through 2030. **Whether revenue catches cost — that's the circuit's self-validation. In 1999, that validation failed. The 2025 answer isn't yet known.**",
+          },
+        },
+      ],
+    },
+    // ── 6. 알 수 있는 것, 알 수 없는 것 ──────────────────────────────────────
+    {
+      heading: "알 수 있는 것, 알 수 없는 것, 추정 가능한 것",
+      headingEn: "What We Know, What We Can't, What We Can Estimate",
+      blocks: [
+        {
+          type: "text",
+          body: "Marks가 좋아하는 framing이 있다 — *알 수 있는 것 / 알 수 없는 것 / 알 수 없지만 추정 가능한 것* 의 세 영역. AI 회로에 적용하면 이렇다.\n\n**알 수 있는 것** 은 측정 가능한 fact다. 회로의 정확한 자금 흐름. NVIDIA 매출의 36%가 두 hyperscaler에서 나온다는 사실 (FY26 10-K). 빅5 합산 2026 capex 약 $700B. OpenAI의 매출이 컴퓨트 비용보다 훨씬 작다는 사실. 이것들은 다투지 않는다.\n\n**알 수 없는 것** 은 사이클의 timing이다. 회로가 정확히 언제 끊어지는지. AI 매출 중 어디까지가 진짜 엔드유저 수요고 어디까지가 자기 자본의 재귀인지. 사이클의 정점이 2026년인지 2028년인지 2030년인지. 이건 본질적으로 unknowable이다 — 정답을 안다고 주장하는 사람은 거짓말이다.\n\n**추정 가능한 것** 은 *균열의 첫 신호가 어디서 보일 가능성이 높은지* 다. 회로의 가장 약한 마디 — 다음 라운드 자금을 받지 못하는 첫 모델 회사. OpenAI나 Anthropic은 강하다. 그러나 그 둘 외 — xAI, Mistral, Inflection, Cohere, Stability — 중 한 곳이 down round를 맞거나 자금 조달에 실패하면, 회로의 한 마디가 깨진다. 그 신호는 측정 가능하다.\n\n두 번째 추정 가능한 신호는 빅테크 회사채 스프레드다. 2025년 $108B 발행이 2026년 $200B+로 늘어나면, 자금시장은 그 신용도를 다르게 평가하기 시작한다. 신용 스프레드 확대는 회로의 두 번째 균열이다.\n\n세 번째는 NVIDIA의 forward guidance에서 데이터센터 매출 sequential 성장률이 둔화되는 시점이다. NVDA가 직접 \"다음 분기는 성장이 약하다\"고 말하는 그 분기, 회로의 *세 번째 균열* 이 보인다.\n\n네 번째 — 그리고 가장 중요한 — 신호는 시리즈의 마지막 메모에서 다룰 것이다. AI가 진짜 노동을 대체하는지에 대한 Anthropic Economic Index의 분기 데이터.",
+          bodyEn:
+            "Marks has a framing he likes — *what we know / what we can't know / what we can't know but can estimate*. Applied to the AI circuit:\n\n**What we can know** is measurable fact. The exact money flows in the circuit. The fact that 36% of NVIDIA revenue comes from two hyperscalers (FY26 10-K). Big 5 combined 2026 capex ~$700B. The fact that OpenAI's revenue is far below its compute cost. These don't get debated.\n\n**What we can't know** is the cycle's timing. Exactly when the circuit will stop. What portion of AI revenue is genuine end-user demand versus recycled own-capital. Whether the peak is 2026, 2028, or 2030. This is fundamentally unknowable — anyone who claims to know is lying.\n\n**What we can estimate** is *where the first crack is most likely to appear*. The weakest node in the circuit is the first model company that fails to raise its next round. OpenAI and Anthropic are strong. But beyond those two — xAI, Mistral, Inflection, Cohere, Stability — if any one of them takes a down round or fails to fund, one node in the circuit breaks. That signal is measurable.\n\nThe second estimable signal is the credit spread on Big Tech corporate bonds. If the $108B issued in 2025 grows to $200B+ in 2026, credit markets will start pricing the credit differently. Spread widening is the circuit's second crack.\n\nThe third is the moment when NVIDIA's forward guidance shows sequential deceleration in data center revenue. The quarter NVDA itself says \"next quarter's growth will be weak\" — that's where the *third crack* shows.\n\nThe fourth — and most important — signal, we'll cover in the final memo of this series. The quarterly data from Anthropic's Economic Index on whether AI is actually displacing labor.",
+        },
+      ],
+    },
+    // ── 7. 결론 ───────────────────────────────────────────────────────────────
+    {
+      heading: "결론 — 회로가 멈추면",
+      headingEn: "Conclusion — When the Circuit Stops",
+      blocks: [
+        {
+          type: "text",
+          body: "이 메모는 AI가 거품인지 산업혁명인지를 답하지 않는다. 그 질문은 본질적으로 알 수 없다. 그리고 그 답을 안다고 주장하는 모든 메모는 — 강세든 약세든 — 자기 확신을 팔고 있다.\n\n그러나 이 메모가 답하는 것은 따로 있다. *지금 우리가 보고 있는 자본 흐름의 구조가 무엇인가* . 그것은 회로다. 매수자가 매도자에게 자본을 출자하고, 매도자가 그 자본으로 매수자에게서 사고, 매수자가 매출을 인식하는 닫힌 회로. 회계상으로는 vendor financing이 아니다. 경제학적으로는 같다.\n\n1999년의 같은 회로는 -89% 하락으로 끝났다. 그러나 *비즈니스가 망해서가 아니었다.* Cisco의 매출은 그 후 25년간 3배가 됐고, 회사는 매년 100억 달러 이상의 영업현금흐름을 만들었다. 망한 건 회로의 영구성에 가격을 매긴 multiple이었다. 그것이 -89%를 만들었다.\n\nNVIDIA에게도, Microsoft에게도, OpenAI에게도, SK하이닉스에게도 — 같은 가능성이 열려 있다. 회로가 계속 돌면, 모든 참가자가 부자가 된다. 회로가 멈추면, 비즈니스가 망하지 않아도, multiple이 무너진다. 그리고 그 차이가 모든 것을 결정한다.\n\n*매수자와 매도자가 같은 사람일 때, 시장 가격은 — 잠시 동안 — 무엇이든 될 수 있다. 회로가 도는 한.*\n\n회로가 도는 한.",
+          bodyEn:
+            "This memo doesn't answer whether AI is a bubble or an industrial revolution. That question is fundamentally unanswerable. And every memo — bullish or bearish — that claims to know the answer is selling its own conviction.\n\nWhat this memo does answer is something different. *What is the structure of the capital flow we are watching?* It is a circuit. A closed loop in which the buyer puts capital into the seller, the seller uses that capital to buy from the buyer, and the buyer recognizes revenue. In accounting terms, it isn't vendor financing. In economic terms, it's the same.\n\nIn 1999, the same circuit ended in a -89% drawdown. But *not because the business failed.* Cisco's revenue tripled over the 25 years that followed, and the company generated over $10 billion in operating cash flow every year. What failed was the multiple that priced in the permanence of the circuit. That made the -89%.\n\nThe same possibility is open to NVIDIA, Microsoft, OpenAI, SK Hynix — all of them. While the circuit runs, every participant gets rich. When the circuit stops, even if the business never fails, the multiple collapses. And that difference decides everything.\n\n*When the buyer and the seller are the same person, the market price can — for a while — be anything. As long as the circuit runs.*\n\nAs long as the circuit runs.",
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "insight",
+            heading: "다음 메모 예고 — 모델 빅2와 Claude Code의 매출",
+            headingEn: "Next Memo — Big 2 Model Companies and Claude Code's Revenue",
+            body: "회로의 가장 약한 마디는 모델 회사다. OpenAI와 Anthropic이 매출을 진짜 만들 수 있는지가 회로의 자기검증 첫 단계다. 다음 메모에서는 두 회사의 단위경제학 — 매출 vs 컴퓨트 비용 — 을 정량 비교하고, Claude Code가 AI agent 시대의 첫 진짜 PMF인지를 검증한다.",
+            bodyEn:
+              "The weakest node in the circuit is the model company. Whether OpenAI and Anthropic can actually generate revenue is the first stage of the circuit's self-validation. The next memo compares the two companies' unit economics — revenue vs compute cost — quantitatively, and asks whether Claude Code is the first real PMF of the AI-agent era.",
+          },
+        },
+      ],
+    },
+  ],
+  references: [
+    {
+      id: 1,
+      author: "NVIDIA Corporation",
+      title: "OpenAI and NVIDIA Announce Strategic Partnership to Deploy 10 Gigawatts of NVIDIA Systems",
+      source: "NVIDIA Investor Relations Press Release",
+      year: "2025-09-22",
+      url: "https://investor.nvidia.com/news/press-release-details/2025/OpenAI-and-NVIDIA-Announce-Strategic-Partnership-to-Deploy-10-Gigawatts-of-NVIDIA-Systems/",
+    },
+    {
+      id: 2,
+      author: "Microsoft Corporation",
+      title: "Form 8-K — OpenAI Group PBC Restructuring Disclosure",
+      source: "SEC EDGAR",
+      year: "2025-10-28",
+      url: "https://www.sec.gov/Archives/edgar/data/0000789019/000119312525256310/msft-ex99_2.htm",
+    },
+    {
+      id: 3,
+      author: "Couper, E., Hejkal, J., & Wolman, A.",
+      title: "Boom and Bust in Telecommunications",
+      source: "Federal Reserve Bank of Richmond Economic Quarterly, Vol. 89/4",
+      year: "2003",
+      url: "https://www.richmondfed.org/-/media/richmondfedorg/publications/research/economic_quarterly/2003/fall/pdf/wolman.pdf",
+      note: "1999-2001 통신 capex 사이클 정량 분석의 권위 1차 자료",
+    },
+    {
+      id: 4,
+      author: "Lucent Technologies Inc.",
+      title: "Form 10-K Annual Report (FY2002)",
+      source: "SEC EDGAR",
+      year: "2002",
+      url: "https://www.sec.gov/Archives/edgar/data/0001006240/000095011702003045/ex13.htm",
+      note: "Vendor financing 약정 잔액 및 충당금 1차 공시",
+    },
+    {
+      id: 5,
+      author: "Lazonick, W. & March, E.",
+      title: "The Rise and Demise of Lucent Technologies",
+      source: "Business History Conference",
+      year: "2010",
+      url: "https://thebhc.org/sites/default/files/lazonickandmarch.pdf",
+    },
+    {
+      id: 6,
+      author: "Cisco Systems Inc.",
+      title: "Form 10-K Annual Report (FY2001)",
+      source: "SEC EDGAR",
+      year: "2001",
+      url: "https://www.sec.gov/Archives/edgar/data/0000858877/000109581101505065/f75710ex13.txt",
+    },
+    {
+      id: 7,
+      author: "CNBC",
+      title: "Cisco stock closes at record for first time since dot-com peak in 2000",
+      source: "CNBC",
+      year: "2025-12-10",
+      url: "https://www.cnbc.com/2025/12/10/ciscos-stock-closes-at-record-for-first-time-since-dot-com-peak-2000.html",
+    },
+    {
+      id: 8,
+      author: "Bloomberg",
+      title: "AI Circular Deals (interactive graphic)",
+      source: "Bloomberg",
+      year: "2026",
+      url: "https://www.bloomberg.com/graphics/2026-ai-circular-deals/",
+      note: "회로 자금 흐름 시각화의 권위적 단일 소스",
+    },
+    {
+      id: 9,
+      author: "Fortune",
+      title: "Nvidia's $100 billion investment in OpenAI has analysts asking about 'circular financing' inflating an AI bubble",
+      source: "Fortune",
+      year: "2025-09-28",
+      url: "https://fortune.com/2025/09/28/nvidia-openai-circular-financing-ai-bubble/",
+    },
+    {
+      id: 10,
+      author: "NVIDIA Corporation",
+      title: "Form 10-K Annual Report (FY2026)",
+      source: "SEC EDGAR",
+      year: "2026",
+      note: "단일 고객 22% / 14% 매출 집중도 공시 — 시장은 Microsoft + Meta로 해석",
+    },
+    {
+      id: 11,
+      author: "Amazon Web Services",
+      title: "AWS Project Rainier Activation — Trainium2 Compute Cluster",
+      source: "About Amazon",
+      year: "2025",
+      url: "https://www.aboutamazon.com/news/aws/aws-project-rainier-ai-trainium-chips-compute-cluster",
+    },
+    {
+      id: 12,
+      author: "Apollo Academy (Torsten Sløk)",
+      title: "Hyperscaler CapEx 2026 Outlook",
+      source: "Apollo Global Management",
+      year: "2026-02",
+      url: "https://www.apolloacademy.com/wp-content/uploads/2026/02/Hyperscaler-capex-022226_v2.pdf",
+    },
+    {
+      id: 13,
+      author: "Light Reading",
+      title: "McGinn McFound — The Fall of Lucent's CEO",
+      source: "Light Reading",
+      year: "2000",
+      url: "https://www.lightreading.com/ethernet-ip/mcginn-mcfound/d/d-id/576484",
+    },
+    {
+      id: 14,
+      author: "Yahoo Finance",
+      title: "Nvidia says it isn't using circular financing schemes — 2 famous short sellers disagree",
+      source: "Yahoo Finance",
+      year: "2025",
+      url: "https://finance.yahoo.com/news/nvidia-says-it-isnt-using-circular-financing-schemes-2-famous-short-sellers-disagree-100021210.html",
+      note: "Chanos·Burry의 NVDA 회로 비판 + NVDA 공식 답변 — 회계 vs 경제학 논쟁의 핵심 단일 자료",
+    },
+  ],
+};
+
+export const ALL_NOTES: NoteData[] = [koreaDiscount, dollarHegemony1, dollarHegemony2, dollarHegemony3, dollarHegemony4, aiCycle1];

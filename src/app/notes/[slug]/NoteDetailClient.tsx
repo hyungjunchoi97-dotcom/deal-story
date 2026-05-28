@@ -6,6 +6,7 @@ import { motion, useInView } from "framer-motion";
 import {
   LineChart, Line,
   BarChart, Bar, Cell,
+  ComposedChart,
   XAxis, YAxis, Tooltip, CartesianGrid,
   ResponsiveContainer, ReferenceLine, Legend,
 } from "recharts";
@@ -29,6 +30,9 @@ import type {
   RepoCrisisPoint,
   CurrencyMixPoint,
   StablecoinPoint,
+  CapexFcfPoint,
+  LucentFinancingPoint,
+  CiscoLostDecadePoint,
 } from "@/data/notes";
 import { NOTE_CATEGORY_META, getSeriesNav } from "@/data/notes";
 import SeriesNav from "@/components/SeriesNav";
@@ -444,7 +448,7 @@ function StablecoinChart({ chart, lang }: { chart: NoteChartDef & { id: "stablec
           <Tooltip
             content={({ active, payload, label }) => {
               if (!active || !payload?.length) return null;
-              const total = (payload as { value: number }[]).reduce((s, p) => s + (p.value ?? 0), 0);
+              const total = (payload as unknown as { value: number }[]).reduce((s, p) => s + (p.value ?? 0), 0);
               return (
                 <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl px-4 py-3 text-xs space-y-1.5">
                   <p className="font-semibold text-gray-600 dark:text-gray-300 mb-1">{label}</p>
@@ -475,6 +479,274 @@ function StablecoinChart({ chart, lang }: { chart: NoteChartDef & { id: "stablec
   );
 }
 
+// ── CapEx + FCF Combo Chart (스택드 바 + 라인 오버레이) ─────────────────────────
+//  AI Capital Cycle Part 1 hero chart — 빅테크 capex 폭증 vs FCF 압박
+function CapexFcfChart({ chart, lang }: { chart: NoteChartDef & { id: "capex-fcf-combo" }; lang: Lang }) {
+  const data = chart.data as CapexFcfPoint[];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  const fcfLabel = lang === "en" ? "Combined FCF" : "5사 합산 FCF";
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={280}>
+        <ComposedChart data={data} margin={{ top: 8, right: 16, bottom: 0, left: -8 }}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} vertical={false} />
+          <XAxis dataKey="year" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
+          <YAxis yAxisId="left" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `$${v}B`} />
+          <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `$${v}B`} domain={[0, 250]} />
+          <Tooltip
+            content={({ active, payload, label }) => {
+              if (!active || !payload?.length) return null;
+              const capexTotal = (payload as unknown as { dataKey: string; value: number }[])
+                .filter((p) => p.dataKey !== "totalFcf")
+                .reduce((s, p) => s + (p.value ?? 0), 0);
+              return (
+                <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl px-4 py-3 text-xs space-y-1">
+                  <p className="font-semibold text-gray-600 dark:text-gray-300 mb-1">{label}</p>
+                  {[...payload].reverse().map((p) => (
+                    <div key={String(p.dataKey)} className="flex items-center justify-between gap-4">
+                      <span className="flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full" style={{ background: p.color as string }} />
+                        <span className="text-gray-500 dark:text-gray-400">{p.name}</span>
+                      </span>
+                      <span className="font-mono font-bold text-gray-800 dark:text-gray-100">${p.value}B</span>
+                    </div>
+                  ))}
+                  <div className="border-t border-gray-200 dark:border-gray-700 pt-1.5 mt-1 flex justify-between">
+                    <span className="text-gray-400">{lang === "en" ? "CapEx total" : "CapEx 합계"}</span>
+                    <span className="font-mono font-bold text-amber-600 dark:text-amber-400">${capexTotal}B</span>
+                  </div>
+                </div>
+              );
+            }}
+          />
+          <Legend wrapperStyle={{ fontSize: 11, paddingTop: 12 }} />
+          <Bar yAxisId="left" dataKey="ORCL"  name="Oracle"    stackId="capex" fill="#dc2626" />
+          <Bar yAxisId="left" dataKey="META"  name="Meta"      stackId="capex" fill="#2563eb" />
+          <Bar yAxisId="left" dataKey="AMZN"  name="Amazon"    stackId="capex" fill="#f59e0b" />
+          <Bar yAxisId="left" dataKey="GOOGL" name="Alphabet"  stackId="capex" fill="#10b981" />
+          <Bar yAxisId="left" dataKey="MSFT"  name="Microsoft" stackId="capex" fill="#8b5cf6" radius={[3, 3, 0, 0]} />
+          <Line yAxisId="right" type="monotone" dataKey="totalFcf" name={fcfLabel}
+            stroke="#0f172a" strokeWidth={2.5} dot={{ r: 3, fill: "#0f172a" }} strokeDasharray="4 3" />
+        </ComposedChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
+// ── Lucent Vendor Financing — 약정 vs 충당금 ──────────────────────────────────
+function LucentFinancingChart({ chart, lang }: { chart: NoteChartDef & { id: "lucent-financing" }; lang: Lang }) {
+  const data = chart.data as LucentFinancingPoint[];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={250}>
+        <LineChart data={data} margin={{ top: 8, right: 16, bottom: 0, left: -8 }}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} />
+          <XAxis dataKey="fy" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
+          <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `$${v}B`} />
+          <Tooltip
+            content={({ active, payload, label }) => {
+              if (!active || !payload?.length) return null;
+              return (
+                <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl px-4 py-3 text-xs space-y-1">
+                  <p className="font-semibold text-gray-600 dark:text-gray-300 mb-1">{label}</p>
+                  {payload.map((p) => (
+                    <div key={String(p.dataKey)} className="flex items-center justify-between gap-4">
+                      <span className="flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full" style={{ background: p.color as string }} />
+                        <span className="text-gray-500 dark:text-gray-400">{p.name}</span>
+                      </span>
+                      <span className="font-mono font-bold text-gray-800 dark:text-gray-100">${p.value}B</span>
+                    </div>
+                  ))}
+                </div>
+              );
+            }}
+          />
+          <Legend wrapperStyle={{ fontSize: 11, paddingTop: 12 }} />
+          <Line type="monotone" dataKey="commitments" name={lang === "en" ? "Customer Financing Commitments" : "고객 financing 약정"}
+            stroke="#0ea5e9" strokeWidth={2.5} dot={{ r: 4 }} />
+          <Line type="monotone" dataKey="provisions" name={lang === "en" ? "Write-down Provisions" : "충당금/상각"}
+            stroke="#ef4444" strokeWidth={2.5} dot={{ r: 4 }} strokeDasharray="5 3" />
+        </LineChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
+// ── Cisco Lost Decade — 주가 vs 매출 인덱스 (피크 = 100) ──────────────────────
+function CiscoLostDecadeChart({ chart, lang }: { chart: NoteChartDef & { id: "cisco-lost-decade" }; lang: Lang }) {
+  const data = chart.data as CiscoLostDecadePoint[];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  const annotations = chart.annotations ?? [];
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={260}>
+        <LineChart data={data} margin={{ top: 8, right: 16, bottom: 0, left: -8 }}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} />
+          <XAxis dataKey="year" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
+          <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `${v}`} domain={[0, 320]} />
+          <Tooltip
+            content={({ active, payload, label }) => {
+              if (!active || !payload?.length) return null;
+              return (
+                <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl px-4 py-3 text-xs space-y-1">
+                  <p className="font-semibold text-gray-600 dark:text-gray-300 mb-1">{label}</p>
+                  {payload.map((p) => (
+                    <div key={String(p.dataKey)} className="flex items-center justify-between gap-4">
+                      <span className="flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full" style={{ background: p.color as string }} />
+                        <span className="text-gray-500 dark:text-gray-400">{p.name}</span>
+                      </span>
+                      <span className="font-mono font-bold text-gray-800 dark:text-gray-100">{p.value}</span>
+                    </div>
+                  ))}
+                </div>
+              );
+            }}
+          />
+          <Legend wrapperStyle={{ fontSize: 11, paddingTop: 12 }} />
+          <ReferenceLine y={100} stroke="#94a3b8" strokeDasharray="3 3" strokeWidth={1} />
+          {annotations.map((ann) => (
+            <ReferenceLine key={ann.year} x={ann.year} stroke="#f59e0b" strokeDasharray="4 3" strokeWidth={1.5}
+              label={{ value: lang === "en" ? (ann.labelEn ?? ann.label) : ann.label, position: "top", fontSize: 9, fill: "#f59e0b" }} />
+          ))}
+          <Line type="monotone" dataKey="revenueIdx" name={lang === "en" ? "Revenue (FY00 = 100)" : "매출 (FY00=100)"}
+            stroke="#0ea5e9" strokeWidth={2.5} dot={{ r: 3 }} />
+          <Line type="monotone" dataKey="stockIdx" name={lang === "en" ? "Stock Price (Peak = 100)" : "주가 (피크=100)"}
+            stroke="#ef4444" strokeWidth={2.5} dot={{ r: 3 }} strokeDasharray="5 3" />
+        </LineChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
+// ── Circular Flow Diagram — custom SVG (NVDA → OpenAI → MSFT → NVDA) ──────────
+//  Recharts 가 노드-엣지 다이어그램을 지원하지 않으므로 단순 SVG 로 그림.
+//  3개 노드를 삼각형 배치, 화살표는 각 edge 의 amount 라벨 포함.
+function CircularFlowChart({ chart, lang }: { chart: NoteChartDef & { id: "circular-flow" }; lang: Lang }) {
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  const { nodes, edges } = chart;
+
+  // 삼각형 좌표 (3노드 가정). 4노드면 사각형으로 폴백.
+  const W = 760, H = 380;
+  const positions: Record<string, { x: number; y: number }> = {};
+  if (nodes.length === 3) {
+    positions[nodes[0].id] = { x: W / 2, y: 60 };           // top
+    positions[nodes[1].id] = { x: 80, y: H - 70 };          // bottom-left
+    positions[nodes[2].id] = { x: W - 80, y: H - 70 };      // bottom-right
+  } else if (nodes.length === 4) {
+    positions[nodes[0].id] = { x: 80, y: 70 };
+    positions[nodes[1].id] = { x: W - 80, y: 70 };
+    positions[nodes[2].id] = { x: W - 80, y: H - 70 };
+    positions[nodes[3].id] = { x: 80, y: H - 70 };
+  } else {
+    // fallback — 원형 배치
+    nodes.forEach((n, i) => {
+      const angle = (2 * Math.PI * i) / nodes.length - Math.PI / 2;
+      positions[n.id] = { x: W / 2 + Math.cos(angle) * (W / 3), y: H / 2 + Math.sin(angle) * (H / 3) };
+    });
+  }
+
+  const NODE_R = 56;
+
+  // 화살표 끝점 계산 (노드 원 가장자리에서 멈춤)
+  function arrowEndpoints(from: string, to: string) {
+    const a = positions[from], b = positions[to];
+    if (!a || !b) return null;
+    const dx = b.x - a.x, dy = b.y - a.y;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+    if (dist === 0) return null;
+    const ux = dx / dist, uy = dy / dist;
+    return {
+      x1: a.x + ux * NODE_R,
+      y1: a.y + uy * NODE_R,
+      x2: b.x - ux * (NODE_R + 8),
+      y2: b.y - uy * (NODE_R + 8),
+      midX: (a.x + b.x) / 2,
+      midY: (a.y + b.y) / 2,
+    };
+  }
+
+  return (
+    <ChartCard title={title} caption={caption}>
+      <div className="bg-white dark:bg-gray-900/40 py-4 overflow-x-auto">
+        <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto max-w-3xl mx-auto block" style={{ maxHeight: 400 }}>
+          {/* Edges */}
+          <defs>
+            <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <polygon points="0 0, 10 3, 0 6" fill="#64748b" />
+            </marker>
+          </defs>
+
+          {edges.map((edge, i) => {
+            const pts = arrowEndpoints(edge.from, edge.to);
+            if (!pts) return null;
+            const amountLabel = lang === "en" ? (edge.amountEn ?? edge.amount) : edge.amount;
+            const detailLabel = lang === "en" ? (edge.detailEn ?? edge.detail) : edge.detail;
+            return (
+              <g key={i}>
+                <line x1={pts.x1} y1={pts.y1} x2={pts.x2} y2={pts.y2}
+                  stroke="#64748b" strokeWidth={2} markerEnd="url(#arrowhead)" />
+                {/* Amount label background */}
+                <rect
+                  x={pts.midX - 70} y={pts.midY - 18}
+                  width={140} height={detailLabel ? 36 : 22}
+                  rx={6}
+                  fill="white"
+                  stroke="#e2e8f0"
+                  strokeWidth={1}
+                  className="dark:fill-gray-800"
+                />
+                <text x={pts.midX} y={pts.midY - 3} textAnchor="middle" fontSize={12} fontWeight={700}
+                  fill="#0f172a" className="dark:fill-gray-100">
+                  {amountLabel}
+                </text>
+                {detailLabel && (
+                  <text x={pts.midX} y={pts.midY + 12} textAnchor="middle" fontSize={9}
+                    fill="#64748b">
+                    {detailLabel}
+                  </text>
+                )}
+              </g>
+            );
+          })}
+
+          {/* Nodes */}
+          {nodes.map((node) => {
+            const p = positions[node.id];
+            if (!p) return null;
+            const label = lang === "en" ? (node.labelEn ?? node.label) : node.label;
+            const sub = lang === "en" ? (node.subEn ?? node.sub) : node.sub;
+            return (
+              <g key={node.id}>
+                <circle cx={p.x} cy={p.y} r={NODE_R}
+                  fill={node.color} opacity={0.15} />
+                <circle cx={p.x} cy={p.y} r={NODE_R}
+                  fill="none" stroke={node.color} strokeWidth={2.5} />
+                <text x={p.x} y={p.y + (sub ? -2 : 5)} textAnchor="middle"
+                  fontSize={15} fontWeight={800} fill={node.color}>
+                  {label}
+                </text>
+                {sub && (
+                  <text x={p.x} y={p.y + 14} textAnchor="middle"
+                    fontSize={10} fill="#64748b">
+                    {sub}
+                  </text>
+                )}
+              </g>
+            );
+          })}
+        </svg>
+      </div>
+    </ChartCard>
+  );
+}
+
 // ── Generic chart dispatcher ───────────────────────────────────────────────────
 function NoteChart({ chart, lang }: { chart: NoteChartDef; lang: Lang }) {
   if (chart.id === "pbr-comparison") return <PBRChart chart={chart} lang={lang} />;
@@ -486,6 +758,10 @@ function NoteChart({ chart, lang }: { chart: NoteChartDef; lang: Lang }) {
   if (chart.id === "repo-crisis") return <RepoCrisisChart chart={chart} lang={lang} />;
   if (chart.id === "currency-mix") return <CurrencyMixChart chart={chart} lang={lang} />;
   if (chart.id === "stablecoin-growth") return <StablecoinChart chart={chart} lang={lang} />;
+  if (chart.id === "capex-fcf-combo") return <CapexFcfChart chart={chart} lang={lang} />;
+  if (chart.id === "lucent-financing") return <LucentFinancingChart chart={chart} lang={lang} />;
+  if (chart.id === "cisco-lost-decade") return <CiscoLostDecadeChart chart={chart} lang={lang} />;
+  if (chart.id === "circular-flow") return <CircularFlowChart chart={chart} lang={lang} />;
   return null;
 }
 
