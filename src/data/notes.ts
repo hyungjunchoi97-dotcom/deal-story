@@ -3438,4 +3438,207 @@ const aiCycle6: NoteData = {
   ],
 };
 
-export const ALL_NOTES: NoteData[] = [koreaDiscount, dollarHegemony1, dollarHegemony2, dollarHegemony3, dollarHegemony4, aiCycle1, aiCycle4, aiCycle6];
+// ══════════════════════════════════════════════════════════════════════════════
+// NOTE #9 — AI Capital Cycle ② — 모델 빅2와 Claude Code
+// ══════════════════════════════════════════════════════════════════════════════
+
+const aiCycle2: NoteData = {
+  slug: "ai-capital-cycle-2",
+  category: "macro",
+  status: "published",
+  series: "ai-capital-cycle",
+  seriesOrder: 2,
+  title: "AI 자본 사이클 ② — 모델 빅2와 Claude Code",
+  titleEn: "AI Capital Cycle ② — The Model Duopoly & Claude Code",
+  description:
+    "OpenAI는 매출의 85%가 컨슈머, Anthropic은 80%가 API. 두 회사의 단위경제학은 완전히 다른 길로 갈라졌다. 그리고 Claude Code — Anthropic이 9개월 만에 $2.5B ARR을 만든 코딩 에이전트 — 가 AI의 첫 진짜 PMF의 정량 증거다.",
+  descriptionEn:
+    "OpenAI: 85% consumer revenue. Anthropic: 80% API revenue. Their unit economics have split into completely different paths. And Claude Code — the coding agent Anthropic grew to $2.5B ARR in nine months — is the first quantified proof of an AI PMF.",
+  date: "2026-05-29",
+  readingMinutes: 19,
+  keyPoints: [
+    "OpenAI 매출: 2024 $3.7B → 2025 $13.1B → 2026 $25B+ ARR. 매출의 85%가 ChatGPT 컨슈머. 2026 손실 $14B, 2030 전 흑자 어려움",
+    "Anthropic 매출: 2024 $1B → 2025 $9B → 2026.4 $30B run-rate (Dario: '80배 성장'). 80%가 enterprise/API. 2028 매출 $70B, FCF +$17B (leaked deck)",
+    "Claude Code: 2025.2 출시, 2025.5 GA, 2025.11 $1B ARR, 2026.2 $2.5B ARR. 6개월 $1B = ChatGPT 컨슈머 ramp보다 빠름. 공개 GitHub commit의 4%가 Claude Code 작성",
+    "Cursor: Series D $29.3B → $50B 협상, xAI $60B 인수 옵션. ARR $100M → $2B 13개월에 20배",
+    "Cognition (Devin): $26B, ARR $492M, 50% MoM 6개월. Mercedes 200K LOC COBOL: 8개월 추정 → 8일",
+    "회로 거울: Anthropic이 xAI Colossus에 월 $1.25B 지불. Anthropic 매출 → xAI capex → NVIDIA 매출",
+    "투자자 watch: OpenAI/Anthropic 다음 라운드 valuation, Cursor 2027 IPO, Microsoft Copilot Claude 전환",
+  ],
+  keyPointsEn: [
+    "OpenAI revenue: 2024 $3.7B → 2025 $13.1B → 2026 $25B+ ARR. 85% from ChatGPT consumer. 2026 loss $14B; profitability before 2030 unlikely",
+    "Anthropic revenue: 2024 $1B → 2025 $9B → April 2026 $30B run-rate (Dario: '80x growth'). 80% from enterprise/API. 2028 revenue $70B, FCF +$17B (leaked deck)",
+    "Claude Code: launched Feb 2025, GA May 2025, $1B ARR by Nov 2025, $2.5B by Feb 2026. 6 months to $1B = faster than ChatGPT consumer ramp. 4% of all public GitHub commits authored",
+    "Cursor: Series D $29.3B → $50B in talks, xAI option at $60B. ARR $100M → $2B in 13 months (20x)",
+    "Cognition (Devin): $26B, ARR $492M, 50% MoM for 6 months. Mercedes 200K LOC COBOL: 8-month estimate done in 8 days",
+    "Circuit mirror: Anthropic pays xAI Colossus $1.25B/month. Anthropic revenue → xAI capex → NVIDIA revenue",
+    "Investor watch: OpenAI/Anthropic next-round valuations, Cursor 2027 IPO, Microsoft Copilot Claude migration",
+  ],
+  sections: [
+    {
+      heading: "매출이 비용을 따라잡을 수 있는가",
+      headingEn: "Can Revenue Catch Cost?",
+      blocks: [
+        {
+          type: "text",
+          body: "Memo 1에서 우리는 — *회로의 가장 약한 마디는 다음 라운드를 받지 못하는 첫 모델 회사다* — 라는 결론에 도달했다. 그 회로의 진짜 자기검증은 단순하다. **모델 회사의 매출이 모델 회사의 컴퓨트 비용을 따라잡을 수 있는가**.\n\nOpenAI 매출 2024 $3.7B → 2025 $13.1B → 2026 ARR $25B+. 폭발적 성장이다. 그러나 매출 옆에 컴퓨트 비용을 놓으면 — 2026 OpenAI 손실 약 $14B, 2030년까지 누적 $44B+, HSBC는 $207B funding shortfall을 추정한다. *현재 trajectory로는 2030년에도 흑자가 안 나온다*.\n\nAnthropic은 더 흥미롭다. 매출 2024 $1B → 2025년 말 $9B → 2026.4 $30B run-rate. Dario Amodei가 5월 \"우리는 10배 성장을 계획했는데 80배가 왔다. 너무 어려워서 감당이 안 된다\" 라고 말했다. 컴퓨트 비용 2025 $360M → 2027 $6.4B → 2029년까지 누적 ~$80B. 그러나 **2028년 매출 $70B, FCF +$17B** (leaked deck). *2027년 흑자 전환 가능*.\n\n같은 산업, 두 모델 회사. 한 쪽은 흑자가 어렵고, 한 쪽은 2-3년 안에 가능하다. **무엇이 다른가**.",
+          bodyEn:
+            "In Memo 1 we concluded — *the weakest node in the circuit is the first model company that can't raise its next round*. The circuit's self-validation is simple. **Can the model company's revenue catch up to its compute cost?**\n\nOpenAI revenue: 2024 $3.7B → 2025 $13.1B → 2026 ARR $25B+. Explosive growth. But against compute costs — 2026 OpenAI loss ~$14B, cumulative loss to 2030 $44B+, HSBC estimates a $207B funding shortfall by 2030. *On current trajectory, profitability does not arrive even by 2030*.\n\nAnthropic is more interesting. Revenue 2024 $1B → end 2025 $9B → April 2026 $30B run-rate. Dario Amodei in May: \"We tried to plan for 10x growth. We got 80x. Too hard to handle.\" Compute spend 2025 $360M → 2027 $6.4B → cumulative ~$80B through 2029. But **2028 revenue $70B, FCF +$17B** (leaked deck). *Profitability possible by 2027*.\n\nSame industry, two model companies. One can't turn profitable; the other sees it in 2-3 years. **What's different?**",
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "insight",
+            heading: "차이 — 매출 mix",
+            headingEn: "The Difference — Revenue Mix",
+            body: "OpenAI: ~85%가 ChatGPT 컨슈머 (Plus $20, Team $25, Enterprise, Pro $200). 컨슈머는 CAC가 있고 churn ~40%, 사용자가 늘면 컴퓨트 비용도 동일 비율로 늘어난다. Anthropic: ~80%가 enterprise API. API는 CAC 거의 없고 (OpenAI·MSFT가 만든 시장), 88% Net Retention, customer 사용이 늘면 컴퓨트가 less-than-linear (배치·캐싱). 이 차이가 — 같은 성장 곡선에서도 흑자가 가깝거나 멀게 만든다.",
+            bodyEn:
+              "OpenAI: ~85% from ChatGPT consumer. Consumer carries CAC, ~40% churn, and adds compute roughly linearly per user. Anthropic: ~80% from enterprise API. Near-zero CAC (the market was made by OpenAI and Microsoft), 88% net retention, less-than-linear compute scaling per customer (batch processing, caching). This structural difference is why the same growth curve leads to very different paths to profitability.",
+          },
+        },
+      ],
+    },
+    {
+      heading: "Claude Code — AI의 첫 PMF 정량 증거",
+      headingEn: "Claude Code — The First Quantified Proof of AI PMF",
+      blocks: [
+        {
+          type: "text",
+          body: "Anthropic 성장의 절반 가까이가 한 제품에서 나온다. **Claude Code**.\n\n타임라인:\n- **2025.2.24** Public preview\n- **2025.5** General Availability\n- **2025.11** $1B ARR (GA 후 6개월)\n- **2026.2** $2.5B ARR (GA 후 9개월, Series G 공개)\n- 2026.5 — Anthropic 총 ARR의 ~17-20%, 코딩 워크로드 전체로는 API 매출의 ~50%\n\n6개월에 $1B ARR — *ChatGPT 컨슈머 ramp보다 빠르다*. 가입자당 매출은 $20-$200 컨슈머가 아니라 *enterprise developer 월 $100-$500*.\n\n무엇인가. **CLI 기반 자율 코딩 에이전트**. 사용자가 \"이 버그를 고쳐\" 라고 말하면, 터미널에서 코드베이스를 읽고, 파일을 수정하고, 테스트를 돌리고, git에 커밋한다. Cursor가 IDE에 박힌 채팅/에이전트라면, Claude Code는 *터미널·에이전트 native*. Devin이 클라우드 비동기 PR이라면, Claude Code는 *로컬·in-the-loop*.\n\n생산성 충격: **Anthropic 내부 코드의 70-90%가 Claude로 작성된다** (Dario, 2025.9). Claude Code 제작자 Boris Cherny: \"코딩은 대부분 '해결됐다'. 나는 11월부터 단 한 줄도 손으로 쓰지 않았다.\"",
+          bodyEn:
+            "Nearly half of Anthropic's growth comes from one product. **Claude Code.**\n\nTimeline:\n- **Feb 24, 2025** Public preview\n- **May 2025** General Availability\n- **November 2025** $1B ARR (6 months post GA)\n- **February 2026** $2.5B ARR (9 months post GA, disclosed at Series G)\n- May 2026 — ~17-20% of Anthropic's total ARR; coding workloads overall ~50% of API revenue\n\nReaching $1B ARR in 6 months is *faster than ChatGPT consumer's ramp*. Revenue per user isn't $20-200/month consumer — it's *enterprise developers at $100-500/month*.\n\nWhat is it? **A CLI-native autonomous coding agent.** A user says \"fix this bug\"; in the terminal, it reads the codebase, edits files, runs tests, commits to git. If Cursor is a chat/agent embedded in an IDE, Claude Code is *terminal-and-agent native*. If Devin is a cloud sandbox doing async PR-style work, Claude Code is *local and in-the-loop*.\n\nThe productivity shock: **70-90% of code at Anthropic is written by Claude** (Dario, September 2025). Claude Code creator Boris Cherny: \"Coding is now 'solved' for most use cases. I haven't written a single line by hand since November.\"",
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "quote",
+            body: "We tried to plan for 10x growth. We got 80x. It's just crazy. Too hard to handle.",
+            bodyEn: "We tried to plan for 10x growth. We got 80x. It's just crazy. Too hard to handle.",
+            heading: "— Dario Amodei, Code with Claude conference, 2026.5.6",
+            headingEn: "— Dario Amodei, Code with Claude conference, May 6, 2026",
+          },
+        },
+        {
+          type: "text",
+          body: "Claude Code의 진짜 의미는 매출이 아니다. **AI가 진짜 노동을 대체하는지에 대한 단일 정량 증거**다.\n\nSemiAnalysis: **GitHub 공개 commit의 ~4%가 Claude Code 작성** (2026.2). 60일에 두 배. 주별 +8%. 같은 페이스로 2026년 말 20%+.\n\nPragmatic Engineer 2026.2 15,000명 개발자 설문: **Claude Code 가장 많이 쓰는 AI 코딩 툴 1위, '가장 사랑하는 도구' 46%**.\n\nMicrosoft 내부 (Verge): \"우리는 대부분 Claude Code를 쓴다. 코딩에서는 다른 모든 AI 모델보다 앞서 있어서.\" *Microsoft가 GitHub Copilot을 만든다. 그 회사 엔지니어가 자기 회사 제품 대신 Claude Code를 쓴다*. 이게 PMF의 가장 강력한 정성 증거다.\n\nClaude Code의 $2.5B ARR — *진짜 엔드유저가 진짜 돈을 내고, 진짜 작업이 대체되는* 첫 정량 증거. 9개월 만에.",
+          bodyEn:
+            "Claude Code's real significance isn't revenue. It is **the first quantified proof that AI actually displaces labor**.\n\nSemiAnalysis: **~4% of all public GitHub commits authored by Claude Code** (Feb 2026). Doubled in 60 days. +8% WoW. At the same pace, by end-2026 over 20%.\n\nPragmatic Engineer Feb 2026 survey, 15,000 developers: **Claude Code #1 most-used AI coding tool; 46% \"most loved.\"**\n\nMicrosoft internal (Verge): \"Mostly we use Claude code, because it's way out ahead of all the other AI models in that area.\" *Microsoft makes GitHub Copilot. Its engineers use Claude Code instead*. The strongest qualitative PMF evidence.\n\nClaude Code's $2.5B ARR — *the first quantified proof that real end users pay real money and real work is substituted*. In nine months.",
+        },
+      ],
+    },
+    {
+      heading: "Cursor, Devin — 코딩 도구의 폭발",
+      headingEn: "Cursor, Devin — The Coding Tools Explosion",
+      blocks: [
+        {
+          type: "text",
+          body: "Claude Code만이 아니다. *Anthropic 모델 위에 만든 third-party 도구들도 별도로 폭발한다*.\n\n**Cursor (Anysphere)**. MIT 2022년 졸업생 4인. CEO Michael Truell, 25세. ARR: 2024.8 $100M → 2025.6 $500M → 2025.11 $1B → 2026.2 **$2B**. 13개월 20배. 펀딩: 2025.11.13 Series D **$2.3B at $29.3B** → 2026.4 협상 중 **$50B** (a16z + Thrive) → 2026.4.22 xAI \"2026 후반 Cursor를 **$60B** 에 인수할 옵션\" 발표 (Fortune). Cursor 모델 mix는 Claude 가중.\n\n**Cognition (Devin)**. 2026.5.27 $1B 라운드 at $26B post. ARR $492M, **50% MoM 6개월 연속**. Q1 2025 대비 Q2 2026 ARR 73배. Mercedes-Benz: 200,000 라인 COBOL 현대화 — 인간 추정 8개월 → Devin 8일. 고객: Goldman Sachs, Citi, US Army, NASA, Dell, Santander, BMW.\n\n**GitHub Copilot**. Microsoft 소유. 4.7M 유료 가입자 (2026.1, +75% YoY). 추정 ARR $1B+. 2026.3.9부터 **Claude Sonnet 4.6 추가**. \"Pick your agent\" Agent HQ. Microsoft가 자기 제품에 Claude를 넣은 사실은 — Anthropic 입장 \"우리 모델이 GitHub underlying\", Microsoft 입장 \"우리 사용자가 그 모델을 더 좋아한다\" 의 패배 인정에 가깝다.",
+          bodyEn:
+            "It's not only Claude Code. *Third-party tools built on Anthropic's model also explode independently*.\n\n**Cursor (Anysphere).** Four MIT 2022 graduates. CEO Michael Truell, age 25. ARR: Aug 2024 $100M → June 2025 $500M → Nov 2025 $1B → Feb 2026 **$2B**. 20x in 13 months. Funding: Nov 13, 2025 Series D **$2.3B at $29.3B** → April 2026 in talks at **$50B** (a16z + Thrive) → April 22, 2026 xAI option to acquire at **$60B** later in 2026 (Fortune). Model mix Claude-weighted.\n\n**Cognition (Devin).** May 27, 2026: $1B round at $26B post. ARR $492M, **50% MoM growth for 6 consecutive months**. Q2 2026 ARR is 73x Q1 2025. Mercedes-Benz: 200,000-line COBOL modernization — human estimate 8 months → Devin 8 days. Customers: Goldman Sachs, Citi, US Army, NASA, Dell, Santander, BMW.\n\n**GitHub Copilot.** Owned by Microsoft. 4.7M paid subscribers (Jan 2026, +75% YoY). Estimated ARR $1B+. **Claude Sonnet 4.6 added on March 9, 2026**. \"Pick your agent\" Agent HQ launched. Microsoft putting Claude into its own product means — for Anthropic, \"our model is now in GitHub.\" For Microsoft, close to admission: \"our users prefer that model.\"",
+        },
+        {
+          type: "table",
+          table: {
+            id: "coding-tools-landscape",
+            title: "AI 코딩 도구 경쟁 매트릭스 (2026.5)",
+            titleEn: "AI Coding Tools Competitive Matrix (May 2026)",
+            headers: ["도구", "ARR", "Valuation", "Primary 모델", "비고"],
+            headersEn: ["Tool", "ARR", "Valuation", "Primary Model", "Note"],
+            rows: [
+              ["Claude Code (Anthropic)", "$2.5B+ (Feb)", "Anthropic $380B의 일부", "Claude Sonnet/Opus", "공개 GitHub commit의 4%"],
+              ["Cursor (Anysphere)", "$2B (Feb)", "$29.3B → $50B 협상 → xAI $60B 옵션", "Claude 가중치 multi-model", "MIT 2022 4인, CEO 25세"],
+              ["GitHub Copilot", "$1B+ 추정", "Microsoft 사업부", "Multi (Claude 4.6 추가)", "4.7M 유료 sub, +75% YoY"],
+              ["Devin (Cognition)", "$492M", "$26B (2026.5)", "Multi-model", "50% MoM 6개월; Windsurf 인수"],
+              ["Lovable", "$400M (Mar)", "$6.6B", "Claude + 기타", "vibe coding, 스웨덴"],
+              ["Replit Agent", "$240M (FY25)", "$9B", "Multi-model", "in-browser dev"],
+              ["Bolt.new", "$40M+", "비공개", "Multi-model", "5M+ 사용자"],
+              ["Cline (OSS)", "—", "—", "BYO API", "5M VS Code 설치"],
+            ],
+            rowsEn: [
+              ["Claude Code (Anthropic)", "$2.5B+ (Feb)", "Part of Anthropic $380B", "Claude Sonnet/Opus", "4% of all public GitHub commits"],
+              ["Cursor (Anysphere)", "$2B (Feb)", "$29.3B → $50B talks → xAI $60B option", "Claude-weighted multi-model", "MIT 2022 four founders, CEO 25"],
+              ["GitHub Copilot", "$1B+ est.", "Microsoft division", "Multi (Claude 4.6 added)", "4.7M paid subs, +75% YoY"],
+              ["Devin (Cognition)", "$492M", "$26B (May 2026)", "Multi-model", "50% MoM x 6mo; Windsurf acquired"],
+              ["Lovable", "$400M (Mar)", "$6.6B", "Claude + others", "vibe coding, Sweden"],
+              ["Replit Agent", "$240M (FY25)", "$9B", "Multi-model", "in-browser dev"],
+              ["Bolt.new", "$40M+", "private", "Multi-model", "5M+ users"],
+              ["Cline (OSS)", "—", "—", "BYO API", "5M VS Code installs"],
+            ],
+            caption: "출처: TechCrunch, Bloomberg, CNBC, Sacra. 합산 코딩 도구 ARR ~$6B+, 2024년 대비 ~10배. 모든 frontier 도구가 Claude를 underlying에 포함.",
+            captionEn: "Sources: TechCrunch, Bloomberg, CNBC, Sacra. Combined coding tools ARR ~$6B+, roughly 10x vs 2024. Every frontier tool includes Claude in its underlying.",
+          },
+        },
+      ],
+    },
+    {
+      heading: "회로의 거울 — Anthropic이 xAI에 매월 $1.25B를 보낸다",
+      headingEn: "Mirror of the Circuit — Anthropic Pays xAI $1.25B per Month",
+      blocks: [
+        {
+          type: "text",
+          body: "Memo 1의 회로(NVDA→OpenAI→MSFT→NVDA)는 사이클의 첫 회로일 뿐이다. 두 번째 회로 — *모델 회사 간의 회로* — 가 새로 등장했다.\n\n2026.5.20 SpaceX의 S-1 파일링이 폭로한 사실. **Anthropic이 xAI의 Colossus 1 클러스터(GPU 22만 개, 300MW)의 전체 출력을 매월 $1.25B에 임대**한다. 2029.5까지. 총 $40B+. Colossus 2 확장에도 들어간다. 5월부터 **연 $15B를 xAI에 지불**.\n\nAnthropic이 왜 xAI에서 사는가. AWS Project Rainier(50만 Trainium2), Google TPU도 쓴다. 그러나 모두 합쳐도 Claude Code가 만든 수요를 처리하기에 모자란다. xAI Colossus가 \"여유 GPU\"를 가진 거의 유일한 곳이었다.\n\nxAI 입장: Grok이 매출을 충분히 만들지 못한다. Colossus capex 회수가 안 된다. Anthropic이 그 capex를 메우는 *임대 매출*. xAI는 그 매출로 NVIDIA에서 더 많은 GPU를 산다 (Series E $20B at $230B, 2026.1).\n\n회로의 두 번째 마디:\n\n*Anthropic 매출 (Claude Code) → xAI 임대료 → xAI capex → NVIDIA 매출 → NVIDIA가 OpenAI에 → OpenAI가 Azure에 → MSFT가 NVIDIA에서*\n\n*첫 회로와 두 번째 회로가 NVIDIA에서 만난다*.\n\n시사: 첫째, *Anthropic 매출이 진짜 enterprise 수요에서 오는 한* 회로는 정당화된다. 둘째, *Anthropic 매출이 둔화되면* 회로의 이 마디가 가장 먼저 깨진다. Anthropic이 xAI 임대료를 못 내면 xAI가 NVIDIA capex를 줄인다. 회로가 거꾸로 풀린다.\n\n그래서 시리즈 단일 watch metric으로 다시 돌아온다: *Anthropic의 다음 라운드 valuation, 매출 성장 둔화 여부*.",
+          bodyEn:
+            "Memo 1's circuit (NVDA→OpenAI→MSFT→NVDA) is just the first circuit. A second circuit — *between model companies* — has emerged.\n\nOn May 20, 2026, SpaceX's S-1 IPO filing revealed: **Anthropic leases the entire output of xAI's Colossus 1 cluster (220K GPUs, 300MW) for $1.25B per month**. Through May 2029. Total $40B+. Extending into Colossus 2. From May, **$15B/yr to one counterparty: xAI**.\n\nWhy does Anthropic buy from xAI? It already uses AWS Project Rainier (500K Trainium2) and Google TPU. But all combined are insufficient for demand Claude Code generates. xAI's Colossus was nearly the only place with \"spare GPUs.\"\n\nFrom xAI's side — Grok doesn't generate enough revenue. Colossus capex can't be recouped. Anthropic creates the *lease revenue* filling that capex. xAI uses it to buy more NVIDIA GPUs (Series E $20B at $230B, Jan 2026).\n\nThe second node:\n\n*Anthropic revenue (Claude Code) → xAI lease → xAI capex → NVIDIA revenue → NVIDIA invests in OpenAI → OpenAI commits to Azure → MSFT buys from NVIDIA*\n\n*Both circuits meet at NVIDIA*.\n\nImplications: first, *as long as Anthropic's revenue is real enterprise demand*, the circuit is justified. Second, *if Anthropic revenue slows*, this node breaks first. Anthropic can't pay xAI lease; xAI cuts NVIDIA capex. The circuit unravels in reverse.\n\nWe return to the series-wide watch metric: *Anthropic's next-round valuation and revenue growth deceleration*.",
+        },
+        {
+          type: "chart",
+          chart: {
+            id: "ai-penetration",
+            title: "Anthropic Economic Index — 직업별 AI 침투율 trajectory",
+            titleEn: "Anthropic Economic Index — AI Penetration by Occupation Trajectory",
+            caption:
+              "출처: Anthropic Economic Index (Feb 2025, Sept 2025, Jan 2026, Mar 2026). O*NET 직업 task가 Claude로 수행된 비율. 소프트웨어 가장 높은 침투 (2026Q1 카테고리 35.8%, programmer 단일 직군 74.5%).",
+            captionEn:
+              "Sources: Anthropic Economic Index reports. Share of O*NET occupation tasks performed using Claude. Software leads (Q1 2026: 35.8% category-wide; 74.5% for programmer occupation).",
+            data: [
+              { period: "25Q1", software: 12, finance: 4,  legal: 2,  customer: 8 },
+              { period: "25Q2", software: 18, finance: 7,  legal: 4,  customer: 14 },
+              { period: "25Q3", software: 24, finance: 12, legal: 7,  customer: 21 },
+              { period: "25Q4", software: 30, finance: 17, legal: 11, customer: 28 },
+              { period: "26Q1", software: 36, finance: 22, legal: 16, customer: 35 },
+            ],
+          },
+        },
+      ],
+    },
+    {
+      heading: "결론 — 노동을 대체할 수 있는가",
+      headingEn: "Conclusion — Can Labor Be Substituted",
+      blocks: [
+        {
+          type: "text",
+          body: "이 메모의 단일 명제는 단순하다 — **AI의 첫 PMF는 코딩이다. Claude Code가 그것을 처음 정량 증명했다**.\n\nOpenAI와 Anthropic의 단위경제학이 갈라진 이유는 매출 mix에 있다. OpenAI는 컨슈머 ChatGPT의 churn과 CAC를 진다. Anthropic은 enterprise API의 88% retention과 less-than-linear scaling을 누린다. *2027년 흑자 가능성의 차이는 모델 품질이 아니라 비즈니스 모델의 차이*다.\n\n그리고 Claude Code는 — 9개월에 $2.5B ARR을 만들면서 — 시리즈의 핵심 질문에 첫 답을 준다. *AI가 진짜 노동을 대체할 수 있는가?* 코딩에서는 이미 일어났다. GitHub 공개 commit의 4%, Anthropic 내부 코드의 70-90%, Mercedes 8개월 작업 8일.\n\n이게 회로 자기검증의 첫 데이터다. Memo 1에서 우리는 \"매수자와 매도자가 같은 사람일 때 시장 가격은 무엇을 의미하는가\" 라고 물었다. Claude Code의 $2.5B는 — *적어도 그 매출의 한 마디에서는 매수자가 매도자가 아니라는 증거*다. 진짜 enterprise customer가 진짜 코딩 노동을 대체하기 위해 진짜 $100-$500/월을 낸다.\n\n그러나 이게 회로 전체의 자기검증은 아니다. 코딩 외 — 법무·회계·마케팅·고객서비스·디자인 — 의 PMF는 코딩만큼 깨끗하지 않다. 시리즈 마지막 메모 (Anthropic Economic Index) 에서 전 직군 데이터를 본다.\n\n*Claude Code는 첫 정량 증거다. 다음 직군의 데이터가 같은 곡선을 보여주는가가 사이클의 운명을 결정한다*.",
+          bodyEn:
+            "The single proposition: **AI's first PMF is coding. Claude Code is its first quantified proof.**\n\nOpenAI and Anthropic's unit economics split apart on revenue mix. OpenAI bears consumer ChatGPT's churn and CAC. Anthropic enjoys enterprise API's 88% retention and less-than-linear scaling. *The difference in 2027 profitability is not model quality but business model.*\n\nAnd Claude Code — $2.5B ARR in 9 months — gives the first answer to the series's core question. *Can AI actually displace labor?* In coding, it has already happened. 4% of public GitHub commits, 70-90% of Anthropic's internal code, Mercedes' 8-month job in 8 days.\n\nThis is the first datum of the circuit's self-validation. In Memo 1 we asked: \"When buyer and seller are the same person, what does the market price mean?\" Claude Code's $2.5B is — *evidence that in at least one node, the buyer is not the seller*. Real enterprise customers pay real $100-500/month to substitute real coding labor.\n\nBut this is not the circuit's full validation. Outside coding — legal, accounting, marketing, customer service, design — the PMF data is not as clean. The final memo (Anthropic Economic Index) looks at all occupations.\n\n*Claude Code is the first quantified proof. Whether the next occupation's data shows the same curve will decide the cycle's fate.*",
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "insight",
+            heading: "다음 메모 — IPO 파도와 1999",
+            headingEn: "Next Memo — The IPO Wave and 1999",
+            body: "OpenAI S-1 confidentially filed 2026.5.22. Anthropic $900B 라운드 협상. Cursor xAI $60B 옵션. 2026 AI IPO 파도가 capex backstop인가, 1999 cycle top signal인가. 다음 메모.",
+            bodyEn:
+              "OpenAI S-1 confidentially filed May 22, 2026. Anthropic in talks at $900B. Cursor with xAI's $60B option. Is the 2026 AI IPO wave a capex backstop or a 1999-style cycle top signal? Next memo.",
+          },
+        },
+      ],
+    },
+  ],
+  references: [
+    { id: 1, author: "Anthropic", title: "Series G $30B at $380B post-money", source: "Anthropic Press Release", year: "2026-02-12", url: "https://www.anthropic.com/news/anthropic-raises-30-billion-series-g-funding-380-billion-post-money-valuation" },
+    { id: 2, author: "CNBC (Dario Amodei keynote)", title: "Anthropic CEO says company grew 80-fold in first quarter", source: "CNBC", year: "2026-05-06", url: "https://www.cnbc.com/2026/05/06/anthropic-ceo-dario-amodei-says-company-crew-80-fold-in-first-quarter.html" },
+    { id: 3, author: "The Information (leaked deck)", title: "Anthropic projects $70B revenue, $17B cash flow in 2028", source: "The Information", year: "2025-11", url: "https://www.theinformation.com/articles/anthropic-projects-70-billion-revenue-17-billion-cash-flow-2028" },
+    { id: 4, author: "CNBC", title: "OpenAI resets spend expectations, targets $600B by 2030", source: "CNBC", year: "2026-02-20", url: "https://www.cnbc.com/2026/02/20/openai-resets-spend-expectations-targets-around-600-billion-by-2030.html" },
+    { id: 5, author: "Microsoft", title: "Form 8-K — OpenAI Restructuring (Oct 28, 2025)", source: "SEC EDGAR", year: "2025-10-28", url: "https://www.sec.gov/Archives/edgar/data/0000789019/000119312525256310/msft-ex99_2.htm" },
+    { id: 6, author: "SemiAnalysis", title: "Claude Code is the Inflection Point — 4% of public GitHub commits", source: "SemiAnalysis", year: "2026-02", url: "https://newsletter.semianalysis.com/p/claude-code-is-the-inflection-point" },
+    { id: 7, author: "CNBC", title: "Cursor Series D $2.3B at $29.3B", source: "CNBC", year: "2025-11-13", url: "https://www.cnbc.com/2025/11/13/cursor-ai-startup-funding-round-valuation.html" },
+    { id: 8, author: "Fortune", title: "Cursor xAI $60B acquisition option", source: "Fortune", year: "2026-04-22", url: "https://fortune.com/2026/04/22/who-is-cursor-25-year-old-ceo-michael-truell-tech-startups-csuite-elon-musk-spacex/" },
+    { id: 9, author: "TechCrunch", title: "Cognition (Devin) $1B at $26B post", source: "TechCrunch", year: "2026-05-27", url: "https://techcrunch.com/2026/05/27/ai-coding-startup-cognition-raises-1b-at-25b-pre-money-valuation/" },
+    { id: 10, author: "DCD / SpaceX S-1", title: "Anthropic pays xAI $1.25B/month for Colossus", source: "Data Center Dynamics", year: "2026-05", url: "https://www.datacenterdynamics.com/en/news/spacex-ipo-filing-reveals-anthropic-set-to-pay-musks-firm-125bn-a-month-to-rent-xai-data-center-space/" },
+    { id: 11, author: "Anthropic", title: "Economic Index — Quarterly reports", source: "Anthropic", year: "2025-2026", url: "https://www.anthropic.com/economic-index" },
+    { id: 12, author: "Lenny Rachitsky podcast", title: "Boris Cherny (Claude Code creator) interview", source: "Lenny's Newsletter", year: "2026-04", note: "코딩은 대부분 해결됐다 / 11월부터 손으로 안 쓴다" },
+  ],
+};
+
+export const ALL_NOTES: NoteData[] = [koreaDiscount, dollarHegemony1, dollarHegemony2, dollarHegemony3, dollarHegemony4, aiCycle1, aiCycle2, aiCycle4, aiCycle6];
