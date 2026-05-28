@@ -203,7 +203,7 @@ function CategoryFolder({
         {/* 항목 수 + 시보 */}
         <div className="flex items-center gap-2 flex-shrink-0">
           <span className="text-[12px] font-semibold text-gray-400 dark:text-gray-500">
-            {total}편
+            {ko ? `${total}편` : total}
           </span>
           <motion.div
             animate={{ rotate: open ? 180 : 0 }}
