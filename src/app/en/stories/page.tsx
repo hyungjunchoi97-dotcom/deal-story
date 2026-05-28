@@ -140,9 +140,6 @@ export default function StoriesPageEn() {
                     <h2 className="text-base font-bold text-gray-900 dark:text-gray-100">
                       {meta.labelEn}
                     </h2>
-                    <p className="text-[11px] text-gray-400 dark:text-gray-500">
-                      {meta.label}
-                    </p>
                   </div>
                 </div>
 
