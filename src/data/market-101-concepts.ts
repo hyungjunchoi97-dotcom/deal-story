@@ -14,9 +14,6 @@ export { CATEGORY_COLOR } from "@/data/market-concepts";
 export const MARKET_101_CATEGORIES = [
   { key: "dcm"        as const, label: "DCM",       labelEn: "DCM",                    dotColor: "bg-teal-500"   },
   { key: "ecm"        as const, label: "ECM",       labelEn: "ECM",                    dotColor: "bg-blue-500"   },
-  { key: "st"         as const, label: "S&T",       labelEn: "S&T",                    dotColor: "bg-violet-500" },
-  { key: "structure"  as const, label: "구조·규제",  labelEn: "Structure & Regulation", dotColor: "bg-orange-500" },
-  { key: "sales"      as const, label: "세일즈",     labelEn: "Sales",                  dotColor: "bg-sky-500"    },
   { key: "fig"        as const, label: "FIG",       labelEn: "FIG",                    dotColor: "bg-rose-500"   },
   { key: "sovereign"  as const, label: "소버린",     labelEn: "Sovereign",              dotColor: "bg-indigo-500" },
   { key: "structured" as const, label: "구조화",     labelEn: "Structured",             dotColor: "bg-amber-500"  },

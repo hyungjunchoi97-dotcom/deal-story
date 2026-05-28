@@ -14,9 +14,6 @@ import {
 const CAT_META: Record<string, { icon: string; desc: string; descEn: string }> = {
   dcm:        { icon: "📊", desc: "부채자본시장 — 채권 발행·신디케이션·프라이싱", descEn: "Debt Capital Markets — bond issuance, syndication, pricing" },
   ecm:        { icon: "📈", desc: "주식자본시장 — IPO·유상증자·블록딜", descEn: "Equity Capital Markets — IPO, follow-on, block deals" },
-  st:         { icon: "⚡", desc: "세일즈 & 트레이딩 — 마켓메이킹·포지션·리스크", descEn: "Sales & Trading — market making, positioning, risk" },
-  structure:  { icon: "🏗️", desc: "구조·규제 — 바젤·자기자본·규제 프레임워크", descEn: "Structure & Regulation — Basel, capital ratios, regulatory" },
-  sales:      { icon: "🤝", desc: "세일즈 — 클라이언트 커버리지·피치·관계관리", descEn: "Sales — client coverage, pitch, relationship management" },
   fig:        { icon: "🏦", desc: "금융기관 — 은행 자본구조·AT1·CoCo·베일인", descEn: "Financial Institutions — bank capital, AT1, CoCo, bail-in" },
   sovereign:  { icon: "🌐", desc: "소버린 — 국채·EM 채권·세기채", descEn: "Sovereign — government bonds, EM debt, century bonds" },
   structured: { icon: "🧩", desc: "구조화금융 — ABS·CLO·CDO·CMBS", descEn: "Structured Finance — ABS, CLO, CDO, CMBS" },
@@ -120,29 +117,6 @@ function TermRow({ concept, index }: { concept: MarketConcept; index: number }) 
         </div>
       </Link>
     </motion.div>
-  );
-}
-
-// ── 준비 중 폴더 ──────────────────────────────────────────────────────────
-function LockedFolder({ label, icon, desc }: { label: string; icon: string; desc: string }) {
-  return (
-    <div className="rounded-xl border border-dashed border-gray-200 dark:border-gray-700/50 bg-gray-50/40 dark:bg-gray-900/20 overflow-hidden">
-      <div className="flex items-center gap-3 px-5 py-4">
-        <span className="text-xl opacity-40">{icon}</span>
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2">
-            <span className="text-[15px] font-bold text-gray-400 dark:text-gray-600">{label}</span>
-            <span className="text-[10px] px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-600 font-semibold">
-              준비 중
-            </span>
-          </div>
-          <p className="text-[11px] text-gray-400 dark:text-gray-500 mt-0.5 truncate">{desc}</p>
-        </div>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gray-300 dark:text-gray-700 flex-shrink-0">
-          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-        </svg>
-      </div>
-    </div>
   );
 }
 
@@ -334,7 +308,6 @@ export default function Market101IndexClient() {
     });
 
   const populated = folders.filter((f) => f.total > 0);
-  const empty = folders.filter((f) => f.total === 0);
 
   return (
     <div className="max-w-3xl mx-auto px-5 py-10 space-y-10">
@@ -393,26 +366,6 @@ export default function Market101IndexClient() {
           </motion.div>
         ))}
       </div>
-
-      {/* ── 준비 중 폴더 (데이터 없는 것) ── */}
-      {empty.length > 0 && (
-        <div>
-          <div className="flex items-center gap-2 mb-4">
-            <span className="text-[12px] font-semibold text-gray-400 dark:text-gray-500">준비 중</span>
-            <div className="flex-1 h-px bg-gray-200 dark:bg-gray-700" />
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {empty.map((f) => (
-              <LockedFolder
-                key={f.key}
-                label={f.label}
-                icon={CAT_META[f.key]?.icon ?? "📁"}
-                desc={CAT_META[f.key]?.desc ?? ""}
-              />
-            ))}
-          </div>
-        </div>
-      )}
 
     </div>
   );

@@ -13,9 +13,6 @@ import {
 const CAT_META: Record<string, { icon: string; desc: string }> = {
   dcm:        { icon: "📊", desc: "Debt Capital Markets — bond issuance, syndication, pricing" },
   ecm:        { icon: "📈", desc: "Equity Capital Markets — IPO, follow-on, block deals" },
-  st:         { icon: "⚡", desc: "Sales & Trading — market making, positioning, risk" },
-  structure:  { icon: "🏗️", desc: "Structure & Regulation — Basel, capital ratios, regulatory" },
-  sales:      { icon: "🤝", desc: "Sales — client coverage, pitch, relationship management" },
   fig:        { icon: "🏦", desc: "Financial Institutions — bank capital, AT1, CoCo, bail-in" },
   sovereign:  { icon: "🌐", desc: "Sovereign — government bonds, EM debt, century bonds" },
   structured: { icon: "🧩", desc: "Structured Finance — ABS, CLO, CDO, CMBS" },
@@ -76,26 +73,6 @@ function TermRow({ concept, index }: { concept: MarketConcept; index: number }) 
         </div>
       </Link>
     </motion.div>
-  );
-}
-
-function LockedFolder({ labelEn, icon, desc }: { labelEn: string; icon: string; desc: string }) {
-  return (
-    <div className="rounded-xl border border-dashed border-gray-200 dark:border-gray-700/50 bg-gray-50/40 dark:bg-gray-900/20 overflow-hidden">
-      <div className="flex items-center gap-3 px-5 py-4">
-        <span className="text-xl opacity-40">{icon}</span>
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2">
-            <span className="text-[15px] font-bold text-gray-400 dark:text-gray-600">{labelEn}</span>
-            <span className="text-[10px] px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-600 font-semibold">Coming soon</span>
-          </div>
-          <p className="text-[11px] text-gray-400 dark:text-gray-500 mt-0.5 truncate">{desc}</p>
-        </div>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gray-300 dark:text-gray-700 flex-shrink-0">
-          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-        </svg>
-      </div>
-    </div>
   );
 }
 
@@ -198,7 +175,6 @@ export default function Market101IndexClientEn() {
   });
 
   const populated = folders.filter((f) => f.total > 0);
-  const empty = folders.filter((f) => f.total === 0);
 
   return (
     <div className="max-w-3xl mx-auto px-5 py-10 space-y-10">
@@ -236,19 +212,6 @@ export default function Market101IndexClientEn() {
         ))}
       </div>
 
-      {empty.length > 0 && (
-        <div>
-          <div className="flex items-center gap-2 mb-4">
-            <span className="text-[12px] font-semibold text-gray-400 dark:text-gray-500">Coming soon</span>
-            <div className="flex-1 h-px bg-gray-200 dark:bg-gray-700" />
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {empty.map((f) => (
-              <LockedFolder key={f.key} labelEn={f.labelEn} icon={CAT_META[f.key]?.icon ?? "📁"} desc={CAT_META[f.key]?.desc ?? ""} />
-            ))}
-          </div>
-        </div>
-      )}
     </div>
   );
 }
