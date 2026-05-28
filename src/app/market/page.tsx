@@ -114,7 +114,7 @@ export default function MarketPage() {
         </div>
 
         {/* ── 카테고리 폴더 ── */}
-        <div className="max-w-4xl mx-auto px-5 py-10">
+        <div className="max-w-3xl mx-auto px-5 py-10">
           <MarketIndexClient />
         </div>
 

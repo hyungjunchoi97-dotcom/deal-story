@@ -83,7 +83,7 @@ export default function DealsPageEn() {
         />
 
         {/* Filter + card grid */}
-        <div className="max-w-4xl mx-auto px-5 py-8">
+        <div className="max-w-3xl mx-auto px-5 py-8">
           <DealsFolderClient deals={ALL_DEALS_EN} lboDeals={ALL_LBO_DEALS} lang="en" />
         </div>
 

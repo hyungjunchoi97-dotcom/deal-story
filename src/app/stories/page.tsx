@@ -125,7 +125,7 @@ export default function StoriesPage() {
         </div>
 
         {/* ── 카테고리 폴더 ── */}
-        <div className="max-w-4xl mx-auto px-5 py-10">
+        <div className="max-w-3xl mx-auto px-5 py-10">
           <StoriesIndexClient lang="ko" />
         </div>
       </main>

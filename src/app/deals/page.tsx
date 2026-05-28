@@ -82,7 +82,7 @@ export default function DealsPage() {
         />
 
         {/* 필터 + 카드 그리드 */}
-        <div className="max-w-4xl mx-auto px-5 py-8">
+        <div className="max-w-3xl mx-auto px-5 py-8">
           <DealsFolderClient deals={ALL_DEALS} lboDeals={ALL_LBO_DEALS} lang="ko" />
         </div>
 

@@ -121,7 +121,7 @@ export default function StoriesPageEn() {
         </div>
 
         {/* ── Category folders ── */}
-        <div className="max-w-4xl mx-auto px-5 py-10">
+        <div className="max-w-3xl mx-auto px-5 py-10">
           <StoriesIndexClient lang="en" />
         </div>
       </main>
