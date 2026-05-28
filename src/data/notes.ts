@@ -7,6 +7,36 @@
 
 export type NoteCategory = "macro" | "strategy" | "market" | "essay" | "activism";
 
+// ── Series ─────────────────────────────────────────────────────────────────────
+/**
+ * 시리즈물 그룹핑 식별자. 새 시리즈 추가 시 ID 등록 → 메타데이터 정의 → 각 노트에 부여.
+ * 시리즈에 속하지 않는 노트는 series 필드를 비워두면 인덱스에서 단일 카드로 렌더된다.
+ */
+export type NoteSeriesId = "dollar-hegemony";
+
+export const NOTE_SERIES_META: Record<
+  NoteSeriesId,
+  {
+    label: string;
+    labelEn: string;
+    desc: string;
+    descEn: string;
+    icon: string;
+    accent: string;
+    category: NoteCategory; // 폴더 색상/카테고리 매핑
+  }
+> = {
+  "dollar-hegemony": {
+    label: "달러 패권",
+    labelEn: "Dollar Hegemony",
+    desc: "달러가 어떻게 세계의 돈이 됐고, 지금 어떻게 재설계되고 있는가",
+    descEn: "How the dollar became the world's money — and how it's being redesigned",
+    icon: "💵",
+    accent: "#0ea5e9",
+    category: "macro",
+  },
+};
+
 export const NOTE_CATEGORY_META: Record<
   NoteCategory,
   {
@@ -162,6 +192,10 @@ export type NoteData = {
   keyPointsEn?: string[];
   sections: NoteSection[];
   references: NoteReference[];
+  /** 시리즈물 그룹핑. 같은 series ID를 가진 노트들은 인덱스에서 폴더로 묶인다. */
+  series?: NoteSeriesId;
+  /** 시리즈 내 순서 (1편, 2편, 3편 ...). seriesOrder 오름차순으로 정렬됨. */
+  seriesOrder?: number;
 };
 
 // ── Helper ─────────────────────────────────────────────────────────────────────
@@ -710,6 +744,8 @@ const dollarHegemony1: NoteData = {
   slug: "dollar-hegemony-1",
   category: "macro",
   status: "published",
+  series: "dollar-hegemony",
+  seriesOrder: 1,
   title: "달러 패권 ① — 왜 달러가 세계의 돈이 됐나",
   titleEn: "Dollar Hegemony ① — How the Dollar Became the World's Money",
   description:
@@ -1114,6 +1150,8 @@ const dollarHegemony2: NoteData = {
   slug: "dollar-hegemony-2",
   category: "macro",
   status: "published",
+  series: "dollar-hegemony",
+  seriesOrder: 2,
   title: "달러 패권 ② — 배관을 이해하면 세계가 보인다",
   titleEn: "Dollar Hegemony ② — Understanding the Plumbing",
   description:
@@ -1541,6 +1579,8 @@ const dollarHegemony3: NoteData = {
   slug: "dollar-hegemony-3",
   category: "macro",
   status: "published",
+  series: "dollar-hegemony",
+  seriesOrder: 3,
   title: "달러 패권 ③ — 탈달러화는 가능한가",
   titleEn: "Dollar Hegemony ③ — Can Dedollarization Actually Happen?",
   description:
@@ -1858,6 +1898,8 @@ const dollarHegemony4: NoteData = {
   slug: "dollar-hegemony-4",
   category: "macro",
   status: "published",
+  series: "dollar-hegemony",
+  seriesOrder: 4,
   title: "달러 패권 ④ — 스테이블코인과 달러 제국 2.0",
   titleEn: "Dollar Hegemony ④ — Stablecoins and Dollar Empire 2.0",
   description:
