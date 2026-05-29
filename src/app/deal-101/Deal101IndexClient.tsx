@@ -28,6 +28,15 @@ const KO_CONCEPT_CATALOG: ConceptItem[] = [
   { slug: "lbo-returns",           term: "LBO 101 Ch.2 — 리턴 분석",           tagline: "MOIC·IRR 충돌 시나리오, J-커브, 가치창출 3대 드라이버(EBITDA·멀티플·부채상환), Vintage Year 효과",                            category: "LBO 시리즈", published: true  },
   { slug: "lbo-deal-process",      term: "LBO 101 Ch.3 — 딜 프로세스 & 리스크", tagline: "6단계 딜 타임라인, Sources & Uses, Maturity Wall, TXU·Toys'R'Us·Caesars 실패 / Alliance Boots 성공 해부",                   category: "LBO 시리즈", published: true  },
 
+  // FDD 시리즈 — Big 4 Transaction Services 표준 워크플로우 (한국·미국·글로벌 dual case)
+  { slug: "fdd-vs-audit",     term: "FDD 101 Ch.1 — FDD vs Audit",            tagline: "FDD는 회계감사가 아니라 deal language다. Big 4 Transaction Services 시장 구조, sell-side vs buy-side, 4 DD 분담 (Fin·Legal·Tax·Commercial)",         category: "FDD 시리즈", published: false },
+  { slug: "fdd-engagement",   term: "FDD 101 Ch.2 — Engagement & Scoping",     tagline: "RFP에서 Kick-off까지. Scoping이 deliverable의 90%를 결정한다. Team 구조, Engagement/Reliance Letter, 6-8주 표준 timeline",                          category: "FDD 시리즈", published: false },
+  { slug: "fdd-dataroom",     term: "FDD 101 Ch.3 — Data Room의 첫 2주",       tagline: "VDR (Datasite·Intralinks) 워크플로우, 200+ 항목 Data Request List, Q&A flow, Management interview, 첫 주 일별 작업",                                     category: "FDD 시리즈", published: false },
+  { slug: "fdd-qoe",          term: "FDD 101 Ch.4 — Quality of Earnings ★",    tagline: "Adjusted EBITDA의 기술 — 5대 정상화 카테고리, Bridge waterfall, Vista×Citrix / Hahn×Lutronic dual case, K-IFRS 1115 vs ASC 606 비교",                  category: "FDD 시리즈", published: false },
+  { slug: "fdd-qona",         term: "FDD 101 Ch.5 — NWC & Net Debt ★",         tagline: "운전자본이 final price를 흔든다. Target NWC, Cash/Debt-like classification, Locked Box vs Closing Accounts, MBK 홈플러스 dispute case",                category: "FDD 시리즈", published: false },
+  { slug: "fdd-red-flags",    term: "FDD 101 Ch.6 — Red Flags & Smell Test",   tagline: "Enron·Wirecard·Carillion taxonomy + 한국 관계회사 거래 패턴. 경험은 정량 분석이 못 보는 것을 본다",                                                       category: "FDD 시리즈", published: false },
+  { slug: "fdd-report-spa",   term: "FDD 101 Ch.7 — Report → SPA → Closing",   tagline: "Data Book + Red Flag Report, Issues List → SPA 협상 ammunition, NWC closing adjustment, 90일 통합 계획 input",                                          category: "FDD 시리즈", published: false },
+
   // 기타 — 기존 27개 글 통합 (밸류·딜구조·실사·규제·전략)
   { slug: "ev-ebitda",            term: "EV/EBITDA 멀티플",                    tagline: "M&A 가격 협상의 출발점 — 기업가치를 영업 현금창출력으로 나눈 핵심 지표",                                                      category: "기타", published: true  },
   { slug: "adjusted-ebitda",      term: "Adjusted EBITDA — 조정의 전쟁",       tagline: "EV = Multiple × EBITDA — EBITDA 조정이 곱셈으로 매각가에 증폭된다. 1회성 판정 기준과 이해관계자 충돌 지도",                     category: "기타", published: true  },
@@ -68,6 +77,15 @@ const EN_CONCEPT_CATALOG: ConceptItem[] = [
   { slug: "lbo-capital-structure", term: "LBO 101 Ch.1 — Capital Structure",        tagline: "TLA, TLB, Senior Notes, Mezz, PIK Toggle, Equity — the debt pyramid, Covenant-Lite, DSCR, Hilton 2007 real structure",         category: "LBO Series", published: true },
   { slug: "lbo-returns",           term: "LBO 101 Ch.2 — Return Analysis",          tagline: "MOIC vs IRR conflict scenarios, the J-curve, three value drivers (EBITDA, multiple, paydown), Vintage Year effects",            category: "LBO Series", published: true },
   { slug: "lbo-deal-process",      term: "LBO 101 Ch.3 — Deal Process & Risks",     tagline: "Six-phase timeline, Sources & Uses, Maturity Wall, TXU/Toys'R'Us/Caesars failures vs Alliance Boots success",                    category: "LBO Series", published: true },
+
+  // FDD Series — Big 4 Transaction Services standard workflow (US/Korea/global dual cases)
+  { slug: "fdd-vs-audit",     term: "FDD 101 Ch.1 — FDD vs Audit",            tagline: "FDD is deal language, not accounting opinion. Big 4 TAS market structure, sell-side vs buy-side, four-DD interplay (Fin/Legal/Tax/Commercial)",   category: "FDD Series", published: false },
+  { slug: "fdd-engagement",   term: "FDD 101 Ch.2 — Engagement & Scoping",     tagline: "From RFP to kick-off. Scoping decides 90% of the deliverable. Team structure, Engagement & Reliance Letters, 6-8 week standard timeline",         category: "FDD Series", published: false },
+  { slug: "fdd-dataroom",     term: "FDD 101 Ch.3 — Data Room: The First Two Weeks", tagline: "VDR workflow (Datasite, Intralinks), 200+ item Data Request List, Q&A flow, management interviews, day-by-day Week 1",                category: "FDD Series", published: false },
+  { slug: "fdd-qoe",          term: "FDD 101 Ch.4 — Quality of Earnings ★",    tagline: "The art of Adjusted EBITDA — 5 normalization categories, the Bridge waterfall, Vista×Citrix / Hahn×Lutronic dual case, IFRS 15 vs ASC 606",      category: "FDD Series", published: false },
+  { slug: "fdd-qona",         term: "FDD 101 Ch.5 — NWC & Net Debt ★",         tagline: "Working capital moves the final price. Target NWC, cash/debt-like classification, Locked Box vs Closing Accounts, MBK Homeplus dispute case",       category: "FDD Series", published: false },
+  { slug: "fdd-red-flags",    term: "FDD 101 Ch.6 — Red Flags & Smell Test",   tagline: "Enron / Wirecard / Carillion taxonomy + Korean related-party patterns. Experience sees what the numbers don't",                                     category: "FDD Series", published: false },
+  { slug: "fdd-report-spa",   term: "FDD 101 Ch.7 — Report → SPA → Closing",   tagline: "Data Book + Red Flag Report, Issues List → SPA negotiation ammunition, NWC closing adjustment, 90-day post-close plan input",                     category: "FDD Series", published: false },
 
   // Other — 27 legacy concepts consolidated
   { slug: "ev-ebitda",            term: "EV/EBITDA Multiple",                 tagline: "The starting point of any M&A price conversation — enterprise value divided by operating cash generation",                              category: "Other", published: true },
