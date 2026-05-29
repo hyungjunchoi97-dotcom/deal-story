@@ -49,17 +49,18 @@ const MILESTONE_LABELS: Record<string, { ko: string; en: string }> = {
 };
 
 // ── Custom Tooltip ────────────────────────────────────────────────────────────
-function LeverageTooltip({ active, payload, label }: {
+function LeverageTooltip({ active, payload, label, ko = true }: {
   active?: boolean;
   payload?: { value: number; dataKey: string }[];
   label?: string;
+  ko?: boolean;
 }) {
   if (!active || !payload?.length) return null;
   const d = payload[0];
   const d2 = payload[1];
   return (
     <div className="rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-lg p-3 text-xs">
-      <p className="font-bold text-gray-700 dark:text-gray-200 mb-1">{label}년</p>
+      <p className="font-bold text-gray-700 dark:text-gray-200 mb-1">{label}{ko ? "년" : ""}</p>
       {d && <p className="text-indigo-600 dark:text-indigo-400">Debt/EBITDA: <span className="font-bold">{d.value}x</span></p>}
       {d2 && <p className="text-emerald-600 dark:text-emerald-400">EBITDA: <span className="font-bold">${d2.value}B</span></p>}
     </div>
@@ -474,8 +475,8 @@ export default function LboPageClient({
                   <XAxis dataKey="year" tick={{ fontSize: 11 }} />
                   <YAxis yAxisId="left" tick={{ fontSize: 11 }} domain={[0, 22]} label={{ value: "Debt/EBITDA (x)", angle: -90, position: "insideLeft", fontSize: 10, offset: 15 }} />
                   <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 11 }} domain={[0, 2.5]} label={{ value: "EBITDA ($B)", angle: 90, position: "insideRight", fontSize: 10, offset: 15 }} />
-                  <Tooltip content={<LeverageTooltip />} />
-                  <ReferenceLine yAxisId="left" y={6} stroke="#10b981" strokeDasharray="4 2" label={{ value: "6x 기준선", position: "right", fontSize: 9, fill: "#10b981" }} />
+                  <Tooltip content={<LeverageTooltip ko={ko} />} />
+                  <ReferenceLine yAxisId="left" y={6} stroke="#10b981" strokeDasharray="4 2" label={{ value: ko ? "6× 기준선" : "6× benchmark", position: "insideTopLeft", fontSize: 9, fill: "#10b981" }} />
                   <Line
                     yAxisId="left"
                     type="monotone"
@@ -499,11 +500,11 @@ export default function LboPageClient({
               <div className="flex items-center gap-4 mt-2 px-2">
                 <div className="flex items-center gap-1.5">
                   <div className="w-4 h-0.5 rounded" style={{ background: ACCENT }} />
-                  <span className="text-[10px] text-gray-500">Debt/EBITDA (좌축)</span>
+                  <span className="text-[10px] text-gray-500">Debt/EBITDA {ko ? "(좌축)" : "(left axis)"}</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <div className="w-4 border-t-2 border-dashed border-emerald-500" />
-                  <span className="text-[10px] text-gray-500">EBITDA $B (우축)</span>
+                  <span className="text-[10px] text-gray-500">EBITDA $B {ko ? "(우축)" : "(right axis)"}</span>
                 </div>
               </div>
             </motion.div>
