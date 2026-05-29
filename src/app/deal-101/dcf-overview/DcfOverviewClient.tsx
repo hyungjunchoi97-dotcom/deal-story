@@ -868,7 +868,7 @@ export default function DcfOverviewClient({ lang }: Props) {
           </motion.section>
 
           {/* ── Share — mid ─────────────────────────────────────────────── */}
-          <div className="flex justify-end -mt-8">
+          <div className="flex justify-center -mt-8">
             <ShareButtons title={ko ? titleKo : titleEn} variant="mid" lang={lang} />
           </div>
 
@@ -925,7 +925,7 @@ export default function DcfOverviewClient({ lang }: Props) {
           </motion.section>
 
           {/* ── Share — bottom ──────────────────────────────────────────── */}
-          <div className="flex justify-end pb-4">
+          <div className="flex justify-center pb-4">
             <ShareButtons title={ko ? titleKo : titleEn} variant="bottom" lang={lang} />
           </div>
 

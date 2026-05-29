@@ -129,8 +129,8 @@ const FAQS = [
   {
     qKo: "Pitch book 한 번 만드는 데 얼마나 걸리나?",
     qEn: "How long does it take to build a pitch book?",
-    aKo: "표준 40p pitch book은 BB에서 2-3주 풀-가동 (애널리스트 2명 × 80시간/주 + VP 1명 + MD 리뷰). 첫 draft 후 MD mark-up 4-6회, PS팀 야간 polish 거쳐 final. 부티크는 더 작은 30p deck을 1-2주에 만드는 게 보통.",
-    aEn: "A standard 40-page pitch book takes 2-3 weeks of full effort at a BB (2 analysts × 80 hrs/week + 1 VP + MD review). After the first draft, 4-6 MD markup cycles and overnight polish by Presentation Services. Boutiques typically build a leaner 30-page deck in 1-2 weeks.",
+    aKo: "케이스마다 천차만별입니다. 실제 빈도는 ① 같은 sector 반복 pitch (3-7일) ② Cold pitch / 새 sector / heavy custom valuation (2-3주) ③ Same-day 'scramble' pitch (4-12시간) — 세 가지가 섞여 있습니다. 대부분의 팀이 sector evergreen deck (분기마다 refresh되는 market update, league table, comps universe, why us, team credentials) 을 유지하고 있어서 신규 pitch에서도 60-70%는 그대로 끌어다 쓰고 customization은 cover · exec summary · 회사 특정 valuation 정도. CEO 전화 한 통에 오후 4시 미팅용 deck을 오전에 짜야 하는 경우도 흔합니다 — 그땐 skeleton에서 top 5장만 갈아끼는 게 표준.",
+    aEn: "It varies wildly. The real distribution is: (1) repeat sector pitch using existing skeleton — 3-7 days, (2) cold pitch in a new sector with heavy custom valuation — 2-3 weeks, (3) same-day 'scramble' pitch — 4-12 hours. Most teams maintain a sector evergreen deck (quarterly-refreshed market update, league table, comps universe, why-us, team credentials) — so 60-70% gets recycled even on new pitches. Customization mostly hits the cover, executive summary, and target-specific valuation. When a CEO calls in the morning and the MD wants a deck for a 4pm meeting, the standard play is to pull a skeleton and swap the top 5 slides.",
   },
   {
     qKo: "Bake-off에서 fee 제안이 제일 중요한 게 아닌가?",
