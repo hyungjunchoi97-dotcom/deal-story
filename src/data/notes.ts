@@ -2812,7 +2812,7 @@ const aiCycle4: NoteData = {
   readingMinutes: 18,
   keyPoints: [
     "NVDA FY26 Q2 데이터센터 매출 $46.7B (전체 매출의 90%). 이 단일 숫자가 AI 사이클의 정의 변수다 — 그 숫자가 가능했던 건 HBM과 CoWoS 두 공급의 동시 해소 덕분",
-    "2025 Q1, SK하이닉스가 사상 처음 삼성을 메모리 매출에서 추월. HBM 점유율 Q2'25 기준 SK하이닉스 62%, 삼성 17%, 마이크론 21% — 삼성의 NVDA 퀄 실패가 단일 분기에 점유율 24%p 빼앗김",
+    "2025 Q1, SK하이닉스가 사상 처음 삼성을 메모리 매출에서 추월. HBM 점유율 Q2'25 SK하이닉스 62% / 삼성 17% / 마이크론 21% → Q1'26 SK하이닉스 52% / 삼성 32% / 마이크론 16%. **삼성의 HBM3E 12-Hi NVIDIA 퀄 통과 (2025 후반)** 가 catalyst — 3분기에 점유율 +15%p 회복",
     "TSMC CoWoS 캐파: 2024말 35K wafers/월 → 2026말 130K wafers/월 (CAGR 80%). NVDA가 그 캐파의 60%+ 선점. 사실상 대만 단독 공급",
     "영국 제국이 인도 아편과 미국 면화에 의지했듯, 미국 AI 패권은 한국 HBM과 대만 CoWoS에 의지한다. 의존은 패권의 결함이 아니라 패권의 *구조* 다",
     "Broadcom AI 매출 Q1 FY26 $8.2B (+74% YoY), backlog $73B — ASIC의 NVDA 점유 침식 시작. 그러나 ASIC도 결국 TSMC 패키징에 의지",
@@ -2821,7 +2821,7 @@ const aiCycle4: NoteData = {
   ],
   keyPointsEn: [
     "NVIDIA's FY26 Q2 data center revenue: $46.7B (90% of total). This single number defines the AI cycle — and it was only possible because HBM and CoWoS supply unlocked together",
-    "Q1 2025: SK Hynix passed Samsung in memory revenue for the first time ever. HBM share Q2'25: SK Hynix 62%, Samsung 17%, Micron 21% — Samsung's failure on NVIDIA qualification cost 24 percentage points in one quarter",
+    "Q1 2025: SK Hynix passed Samsung in memory revenue for the first time ever. HBM share Q2'25: SK Hynix 62% / Samsung 17% / Micron 21% → Q1'26: SK Hynix 52% / Samsung 32% / Micron 16%. **Samsung's HBM3E 12-Hi NVIDIA qualification breakthrough (late 2025)** as the catalyst — recovered +15pp over 3 quarters",
     "TSMC CoWoS capacity: ~35K wafers/month end-2024 → 130K wafers/month end-2026 (80% CAGR). NVIDIA pre-allocated 60%+. In effect, single-source Taiwan",
     "Just as the British Empire depended on Indian opium and American cotton, US AI hegemony depends on Korean HBM and Taiwanese CoWoS. The dependence is not a flaw — it is the *structure*",
     "Broadcom AI revenue Q1 FY26: $8.2B (+74% YoY), backlog $73B — ASIC encroachment on NVIDIA share begins. But ASICs still depend on TSMC packaging",
@@ -2878,26 +2878,29 @@ const aiCycle4: NoteData = {
       blocks: [
         {
           type: "text",
-          body: "2025년 1분기. SK하이닉스의 메모리 매출이 사상 처음으로 삼성전자를 추월했다. KOSPI에서 보면 이건 단순한 분기 데이터가 아니다. **40년 만의 권력 이동의 첫 증명** 이다.\n\n그 권력의 이름은 HBM(High Bandwidth Memory)이다. AI 학습용 GPU 위에 12층, 16층으로 쌓이는 메모리. 일반 DRAM 가격의 3-5배. NVIDIA H100 한 장에 80GB, B100/B200에는 192GB가 들어간다. GPU의 본질적 가치는 절반 이상이 그 위에 쌓인 HBM에서 나온다.\n\nHBM 시장은 사실상 듀오폴리 + 1이다. SK하이닉스, 삼성, 마이크론. 그런데 2025 Q2 점유율이 — SK하이닉스 **62%** , 삼성 **17%** , 마이크론 **21%** 이다 (Counterpoint Research). 1년 전 (Q2 2024)에는 SK하이닉스 ~50%, 삼성 41%, 마이크론 9%였다. 단 4분기 만에 삼성의 점유율이 24%p 사라졌다.\n\n무엇이 일어났는가. *삼성이 NVIDIA의 HBM3E 12-Hi 퀄 통과에 실패했다* . NVIDIA는 GPU 한 장에 HBM 8-12개를 쌓는데, 그 안정성이 GPU 전체의 신뢰성을 결정한다. 발열 제어, 신호 무결성, TSV(through-silicon via) 수율 — 삼성이 SK하이닉스보다 일관되게 한 세대 뒤처졌다. 그 사이 마이크론이 차분히 점유를 늘렸다.\n\n시장은 이걸 \"한국 vs 한국\"의 싸움으로 본다. 더 정확히는 — *NVIDIA의 단일 퀄 결정이 한국 메모리 매출 ₩6조 이상을 한 회사에서 다른 회사로 이동시킨* 사건이다.",
+          body: "2025년 1분기. SK하이닉스의 메모리 매출이 사상 처음으로 삼성전자를 추월했다. KOSPI에서 보면 이건 단순한 분기 데이터가 아니다. **40년 만의 권력 이동의 첫 증명** 이다.\n\n그 권력의 이름은 HBM(High Bandwidth Memory)이다. AI 학습용 GPU 위에 12층, 16층으로 쌓이는 메모리. 일반 DRAM 가격의 3-5배. NVIDIA H100 한 장에 80GB, B100/B200에는 192GB가 들어간다. GPU의 본질적 가치는 절반 이상이 그 위에 쌓인 HBM에서 나온다.\n\nHBM 시장은 사실상 듀오폴리 + 1이다. SK하이닉스, 삼성, 마이크론. 2025년 권력 이동의 정점은 2025 Q2였다 — SK하이닉스 **62%** , 삼성 **17%** , 마이크론 **21%** (Counterpoint Research). 1년 전 (Q2 2024) 에는 SK하이닉스 ~50%, 삼성 41%, 마이크론 9%였다. 단 4분기 만에 삼성의 점유율이 24%p 사라졌다.\n\n무엇이 일어났는가. *2024-25년 삼성이 NVIDIA의 HBM3E 12-Hi 퀄 통과에 실패했다* . NVIDIA는 GPU 한 장에 HBM 8-12개를 쌓는데, 그 안정성이 GPU 전체의 신뢰성을 결정한다. 발열 제어, 신호 무결성, TSV(through-silicon via) 수율 — 삼성이 SK하이닉스보다 일관되게 한 세대 뒤처졌다. 그 사이 마이크론이 차분히 점유를 늘렸다.\n\n*그러나 2025년 후반에 narrative가 바뀌었다* . 삼성이 마침내 NVIDIA의 HBM3E 12-Hi 퀄 통과에 성공 — Blackwell B200/B300 일부 SKU에 채택되기 시작. Q3'25 → Q4'25 → 2026 Q1까지 점유율이 단조 회복:\n\n- **Q2 2025** : SK 62% / 삼성 17% / 마이크론 21%\n- **Q3 2025** : SK 60% / 삼성 21% / 마이크론 19%\n- **Q4 2025** : SK 57% / 삼성 26% / 마이크론 17% — *Samsung HBM3E 12-Hi NVDA 출하 본격화*\n- **Q1 2026** : SK 52% / 삼성 32% / 마이크론 16%\n\n3분기 만에 **삼성 +15%p 회복** . *듀오폴리가 재구축되고 있다* . 그러나 SK하이닉스는 여전히 52%로 선두, 그리고 *진짜 분기점은 HBM4* (2026 하반기 Rubin과 함께 ramp) — 거기서 다시 두 회사의 거리가 결정된다.\n\n시장은 이걸 \"한국 vs 한국\"의 싸움으로 본다. 더 정확히는 — *NVIDIA의 단일 퀄 결정이 한국 메모리 매출 ₩수조를 분기마다 한 회사에서 다른 회사로 이동시키는* 사건이다.",
           bodyEn:
-            "Q1 2025. SK Hynix's memory revenue passed Samsung's for the first time in history. Viewed from KOSPI, this isn't just a quarterly data point. It is **the first proof of a 40-year power shift**.\n\nThat power has a name: HBM (High Bandwidth Memory). The memory stacked 12 or 16 layers high on top of AI training GPUs. Priced at 3-5x normal DRAM. NVIDIA H100 carries 80GB; B100/B200 carries 192GB. More than half of a GPU's essential value comes from the HBM stacked on top.\n\nThe HBM market is effectively a duopoly + 1. SK Hynix, Samsung, Micron. But Q2 2025 share was — SK Hynix **62%**, Samsung **17%**, Micron **21%** (Counterpoint Research). A year earlier (Q2 2024): SK Hynix ~50%, Samsung 41%, Micron 9%. In four quarters, Samsung lost 24 percentage points.\n\nWhat happened? *Samsung failed NVIDIA's HBM3E 12-Hi qualification.* NVIDIA stacks 8-12 HBM modules on each GPU; their reliability determines the entire GPU's reliability. Thermal control, signal integrity, TSV (through-silicon via) yield — Samsung was a generation behind SK Hynix on each. Meanwhile, Micron quietly built share.\n\nThe market sees this as \"Korea vs Korea.\" More precisely: *NVIDIA's single qualification decision moved over ₩6 trillion in memory revenue from one Korean company to another*.",
+            "Q1 2025. SK Hynix's memory revenue passed Samsung's for the first time in history. Viewed from KOSPI, this isn't just a quarterly data point. It is **the first proof of a 40-year power shift**.\n\nThat power has a name: HBM (High Bandwidth Memory). The memory stacked 12 or 16 layers high on top of AI training GPUs. Priced at 3-5x normal DRAM. NVIDIA H100 carries 80GB; B100/B200 carries 192GB. More than half of a GPU's essential value comes from the HBM stacked on top.\n\nThe HBM market is effectively a duopoly + 1. SK Hynix, Samsung, Micron. The peak of the 2025 power shift was Q2 2025 — SK Hynix **62%**, Samsung **17%**, Micron **21%** (Counterpoint Research). A year earlier (Q2 2024): SK Hynix ~50%, Samsung 41%, Micron 9%. In four quarters, Samsung lost 24 percentage points.\n\nWhat happened? *In 2024-25 Samsung failed NVIDIA's HBM3E 12-Hi qualification.* NVIDIA stacks 8-12 HBM modules on each GPU; their reliability determines the entire GPU's reliability. Thermal control, signal integrity, TSV (through-silicon via) yield — Samsung was a generation behind SK Hynix on each. Meanwhile, Micron quietly built share.\n\n*But the narrative flipped in late 2025*. Samsung finally passed NVIDIA's HBM3E 12-Hi qualification — adopted into select Blackwell B200/B300 SKUs. From Q3'25 through Q4'25 to Q1 2026, share recovered monotonically:\n\n- **Q2 2025**: SK 62% / Samsung 17% / Micron 21%\n- **Q3 2025**: SK 60% / Samsung 21% / Micron 19%\n- **Q4 2025**: SK 57% / Samsung 26% / Micron 17% — *Samsung HBM3E 12-Hi NVDA shipments scale*\n- **Q1 2026**: SK 52% / Samsung 32% / Micron 16%\n\nIn three quarters, **Samsung recovered +15pp**. *The duopoly is being rebuilt*. But SK Hynix still leads at 52%, and *the real inflection is HBM4* (ramping H2 2026 with Rubin) — that's where the distance between the two is decided again.\n\nThe market sees this as \"Korea vs Korea.\" More precisely: *NVIDIA's single qualification decision moves trillions of Korean won in memory revenue from one company to another, every quarter*.",
         },
         {
           type: "chart",
           chart: {
             id: "hbm-share",
-            title: "HBM 점유율 분기 추이 (Q2'24 → Q2'25)",
-            titleEn: "HBM Market Share — Quarterly Trajectory (Q2'24 → Q2'25)",
+            title: "HBM 점유율 분기 추이 (Q2'24 → Q1'26) — 삼성의 V자 회복",
+            titleEn: "HBM Market Share Quarterly Trajectory (Q2'24 → Q1'26) — Samsung's V-Shape Recovery",
             caption:
-              "출처: Counterpoint Research, TrendForce. 삼성 점유율이 41% → 17%로 단 4분기 만에 -24%p. NVIDIA의 HBM3E 12-Hi 퀄 통과 실패가 원인. HBM4(2026) 퀄이 다음 분기점.",
+              "출처: Counterpoint Research, TrendForce. 삼성 점유율 41% (Q2'24) → 17% (Q2'25, 바닥) → 32% (Q1'26). Q3-Q4 2025에 HBM3E 12-Hi NVIDIA 퀄 통과로 회복 시작, Blackwell B200/B300 출하 본격화. SK하이닉스 여전히 52%로 선두. 다음 분기점은 HBM4 (Rubin 2026 H2).",
             captionEn:
-              "Sources: Counterpoint Research, TrendForce. Samsung's share fell from 41% to 17% in just four quarters — driven by failed NVIDIA HBM3E 12-Hi qualification. HBM4 (2026) qualification is the next inflection.",
+              "Sources: Counterpoint Research, TrendForce. Samsung's share: 41% (Q2'24) → 17% (Q2'25 trough) → 32% (Q1'26). HBM3E 12-Hi NVIDIA qualification passed in late 2025; Blackwell B200/B300 shipments scaled. SK Hynix still leads at 52%. Next inflection: HBM4 (Rubin H2 2026).",
             data: [
               { quarter: "Q2'24", skhynix: 50, samsung: 41, micron: 9 },
               { quarter: "Q3'24", skhynix: 54, samsung: 35, micron: 11 },
               { quarter: "Q4'24", skhynix: 58, samsung: 28, micron: 14 },
               { quarter: "Q1'25", skhynix: 61, samsung: 22, micron: 17 },
               { quarter: "Q2'25", skhynix: 62, samsung: 17, micron: 21 },
+              { quarter: "Q3'25", skhynix: 60, samsung: 21, micron: 19 },
+              { quarter: "Q4'25", skhynix: 57, samsung: 26, micron: 17 },
+              { quarter: "Q1'26", skhynix: 52, samsung: 32, micron: 16 },
             ],
           },
         },
@@ -2905,11 +2908,11 @@ const aiCycle4: NoteData = {
           type: "callout",
           callout: {
             variant: "insight",
-            heading: "단일 catalyst — 삼성 HBM4 12-Hi NVIDIA 퀄",
-            headingEn: "Single Catalyst — Samsung HBM4 12-Hi NVIDIA Qualification",
-            body: "2026년 한국 시장 단일 최대 catalyst다. 통과하면 듀오폴리 회복 + 삼성 +20-30% catalyst + SK하이닉스 점유 일부 반납. 실패하면 SK하이닉스 사실상 모노폴리 확정. NVIDIA Rubin 출시 (2026 하반기) 시점에 결정. UBS는 SK하이닉스가 HBM4 NVIDIA 공급의 70% 점유할 것으로 추정. 삼성이 이 결정을 뒤집을 수 있는 마지막 분기점.",
+            heading: "다음 분기점 — 삼성 HBM4 NVIDIA 퀄 (Rubin 2026 H2)",
+            headingEn: "Next Inflection — Samsung HBM4 NVIDIA Qualification (Rubin H2 2026)",
+            body: "HBM3E 12-Hi 퀄 통과로 삼성이 17% → 32%로 회복했지만 — 진짜 분기점은 HBM4다. NVIDIA Rubin이 2026 하반기 출시, HBM4 사용. 삼성이 HBM4 12-Hi/16-Hi 첫 ramp 분기에 NVIDIA 퀄을 통과하느냐가 듀오폴리 회복 vs SK하이닉스 모노폴리의 분기점. UBS는 SK하이닉스가 HBM4 NVIDIA 공급의 70%를 점유할 것으로 추정. 삼성이 이 비율을 50:50으로 끌어올릴 수 있으면 KOSPI 메모리 듀오폴리가 완전 복원된다.",
             bodyEn:
-              "The single biggest catalyst for the Korean market in 2026. Pass = duopoly restored + Samsung +20-30% catalyst + SK Hynix gives up some share. Fail = SK Hynix locks in effective monopoly. Decision lands around NVIDIA Rubin launch (H2 2026). UBS estimates SK Hynix at 70% of HBM4 supply to NVIDIA. The last quarter where Samsung can reverse the verdict.",
+              "Samsung recovered from 17% → 32% via HBM3E 12-Hi qualification — but the real inflection is HBM4. NVIDIA Rubin launches H2 2026 using HBM4. Whether Samsung passes NVIDIA qualification in the first quarters of HBM4 12-Hi/16-Hi ramp decides between full duopoly restoration vs SK Hynix monopoly. UBS estimates SK Hynix at 70% of HBM4 supply to NVIDIA; if Samsung pulls that to 50:50, the KOSPI memory duopoly is fully restored.",
           },
         },
       ],
@@ -2972,7 +2975,7 @@ const aiCycle4: NoteData = {
             rows: [
               ["설계 (GPU)", "NVIDIA Blackwell/Rubin", "NVDA (US)", "AMD MI300X · Broadcom/Marvell ASIC", "부분 (ASIC 점유 확대)"],
               ["설계 (CPU)", "x86, ARM", "Intel·AMD·ARM (US/UK)", "다수 경쟁", "이미 다극"],
-              ["HBM", "GPU 위 메모리 스택", "SK하이닉스 62% (KR)", "Samsung · Micron", "낮음 (5년+ 의존)"],
+              ["HBM", "GPU 위 메모리 스택", "SK하이닉스 52% / 삼성 32% (KR)", "Micron 16% (다극화 약함)", "낮음 (5년+ 의존)"],
               ["DRAM", "기본 메모리", "Samsung 40% · SK하이닉스 30% (KR)", "Micron · 중국 CXMT", "낮음 (한국 듀오폴리)"],
               ["NAND", "스토리지", "Samsung 35% · SK하이닉스 20% (KR)", "Kioxia · WD/SanDisk · Micron", "이미 다극"],
               ["파운드리 (3nm-)", "GPU/CPU 제조", "TSMC ~90% (TW)", "Samsung Foundry · Intel Foundry", "매우 낮음"],
@@ -2983,7 +2986,7 @@ const aiCycle4: NoteData = {
             rowsEn: [
               ["Design (GPU)", "NVIDIA Blackwell/Rubin", "NVDA (US)", "AMD MI300X · Broadcom/Marvell ASIC", "Partial (ASIC share gains)"],
               ["Design (CPU)", "x86, ARM", "Intel·AMD·ARM (US/UK)", "Many competitors", "Already multi-polar"],
-              ["HBM", "GPU-stacked memory", "SK Hynix 62% (KR)", "Samsung · Micron", "Low (5+ year dependence)"],
+              ["HBM", "GPU-stacked memory", "SK Hynix 52% / Samsung 32% (KR)", "Micron 16% (weak diversification)", "Low (5+ year dependence)"],
               ["DRAM", "Base memory", "Samsung 40% · SK Hynix 30% (KR)", "Micron · China CXMT", "Low (Korean duopoly)"],
               ["NAND", "Storage", "Samsung 35% · SK Hynix 20% (KR)", "Kioxia · WD/SanDisk · Micron", "Already multi-polar"],
               ["Foundry (3nm-)", "GPU/CPU manufacture", "TSMC ~90% (TW)", "Samsung Foundry · Intel Foundry", "Very low"],
@@ -3004,9 +3007,9 @@ const aiCycle4: NoteData = {
       blocks: [
         {
           type: "text",
-          body: "이 메모의 단일 명제는 단순하다 — **진짜 강한 패권은 자기 영토에서 자급자족하지 않는다** .\n\n영국 제국이 그랬다. 산업혁명의 동력이 미국 면화에 의존했다. 무역 흑자가 인도 아편에 의존했다. 의존이 패권을 약하게 만든 게 아니라, 그 의존을 *안정화하는 능력* 이 패권을 길게 유지했다.\n\n미국 AI 패권도 같다. NVDA 데이터센터 매출의 매 한 분기가 — 한국 SK하이닉스의 HBM 출하와 대만 TSMC의 CoWoS 캐파에 직접 함수다. 그 사실은 패권의 약점이 아니다. 패권의 *구조* 다.\n\n투자자 시각에서는 두 가지 함의가 있다.\n\n첫째, **한국 메모리 듀오폴리는 사이클이 도는 동안 가격 결정력을 유지한다** . CHIPS Act가 풀려고 노력해도, 수요가 capa보다 2배 빠르게 증가하는 한, SK하이닉스의 HBM 점유 62%는 단기에 흔들리지 않는다. KOSPI 사상최고는 우연이 아니라 — 빅테크 capex의 함수다.\n\n둘째, **단일 catalyst — 삼성 HBM4 12-Hi NVIDIA 퀄 통과 — 가 한국 시장 2026의 가장 큰 단일 이벤트다** . 통과하면 듀오폴리 회복, 삼성 +20-30% catalyst, SK하이닉스 점유 일부 반납. 실패하면 SK하이닉스 모노폴리 굳히기, 삼성 메모리 비즈니스 구조적 위기. 어느 쪽이 되든, 결정은 *NVIDIA가 한다* . 한국 시장의 가장 큰 단일 결정 변수가 — 미국 회사의 퀄 결정이라는 것 자체가 — 의존의 구조를 가장 명확하게 보여준다.\n\nLucent가 1999년에 했던 자기 매출 회로(Memo 1)는 *자본의 회로* 였다. SK하이닉스와 TSMC가 2026년에 만들고 있는 것은 — *공급의 회로* 다. 미국 자본이 한국·대만 공급을 거쳐야만 미국 매출이 된다.\n\n*회로는 미국 안에서 완결되지 않는다.* 영국 제국이 그랬듯이.",
+          body: "이 메모의 단일 명제는 단순하다 — **진짜 강한 패권은 자기 영토에서 자급자족하지 않는다** .\n\n영국 제국이 그랬다. 산업혁명의 동력이 미국 면화에 의존했다. 무역 흑자가 인도 아편에 의존했다. 의존이 패권을 약하게 만든 게 아니라, 그 의존을 *안정화하는 능력* 이 패권을 길게 유지했다.\n\n미국 AI 패권도 같다. NVDA 데이터센터 매출의 매 한 분기가 — 한국 SK하이닉스의 HBM 출하와 대만 TSMC의 CoWoS 캐파에 직접 함수다. 그 사실은 패권의 약점이 아니다. 패권의 *구조* 다.\n\n투자자 시각에서는 두 가지 함의가 있다.\n\n첫째, **한국 메모리 듀오폴리는 사이클이 도는 동안 가격 결정력을 유지한다** . CHIPS Act가 풀려고 노력해도, 수요가 capa보다 2배 빠르게 증가하는 한, **SK하이닉스 + 삼성 합산 HBM 점유 84%** (Q1'26 기준) 는 단기에 흔들리지 않는다. KOSPI 사상최고는 우연이 아니라 — 빅테크 capex의 함수다.\n\n둘째, **단일 catalyst — 삼성 HBM4 NVIDIA 퀄 (Rubin 2026 H2) — 가 한국 시장 2026 하반기 가장 큰 단일 이벤트다** . HBM3E 12-Hi 퀄은 통과했다 (17% → 32% 회복). 그러나 HBM4가 메모리 매출 구조를 재편한다. 통과하면 듀오폴리 50:50 가까이 회복, 삼성 +20-30% catalyst. 실패하면 SK하이닉스가 HBM4 세대를 가져가며 모노폴리 굳히기. 어느 쪽이 되든, 결정은 *NVIDIA가 한다* . 한국 시장의 가장 큰 단일 결정 변수가 — 미국 회사의 퀄 결정이라는 것 자체가 — 의존의 구조를 가장 명확하게 보여준다.\n\nLucent가 1999년에 했던 자기 매출 회로(Memo 1)는 *자본의 회로* 였다. SK하이닉스와 TSMC가 2026년에 만들고 있는 것은 — *공급의 회로* 다. 미국 자본이 한국·대만 공급을 거쳐야만 미국 매출이 된다.\n\n*회로는 미국 안에서 완결되지 않는다.* 영국 제국이 그랬듯이.",
           bodyEn:
-            "The single proposition of this memo is simple — **a truly strong hegemon does not self-supply within its own territory**.\n\nThe British Empire was like that. Its industrial engine depended on American cotton. Its trade surplus depended on Indian opium. The dependence did not weaken the empire — the *capacity to stabilize* that dependence is what extended the empire's life.\n\nAmerican AI hegemony is the same. Every quarter of NVDA's data center revenue is a direct function of Korean SK Hynix HBM shipments and Taiwanese TSMC CoWoS capacity. That fact is not a weakness of hegemony. It is its *structure*.\n\nFrom an investor's view, two implications.\n\nFirst, **the Korean memory duopoly maintains pricing power while the cycle runs**. No matter how hard CHIPS Act tries, as long as demand grows 2x faster than capacity, SK Hynix's 62% HBM share does not shake in the short term. KOSPI's record highs are not coincidence — they are a function of Big Tech capex.\n\nSecond, **a single catalyst — Samsung HBM4 12-Hi NVIDIA qualification — is the largest single event for the Korean market in 2026**. Pass = duopoly restored, Samsung +20-30% catalyst, SK Hynix gives up some share. Fail = SK Hynix locks in monopoly, Samsung memory business in structural crisis. Either way, *NVIDIA decides*. The fact that the largest single decision variable for the Korean market is *an American company's qualification verdict* — that itself shows the structure of dependence more clearly than anything.\n\nThe self-revenue circuit Lucent ran in 1999 (Memo 1) was *a capital circuit*. What SK Hynix and TSMC are running in 2026 is *a supply circuit*. American capital must pass through Korean and Taiwanese supply to become American revenue.\n\n*The circuit does not close within America.* Just as it did not for the British Empire.",
+            "The single proposition of this memo is simple — **a truly strong hegemon does not self-supply within its own territory**.\n\nThe British Empire was like that. Its industrial engine depended on American cotton. Its trade surplus depended on Indian opium. The dependence did not weaken the empire — the *capacity to stabilize* that dependence is what extended the empire's life.\n\nAmerican AI hegemony is the same. Every quarter of NVDA's data center revenue is a direct function of Korean SK Hynix HBM shipments and Taiwanese TSMC CoWoS capacity. That fact is not a weakness of hegemony. It is its *structure*.\n\nFrom an investor's view, two implications.\n\nFirst, **the Korean memory duopoly maintains pricing power while the cycle runs**. No matter how hard CHIPS Act tries, as long as demand grows 2x faster than capacity, **SK Hynix + Samsung combined HBM share of 84%** (Q1'26 basis) does not shake in the short term. KOSPI's record highs are not coincidence — they are a function of Big Tech capex.\n\nSecond, **the single catalyst — Samsung HBM4 NVIDIA qualification (Rubin H2 2026) — is the largest single event for the Korean market in H2 2026**. HBM3E 12-Hi was passed (Samsung recovered 17% → 32%). But HBM4 reshapes memory revenue structure. Pass = duopoly restored near 50:50, Samsung +20-30% catalyst. Fail = SK Hynix takes the HBM4 generation and locks in monopoly. Either way, *NVIDIA decides*. The fact that the largest single decision variable for the Korean market is *an American company's qualification verdict* — that itself shows the structure of dependence more clearly than anything.\n\nThe self-revenue circuit Lucent ran in 1999 (Memo 1) was *a capital circuit*. What SK Hynix and TSMC are running in 2026 is *a supply circuit*. American capital must pass through Korean and Taiwanese supply to become American revenue.\n\n*The circuit does not close within America.* Just as it did not for the British Empire.",
         },
         {
           type: "callout",
