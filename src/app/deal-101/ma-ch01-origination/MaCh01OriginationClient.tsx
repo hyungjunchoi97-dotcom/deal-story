@@ -371,6 +371,11 @@ export default function MaCh01OriginationClient({ lang }: { lang: Lang }) {
                   ? "툴은 PowerPoint + Think-Cell이 표준 (US BB), 유럽계는 UpSlide도 많이 씁니다. 모델은 Excel + Macabacus. 큰 하우스는 deck 마무리를 PS팀에 outsource하고, 부티크나 MM은 애널리스트가 처음부터 끝까지 직접 합니다."
                   : "PowerPoint + Think-Cell is the standard tooling at US BBs; European houses tilt toward UpSlide. Models are Excel + Macabacus. Big houses outsource final deck polish to in-house Presentation Services; boutiques and MM analysts handle it themselves."}
               </p>
+              <p>
+                {ko
+                  ? "그런데 36p deck을 매번 처음부터 만드는 건 아닙니다. 대부분의 팀이 sector evergreen deck — 분기마다 refresh되는 market update, league table, comps universe, why-us, team credentials — 을 유지하고 있어서 신규 pitch에서도 60-70%는 그대로 끌어다 쓰고 customization은 cover · exec summary · 회사 특정 valuation 정도에 집중됩니다. 그래서 같은 sector 반복 pitch는 3-7일, cold pitch는 2-3주, '오후 4시 미팅' scramble은 skeleton에서 top 5장만 갈아끼고 4-12시간 안에 끝나는 식으로 케이스별 격차가 큽니다."
+                  : "Decks rarely get built from scratch. Most teams maintain a sector evergreen deck — quarterly-refreshed market update, league tables, comps universe, why-us, team credentials — so a new pitch reuses 60-70% wholesale. Customization concentrates on the cover, executive summary, and target-specific valuation. As a result, the time-to-pitch varies wildly: 3-7 days for a repeat sector pitch, 2-3 weeks for a cold one in a new sector, and 4-12 hours for the 'afternoon meeting' scramble where you swap only the top 5 slides on an existing skeleton."}
+              </p>
             </motion.div>
 
             {/* Pitch book TOC visual */}
