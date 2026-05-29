@@ -284,8 +284,8 @@ const deal: LboDeal = {
     body: "EMI는 두 개의 사업부로 구성됐다 — 레코딩 뮤직(매출 ~75%, 마진 낮음, 변동성 큼)과 뮤직 퍼블리싱(매출 ~25%, 마진 높음, 안정적). Terra Firma 인수 시점에는 레코딩 매출이 CD 붕괴로 빠르게 줄고 있었지만, 퍼블리싱 카탈로그(작곡 저작권)는 안정적 캐시플로우를 제공했다. 사후 분할 매각에서 Sony가 사들인 것이 바로 이 퍼블리싱 사업이었다.",
     bodyEn: "EMI ran two segments — recorded music (~75% of revenue, low margin, high volatility) and music publishing (~25% of revenue, high margin, stable). When Terra Firma acquired it, recorded-music revenue was eroding fast with the CD collapse, while the publishing catalog (songwriting rights) provided steady cash flow. That publishing arm was what Sony bought in the eventual break-up.",
     metrics: [
-      { label: "사업부", labelEn: "Segments", value: "2개", sub: "레코딩 + 퍼블리싱" },
-      { label: "주요 아티스트", labelEn: "Key Artists", value: "Beatles, Radiohead 등" },
+      { label: "사업부", labelEn: "Segments", value: "2개", valueEn: "2 segments", sub: "레코딩 + 퍼블리싱" },
+      { label: "주요 아티스트", labelEn: "Key Artists", value: "Beatles, Radiohead 등", valueEn: "Beatles, Radiohead, etc." },
       { label: "FY2006 매출", labelEn: "FY2006 Revenue", value: "£2.08B" },
       { label: "FY2006 EBITDA", labelEn: "FY2006 EBITDA", value: "£200M", sub: "~9.6% 마진" },
       { label: "글로벌 시장점유율", labelEn: "Global Market Share", value: "~13%", sub: "Big 4 중 4위" },

@@ -155,7 +155,7 @@ export interface LboDeal {
   companyOverview: {
     body: string;
     bodyEn: string;
-    metrics: { label: string; labelEn: string; value: string; sub?: string }[];
+    metrics: { label: string; labelEn: string; value: string; valueEn?: string; sub?: string }[];
     financials: LboFinancialYear[];
     financialsNote?: string;
     financialsNoteEn?: string;

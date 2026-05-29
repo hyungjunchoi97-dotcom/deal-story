@@ -263,7 +263,7 @@ const deal: LboDeal = {
     bodyEn:
       "At the time of the deal Toshiba had revenue of ~¥3.4T (~$25B) and ~¥220B in EBITDA. Core segments: energy systems (nuclear, thermal, renewables), infrastructure (power, rail), devices (power semis, HDDs), a ~40% stake in Kioxia, and subsidiaries like Toshiba Tec (POS/retail) and Plant Systems (engineering). Roughly 120,000 employees worldwide, with more than half of revenue outside Japan.",
     metrics: [
-      { label: "창립", labelEn: "Founded", value: "1875년" },
+      { label: "창립", labelEn: "Founded", value: "1875년", valueEn: "1875" },
       { label: "직원 수", labelEn: "Employees", value: "~120,000" },
       { label: "FY2022 매출", labelEn: "FY2022 Revenue", value: "¥3.4T", sub: "약 $25B" },
       { label: "FY2022 EBITDA", labelEn: "FY2022 EBITDA", value: "¥220B", sub: "약 $1.6B" },

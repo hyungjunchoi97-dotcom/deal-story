@@ -275,7 +275,7 @@ const deal: LboDeal = {
     bodyEn:
       "At the time of the deal Chrysler had ~$62B in revenue and ~70,000 employees — America's #4 OEM. 70% of revenue came from trucks and SUVs (Ram pickups, Jeep, Dodge Durango), 20% sedans (300, Sebring), 10% minivans. ~40,000 UAW workers and retiree healthcare obligations added ~$1,500 in legacy cost per vehicle — a structural handicap versus Toyota.",
     metrics: [
-      { label: "창립", labelEn: "Founded", value: "1925년" },
+      { label: "창립", labelEn: "Founded", value: "1925년", valueEn: "1925" },
       { label: "직원 수", labelEn: "Employees", value: "~70,000" },
       { label: "FY2006 매출", labelEn: "FY2006 Revenue", value: "$62B" },
       { label: "FY2006 EBITDA", labelEn: "FY2006 EBITDA", value: "-$1B", sub: "마이너스" },

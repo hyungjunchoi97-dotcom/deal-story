@@ -220,12 +220,12 @@ const deal: LboDeal = {
     body: "힐튼 호텔 코퍼레이션은 Conrad Hilton이 1919년 텍사스 시스코에서 첫 호텔을 매입하면서 시작됐다. 100년에 가까운 역사를 거쳐 세계에서 가장 인지도 높은 호텔 브랜드가 됐다. 블랙스톤 인수 당시 힐튼은 Hilton, Conrad, Doubletree, Embassy Suites, Hampton Inn, Hilton Garden Inn, Homewood Suites, Home2 Suites 등 8개 브랜드를 보유한 글로벌 호스피탈리티 제국이었다. 그러나 당시 비즈니스 모델은 자산 소유(직영 호텔)와 프랜차이즈·매니지먼트 계약이 혼재된 구조로, 자본 집약도가 높고 수익률이 브랜드 가치에 비해 낮다는 한계가 있었다.",
     bodyEn: "Hilton Hotels Corporation began when Conrad Hilton purchased his first hotel in Cisco, Texas in 1919. Nearly a century of history made it one of the world's most recognized hotel brands. At the time of Blackstone's acquisition, Hilton operated eight brands — Hilton, Conrad, Doubletree, Embassy Suites, Hampton Inn, Hilton Garden Inn, Homewood Suites, Home2 Suites — a global hospitality empire. But the business model was a mix of owned hotels and franchise/management contracts, capital-intensive with margins below what the brand value implied.",
     metrics: [
-      { label: "브랜드 수", labelEn: "Brands", value: "8개 글로벌 브랜드" },
-      { label: "인수 시점 호텔 수", labelEn: "Hotels at Entry", value: "~3,000개" },
-      { label: "객실 수", labelEn: "Rooms", value: "50만+ 개" },
-      { label: "글로벌 진출국", labelEn: "Countries", value: "78개국" },
-      { label: "인수 전 연매출", labelEn: "Revenue (Pre-Deal)", value: "$82억 (2006A)" },
-      { label: "Hilton Honors 회원", labelEn: "HHonors Members", value: "약 2,500만 명" },
+      { label: "브랜드 수", labelEn: "Brands", value: "8개 글로벌 브랜드", valueEn: "8 global brands" },
+      { label: "인수 시점 호텔 수", labelEn: "Hotels at Entry", value: "~3,000개", valueEn: "~3,000 hotels" },
+      { label: "객실 수", labelEn: "Rooms", value: "50만+ 개", valueEn: "500K+ rooms" },
+      { label: "글로벌 진출국", labelEn: "Countries", value: "78개국", valueEn: "78 countries" },
+      { label: "인수 전 연매출", labelEn: "Revenue (Pre-Deal)", value: "$82억 (2006A)", valueEn: "$8.2B (2006A)" },
+      { label: "Hilton Honors 회원", labelEn: "HHonors Members", value: "약 2,500만 명", valueEn: "~25M members" },
     ],
     financials: [
       { year: "2006", revenueBn: 8.2,  ebitdaBn: 1.65, ebitdaMarginPct: 20.1, note: "인수 직전 기준", noteEn: "Pre-acquisition baseline" },

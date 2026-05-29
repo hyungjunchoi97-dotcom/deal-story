@@ -253,7 +253,7 @@ const deal: LboDeal = {
     body: "TDC A/S(구 Tele Danmark)는 1990년 부분 민영화된 덴마크 통신 인큐먼트로, 인수 시점 덴마크 fixed-line 점유율 1위, 모바일 점유율 1위(~42%)였다. 본사는 코펜하겐, 직원 ~15,000명. Nordic 확장의 일환으로 NetCom Norway(노르웨이 모바일 2위)와 Bité Lithuania(리투아니아 모바일 1위)도 운영했다. 매출의 ~70%는 덴마크 국내, ~30%는 Nordic 자회사. EBITDA 마진은 ~35%로 텔레콤 인큐먼트 표준 수준.",
     bodyEn: "TDC A/S (formerly Tele Danmark), partially privatized in 1990, was Denmark's telecom incumbent with #1 fixed-line share and #1 mobile share (~42%) at entry. Headquartered in Copenhagen with ~15,000 employees. Through Nordic expansion, it also operated NetCom Norway (#2 in Norwegian mobile) and Bité Lithuania (#1 in Lithuanian mobile). About 70% of revenue was domestic Danish, 30% from Nordic subsidiaries. EBITDA margin ran ~35% — standard for an incumbent telco.",
     metrics: [
-      { label: "덴마크 fixed-line 점유율", labelEn: "Danish Fixed-line Share", value: "~1위 (인큐먼트)" },
+      { label: "덴마크 fixed-line 점유율", labelEn: "Danish Fixed-line Share", value: "~1위 (인큐먼트)", valueEn: "#1 (incumbent)" },
       { label: "덴마크 모바일 점유율", labelEn: "Danish Mobile Share", value: "~42%" },
       { label: "직원 수", labelEn: "Employees", value: "~15,000" },
       { label: "FY2005 매출", labelEn: "FY2005 Revenue", value: "DKK 47B (~$7.5B)" },

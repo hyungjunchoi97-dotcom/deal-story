@@ -297,7 +297,7 @@ export default function LboPageClient({
               {deal.companyOverview.metrics.map((m, i) => (
                 <div key={i} className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-3.5">
                   <p className="text-[10px] text-gray-400 dark:text-gray-500 font-medium mb-1">{ko ? m.label : m.labelEn}</p>
-                  <p className="text-sm font-bold text-gray-900 dark:text-gray-100 leading-snug">{m.value}</p>
+                  <p className="text-sm font-bold text-gray-900 dark:text-gray-100 leading-snug">{ko ? m.value : (m.valueEn ?? m.value)}</p>
                 </div>
               ))}
             </motion.div>
