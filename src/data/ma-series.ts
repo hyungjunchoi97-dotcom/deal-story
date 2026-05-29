@@ -209,7 +209,7 @@ export const MA_CHAPTERS: MaChapter[] = [
     variantImpacts: [
       { axis: "side", impactedBy: ["sell-side", "buy-side", "fairness-only"], noteKo: "Sell-side success fee는 1-2%, Buy-side는 0.5-1%, Fairness opinion은 flat $1-3M", noteEn: "Sell-side success ~1-2%, Buy-side ~0.5-1%, Fairness opinion flat $1-3M" },
     ],
-    status: "draft",
+    status: "published",
   },
 
   // ── Phase 2: Preparation ───────────────────────────────────────────
@@ -230,7 +230,7 @@ export const MA_CHAPTERS: MaChapter[] = [
       { axis: "target", impactedBy: ["public"], noteKo: "Public take-private은 CIM 없음 — public filings로 갈음", noteEn: "Public take-privates use SEC filings instead of CIM" },
       { axis: "target", impactedBy: ["carve-out"], noteKo: "Carve-out은 stand-alone financials 만드는 데 6주+", noteEn: "Carve-outs require 6+ weeks to build stand-alone financials" },
     ],
-    status: "draft",
+    status: "published",
   },
   {
     slug: "ma-ch04-valuation",
