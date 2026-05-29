@@ -28,6 +28,12 @@ const KO_CONCEPT_CATALOG: ConceptItem[] = [
   { slug: "lbo-returns",           term: "LBO 101 Ch.2 — 리턴 분석",           tagline: "MOIC·IRR 충돌 시나리오, J-커브, 가치창출 3대 드라이버(EBITDA·멀티플·부채상환), Vintage Year 효과",                            category: "LBO 시리즈", published: true  },
   { slug: "lbo-deal-process",      term: "LBO 101 Ch.3 — 딜 프로세스 & 리스크", tagline: "6단계 딜 타임라인, Sources & Uses, Maturity Wall, TXU·Toys'R'Us·Caesars 실패 / Alliance Boots 성공 해부",                   category: "LBO 시리즈", published: true  },
 
+  // Valuation 시리즈 — DCF·WACC·Terminal Value 중심 (Modelling 시리즈와 상호 cross-link)
+  { slug: "dcf-overview",          term: "Valuation 101 Ch.0 — DCF란 무엇인가",  tagline: "미래 현금흐름의 현재가치 — IB·PE 표준 평가법. FCF · WACC · Terminal Value 3대 요소, 절대가치 vs 상대가치, Microsoft·Activision $68.7B 사례",  category: "Valuation 시리즈", published: true  },
+
+  // Modelling 시리즈 — Excel workbook 아키텍처 (Valuation 시리즈와 상호 cross-link)
+  { slug: "dcf-model-setup",       term: "Modelling 101 Ch.1 — DCF 모델 셋업",   tagline: "실무진의 DCF 워크북 아키텍처 — 가정·P&L·FCF·WACC·Valuation 5-시트 구조, 셀 색상 컨벤션, 명명규칙",                                       category: "Modelling 시리즈", published: true  },
+
   // FDD 시리즈 — Big 4 Transaction Services 표준 워크플로우 (한국·미국·글로벌 dual case)
   { slug: "fdd-vs-audit",     term: "FDD 101 Ch.1 — FDD vs Audit",            tagline: "FDD는 회계감사가 아니라 deal language다. Big 4 Transaction Services 시장 구조, sell-side vs buy-side, 4 DD 분담 (Fin·Legal·Tax·Commercial)",         category: "FDD 시리즈", published: false },
   { slug: "fdd-engagement",   term: "FDD 101 Ch.2 — Engagement & Scoping",     tagline: "RFP에서 Kick-off까지. Scoping이 deliverable의 90%를 결정한다. Team 구조, Engagement/Reliance Letter, 6-8주 표준 timeline",                          category: "FDD 시리즈", published: false },
@@ -78,6 +84,12 @@ const EN_CONCEPT_CATALOG: ConceptItem[] = [
   { slug: "lbo-capital-structure", term: "LBO 101 Ch.1 — Capital Structure",        tagline: "TLA, TLB, Senior Notes, Mezz, PIK Toggle, Equity — the debt pyramid, Covenant-Lite, DSCR, Hilton 2007 real structure",         category: "LBO Series", published: true },
   { slug: "lbo-returns",           term: "LBO 101 Ch.2 — Return Analysis",          tagline: "MOIC vs IRR conflict scenarios, the J-curve, three value drivers (EBITDA, multiple, paydown), Vintage Year effects",            category: "LBO Series", published: true },
   { slug: "lbo-deal-process",      term: "LBO 101 Ch.3 — Deal Process & Risks",     tagline: "Six-phase timeline, Sources & Uses, Maturity Wall, TXU/Toys'R'Us/Caesars failures vs Alliance Boots success",                    category: "LBO Series", published: true },
+
+  // Valuation Series — DCF / WACC / Terminal Value (cross-linked with Modelling Series)
+  { slug: "dcf-overview",          term: "Valuation 101 Ch.0 — What Is DCF?",       tagline: "The present value of future cash flows — the IB/PE valuation standard. FCF · WACC · Terminal Value, intrinsic vs relative, Microsoft × Activision $68.7B",  category: "Valuation Series", published: true },
+
+  // Modelling Series — Excel workbook architecture (cross-linked with Valuation Series)
+  { slug: "dcf-model-setup",       term: "Modelling 101 Ch.1 — DCF Model Setup",    tagline: "Practitioner DCF workbook architecture — 5-sheet structure (Assumptions/P&L/FCF/WACC/Valuation), color conventions, naming",                                category: "Modelling Series", published: true },
 
   // FDD Series — Big 4 Transaction Services standard workflow (US/Korea/global dual cases)
   { slug: "fdd-vs-audit",     term: "FDD 101 Ch.1 — FDD vs Audit",            tagline: "FDD is deal language, not accounting opinion. Big 4 TAS market structure, sell-side vs buy-side, four-DD interplay (Fin/Legal/Tax/Commercial)",   category: "FDD Series", published: false },
