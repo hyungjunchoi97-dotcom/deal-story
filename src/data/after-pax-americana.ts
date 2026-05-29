@@ -56,13 +56,13 @@ const ch01_shale = stub({
   title: "셰일 전환 — 미국이 페르시아만에서 손을 떼는 산수",
   titleEn: "The Shale Pivot — Why the US Walks Away from the Persian Gulf",
   description:
-    "2008년 일 5백만 배럴이던 미국 원유 생산은 2024년 1,340만 배럴로 증가했다. 미국이 70년간 페르시아만 안보를 자임했던 단 하나의 이유 — 자국 경제가 중동 원유에 의존한다는 사실 — 가 사라졌다. 세계는 그 의미를 아직 가격에 반영하지 않았다.",
+    "2008년 일 5.0백만 배럴이던 미국 원유 생산은 2024년 13.2백만 배럴(2025년 7월 13.6백만 신기록)로 증가했다. 미국이 70년간 페르시아만 안보를 자임했던 단 하나의 이유 — 자국 경제가 중동 원유에 의존한다는 사실 — 가 사라졌다. 페르시아만 원유 수입은 1973년 7%에서 2024년 7%로 돌아왔다 — 그러나 그 사이 미국은 순수출국이 됐다. 세계는 그것이 무엇을 의미하는지 아직 가격에 반영하지 않았다.",
   descriptionEn:
-    "US oil production rose from 5 million bpd in 2008 to 13.4 million bpd in 2024. The single reason America underwrote Persian Gulf security for 70 years — its own economy's dependence on Middle Eastern oil — has dissolved. The world has not yet priced what that means.",
+    "US oil production rose from 5.0 MM bpd in 2008 to 13.2 MM bpd in 2024 (peaking at 13.6 MM in July 2025). The single reason America underwrote Persian Gulf security for 70 years — its own economy's dependence on Middle Eastern oil — has dissolved. US Persian Gulf imports returned to 7% in 2024, the same level as 1973 — but in between, America became a net exporter. The world has not yet priced what that means.",
   thesis:
-    "셰일 혁명이 미국의 중동 정책을 정당화했던 단 하나의 기본 가정을 무너뜨렸다 — 그러나 그것이 무엇을 의미하는지 시장은 아직 모른다.",
+    "셰일 혁명이 미국의 중동 정책을 정당화했던 단 하나의 가정을 무너뜨렸다 — 그러나 그것이 무엇을 의미하는지 시장은 아직 모른다.",
   thesisEn:
-    "The shale revolution dissolved the single foundational assumption that justified American Middle East policy — yet markets have not begun to price what that means.",
+    "The shale revolution dissolved the single assumption that justified American Middle East policy — yet markets have not begun to price what that means.",
   readingMinutes: 26,
 });
 

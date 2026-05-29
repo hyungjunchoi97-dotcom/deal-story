@@ -6,7 +6,7 @@
  * 본문 작성 전 단계의 작업용 페이지.
  *  · 12개 섹션 outline
  *  · 비주얼 컴포넌트 4종 데모 (InteractiveMap, Timeline, SourceBox, ThinkerQuote)
- *  · 11개 차트·지도 슬롯 placeholder
+ *  · 11개 차트·지도 슬롯 + 검증된 1차 자료 데이터
  *  · 50+ 1차 자료 카탈로그
  *  · 작성 워크플로 체크리스트
  *
@@ -15,10 +15,22 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import {
+  AreaChart, Area, BarChart, Bar, LineChart, Line, Cell,
+  XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer, ReferenceLine,
+} from "recharts";
 import InteractiveMap from "@/components/series/InteractiveMap";
 import Timeline from "@/components/series/Timeline";
 import SourceBox from "@/components/series/SourceBox";
 import ThinkerQuote from "@/components/series/ThinkerQuote";
+import {
+  US_OIL_PRODUCTION,
+  US_PG_IMPORT_PCT,
+  LNG_EXPORTERS_2024,
+  BREAKEVEN_COMPARISON,
+  KOREA_LNG_MIX_2024,
+  EU_RUSSIAN_GAS,
+} from "@/data/research/ch01-shale-chart-data";
 
 type Lang = "ko" | "en";
 
@@ -286,6 +298,148 @@ export default function ShaleStubClient({ lang = "ko" }: { lang?: Lang }) {
         </div>
       </div>
 
+      {/* ═══ VERIFIED DATA CHARTS (W1 산출물) ═══════════════════════════════ */}
+      <div className="max-w-4xl mx-auto px-5 py-10">
+        <SectionLabel lang={lang} n="W1" ko="Week 1 검증 데이터 — 6개 핵심 차트" en="Week 1 Verified Data — 6 Core Charts" />
+        <p className="text-[13px] text-gray-500 dark:text-gray-400 mb-8">
+          {ko
+            ? "EIA, IMF, IEA, Rystad, Bruegel의 1차 자료로 검증된 데이터. 본문 작성 시 그대로 사용 가능."
+            : "Data verified from EIA, IMF, IEA, Rystad, and Bruegel primary sources. Ready for use in final article."}
+        </p>
+
+        {/* Chart 1 — US Crude Oil Production 1970-2026 */}
+        <ChartCard
+          title={ko ? "§1 · 미국 원유 생산 (1970~2026, 천 배럴/일)" : "§1 · US Crude Oil Production (1970–2026, kbpd)"}
+          caption={ko
+            ? "출처: EIA Monthly + STEO + AEO 2025. 2008년 셰일 변곡점 이후 11배 증가 → 사우디·러시아 동시 추월."
+            : "Source: EIA Monthly + STEO + AEO 2025. Up 11× since the 2008 shale inflection — overtaking Saudi Arabia and Russia simultaneously."}
+        >
+          <ResponsiveContainer width="100%" height={320}>
+            <AreaChart data={US_OIL_PRODUCTION} margin={{ top: 12, right: 16, left: 0, bottom: 0 }}>
+              <defs>
+                <linearGradient id="shaleGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#dc2626" stopOpacity={0.5} />
+                  <stop offset="100%" stopColor="#dc2626" stopOpacity={0} />
+                </linearGradient>
+              </defs>
+              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+              <XAxis dataKey="year" tick={{ fontSize: 11 }} />
+              <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}MM`} />
+              <Tooltip formatter={(v) => [`${Number(v).toLocaleString()} kbpd`, ko ? "생산" : "Production"]} />
+              <ReferenceLine x={2008} stroke="#dc2626" strokeDasharray="4 4" label={{ value: ko ? "셰일 시작" : "Shale begins", fill: "#dc2626", fontSize: 10, position: "top" }} />
+              <ReferenceLine x={2020} stroke="#16a34a" strokeDasharray="4 4" label={{ value: ko ? "순수출국" : "Net exporter", fill: "#16a34a", fontSize: 10, position: "top" }} />
+              <Area type="monotone" dataKey="production" stroke="#dc2626" strokeWidth={2.5} fill="url(#shaleGrad)" />
+            </AreaChart>
+          </ResponsiveContainer>
+        </ChartCard>
+
+        {/* Chart 2 — US Persian Gulf Import % */}
+        <ChartCard
+          title={ko ? "§6 · 미국 페르시아만 원유 수입 비중 (1973~2025, %)" : "§6 · US Crude Oil Imports from the Persian Gulf (1973–2025, %)"}
+          caption={ko
+            ? "출처: EIA Monthly Energy Review. 1990년 24%로 정점 → 2024년 7%로 거의 40년 만의 최저."
+            : "Source: EIA Monthly Energy Review. Peaked at 24% in 1990 → 7% in 2024, lowest in nearly 40 years."}
+        >
+          <ResponsiveContainer width="100%" height={300}>
+            <LineChart data={US_PG_IMPORT_PCT} margin={{ top: 12, right: 16, left: 0, bottom: 0 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+              <XAxis dataKey="year" tick={{ fontSize: 11 }} />
+              <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => `${v}%`} />
+              <Tooltip formatter={(v) => [`${v}%`, ko ? "비중" : "Share"]} />
+              <ReferenceLine y={7} stroke="#9ca3af" strokeDasharray="3 3" label={{ value: "7% — 1973 = 2024", fill: "#6b7280", fontSize: 10, position: "right" }} />
+              <Line type="monotone" dataKey="pct" stroke="#f59e0b" strokeWidth={2.5} dot={{ r: 4, fill: "#f59e0b" }} />
+            </LineChart>
+          </ResponsiveContainer>
+        </ChartCard>
+
+        {/* Chart 3 — LNG Exporters 2024 */}
+        <ChartCard
+          title={ko ? "§5 · 세계 LNG 수출국 순위 (2024, Bcf/d)" : "§5 · World's LNG Exporters Ranking (2024, Bcf/d)"}
+          caption={ko
+            ? "출처: EIA + IGU World LNG Report 2024. 미국이 호주·카타르를 따돌리고 단독 1위 — 2016년 첫 수출 이후 8년 만."
+            : "Source: EIA + IGU World LNG Report 2024. The US passed Australia and Qatar to lead alone — eight years after its first export in 2016."}
+        >
+          <ResponsiveContainer width="100%" height={280}>
+            <BarChart layout="vertical" data={LNG_EXPORTERS_2024} margin={{ top: 12, right: 24, left: 70, bottom: 0 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+              <XAxis type="number" tick={{ fontSize: 11 }} />
+              <YAxis type="category" dataKey={ko ? "country" : "countryEn"} tick={{ fontSize: 12 }} width={70} />
+              <Tooltip formatter={(v) => [`${v} Bcf/d`, ""]} />
+              <Bar dataKey="bcfd" radius={[0, 6, 6, 0]}>
+                {LNG_EXPORTERS_2024.map((d, i) => <Cell key={i} fill={d.color} />)}
+              </Bar>
+            </BarChart>
+          </ResponsiveContainer>
+        </ChartCard>
+
+        {/* Chart 4 — Breakeven Comparison */}
+        <ChartCard
+          title={ko ? "§7 · 손익분기 가격 비교 — 셰일 vs 사우디 ($/배럴 WTI)" : "§7 · Breakeven Comparison — Shale vs Saudi Arabia ($/bbl WTI)"}
+          caption={ko
+            ? "출처: IMF Article IV 2025 + Rystad 2025. 사우디는 Vision 2030·PIF 비용까지 감안하면 셰일 손익분기보다 2배 가까이 높다."
+            : "Source: IMF Article IV 2025 + Rystad 2025. With Vision 2030 and PIF, Saudi needs nearly twice the shale breakeven."}
+        >
+          <ResponsiveContainer width="100%" height={300}>
+            <BarChart data={BREAKEVEN_COMPARISON} margin={{ top: 12, right: 16, left: 0, bottom: 50 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+              <XAxis dataKey={ko ? "label" : "labelEn"} tick={{ fontSize: 10 }} angle={-15} textAnchor="end" height={70} />
+              <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => `$${v}`} />
+              <Tooltip formatter={(v) => [`$${v} WTI`, ""]} />
+              <Bar dataKey="value" radius={[6, 6, 0, 0]}>
+                {BREAKEVEN_COMPARISON.map((d, i) => <Cell key={i} fill={d.color} />)}
+              </Bar>
+            </BarChart>
+          </ResponsiveContainer>
+        </ChartCard>
+
+        {/* Chart 5 — EU Russian Gas Decline */}
+        <ChartCard
+          title={ko ? "§8 · EU의 러시아 가스 의존도 (2021~2025, %)" : "§8 · EU's Russian Gas Share (2021–2025, %)"}
+          caption={ko
+            ? "출처: Bruegel + Statista. 2021년 45% → 2025년 12%. 푸틴은 최고의 고객을 영구적으로 잃었다."
+            : "Source: Bruegel + Statista. From 45% in 2021 to 12% in 2025. Putin lost his best customer permanently."}
+        >
+          <ResponsiveContainer width="100%" height={280}>
+            <AreaChart data={EU_RUSSIAN_GAS} margin={{ top: 12, right: 16, left: 0, bottom: 0 }}>
+              <defs>
+                <linearGradient id="ruGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#475569" stopOpacity={0.5} />
+                  <stop offset="100%" stopColor="#475569" stopOpacity={0} />
+                </linearGradient>
+              </defs>
+              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+              <XAxis dataKey="year" tick={{ fontSize: 11 }} />
+              <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => `${v}%`} />
+              <Tooltip formatter={(v) => [`${v}%`, ko ? "비중" : "Share"]} />
+              <ReferenceLine x={2022} stroke="#dc2626" strokeDasharray="4 4" label={{ value: ko ? "Nord Stream 폭파" : "Nord Stream sabotage", fill: "#dc2626", fontSize: 10, position: "top" }} />
+              <Area type="monotone" dataKey="russianPct" stroke="#475569" strokeWidth={2.5} fill="url(#ruGrad)" />
+            </AreaChart>
+          </ResponsiveContainer>
+        </ChartCard>
+
+        {/* Chart 6 — Korea LNG Mix */}
+        <ChartCard
+          title={ko ? "§10 · 한국 LNG 수입 구조 (2024, %)" : "§10 · Korea's LNG Import Mix (2024, %)"}
+          caption={ko
+            ? "출처: World Bank WITS + KOGAS. 미국 비중은 12.2%(+10.2% YoY)로 빠르게 증가 중. 카타르·호주 장기계약 만료가 분기점."
+            : "Source: World Bank WITS + KOGAS. US share rose to 12.2% (+10.2% YoY) — Qatar and Australia contract expirations are the inflection."}
+        >
+          <ResponsiveContainer width="100%" height={280}>
+            <BarChart layout="vertical" data={KOREA_LNG_MIX_2024} margin={{ top: 12, right: 24, left: 80, bottom: 0 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+              <XAxis type="number" tick={{ fontSize: 11 }} tickFormatter={(v) => `${v}%`} />
+              <YAxis type="category" dataKey={ko ? "country" : "countryEn"} tick={{ fontSize: 12 }} width={80} />
+              <Tooltip formatter={(v) => [`${v}%`, ""]} />
+              <Bar dataKey="pct" radius={[0, 6, 6, 0]}>
+                {KOREA_LNG_MIX_2024.map((d, i) => (
+                  <Cell key={i} fill={d.countryEn === "United States" ? "#dc2626" : "#0ea5e9"} />
+                ))}
+              </Bar>
+            </BarChart>
+          </ResponsiveContainer>
+        </ChartCard>
+      </div>
+
       {/* ═══ VISUAL COMPONENT DEMOS ═════════════════════════════════════════ */}
 
       {/* SHALE MAP DEMO */}
@@ -400,6 +554,34 @@ export default function ShaleStubClient({ lang = "ko" }: { lang?: Lang }) {
         </Link>
       </div>
     </main>
+  );
+}
+
+// ── Chart card wrapper ──────────────────────────────────────────────────────
+function ChartCard({
+  title, caption, children,
+}: { title: string; caption?: string; children: React.ReactNode }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.5 }}
+      className="rounded-2xl border border-gray-200/60 dark:border-gray-700/60 bg-white dark:bg-gray-900 overflow-hidden mb-8"
+    >
+      <div className="px-5 sm:px-6 py-3 border-b border-gray-100 dark:border-gray-800 bg-gray-50/60 dark:bg-gray-800/30">
+        <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-1">
+          CHART
+        </p>
+        <h3 className="text-[14px] font-bold text-gray-900 dark:text-gray-100">{title}</h3>
+      </div>
+      <div className="p-5">{children}</div>
+      {caption && (
+        <p className="px-5 sm:px-6 pb-4 text-[11px] text-gray-400 dark:text-gray-500 italic leading-relaxed">
+          {caption}
+        </p>
+      )}
+    </motion.div>
   );
 }
 
