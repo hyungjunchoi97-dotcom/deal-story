@@ -89,7 +89,7 @@ const ADVISORS = [
     enWhen: "W3-6 (VDR setup) · W11-22 (DD + SPA)",
     koInterface: "IB와 함께 SPA 핵심 조항 협상. Closing mechanics 전담",
     enInterface: "Co-negotiates SPA core terms with IB. Owns closing mechanics",
-    firms: "Skadden · Cravath · Wachtell · Sullivan & Cromwell · Simpson Thacher · Kirkland · Latham (US) | 김장 · 광장 · 태평양 (KR)",
+    firms: "Skadden · Cravath · Wachtell · Sullivan & Cromwell · Simpson Thacher · Kirkland & Ellis · Latham & Watkins · Paul Weiss",
     koRisk: "SPA representation 조항 한 줄이 closing 후 1년 동안 가격을 흔든다",
     enRisk: "A single rep & warranty clause can swing price for a year after closing",
   },
@@ -108,6 +108,80 @@ const ADVISORS = [
     koRisk: "Financing 못 받으면 IOI 가격이 비현실적이 됨",
     enRisk: "Without financing, the IOI price becomes unrealistic",
   },
+];
+
+// ── IB House Types (the M&A advisor landscape) ───────────────────────
+const IB_HOUSES = [
+  {
+    key: "big4",
+    koTier: "Big 4 Corporate Finance",
+    enTier: "Big 4 Corporate Finance",
+    color: "#8b5cf6",
+    firms: "Deloitte CF · PwC Deals · EY-Parthenon · KPMG CF",
+    koSweet: "$20-200M, PE portfolio exit, carve-out / divestiture",
+    enSweet: "$20-200M, PE portfolio exits, carve-outs / divestitures",
+    koEdge: "Audit · Tax · FDD · Advisory를 한 firm에서 패키지. PE가 portfolio 30개 회사를 같은 Big 4로 깔아두면 entire lifecycle 효율적. 회계 복잡도 높은 carve-out에서 절대 우위",
+    enEdge: "Audit, tax, FDD, advisory bundled in one firm. PE funds running 30+ portfolio companies through the same Big 4 keep the entire lifecycle efficient. Strong advantage on accounting-complex carve-outs",
+    koLimit: "SOX 독립성 — audit client에 대해서는 M&A advisory 금지. Public 대기업은 거의 다 audit relationship에 막힘",
+    enLimit: "SOX independence — barred from advising audit clients on M&A. Most public large-caps are locked out due to existing audit relationships",
+    koReal: "PE 펀드가 $80M SaaS 회사 매각 → Deloitte CF가 sell-side + FDD + tax DD 한 번에",
+    enReal: "PE selling an $80M SaaS company → Deloitte CF runs sell-side + FDD + tax DD as a single mandate",
+  },
+  {
+    key: "mm",
+    koTier: "Mid-Market Boutiques",
+    enTier: "Mid-Market Boutiques",
+    color: "#10b981",
+    firms: "Houlihan Lokey · Lincoln International · Harris Williams · William Blair · Raymond James · Piper Sandler · Baird",
+    koSweet: "$100-500M, sector-focused MM sell-side",
+    enSweet: "$100-500M, sector-focused MM sell-side",
+    koEdge: "Sector expertise + 두꺼운 PE network at MM. Sell-side process를 BB보다 효율적으로 굴림. Houlihan Lokey는 fairness opinion 세계 1위 (20년+) + restructuring 강자",
+    enEdge: "Sector expertise + deep PE network at the MM level. Runs sell-side processes more efficiently than BBs at this size. Houlihan Lokey holds the #1 global fairness opinion ranking for 20+ years and dominates restructuring",
+    koLimit: "Cross-border 제한적 (해외 office 적음). 자체 financing arm 없음. Mega-deal advisory 안 함",
+    enLimit: "Limited cross-border (sparse overseas offices). No financing arm. Won't compete for mega-deals",
+    koReal: "PE가 $250M industrial company 매각 → Harris Williams가 sell-side. BB는 fee가 너무 작아 안 받음",
+    enReal: "PE selling a $250M industrial → Harris Williams runs sell-side. BBs decline because the fee is too small",
+  },
+  {
+    key: "senior",
+    koTier: "Senior Banker Boutiques",
+    enTier: "Senior Banker Boutiques",
+    color: "#f59e0b",
+    firms: "Centerview · PJT Partners · Moelis · Evercore · Greenhill · Lazard · Guggenheim",
+    koSweet: "$1B+, board fairness opinion, conflict-free 전략 advisory",
+    enSweet: "$1B+, board fairness opinions, conflict-free strategic advisory",
+    koEdge: "Independence (no underwriting/trading conflicts) + MD-level attention. 각자 specialty 명확 — Centerview = 헬스케어 (Allergan/Pfizer), Evercore = restructuring + advisory, PJT = restructuring (BX에서 spin-off), Moelis = sponsor coverage, Lazard = European cross-border",
+    enEdge: "Independence (no underwriting/trading conflicts) + MD-level attention. Each has a clear specialty — Centerview = healthcare (Allergan/Pfizer), Evercore = restructuring + advisory, PJT = restructuring (spun out of Blackstone), Moelis = sponsor coverage, Lazard = European cross-border",
+    koLimit: "No financing arm — debt commitment letter 못 제공. ECM/DCM 없음. Balance sheet 없음",
+    enLimit: "No financing arm — can't provide debt commitment letters. No ECM/DCM. No balance sheet",
+    koReal: "Public company가 hostile bid 받음 → Centerview를 board advisor로 — BB는 underwriting client일 수 있어 conflict",
+    enReal: "Public company receives hostile bid → board hires Centerview as advisor — BBs might be conflicted as underwriting clients",
+  },
+  {
+    key: "bb",
+    koTier: "Bulge Brackets",
+    enTier: "Bulge Brackets",
+    color: "#3b82f6",
+    firms: "Goldman Sachs · Morgan Stanley · JPMorgan · BofA · Citi · Barclays · UBS · Deutsche Bank",
+    koSweet: "$2B+ mega deals, cross-border, financing 동반 deal",
+    enSweet: "$2B+ mega deals, cross-border, financing-heavy transactions",
+    koEdge: "Full-service — advisory + acquisition financing + ECM/DCM + trading + research. GS는 M&A volume 20년 1위, MS는 tech/cross-border (특히 Asia), JPM은 advisory + financing 통합이 최강. $10B+ deal 자체가 BB만 가능 — 작은 firm은 commitment letter 못 씀",
+    enEdge: "Full-service — advisory + acquisition financing + ECM/DCM + trading + research. GS has led global M&A volume for 20 years; MS is strongest in tech/cross-border (especially Asia); JPM has the best advisory + financing integration. $10B+ deals are effectively BB-only — smaller firms can't write the commitment letters",
+    koLimit: "Conflicts across business lines (advisory vs prop trading vs underwriting). Bureaucracy. MD attention이 senior boutique보다 약함 — 한 MD가 동시에 5-7개 mandate",
+    enLimit: "Conflicts across business lines (advisory vs prop trading vs underwriting). Bureaucracy. MD attention is thinner than senior boutiques — one MD typically juggles 5-7 mandates",
+    koReal: "Microsoft가 Activision $69B 인수 → GS가 advisor + ECM이 financing 동시 → 부티크는 이 size 불가",
+    enReal: "Microsoft acquiring Activision for $69B → GS as advisor with simultaneous financing through ECM → no boutique can match this scale",
+  },
+];
+
+// ── House comparison matrix ──────────────────────────────────────────
+const HOUSE_MATRIX = [
+  { koDim: "Sweet spot deal size", enDim: "Sweet spot deal size",      big4: "$20-200M",     mm: "$100-500M",     senior: "$1B+",                    bb: "$2B+ mega" },
+  { koDim: "Financing 제공",        enDim: "Financing offered",        big4: "❌",            mm: "❌",            senior: "❌",                       bb: "✅ Full" },
+  { koDim: "FDD 포함",              enDim: "FDD included",             big4: "✅ Package",    mm: "❌ 별도",        senior: "❌ 별도",                   bb: "❌ 별도" },
+  { koDim: "Sector coverage",       enDim: "Sector coverage",          big4: "Broad MM",      mm: "Sector deep",    senior: "Specialty per firm",       bb: "Full coverage" },
+  { koDim: "MD attention",          enDim: "MD attention",             big4: "Partner-led",   mm: "Senior-led",     senior: "★ Maximum",                bb: "Diluted (5-7 deals)" },
+  { koDim: "Conflict",              enDim: "Conflict exposure",        big4: "SOX 제약",       mm: "Low",            senior: "Minimal",                  bb: "High (trading/UW)" },
 ];
 
 // ── Client side ──────────────────────────────────────────────────────
@@ -341,10 +415,116 @@ export default function MaCh02StakeholdersClient({ lang }: { lang: Lang }) {
             </motion.div>
           </motion.section>
 
-          {/* § 4 — Client side */}
+          {/* § 4 — IB house types (NEW) */}
           <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
             <motion.div variants={fadeUp()} className="mb-5">
               <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-1">§ 4</p>
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100">
+                {ko ? "IB advisor의 4가지 type — 회계법인 · MM 부티크 · Senior 부티크 · BB" : "4 types of M&A advisor — Big 4 · MM boutique · Senior boutique · BB"}
+              </h2>
+              <div className="w-8 h-0.5 mt-3" style={{ background: ACCENT }} />
+            </motion.div>
+            <motion.div variants={fadeUp(0.1)} className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed space-y-4 mb-6">
+              <p>{ko
+                ? "§ 3 에서 'IB'를 하나로 묶었지만, 실제 M&A advisor 시장은 4개 type으로 갈라집니다. 각자 sweet spot이 명확하고, 그 영역 밖에서는 거의 경쟁하지 않습니다. $80M PE portfolio exit과 $30B mega-merger는 사실상 다른 firm 카테고리가 일합니다."
+                : "§ 3 lumped 'IB' into one bucket, but the actual M&A advisor market splits into four types. Each has a clear sweet spot and barely competes outside it. An $80M PE portfolio exit and a $30B mega-merger are run by effectively different firm categories."}</p>
+              <p>{ko
+                ? "특히 미국 시장에서 흥미로운 부분 — Big 4 회계법인이 M&A advisory를 적극적으로 합니다. Deloitte Corporate Finance LLC, PwC Deals, EY-Parthenon, KPMG Corporate Finance — 모두 진짜 advisory 부서이고, MM 영역에서 league table 상위권에 올라옵니다. 단 SOX 독립성 규정 때문에 audit client에 대해서는 M&A advisory 못 합니다 (이 제약이 Big 4를 public 대기업 영역에서 배제)."
+                : "One quirk of the US market — Big 4 accounting firms aggressively offer M&A advisory. Deloitte Corporate Finance LLC, PwC Deals, EY-Parthenon, KPMG Corporate Finance — all run real advisory arms and crack league tables at the MM level. The catch: SOX independence bars them from advising audit clients, which excludes most public large-caps."}</p>
+            </motion.div>
+
+            {/* House cards */}
+            <motion.div variants={fadeUp(0.15)} className="space-y-3">
+              {IB_HOUSES.map((h, i) => (
+                <motion.div
+                  key={h.key}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={VP}
+                  transition={{ duration: 0.4, delay: i * 0.07, ease: EASE }}
+                  className="rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden bg-white dark:bg-gray-900"
+                >
+                  <div className="px-5 py-3 flex items-center gap-3" style={{ background: `${h.color}10` }}>
+                    <div className="w-2 h-8 rounded-full" style={{ background: h.color }} />
+                    <div className="flex-1">
+                      <p className="text-[14px] font-bold text-gray-900 dark:text-gray-100">{ko ? h.koTier : h.enTier}</p>
+                      <p className="text-[10px] text-gray-500 dark:text-gray-400 font-mono mt-0.5">{h.firms}</p>
+                    </div>
+                  </div>
+                  <div className="p-5 space-y-3">
+                    <div className="grid sm:grid-cols-2 gap-3">
+                      <div>
+                        <p className="text-[10px] font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-1">{ko ? "Sweet spot" : "Sweet spot"}</p>
+                        <p className="text-[12px] text-gray-700 dark:text-gray-300 leading-snug">{ko ? h.koSweet : h.enSweet}</p>
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-1">{ko ? "실제 케이스" : "Real example"}</p>
+                        <p className="text-[12px] text-gray-700 dark:text-gray-300 leading-snug">{ko ? h.koReal : h.enReal}</p>
+                      </div>
+                    </div>
+                    <div className="rounded-lg p-3 bg-emerald-50/60 dark:bg-emerald-950/20 border-l-2 border-emerald-400">
+                      <p className="text-[10px] font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-300 mb-1">{ko ? "Edge — 왜 이 영역에서 강한가" : "Edge — why they dominate this slot"}</p>
+                      <p className="text-[12px] text-emerald-900 dark:text-emerald-100 leading-snug">{ko ? h.koEdge : h.enEdge}</p>
+                    </div>
+                    <div className="rounded-lg p-3 bg-rose-50/60 dark:bg-rose-950/20 border-l-2 border-rose-400">
+                      <p className="text-[10px] font-bold uppercase tracking-wider text-rose-700 dark:text-rose-300 mb-1">{ko ? "Limitation — 못 하는 것" : "Limitation — what they can't do"}</p>
+                      <p className="text-[12px] text-rose-900 dark:text-rose-100 leading-snug">{ko ? h.koLimit : h.enLimit}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            {/* Comparison matrix */}
+            <motion.div variants={fadeUp(0.2)} className="mt-6 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700">
+              <div className="bg-gray-50 dark:bg-gray-800/60 px-5 py-3 border-b border-gray-200 dark:border-gray-700">
+                <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500">
+                  {ko ? "한눈에 보는 4 type 비교" : "4 types side by side"}
+                </p>
+              </div>
+              <div className="overflow-x-auto">
+                <table className="min-w-full text-[11px]">
+                  <thead>
+                    <tr className="border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
+                      <th className="text-left px-3 py-2.5 font-semibold text-gray-500 dark:text-gray-400">{ko ? "차원" : "Dimension"}</th>
+                      <th className="text-left px-3 py-2.5 font-semibold text-violet-700 dark:text-violet-300">Big 4 CF</th>
+                      <th className="text-left px-3 py-2.5 font-semibold text-emerald-700 dark:text-emerald-300">MM Boutique</th>
+                      <th className="text-left px-3 py-2.5 font-semibold text-amber-700 dark:text-amber-300">Senior Boutique</th>
+                      <th className="text-left px-3 py-2.5 font-semibold text-blue-700 dark:text-blue-300">Bulge Bracket</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {HOUSE_MATRIX.map((row, i) => (
+                      <tr key={i} className={i % 2 === 0 ? "bg-white dark:bg-gray-950" : "bg-gray-50/50 dark:bg-gray-900/30"}>
+                        <td className="px-3 py-2.5 font-medium text-gray-800 dark:text-gray-200">{ko ? row.koDim : row.enDim}</td>
+                        <td className="px-3 py-2.5 text-gray-700 dark:text-gray-300">{row.big4}</td>
+                        <td className="px-3 py-2.5 text-gray-700 dark:text-gray-300">{row.mm}</td>
+                        <td className="px-3 py-2.5 text-gray-700 dark:text-gray-300">{row.senior}</td>
+                        <td className="px-3 py-2.5 text-gray-700 dark:text-gray-300">{row.bb}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </motion.div>
+
+            {/* Industry specialist note */}
+            <motion.div variants={fadeUp(0.25)} className="mt-5 rounded-xl p-4 bg-gray-50/60 dark:bg-gray-900/40 border border-gray-200 dark:border-gray-700">
+              <p className="text-[10px] font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-1.5">
+                {ko ? "+ 한 가지 더 — 산업 specialist boutiques" : "+ One more — industry specialist boutiques"}
+              </p>
+              <p className="text-[12px] text-gray-600 dark:text-gray-400 leading-relaxed">
+                {ko
+                  ? "FT Partners (fintech), Allen & Company (media), Cain Brothers (healthcare services), Qatalyst Partners (tech sell-side), Robey Warshaw (UK financials) — 자기 sector 안에서는 BB나 senior boutique보다 강함. Qatalyst가 ServiceNow IPO와 Slack/Salesforce sale을 advisor로 한 게 대표적. 산업 깊이가 worth premium일 때 선택."
+                  : "FT Partners (fintech), Allen & Company (media), Cain Brothers (healthcare services), Qatalyst Partners (tech sell-side), Robey Warshaw (UK financials) — within their vertical, they outperform BBs and senior boutiques. Qatalyst advising on the ServiceNow IPO and the Slack/Salesforce sale is the canonical example. Pick them when sector depth justifies the premium."}
+              </p>
+            </motion.div>
+          </motion.section>
+
+          {/* § 5 — Client side */}
+          <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
+            <motion.div variants={fadeUp()} className="mb-5">
+              <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-1">§ 5</p>
               <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100">
                 {ko ? "클라이언트 side — CEO · CFO · Board" : "Client side — CEO · CFO · Board"}
               </h2>
@@ -378,10 +558,10 @@ export default function MaCh02StakeholdersClient({ lang }: { lang: Lang }) {
             </motion.div>
           </motion.section>
 
-          {/* § 5 — Buyer side mirror */}
+          {/* § 6 — Buyer side mirror */}
           <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
             <motion.div variants={fadeUp()} className="mb-5">
-              <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-1">§ 5</p>
+              <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-1">§ 6</p>
               <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100">
                 {ko ? "Buyer side — 같은 cast가 거울처럼" : "Buyer side — the cast mirrored"}
               </h2>
@@ -397,10 +577,10 @@ export default function MaCh02StakeholdersClient({ lang }: { lang: Lang }) {
             </motion.div>
           </motion.section>
 
-          {/* § 6 — Failure modes */}
+          {/* § 7 — Failure modes */}
           <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
             <motion.div variants={fadeUp()} className="mb-5">
-              <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-1">§ 6</p>
+              <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-1">§ 7</p>
               <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100">
                 {ko ? "IB 오케스트레이션이 깨지는 4가지 지점" : "4 ways orchestration breaks"}
               </h2>
