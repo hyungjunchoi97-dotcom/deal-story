@@ -267,6 +267,53 @@ export type PeSpreadPoint = {
   sp493: number;
 };
 
+// ── After Pax Americana — Ch.1 (Shale Pivot) 차트 데이터 타입 ──────────────────
+// US 원유 생산 (1970-2026), AreaChart 1,000 bpd
+export type UsOilProductionPoint = {
+  year: number;
+  production: number;  // thousand bpd
+  event?: string;
+};
+
+// 미국의 페르시아만 원유 수입 비중 (1973-2025), %
+export type UsPgImportPoint = {
+  year: number;
+  pct: number;
+  event?: string;
+};
+
+// LNG 수출국 랭킹 (2024), Bcf/d, horizontal bar
+export type LngExporterBar = {
+  country: string;
+  countryEn: string;
+  bcfd: number;
+  color: string;
+};
+
+// 손익분기 비교 ($/bbl WTI), horizontal bar
+export type BreakevenBar = {
+  label: string;
+  labelEn: string;
+  value: number;       // $/bbl
+  color: string;
+};
+
+// EU 러시아산 가스 비중 (2021-2025), %
+export type EuRussianGasPoint = {
+  year: number;
+  pct: number;
+  event?: string;
+};
+
+// 중국 원유 수입 mix (2024), horizontal bar
+export type ChinaOilSourceBar = {
+  country: string;
+  countryEn: string;
+  pct: number;
+  bucket: "russia" | "gulf-major" | "iran" | "other";
+  color: string;
+};
+
 export type NoteChartDef =
   | { id: "pbr-comparison";    title: string; titleEn?: string; caption?: string; captionEn?: string; data: PBRPoint[] }
   | { id: "tax-rates";         title: string; titleEn?: string; caption?: string; captionEn?: string; data: TaxRateBar[] }
@@ -288,7 +335,13 @@ export type NoteChartDef =
   | { id: "dc-power-demand";   title: string; titleEn?: string; caption?: string; captionEn?: string; data: DcPowerDemandPoint[] }
   | { id: "queue-growth";      title: string; titleEn?: string; caption?: string; captionEn?: string; data: InterconnectionQueuePoint[] }
   | { id: "ai-penetration";    title: string; titleEn?: string; caption?: string; captionEn?: string; data: AiPenetrationPoint[] }
-  | { id: "pe-spread";         title: string; titleEn?: string; caption?: string; captionEn?: string; data: PeSpreadPoint[] };
+  | { id: "pe-spread";         title: string; titleEn?: string; caption?: string; captionEn?: string; data: PeSpreadPoint[] }
+  | { id: "us-oil-production"; title: string; titleEn?: string; caption?: string; captionEn?: string; data: UsOilProductionPoint[]; annotations?: { year: number; label: string; labelEn?: string }[] }
+  | { id: "us-pg-imports";     title: string; titleEn?: string; caption?: string; captionEn?: string; data: UsPgImportPoint[]; annotations?: { year: number; label: string; labelEn?: string }[] }
+  | { id: "lng-exporters";     title: string; titleEn?: string; caption?: string; captionEn?: string; data: LngExporterBar[] }
+  | { id: "breakeven-bars";    title: string; titleEn?: string; caption?: string; captionEn?: string; data: BreakevenBar[] }
+  | { id: "eu-russian-gas";    title: string; titleEn?: string; caption?: string; captionEn?: string; data: EuRussianGasPoint[]; annotations?: { year: number; label: string; labelEn?: string }[] }
+  | { id: "china-oil-mix";     title: string; titleEn?: string; caption?: string; captionEn?: string; data: ChinaOilSourceBar[] };
 
 export type NoteBlock =
   | { type: "text";    body: string; bodyEn?: string }
