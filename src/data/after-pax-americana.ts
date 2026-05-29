@@ -57,38 +57,61 @@ const ch01_shale: NoteData = {
   status: "published",
   series: SERIES_ID,
   seriesOrder: 1,
-  title: "셰일 전환 — 미국이 페르시아만에서 손을 떼는 산수",
-  titleEn: "The Shale Pivot — Why America Walks Away from the Persian Gulf",
+  title: "셰일 전환 — 5만 원짜리 주유의 흐름이 바뀐 17년",
+  titleEn: "The Shale Pivot — How the Tank of Gas in Your Car Changed Hands",
   description:
-    "2008년 일 5.0백만 배럴이던 미국 원유 생산은 2024년 13.2백만, 2025년 7월 13.6백만 배럴로 정점을 찍었다. 페르시아만 수입 비중은 1973년 7%에서 2024년 7%로 돌아왔다 — 그러나 그 사이 미국은 순수출국이 됐다. 미국이 70년간 페르시아만 안보를 자임했던 단 하나의 이유가 사라졌다. 세계는 그것이 무엇을 의미하는지 아직 가격에 반영하지 않았다.",
+    "한국 주유소에서 5만 원어치 기름을 넣으면, 그 돈의 절반은 결국 페르시아만으로 간다. 2008년 미국도 마찬가지였다 — 그런데 17년이 지난 지금은 정반대다. 셰일이라는 단어 하나가 미국의 원유 생산을 일 5.0백만 배럴에서 13.6백만 배럴로 끌어올렸고, 미국이 70년간 호르무즈 자유 통항을 자기 일로 본 단 하나의 이유를 지웠다. 그 자유도는 미국의 것이 됐고, 청구서는 한국·일본의 몫이 된다.",
   descriptionEn:
-    "US crude output rose from 5.0 MM bpd in 2008 to 13.2 MM in 2024, peaking at 13.6 MM in July 2025. The US share of Persian Gulf oil imports returned to 7% in 2024 — the same level as 1973. But in between, America became a net exporter. The single reason it underwrote Gulf security for seventy years has dissolved. Markets have not yet priced what that means.",
+    "Fill up your tank in Seoul and roughly half of what you paid ends up in the Persian Gulf. America was in the same boat in 2008. Seventeen years later, it is not. A single word — *shale* — pushed US crude output from 5.0 to 13.6 MM bpd and erased the only reason Washington treated the free passage of Hormuz as its own problem. The new freedom belongs to America; the new bill is being addressed to Korea, Japan, and anyone else who still buys east of the Strait.",
   date: "2026-05-29",
-  readingMinutes: 26,
+  readingMinutes: 24,
   keyPoints: [
-    "미국 원유 생산은 2008년 5.0MM bpd에서 2024년 13.2MM, 2025년 7월 13.6MM bpd로 정점을 찍었다 — 사우디·러시아를 동시에 추월한 세계 최대 생산국.",
-    "페르시아만 원유 수입은 1973년 7% → 2024년 7%로 돌아왔지만 그 사이 미국은 순수출국이 됐다 — 같은 숫자, 정반대 의미.",
-    "Permian 운영 단가는 $35–40, 사우디 재정 손익분기는 IMF 기준 $96 — 정부 운영비를 기름값에 의존하는 국가와, 사기업 수익률에 의존하는 국가의 비대칭.",
-    "유럽 가스 시장에서 러시아 비중은 2021년 45%에서 2025년 12%로 떨어졌고 미국 LNG가 그 자리를 채웠다 — 셰일은 안보의 도구가 됐다.",
-    "한국·일본의 중동 원유 의존도는 여전히 70%대 — 미군이 호르무즈를 자유 통과시키지 않는 첫날, 청구서는 동맹국에 먼저 도착한다.",
+    "한국이 수입하는 원유의 약 70%, 일본 95%가 호르무즈 동측에서 온다 — 미군이 그 항로를 \"내 일\"로 보지 않게 되는 순간 주유소 가격이 가장 먼저 움직인다.",
+    "셰일은 단순 자원이 아니라 두 기술(수평시추 + 수압파쇄)이 만나서 풀린 자물쇠다. Permian·Bakken·Eagle Ford 세 분지가 미국을 사우디·러시아를 동시에 추월한 세계 1위 산유국으로 만들었다.",
+    "미국 원유 생산: 2008년 5.0MM bpd → 2024년 13.2MM → 2025년 7월 13.6MM bpd 신기록. 같은 기간 페르시아만 수입 비중은 1973년 수준인 7%로 회귀.",
+    "Permian 운영 단가 $35–40 vs 사우디 재정 손익분기 $96. 셰일 기업의 다운사이드는 주주 손실로 끝나지만, 사우디의 다운사이드는 정권 사활이다. 가격 전쟁의 비대칭.",
+    "유럽 가스 시장의 러시아 비중은 2021년 45%에서 2025년 12%로 추락했고, 미국 LNG가 그 자리를 채웠다 — 한국 LNG의 미국 비중도 2024년 12.2%로 +10.2% YoY. 헷지는 이미 계약 단계에서 진행 중.",
   ],
   keyPointsEn: [
-    "US crude output rose from 5.0 MM bpd in 2008 to 13.2 MM in 2024, peaking at 13.6 MM in July 2025 — overtaking both Saudi Arabia and Russia.",
-    "Persian Gulf imports returned to 7% in 2024, matching the 1973 level — but in between, America became a net exporter. Same number, opposite meaning.",
-    "Permian wellhead breakeven $35–40; Saudi fiscal breakeven $96 (IMF). Asymmetry between a state that funds its government from oil prices and a private industry that funds shareholders.",
-    "Russian gas in EU supply fell from 45% in 2021 to 12% in 2025; US LNG took the void. Shale has become an instrument of security policy.",
-    "Korea and Japan still source ~70% of crude from the Gulf. The first day the US Navy stops free-passing Hormuz, the bill arrives at the allies' door — not Washington's.",
+    "Korea sources ~70% and Japan ~95% of crude east of Hormuz — the moment Washington stops treating that sea-lane as its own problem, the price at the pump is the first thing that moves.",
+    "Shale is not just a resource — it is a lock that opened when two technologies met (horizontal drilling + hydraulic fracturing). The Permian, Bakken, and Eagle Ford basins turned the US into the world's largest producer, overtaking Saudi Arabia and Russia at once.",
+    "US output: 5.0 MM bpd (2008) → 13.2 MM (2024) → 13.6 MM record in July 2025. Over the same window, Persian Gulf import share fell back to its 1973 level: 7%.",
+    "Permian wellhead breakeven $35–40 vs Saudi fiscal breakeven $96. A shale firm's downside ends with shareholder losses; Saudi Arabia's ends in regime survival. That asymmetry decides every price war.",
+    "Russia's share of EU gas collapsed from 45% (2021) to 12% (2025); US LNG took the void. Korea's LNG mix is already 12.2% US (+10.2% YoY) — the hedge is being booked at the contract level, today.",
   ],
   sections: [
-    // ── §1 출발점 — 산수의 변화 ────────────────────────────────────────────────
+    // ── §1 후크 — 당신의 5만 원 ────────────────────────────────────────────────
     {
-      heading: "산수의 변화 — 5.0에서 13.6까지",
-      headingEn: "The Arithmetic Has Changed — From 5.0 to 13.6",
+      heading: "당신이 5만 원어치 기름을 넣을 때",
+      headingEn: "When You Fill Up the Tank",
       blocks: [
         {
           type: "text",
-          body: "지정학을 움직이는 변수는 많지 않다. 한 세대를 정의하는 변화는 보통 **자원**, **인구**, **부채** 셋 중 하나에서 출발한다. 2008년부터 2025년 사이 미국에서 일어난 일은 자원의 변화였다 — 일 5.0백만 배럴이던 원유 생산이 13.2백만 배럴로 늘어나, 2025년 7월 13.6백만 배럴 신기록을 쓰는 데까지 17년이 걸렸다.\n\n이 숫자는 추정이 아니다. EIA(미 에너지정보청)가 매월 발표하는 *Petroleum Supply Monthly* 그대로다. **세계 최대 산유국이라는 지위는 2014년에 사우디아라비아를, 2019년에 러시아를 넘어섰고, 지금은 두 나라가 합쳐도 미국 한 나라에 못 미친다.**",
-          bodyEn: "Geopolitics turns on a small number of variables. The changes that define a generation usually start with one of three: **resources**, **demographics**, **debt**. Between 2008 and 2025, what happened in the US was a resource change — daily oil output rose from 5.0 to 13.2 million barrels, peaking at a record 13.6 million in July 2025. It took seventeen years.\n\nThese numbers are not estimates. They are EIA's monthly *Petroleum Supply Monthly* on the page. **America passed Saudi Arabia in 2014 and Russia in 2019. Today the two of them combined fall short of one country: the United States.**",
+          body: "오늘 한국에서 휘발유 5만 원을 넣었다고 하자. 그 돈은 어디로 흐를까. 정유사 마진과 유류세를 떼고 남는 **원유 원가 — 약 절반 — 의 70%가 페르시아만으로 간다.** 사우디아람코, ADNOC(아부다비), 쿠웨이트 KPC, 카타르에너지. 이 네 회사가 한국 주유소에 깔린 기름의 출처다.\n\n같은 5만 원을 17년 전 미국 운전자가 넣었다면, 비율은 거의 똑같았다. 사우디 23%, 베네수엘라 11%, 나이지리아·이라크 합쳐 12%. 그래서 미국은 1980년 **Carter Doctrine** — \"걸프 지역을 외부 세력이 통제하려 들면 군사력으로 격퇴한다\" — 으로 5함대를 바레인에 깔았고, 50년간 그 비용을 자기 일로 봤다.\n\n2025년 미국 운전자의 5만 원에서 페르시아만이 차지하는 비중은 **7%다.** 한국 운전자의 비중은 그대로 70%다. 같은 자동차, 같은 엔진, 같은 유종 — 그러나 \"이 기름이 끊기면 누가 가장 먼저 흔들리는가\"라는 질문의 답이 완전히 달라졌다. **이 시리즈 1편이 추적하는 것은 그 한 가지다.**",
+          bodyEn: "Fill up at ₩50,000 in Seoul today. Where does the money go? Strip out refining margin and excise tax, and roughly half is the raw crude cost. Of that crude cost, **about 70% ends up in the Persian Gulf** — Saudi Aramco, ADNOC, Kuwait Petroleum, QatarEnergy. Those four companies are the ultimate source of the gasoline at every Korean pump.\n\nSeventeen years ago, an American driver's tank looked almost identical: 23% Saudi, 11% Venezuelan, another 12% Nigerian and Iraqi combined. That dependence is why the 1980 **Carter Doctrine** — *any attempt by an outside force to control the Persian Gulf will be repelled by military force* — put the US 5th Fleet in Bahrain. For fifty years, Washington treated the bill as its own.\n\nIn 2025, that same Persian Gulf share of the American driver's tank is **7%.** The Korean driver's share is still 70%. Same car, same engine, same fuel grade — but the answer to *who blinks first if this oil is cut* has flipped. **That single flip is what Chapter 1 traces.**",
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "insight",
+            heading: "그래서 \"셰일\"이 정확히 뭔가?",
+            headingEn: "So what exactly is \"shale\"?",
+            body: "셰일(shale)은 점판암 — 단단한 진흙 바위다. 이 바위 속에 기름과 가스가 미세한 틈에 갇혀 있다는 사실은 100년 전부터 알려져 있었다. **못 뽑은 이유는 단순하다 — 바위가 단단해서 기름이 우물로 안 흘러나오기 때문이다.**\n\n2008년 전후로 두 기술이 결합되면서 그 자물쇠가 풀렸다:\n\n**① 수평시추(horizontal drilling)** — 지하 2km를 수직으로 뚫은 다음, 시추기를 90도 꺾어 셰일층을 따라 옆으로 2~3km 더 뻗는다. 같은 시추공 하나로 훨씬 넓은 면적에 닿는다.\n\n**② 수압파쇄(hydraulic fracturing, \"fracking\")** — 수평으로 뻗은 시추공에 고압수 + 모래 + 점성 약품을 쏘아 바위에 미세한 균열을 만든다. 모래(propant)가 균열을 받쳐 닫히지 않게 하고, 그 틈으로 기름·가스가 흘러나온다.\n\n이 두 기술이 적용되는 미국 내 주요 분지가 셋이다 — **텍사스 서부·뉴멕시코의 Permian**(세계 최대 단일 분지), **노스다코타의 Bakken**, **텍사스 남부의 Eagle Ford**. 2008년 미국 원유의 약 5%였던 이 세 분지의 비중은 2024년 65%를 넘었다.",
+            bodyEn: "Shale is mudstone — hard, dense rock. Geologists have known for a century that oil and gas are trapped in microscopic pores inside it. **The reason no one could extract it is simple: the rock is too tight; the oil will not flow into a well bore.**\n\nAround 2008, two techniques combined to break that lock:\n\n**① Horizontal drilling** — bore 2 km straight down, then turn the drill bit 90° and run another 2–3 km laterally through the shale layer. A single well now covers far more rock area.\n\n**② Hydraulic fracturing (\"fracking\")** — pump high-pressure water + sand + viscous chemicals into that lateral, cracking the rock into a network of micro-fractures. The sand (proppant) holds those fractures open so oil and gas can flow back into the well bore.\n\nThe three US basins where this is done: the **Permian** in West Texas / New Mexico (the world's largest single basin), the **Bakken** in North Dakota, and the **Eagle Ford** in South Texas. These three contributed ~5% of US crude in 2008. By 2024, they contributed over 65%.",
+          },
+        },
+      ],
+    },
+
+    // ── §2 17년의 산수 ────────────────────────────────────────────────────────
+    {
+      heading: "17년의 산수 — 5.0에서 13.6까지",
+      headingEn: "Seventeen Years of Arithmetic — From 5.0 to 13.6",
+      blocks: [
+        {
+          type: "text",
+          body: "셰일의 기술적 잠금 해제가 어떤 양적 결과를 만들었는지부터 보자. 미국 원유 생산 그래프 한 장이면 충분하다.\n\n1970년 미국은 일 9.64MM 배럴을 뽑았다 — 텍사스·캘리포니아·알래스카 같은 **재래식 유전**의 정점. 그 뒤 35년간 미국은 내리막이었다. 2005년에는 5.18MM bpd까지 떨어졌고, \"미국은 에너지 자급이 끝났다\"가 모든 정치 담론의 출발점이었다. 부시 행정부의 이라크 침공도, 오바마 행정부의 셰일 가스 보조금도, 그 가정 위에 세워졌다.\n\n그 가정이 깨진 게 2008–2025년이다. 일 5.0MM에서 13.6MM까지. 17년 만에 **재래식 정점(1970)을 41% 초과한** 새로운 최고점에 도달했다. 사우디(2024년 9MM bpd 대)와 러시아(2024년 10MM 대)를 같은 해에 한꺼번에 넘어섰고, 지금은 둘을 합쳐도 미국 한 나라에 못 미친다.",
+          bodyEn: "Start with what the technological unlock produced quantitatively. One chart is enough.\n\nIn 1970, US oil production peaked at 9.64 MM bpd — the limit of **conventional reservoirs** in Texas, California, and Alaska. The next 35 years were a downhill slope. By 2005, US output was 5.18 MM bpd, and the working assumption of every political conversation — Bush's Iraq invasion, Obama's shale-gas subsidies — was that *American energy self-sufficiency is over*.\n\nThat assumption broke between 2008 and 2025. From 5.0 to 13.6 MM bpd. In seventeen years, the United States blew through its 1970 conventional peak by 41% and set a new all-time high. It overtook Saudi Arabia (about 9 MM bpd today) and Russia (about 10 MM) in the same window. Combined, those two now produce less than the United States alone.",
         },
         {
           type: "chart",
@@ -128,28 +151,71 @@ const ch01_shale: NoteData = {
             ],
           },
         },
+      ],
+    },
+
+    // ── §3 한국·일본의 자리 (앞당김) ───────────────────────────────────────────
+    {
+      heading: "한국과 일본 — 청구서는 어디로 가는가",
+      headingEn: "Korea and Japan — Where the Bill Goes",
+      blocks: [
+        {
+          type: "text",
+          body: "여기서 한 박자 멈추고 한국 독자가 이 그래프 앞에 있어야 할 이유를 정리한다.\n\n미국이 셰일로 자유도를 얻는 동안, **한국과 일본은 그 자유도를 얻지 못했다.** 한국이 수입하는 원유의 약 70%, 일본은 95% 이상이 호르무즈 해협 동측 — 사우디·UAE·쿠웨이트·이라크·카타르 — 에서 온다. 1973년 이후 50년 동안 그 비율은 거의 안 변했다. 변한 건 \"누가 이 항로를 지키는가\"의 답이다.\n\n1973년에는 미국이 5함대 유지 비용을 사실상 전액 부담했다. 자기도 같은 항로에 노출돼 있었기 때문이다. 2025년에는 그 인센티브가 미국 본토에서 사라진다. **셰일이 미국에 만들어 준 자유도의 다른 이름은, 동맹국 입장에서 \"청구서가 우리에게 온다\"는 문장이다.** 한국 정부가 매년 미국과 부담분담협상에서 깎이고 있는 그 비용 — 그게 이 셰일 그래프의 그림자다.",
+          bodyEn: "Pause here. The reader who needs to be in front of this chart is the Korean or Japanese investor.\n\nWhile shale handed the United States a new degree of freedom, **Korea and Japan did not get one.** Korea imports about 70% of its crude from east of Hormuz; Japan, more than 95% — Saudi Arabia, the UAE, Kuwait, Iraq, Qatar. That ratio has barely moved in fifty years. What moved is the answer to *who pays to keep that sea-lane open*.\n\nIn 1973, the United States carried essentially the entire cost of the 5th Fleet, because it shared the exposure. By 2025, that incentive has drained out of Washington's domestic politics. **The other name for the freedom shale gave America is the sentence \"the bill arrives at our door\" from the allies' side.** The cost-sharing negotiations that grind Korea harder every administration — that is the shadow of the same shale graph.",
+        },
+        {
+          type: "metrics",
+          items: [
+            { label: "한국 중동 원유 의존",    labelEn: "Korea Gulf Crude",      value: "~70%",  valueEn: "~70%",  sub: "사우디 30% · UAE 12% · 쿠웨이트 11%", subEn: "Saudi 30%, UAE 12%, Kuwait 11%",  color: "text-red-600" },
+            { label: "일본 중동 원유 의존",    labelEn: "Japan Gulf Crude",      value: "95%+",  valueEn: "95%+",  sub: "사우디 45% · UAE 38%",               subEn: "Saudi 45%, UAE 38%",                 color: "text-red-600" },
+            { label: "한국 LNG 중 미국 비중",  labelEn: "Korea LNG from US",     value: "12.2%", valueEn: "12.2%", sub: "+10.2% YoY (KOGAS, 2024)",            subEn: "+10.2% YoY (KOGAS, 2024)",           color: "text-emerald-600" },
+          ],
+        },
+        {
+          type: "table",
+          table: {
+            id: "korea-japan-china-exposure",
+            title: "동맹 3국의 에너지 노출 구조 (2024)",
+            titleEn: "Energy Exposure of Three Allies (2024)",
+            headers: ["국가", "원유 — 페르시아만 의존", "가스/LNG — 다변화 상황", "정치적 헤지 도구"],
+            headersEn: ["Country", "Crude — Gulf Share", "Gas / LNG — Diversification", "Political Hedge"],
+            rows: [
+              ["한국",     "≈70% (사우디 30% · UAE 12% · 쿠웨이트 11%)", "호주 24% · 카타르 19% · 미국 12.2% (+10.2% YoY)", "미군 주둔 + 자체 핵 옵션 논의 (70%+ 여론)"],
+              ["일본",     "95%+ (사우디 45% · UAE 38%)",                 "호주·말레이시아·미국 분산, 카타르 신규 장기계약", "미일 동맹 + Quad + 자체 방위비 2% 증액"],
+              ["중국",     "42% (걸프 합산) + 이란 11% + 러시아 20%",      "러시아 파이프라인 (Power of Siberia) + 카타르 27년 LTC", "그림자 함대 + 위안화 결제 + BRICS"],
+            ],
+            rowsEn: [
+              ["Korea",  "~70% (Saudi 30%, UAE 12%, Kuwait 11%)",     "Australia 24%, Qatar 19%, US 12.2% (+10.2% YoY)",  "US troops + emerging nuclear-option debate (70%+ public support)"],
+              ["Japan",  "95%+ (Saudi 45%, UAE 38%)",                  "Diversified across Australia/Malaysia/US + new Qatari LTC", "US-Japan alliance + Quad + 2% defense uplift"],
+              ["China",  "42% Gulf-combined + Iran 11% + Russia 20%",  "Russian pipeline (Power of Siberia) + 27-yr Qatari LNG deal", "Shadow fleet + yuan settlement + BRICS"],
+            ],
+            caption: "출처: KEEI, METI, China Customs, KOGAS, World Bank WITS 2024.",
+            captionEn: "Source: KEEI, METI, China Customs, KOGAS, World Bank WITS 2024.",
+          },
+        },
         {
           type: "callout",
           callout: {
             variant: "insight",
-            heading: "두 곡선의 차이",
-            headingEn: "Two Curves, One Difference",
-            body: "1970년 정점(9.64MM bpd)은 **재래식 유전**의 한계였다. 2025년 정점(13.6MM bpd)은 **수평시추(horizontal drilling) + 수압파쇄(fracking)** 두 기술이 만든 새로운 한계다. 그 사이엔 35년의 감산 흐름이 있었고, 그 35년 동안 미국 안보 독트린이 '페르시아만 자유 통항'이라는 가정 위에 세워졌다.",
-            bodyEn: "The 1970 peak (9.64 MM bpd) was the limit of **conventional reservoirs**. The 2025 peak (13.6 MM bpd) is a new limit, defined by **horizontal drilling and hydraulic fracturing**. Between the two peaks lay 35 years of decline — and during those 35 years, the entire architecture of US security doctrine was built on the premise of free passage through the Persian Gulf.",
+            heading: "12.2% 라는 숫자가 중요한 이유",
+            headingEn: "Why the 12.2% Matters",
+            body: "한국 LNG 수입에서 미국 비중이 1년 만에 10.2% 늘었다. 신규 KOGAS 장기계약(2026–2030 인도분)으로 더 늘어날 예정이다. **이건 우연이 아니다.** 호르무즈가 닫혔을 때 사라지는 카타르 19%를 누가 채울지 — 한국 정부가 이미 계약 수준에서 답을 만들고 있다는 신호다. 셰일이 미국의 자유도라면, 한국 정부의 12.2%는 그 자유도를 \"빌려 쓰는\" 비용이다.",
+            bodyEn: "Korean LNG imports from the US grew 10.2% in a single year, and the new KOGAS long-term contracts (2026–2030 deliveries) will push that higher. **This is not coincidence.** KOGAS and the Korean government are already pre-answering — *at the contract level* — who refills the 19% Qatari share if Hormuz closes. If shale is America's degree of freedom, Korea's 12.2% is the price of *renting* a piece of it.",
           },
         },
       ],
     },
 
-    // ── §2 1973과 2024 — 같은 숫자, 정반대 의미 ────────────────────────────────
+    // ── §4 1973과 2024 ────────────────────────────────────────────────────────
     {
       heading: "1973과 2024 — 같은 7%, 정반대 의미",
       headingEn: "1973 and 2024 — Same 7%, Opposite Meaning",
       blocks: [
         {
           type: "text",
-          body: "1973년 아랍 석유 금수조치(Oil Embargo)가 시작됐을 때, 미국이 직접 페르시아만에서 들여오는 원유는 전체 수입의 약 7%였다. 충격은 그러나 가격 채널을 통해 전 경제를 휩쓸었다. 그 결과가 1980년 **Carter Doctrine** — \"걸프 지역에 대한 외부 세력의 통제 시도는 미국의 사활적 이익에 대한 공격으로 간주되며, 군사력을 포함한 모든 수단으로 격퇴될 것\" — 이었다.\n\n2024년, 미국이 페르시아만에서 직접 들여오는 원유는 다시 7%다. 2025년에도 비슷한 수준을 유지하고 있다. **숫자는 똑같다. 그런데 의미가 완전히 뒤집혔다.** 1973년의 7%는 \"여기서 더 끊기면 미국 경제가 멈춘다\"는 신호였다. 2024년의 7%는 \"이만큼은 가격 비교상 들여오는 게 싸서 들여오는 것\"이라는 신호다.",
-          bodyEn: "When the Arab Oil Embargo struck in 1973, direct US imports from the Persian Gulf were about 7% of the total. The shock still swept through the entire economy via the price channel. The doctrine that followed in 1980 was the **Carter Doctrine** — *an attempt by any outside force to gain control of the Persian Gulf region will be regarded as an assault on the vital interests of the United States, and will be repelled by any means necessary, including military force*.\n\nIn 2024, direct US imports from the Persian Gulf were 7% again, and 2025 looks similar. **The number is identical. The meaning is reversed.** In 1973, 7% meant *cut any more and the US economy stops*. In 2024, 7% means *this is the cheap arbitrage barrel — we could replace it tomorrow if we wanted to*.",
+          body: "다시 미국 쪽 그래프로 돌아온다. 도입부에서 한 번 짚었지만, 한 번 더 정확하게.\n\n1973년 아랍 석유 금수조치가 시작됐을 때, 미국이 직접 페르시아만에서 들여오는 원유는 전체 수입의 약 7%였다. 그 7%가 실제로 끊긴 게 아니었다 — 그러나 가격이 4배로 뛰면서 미국 GDP에 2%포인트 충격을 줬다. 그 한 번의 충격이 미국 안보 독트린의 토대가 됐다 — Carter Doctrine, 5함대, 두 번의 걸프전, 9·11 이후의 중동 주둔까지.\n\n2024년, 미국이 페르시아만에서 직접 들여오는 원유는 다시 7%다. 2025년에도 비슷하다. **숫자는 같다. 그러나 의미가 완전히 뒤집혔다.** 1973년의 7%는 \"여기서 끊기면 미국 경제가 멈춘다\"였다. 2024년의 7%는 \"이만큼은 가격 비교상 들여오는 게 싸서 들여오는 것\"이다. 미국은 셰일·캐나다·멕시코로 즉시 대체 가능하다.",
+          bodyEn: "Back to the American side of the graph. We touched it in the intro; let's be precise.\n\nWhen the Arab Oil Embargo struck in 1973, direct US imports from the Persian Gulf were about 7% of the total. That 7% was not actually cut off — but the price of oil quadrupled, and the resulting macro shock cost the US ~2 percentage points of GDP. That single shock became the foundation of half a century of American security doctrine — the Carter Doctrine, the 5th Fleet, two Gulf Wars, the post-9/11 Middle East posture.\n\nIn 2024, US direct imports from the Persian Gulf were 7% again, and 2025 looks similar. **The number is identical. The meaning is reversed.** In 1973, 7% meant *if this gets cut, the US economy stops*. In 2024, 7% means *this is the cheap arbitrage barrel — we could replace it tomorrow with shale, Canada, or Mexico*.",
         },
         {
           type: "chart",
@@ -181,22 +247,27 @@ const ch01_shale: NoteData = {
           },
         },
         {
-          type: "text",
-          body: "같은 그래프를 한 번 더 봐야 한다. **위로 올라가는 50년 — Carter Doctrine, 5함대 상주, 1·2차 걸프전, 9·11 이후 중동 주둔 확장.** 미국이 페르시아만에 군사력을 투입한 모든 결정은 위로 올라가는 의존 곡선의 결과였다.\n\n그 곡선이 2008년 셰일 시작점부터 내려간다. 그리고 2024년, 다시 1973년의 출발점으로 돌아온다. **출발선으로 돌아왔다는 사실이 그 사이에 만들어진 안보 인프라까지 자동으로 되돌리지는 않는다.** 그것이 이 시리즈가 추적할 80년의 첫 부조화다.",
-          bodyEn: "Look at the same graph one more time. **The 50 years going up — Carter Doctrine, the 5th Fleet stationed in Bahrain, two Gulf Wars, expanded Middle East presence after 9/11.** Every decision to put American boots and ships into the region was a function of that rising dependence curve.\n\nThat curve turns down at the 2008 shale inflection. In 2024, it returns to the 1973 starting point. **Returning to the starting line does not automatically unwind the security architecture built on top of it.** That dissonance is the first thread this series will pull on across the next eighty years.",
+          type: "callout",
+          callout: {
+            variant: "warning",
+            heading: "출발선으로 돌아왔다는 사실의 함정",
+            headingEn: "The Trap of \"Returning to the Starting Line\"",
+            body: "위로 올라가는 50년 — Carter Doctrine, 5함대, 1·2차 걸프전 — 동안 만들어진 미국의 중동 군사·외교 인프라는, 의존도가 1973년 수준으로 돌아왔다고 해서 자동으로 같이 풀리지 않는다. 그러나 **그 인프라를 유지할 정치적 의지는 의존도와 같은 곡선을 그린다.** 매년 미국 의회에서 \"왜 우리가 페르시아만을 지키는가\"라는 질문이 더 큰 소리로 나온다 — 셰일이 만든 정치 현실이다.",
+            bodyEn: "The fifty years of going up — Carter Doctrine, 5th Fleet, two Gulf Wars — built a military and diplomatic infrastructure around the Persian Gulf. That infrastructure does not automatically unwind just because dependence returned to its 1973 level. **But the political will to maintain it tracks the dependence curve.** Every year, the question \"why are we still defending the Gulf?\" gets louder in Congress. That, too, is a shale-built reality.",
+          },
         },
       ],
     },
 
-    // ── §3 손익분기의 비대칭 ───────────────────────────────────────────────────
+    // ── §5 손익분기의 비대칭 ───────────────────────────────────────────────────
     {
-      heading: "손익분기의 비대칭 — $35 vs $96",
-      headingEn: "The Asymmetry of Breakeven — $35 vs $96",
+      heading: "손익분기의 비대칭 — 셰일은 가격 전쟁에서 안 망한다",
+      headingEn: "Asymmetric Breakeven — Why Shale Doesn't Lose Price Wars",
       blocks: [
         {
           type: "text",
-          body: "셰일이 \"가격 전쟁에서 못 버틸 거다\"라는 예측은 2014년 이후 매년 등장했고, 매년 틀렸다. 이유는 단순한 비교에 있다. **두 가지 다른 '손익분기'를 같은 단어로 부르기 때문이다.**\n\n- **생산 손익분기 (production breakeven):** 운영자가 새 유정을 뚫었을 때 자본 회수까지 받아야 하는 최소 가격. Permian 셰일은 운영 단가 기준 $35–40, 배당·자본비용까지 포함한 all-in 기준으로도 $62.5 수준.\n- **재정 손익분기 (fiscal breakeven):** 산유국 정부가 예산을 균형 맞추기 위해 필요한 유가. IMF가 사우디에 부여한 2025년 재정 손익분기는 $96.2, Vision 2030 추가 지출과 PIF 투자 의무까지 포함하면 $112.",
-          bodyEn: "Every year since 2014, the same forecast has come back: shale will not survive the next price war. Every year, it has been wrong. The reason is a definitional confusion — **two different breakevens are being called the same word**.\n\n- **Production breakeven:** the minimum price an operator needs to recover capital on a new well. Permian wellhead operating cost is $35–40; all-in (including dividends and hurdle rates) is around $62.50.\n- **Fiscal breakeven:** the oil price a producer-state needs to balance its budget. The IMF's 2025 fiscal breakeven for Saudi Arabia is $96.20. Including Vision 2030 spending and PIF investment obligations, it rises to about $112.",
+          body: "셰일 회의론은 2014년 이후 매년 같은 형태로 돌아왔다 — \"유가만 떨어지면 셰일은 끝난다.\" 매년 틀렸다. 틀린 이유는 단순하다. **\"손익분기\"라는 단어가 두 가지 전혀 다른 것을 가리키는데 사람들이 그걸 같은 척도로 비교한다.**\n\n- **생산 손익분기 (production breakeven):** 한 회사가 새 유정을 뚫고 자본을 회수하는 데 필요한 최소 유가. Permian 셰일은 운영 단가 기준 **\\$35–40**, 배당·hurdle rate까지 포함해도 **\\$62.5**.\n- **재정 손익분기 (fiscal breakeven):** 한 산유국 정부가 그해 예산을 맞추는 데 필요한 유가. 사우디아라비아의 2025년 IMF 재정 손익분기는 **\\$96.2**. Vision 2030 추가 지출과 PIF 투자 의무까지 더하면 **\\$112**.\n\n두 숫자는 다른 행성에 있다.",
+          bodyEn: "The same shale-skeptic call has come back every year since 2014 — *the next price war kills shale*. Every year, it has been wrong. The reason is simple: **the word \"breakeven\" gets used for two entirely different things, and people treat them as the same yardstick.**\n\n- **Production breakeven:** the minimum oil price a company needs to recover capital on a new well. Permian wellhead operating cost is **\\$35–40**; all-in (including dividends and hurdle rate) is about **\\$62.50**.\n- **Fiscal breakeven:** the oil price a producer-state government needs to balance its annual budget. Saudi Arabia's 2025 IMF fiscal breakeven is **\\$96.20**. Including Vision 2030 spending and PIF obligations, it rises to **\\$112**.\n\nThose two numbers live on different planets.",
         },
         {
           type: "chart",
@@ -218,24 +289,24 @@ const ch01_shale: NoteData = {
           type: "callout",
           callout: {
             variant: "insight",
-            heading: "이 격차가 곧 정치적 격차다",
-            headingEn: "This gap is the political gap",
-            body: "유가가 $60대로 떨어지면 셰일은 신규 시추를 줄인다. 같은 가격에서 사우디는 **사회 안정**과 **왕가 정통성**의 재원이 끊긴다. 셰일 기업의 다운사이드는 주주의 손실로 끝나지만, 사우디의 다운사이드는 정권의 사활로 이어진다. — 그래서 사우디가 OPEC+ 감산 합의에서 매번 가장 큰 양보를 한다.",
-            bodyEn: "When oil drops to the $60s, shale operators trim new drilling. At the same price, Saudi Arabia loses the **funding for social stability and royal legitimacy**. A shale firm's downside ends with shareholder losses; the Saudi downside ends in regime survival. That is why Saudi Arabia makes the deepest cuts in every OPEC+ negotiation.",
+            heading: "이 격차가 OPEC+ 협상의 결과를 결정한다",
+            headingEn: "This gap decides every OPEC+ outcome",
+            body: "유가가 \\$60대로 떨어지면 셰일 회사는 신규 시추를 줄인다. 주가가 빠지고 배당이 깎이고, 일부 한계 운영자가 정리된다 — 그래도 회사로서는 계속 굴러간다.\n\n같은 \\$60대에서 사우디는 **사회 안정 보조금**, **왕가 정통성 유지 비용**, **Vision 2030 추진 자금**의 재원이 동시에 끊긴다. 셰일의 다운사이드는 주주 손실이지만 사우디의 다운사이드는 정권 사활이다. 그래서 OPEC+ 협상 테이블에서 가장 깊이 양보하는 쪽은 항상 사우디다 — 산수가 그렇게 강요한다.",
+            bodyEn: "If oil falls into the \\$60s, a shale company trims new drilling. The stock drops, the dividend gets cut, some marginal operators consolidate — but the firm keeps running.\n\nAt the same \\$60s, Saudi Arabia loses the funding for **social-stability subsidies**, **royal-family legitimacy spending**, and **Vision 2030** all at once. A shale firm's downside is shareholder losses; Saudi Arabia's downside is regime survival. That is why Saudi Arabia is always the one making the deepest cuts at every OPEC+ table — the math forces it.",
           },
         },
       ],
     },
 
-    // ── §4 LNG — 유럽 가스의 재배치 ─────────────────────────────────────────────
+    // ── §6 LNG — 유럽 가스의 재배치 ─────────────────────────────────────────────
     {
-      heading: "LNG — 유럽이 다시 그린 가스 지도",
-      headingEn: "LNG — Europe's Redrawn Gas Map",
+      heading: "가스 — 유럽이 이미 갈아탄 다음",
+      headingEn: "Gas — How Europe Already Switched Suppliers",
       blocks: [
         {
           type: "text",
-          body: "원유보다 더 빠르게 움직인 것은 천연가스였다. 2015년 첫 LNG 수출 화물(Sabine Pass)을 보낸 미국은, 2024년 호주·카타르를 제치고 세계 1위 LNG 수출국이 됐다. 2025년 EIA STEO 기준 일 11.9 Bcf/d.\n\n같은 시기, 유럽의 가스 공급 구조가 통째로 재배치됐다. 2021년 EU 가스 수입의 45%를 차지하던 러시아 비중은, 2022년 우크라이나 전쟁과 Nord Stream 폭파 이후 2025년 12%까지 떨어졌다. 그 자리를 채운 것이 미국 LNG, 노르웨이 파이프라인, 카타르 장기계약이다.",
-          bodyEn: "Gas moved faster than oil. The US sent its first LNG export cargo from Sabine Pass in 2015. By 2024 it had overtaken Australia and Qatar to become the world's largest LNG exporter — 11.9 Bcf/d in EIA's 2025 STEO.\n\nOver the same window, Europe's gas-supply map was redrawn. Russia, which supplied 45% of EU gas imports in 2021, dropped to 12% by 2025 after the Ukraine war and the Nord Stream sabotage. The void was filled by US LNG, Norwegian pipelines, and long-term Qatari contracts.",
+          body: "원유보다 더 빠르게 움직인 게 가스다. 셰일 분지가 풀어낸 두 번째 자원이 천연가스인데, 가스는 원유보다 운송이 까다롭다 — 영하 162도로 냉각해 액체로 만든 다음(LNG) 특수 탱커로 옮긴다. 미국이 첫 LNG 화물(텍사스 Sabine Pass)을 출항시킨 게 2015년 2월. **그로부터 9년 만에 호주·카타르를 추월해 세계 1위 LNG 수출국이 됐다.**\n\n그 효과가 가장 극적으로 나타난 곳이 유럽이다. 2021년 EU 가스 수입의 45%를 차지하던 러시아 비중은, 2022년 우크라이나 전쟁과 Nord Stream 파괴 이후 2025년 **12%**까지 추락했다. 5년 만에 33%포인트가 빠진 자리를 채운 건 노르웨이 파이프라인(소폭 증가), 카타르 장기계약, 그리고 무엇보다 **미국 LNG**다. EU가 \"러시아 가스를 포기할 수 있다\"고 결정할 수 있었던 이유는 단 하나 — 그 결정을 가능하게 해 줄 대체 공급원이 텍사스 해안에 이미 깔려 있었기 때문이다.",
+          bodyEn: "Gas moved faster than oil. The same shale basins that unlocked oil also unlocked natural gas, but gas is harder to ship — you have to cool it to −162 °C, turn it into liquid (LNG), and move it on specialized tankers. The US sent its first LNG cargo from Sabine Pass, Texas, in February 2015. **Nine years later, it had overtaken Australia and Qatar to become the world's #1 LNG exporter.**\n\nThe sharpest effect of all of this shows up in Europe. Russia supplied 45% of EU gas imports in 2021. By 2025 — after the Ukraine war and the Nord Stream sabotage — that share had collapsed to **12%**. The 33-point hole was filled by Norwegian pipelines (small lift), Qatari long-term contracts, and most of all, **US LNG**. The reason Europe could decide *we can do without Russian gas* is exactly one thing: a replacement supply was already sitting on the Texas coast.",
         },
         {
           type: "chart",
@@ -281,52 +352,17 @@ const ch01_shale: NoteData = {
             variant: "insight",
             heading: "셰일이 만든 두 번째 자유도",
             headingEn: "Shale's Second Degree of Freedom",
-            body: "1973년 미국에는 원유 수입원을 다양화할 자유가 있었다. 사우디 대신 베네수엘라·멕시코·나이지리아로 갈아탈 수 있었다. **2025년의 자유도는 다르다 — 미국은 동맹국이 누구로부터 살지를 결정한다.** 유럽의 12%는 정치적 협상의 결과가 아니라 미국 LNG의 공급 능력이 결정한 수치다.",
-            bodyEn: "In 1973, the United States had the freedom to diversify *its own* oil suppliers — Saudi out, Venezuela / Mexico / Nigeria in. **The 2025 degree of freedom is different — it now decides who its allies buy from.** Europe's 12% is not the outcome of political negotiation; it is the throughput limit of US LNG supply.",
+            body: "1973년 미국의 자유도는 \"누구로부터 살까\"였다 — 사우디 대신 베네수엘라·멕시코·나이지리아로 갈아탈 수 있었다. **2025년의 자유도는 다르다 — 미국은 동맹국이 누구로부터 살지를 결정한다.** 유럽의 러시아 12%는 정치 협상의 결과가 아니라 미국 LNG 수출 인프라의 처리 용량이 만든 수치다. 한국 LNG의 미국 12.2%도 같은 인프라 위에 놓여 있다.",
+            bodyEn: "In 1973, America's degree of freedom was *who do we buy from* — Saudi out, Venezuela / Mexico / Nigeria in. **The 2025 degree of freedom is different — it now decides who its allies buy from.** Europe's 12% Russian share isn't the outcome of political bargaining; it is set by the throughput of US LNG export infrastructure. Korea's 12.2% US-LNG share sits on the same physical infrastructure.",
           },
         },
       ],
     },
 
-    // ── §5 페트로달러 — 균열의 가격 ────────────────────────────────────────────
+    // ── §7 시장이 잘못 가격을 매기는 곳 — 중국 ─────────────────────────────────
     {
-      heading: "페트로달러의 균열",
-      headingEn: "Cracks in the Petrodollar",
-      blocks: [
-        {
-          type: "text",
-          body: "페트로달러 시스템은 두 개의 약속 위에 세워졌다. (1) 사우디는 원유를 달러로만 판매한다. (2) 그 대가로 미국은 사우디 왕가의 안보를 보장하고, 사우디는 잉여 달러를 미국채에 재투자한다. 1974년 키신저-사이먼 합의 이후 50년간 이 회로는 견고했다.\n\n2023–2025년 균열이 동시에 세 곳에서 발생했다. 첫째, 사우디는 중국과 위안화 결제 시범 거래를 시작했다 — 2023년 사우디아람코의 첫 위안화 표시 회사채. 둘째, BRICS+ 확장에 사우디가 \"고려 중\" 입장을 유지한다 — 가입도 거부도 안 한 채. 셋째, 사우디 외환보유고의 미국채 비중이 PIF로의 자본 이전과 함께 천천히 줄어든다.\n\n이 균열의 **속도**는 아직 느리다. 위안화 결제는 사우디 원유 수출의 5% 이하로 추정된다. 그러나 **방향**은 분명하다. 그리고 방향이 바뀐 첫 해와 마지막 해 사이의 거리는, 보통 시장이 가격에 반영하는 것보다 훨씬 짧다.",
-          bodyEn: "The petrodollar system rests on two promises. (1) Saudi Arabia sells oil only in dollars. (2) In return, the US guarantees the royal family's security, and Saudi Arabia recycles surplus dollars into Treasuries. The 1974 Kissinger–Simon agreement made this loop, and for fifty years it held.\n\nIn 2023–2025, three cracks opened at once. First, Saudi Arabia began trial yuan settlement with China — Saudi Aramco's first yuan-denominated corporate bond came in 2023. Second, on BRICS+ expansion Saudi Arabia maintains a *considering* posture — neither in, nor out. Third, Saudi US-Treasury holdings drift lower as capital is reallocated to the Public Investment Fund (PIF).\n\nThe **pace** of the crack is still slow — yuan settlement is probably under 5% of Saudi crude exports. But the **direction** is unmistakable. And the distance between the year a direction reverses and the year markets price it tends to be far shorter than people expect.",
-        },
-        {
-          type: "table",
-          table: {
-            id: "petrodollar-cracks",
-            title: "페트로달러 균열의 세 신호",
-            titleEn: "Three Signals of Petrodollar Strain",
-            headers: ["축", "1974년 합의", "2024–25 변화", "함의"],
-            headersEn: ["Axis", "1974 Deal", "2024–25 Change", "Implication"],
-            rows: [
-              ["결제 통화", "원유 전량 달러 결제", "위안화 시범 결제 + Aramco 위안화 채권", "달러 단일 통로 가설 붕괴 시작"],
-              ["보유 자산", "잉여 달러 → 미국채 재투자", "PIF로 이동, 미국채 비중 점진 감소", "달러 보유의 수동성 → 능동성 전환"],
-              ["안보 거래", "5함대 + F-15·F-35 공급", "이란과의 베이징 중재 화해 (2023.3)", "사우디 자체 헤지 시작"],
-            ],
-            rowsEn: [
-              ["Settlement", "Oil priced only in USD", "Yuan trial trades + Aramco yuan bond", "Single-currency assumption begins to fracture"],
-              ["Reserves", "Recycle surplus USD into Treasuries", "Capital reallocated to PIF, Treasury share trending down", "Reserve-holding shifts from passive to active"],
-              ["Security", "5th Fleet + F-15 / F-35 access", "Beijing-brokered détente with Iran (Mar 2023)", "Saudi Arabia begins its own hedge"],
-            ],
-            caption: "출처: People's Bank of China, Reuters 2023-03-10, Saudi PIF Annual Report 2024.",
-            captionEn: "Source: PBOC, Reuters 10-Mar-2023, Saudi PIF Annual Report 2024.",
-          },
-        },
-      ],
-    },
-
-    // ── §6 시장이 잘못 가격을 매기는 곳 — 중국 ─────────────────────────────────
-    {
-      heading: "시장이 잘못 가격 매기는 곳 — 중국의 그림자 함대",
-      headingEn: "What Markets Misprice — China's Shadow Fleet",
+      heading: "시장이 미처 가격을 매기지 않은 곳 — 중국의 그림자 함대",
+      headingEn: "What Markets Haven't Priced — China's Shadow Fleet",
       blocks: [
         {
           type: "text",
@@ -370,108 +406,52 @@ const ch01_shale: NoteData = {
       ],
     },
 
-    // ── §7 청구서 — 한국·일본의 자리 ───────────────────────────────────────────
+    // ── §8 마무리 — 5만 원의 흐름은 어떻게 바뀌었나 ────────────────────────────
     {
-      heading: "청구서 — 한국과 일본은 어디에 서 있는가",
-      headingEn: "The Bill — Where Korea and Japan Stand",
+      heading: "다시 5만 원 — 흐름은 어떻게 바뀌었나",
+      headingEn: "Back to the ₩50,000 Tank — How the Money Now Moves",
       blocks: [
         {
           type: "text",
-          body: "셰일이 미국의 안보 비용 함수를 바꿨다는 명제는, 동맹국 기준으로 보면 정반대의 문장이 된다. **한국과 일본의 안보 비용은 변하지 않았는데, 그 비용을 누가 낼지가 바뀌었다.**\n\n한국은 원유의 약 70%, 일본은 95% 이상을 호르무즈 해협 동측에서 수입한다. 1973년에는 미국도 같은 항로의 가격에 노출돼 있었기 때문에, 5함대 유지비를 미국이 사실상 전액 부담했다. 2025년에는 그 비용을 부담할 인센티브가 미국 본토에서 사라진다. — 셰일이 만든 자유도의 다른 이름이다.",
-          bodyEn: "The thesis that shale rewrote America's security cost function reads the opposite way from an allied vantage. **Korea's and Japan's security costs have not changed; only who pays them has.**\n\nKorea imports ~70% and Japan more than 95% of crude from east of the Strait of Hormuz. In 1973, Washington bore essentially the entire cost of the 5th Fleet because the US economy faced the same sea-lane risk. By 2025, that incentive has drained out of the domestic political calculus. This is another name for the degree of freedom shale created.",
-        },
-        {
-          type: "metrics",
-          items: [
-            { label: "한국 중동 원유 의존",    labelEn: "Korea Gulf Crude",      value: "~70%",  valueEn: "~70%",  sub: "2024 KEEI",                        subEn: "2024 KEEI",                            color: "text-red-600" },
-            { label: "일본 중동 원유 의존",    labelEn: "Japan Gulf Crude",      value: "95%+",  valueEn: "95%+",  sub: "2024 METI",                         subEn: "2024 METI",                            color: "text-red-600" },
-            { label: "한국 LNG 중 미국 비중",  labelEn: "Korea LNG from US",     value: "12.2%", valueEn: "12.2%", sub: "+10.2% YoY (KOGAS)",               subEn: "+10.2% YoY (KOGAS)",                   color: "text-emerald-600" },
-          ],
-        },
-        {
-          type: "table",
-          table: {
-            id: "korea-japan-exposure",
-            title: "동맹 3국의 에너지 노출 구조 (2024)",
-            titleEn: "Energy Exposure of Three Allies (2024)",
-            headers: ["국가", "원유 — 페르시아만 의존", "가스/LNG — 다변화", "정치적 헤지 도구"],
-            headersEn: ["Country", "Crude — Gulf Share", "Gas / LNG — Diversification", "Political Hedge"],
-            rows: [
-              ["한국",     "≈70% (사우디 30% · UAE 12% · 쿠웨이트 11%)", "호주 24% · 카타르 19% · 미국 12.2% (+10.2% YoY)", "미군 주둔 + 자체 핵 옵션 논의 (70%+ 여론)"],
-              ["일본",     "95%+ (사우디 45% · UAE 38%)",                 "호주·말레이시아·미국 분산, 카타르 신규 장기계약", "미일 동맹 + Quad + 자체 방위비 2% 증액"],
-              ["중국",     "42% (걸프 합산) + 이란 11% + 러시아 20%",      "러시아 파이프라인 (Power of Siberia) + 카타르 27년 계약", "그림자 함대 + 위안화 결제 + BRICS"],
-            ],
-            rowsEn: [
-              ["Korea",  "~70% (Saudi 30%, UAE 12%, Kuwait 11%)",   "Australia 24%, Qatar 19%, US 12.2% (+10.2% YoY)", "US troops + emerging nuclear-option debate (70%+ support)"],
-              ["Japan",  "95%+ (Saudi 45%, UAE 38%)",                 "Diversified across Australia/Malaysia/US + new Qatari LTC", "US-Japan alliance + Quad + 2% defense uplift"],
-              ["China",  "42% Gulf-combined + Iran 11% + Russia 20%", "Russian pipeline (Power of Siberia) + 27-yr Qatari LNG deal", "Shadow fleet + yuan settlement + BRICS"],
-            ],
-            caption: "출처: KEEI, METI, China Customs, KOGAS, World Bank WITS 2024.",
-            captionEn: "Source: KEEI, METI, China Customs, KOGAS, World Bank WITS 2024.",
-          },
-        },
-        {
-          type: "text",
-          body: "주목할 숫자는 마지막 행이 아니라 첫째 칸의 **12.2%** 다. 한국이 미국으로부터 들여오는 LNG가 1년 만에 10.2% 늘었고, 2026–2030년 신규 장기계약으로 더 늘어날 예정이다. 이것은 우연이 아니다. 호르무즈가 닫혔을 때 사라지는 카타르 19%를 누가 채울지 한국 정부와 KOGAS가 이미 **계약 수준에서** 답을 만들고 있다는 신호다.",
-          bodyEn: "The number to watch is not the last row but the **12.2%** in the first. US LNG into Korea grew 10.2% in a single year, with more growth contracted for 2026–2030. This is not random. KOGAS and the Korean government are already answering — *at the contract level* — who refills the 19% Qatari share if Hormuz closes.",
-        },
-      ],
-    },
-
-    // ── §8 시나리오 + 투자 시사점 ──────────────────────────────────────────────
-    {
-      heading: "시나리오 — 2026–2030의 세 갈래",
-      headingEn: "Scenarios — Three Branches, 2026–2030",
-      blocks: [
-        {
-          type: "text",
-          body: "셰일은 모든 시나리오를 결정짓지 않는다. 그러나 모든 시나리오의 **출발 조건**을 바꿔 놓는다. 향후 5년의 가능한 세 흐름을 압축하면 다음과 같다.",
-          bodyEn: "Shale does not decide every scenario. It does, however, change the **starting condition** of every scenario. Compressed to three branches, the next five years look like this.",
+          body: "글의 처음으로 돌아온다. 한국 주유소에서 5만 원어치 기름을 넣는 그 순간 — 17년 전과 지금, 그 돈의 흐름이 어떻게 달라졌나.\n\n**2008년 당신의 5만 원 →** 원유 원가 부분이 페르시아만으로 향하고, 그 페르시아만의 안전 — 항로·생산·수출 인프라 — 은 미국 5함대가 \"우리 일\"이라며 무료로 지켜 준다. 호르무즈가 막힐 가능성? 미국이 책임지고 안 막히게 한다. 한국 운전자가 그 비용을 의식할 필요는 없었다.\n\n**2025년 당신의 5만 원 →** 원유 원가 부분이 똑같이 페르시아만으로 향한다. 그러나 그 항로의 안전은 더 이상 \"무료로 보장되는 공공재\"가 아니다. 미국 의회는 매년 \"왜 우리가 한국·일본 기름을 위해 함대를 유지하나\"를 더 큰 소리로 묻는다. 한국 정부는 매년 부담분담을 더 깎이고, KOGAS는 미국 LNG 장기계약으로 가스 다변화를 서두른다. **5만 원 영수증에는 안 찍히지만, 그 돈 뒤에 깔려 있는 \"안전 보장 비용\"의 청구서가 천천히 한국으로 옮겨 오고 있다.**\n\n그래서 셰일이 한국 독자에게 중요한 한 줄은 이것이다 — \"미국이 페르시아만에서 손을 떼면 내 주유소 가격이 얼마나 오르나\"가 아니라, **\"내 다음 10년의 세금과 국방예산이 얼마나 그쪽으로 흘러가게 되나\"** 이다.",
+          bodyEn: "Back to the opening. The moment you fill up at ₩50,000 in Seoul — how does the money path differ from seventeen years ago?\n\n**Your ₩50,000 in 2008 →** the crude-cost portion flows to the Persian Gulf, and the security of that Gulf — sea lanes, production, export infrastructure — is provided free of charge by the US 5th Fleet, which treats it as *our problem*. Probability that Hormuz closes? America makes sure it doesn't. The Korean driver never had to think about who paid that bill.\n\n**Your ₩50,000 in 2025 →** the crude-cost portion still flows to the Persian Gulf. But the security of that route is no longer a free public good. Every year, Congress asks louder *why are we maintaining a fleet to protect Korean and Japanese oil?* Every year, Korea is squeezed harder in burden-sharing talks. KOGAS rushes to lock in US LNG long-term contracts to diversify supply. **None of this prints on your gasoline receipt — but the bill for the \"security guarantee\" sitting behind your tank is being slowly readdressed to Seoul.**\n\nSo the one-line takeaway that matters for a Korean reader is not *how much will the pump price rise if America leaves the Gulf?* It is, **how much of my next ten years of taxes and defense spending now flows in that direction?**",
         },
         {
           type: "table",
           table: {
             id: "scenarios-2026-2030",
-            title: "2026–2030 시나리오 매트릭스",
-            titleEn: "2026–2030 Scenario Matrix",
-            headers: ["시나리오", "트리거", "유가 (WTI)", "셰일 반응", "동맹·아시아 영향"],
-            headersEn: ["Scenario", "Trigger", "Oil (WTI)", "Shale Response", "Allies / Asia"],
+            title: "2026–2030 시나리오 — 셰일이 출발 조건을 바꾼 세 갈래",
+            titleEn: "2026–2030 Scenarios — Three Branches Off the Shale Inflection",
+            headers: ["시나리오", "트리거", "유가 (WTI)", "한국 독자에게 의미"],
+            headersEn: ["Scenario", "Trigger", "Oil (WTI)", "What it means for Korea"],
             rows: [
-              ["A. 정적 후퇴 (base)", "미국 5함대 유지하되 신규 분쟁 불개입", "$60–80",   "유지·소폭 성장",                "한국·일본 LNG 다변화 가속, 동맹 부담분담 협상 격화"],
-              ["B. 비대칭 압박",      "이란 우라늄 농축 80%+ → 미국 묵인 종료, 그림자 함대 단속", "$90–110 spike", "신규 시추 6–9개월 ramp", "중국 비축 소진, 위안화 결제 가속, 카타르 LNG 재가격"],
-              ["C. 능동적 철수",     "트럼프 2기 후반 페르시아만 군사 자세 축소, 5함대 재배치", "$70–90 + 변동성↑", "재무 규율 유지, 배당 우선",   "한국·일본 자체 함대·핵 옵션 본격 논의, 사우디 다극화 가속"],
+              ["A. 정적 후퇴 (base)", "5함대 유지, 신규 분쟁 불개입",                          "$60–80",         "LNG 다변화 가속, 부담분담 협상이 매년 5–10% 더 깎임"],
+              ["B. 비대칭 압박",     "이란 우라늄 80%+ → 미국 묵인 종료, 그림자 함대 단속",   "$90–110 spike",  "한국 휘발유 +20–30% 단기 충격, 가스비 동반 상승, 운임 폭등"],
+              ["C. 능동적 철수",    "트럼프 2기 후반 5함대 재배치·축소",                      "$70–90 + 변동성↑", "한국 핵 옵션 논의 본격화, 자체 호위 함대 예산 등장"],
             ],
             rowsEn: [
-              ["A. Passive retreat (base)", "5th Fleet stays; US avoids new entanglements", "$60–80",       "Steady, slight growth",     "Korea/Japan accelerate LNG diversification; alliance burden-sharing fights intensify"],
-              ["B. Asymmetric pressure",   "Iran enriches to 80%+ → US ends tolerance, cracks down on shadow fleet", "$90–110 spike", "6–9 month new-drilling ramp", "Chinese reserves drained, yuan settlement accelerates, Qatari LNG reprices"],
-              ["C. Active withdrawal",     "Late Trump-2 redeploys the 5th Fleet, reduces Gulf posture", "$70–90 with higher vol",  "Capital discipline holds; dividends first", "Korea/Japan move toward indigenous fleet and nuclear-option debate; Saudi multipolarity hardens"],
+              ["A. Passive retreat (base)", "5th Fleet stays, US avoids new entanglements",                  "$60–80",            "LNG diversification accelerates; burden-sharing squeezed 5–10% per year"],
+              ["B. Asymmetric pressure",    "Iran enriches >80%, US ends tolerance, shadow-fleet crackdown", "$90–110 spike",     "Korean gasoline up 20–30% short-term, gas bills rise, freight spikes"],
+              ["C. Active withdrawal",      "Late Trump-2 redeploys/reduces 5th Fleet",                      "$70–90 + higher vol", "Korean nuclear-option debate goes mainstream; indigenous-escort budget emerges"],
             ],
-            caption: "각 시나리오의 정량적 임계는 §10 (이 챕터 말미의 5개 Watchpoints)에서 추적한다.",
-            captionEn: "Quantitative thresholds for each branch are tracked in §10 of this chapter's five Watchpoints.",
+            caption: "셰일이 모든 시나리오를 결정짓지는 않는다. 그러나 모든 시나리오의 출발 조건을 바꾼다.",
+            captionEn: "Shale does not decide every scenario — but it changes the starting condition of every scenario.",
           },
         },
         {
           type: "callout",
           callout: {
             variant: "example",
-            heading: "투자 시사점 — 미세하지만 명확한 다섯 줄",
-            headingEn: "Investor Implications — Five Lines, Each Small but Clear",
-            body: "1) **US 셰일 우량주(Pioneer/Diamondback/EOG)**는 모든 시나리오에서 +다. 단, *재무 규율 유지* 조건. 신규 시추 ramp가 빨라지면 배당 매력은 떨어진다.\n2) **사우디 Aramco**의 정치 리스크는 IMF 재정 손익분기 $96 위에 있다. 유가 $60대 장기화는 곧 Vision 2030 축소 발표를 의미한다.\n3) **한국 KOGAS 장기계약**과 **일본 JERA·INPEX**의 미국 LNG 비중 확대는 발생 중인 헷지다. 이미 가격에 일부 반영됐지만 5년 단위로는 미반영.\n4) **호르무즈 동측 보험·운임 (Lloyd's War Risk + BDI)**은 비대칭 옵션 — 시나리오 B에서 즉시 가격 변동.\n5) **달러 + 금**의 동시 강세는 시나리오 C의 첫 신호다. 페트로달러 균열이 진행되면 보유자 다양화가 금으로 먼저 나타난다.",
-            bodyEn: "1) **US shale majors (Pioneer / Diamondback / EOG)** are net-positive across all scenarios — conditional on capital discipline. A fast drilling ramp erodes the dividend case.\n2) **Saudi Aramco**'s political risk lives above the IMF fiscal breakeven of $96. A sustained $60s tape ultimately means a quiet Vision-2030 downsize.\n3) **Korea's KOGAS long-term contracts** and **Japan's JERA / INPEX** moves into US LNG are an in-progress hedge — partly priced now, but not on a five-year view.\n4) **East-of-Hormuz war-risk insurance and freight (Lloyd's War Risk + BDI)** is an asymmetric option that reprices instantly under scenario B.\n5) **A coincident bid in dollar and gold** is the first signal of scenario C — if the petrodollar fractures, holder diversification shows up in gold before anywhere else.",
+            heading: "투자자라면 어디를 봐야 하나 — 다섯 줄",
+            headingEn: "If You're an Investor — Five Lines",
+            body: "1) **US 셰일 우량주 (Pioneer / Diamondback / EOG)** — 모든 시나리오에서 +. 단 \"신규 시추 ramp가 빨라지면 배당 매력 감소\" 조건. 셰일은 안 망하지만 주주환원 기조는 가격 따라 변한다.\n2) **사우디 Aramco** — 정치 리스크가 IMF 재정 손익분기 \\$96 위에 있다. 유가 \\$60대 장기화는 \"Vision 2030 조용한 축소\" 발표를 의미. 배당 안정성 의심 시작.\n3) **한국 KOGAS 장기계약 / 일본 JERA·INPEX** — 발생 중인 헷지. 이미 일부 반영됐지만 5년 누적 기준으로는 미반영. 한국 가스 인프라 관련주(SK가스·E1·삼천리) 재평가 여지.\n4) **호르무즈 동측 보험·운임 (Lloyd's War Risk + BDI)** — 비대칭 옵션. 시나리오 B에서 즉시 가격 변동. 보험을 싸게 사두는 자리.\n5) **달러 + 금 동시 강세** — 시나리오 C의 첫 신호. 페트로달러 균열이 진행되면 보유자 다양화는 금에서 먼저 보인다. 한국 투자자 입장에서 KRX 금 거래소 비중 점검 시점.",
+            bodyEn: "1) **US shale majors (Pioneer / Diamondback / EOG)** — net-positive across all scenarios, conditional on capital discipline. Shale does not die, but the dividend story moves with price.\n2) **Saudi Aramco** — political risk lives above the IMF fiscal breakeven of \\$96. A sustained \\$60s tape ultimately means a quiet Vision-2030 downsize; the dividend stops being a given.\n3) **Korea's KOGAS LTCs / Japan's JERA, INPEX** — an in-progress hedge. Partly priced; not priced on a five-year view. Re-rating room in Korean gas-infrastructure names (SK Gas, E1, Samchully).\n4) **East-of-Hormuz war-risk insurance and freight (Lloyd's War Risk + BDI)** — an asymmetric option that reprices instantly under scenario B. A cheap place to own insurance.\n5) **A coincident bid in the dollar *and* gold** — the first signal of scenario C. If the petrodollar fractures, holder diversification shows up in gold first. Korean investors: check your KRX gold allocation.",
           },
         },
-      ],
-    },
-
-    // ── §9 정리 ────────────────────────────────────────────────────────────────
-    {
-      heading: "정리 — 그래서 시리즈의 1편이다",
-      headingEn: "Why This Is Chapter One",
-      blocks: [
         {
           type: "text",
-          body: "After Pax Americana 시리즈는 \"미국이 후퇴한다\"는 한 줄로 시작하지 않는다. 그 한 줄은 너무 단순하고, 보통 틀린다.\n\n이 시리즈는 **자원·인구·부채 세 변수가 미국의 비용 함수를 바꿨다**는 문장으로 시작한다. 1편의 셰일이 자원 변수다. 2편은 인구, 3편은 부채를 다룬다. 그 셋이 만나는 점에서 80년의 안보 인프라가 천천히 재배치된다. **빠르지 않다 — 그러나 시장이 가격에 반영하는 속도보다는 빠르다.**\n\n다음 편(Ch.2 Demographics)에서는, 같은 산수를 인구학으로 다시 본다. 합계출산율 1.66의 미국과 1.0의 중국, 0.72의 한국. 30년이 지나면, 셰일이 만든 자유도 위에 인구가 만든 새로운 비대칭이 한 겹 더 쌓인다.",
-          bodyEn: "The *After Pax Americana* series does not start with the sentence *America is in retreat*. That sentence is too clean, and usually wrong.\n\nIt starts with **three variables — resources, demographics, debt — that have rewritten America's cost function**. Chapter 1 handles resources, in the form of shale. Chapter 2 handles demographics. Chapter 3 handles debt. The eighty-year security architecture is being redrawn at the point those three intersect. **Not quickly — but more quickly than markets price.**\n\nIn the next chapter (Ch.2 Demographics) we run the same arithmetic on people. US fertility 1.66, China 1.0, Korea 0.72. Thirty years from now, a second layer of asymmetry — built by population — sits on top of the degree of freedom shale created.",
+          body: "다음 편(Ch.2 Demographics)에서는 같은 산수를 \"누가 늙고 누가 젊은가\"의 차원에서 다시 본다. 미국 합계출산율 1.66 vs 한국 0.72 vs 중국 1.0. 자원에서 풀린 자유도 위에, 인구가 만들 새 비대칭이 한 겹 더 쌓이는 게 다음 30년의 이야기다.",
+          bodyEn: "The next chapter (Ch.2 Demographics) runs the same arithmetic across *who ages, who stays young*. US fertility 1.66 vs Korea 0.72 vs China 1.0. On top of the degree of freedom shale already created, a second asymmetry — built by population — defines the next thirty years.",
         },
       ],
     },
