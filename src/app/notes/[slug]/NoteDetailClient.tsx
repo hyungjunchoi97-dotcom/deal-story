@@ -7,8 +7,9 @@ import {
   LineChart, Line,
   BarChart, Bar, Cell,
   ComposedChart,
+  AreaChart, Area,
   XAxis, YAxis, Tooltip, CartesianGrid,
-  ResponsiveContainer, ReferenceLine, Legend,
+  ResponsiveContainer, ReferenceLine, ReferenceDot, Legend,
 } from "recharts";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -41,6 +42,12 @@ import type {
   InterconnectionQueuePoint,
   AiPenetrationPoint,
   PeSpreadPoint,
+  UsOilProductionPoint,
+  UsPgImportPoint,
+  LngExporterBar,
+  BreakevenBar,
+  EuRussianGasPoint,
+  ChinaOilSourceBar,
 } from "@/data/notes";
 import { NOTE_CATEGORY_META, getSeriesNav } from "@/data/notes";
 import SeriesNav from "@/components/SeriesNav";
@@ -1005,6 +1012,275 @@ function PeSpreadChart({ chart, lang }: { chart: NoteChartDef & { id: "pe-spread
   );
 }
 
+// ══════════════════════════════════════════════════════════════════════════════
+// After Pax Americana — Ch.1 (Shale Pivot) 차트 6종
+// ══════════════════════════════════════════════════════════════════════════════
+
+// ── US 원유 생산 (1970-2026), AreaChart ───────────────────────────────────────
+function UsOilProductionChart({ chart, lang }: { chart: NoteChartDef & { id: "us-oil-production" }; lang: Lang }) {
+  const data = chart.data as UsOilProductionPoint[];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  const annotations = chart.annotations ?? [];
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={280}>
+        <AreaChart data={data} margin={{ top: 30, right: 16, bottom: 0, left: -4 }}>
+          <defs>
+            <linearGradient id="usOilProd" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#dc2626" stopOpacity={0.45} />
+              <stop offset="100%" stopColor="#dc2626" stopOpacity={0.04} />
+            </linearGradient>
+          </defs>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} vertical={false} />
+          <XAxis dataKey="year" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} interval={2} />
+          <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false}
+            tickFormatter={(v) => `${(Number(v) / 1000).toFixed(0)}M`} domain={[0, 15000]} />
+          <Tooltip
+            content={({ active, payload, label }) => {
+              if (!active || !payload?.length) return null;
+              const ann = annotations.find((a) => a.year === Number(label));
+              const annLabel = ann ? (lang === "en" ? (ann.labelEn ?? ann.label) : ann.label) : null;
+              const v = Number(payload[0].value);
+              return (
+                <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl px-4 py-3 text-xs">
+                  <p className="font-semibold text-gray-600 dark:text-gray-300 mb-1">{label}</p>
+                  <p className="font-mono font-bold text-red-600 dark:text-red-400">
+                    {(v / 1000).toFixed(2)} MM bpd
+                  </p>
+                  {annLabel && <p className="text-amber-500 font-semibold mt-1 max-w-[180px] leading-snug">{annLabel}</p>}
+                </div>
+              );
+            }}
+          />
+          {annotations.map((ann) => (
+            <ReferenceLine key={ann.year} x={ann.year} stroke="#f59e0b" strokeDasharray="4 3" strokeWidth={1.2}
+              label={{ value: lang === "en" ? (ann.labelEn ?? ann.label) : ann.label, position: "top", fontSize: 8, fill: "#f59e0b" }} />
+          ))}
+          <Area type="monotone" dataKey="production" stroke="#dc2626" strokeWidth={2.5} fill="url(#usOilProd)"
+            name={lang === "en" ? "US Crude Output" : "미국 원유 생산"} />
+        </AreaChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
+// ── 미국 페르시아만 원유 수입 비중 (1973-2025), LineChart ──────────────────────
+function UsPgImportChart({ chart, lang }: { chart: NoteChartDef & { id: "us-pg-imports" }; lang: Lang }) {
+  const data = chart.data as UsPgImportPoint[];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  const annotations = chart.annotations ?? [];
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={260}>
+        <LineChart data={data} margin={{ top: 30, right: 16, bottom: 0, left: -8 }}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} />
+          <XAxis dataKey="year" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
+          <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false}
+            tickFormatter={(v) => `${v}%`} domain={[0, 30]} />
+          <Tooltip
+            content={({ active, payload, label }) => {
+              if (!active || !payload?.length) return null;
+              const ann = annotations.find((a) => a.year === Number(label));
+              const annLabel = ann ? (lang === "en" ? (ann.labelEn ?? ann.label) : ann.label) : null;
+              return (
+                <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl px-4 py-3 text-xs">
+                  <p className="font-semibold text-gray-600 dark:text-gray-300 mb-1">{label}</p>
+                  <p className="font-mono font-bold text-sky-600 dark:text-sky-400">{payload[0].value}%</p>
+                  {annLabel && <p className="text-amber-500 font-semibold mt-1 max-w-[180px] leading-snug">{annLabel}</p>}
+                </div>
+              );
+            }}
+          />
+          {annotations.map((ann) => (
+            <ReferenceLine key={ann.year} x={ann.year} stroke="#f59e0b" strokeDasharray="4 3" strokeWidth={1.2}
+              label={{ value: lang === "en" ? (ann.labelEn ?? ann.label) : ann.label, position: "top", fontSize: 8, fill: "#f59e0b" }} />
+          ))}
+          <Line type="monotone" dataKey="pct" stroke="#0ea5e9" strokeWidth={2.5} dot={{ r: 2.5, fill: "#0ea5e9" }}
+            name={lang === "en" ? "PG Imports (% of total)" : "페르시아만 비중"} />
+        </LineChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
+// ── LNG 수출국 랭킹 (2024), Horizontal BarChart ────────────────────────────────
+function LngExportersChart({ chart, lang }: { chart: NoteChartDef & { id: "lng-exporters" }; lang: Lang }) {
+  const raw = chart.data as LngExporterBar[];
+  const data = raw.map((d) => ({ ...d, displayName: lang === "en" ? d.countryEn : d.country }));
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={220}>
+        <BarChart data={data} layout="vertical" margin={{ top: 0, right: 28, bottom: 0, left: 8 }}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} horizontal={false} />
+          <XAxis type="number" domain={[0, 14]} tick={{ fontSize: 10 }} tickLine={false} axisLine={false}
+            tickFormatter={(v) => `${v}`} />
+          <YAxis type="category" dataKey="displayName" tick={{ fontSize: 11 }} tickLine={false} axisLine={false} width={80} />
+          <Tooltip cursor={{ fill: "rgba(0,0,0,0.04)" }}
+            content={({ active, payload }) => {
+              if (!active || !payload?.length) return null;
+              const d = payload[0].payload as LngExporterBar & { displayName: string };
+              return (
+                <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl px-4 py-3 text-xs">
+                  <p className="font-bold text-gray-800 dark:text-gray-100">{d.displayName}</p>
+                  <p style={{ color: d.color }} className="font-mono text-sm mt-1">{d.bcfd} Bcf/d</p>
+                </div>
+              );
+            }}
+          />
+          <Bar dataKey="bcfd" radius={[0, 4, 4, 0]} label={{
+            position: "right", fontSize: 10, fill: "#6b7280",
+            formatter: ((v: unknown) => `${v} Bcf/d`) as never,
+          }}>
+            {data.map((entry, i) => (
+              <Cell key={i} fill={entry.color} />
+            ))}
+          </Bar>
+        </BarChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
+// ── 손익분기 비교 ($/bbl), Horizontal BarChart ─────────────────────────────────
+function BreakevenChart({ chart, lang }: { chart: NoteChartDef & { id: "breakeven-bars" }; lang: Lang }) {
+  const raw = chart.data as BreakevenBar[];
+  const data = raw.map((d) => ({ ...d, displayName: lang === "en" ? d.labelEn : d.label }));
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={240}>
+        <BarChart data={data} layout="vertical" margin={{ top: 8, right: 32, bottom: 0, left: 8 }}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} horizontal={false} />
+          <XAxis type="number" domain={[0, 130]} tick={{ fontSize: 10 }} tickLine={false} axisLine={false}
+            tickFormatter={(v) => `$${v}`} />
+          <YAxis type="category" dataKey="displayName" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} width={180} />
+          <Tooltip cursor={{ fill: "rgba(0,0,0,0.04)" }}
+            content={({ active, payload }) => {
+              if (!active || !payload?.length) return null;
+              const d = payload[0].payload as BreakevenBar & { displayName: string };
+              return (
+                <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl px-4 py-3 text-xs">
+                  <p className="font-bold text-gray-800 dark:text-gray-100 max-w-[200px] leading-snug">{d.displayName}</p>
+                  <p style={{ color: d.color }} className="font-mono text-sm mt-1">${d.value}/bbl</p>
+                </div>
+              );
+            }}
+          />
+          <ReferenceLine x={70} stroke="#94a3b8" strokeDasharray="4 3" strokeWidth={1}
+            label={{ value: lang === "en" ? "WTI ~$70" : "WTI ~$70", position: "top", fontSize: 9, fill: "#94a3b8" }} />
+          <Bar dataKey="value" radius={[0, 4, 4, 0]} label={{
+            position: "right", fontSize: 10, fill: "#6b7280",
+            formatter: ((v: unknown) => `$${v}`) as never,
+          }}>
+            {data.map((entry, i) => (
+              <Cell key={i} fill={entry.color} />
+            ))}
+          </Bar>
+        </BarChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
+// ── EU 러시아산 가스 비중 (2021-2025), AreaChart ───────────────────────────────
+function EuRussianGasChart({ chart, lang }: { chart: NoteChartDef & { id: "eu-russian-gas" }; lang: Lang }) {
+  const data = chart.data as EuRussianGasPoint[];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  const annotations = chart.annotations ?? [];
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={240}>
+        <AreaChart data={data} margin={{ top: 30, right: 20, bottom: 0, left: -8 }}>
+          <defs>
+            <linearGradient id="euRuGas" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#475569" stopOpacity={0.5} />
+              <stop offset="100%" stopColor="#475569" stopOpacity={0.05} />
+            </linearGradient>
+          </defs>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} vertical={false} />
+          <XAxis dataKey="year" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
+          <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false}
+            tickFormatter={(v) => `${v}%`} domain={[0, 50]} />
+          <Tooltip
+            content={({ active, payload, label }) => {
+              if (!active || !payload?.length) return null;
+              const ann = annotations.find((a) => a.year === Number(label));
+              const annLabel = ann ? (lang === "en" ? (ann.labelEn ?? ann.label) : ann.label) : null;
+              return (
+                <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl px-4 py-3 text-xs">
+                  <p className="font-semibold text-gray-600 dark:text-gray-300 mb-1">{label}</p>
+                  <p className="font-mono font-bold text-slate-700 dark:text-slate-300">{payload[0].value}%</p>
+                  {annLabel && <p className="text-amber-500 font-semibold mt-1 max-w-[180px] leading-snug">{annLabel}</p>}
+                </div>
+              );
+            }}
+          />
+          {annotations.map((ann) => (
+            <ReferenceLine key={ann.year} x={ann.year} stroke="#f59e0b" strokeDasharray="4 3" strokeWidth={1.2}
+              label={{ value: lang === "en" ? (ann.labelEn ?? ann.label) : ann.label, position: "top", fontSize: 8, fill: "#f59e0b" }} />
+          ))}
+          <Area type="monotone" dataKey="pct" stroke="#475569" strokeWidth={2.5} fill="url(#euRuGas)"
+            name={lang === "en" ? "Russian Gas Share" : "러시아산 비중"} />
+        </AreaChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
+// ── 중국 원유 수입 mix (2024), Horizontal BarChart ─────────────────────────────
+function ChinaOilMixChart({ chart, lang }: { chart: NoteChartDef & { id: "china-oil-mix" }; lang: Lang }) {
+  const raw = chart.data as ChinaOilSourceBar[];
+  const data = raw.map((d) => ({ ...d, displayName: lang === "en" ? d.countryEn : d.country }));
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  const bucketLabel: Record<ChinaOilSourceBar["bucket"], { ko: string; en: string }> = {
+    "russia": { ko: "러시아", en: "Russia" },
+    "gulf-major": { ko: "걸프(친미·중립)", en: "Gulf (US-aligned / neutral)" },
+    "iran": { ko: "이란", en: "Iran" },
+    "other": { ko: "기타", en: "Other" },
+  };
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={340}>
+        <BarChart data={data} layout="vertical" margin={{ top: 0, right: 28, bottom: 0, left: 8 }}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} horizontal={false} />
+          <XAxis type="number" domain={[0, 22]} tick={{ fontSize: 10 }} tickLine={false} axisLine={false}
+            tickFormatter={(v) => `${v}%`} />
+          <YAxis type="category" dataKey="displayName" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} width={80} />
+          <Tooltip cursor={{ fill: "rgba(0,0,0,0.04)" }}
+            content={({ active, payload }) => {
+              if (!active || !payload?.length) return null;
+              const d = payload[0].payload as ChinaOilSourceBar & { displayName: string };
+              const bucket = bucketLabel[d.bucket];
+              return (
+                <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl px-4 py-3 text-xs">
+                  <p className="font-bold text-gray-800 dark:text-gray-100">{d.displayName}</p>
+                  <p style={{ color: d.color }} className="font-mono text-sm mt-1">{d.pct}%</p>
+                  <p className="text-gray-400 mt-1">{lang === "en" ? bucket.en : bucket.ko}</p>
+                </div>
+              );
+            }}
+          />
+          <Bar dataKey="pct" radius={[0, 4, 4, 0]} label={{
+            position: "right", fontSize: 10, fill: "#6b7280",
+            formatter: ((v: unknown) => `${v}%`) as never,
+          }}>
+            {data.map((entry, i) => (
+              <Cell key={i} fill={entry.color} />
+            ))}
+          </Bar>
+        </BarChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
 // ── Generic chart dispatcher ───────────────────────────────────────────────────
 function NoteChart({ chart, lang }: { chart: NoteChartDef; lang: Lang }) {
   if (chart.id === "pbr-comparison") return <PBRChart chart={chart} lang={lang} />;
@@ -1028,6 +1304,12 @@ function NoteChart({ chart, lang }: { chart: NoteChartDef; lang: Lang }) {
   if (chart.id === "queue-growth") return <QueueGrowthChart chart={chart} lang={lang} />;
   if (chart.id === "ai-penetration") return <AiPenetrationChart chart={chart} lang={lang} />;
   if (chart.id === "pe-spread") return <PeSpreadChart chart={chart} lang={lang} />;
+  if (chart.id === "us-oil-production") return <UsOilProductionChart chart={chart} lang={lang} />;
+  if (chart.id === "us-pg-imports") return <UsPgImportChart chart={chart} lang={lang} />;
+  if (chart.id === "lng-exporters") return <LngExportersChart chart={chart} lang={lang} />;
+  if (chart.id === "breakeven-bars") return <BreakevenChart chart={chart} lang={lang} />;
+  if (chart.id === "eu-russian-gas") return <EuRussianGasChart chart={chart} lang={lang} />;
+  if (chart.id === "china-oil-mix") return <ChinaOilMixChart chart={chart} lang={lang} />;
   return null;
 }
 
