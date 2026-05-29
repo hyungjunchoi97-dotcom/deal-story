@@ -30,9 +30,13 @@ const KO_CONCEPT_CATALOG: ConceptItem[] = [
 
   // Valuation 시리즈 — DCF·WACC·Terminal Value 중심 (Modelling 시리즈와 상호 cross-link)
   { slug: "dcf-overview",          term: "Valuation 101 Ch.0 — DCF란 무엇인가",  tagline: "미래 현금흐름의 현재가치 — IB·PE 표준 평가법. FCF · WACC · Terminal Value 3대 요소, 절대가치 vs 상대가치, Microsoft·Activision $68.7B 사례",  category: "Valuation 시리즈", published: true  },
+  { slug: "trading-comps",          term: "Valuation 101 Ch.1 — Trading Comps 상장사 비교",          tagline: "상장 peer 멀티플로 가치를 산정한다 — Peer Universe 선정, 산업별 멀티플, NTM vs LTM, Operating Lease 조정, 한계",                                category: "Valuation 시리즈",   published: true  },
+  { slug: "transaction-comps",      term: "Valuation 101 Ch.2 — Transaction Comps 선례 거래",         tagline: "M&A 선례거래 멀티플 — 컨트롤 프리미엄 분해, Synergy Backout, Strategic vs Financial 차이, Premium Decomposition Framework",     category: "Valuation 시리즈",   published: true  },
 
   // Modelling 시리즈 — Excel workbook 아키텍처 (Valuation 시리즈와 상호 cross-link)
   { slug: "dcf-model-setup",       term: "Modelling 101 Ch.1 — DCF 모델 셋업",   tagline: "실무진의 DCF 워크북 아키텍처 — 가정·P&L·FCF·WACC·Valuation 5-시트 구조, 셀 색상 컨벤션, 명명규칙",                                       category: "Modelling 시리즈", published: true  },
+  { slug: "trading-comps-build",    term: "Modelling 101 Ch.2 — Trading Comps Build (CIQ)",          tagline: "Capital IQ 스크리닝으로 8-12개 Peer 뽑아 Excel로 — 4시트 워크북, NTM 멀티플 추출, TEV 계산 자동화, Football field input ready",  category: "Modelling 시리즈",   published: true  },
+  { slug: "transaction-comps-build", term: "Modelling 101 Ch.3 — Transaction Comps Build (Mergermarket)", tagline: "Mergermarket / CIQ M&A로 선례거래 10-15개 추출 — 8-단계 필터, Premium 분해, Synergy Backout, Excel 정규화",          category: "Modelling 시리즈",   published: true  },
 
   // FDD 시리즈 — Big 4 Transaction Services 표준 워크플로우 (한국·미국·글로벌 dual case)
   { slug: "fdd-vs-audit",     term: "FDD 101 Ch.1 — FDD vs Audit",            tagline: "FDD는 회계감사가 아니라 deal language다. Big 4 Transaction Services 시장 구조, sell-side vs buy-side, 4 DD 분담 (Fin·Legal·Tax·Commercial)",         category: "FDD 시리즈", published: false },
@@ -56,6 +60,8 @@ const KO_CONCEPT_CATALOG: ConceptItem[] = [
   { slug: "ma-ch01-origination",  term: "M&A 101 Ch.1 — Origination & Pitching", tagline: "Mandate 따오기 실무 — Coverage matrix(Industry × Geo), Pipeline funnel(2% 전환율), Pitch book 36p 표준, Bake-off 결정 기준, Sell vs Buy 차이",   category: "M&A 시리즈", published: true  },
   { slug: "ma-ch02-engagement",   term: "M&A 101 Ch.2 — Engagement Letter & Fee Economics", tagline: "BB·MM·Boutique fee 구조 해부 — Retainer·Milestone·Success 3층, 인터랙티브 fee calculator, Sell/Buy/Fairness economics, 24개월 tail trap, MNPI wall", category: "M&A 시리즈", published: true  },
   { slug: "ma-ch03-cim",          term: "M&A 101 Ch.3 — CIM & Teaser",                     tagline: "Teaser → CIM → MP deck 3-tier 피라미드 — CIM 80p anatomy(8 섹션), Management Case vs Banker Case 협상, Auction/Carve-out/Public 분기",          category: "M&A 시리즈", published: true  },
+  { slug: "ma-ch04-valuation",    term: "M&A 101 Ch.4 — Valuation Football Field",         tagline: "DCF·Trading Comps·Transaction Comps·LBO 4종 통합 — Football field로 consensus zone, DCF 7-step + WACC/growth 인터랙티브 sensitivity, LBO reverse-math",       category: "M&A 시리즈", published: true  },
+  { slug: "ma-ch05-buyer-list",   term: "M&A 101 Ch.5 — Buyer List & Process Design",      tagline: "Broad/Limited/Targeted/Negotiated/Reverse inquiry 5 process trade-off — buyers·timeline·premium·leak. Strategic/PE/Family Office 분류 pros·cons",          category: "M&A 시리즈", published: true  },
   { slug: "lbo",                  term: "LBO (레버리지 바이아웃)",               tagline: "타깃의 현금흐름을 담보로 차입해 에쿼티 투입을 최소화하는 PE 핵심 전략 — KKR의 RJR 나비스코부터 현대 PE까지",                     category: "기타", published: true  },
   { slug: "tender-offer",         term: "공개매수 (Tender Offer)",              tagline: "이사회를 건너뛰고 주주에게 직접 매수 제안 — 머스크·트위터부터 방어 전략까지",                                                    category: "기타", published: true  },
   { slug: "spinoff",              term: "스핀오프 (Spin-off)",                  tagline: "사업부를 독립 법인으로 분리해 숨겨진 가치를 꺼내는 전략 — PayPal, GE 3분할",                                                    category: "기타", published: true  },
@@ -90,9 +96,13 @@ const EN_CONCEPT_CATALOG: ConceptItem[] = [
 
   // Valuation Series — DCF / WACC / Terminal Value (cross-linked with Modelling Series)
   { slug: "dcf-overview",          term: "Valuation 101 Ch.0 — What Is DCF?",       tagline: "The present value of future cash flows — the IB/PE valuation standard. FCF · WACC · Terminal Value, intrinsic vs relative, Microsoft × Activision $68.7B",  category: "Valuation Series", published: true },
+  { slug: "trading-comps",          term: "Valuation 101 Ch.1 — Trading Comps",        tagline: "Pricing off public peer multiples — peer universe selection, sector-specific multiples, NTM vs LTM, operating-lease adjustments, limitations",                                category: "Valuation Series", published: true },
+  { slug: "transaction-comps",      term: "Valuation 101 Ch.2 — Transaction Comps",    tagline: "M&A precedent transaction multiples — control premium decomposition, synergy backout, strategic vs financial buyer differential",                          category: "Valuation Series", published: true },
 
   // Modelling Series — Excel workbook architecture (cross-linked with Valuation Series)
   { slug: "dcf-model-setup",       term: "Modelling 101 Ch.1 — DCF Model Setup",    tagline: "Practitioner DCF workbook architecture — 5-sheet structure (Assumptions/P&L/FCF/WACC/Valuation), color conventions, naming",                                category: "Modelling Series", published: true },
+  { slug: "trading-comps-build",    term: "Modelling 101 Ch.2 — Trading Comps Build (CIQ)",    tagline: "From Capital IQ screening to Excel — 4-sheet workbook, NTM multiples extraction, TEV auto-calc, football field input ready",                       category: "Modelling Series", published: true },
+  { slug: "transaction-comps-build", term: "Modelling 101 Ch.3 — Transaction Comps Build (Mergermarket)", tagline: "Extracting 10-15 precedents via Mergermarket / CIQ M&A — 8-step filter, premium decomposition, synergy backout, Excel normalization",  category: "Modelling Series", published: true },
 
   // FDD Series — Big 4 Transaction Services standard workflow (US/Korea/global dual cases)
   { slug: "fdd-vs-audit",     term: "FDD 101 Ch.1 — FDD vs Audit",            tagline: "FDD is deal language, not accounting opinion. Big 4 TAS market structure, sell-side vs buy-side, four-DD interplay (Fin/Legal/Tax/Commercial)",   category: "FDD Series", published: false },
@@ -116,6 +126,8 @@ const EN_CONCEPT_CATALOG: ConceptItem[] = [
   { slug: "ma-ch01-origination",  term: "M&A 101 Ch.1 — Origination & Pitching", tagline: "Winning the mandate — Coverage matrix (Industry × Geo), pipeline funnel (~2% conversion), 36p pitch book, bake-off decision matrix, sell vs buy origination", category: "M&A Series", published: true },
   { slug: "ma-ch02-engagement",   term: "M&A 101 Ch.2 — Engagement Letter & Fee Economics", tagline: "How BB/MM/boutique fees work — Retainer/Milestone/Success 3-layer stack, interactive fee calculator, sell vs buy vs fairness economics, 24-month tail trap, MNPI wall", category: "M&A Series", published: true },
   { slug: "ma-ch03-cim",          term: "M&A 101 Ch.3 — CIM & Teaser",                     tagline: "Teaser → CIM → MP deck 3-tier pyramid — CIM's 80p anatomy (8 sections), Management Case vs Banker Case negotiation, variants by auction/carve-out/public",      category: "M&A Series", published: true },
+  { slug: "ma-ch04-valuation",    term: "M&A 101 Ch.4 — Valuation Football Field",         tagline: "DCF, Trading Comps, Transaction Comps, LBO combined into a consensus zone — DCF 7-step flow + interactive WACC/growth sensitivity, LBO reverse-math",       category: "M&A Series", published: true },
+  { slug: "ma-ch05-buyer-list",   term: "M&A 101 Ch.5 — Buyer List & Process Design",      tagline: "Trade-offs across 5 process types (broad/limited/targeted/negotiated/reverse inquiry) — buyers, timeline, premium, leak. Strategic/PE/Family Office taxonomy",  category: "M&A Series", published: true },
   { slug: "lbo",                  term: "LBO (Leveraged Buyout)",              tagline: "Using the target's own cash flows as collateral to minimize equity — from KKR's RJR Nabisco to modern PE",                              category: "Other", published: true },
   { slug: "tender-offer",         term: "Tender Offer",                       tagline: "Going directly to shareholders, bypassing the board — from Musk's Twitter gambit to hostile defense strategies",                         category: "Other", published: true },
   { slug: "spinoff",              term: "Spin-off",                           tagline: "Separating a unit to unlock hidden value — PayPal from eBay, GE's three-way breakup",                                                    category: "Other", published: true },

@@ -249,7 +249,7 @@ export const MA_CHAPTERS: MaChapter[] = [
       { axis: "target", impactedBy: ["cross-border"], noteKo: "Cross-border는 Country risk premium + 환율 sensitivity", noteEn: "Cross-border adds country risk premium + FX sensitivity" },
       { axis: "buyer", impactedBy: ["pe-sponsor"], noteKo: "PE sponsor는 LBO 역산 — max price 검증", noteEn: "PE sponsors use LBO reverse-math to set max bid" },
     ],
-    status: "draft",
+    status: "published",
   },
   {
     slug: "ma-ch05-buyer-list",
@@ -266,7 +266,7 @@ export const MA_CHAPTERS: MaChapter[] = [
       { axis: "process", impactedBy: ["broad-auction", "limited-auction", "targeted", "negotiated", "reverse-inquiry"], noteKo: "Process 선택이 전체 챕터를 좌우", noteEn: "Process choice dictates the entire workflow" },
       { axis: "buyer", impactedBy: ["strategic", "pe-sponsor"], noteKo: "Strategic vs Sponsor 비중에 따라 timeline·premium 다름", noteEn: "Strategic vs sponsor mix changes timeline and premium" },
     ],
-    status: "draft",
+    status: "published",
   },
 
   // ── Phase 3: Outreach ──────────────────────────────────────────────
