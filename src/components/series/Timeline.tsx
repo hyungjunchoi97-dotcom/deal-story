@@ -31,27 +31,29 @@ type TimelineProps = {
 };
 
 // ── 시리즈 공통 기본 이벤트 (80년 메가 타임라인) ──────────────────────────────
+// highlight: true → 라벨이 기본 노출 (5~6개로 제한해야 가독성 유지)
+// highlight: false → 점만 표시, 호버 시 라벨 노출
 const DEFAULT_EVENTS: TimelineEvent[] = [
-  { year: 1944, label: "브레튼우즈", labelEn: "Bretton Woods", category: "money" },
-  { year: 1949, label: "NATO 창설", labelEn: "NATO Founded", category: "alliance" },
-  { year: 1971, label: "닉슨 쇼크", labelEn: "Nixon Shock", category: "money" },
-  { year: 1973, label: "오일 쇼크 / 페트로달러", labelEn: "Oil Shock / Petrodollar", category: "money" },
-  { year: 1979, label: "이란 혁명", labelEn: "Iranian Revolution", category: "war" },
-  { year: 1989, label: "베를린 장벽", labelEn: "Berlin Wall Falls", category: "alliance" },
-  { year: 1991, label: "소련 붕괴 / 1차 걸프전", labelEn: "USSR Collapse / Gulf War", category: "war" },
-  { year: 2001, label: "9·11 / 아프간 침공", labelEn: "9/11 / Afghan War", category: "war" },
-  { year: 2003, label: "이라크 침공", labelEn: "Iraq Invasion", category: "war" },
-  { year: 2008, label: "글로벌 금융위기 / 셰일 본격화", labelEn: "GFC / Shale Begins", category: "shale" },
-  { year: 2014, label: "크림 합병 / 제재 시작", labelEn: "Crimea / Sanctions Start", category: "war" },
-  { year: 2015, label: "Sabine Pass LNG 첫 수출", labelEn: "Sabine Pass First LNG Export", category: "shale" },
-  { year: 2020, label: "미국 첫 원유 순수출", labelEn: "US First Net Oil Exporter", category: "shale" },
-  { year: 2022, label: "우크라이나 전쟁 / 노드스트림", labelEn: "Ukraine War / Nord Stream", category: "war" },
-  { year: 2023, label: "이스라엘-하마스", labelEn: "Israel-Hamas War", category: "war" },
-  { year: 2024, label: "트럼프 재선 / NATO 5% 압박", labelEn: "Trump Re-elected / NATO 5% Pressure", category: "policy" },
-  { year: 2026, label: "이자비용 > 국방예산", labelEn: "Interest > Defense Budget", category: "money" },
-  { year: 2027, label: "Three Mile Island 재가동", labelEn: "Three Mile Island Restart", category: "policy" },
-  { year: 2030, label: "중국 인구 1.3억 감소 누적", labelEn: "China Pop. Decline -130M", category: "demo" },
-  { year: 2035, label: "시리즈 시야 종료점", labelEn: "Series Horizon", category: "policy" },
+  { year: 1944, label: "브레튼우즈",                                labelEn: "Bretton Woods",                   category: "money",    highlight: true },
+  { year: 1949, label: "NATO 창설",                                 labelEn: "NATO Founded",                    category: "alliance" },
+  { year: 1971, label: "닉슨 쇼크",                                  labelEn: "Nixon Shock",                     category: "money" },
+  { year: 1973, label: "오일 쇼크 · 페트로달러",                     labelEn: "Oil Shock · Petrodollar",         category: "money",    highlight: true },
+  { year: 1979, label: "이란 혁명",                                  labelEn: "Iranian Revolution",              category: "war" },
+  { year: 1989, label: "베를린 장벽",                                labelEn: "Berlin Wall Falls",               category: "alliance" },
+  { year: 1991, label: "소련 붕괴 · 1차 걸프전",                     labelEn: "USSR Collapse · Gulf War",        category: "war" },
+  { year: 2001, label: "9·11 · 아프간",                              labelEn: "9/11 · Afghan War",               category: "war" },
+  { year: 2003, label: "이라크 침공",                                labelEn: "Iraq Invasion",                   category: "war" },
+  { year: 2008, label: "셰일 본격화 · GFC",                          labelEn: "Shale Begins · GFC",              category: "shale",    highlight: true },
+  { year: 2014, label: "크림 합병",                                  labelEn: "Crimea Annexed",                  category: "war" },
+  { year: 2015, label: "Sabine Pass LNG",                            labelEn: "Sabine Pass LNG",                 category: "shale" },
+  { year: 2020, label: "미국 첫 순수출",                             labelEn: "US First Net Exporter",           category: "shale",    highlight: true },
+  { year: 2022, label: "우크라 · Nord Stream",                       labelEn: "Ukraine · Nord Stream",           category: "war" },
+  { year: 2023, label: "이스라엘-하마스",                            labelEn: "Israel-Hamas",                    category: "war" },
+  { year: 2024, label: "트럼프 재선",                                labelEn: "Trump Re-elected",                category: "policy" },
+  { year: 2026, label: "이자 > 국방예산",                            labelEn: "Interest > Defense",              category: "money" },
+  { year: 2027, label: "Three Mile Island 재가동",                   labelEn: "Three Mile Island Restart",       category: "policy" },
+  { year: 2030, label: "중국 인구 -130M",                            labelEn: "China Pop. -130M",                category: "demo" },
+  { year: 2035, label: "시리즈 시야 종료",                           labelEn: "Series Horizon",                  category: "policy",   highlight: true },
 ];
 
 const CAT_META: Record<TimelineEvent["category"], { color: string; label: { ko: string; en: string } }> = {
@@ -152,15 +154,17 @@ export default function Timeline({
                   }}
                 />
 
-                {/* Label */}
+                {/* Label — only for highlighted events; others show on hover */}
                 <div
                   className={`absolute left-1/2 -translate-x-1/2 ${
                     isAbove ? "bottom-3" : "top-3"
-                  } whitespace-nowrap`}
+                  } whitespace-nowrap pointer-events-none z-10`}
                 >
                   <div
-                    className={`px-2 py-0.5 rounded-md text-[10px] font-bold border bg-white dark:bg-gray-900 transition-opacity ${
-                      e.highlight ? "opacity-100" : "opacity-70 group-hover:opacity-100"
+                    className={`px-2 py-0.5 rounded-md text-[10px] font-bold border bg-white dark:bg-gray-900 shadow-sm transition-opacity duration-200 ${
+                      e.highlight
+                        ? "opacity-100"
+                        : "opacity-0 group-hover:opacity-100"
                     }`}
                     style={{
                       color: meta.color,

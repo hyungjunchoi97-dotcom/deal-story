@@ -203,6 +203,11 @@ export default function InteractiveMap({
     map.on("error", (e) => {
       // eslint-disable-next-line no-console
       console.warn("[InteractiveMap]", e);
+      // Mapbox 인증 실패 시 사용자에게 안내
+      const errStr = String(e?.error?.message ?? e?.error ?? "");
+      if (/401|Unauthorized|403|Forbidden/i.test(errStr)) {
+        setError(ko ? "Mapbox 토큰 인증 실패 — URL 제한 또는 만료 확인 필요" : "Mapbox token unauthorized — check URL restrictions or expiry");
+      }
     });
 
     return () => {
