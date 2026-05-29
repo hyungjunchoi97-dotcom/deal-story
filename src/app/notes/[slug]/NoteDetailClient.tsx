@@ -48,6 +48,12 @@ import type {
   BreakevenBar,
   EuRussianGasPoint,
   ChinaOilSourceBar,
+  TfrCountryBar,
+  KoreaBirthPoint,
+  KoreaDependencyPoint,
+  ChinaPopulationPoint,
+  UsPopGrowthBar,
+  JapanPotentialGrowthPoint,
 } from "@/data/notes";
 import { NOTE_CATEGORY_META, getSeriesNav } from "@/data/notes";
 import SeriesNav from "@/components/SeriesNav";
@@ -1281,6 +1287,294 @@ function ChinaOilMixChart({ chart, lang }: { chart: NoteChartDef & { id: "china-
   );
 }
 
+// ══════════════════════════════════════════════════════════════════════════════
+// After Pax Americana — Ch.2 (Demographics) 차트 6종
+// ══════════════════════════════════════════════════════════════════════════════
+
+// ── §2. 6개국 합계출산율 비교, Horizontal Bar ──────────────────────────────────
+function TfrChart({ chart, lang }: { chart: NoteChartDef & { id: "tfr-6countries" }; lang: Lang }) {
+  const raw = chart.data as TfrCountryBar[];
+  const data = raw.map((d) => ({ ...d, displayName: lang === "en" ? d.countryEn : d.country }));
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  const replacement = chart.replacementLine ?? 2.1;
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={260}>
+        <BarChart data={data} layout="vertical" margin={{ top: 28, right: 36, bottom: 0, left: 8 }}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} horizontal={false} />
+          <XAxis type="number" domain={[0, 2.5]} tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
+          <YAxis type="category" dataKey="displayName" tick={{ fontSize: 11 }} tickLine={false} axisLine={false} width={80} />
+          <Tooltip cursor={{ fill: "rgba(0,0,0,0.04)" }}
+            content={({ active, payload }) => {
+              if (!active || !payload?.length) return null;
+              const d = payload[0].payload as TfrCountryBar & { displayName: string };
+              const note = lang === "en" ? (d.noteEn ?? d.note) : d.note;
+              return (
+                <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl px-4 py-3 text-xs">
+                  <p className="font-bold text-gray-800 dark:text-gray-100">{d.displayName} ({d.year})</p>
+                  <p style={{ color: d.color }} className="font-mono text-sm mt-1">TFR {d.tfr.toFixed(2)}</p>
+                  {note && <p className="text-gray-500 dark:text-gray-400 mt-1 max-w-[200px] leading-snug">{note}</p>}
+                </div>
+              );
+            }}
+          />
+          <ReferenceLine x={replacement} stroke="#94a3b8" strokeDasharray="4 3" strokeWidth={1.2}
+            label={{ value: lang === "en" ? `Replacement ${replacement}` : `대체출산율 ${replacement}`, position: "top", fontSize: 10, fill: "#64748b", offset: 8 }} />
+          <Bar dataKey="tfr" radius={[0, 4, 4, 0]} label={{
+            position: "right", fontSize: 10, fill: "#6b7280",
+            formatter: ((v: unknown) => Number(v).toFixed(2)) as never,
+          }}>
+            {data.map((entry, i) => (
+              <Cell key={i} fill={entry.color} />
+            ))}
+          </Bar>
+        </BarChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
+// ── §3. 한국 출생아 추이 (2000-2024), LineChart ────────────────────────────────
+function KoreaBirthsChart({ chart, lang }: { chart: NoteChartDef & { id: "korea-births" }; lang: Lang }) {
+  const data = chart.data as KoreaBirthPoint[];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  const annotations = chart.annotations ?? [];
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={260}>
+        <AreaChart data={data} margin={{ top: 30, right: 16, bottom: 0, left: -4 }}>
+          <defs>
+            <linearGradient id="krBirths" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#16a34a" stopOpacity={0.45} />
+              <stop offset="100%" stopColor="#16a34a" stopOpacity={0.04} />
+            </linearGradient>
+          </defs>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} vertical={false} />
+          <XAxis dataKey="year" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} interval={2} />
+          <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false}
+            tickFormatter={(v) => `${v}k`} domain={[0, 700]} />
+          <Tooltip
+            content={({ active, payload, label }) => {
+              if (!active || !payload?.length) return null;
+              const ann = annotations.find((a) => a.year === Number(label));
+              const annLabel = ann ? (lang === "en" ? (ann.labelEn ?? ann.label) : ann.label) : null;
+              return (
+                <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl px-4 py-3 text-xs">
+                  <p className="font-semibold text-gray-600 dark:text-gray-300 mb-1">{label}</p>
+                  <p className="font-mono font-bold text-emerald-600 dark:text-emerald-400">
+                    {Number(payload[0].value).toLocaleString()}k {lang === "en" ? "births" : "명"}
+                  </p>
+                  {annLabel && <p className="text-amber-500 font-semibold mt-1 max-w-[180px] leading-snug">{annLabel}</p>}
+                </div>
+              );
+            }}
+          />
+          {annotations.map((ann) => (
+            <ReferenceLine key={ann.year} x={ann.year} stroke="#f59e0b" strokeDasharray="4 3" strokeWidth={1.2}
+              label={{ value: lang === "en" ? (ann.labelEn ?? ann.label) : ann.label, position: "top", fontSize: 8, fill: "#f59e0b" }} />
+          ))}
+          <Area type="monotone" dataKey="births" stroke="#16a34a" strokeWidth={2.5} fill="url(#krBirths)"
+            name={lang === "en" ? "Korea Births (k)" : "한국 출생아 (천 명)"} />
+        </AreaChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
+// ── §3. 한국 노년부양비 (2025-2080), AreaChart ─────────────────────────────────
+function KoreaDependencyChart({ chart, lang }: { chart: NoteChartDef & { id: "korea-dependency" }; lang: Lang }) {
+  const data = chart.data as KoreaDependencyPoint[];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  const annotations = chart.annotations ?? [];
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={260}>
+        <AreaChart data={data} margin={{ top: 30, right: 16, bottom: 0, left: -4 }}>
+          <defs>
+            <linearGradient id="krDep" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#dc2626" stopOpacity={0.5} />
+              <stop offset="100%" stopColor="#dc2626" stopOpacity={0.04} />
+            </linearGradient>
+          </defs>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} vertical={false} />
+          <XAxis dataKey="year" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
+          <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false}
+            tickFormatter={(v) => `${v}%`} domain={[0, 120]} />
+          <Tooltip
+            content={({ active, payload, label }) => {
+              if (!active || !payload?.length) return null;
+              const ann = annotations.find((a) => a.year === Number(label));
+              const annLabel = ann ? (lang === "en" ? (ann.labelEn ?? ann.label) : ann.label) : null;
+              return (
+                <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl px-4 py-3 text-xs">
+                  <p className="font-semibold text-gray-600 dark:text-gray-300 mb-1">{label}</p>
+                  <p className="font-mono font-bold text-red-600 dark:text-red-400">{payload[0].value}%</p>
+                  {annLabel && <p className="text-amber-500 font-semibold mt-1 max-w-[180px] leading-snug">{annLabel}</p>}
+                </div>
+              );
+            }}
+          />
+          <ReferenceLine y={100} stroke="#94a3b8" strokeDasharray="4 3" strokeWidth={1}
+            label={{ value: lang === "en" ? "1:1 line" : "1:1 라인", position: "right", fontSize: 9, fill: "#64748b" }} />
+          {annotations.map((ann) => (
+            <ReferenceLine key={ann.year} x={ann.year} stroke="#f59e0b" strokeDasharray="4 3" strokeWidth={1.2}
+              label={{ value: lang === "en" ? (ann.labelEn ?? ann.label) : ann.label, position: "top", fontSize: 8, fill: "#f59e0b" }} />
+          ))}
+          <Area type="monotone" dataKey="ratio" stroke="#dc2626" strokeWidth={2.5} fill="url(#krDep)"
+            name={lang === "en" ? "Old-age Dependency (%)" : "노년부양비 (%)"} />
+        </AreaChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
+// ── §4. 중국 인구 trajectory (1980-2100), LineChart 2 series ───────────────────
+function ChinaPopulationChart({ chart, lang }: { chart: NoteChartDef & { id: "china-pop-trajectory" }; lang: Lang }) {
+  const data = chart.data as ChinaPopulationPoint[];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  const annotations = chart.annotations ?? [];
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={280}>
+        <LineChart data={data} margin={{ top: 30, right: 16, bottom: 0, left: 0 }}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} />
+          <XAxis dataKey="year" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
+          <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false}
+            tickFormatter={(v) => `${(Number(v) / 1000).toFixed(1)}B`} domain={[400, 1500]} />
+          <Tooltip
+            content={({ active, payload, label }) => {
+              if (!active || !payload?.length) return null;
+              const ann = annotations.find((a) => a.year === Number(label));
+              const annLabel = ann ? (lang === "en" ? (ann.labelEn ?? ann.label) : ann.label) : null;
+              return (
+                <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl px-4 py-3 text-xs space-y-1.5">
+                  <p className="font-semibold text-gray-600 dark:text-gray-300">{label}</p>
+                  {payload.map((p) => (
+                    <div key={p.dataKey as string} className="flex items-center justify-between gap-4">
+                      <span className="flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full" style={{ background: p.color as string }} />
+                        <span className="text-gray-500 dark:text-gray-400">{p.name}</span>
+                      </span>
+                      <span className="font-mono font-bold text-gray-800 dark:text-gray-100">
+                        {p.value != null ? `${(Number(p.value) / 1000).toFixed(2)}B` : "—"}
+                      </span>
+                    </div>
+                  ))}
+                  {annLabel && <p className="text-amber-500 font-semibold mt-1 max-w-[200px] leading-snug">{annLabel}</p>}
+                </div>
+              );
+            }}
+          />
+          <Legend wrapperStyle={{ fontSize: 11, paddingTop: 12 }} />
+          {annotations.map((ann) => (
+            <ReferenceLine key={ann.year} x={ann.year} stroke="#f59e0b" strokeDasharray="4 3" strokeWidth={1.2}
+              label={{ value: lang === "en" ? (ann.labelEn ?? ann.label) : ann.label, position: "top", fontSize: 8, fill: "#f59e0b" }} />
+          ))}
+          <Line type="monotone" dataKey="official" stroke="#dc2626" strokeWidth={2.5} dot={{ r: 2 }}
+            name={lang === "en" ? "NBS / UN official" : "공식 (NBS/UN)"} />
+          <Line type="monotone" dataKey="yiFuxian" stroke="#0ea5e9" strokeWidth={2} dot={{ r: 2 }} strokeDasharray="5 3"
+            name={lang === "en" ? "Yi Fuxian estimate" : "Yi Fuxian 추정"} />
+        </LineChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
+// ── §5. 미국 인구 성장 분해, Stacked Bar ───────────────────────────────────────
+function UsPopDecompChart({ chart, lang }: { chart: NoteChartDef & { id: "us-pop-decomp" }; lang: Lang }) {
+  const raw = chart.data as UsPopGrowthBar[];
+  const data = raw.map((d) => ({ ...d, displayPeriod: lang === "en" ? d.periodEn : d.period }));
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={260}>
+        <BarChart data={data} margin={{ top: 30, right: 16, bottom: 0, left: -4 }} barSize={32}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} vertical={false} />
+          <XAxis dataKey="displayPeriod" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
+          <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false}
+            tickFormatter={(v) => `${v}M`} domain={[-2, 30]} />
+          <Tooltip
+            content={({ active, payload, label }) => {
+              if (!active || !payload?.length) return null;
+              const d = payload[0].payload as UsPopGrowthBar & { displayPeriod: string };
+              return (
+                <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl px-4 py-3 text-xs space-y-1.5">
+                  <p className="font-semibold text-gray-600 dark:text-gray-300">{label}</p>
+                  <div className="flex items-center justify-between gap-4">
+                    <span className="flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-sky-500" />
+                      <span className="text-gray-500 dark:text-gray-400">{lang === "en" ? "Natural" : "자연증가"}</span>
+                    </span>
+                    <span className="font-mono font-bold text-gray-800 dark:text-gray-100">{d.natural}M</span>
+                  </div>
+                  <div className="flex items-center justify-between gap-4">
+                    <span className="flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-amber-500" />
+                      <span className="text-gray-500 dark:text-gray-400">{lang === "en" ? "Immigration" : "순이민"}</span>
+                    </span>
+                    <span className="font-mono font-bold text-gray-800 dark:text-gray-100">{d.immigration}M</span>
+                  </div>
+                  <p className="text-emerald-600 font-semibold mt-1">
+                    {lang === "en" ? "Immigration share" : "이민 비중"}: {d.immSharePct}%
+                  </p>
+                </div>
+              );
+            }}
+          />
+          <Legend wrapperStyle={{ fontSize: 11, paddingTop: 12 }} />
+          <Bar dataKey="natural" stackId="a" fill="#0ea5e9" name={lang === "en" ? "Natural (births − deaths)" : "자연증가 (출생 − 사망)"} />
+          <Bar dataKey="immigration" stackId="a" fill="#f59e0b" radius={[3, 3, 0, 0]} name={lang === "en" ? "Net immigration" : "순이민"} />
+        </BarChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
+// ── §6. 일본 잠재성장률 (1990-2024), LineChart ─────────────────────────────────
+function JapanPotentialGrowthChart({ chart, lang }: { chart: NoteChartDef & { id: "japan-potential-growth" }; lang: Lang }) {
+  const data = chart.data as JapanPotentialGrowthPoint[];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  const annotations = chart.annotations ?? [];
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={250}>
+        <LineChart data={data} margin={{ top: 30, right: 16, bottom: 0, left: -8 }}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} />
+          <XAxis dataKey="year" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
+          <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false}
+            tickFormatter={(v) => `${v}%`} domain={[0, 4]} />
+          <Tooltip
+            content={({ active, payload, label }) => {
+              if (!active || !payload?.length) return null;
+              const ann = annotations.find((a) => a.year === Number(label));
+              const annLabel = ann ? (lang === "en" ? (ann.labelEn ?? ann.label) : ann.label) : null;
+              return (
+                <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl px-4 py-3 text-xs">
+                  <p className="font-semibold text-gray-600 dark:text-gray-300 mb-1">{label}</p>
+                  <p className="font-mono font-bold text-violet-600 dark:text-violet-400">{payload[0].value}%</p>
+                  {annLabel && <p className="text-amber-500 font-semibold mt-1 max-w-[180px] leading-snug">{annLabel}</p>}
+                </div>
+              );
+            }}
+          />
+          {annotations.map((ann) => (
+            <ReferenceLine key={ann.year} x={ann.year} stroke="#f59e0b" strokeDasharray="4 3" strokeWidth={1.2}
+              label={{ value: lang === "en" ? (ann.labelEn ?? ann.label) : ann.label, position: "top", fontSize: 8, fill: "#f59e0b" }} />
+          ))}
+          <Line type="monotone" dataKey="potential" stroke="#8b5cf6" strokeWidth={2.5} dot={{ r: 3 }}
+            name={lang === "en" ? "Potential Growth (%)" : "잠재성장률 (%)"} />
+        </LineChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
 // ── Generic chart dispatcher ───────────────────────────────────────────────────
 function NoteChart({ chart, lang }: { chart: NoteChartDef; lang: Lang }) {
   if (chart.id === "pbr-comparison") return <PBRChart chart={chart} lang={lang} />;
@@ -1310,6 +1604,12 @@ function NoteChart({ chart, lang }: { chart: NoteChartDef; lang: Lang }) {
   if (chart.id === "breakeven-bars") return <BreakevenChart chart={chart} lang={lang} />;
   if (chart.id === "eu-russian-gas") return <EuRussianGasChart chart={chart} lang={lang} />;
   if (chart.id === "china-oil-mix") return <ChinaOilMixChart chart={chart} lang={lang} />;
+  if (chart.id === "tfr-6countries") return <TfrChart chart={chart} lang={lang} />;
+  if (chart.id === "korea-births") return <KoreaBirthsChart chart={chart} lang={lang} />;
+  if (chart.id === "korea-dependency") return <KoreaDependencyChart chart={chart} lang={lang} />;
+  if (chart.id === "china-pop-trajectory") return <ChinaPopulationChart chart={chart} lang={lang} />;
+  if (chart.id === "us-pop-decomp") return <UsPopDecompChart chart={chart} lang={lang} />;
+  if (chart.id === "japan-potential-growth") return <JapanPotentialGrowthChart chart={chart} lang={lang} />;
   return null;
 }
 

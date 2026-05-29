@@ -314,6 +314,56 @@ export type ChinaOilSourceBar = {
   color: string;
 };
 
+// ── After Pax Americana — Ch.2 (Demographics) 차트 데이터 타입 ─────────────────
+// 6개국 합계출산율 비교 (2023/2024), horizontal bar
+export type TfrCountryBar = {
+  country: string;
+  countryEn: string;
+  tfr: number;
+  year: number;
+  color: string;
+  note?: string;
+  noteEn?: string;
+};
+
+// 한국 출생아 수 추이 (2000-2024), line/area chart
+export type KoreaBirthPoint = {
+  year: number;
+  births: number;     // 천 명
+  event?: string;
+};
+
+// 한국 노년부양비 (2025-2080), area chart
+export type KoreaDependencyPoint = {
+  year: number;
+  ratio: number;      // %
+  event?: string;
+};
+
+// 중국 총인구 trajectory (1980-2100), 공식 vs Yi Fuxian 비판본
+export type ChinaPopulationPoint = {
+  year: number;
+  official: number;       // 백만
+  yiFuxian: number | null;
+  event?: string;
+};
+
+// 미국 인구 성장 분해 (자연증가 vs 순이민), stacked bar
+export type UsPopGrowthBar = {
+  period: string;
+  periodEn: string;
+  natural: number;       // 백만
+  immigration: number;
+  immSharePct: number;
+};
+
+// 일본 잠재성장률 시계열 (1990-2024)
+export type JapanPotentialGrowthPoint = {
+  year: number;
+  potential: number;     // %
+  event?: string;
+};
+
 export type NoteChartDef =
   | { id: "pbr-comparison";    title: string; titleEn?: string; caption?: string; captionEn?: string; data: PBRPoint[] }
   | { id: "tax-rates";         title: string; titleEn?: string; caption?: string; captionEn?: string; data: TaxRateBar[] }
@@ -341,7 +391,13 @@ export type NoteChartDef =
   | { id: "lng-exporters";     title: string; titleEn?: string; caption?: string; captionEn?: string; data: LngExporterBar[] }
   | { id: "breakeven-bars";    title: string; titleEn?: string; caption?: string; captionEn?: string; data: BreakevenBar[] }
   | { id: "eu-russian-gas";    title: string; titleEn?: string; caption?: string; captionEn?: string; data: EuRussianGasPoint[]; annotations?: { year: number; label: string; labelEn?: string }[] }
-  | { id: "china-oil-mix";     title: string; titleEn?: string; caption?: string; captionEn?: string; data: ChinaOilSourceBar[] };
+  | { id: "china-oil-mix";     title: string; titleEn?: string; caption?: string; captionEn?: string; data: ChinaOilSourceBar[] }
+  | { id: "tfr-6countries";    title: string; titleEn?: string; caption?: string; captionEn?: string; data: TfrCountryBar[]; replacementLine?: number }
+  | { id: "korea-births";      title: string; titleEn?: string; caption?: string; captionEn?: string; data: KoreaBirthPoint[]; annotations?: { year: number; label: string; labelEn?: string }[] }
+  | { id: "korea-dependency";  title: string; titleEn?: string; caption?: string; captionEn?: string; data: KoreaDependencyPoint[]; annotations?: { year: number; label: string; labelEn?: string }[] }
+  | { id: "china-pop-trajectory"; title: string; titleEn?: string; caption?: string; captionEn?: string; data: ChinaPopulationPoint[]; annotations?: { year: number; label: string; labelEn?: string }[] }
+  | { id: "us-pop-decomp";     title: string; titleEn?: string; caption?: string; captionEn?: string; data: UsPopGrowthBar[] }
+  | { id: "japan-potential-growth"; title: string; titleEn?: string; caption?: string; captionEn?: string; data: JapanPotentialGrowthPoint[]; annotations?: { year: number; label: string; labelEn?: string }[] };
 
 export type NoteBlock =
   | { type: "text";    body: string; bodyEn?: string }
