@@ -30,6 +30,7 @@ const KO_CONCEPT_CATALOG: ConceptItem[] = [
 
   // M&A 시리즈 — 전과정 흐름 + 이해관계자 + 유명 뱅커 케이스
   { slug: "ma-ch01-overview",      term: "M&A 101 Ch.1 — 전과정 흐름 (6개월의 여정)", tagline: "M&A는 보기보다 단순한 흐름이다 — 9단계 타임라인 · 5개 주체 병렬 워크스트림 · 진짜 어려운 4지점",                                                  category: "M&A 시리즈", published: true  },
+  { slug: "ma-ch02-stakeholders",  term: "M&A 101 Ch.2 — 이해관계자 도감 (누가 무엇을 하는가)", tagline: "한 딜에 평균 8개 firm — IB · 회계 FAS · 컨설팅 · 법무 · Lender + 클라이언트. Deliverable · 등장 시점 · IB와의 인터페이스 · risk",   category: "M&A 시리즈", published: true  },
 
   // Valuation 시리즈 — DCF·WACC·Terminal Value 중심 (Modelling 시리즈와 상호 cross-link)
 
@@ -80,6 +81,7 @@ const EN_CONCEPT_CATALOG: ConceptItem[] = [
 
   // M&A Series — lifecycle + stakeholders + banker case studies
   { slug: "ma-ch01-overview",      term: "M&A 101 Ch.1 — The Lifecycle (6-month journey)", tagline: "M&A is more linear than it looks — 9-stage timeline · 5 parallel workstreams · the 4 places where it actually gets hard",                                  category: "M&A Series", published: true },
+  { slug: "ma-ch02-stakeholders",  term: "M&A 101 Ch.2 — The Stakeholder Map (who does what)", tagline: "An average deal runs ~8 firms — IB · accounting FAS · consultants · law firm · lenders + client. Deliverable · timing · interface with IB · risk",   category: "M&A Series", published: true },
 
   // Valuation Series — DCF / WACC / Terminal Value (cross-linked with Modelling Series)
 

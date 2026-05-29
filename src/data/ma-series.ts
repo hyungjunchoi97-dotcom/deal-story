@@ -42,7 +42,7 @@ export const MA_CHAPTERS: MaChapter[] = [
     taglineKo: "IB Lead · 회계 FAS · 컨설팅 · 법무 · CEO·CFO·Board · Buyer side",
     taglineEn: "IB Lead · accounting FAS · consultants · law firm · CEO/CFO/Board · buyer side",
     readingMinutes: 10,
-    status: "draft",
+    status: "published",
   },
   {
     slug: "ma-ch03-fdd-case",
