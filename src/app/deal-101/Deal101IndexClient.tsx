@@ -34,6 +34,7 @@ const KO_CONCEPT_CATALOG: ConceptItem[] = [
   { slug: "ma-ch03-fdd-case",      term: "M&A 101 Ch.3 — FDD 실랑이: 1회성 vs 반복적 (Wasserstein × RJR + WeWork)", tagline: "Adjusted EBITDA가 만들어진 순간 (Wasserstein × RJR Nabisco 1988) + 어디서 fiction이 됐나 (WeWork Community Adjusted EBITDA 2019)", category: "M&A 시리즈", published: true  },
   { slug: "ma-ch04-valuation-case", term: "M&A 101 Ch.4 — Valuation 가정의 게임 (Disney×Pixar + AOL×Time Warner)", tagline: "Iger가 DCF $5B을 $7.4B narrative로 정당화 (Disney×Pixar 2006) + 가정이 깨졌을 때 $165B→$3B (AOL×Time Warner 2000)",        category: "M&A 시리즈", published: true  },
   { slug: "ma-ch05-orchestration-case", term: "M&A 101 Ch.5 — IB Lead 오케스트레이션 (Rohatyn × NYC + Bayer × Monsanto)", tagline: "Felix Rohatyn × NYC bailout (1975) orchestration archetype + Bayer × Monsanto (2016) operational 성공 · 전략적 synthesis 실패 → $60B 가치 파괴", category: "M&A 시리즈", published: true  },
+  { slug: "ma-ch06-closing-case",  term: "M&A 101 Ch.6 — 가격 협상 + 클로징 막판 (Twitter × Musk + Adobe × Figma)", tagline: "Twitter SPA의 specific performance가 $44B 사수 (2022) + Adobe × Figma regulatory가 deal 깨고 $1B break fee (2023). M&A 시리즈 마무리",                     category: "M&A 시리즈", published: true  },
 
   // Valuation 시리즈 — DCF·WACC·Terminal Value 중심 (Modelling 시리즈와 상호 cross-link)
 
@@ -88,6 +89,7 @@ const EN_CONCEPT_CATALOG: ConceptItem[] = [
   { slug: "ma-ch03-fdd-case",      term: "M&A 101 Ch.3 — The FDD Fight: one-time vs recurring (Wasserstein × RJR + WeWork)", tagline: "When Adjusted EBITDA was effectively invented (Wasserstein × RJR Nabisco 1988) + where it crossed into fiction (WeWork Community Adjusted EBITDA 2019)", category: "M&A Series", published: true },
   { slug: "ma-ch04-valuation-case", term: "M&A 101 Ch.4 — Valuation: the Assumptions Game (Disney×Pixar + AOL×Time Warner)", tagline: "Iger turned a $5B DCF into a $7.4B narrative (Disney×Pixar 2006) + what assumption collapse looks like at $165B→$3B (AOL×Time Warner 2000)",      category: "M&A Series", published: true },
   { slug: "ma-ch05-orchestration-case", term: "M&A 101 Ch.5 — IB Lead Orchestration (Rohatyn × NYC + Bayer × Monsanto)", tagline: "Felix Rohatyn × NYC bailout (1975) — the orchestration archetype + Bayer × Monsanto (2016) operationally clean but strategically broken → $60B value destruction", category: "M&A Series", published: true },
+  { slug: "ma-ch06-closing-case",  term: "M&A 101 Ch.6 — Final Negotiation + Closing (Twitter × Musk + Adobe × Figma)", tagline: "Twitter SPA's specific performance defended $44B (2022) + Adobe × Figma killed by regulators with a $1B break fee (2023). The series wrap",                category: "M&A Series", published: true },
 
   // Valuation Series — DCF / WACC / Terminal Value (cross-linked with Modelling Series)
 

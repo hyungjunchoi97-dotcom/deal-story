@@ -85,10 +85,12 @@ export const MA_CHAPTERS: MaChapter[] = [
     ch: 6,
     titleKo: "가격 협상 + 클로징 막판",
     titleEn: "Final Negotiation + Closing",
-    taglineKo: "SPA 조항이 가격을 흔드는 지점, 막판 regulatory가 딜을 깨는 패턴",
-    taglineEn: "Where SPA terms shift price, and how last-mile regulatory kills deals",
-    readingMinutes: 12,
-    status: "draft",
+    taglineKo: "Twitter × Musk (2022) Specific performance가 가격을 사수 + Adobe × Figma (2023) regulatory가 deal을 깨고 $1B break fee",
+    taglineEn: "Twitter × Musk (2022) specific performance defended price + Adobe × Figma (2023) regulatory killed the deal with a $1B break fee",
+    readingMinutes: 13,
+    status: "published",
+    caseKo: "Twitter × Musk (2022) + Adobe × Figma (2023)",
+    caseEn: "Twitter × Musk (2022) + Adobe × Figma (2023)",
   },
 ];
 
