@@ -41,7 +41,7 @@ const PUBLISHED_CONCEPTS = [
   // "fdd-vs-audit",
   // "fdd-engagement",
   // "fdd-dataroom",
-  // "fdd-qoe",
+  "fdd-qoe",
   // "fdd-qona",
   // "fdd-red-flags",
   // "fdd-report-spa",
