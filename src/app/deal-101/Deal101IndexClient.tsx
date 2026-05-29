@@ -33,6 +33,7 @@ const KO_CONCEPT_CATALOG: ConceptItem[] = [
   { slug: "ma-ch02-stakeholders",  term: "M&A 101 Ch.2 — 이해관계자 도감 (누가 무엇을 하는가)", tagline: "한 딜에 평균 8개 firm — IB · 회계 FAS · 컨설팅 · 법무 · Lender + 클라이언트. Deliverable · 등장 시점 · IB와의 인터페이스 · risk",   category: "M&A 시리즈", published: true  },
   { slug: "ma-ch03-fdd-case",      term: "M&A 101 Ch.3 — FDD 실랑이: 1회성 vs 반복적 (Wasserstein × RJR + WeWork)", tagline: "Adjusted EBITDA가 만들어진 순간 (Wasserstein × RJR Nabisco 1988) + 어디서 fiction이 됐나 (WeWork Community Adjusted EBITDA 2019)", category: "M&A 시리즈", published: true  },
   { slug: "ma-ch04-valuation-case", term: "M&A 101 Ch.4 — Valuation 가정의 게임 (Disney×Pixar + AOL×Time Warner)", tagline: "Iger가 DCF $5B을 $7.4B narrative로 정당화 (Disney×Pixar 2006) + 가정이 깨졌을 때 $165B→$3B (AOL×Time Warner 2000)",        category: "M&A 시리즈", published: true  },
+  { slug: "ma-ch05-orchestration-case", term: "M&A 101 Ch.5 — IB Lead 오케스트레이션 (Rohatyn × NYC + Bayer × Monsanto)", tagline: "Felix Rohatyn × NYC bailout (1975) orchestration archetype + Bayer × Monsanto (2016) operational 성공 · 전략적 synthesis 실패 → $60B 가치 파괴", category: "M&A 시리즈", published: true  },
 
   // Valuation 시리즈 — DCF·WACC·Terminal Value 중심 (Modelling 시리즈와 상호 cross-link)
 
@@ -86,6 +87,7 @@ const EN_CONCEPT_CATALOG: ConceptItem[] = [
   { slug: "ma-ch02-stakeholders",  term: "M&A 101 Ch.2 — The Stakeholder Map (who does what)", tagline: "An average deal runs ~8 firms — IB · accounting FAS · consultants · law firm · lenders + client. Deliverable · timing · interface with IB · risk",   category: "M&A Series", published: true },
   { slug: "ma-ch03-fdd-case",      term: "M&A 101 Ch.3 — The FDD Fight: one-time vs recurring (Wasserstein × RJR + WeWork)", tagline: "When Adjusted EBITDA was effectively invented (Wasserstein × RJR Nabisco 1988) + where it crossed into fiction (WeWork Community Adjusted EBITDA 2019)", category: "M&A Series", published: true },
   { slug: "ma-ch04-valuation-case", term: "M&A 101 Ch.4 — Valuation: the Assumptions Game (Disney×Pixar + AOL×Time Warner)", tagline: "Iger turned a $5B DCF into a $7.4B narrative (Disney×Pixar 2006) + what assumption collapse looks like at $165B→$3B (AOL×Time Warner 2000)",      category: "M&A Series", published: true },
+  { slug: "ma-ch05-orchestration-case", term: "M&A 101 Ch.5 — IB Lead Orchestration (Rohatyn × NYC + Bayer × Monsanto)", tagline: "Felix Rohatyn × NYC bailout (1975) — the orchestration archetype + Bayer × Monsanto (2016) operationally clean but strategically broken → $60B value destruction", category: "M&A Series", published: true },
 
   // Valuation Series — DCF / WACC / Terminal Value (cross-linked with Modelling Series)
 
