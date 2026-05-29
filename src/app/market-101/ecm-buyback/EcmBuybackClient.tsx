@@ -119,26 +119,36 @@ const APPLE_ANNUAL_BUYBACK = [
 ];
 
 // ── FAQ ────────────────────────────────────────────────────────────────────────
-const FAQS = [
+const FAQS: { q: string; qEn: string; a: string; aEn: string }[] = [
   {
     q: "자사주매입이 주가를 무조건 올리는가",
+    qEn: "Do buybacks always boost the stock price?",
     a: "그렇지 않습니다. 자사주매입은 EPS를 기계적으로 상승시키지만 주가 반응은 맥락에 따라 다릅니다. ① 저평가된 주식을 사는 경우라면 시장이 긍정적으로 반응합니다. ② 그러나 차입금으로 고평가된 주식을 사는 경우(2018~2019년 일부 미국 기업)에는 재무 리스크만 커집니다. ③ 경기 침체기에 현금을 소진하는 바이백은 유동성 위기를 초래할 수 있습니다. 자사주매입은 도구일 뿐이며, 사용 맥락(현금 여유·밸류에이션·사업 전망)이 결과를 좌우합니다.",
+    aEn: "Not always. Buybacks mechanically raise EPS, but the share-price response depends on context. ① If shares are undervalued, the market reacts positively. ② When debt-financed buybacks happen at high valuations (some US firms in 2018–19), financial risk grows without real value creation. ③ In a downturn, depleting cash via buybacks can create liquidity stress. Buybacks are a tool — the context (cash position, valuation, business outlook) determines the outcome.",
   },
   {
     q: "적자 기업도 자사주매입을 할 수 있나",
+    qEn: "Can a loss-making company buy back its shares?",
     a: "법적으로는 가능하지만 현실적으로는 드뭅니다. 미국 델라웨어주 법인법상 자사주매입의 재원은 잉여금(surplus) 또는 이익잉여금에서 충당해야 하므로 순자산이 음수인 상태에서는 불가합니다. 현금이 풍부한 적자 스타트업(예: 초기 Amazon)은 이론적으로 매입이 가능하나, 투자자들은 '왜 성장 투자 대신 바이백을 하느냐'는 의문을 제기합니다. 한국 상법도 배당 가능 이익 범위 내에서만 자사주 취득이 허용됩니다.",
+    aEn: "Legally possible but rare in practice. Under Delaware corporate law, buybacks must be funded from surplus or retained earnings, so it's impossible when net assets are negative. Cash-rich loss-making startups (e.g., early Amazon) could theoretically buy back, but investors would ask, 'Why aren't you reinvesting in growth?' Korean Commercial Code similarly limits treasury stock acquisitions to the distributable-earnings range.",
   },
   {
     q: "자사주매입과 배당을 동시에 하는 기업은 어떤 기업인가",
+    qEn: "Which companies do both buybacks and dividends?",
     a: "성숙한 대형 우량주(Blue-chip)가 대부분입니다. Apple, Microsoft, Johnson & Johnson처럼 수십억 달러의 FCF(잉여현금흐름)를 창출하는 기업들이 배당과 바이백을 병행합니다. S&P500 기준으로 약 60%의 기업이 두 가지를 동시에 시행합니다. 배당은 주주에게 '우리는 안정적인 현금흐름을 가졌다'는 신호를, 바이백은 '우리 주식이 저평가됐다'는 신호를 동시에 보내는 전략입니다. Warren Buffett의 Berkshire Hathaway는 오랫동안 배당 없이 바이백만 활용해왔습니다.",
+    aEn: "Mostly mature blue-chips. Companies generating billions in FCF (Apple, Microsoft, Johnson & Johnson) typically run both. About 60% of S&P 500 companies do both. Dividends signal 'we have stable cash flow' while buybacks signal 'our stock is undervalued' — a dual-message strategy. Berkshire Hathaway, by contrast, long used only buybacks without paying dividends.",
   },
   {
     q: "한국 기업의 자사주 소각률이 낮은 이유는",
+    qEn: "Why is Korea's treasury-stock cancellation rate so low?",
     a: "구조적인 이유가 세 가지입니다. ① 경영권 방어 수단: 한국 기업은 자사주를 직접 의결권 행사는 불가하지만 우호 세력에게 블록딜로 팔거나, 우리사주조합에 출연해 경영권 방어에 활용합니다. 자사주를 소각하면 이 카드를 잃습니다. ② 스톡옵션 재원: 임직원 스톡옵션 행사 시 신주 발행 대신 기존 자사주를 교부하는 경우가 많습니다. ③ 코리아 디스카운트: 주주환원 개념 자체가 선진국 대비 약해 소각보다 '보유'를 선호하는 경영문화가 남아있습니다. 2024년 금융감독원의 기업 밸류업 프로그램이 이 문화 변화를 촉진하고 있습니다.",
+    aEn: "Three structural reasons. ① Control defense: while treasury stock cannot vote directly, Korean companies sell it to friendly parties via block trades or contribute it to employee stock-ownership associations to defend management control. Cancellation removes this card. ② Stock-option funding: instead of issuing new shares, companies often deliver existing treasury stock to employees exercising options. ③ Korea Discount: shareholder-return culture is weaker than in developed markets — many firms prefer to 'hold' rather than cancel. The FSS's 2024 Corporate Value-Up program is pushing this culture to shift.",
   },
   {
     q: "바이백에 반대하는 시각은 어떤 것들이 있나",
+    qEn: "What are the arguments against buybacks?",
     a: "크게 세 진영의 비판이 있습니다. ① 정책 비판(좌파 경제학): 바이백은 주주에게만 이익이 되고 노동자·R&D 투자를 희생시킨다. 2022년 미국 인플레이션감축법(IRA)에서 바이백에 1% 소비세가 부과된 배경입니다. ② 재무 비판: 경영진이 주가 부양을 통해 스톡옵션 이익을 극대화하기 위해 차입금으로 자사주를 사는 '차입 바이백'은 기업 재무를 취약하게 만듭니다. ③ 장기 성장 비판: Warren Buffett 등도 '주가가 내재가치보다 비싼 상태에서의 바이백은 자본 파괴'라고 지적합니다. Apple의 공격적 바이백 vs Alphabet의 R&D 투자 전략이 이 논쟁의 대표 사례입니다.",
+    aEn: "Three main camps of criticism. ① Policy critique (progressive economics): buybacks benefit only shareholders at the expense of workers and R&D investment. This is the rationale behind the 1% buyback excise tax in the 2022 US Inflation Reduction Act (IRA). ② Financial critique: 'debt-funded buybacks' — where management borrows to repurchase shares and inflate stock-option values — weaken corporate balance sheets. ③ Long-term growth critique: Warren Buffett warns that 'buybacks above intrinsic value destroy capital.' Apple's aggressive buybacks vs. Alphabet's R&D-heavy strategy embodies this debate.",
   },
 ];
 
@@ -394,14 +404,14 @@ function EpsExampleBox({ ko }: { ko: boolean }) {
           <p className="text-[10px] font-bold text-gray-400 uppercase mb-2">
             {ko ? "Before 자사주매입" : "Before Buyback"}
           </p>
-          <p>EPS = $10B ÷ 10억주 = <strong className="text-blue-600 dark:text-blue-400">$10.00</strong></p>
+          <p>EPS = $10B ÷ {ko ? "10억주" : "1B shares"} = <strong className="text-blue-600 dark:text-blue-400">$10.00</strong></p>
           <p className="text-gray-400 text-[11px]">{ko ? "P/E 20× → 주가 $200" : "P/E 20× → Share price $200"}</p>
         </div>
         <div className="border-t border-dashed border-gray-200 dark:border-gray-700 pt-4 font-mono text-[13px] text-gray-700 dark:text-gray-300 space-y-1.5">
           <p className="text-[10px] font-bold text-green-500 uppercase mb-2">
             {ko ? "After 10% 자사주매입" : "After 10% Buyback"}
           </p>
-          <p>EPS = $10B ÷ 9억주 = <strong className="text-green-600 dark:text-green-400">$11.11</strong> (+11%)</p>
+          <p>EPS = $10B ÷ {ko ? "9억주" : "900M shares"} = <strong className="text-green-600 dark:text-green-400">$11.11</strong> (+11%)</p>
           <p className="text-gray-400 text-[11px]">{ko ? "P/E 20× 유지 → 주가 $222 (+11%)" : "P/E 20× maintained → Share price $222 (+11%)"}</p>
         </div>
         <div className="border-t border-gray-100 dark:border-gray-800 pt-4">
@@ -528,8 +538,8 @@ export default function EcmBuybackClient({ concept, lang }: { concept: MarketCon
               "@type": "FAQPage",
               mainEntity: FAQS.map((f) => ({
                 "@type": "Question",
-                name: f.q,
-                acceptedAnswer: { "@type": "Answer", text: f.a },
+                name: ko ? f.q : f.qEn,
+                acceptedAnswer: { "@type": "Answer", text: ko ? f.a : f.aEn },
               })),
             }),
           }}
@@ -649,7 +659,7 @@ export default function EcmBuybackClient({ concept, lang }: { concept: MarketCon
             <motion.div variants={fadeUp(0.05)} className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {[
                 {
-                  value: "$1.26조",
+                  value: ko ? "$1.26조" : "$1.26T",
                   label: ko ? "2022년 S&P500 자사주매입" : "S&P 500 Buybacks 2022",
                   sub: ko ? "역대 최대 기록" : "All-time record",
                 },
@@ -1077,7 +1087,7 @@ export default function EcmBuybackClient({ concept, lang }: { concept: MarketCon
             </motion.div>
             <motion.div variants={fadeUp(0.05)}>
               <FaqAccordion
-                items={FAQS.map((f) => ({ q: f.q, a: f.a }))}
+                items={FAQS.map((f) => ({ q: ko ? f.q : f.qEn, a: ko ? f.a : f.aEn }))}
                 accent={ACCENT}
               />
             </motion.div>
