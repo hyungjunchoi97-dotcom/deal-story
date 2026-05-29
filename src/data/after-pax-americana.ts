@@ -103,14 +103,14 @@ const ch01_shale: NoteData = {
       ],
     },
 
-    // ── §2 17년의 산수 ────────────────────────────────────────────────────────
+    // ── §2 17년의 셈 ──────────────────────────────────────────────────────────
     {
-      heading: "17년의 산수 — 5.0에서 13.6까지",
+      heading: "17년의 셈 — 5.0에서 13.6까지",
       headingEn: "Seventeen Years of Arithmetic — From 5.0 to 13.6",
       blocks: [
         {
           type: "text",
-          body: "셰일의 기술적 잠금 해제가 어떤 양적 결과를 만들었는지부터 보자. 미국 원유 생산 그래프 한 장이면 충분하다.\n\n1970년 미국은 일 9.64MM 배럴을 뽑았다 — 텍사스·캘리포니아·알래스카 같은 **재래식 유전**의 정점. 그 뒤 35년간 미국은 내리막이었다. 2005년에는 5.18MM bpd까지 떨어졌고, \"미국은 에너지 자급이 끝났다\"가 모든 정치 담론의 출발점이었다. 부시 행정부의 이라크 침공도, 오바마 행정부의 셰일 가스 보조금도, 그 가정 위에 세워졌다.\n\n그 가정이 깨진 게 2008–2025년이다. 일 5.0MM에서 13.6MM까지. 17년 만에 **재래식 정점(1970)을 41% 초과한** 새로운 최고점에 도달했다. 사우디(2024년 9MM bpd 대)와 러시아(2024년 10MM 대)를 같은 해에 한꺼번에 넘어섰고, 지금은 둘을 합쳐도 미국 한 나라에 못 미친다.",
+          body: "셰일 기술이 풀어 낸 자물쇠가 어떤 결과로 나타났는지부터 보자. 미국 원유 생산 그래프 한 장이면 충분하다.\n\n1970년 미국은 일 9.64MM 배럴을 뽑았다 — 텍사스·캘리포니아·알래스카 같은 **재래식 유전**의 정점이다. 그 뒤 35년간 미국은 내리막을 걸었다. 2005년에는 5.18MM bpd까지 떨어졌고, \"미국의 에너지 자급은 끝났다\"가 모든 정치 담론의 전제였다. 부시 행정부의 이라크 침공도, 오바마 행정부의 셰일가스 보조금도, 그 전제 위에 서 있었다.\n\n그 전제가 깨진 게 2008–2025년이다. 일 5.0MM에서 13.6MM까지. 17년 만에 **재래식 정점(1970)을 41% 넘어선** 새 최고점에 도달했다. 사우디(2024년 9MM bpd 대)와 러시아(2024년 10MM 대)를 같은 해에 한꺼번에 추월했고, 지금은 둘을 합쳐도 미국 한 나라에 못 미친다.",
           bodyEn: "Start with what the technological unlock produced quantitatively. One chart is enough.\n\nIn 1970, US oil production peaked at 9.64 MM bpd — the limit of **conventional reservoirs** in Texas, California, and Alaska. The next 35 years were a downhill slope. By 2005, US output was 5.18 MM bpd, and the working assumption of every political conversation — Bush's Iraq invasion, Obama's shale-gas subsidies — was that *American energy self-sufficiency is over*.\n\nThat assumption broke between 2008 and 2025. From 5.0 to 13.6 MM bpd. In seventeen years, the United States blew through its 1970 conventional peak by 41% and set a new all-time high. It overtook Saudi Arabia (about 9 MM bpd today) and Russia (about 10 MM) in the same window. Combined, those two now produce less than the United States alone.",
         },
         {
@@ -291,7 +291,7 @@ const ch01_shale: NoteData = {
             variant: "insight",
             heading: "이 격차가 OPEC+ 협상의 결과를 결정한다",
             headingEn: "This gap decides every OPEC+ outcome",
-            body: "유가가 \\$60대로 떨어지면 셰일 회사는 신규 시추를 줄인다. 주가가 빠지고 배당이 깎이고, 일부 한계 운영자가 정리된다 — 그래도 회사로서는 계속 굴러간다.\n\n같은 \\$60대에서 사우디는 **사회 안정 보조금**, **왕가 정통성 유지 비용**, **Vision 2030 추진 자금**의 재원이 동시에 끊긴다. 셰일의 다운사이드는 주주 손실이지만 사우디의 다운사이드는 정권 사활이다. 그래서 OPEC+ 협상 테이블에서 가장 깊이 양보하는 쪽은 항상 사우디다 — 산수가 그렇게 강요한다.",
+            body: "유가가 \\$60대로 떨어지면 셰일 회사는 신규 시추를 줄인다. 주가가 빠지고 배당이 깎이고, 일부 한계 운영자가 정리된다 — 그래도 회사로서는 계속 굴러간다.\n\n같은 \\$60대에서 사우디는 **사회 안정 보조금**, **왕가 정통성 유지 비용**, **Vision 2030 추진 자금**의 재원이 동시에 끊긴다. 셰일이 가격 하락에서 잃는 건 주주 수익률이지만, 사우디가 잃는 건 정권 자체다. 그래서 OPEC+ 협상 테이블에서 가장 깊이 양보하는 쪽은 늘 사우디다 — 셈이 그렇게 만든다.",
             bodyEn: "If oil falls into the \\$60s, a shale company trims new drilling. The stock drops, the dividend gets cut, some marginal operators consolidate — but the firm keeps running.\n\nAt the same \\$60s, Saudi Arabia loses the funding for **social-stability subsidies**, **royal-family legitimacy spending**, and **Vision 2030** all at once. A shale firm's downside is shareholder losses; Saudi Arabia's downside is regime survival. That is why Saudi Arabia is always the one making the deepest cuts at every OPEC+ table — the math forces it.",
           },
         },
@@ -399,7 +399,7 @@ const ch01_shale: NoteData = {
             variant: "warning",
             heading: "비대칭 노출의 본질",
             headingEn: "The Real Shape of the Asymmetry",
-            body: "미국이 페르시아만 자유 통항을 \"보장하지 않기로 선택\"하는 결정은 **세계 1위 산유국이 세계 1위 소비국에게 행사하는 압박**이다. 1973년 OPEC이 미국에 행사했던 카드의 정확한 거울상이다. 차이는 둘 — 미국은 군사적 비용이 거의 안 들고, 중국은 이 카드의 가격을 아직 모른다는 것.",
+            body: "미국이 페르시아만 자유 통항을 \"보장하지 않기로 선택\"하는 결정은 **세계 1위 산유국이 세계 1위 소비국에게 휘두르는 압박**이다. 1973년 OPEC이 미국에 휘둘렀던 카드를 정확히 거꾸로 뒤집은 그림이다. 차이는 두 가지 — 이번엔 미국이 군사적 비용을 거의 안 들이고, 중국은 이 카드를 맞을 때 얼마를 치러야 하는지 아직 모른다.",
             bodyEn: "If the United States decides *not to guarantee* free passage through the Persian Gulf, that decision is **the world's #1 producer applying pressure on the world's #1 consumer** — the exact mirror image of the 1973 card OPEC played against America. Two differences: the US bears almost no military cost to play it, and China has not yet priced what playing it would cost.",
           },
         },
@@ -450,7 +450,7 @@ const ch01_shale: NoteData = {
         },
         {
           type: "text",
-          body: "다음 편(Ch.2 Demographics)에서는 같은 산수를 \"누가 늙고 누가 젊은가\"의 차원에서 다시 본다. 미국 합계출산율 1.66 vs 한국 0.72 vs 중국 1.0. 자원에서 풀린 자유도 위에, 인구가 만들 새 비대칭이 한 겹 더 쌓이는 게 다음 30년의 이야기다.",
+          body: "다음 편(Ch.2 Demographics)에서는 같은 셈을 \"누가 늙고 누가 젊은가\"라는 차원에서 다시 본다. 미국 합계출산율 1.66 vs 한국 0.72 vs 중국 1.0. 자원에서 풀려난 미국의 여유 위에, 인구가 만들어 낼 새로운 비대칭이 한 겹 더 얹히는 — 그게 향후 30년의 이야기다.",
           bodyEn: "The next chapter (Ch.2 Demographics) runs the same arithmetic across *who ages, who stays young*. US fertility 1.66 vs Korea 0.72 vs China 1.0. On top of the degree of freedom shale already created, a second asymmetry — built by population — defines the next thirty years.",
         },
       ],
@@ -503,16 +503,16 @@ const ch02_demographics: NoteData = {
   status: "published",
   series: SERIES_ID,
   seriesOrder: 2,
-  title: "인구학의 잠금 — 30년 뒤 당신이 65세가 될 때",
+  title: "인구라는 덫 — 30년 뒤 당신이 65세가 될 때",
   titleEn: "The Demographic Lock-In — When You Turn 65, Thirty Years From Now",
   description:
-    "2025년 한국은 65세 노인 1명을 노동자 3.6명이 부양한다. 2055년엔 1.2명이다. 출생률을 오늘 당장 2.1로 끌어올려도 그 효과는 20–30년 뒤에야 나타난다 — 인구는 정책으로 못 바꾸는 유일한 거시 변수다. 그 잠금은 한국·중국·일본·독일을 묶고, 미국과 인도만 풀려난다. Ch.1 셰일이 미국의 자유도였다면, Ch.2 인구는 한국이 가장 빨리 갇히는 잠금이다.",
+    "2025년 한국은 65세 노인 1명을 노동자 3.6명이 부양한다. 2055년엔 1.2명이다. 출생률을 오늘 당장 2.1로 끌어올려도 그 효과는 20–30년 뒤에야 나타난다 — 인구는 정책으로 못 바꾸는 유일한 거시 변수다. 이 덫은 한국·중국·일본·독일을 묶고, 미국과 인도만 빠져나간다. Ch.1 셰일이 미국에 여유를 줬다면, Ch.2 인구는 한국이 가장 먼저 묶이는 변수다.",
   descriptionEn:
     "In 2025 Korea has 3.6 working-age people supporting each retiree. By 2055 it will be 1.2. Even if fertility jumped to 2.1 tomorrow, the effect would arrive 20–30 years later — demographics are the one macro variable policy cannot reverse. The lock binds Korea, China, Japan, and Germany; only the US and India escape. If Ch.1 shale was America's degree of freedom, Ch.2 demographics is the lock that closes on Korea first.",
   date: "2026-05-30",
   readingMinutes: 24,
   keyPoints: [
-    "한국 합계출산율 0.72 (2023, 세계 최저) — 만 20세 남자 코호트는 2023년 257k → 2045년 약 120k. 50만 정원 현역병 유지가 산수적으로 불가능해진다.",
+    "한국 합계출산율 0.72 (2023, 세계 최저) — 만 20세 남자 코호트는 2023년 25.7만 → 2045년 약 12만 명. 현역병 50만 정원 유지가 계산상 불가능해진다.",
     "노년부양비: 2025년 27% (노동자 3.6명/노인 1명) → 2055년 85% (1.2명/1명) → 2080년 106% (역전). 국민연금은 5차 재정계산 기준 2055년 적립금 소진.",
     "중국 인구 1.4128B 정점(2022)에서 감소 시작. UN 추계 2050년 1.32B, Yi Fuxian 추정 1.09B — 130M 갭이 시진핑이 활용 가능한 군·노동·소비 기반의 실제 크기를 결정한다.",
     "미국 2020–2024 인구 성장의 95%가 이민 (2023년은 109%, 자연증가 -0.14M). 트럼프 2기 이민 차단이 강행되면 CBO 저시나리오 기준 2055년 미국 인구가 -33M (한국 인구의 2/3 소실).",
@@ -533,16 +533,16 @@ const ch02_demographics: NoteData = {
       blocks: [
         {
           type: "text",
-          body: "2025년 한국에서 65세 노인 한 명을 부양하는 노동자(15–64세)는 약 **3.6명**이다. 국민연금, 건강보험, 노인 장기요양보험, 기초연금 — 모든 사회보장 시스템이 이 비율 위에 설계됐다. 보험료를 내는 사람이 받는 사람의 3.6배라는 가정.\n\n그 비율이 30년 뒤엔 **1.2명**이다.\n\n지금 35세인 한국인이 65세가 되는 2055년. 통계청 장래인구추계 중위 시나리오 기준 노년부양비 84.8%. 노동자 1.2명이 노인 1명을 부양한다는 뜻이고, 같은 해 국민연금 적립기금이 소진되는 것으로 5차 재정계산은 이미 못박았다. **그 사이에 정책으로 출생률을 끌어올려도 의미가 없다 — 오늘 태어난 아기가 노동시장에 진입하는 건 2050년대 중반이고, 그때는 이미 잠금이 풀린 다음이기 때문이다.**\n\nCh.1에서 셰일은 미국을 50년 안보 가정에서 풀어 줬다. Ch.2에서 인구는 정확히 같은 30년 시계에서 한국을 잠근다. 같은 시리즈에서 거울상 두 편이다.",
+          body: "2025년 한국에서 65세 노인 한 명을 부양하는 노동자(15–64세)는 약 **3.6명**이다. 국민연금, 건강보험, 노인 장기요양보험, 기초연금 — 모든 사회보장 시스템이 이 비율 위에 설계됐다. 보험료를 내는 사람이 받는 사람의 3.6배라는 전제.\n\n그 비율이 30년 뒤엔 **1.2명**이다.\n\n지금 35세인 한국인이 65세가 되는 2055년. 통계청 장래인구추계 중위 시나리오 기준 노년부양비 84.8%. 노동자 1.2명이 노인 1명을 부양한다는 뜻이고, 같은 해 국민연금 적립기금이 소진된다는 점은 5차 재정계산이 이미 못박았다. **그 사이에 정책으로 출생률을 끌어올려도 의미가 없다 — 오늘 태어난 아기가 노동시장에 들어오는 건 2050년대 중반이고, 그때는 이미 흐름이 끝난 뒤다.**\n\nCh.1에서 셰일은 미국을 50년치 안보 가정에서 풀어 줬다. Ch.2에서 인구는 정확히 같은 30년 시계에서 한국을 묶는다. 한쪽이 풀리는 동안 다른 쪽이 묶이는, 같은 시리즈의 거꾸로 뒤집힌 두 편이다.",
           bodyEn: "In 2025, the number of working-age Koreans (15–64) supporting each retiree (65+) is about **3.6**. The National Pension Fund, national health insurance, long-term elderly care, basic pension — every Korean social-security program was designed on the assumption that contributors outnumber recipients 3.6 to 1.\n\nThirty years from now, that ratio is **1.2**.\n\nIf you are 35 in Korea today, you will turn 65 in 2055. Per Statistics Korea's medium projection, the old-age dependency ratio that year is 84.8%. 1.2 workers supporting 1 retiree — and in the same year, the National Pension Fund runs out of reserves, as the 5th Actuarial Review (2023) already nailed down. **No fertility policy can change this — a baby born today will not enter the labor market until the mid-2050s, by which point the lock has already snapped shut.**\n\nIn Ch.1, shale released the US from fifty years of security assumptions. In Ch.2, demographics close a lock on Korea over precisely the same thirty-year clock. Two mirror-image chapters of the same series.",
         },
         {
           type: "callout",
           callout: {
             variant: "insight",
-            heading: "왜 인구학이 \"잠금\"인가 — 20–30년 lag의 산수",
+            heading: "왜 인구학이 \"덫\"인가 — 20–30년 시차의 셈",
             headingEn: "Why \"lock-in\" — the arithmetic of a 20–30 year lag",
-            body: "인구학을 다른 거시 변수와 구분 짓는 한 가지가 있다. **결과까지의 lag이 다른 어떤 변수보다 길고, 그 lag 동안은 무엇도 못 바꾼다.**\n\n금리는 한 번의 FOMC 결정으로 바뀐다. 환율은 분 단위로 움직인다. 부채는 일생 안에 갚을 수 있다. 그러나 **\"30년 뒤 노동시장에 들어올 사람의 수\"는 이미 지금 태어난 아기들 명단에 적혀 있고, 그 명단은 정의상 더 늘 수가 없다.** 출산 장려금·세금 감면·주거 지원으로 출생률을 1.5로 끌어올려도, 그 효과가 노동·소비·세수에 처음 닿는 건 빨라야 20년 뒤다. 그 20년 동안의 노동력 풀은 이미 \"결정\"돼 있다.\n\n그래서 인구학은 거시 변수 중 가장 정확한 예측 도구다. 정확한데 못 피한다 — 그게 \"잠금\"의 의미다.",
+            body: "인구학을 다른 거시 변수와 구분 짓는 한 가지가 있다. **결과가 나타나기까지의 시차가 다른 어떤 변수보다 길고, 그 시차 동안은 무엇도 못 바꾼다.**\n\n금리는 한 번의 FOMC 결정으로 바뀐다. 환율은 분 단위로 움직인다. 부채는 일생 안에 갚을 수 있다. 그러나 **\"30년 뒤 노동시장에 들어올 사람의 수\"는 이미 지금 태어난 아기들 명단에 적혀 있고, 그 명단은 정의상 더 늘어날 수 없다.** 출산 장려금·세금 감면·주거 지원으로 출생률을 1.5로 끌어올려도, 그 효과가 노동·소비·세수에 처음 닿는 건 빨라야 20년 뒤다. 그 20년 동안의 노동력 풀은 이미 \"확정\"돼 있다.\n\n그래서 인구학은 거시 변수 중 가장 정확한 예측 도구다. 정확한데 피할 수 없다 — 그게 \"덫\"의 의미다.",
             bodyEn: "One thing separates demographics from every other macro variable. **The lag to outcome is longer than for any other variable, and nothing can change anything during that lag.**\n\nInterest rates change with one FOMC vote. Currencies move by the minute. Debts can be paid down within a lifetime. But **the number of people entering the labor market thirty years from now is already written on the list of babies born today — and by definition that list cannot grow.** Even if cash incentives, tax breaks, and housing support push fertility to 1.5, the first dollar of impact on labor, consumption, or tax revenue arrives at least 20 years later. During those 20 years, the labor pool is already \"decided.\"\n\nThat is what makes demographics the most accurate forecasting tool in macro. Accurate, and unavoidable — which is the meaning of *lock-in*.",
           },
         },
@@ -556,7 +556,7 @@ const ch02_demographics: NoteData = {
       blocks: [
         {
           type: "text",
-          body: "잠금의 강도는 합계출산율(TFR — total fertility rate) 한 숫자에 압축된다. 여성 1명이 평생 낳는 자녀 수의 평균. 인구가 자연 유지되는 임계점이 **2.1명**(대체출산율 — 일부 사망률 보정 포함). 이 선 아래로 내려간 모든 사회는 다음 세대 노동력이 줄어드는 게 확정된다.\n\n2023–2024년 확정 수치 기준 6개국의 위치는 이렇다.",
+          body: "이 흐름의 강도는 합계출산율(TFR — total fertility rate) 한 숫자에 압축된다. 여성 1명이 평생 낳는 자녀 수의 평균. 인구가 자연스럽게 유지되는 임계점이 **2.1명**(대체출산율 — 일부 사망률 보정 포함). 이 선 아래로 내려간 모든 사회는 다음 세대 노동력이 줄어든다는 점이 확정된다.\n\n2023–2024년 확정 수치 기준 6개국의 위치는 이렇다.",
           bodyEn: "The strength of the lock compresses to a single number — the total fertility rate (TFR), the average number of children a woman is projected to bear over her lifetime. The natural replacement threshold is **2.1** (which includes some adjustment for mortality). Every society below that line has already locked in a smaller next-generation labor force.\n\nHere is where six countries actually sit at the confirmed 2023–2024 reading.",
         },
         {
@@ -571,7 +571,7 @@ const ch02_demographics: NoteData = {
               { country: "인도",     countryEn: "India",         tfr: 1.98, year: 2022, color: "#f59e0b", note: "대체출산율 근접 — 마지막 보너스 국가", noteEn: "Near replacement — the last bonus country" },
               { country: "미국",     countryEn: "United States", tfr: 1.62, year: 2023, color: "#3b82f6", note: "이민 1세대 출산력 가중", noteEn: "Lifted by first-generation immigrants" },
               { country: "독일",     countryEn: "Germany",       tfr: 1.35, year: 2023, color: "#64748b", note: "이민으로 보전하는 모델", noteEn: "Backfilled through immigration" },
-              { country: "일본",     countryEn: "Japan",         tfr: 1.20, year: 2023, color: "#8b5cf6", note: "30년 먼저 늙은 나라", noteEn: "Aged 30 years ahead of Korea" },
+              { country: "일본",     countryEn: "Japan",         tfr: 1.20, year: 2023, color: "#8b5cf6", note: "한국보다 30년 앞서 늙은 나라", noteEn: "Aged 30 years ahead of Korea" },
               { country: "중국",     countryEn: "China",         tfr: 1.00, year: 2023, color: "#dc2626", note: "공식 1.00 / Yi Fuxian 0.8~1.0", noteEn: "Official 1.00 / Yi Fuxian 0.8–1.0" },
               { country: "대한민국", countryEn: "South Korea",   tfr: 0.72, year: 2023, color: "#16a34a", note: "통계청 확정 — 세계 최저", noteEn: "Statistics Korea — global low" },
             ],
@@ -588,12 +588,12 @@ const ch02_demographics: NoteData = {
 
     // ── §3 한국 — 0.72의 산수 ────────────────────────────────────────────────
     {
-      heading: "한국 — 0.72라는 숫자의 산수",
+      heading: "한국 — 0.72라는 숫자의 무게",
       headingEn: "Korea — The Arithmetic of 0.72",
       blocks: [
         {
           type: "text",
-          body: "Ch.1에서 한국·일본을 §3에 일찍 박았던 이유와 똑같이, Ch.2에서도 한국을 §3에 박는다. 인구학적 잠금이 가장 빨리 실현되는 나라가 한국이기 때문이다.\n\n한국 출생아 수는 2000년 64만 명에서 2023년 23만 명까지 떨어졌다 — 23년 만에 **64% 감소**. 같은 23년 동안 한국 GDP는 4배 커졌으니, 통상적인 거시 변수와는 완전히 다른 방향으로 움직였다. 2024년에는 +3.6% YoY 반등(혼인 증가 효과)이 있었지만, 이는 \"24만 명 대에서 25만 명 대로 올라온 것\"이지 추세 반전이 아니다.",
+          body: "Ch.1에서 한국·일본 이야기를 §3에 일찍 놓았던 것과 같은 이유로, Ch.2에서도 한국을 §3에 둔다. 인구라는 변수가 가장 먼저 실제로 작동하는 나라가 한국이기 때문이다.\n\n한국 출생아 수는 2000년 64만 명에서 2023년 23만 명까지 떨어졌다 — 23년 만에 **64% 감소**. 같은 23년 동안 한국 GDP는 4배 커졌으니, 거시 변수가 보통 움직이는 방향과 완전히 정반대로 갔다는 뜻이다. 2024년에는 +3.6% YoY 반등(혼인 증가 효과)이 있었지만, 이는 \"24만 명대에서 25만 명대로 올라온 것\"일 뿐 추세가 꺾인 건 아니다.",
           bodyEn: "For the same reason Ch.1 put Korea / Japan early in §3, Ch.2 does the same. The country where the demographic lock snaps fastest is Korea.\n\nKorean annual births fell from 640k in 2000 to 230k in 2023 — a **64% drop in 23 years**. Over those same 23 years, Korean GDP roughly quadrupled, so the population variable moved in completely the opposite direction from typical macro. 2024 brought a +3.6% YoY rebound (lifted by rising marriages), but moving from the 240k zone to the 250k zone is not a trend reversal — it is noise on top of a structural collapse.",
         },
         {
@@ -602,7 +602,7 @@ const ch02_demographics: NoteData = {
             id: "korea-births",
             title: "한국 출생아 수 (2000–2024, 천 명)",
             titleEn: "Korea Annual Births (2000–2024, thousands)",
-            caption: "출처: 통계청 KOSIS 인구동향조사. 2024년 +3.6% YoY는 혼인 증가 1년 lag 효과.",
+            caption: "출처: 통계청 KOSIS 인구동향조사. 2024년 +3.6% YoY는 혼인 증가가 1년 시차로 반영된 효과.",
             captionEn: "Source: Statistics Korea KOSIS Vital Statistics. The 2024 +3.6% YoY reflects a one-year lag from rising marriages.",
             data: [
               { year: 2000, births: 640, event: "밀레니엄 베이비" },
@@ -632,7 +632,7 @@ const ch02_demographics: NoteData = {
             variant: "warning",
             heading: "가장 차가운 한 줄 — 만 20세 남자 코호트",
             headingEn: "The coldest number — the 20-year-old male cohort",
-            body: "한국 현역병 정원은 약 50만 명. 18개월 복무 기준 매년 약 25만 명이 입대해야 정원이 유지된다. **만 20세 남자 코호트는 2023년 257k → 2045년 약 120k.** 2045년에 만 20세 남자를 *전원* 입대시켜도 36만에 못 미친다 — 현역 50만 정원은 *수학적으로* 불가능해진다. 국방부가 비공식으로 \"2040년대 36만 명 감축안\"을 검토 중이라는 사실은, **셰일이 미국 외교를 자유롭게 한 것의 정확한 거울상에서 한국 안보가 수학적으로 잠겨가는** 가장 차가운 증거다.",
+            body: "한국 현역병 정원은 약 50만 명. 18개월 복무 기준 매년 약 25만 명이 입대해야 정원이 유지된다. **만 20세 남자 코호트는 2023년 25.7만 → 2045년 약 12만 명.** 2045년에 만 20세 남자를 *전원* 입대시켜도 36만에 못 미친다 — 50만 정원은 셈을 어떻게 해도 불가능해진다. 국방부가 비공식으로 \"2040년대 36만 명 감축안\"을 검토 중이라는 사실은, **셰일이 미국 외교에 여유를 줬다면 같은 30년 시계 반대편에서 한국 안보가 산술적으로 줄어든다는** 가장 차가운 증거다.",
             bodyEn: "Korea's active-duty target is roughly 500,000. With 18-month service, ~250k men must enlist each year to hold that number. **The 20-year-old male cohort: 257k in 2023 → ~120k by 2045.** In 2045, even drafting *every single* 20-year-old man falls short of 360k — a 500k active-duty force becomes *mathematically* impossible. The Ministry of National Defense is already unofficially reviewing a downsize to ~360k for the 2040s. That is the coldest piece of evidence I can produce for the mirror image of Ch.1 — **the exact inverse of America's shale-given freedom is Korea's mathematically locked-in security shrinkage.**",
           },
         },
@@ -675,8 +675,8 @@ const ch02_demographics: NoteData = {
 
     // ── §4 중국 — -130M의 시간표 ─────────────────────────────────────────────
     {
-      heading: "중국 — 시진핑 시간표는 인구 곡선의 1차 미분이다",
-      headingEn: "China — Xi's Timeline Is the First Derivative of the Population Curve",
+      heading: "중국 — 시진핑이 서두르는 이유는 인구 곡선에 있다",
+      headingEn: "China — Why Xi Hurries Is Written in the Population Curve",
       blocks: [
         {
           type: "text",
@@ -716,9 +716,9 @@ const ch02_demographics: NoteData = {
           type: "callout",
           callout: {
             variant: "insight",
-            heading: "시진핑 시간표는 인구 곡선의 1차 미분이다",
+            heading: "시진핑이 빨리 결정해야 하는 이유는 인구 곡선 안에 있다",
             headingEn: "Xi's timeline is the first derivative of the population curve",
-            body: "시진핑이 \"중국 인민해방군 군 현대화 완성\"의 목표 시점으로 설정한 해는 **2027년** (인민해방군 창설 100주년 + 시진핑 임기 중 마지막 군 개혁 윈도). 그해 만 18세 남자 코호트(2009년생)는 약 800만 명이다. **2035년이면 약 860만 명**(소폭 회복 후 감소), **2049년 건국 100주년 시점엔 580만 명**으로 추락한다.\n\n이 곡선의 1차 미분이 시진핑의 의사결정 함수다. 코호트 크기가 매년 줄어들수록 \"군사력으로 무엇이든 시도한다면 지금이 정점\"이라는 산수가 강해진다. 대만·남중국해 결정의 *시간 압박*은 \"누가 더 빨리 결정해야 하나\"라는 정치 의지가 아니라, **이 인구 곡선이 매년 더 좁아진다는 산수에서 나온다.** 셰일이 미국 외교를 자유롭게 했듯, 인구 곡선이 중국 외교를 *서두르게* 한다.",
+            body: "시진핑이 \"중국 인민해방군 현대화 완성\"의 목표 시점으로 잡은 해는 **2027년** (인민해방군 창설 100주년 + 시진핑 임기 중 마지막 군 개혁 창문). 그해 만 18세 남자 코호트(2009년생)는 약 800만 명이다. **2035년이면 약 860만 명**(잠깐 반등했다가 다시 감소), **2049년 건국 100주년 시점엔 580만 명**까지 떨어진다.\n\n이 곡선이 매년 더 가파르게 내려간다는 사실 자체가 시진핑의 판단을 재촉한다. 코호트가 줄어들수록 \"군사력으로 무언가를 시도하려면 지금이 마지막 정점\"이라는 셈이 강해진다. 대만·남중국해 결정의 *시간 압박*은 \"누가 더 빨리 결정하느냐\"라는 정치 의지가 아니라, **이 인구 곡선이 해마다 좁아진다는 단순한 셈에서 나온다.** 셰일이 미국 외교에 여유를 줬다면, 인구 곡선은 중국 외교를 *재촉한다*.",
             bodyEn: "Xi Jinping has set **2027** as the target year for *complete modernization of the People's Liberation Army* (the 100th anniversary of the PLA, and the last window of his current term to execute it). That year's cohort of 18-year-old males — those born in 2009 — is roughly 8.0M. **By 2035 it is 8.6M** (after a small bounce), and **by the 2049 PRC centennial it has fallen to 5.8M**.\n\nThe first derivative of this curve is Xi's decision function. The smaller each year's cohort, the stronger the math behind *if we are going to do anything militarily, now is the peak*. The *time pressure* on Taiwan and South China Sea decisions does not come from political will alone — it comes from the **population curve narrowing every year.** As shale freed US foreign policy, the demographic curve *hurries* Chinese foreign policy.",
           },
         },
@@ -756,7 +756,7 @@ const ch02_demographics: NoteData = {
           type: "callout",
           callout: {
             variant: "warning",
-            heading: "트럼프 2기 이민 차단의 산수",
+            heading: "트럼프 2기 이민 차단이 만들어 내는 결과",
             headingEn: "The arithmetic of a Trump-2 immigration freeze",
             body: "CBO Demographic Outlook 2025는 미국 인구의 2055년 시점을 두 시나리오로 추계한다.\n\n- **베이스라인 (이민 정상화):** 2055년 3.84억 명.\n- **저이민 시나리오 (트럼프 2기 강행):** 2055년 3.51억 명.\n\n**차이가 3,300만 명이다 — 한국 인구의 2/3이 통째로 사라지는 규모.** 트럼프 2기 이민 정책이 셰일과 정확히 같은 무게의 거시 변수가 되는 이유다. 노동시장, 사회보장 흑자, 잠재성장률 — 모두 이 3,300만 명이 들어오느냐 마느냐로 갈린다.\n\n그리고 이 시나리오는 미국 *내부*의 결정이지만, 그 결과의 청구서는 글로벌이다. 미국 노동력이 33M 줄면 글로벌 자본은 갈 곳을 잃고, 글로벌 자본이 갈 곳을 잃으면 한국·일본 자산 가격이 흔들린다.",
             bodyEn: "CBO Demographic Outlook 2025 projects the US 2055 population under two scenarios:\n\n- **Baseline (immigration normalizes):** 384M by 2055.\n- **Low-immigration (Trump-2 enforcement):** 351M.\n\n**The gap is 33M — equal to two-thirds of South Korea's entire population, gone.** That is why Trump-2 immigration policy is a macro variable of exactly the same weight as shale. Labor markets, social-security surpluses, potential growth — all of it pivots on whether those 33M people enter the country.\n\nAnd while the decision is *internal* to America, the bill is global. If the US labor force is 33M smaller, global capital loses a destination — and when global capital loses a destination, Korean and Japanese asset prices feel it first.",
@@ -765,14 +765,14 @@ const ch02_demographics: NoteData = {
       ],
     },
 
-    // ── §6 일본 — 30년 먼저 늙은 선례 ────────────────────────────────────────
+    // ── §6 일본 — 한국보다 30년 앞서 같은 길을 간 나라 ───────────────────────
     {
-      heading: "일본 — 30년 먼저 늙은 나라가 보여 준 것",
+      heading: "일본 — 한국보다 30년 앞서 같은 길을 간 나라",
       headingEn: "Japan — What 30 Years of Aging Has Already Shown",
       blocks: [
         {
           type: "text",
-          body: "한국이 2025년에 서 있는 자리에 일본은 1995년에 서 있었다. 정확히 30년 lead time. **그래서 일본은 한국에 가장 정직한 거울이다.** 일본이 1990년대 이후 거시 변수에서 어떤 경로를 그렸는지가, 한국이 2025–2055년에 그릴 경로의 베이스라인이다.\n\n그 중 가장 단순하면서 가장 강력한 한 가지가 **잠재성장률**이다. 한 경제가 인플레 없이 낼 수 있는 최대 성장률. 노동·자본·생산성으로 분해되는데, 인구학적 노동 축소가 시작되면 잠재성장률이 1차로 떨어진다.",
+          body: "한국이 2025년에 서 있는 자리에 일본은 1995년에 서 있었다. 정확히 30년 시차. **그래서 일본은 한국에 가장 정직한 거울이다.** 일본이 1990년대 이후 거시 변수에서 그린 경로가, 한국이 2025–2055년에 그릴 경로의 기준선이 된다.\n\n그중 가장 단순하면서 가장 강력한 한 가지가 **잠재성장률**이다. 한 경제가 인플레 없이 낼 수 있는 최대 성장률. 노동·자본·생산성으로 쪼개지는데, 인구가 줄어들기 시작하면 잠재성장률이 가장 먼저 떨어진다.",
           bodyEn: "Where Korea stands in 2025, Japan stood in 1995. A clean 30-year lead. **That makes Japan the most honest mirror Korea has.** The path Japan's macro variables traced after 1990 is the baseline for what Korea's macro will trace 2025–2055.\n\nThe simplest and most powerful one of those variables is **potential growth** — the maximum non-inflationary growth rate of an economy. It decomposes into labor, capital, and productivity, and when demographic labor shrinkage starts, potential growth falls first.",
         },
         {
@@ -805,7 +805,7 @@ const ch02_demographics: NoteData = {
             variant: "insight",
             heading: "Goodhart-Pradhan 명제 — Ch.3 부채로 이어지는 다리",
             headingEn: "The Goodhart-Pradhan thesis — bridge to Ch.3 (Debt)",
-            body: "Charles Goodhart(전 영란은행 통화정책위원)과 Manoj Pradhan은 2020년 *The Great Demographic Reversal*에서 한 가지 강력한 명제를 내세웠다 — **\"지난 40년 글로벌 디스인플레이션은 중국·동구권 노동력이 글로벌 시장에 편입되면서 만든 일회성 사건이고, 그 효과는 이제 끝났다. 인구학적 노동 축소가 시작된 이상 향후 30년은 임금·금리가 구조적으로 2–3%p 위로 간다.\"**\n\n이 명제가 맞다면 일본이 35년간 누린 \"부채 251% + 제로금리\" 조합은 **다른 어디에서도 작동하지 않는다.** 한국이 일본 경로를 따라간다는 가정은 이 부분에서 무너진다. 한국은 일본처럼 늙되, *금리가 일본처럼 안 떨어진다*. 같은 인구학적 잠금에 부채 비용은 일본보다 훨씬 가파르게 누적된다.\n\n그래서 Ch.3는 부채다. 인구학이 미국·중국·한국의 비용 함수를 바꾼 다음, 그 비용을 누가 빌려서 메우는지가 다음 다리다.",
+            body: "Charles Goodhart(전 영란은행 통화정책위원)과 Manoj Pradhan은 2020년 *The Great Demographic Reversal*에서 강력한 명제를 하나 내세웠다 — **\"지난 40년 동안의 글로벌 디스인플레이션은 중국·동구권 노동력이 글로벌 시장에 합류하면서 만든 일회성 사건이었고, 그 효과는 이제 끝났다. 인구가 줄어들기 시작한 이상 향후 30년은 임금·금리가 구조적으로 2–3%p 더 높게 형성된다.\"**\n\n이 명제가 맞다면 일본이 35년간 누린 \"부채 251% + 제로금리\" 조합은 **다른 어디에서도 다시 만들어지지 않는다.** 한국이 일본 경로를 따라간다는 통념은 바로 이 지점에서 깨진다. 한국은 일본처럼 늙되, *금리는 일본처럼 떨어지지 않는다*. 같은 인구 충격에 부채 부담은 일본보다 훨씬 가파르게 쌓인다.\n\n그래서 Ch.3는 부채다. 인구가 미국·중국·한국의 비용 구조를 다시 짜고 난 다음, 그 비용을 누가 빌려서 누구한테 갚는지가 다음 챕터의 변수다.",
             bodyEn: "Charles Goodhart (former BoE MPC member) and Manoj Pradhan, in *The Great Demographic Reversal* (2020), put forward a powerful thesis — **\"the last 40 years of global disinflation was a one-off event driven by the integration of Chinese and Eastern European labor into the global market; that effect is now exhausted. With demographic labor shrinkage beginning, wages and rates structurally move up by 2–3 percentage points over the next 30 years.\"**\n\nIf that thesis is correct, the *Japan combo* of 251%-of-GDP debt at zero rates **does not replicate anywhere else.** The assumption that Korea simply follows Japan's path breaks at exactly that point. Korea ages like Japan — but *Korean rates do not fall like Japan's*. The same demographic lock arrives with a debt-service curve far steeper than Japan ever faced.\n\nThat is why Ch.3 is *Debt*. After demographics rewrites the cost function for America, China, and Korea, the next bridge is *who borrows to cover the gap, and at what price*.",
           },
         },
@@ -814,12 +814,12 @@ const ch02_demographics: NoteData = {
 
     // ── §7 인도 — 마지막 보너스 국가 ─────────────────────────────────────────
     {
-      heading: "인도 — 마지막 인구 보너스 국가",
+      heading: "인도 — 인구 보너스를 받는 마지막 큰 나라",
       headingEn: "India — The Last Demographic-Dividend Country",
       blocks: [
         {
           type: "text",
-          body: "잠금에서 *덜* 영향받는 두 번째 큰 나라는 인도다. 미국이 이민으로 보전한다면, 인도는 *아직* 보전이 필요 없다. TFR 1.98로 대체출산율 바로 아래까지 왔지만, 누적 인구는 2061년까지 늘어난다(UN WPP 2024 추계 정점 17억). 가장 중요한 변수는 **생산가능인구 비율** — 15–64세가 전체 인구에서 차지하는 비중. 인도의 그 비율은 2050년대 초중반 정점(약 68%)에 도달한 뒤에야 내려가기 시작한다.\n\n경제학에서 \"인구 보너스\"란 이 비율이 올라가는 동안 자연스럽게 발생하는 성장 가속을 말한다. **2025–2055년 인도는 글로벌에서 인구 보너스를 받는 유일한 큰 나라가 된다.** 그 30년 동안 글로벌 자본이 인도로 흐를 구조적 이유가 적어도 한 줄 더 늘어난다는 뜻이다.",
+          body: "이 흐름에서 *덜* 묶이는 두 번째 큰 나라가 인도다. 미국이 이민으로 메운다면, 인도는 *아직* 메울 필요가 없다. TFR 1.98로 대체출산율 바로 아래까지 왔지만, 총인구는 2061년까지 늘어난다(UN WPP 2024 추계 정점 17억 명). 더 중요한 변수는 **생산가능인구 비율** — 15–64세가 전체 인구에서 차지하는 비중. 인도의 이 비율은 2050년대 초중반 정점(약 68%)에 도달한 뒤에야 내려가기 시작한다.\n\n경제학에서 \"인구 보너스\"란 이 비율이 올라가는 동안 자연스럽게 따라오는 성장 가속을 말한다. **2025–2055년의 인도는 인구 보너스를 받는 유일한 큰 나라다.** 그 30년 동안 글로벌 자본이 인도로 흐를 구조적 이유가 한 줄 더 늘어난다는 뜻이다.",
           bodyEn: "The second large country *less* affected by the lock is India. America offsets through immigration; India *does not yet need to offset*. TFR is 1.98 — already just below replacement — but the cumulative population keeps growing until 2061, peaking around 1.7B (UN WPP 2024). The variable that matters most is **the working-age share** of the population (15–64). India's working-age share keeps rising until the mid-2050s, where it tops out around 68%, before turning down.\n\nEconomists call the growth tailwind during a rising working-age share the *demographic dividend*. **For 2025–2055, India will be the only large country in the world receiving that dividend.** Over that 30-year window, the structural reasons for global capital to flow to India grow by at least one more line.",
         },
         {
@@ -842,7 +842,7 @@ const ch02_demographics: NoteData = {
       blocks: [
         {
           type: "text",
-          body: "글의 처음으로 돌아온다. 30년 뒤 65세가 되는 한국 독자 — 그 시점에 *구체적으로* 무엇이 다른가.\n\n**2025년 당신이 봤던 것:** 국민연금이 매월 들어오고, 노동자 3.6명이 당신 한 명을 떠받친다. 의료비는 국민건강보험이 80%를 부담한다. 군은 50만 명의 현역병으로 작동한다. 잠재성장률은 2%대다. 모든 사회·재정·안보 시스템이 \"인구가 천천히 증가하는 나라\"라는 가정 위에 서 있다.\n\n**2055년 당신이 보게 될 것:** 국민연금 적립금은 2055년에 소진되고, 그 이후엔 *동시대 노동자가 내는 보험료*만으로 같은 시점 노인 연금을 지급한다 — 그런데 노동자 1.2명이 노인 1명을 부양해야 한다. 산수가 안 맞는 부분은 *세금 인상 + 연금 삭감 + 수급 연령 상향* 세 카드로 메운다. 의료비는 국민건강보험 보장률이 60% 아래로 떨어지고, 사적 의료보험 비중이 일본 수준(20%)으로 커진다. 군은 36만 명 — 그것도 *전 코호트 입대* 가정 위에서. 잠재성장률은 일본 1990–2024년 경로를 따라가면 0.5–1.0% 사이에 안착한다.\n\n**그래서 셰일(Ch.1)이 \"미국 안보 비용의 청구서가 한국으로 옮겨오는 이야기\"였다면, 인구(Ch.2)는 \"그 청구서를 받을 한국의 지불 능력 자체가 줄어드는 이야기\"다.** 두 변수가 정확히 같은 30년에 같은 방향으로 한국을 압박한다. 그것이 \"잠금\"이라는 단어를 쓴 이유다.",
+          body: "글의 처음으로 돌아온다. 30년 뒤 65세가 되는 한국 독자 — 그 시점에 *구체적으로* 무엇이 다른가.\n\n**2025년 당신이 보고 있는 것:** 국민연금이 매월 들어오고, 노동자 3.6명이 당신 한 명을 떠받친다. 의료비는 국민건강보험이 80%를 부담한다. 군은 50만 명의 현역병으로 운영된다. 잠재성장률은 2%대다. 모든 사회·재정·안보 시스템이 \"인구가 천천히 늘어나는 나라\"라는 전제 위에 서 있다.\n\n**2055년 당신이 보게 될 것:** 국민연금 적립금은 2055년에 소진되고, 그 이후엔 *동시대 노동자가 내는 보험료*만으로 같은 시점 노인 연금을 지급한다 — 그런데 노동자 1.2명이 노인 1명을 부양해야 한다. 모자라는 부분은 *세금 인상·연금 삭감·수급 연령 상향* 세 카드로 메운다. 국민건강보험 보장률은 60% 아래로 떨어지고, 사적 의료보험 비중이 일본 수준(20%)까지 커진다. 군은 36만 명 — 그것도 *모든 코호트가 입대한다*는 전제 위에서. 잠재성장률은 일본의 1990–2024년 경로를 따라간다면 0.5–1.0% 사이에 자리 잡는다.\n\n**그래서 셰일(Ch.1)이 \"미국 안보 비용의 청구서가 한국 쪽으로 옮겨 오는 이야기\"였다면, 인구(Ch.2)는 \"그 청구서를 받을 한국의 지불 능력 자체가 줄어드는 이야기\"다.** 두 변수가 정확히 같은 30년 동안 같은 방향으로 한국을 압박한다. 한쪽이 풀리는 동안 다른 쪽이 묶인다 — 그게 이번 챕터를 \"덫\"이라고 부른 이유다.",
           bodyEn: "Back to the opening. The Korean reader who will be 65 thirty years from now — what is *concretely* different at that point?\n\n**What you see in 2025:** Pension checks arrive monthly. 3.6 working-age people support each retiree. National health insurance covers 80% of medical cost. The military runs on 500,000 active-duty soldiers. Potential growth runs in the 2% range. Every social, fiscal, and security system stands on the assumption *the population grows slowly*.\n\n**What you will see in 2055:** The National Pension Fund is exhausted that very year; from that point on, retirees are paid only from *current-year worker contributions* — but only 1.2 workers exist per retiree. The arithmetic gap is filled by three cards: *higher taxes, smaller pension checks, later eligibility*. National health insurance coverage falls below 60%, and private health insurance grows toward Japan's 20% share. The army shrinks to 360,000 — *and only if every cohort enlists*. Potential growth, on Japan's 1990–2024 path, settles at 0.5–1.0%.\n\n**If Ch.1 (shale) was the story of America's security bill being readdressed to Korea, Ch.2 (demographics) is the story of Korea's ability to pay that bill shrinking at the same time.** Both variables push Korea in the same direction over precisely the same thirty-year clock. That is why I called it a *lock-in*.",
         },
         {
@@ -869,7 +869,7 @@ const ch02_demographics: NoteData = {
         },
         {
           type: "text",
-          body: "다음 편(Ch.3 Debt)에서는 같은 산수를 부채 차원에서 본다. 미국 연방 부채 \\$34조, 한국 가계+기업+정부 부채 합산 GDP 252%, 일본 251% — 그러나 셋이 부담하는 무게가 같지 않다. **인구학적 잠금이 만든 잠재성장률 하강 위에 부채가 누적될 때, 그 부채를 누가 빌려서 누가 받아 가는지가 다음 30년의 마지막 변수다.**",
+          body: "다음 편(Ch.3 Debt)에서는 같은 셈을 부채 차원에서 본다. 미국 연방 부채 \\$34조, 한국 가계+기업+정부 부채 합산 GDP 252%, 일본 251% — 그러나 셋이 짊어진 무게는 같지 않다. **인구가 깎아 놓은 잠재성장률 위에 부채가 쌓일 때, 그 부채를 누가 빌려서 누구한테 갚는지가 향후 30년의 마지막 변수다.**",
           bodyEn: "Ch.3 (Debt) runs the same arithmetic across the debt dimension. US federal debt \\$34T, Korea's household + corporate + government debt at 252% of GDP, Japan at 251% — but the three carry different weights. **When debt piles up on top of demographically-locked declining potential growth, the last variable of the next thirty years is who borrows, and to whom the debt is owed.**",
         },
       ],
