@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { headers } from "next/headers";
 import { detectLang } from "@/lib/i18n";
 import { SITE_URL } from "@/lib/site";
+import { AUTHOR } from "@/lib/author";
 import "./globals.css";
 
 const BASE = SITE_URL;
@@ -10,6 +11,9 @@ export const metadata: Metadata = {
   title: { default: "Deal Story - 기업 딜 아카이브", template: "%s | Deal Story" },
   description: "M&A, PE/VC 투자, IPO, 매각·분리까지. 기업의 딜 순간을 스토리로 아카이빙합니다.",
   metadataBase: new URL(BASE),
+  authors: [{ name: AUTHOR.name, url: BASE }],
+  creator: AUTHOR.name,
+  publisher: AUTHOR.name,
   // ── hreflang / canonical ──────────────────────────────────
   // 루트 페이지 KO ↔ EN 관계를 Google에 명시.
   // 개별 페이지는 각 page.tsx의 metadata.alternates 에서 오버라이드.
@@ -79,7 +83,25 @@ const SITE_JSONLD = {
       description:
         "M&A, PE/VC 딜 아카이브 및 금융 교육 플랫폼. 실제 딜 사례로 배우는 금융 개념.",
       inLanguage: ["ko", "en"],
+      founder: { "@id": `${BASE}/#author` },
       sameAs: [],
+    },
+    // ── Author / Person — E-E-A-T identity 신호 ─────────────
+    {
+      "@type": "Person",
+      "@id": `${BASE}/#author`,
+      name: AUTHOR.name,
+      url: BASE,
+      description: AUTHOR.tagline,
+      knowsAbout: [
+        "Mergers and Acquisitions",
+        "Leveraged Buyouts",
+        "Private Equity",
+        "Capital Markets",
+        "Activist Investing",
+        "Corporate Restructuring",
+      ],
+      sameAs: AUTHOR.sameAs,
     },
   ],
 };

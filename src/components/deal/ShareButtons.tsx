@@ -2,14 +2,25 @@
 
 import { useState, useCallback } from "react";
 import { SHARE_LABELS, type Lang } from "@/lib/i18n";
+import AuthorByline from "@/components/AuthorByline";
 
 interface ShareButtonsProps {
   title: string;
   variant?: "top" | "mid" | "bottom";
   lang?: Lang;
+  /** When provided, "bottom" variant prepends an AuthorByline above the share card */
+  updatedAt?: string | Date;
+  /** Reading minutes for the AuthorByline */
+  readingMinutes?: number;
 }
 
-export default function ShareButtons({ title, variant = "mid", lang = "ko" }: ShareButtonsProps) {
+export default function ShareButtons({
+  title,
+  variant = "mid",
+  lang = "ko",
+  updatedAt,
+  readingMinutes,
+}: ShareButtonsProps) {
   const t = SHARE_LABELS[lang];
   const [copied, setCopied] = useState(false);
 
@@ -163,7 +174,12 @@ export default function ShareButtons({ title, variant = "mid", lang = "ko" }: Sh
 
   // ── BOTTOM: 하단 — 카드형, 풀사이즈 ───────────────────────
   return (
-    <div className="mt-10 rounded-2xl bg-gray-50 dark:bg-gray-800/40 border border-gray-200 dark:border-gray-700/60 p-6 text-center">
+    <div className="mt-10">
+      {/* AuthorByline 자동 노출 — E-E-A-T 신호 */}
+      <div className="mb-6 pb-6 border-b border-gray-100 dark:border-gray-800">
+        <AuthorByline lang={lang} updatedAt={updatedAt} readingMinutes={readingMinutes} align="center" />
+      </div>
+      <div className="rounded-2xl bg-gray-50 dark:bg-gray-800/40 border border-gray-200 dark:border-gray-700/60 p-6 text-center">
       <p className="text-sm font-bold text-gray-800 dark:text-gray-200 mb-1">{t.helpfulHeading}</p>
       <p className="text-[12px] text-gray-400 dark:text-gray-500 mb-5">{t.helpfulSub}</p>
 
@@ -210,6 +226,7 @@ export default function ShareButtons({ title, variant = "mid", lang = "ko" }: Sh
             {t.more}
           </button>
         )}
+      </div>
       </div>
     </div>
   );
