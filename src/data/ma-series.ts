@@ -193,7 +193,7 @@ export const MA_CHAPTERS: MaChapter[] = [
     variantImpacts: [
       { axis: "side", impactedBy: ["sell-side", "buy-side", "fairness-only"], noteKo: "Sell-side는 outbound pitch, Buy-side는 inbound retainer 위주", noteEn: "Sell-side = outbound pitch, Buy-side = inbound retainer" },
     ],
-    status: "draft",
+    status: "published",
   },
   {
     slug: "ma-ch02-engagement",
