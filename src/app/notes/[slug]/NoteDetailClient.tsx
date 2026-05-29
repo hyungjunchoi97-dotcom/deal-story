@@ -1153,8 +1153,8 @@ function BreakevenChart({ chart, lang }: { chart: NoteChartDef & { id: "breakeve
   const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
   return (
     <ChartCard title={title} caption={caption}>
-      <ResponsiveContainer width="100%" height={240}>
-        <BarChart data={data} layout="vertical" margin={{ top: 8, right: 32, bottom: 0, left: 8 }}>
+      <ResponsiveContainer width="100%" height={260}>
+        <BarChart data={data} layout="vertical" margin={{ top: 28, right: 32, bottom: 0, left: 8 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} horizontal={false} />
           <XAxis type="number" domain={[0, 130]} tick={{ fontSize: 10 }} tickLine={false} axisLine={false}
             tickFormatter={(v) => `$${v}`} />
@@ -1171,8 +1171,8 @@ function BreakevenChart({ chart, lang }: { chart: NoteChartDef & { id: "breakeve
               );
             }}
           />
-          <ReferenceLine x={70} stroke="#94a3b8" strokeDasharray="4 3" strokeWidth={1}
-            label={{ value: lang === "en" ? "WTI ~$70" : "WTI ~$70", position: "top", fontSize: 9, fill: "#94a3b8" }} />
+          <ReferenceLine x={70} stroke="#94a3b8" strokeDasharray="4 3" strokeWidth={1.2}
+            label={{ value: "WTI ~$70", position: "top", fontSize: 10, fill: "#64748b", offset: 8 }} />
           <Bar dataKey="value" radius={[0, 4, 4, 0]} label={{
             position: "right", fontSize: 10, fill: "#6b7280",
             formatter: ((v: unknown) => `$${v}`) as never,
