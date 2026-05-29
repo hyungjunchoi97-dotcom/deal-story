@@ -28,6 +28,9 @@ const KO_CONCEPT_CATALOG: ConceptItem[] = [
   { slug: "lbo-returns",           term: "LBO 101 Ch.2 — 리턴 분석",           tagline: "MOIC·IRR 충돌 시나리오, J-커브, 가치창출 3대 드라이버(EBITDA·멀티플·부채상환), Vintage Year 효과",                            category: "LBO 시리즈", published: true  },
   { slug: "lbo-deal-process",      term: "LBO 101 Ch.3 — 딜 프로세스 & 리스크", tagline: "6단계 딜 타임라인, Sources & Uses, Maturity Wall, TXU·Toys'R'Us·Caesars 실패 / Alliance Boots 성공 해부",                   category: "LBO 시리즈", published: true  },
 
+  // M&A 시리즈 — 전과정 흐름 + 이해관계자 + 유명 뱅커 케이스
+  { slug: "ma-ch01-overview",      term: "M&A 101 Ch.1 — 전과정 흐름 (6개월의 여정)", tagline: "M&A는 보기보다 단순한 흐름이다 — 9단계 타임라인 · 5개 주체 병렬 워크스트림 · 진짜 어려운 4지점",                                                  category: "M&A 시리즈", published: true  },
+
   // Valuation 시리즈 — DCF·WACC·Terminal Value 중심 (Modelling 시리즈와 상호 cross-link)
 
   // Modelling 시리즈 — Excel workbook 아키텍처 (Valuation 시리즈와 상호 cross-link)
@@ -75,6 +78,9 @@ const EN_CONCEPT_CATALOG: ConceptItem[] = [
   { slug: "lbo-returns",           term: "LBO 101 Ch.2 — Return Analysis",          tagline: "MOIC vs IRR conflict scenarios, the J-curve, three value drivers (EBITDA, multiple, paydown), Vintage Year effects",            category: "LBO Series", published: true },
   { slug: "lbo-deal-process",      term: "LBO 101 Ch.3 — Deal Process & Risks",     tagline: "Six-phase timeline, Sources & Uses, Maturity Wall, TXU/Toys'R'Us/Caesars failures vs Alliance Boots success",                    category: "LBO Series", published: true },
 
+  // M&A Series — lifecycle + stakeholders + banker case studies
+  { slug: "ma-ch01-overview",      term: "M&A 101 Ch.1 — The Lifecycle (6-month journey)", tagline: "M&A is more linear than it looks — 9-stage timeline · 5 parallel workstreams · the 4 places where it actually gets hard",                                  category: "M&A Series", published: true },
+
   // Valuation Series — DCF / WACC / Terminal Value (cross-linked with Modelling Series)
 
   // Modelling Series — Excel workbook architecture (cross-linked with Valuation Series)
@@ -119,7 +125,7 @@ const EN_CATEGORIES = ["M&A Series", "Valuation Series", "FDD Series", "Modellin
 // ── KO 카테고리 메타데이터 ─────────────────────────────────────────────────────
 // comingSoon: true → 빈 폴더에 "Coming Soon" 배지 표시
 const KO_CAT_META: Record<string, { letter: string; icon: string; desc: string; dot: string; badgeBg: string; badgeFg: string; comingSoon?: boolean }> = {
-  "M&A 시리즈":       { letter: "A", icon: "🤝", desc: "딜 본질·프로세스·협상·PMI까지 — M&A의 처음과 끝",                  dot: "bg-amber-400",   badgeBg: "bg-amber-50 dark:bg-amber-900/30",   badgeFg: "text-amber-700 dark:text-amber-300",   comingSoon: true },
+  "M&A 시리즈":       { letter: "A", icon: "🤝", desc: "딜 본질·프로세스·협상·PMI까지 — M&A의 처음과 끝",                  dot: "bg-amber-400",   badgeBg: "bg-amber-50 dark:bg-amber-900/30",   badgeFg: "text-amber-700 dark:text-amber-300" },
   "Valuation 시리즈": { letter: "B", icon: "📊", desc: "가치평가 본질·멀티플·DCF·LBO/PE 밸류에이션",                       dot: "bg-blue-400",    badgeBg: "bg-blue-50 dark:bg-blue-900/30",    badgeFg: "text-blue-700 dark:text-blue-300",    comingSoon: true },
   "FDD 시리즈":       { letter: "C", icon: "🔍", desc: "재무 실사 — QoE·운전자본·잠재부채 검증 방법론",                    dot: "bg-violet-400",  badgeBg: "bg-violet-50 dark:bg-violet-900/30", badgeFg: "text-violet-700 dark:text-violet-300", comingSoon: true },
   "Modelling 시리즈": { letter: "D", icon: "📈", desc: "3-Statement·DCF·LBO 모델 구축 실전",                                dot: "bg-rose-400",    badgeBg: "bg-rose-50 dark:bg-rose-900/30",    badgeFg: "text-rose-700 dark:text-rose-300",    comingSoon: true },
@@ -129,7 +135,7 @@ const KO_CAT_META: Record<string, { letter: string; icon: string; desc: string; 
 
 // ── EN 카테고리 메타데이터 ─────────────────────────────────────────────────────
 const EN_CAT_META: Record<string, { letter: string; icon: string; desc: string; dot: string; badgeBg: string; badgeFg: string; comingSoon?: boolean }> = {
-  "M&A Series":       { letter: "A", icon: "🤝", desc: "Deal essence · process · negotiation · PMI — M&A end to end",     dot: "bg-amber-400",   badgeBg: "bg-amber-50 dark:bg-amber-900/30",   badgeFg: "text-amber-700 dark:text-amber-300",   comingSoon: true },
+  "M&A Series":       { letter: "A", icon: "🤝", desc: "Deal essence · process · negotiation · PMI — M&A end to end",     dot: "bg-amber-400",   badgeBg: "bg-amber-50 dark:bg-amber-900/30",   badgeFg: "text-amber-700 dark:text-amber-300" },
   "Valuation Series": { letter: "B", icon: "📊", desc: "Valuation fundamentals, multiples, DCF, LBO/PE valuation",         dot: "bg-blue-400",    badgeBg: "bg-blue-50 dark:bg-blue-900/30",    badgeFg: "text-blue-700 dark:text-blue-300",    comingSoon: true },
   "FDD Series":       { letter: "C", icon: "🔍", desc: "Financial diligence — QoE, working capital, hidden liabilities",   dot: "bg-violet-400",  badgeBg: "bg-violet-50 dark:bg-violet-900/30", badgeFg: "text-violet-700 dark:text-violet-300", comingSoon: true },
   "Modelling Series": { letter: "D", icon: "📈", desc: "Building 3-Statement, DCF, and LBO models — hands-on",             dot: "bg-rose-400",    badgeBg: "bg-rose-50 dark:bg-rose-900/30",    badgeFg: "text-rose-700 dark:text-rose-300",    comingSoon: true },
