@@ -318,26 +318,36 @@ const FAIL_PATTERNS = [
 ];
 
 // ── FAQ ────────────────────────────────────────────────────────────────────────
-const FAQS = [
+const FAQS: { q: string; qEn: string; a: string; aEn: string }[] = [
   {
     q: "피치북에 나온 가격 범위가 나중에 달라지면 책임이 있나요?",
+    qEn: "Is the bank liable if pitchbook valuation ranges change later?",
     a: "피치북의 밸류에이션 범위는 법적 구속력이 없는 'indicative'한 자료입니다. IB는 피치북 첫 페이지에 '시장 상황에 따라 변경될 수 있음' 등의 면책 문구를 명시합니다. 다만 실제 딜에서 피치북 범위를 크게 벗어나는 가격을 제시하면 발행사와의 신뢰 관계가 훼손되기 때문에, 뱅커는 처음부터 현실적인 범위를 제시하려 합니다. 공모가 밴드는 증권신고서 제출 후 법적 효력이 발생합니다.",
+    aEn: "Pitchbook valuation ranges are 'indicative' and not legally binding. Banks include explicit disclaimers (e.g., 'subject to market conditions') on the first page. That said, pricing significantly outside the pitchbook range damages the issuer relationship, so bankers aim for realistic ranges from the start. The legally binding IPO price band only takes effect after the registration statement is filed.",
   },
   {
     q: "글로벌 IB와 국내 증권사 중 어떤 걸 선택해야 하나요?",
+    qEn: "Should issuers pick a global IB or a domestic broker?",
     a: "선택 기준은 딜의 성격에 따라 다릅니다. 해외 기관투자자 접근이 중요한 대형 딜(≥5,000억 원)은 글로벌 IB(모건스탠리·골드만·씨티)의 국제 배분 네트워크가 결정적입니다. 반면 국내 리테일 수요가 핵심인 중소형 딜이나 코스닥 IPO는 국내 증권사가 더 효과적입니다. 대형 IPO에서는 글로벌 코디네이터(GC) + 국내 주관사 구조를 많이 씁니다. LG에너지솔루션의 경우 KB·대신(국내)과 씨티·모건스탠리(글로벌)를 공동 주관사로 구성했습니다.",
+    aEn: "Depends on deal character. Large deals (≥KRW 500B) needing access to foreign institutional investors lean on the international distribution networks of global IBs (Morgan Stanley, Goldman, Citi). Mid-small deals and KOSDAQ IPOs that rely on domestic retail demand are better served by Korean brokers. Large IPOs often use a Global Coordinator (GC) + domestic underwriter structure — LG Energy Solution, for example, used KB and Daishin (domestic) with Citi and Morgan Stanley (global) as joint bookrunners.",
   },
   {
     q: "피치북 작성 시 Non-disclosure Agreement는 어떻게 다루나요?",
+    qEn: "How are NDAs handled when preparing a pitchbook?",
     a: "피치북을 받는 발행사는 통상 NDA(기밀유지협약)를 IB와 체결합니다. 반대로 IB가 피치북을 준비하는 과정에서 발행사로부터 내부 재무자료를 받는 경우에도 NDA가 요구됩니다. 단, 뷰티콘테스트 단계에서는 IB가 공개 정보만으로 피치북을 작성하는 경우가 많습니다. 발행사의 미공개 정보를 활용하려면 반드시 NDA 체결 후 이뤄져야 하며, 위반 시 내부자거래 및 공시 위반 문제가 발생할 수 있습니다.",
+    aEn: "Issuers receiving pitchbooks usually sign NDAs with the bank. Conversely, when banks receive internal financials from the issuer during preparation, NDAs are also required. At the bake-off stage, banks often build the pitchbook using only public information. Using material non-public information requires a signed NDA — violations can create insider-trading and disclosure-rule issues.",
   },
   {
     q: "소규모 IPO에서도 풀 피치북이 필요한가요?",
+    qEn: "Do small IPOs need a full pitchbook?",
     a: "거래 규모에 따라 피치북의 깊이가 달라집니다. 코스닥 소형 IPO(시가총액 1,000억 원 미만)에서는 20~30페이지의 간소화된 버전을 쓰는 경우가 많습니다. 그러나 핵심 섹션인 Equity Story, Football Field, 투자자 타겟 리스트는 규모에 관계없이 반드시 포함됩니다. 간소화는 섹션의 깊이를 줄이는 것이지, 핵심 논거를 생략하는 것이 아닙니다.",
+    aEn: "Depth scales with deal size. Small KOSDAQ IPOs (under KRW 100B market cap) often use a slimmed-down 20–30-page version. But the core sections — Equity Story, Football Field, investor target list — are always included regardless of size. Simplification reduces depth, not the core argument.",
   },
   {
     q: "AI가 피치북 작성을 대체할 수 있을까요?",
+    qEn: "Will AI replace pitchbook writing?",
     a: "현재 AI는 피어 데이터 수집, 재무 모델 초안, 슬라이드 레이아웃 생성에서 생산성을 크게 높이고 있습니다. 그러나 Equity Story의 핵심인 '이 회사만의 내러티브'와 '투자자별 맞춤 포지셔닝'은 여전히 뱅커의 시장 감각과 투자자 관계에 의존합니다. CFO 결정의 1위 요소가 Equity Story 설득력이라는 점을 감안하면, AI는 조연이 될 수 있어도 주연은 당분간 사람입니다. Goldman Sachs, Morgan Stanley 등 주요 IB는 이미 내부 AI 도구로 리서치와 모델링을 가속화하고 있습니다.",
+    aEn: "AI is already accelerating peer data collection, financial-model first drafts, and slide layout generation. But the heart of an Equity Story — the company-specific narrative and per-investor positioning — still depends on a banker's market sense and investor relationships. Given that 'Equity Story persuasion' is the #1 driver of CFO mandate decisions, AI will be a supporting actor for some time. Goldman Sachs and Morgan Stanley already deploy internal AI tools to accelerate research and modeling.",
   },
 ];
 
@@ -741,8 +751,8 @@ export default function EcmPitchbookClient({ concept, lang }: { concept: MarketC
               "@type": "FAQPage",
               mainEntity: FAQS.map((f) => ({
                 "@type": "Question",
-                name: f.q,
-                acceptedAnswer: { "@type": "Answer", text: f.a },
+                name: ko ? f.q : f.qEn,
+                acceptedAnswer: { "@type": "Answer", text: ko ? f.a : f.aEn },
               })),
             }),
           }}
@@ -1134,7 +1144,7 @@ export default function EcmPitchbookClient({ concept, lang }: { concept: MarketC
             </motion.div>
             <motion.div variants={fadeUp(0.05)}>
               <FaqAccordion
-                items={FAQS.map((f) => ({ q: f.q, a: f.a }))}
+                items={FAQS.map((f) => ({ q: ko ? f.q : f.qEn, a: ko ? f.a : f.aEn }))}
                 accent={ACCENT}
               />
             </motion.div>

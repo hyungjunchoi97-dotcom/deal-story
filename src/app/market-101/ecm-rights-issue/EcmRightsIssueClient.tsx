@@ -85,26 +85,36 @@ const CASE_COMPARISON_DATA = [
 ];
 
 // ── FAQ ────────────────────────────────────────────────────────────────────────
-const FAQS = [
+const FAQS: { q: string; qEn: string; a: string; aEn: string }[] = [
   {
     q: "유상증자와 CB(전환사채) 중 뭐가 회사에 더 유리한가요?",
+    qEn: "Rights issue vs convertible bond — which is better for the issuer?",
     a: "상황에 따라 다릅니다. 즉각적인 대규모 자금이 필요하고 이자 부담을 피하고 싶다면 유상증자가 유리합니다. 반면 CB는 낮은 쿠폰으로 자금을 조달하고 주가 상승 시 전환으로 희석 부담을 줄일 수 있습니다. 유상증자는 즉각적인 주당 희석이 발생하지만 재무 레버리지가 늘지 않습니다. CB는 만기 시 상환 의무가 있어 유동성 리스크가 존재합니다. 성장 스토리가 명확하고 시장 신뢰가 높은 기업은 유상증자, 희석을 최소화하면서 성장을 기다리는 기업은 CB가 적합합니다.",
+    aEn: "Depends on context. If you need immediate large capital and want to avoid interest expense, a rights issue wins. CBs raise money at low coupons and can defer dilution if the stock rallies (conversion). Rights issues create immediate per-share dilution but don't increase financial leverage. CBs carry repayment risk at maturity. Companies with clear growth narratives and strong market trust go for rights issues; those wanting to minimize dilution while waiting for growth pick CBs.",
   },
   {
     q: "소액주주가 유상증자에 참여 안 하면 어떻게 되나요?",
+    qEn: "What happens if retail shareholders don't participate in a rights issue?",
     a: "참여하지 않으면 지분이 희석됩니다. 예를 들어 1:1 배정에서 참여하지 않으면 의결권과 배당 비율이 절반으로 줄어듭니다. 단, 한국에서는 신주인수권증서(Nil Paid Rights)가 별도로 상장돼 거래되므로, 청약에 직접 참여하지 않더라도 신주인수권증서를 시장에 매각해 이론적 권리가치(TERP 기준)를 일부 회수할 수 있습니다. 그러나 실제 시장 가격과 이론치 간 괴리가 있을 수 있으므로 유의해야 합니다.",
+    aEn: "Their ownership gets diluted. In a 1:1 allocation, declining to subscribe halves voting rights and dividend share. However, in Korea Nil Paid Rights are separately listed and traded — even without subscribing, shareholders can sell their rights certificates to partially recover theoretical value (based on TERP). Be aware that actual market prices can diverge from theoretical values.",
   },
   {
     q: "실권주가 많이 나오면 주가에 어떤 영향이 있나요?",
+    qEn: "How do high lapsed-share volumes impact the stock?",
     a: "실권주 물량이 많다는 것은 기존 주주들이 회사의 미래를 신뢰하지 않는다는 신호로 해석될 수 있어, 단기적으로 주가 하락 압력이 됩니다. 실권주는 일반공모(재청약)나 서브언더라이터 인수로 처리되는데, 주관사가 대량의 실권주를 떠안은 뒤 장내 매각하면 추가 하락이 발생합니다. 반대로 실권주가 거의 없이 청약률이 높으면 '발행사 신뢰도 확인'으로 주가 반등 재료가 됩니다. 2024년 한화에어로스페이스 유상증자가 방산 성장 내러티브로 실권주를 최소화한 것이 이 논리의 실제 사례입니다.",
+    aEn: "Large lapsed-share volumes are read as existing shareholders losing faith in the company's future — creating short-term selling pressure. Lapsed shares go to a public re-subscription or sub-underwriter allocation; once the underwriter takes the residual onto its book and dumps it in the market, further declines follow. Conversely, near-zero lapsed shares with high subscription rates signal 'issuer confidence' and can rally the stock. Hanwha Aerospace's 2024 rights issue, riding the defense growth narrative to minimize lapses, exemplifies this dynamic.",
   },
   {
     q: "해외 투자자(외국인)도 한국 유상증자에 참여할 수 있나요?",
+    qEn: "Can foreign investors participate in Korean rights issues?",
     a: "원칙적으로 가능하지만 절차가 복잡합니다. 외국인 투자자는 한국 증권거래소 등록 외국인 계좌(IRC)가 있어야 하고, 국가별 외국인 투자 한도(섹터에 따라 다름)를 준수해야 합니다. 투자설명서는 한국어로 제출되며, 영문 번역은 의무가 아닙니다. 일부 대형 유상증자는 Regulation S 또는 Rule 144A 방식으로 해외 기관투자자를 별도 트랜치로 모집하기도 합니다. 실무적으로는 외국인 주주가 이미 보유 주식에 대한 신주인수권을 자동 부여받지만, 청약 과정에서 현지 커스터디언과 조율이 필요합니다.",
+    aEn: "Yes in principle, but the process is complex. Foreign investors need a registered Investment Registration Certificate (IRC) and must comply with sector-specific foreign ownership limits. Prospectuses are filed in Korean — English translation isn't required. Some large rights issues create a separate Reg S or Rule 144A tranche for foreign institutional investors. In practice, foreign shareholders are automatically granted rights on their existing positions, but local custodian coordination is required for subscription.",
   },
   {
     q: "유상증자 발표 전 내부자 거래 제한은 어떻게 적용되나요?",
+    qEn: "How are insider-trading restrictions applied before a rights-issue announcement?",
     a: "한국 자본시장법상 미공개 중요 정보를 이용한 거래는 형사처벌 대상입니다. 유상증자는 이사회 결의가 이뤄지는 순간부터 중요 정보로 분류되므로, 결의 전부터 정보를 접한 임직원·자문사 직원은 결의 공시 전 주식 매도나 공매도가 금지됩니다. 또한 금감원은 유상증자 발표 직전 비정상적인 거래량·공매도 급증을 집중 모니터링합니다. 뱅커와 법무팀은 통상 이사회 결의 2~4주 전부터 블랙아웃(Blackout) 기간을 설정하고, 모든 관련자를 월(Wall)로 분리합니다.",
+    aEn: "Under Korea's Capital Markets Act, trading on material non-public information is criminally punishable. A rights issue becomes material information from the moment of board resolution — employees and advisors with prior access are barred from selling or shorting before the public announcement. The FSS intensively monitors abnormal pre-announcement volume and short-sale spikes. Bankers and legal teams typically set blackout periods 2–4 weeks before the board meeting and wall off everyone with access.",
   },
 ];
 
@@ -717,8 +727,8 @@ export default function EcmRightsIssueClient({
               "@type": "FAQPage",
               mainEntity: FAQS.map((f) => ({
                 "@type": "Question",
-                name: f.q,
-                acceptedAnswer: { "@type": "Answer", text: f.a },
+                name: ko ? f.q : f.qEn,
+                acceptedAnswer: { "@type": "Answer", text: ko ? f.a : f.aEn },
               })),
             }),
           }}
@@ -1183,7 +1193,7 @@ export default function EcmRightsIssueClient({
             </motion.div>
             <motion.div variants={fadeUp(0.05)}>
               <FaqAccordion
-                items={FAQS.map((f) => ({ q: f.q, a: f.a }))}
+                items={FAQS.map((f) => ({ q: ko ? f.q : f.qEn, a: ko ? f.a : f.aEn }))}
                 accent={ACCENT}
               />
             </motion.div>

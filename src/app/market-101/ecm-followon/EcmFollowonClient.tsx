@@ -115,26 +115,36 @@ const RIGHTS_ROWS = [
 ];
 
 // ── FAQ ────────────────────────────────────────────────────────────────────────
-const FAQS = [
+const FAQS: { q: string; qEn: string; a: string; aEn: string }[] = [
   {
     q: "ABB와 IPO의 IB 수수료 차이는 무엇인가요?",
+    qEn: "How do IB fees for ABB and IPOs compare?",
     a: "IPO 수수료는 조달액의 3.5~7%에 달하지만, ABB 수수료는 0.5~1.5% 수준입니다. ABB는 실사, S-1 작성, SEC 심사, 6주 로드쇼 없이 하룻밤에 끝나기 때문입니다. 다만 ABB에서 IB는 미매각 물량을 자기 계좌로 인수하는 리스크를 부담합니다. 수수료가 낮은 대신 overnight gap-down 리스크가 IB의 수익성을 좌우합니다.",
+    aEn: "IPO fees run 3.5–7% of proceeds, while ABB fees are typically 0.5–1.5%. ABBs avoid due diligence, S-1 drafting, SEC review, and a six-week roadshow — the deal is done overnight. In return, the underwriter bears the risk of holding unsold shares on its own book. Low fees come with overnight gap-down risk that determines profitability.",
   },
   {
     q: "블록 트레이드 후 주가가 떨어지는 이유는 무엇인가요?",
+    qEn: "Why does the stock price typically fall after a block trade?",
     a: "두 가지 메커니즘이 작동합니다. 첫째, 딜 자체의 할인(3~5%)이 시장 기준점이 되어 즉각적인 주가 하락 압력을 만듭니다. 둘째, 대량 보유자가 매각했다는 사실이 '더 팔 물량이 남아 있나'라는 오버행(Overhang) 불안을 촉발합니다. 특히 PE 펀드가 단계적 매각 중인 경우, 각 블록 트레이드마다 주가가 눌리는 현상이 반복됩니다. 반대로 전략적으로 큰 블록을 한 번에 매각 완료했다고 공표하면 오버행이 해소되어 주가가 반등하기도 합니다.",
+    aEn: "Two mechanisms. First, the deal discount (3–5%) sets a new reference point and creates immediate downward pressure. Second, a large holder selling triggers 'overhang' anxiety — investors fear more supply is coming. PE funds doing staged exits often see this pattern repeat at each block. Conversely, when a strategic seller clears its entire stake in one block, removing the overhang can cause the stock to rally.",
   },
   {
     q: "유상증자에 참여 안 하면 무조건 손해인가요?",
+    qEn: "Is it always a loss not to participate in a rights issue?",
     a: "반드시 그렇지는 않습니다. 유상증자 참여 여부는 두 가지를 고려해야 합니다. ① 희석 손실: 참여하지 않으면 지분율이 줄어들고, 할인 발행으로 인해 기존 주식의 가치도 희석됩니다. ② 자금 조달 목적: 회사가 왜 유상증자를 하는가가 더 중요합니다. M&A 자금·성장 투자처럼 ROE를 높이는 목적이라면 참여가 유리하지만, 부채 상환이나 손실 보전 목적이라면 참여해도 장기적으로 가치 훼손이 올 수 있습니다. 한국 시장에서는 유상증자 공시 이후 주가가 급락하는 사례가 많은데, 이는 시장이 희석 부분보다 '왜 유상증자를 해야 하나'라는 펀더멘털 우려를 더 반영하는 것입니다.",
+    aEn: "Not necessarily. Two factors matter. ① Dilution: if you don't subscribe, your ownership percentage shrinks and the discount erodes the value of existing shares. ② Purpose of the raise: this matters more than dilution. If proceeds fund M&A or growth investment that raises ROE, participating is worthwhile; if they cover debt or losses, even subscribing may not protect long-term value. In Korea, rights-issue announcements often trigger sharp price drops — the market is reflecting the 'why are they raising at all' question more than the mechanical dilution.",
   },
   {
     q: "ATM 프로그램의 장단점은 무엇인가요?",
+    qEn: "What are the pros and cons of an ATM program?",
     a: "ATM(At-The-Market) 프로그램은 상장사가 시장 가격으로 수시로 소량씩 주식을 매각하는 방식입니다. 장점: ① 주가 충격 없이 자금 조달 가능(대형 블록 없이 소량 분산), ② 주가가 높을 때 타이밍 선택 가능, ③ 공시 부담 최소화. 단점: ① 대규모 자금 조달에 부적합(속도 느림), ② 시장 유동성이 낮은 소형주에는 가격 영향이 큼, ③ 지속적인 주식 희석에 대한 투자자 불만 가능. 미국 테크·바이오 기업들이 많이 활용하며, 한국에서는 상시 발행 제도가 미비해 ATM 활용이 상대적으로 드뭅니다.",
+    aEn: "ATM (At-The-Market) programs let issuers sell small quantities of stock at prevailing market prices over time. Pros: ① raises capital without price shock (no large block); ② issuer can time toward higher prices; ③ minimal disclosure burden. Cons: ① unsuitable for large raises (slow); ② significant price impact for small-cap, thin-liquidity stocks; ③ persistent dilution can frustrate investors. Heavily used by US tech and biotech; rare in Korea due to limited shelf-registration infrastructure.",
   },
   {
     q: "한국 상장사의 유상증자가 선진국 대비 많은 이유는 무엇인가요?",
+    qEn: "Why do Korean listed companies issue rights more often than developed-market peers?",
     a: "크게 세 가지 구조적 요인이 있습니다. ① 자본 구조 특성: 한국 기업들은 전통적으로 부채 비율이 높고, 위기 시 자기자본 확충 수단으로 유상증자를 선호합니다. ② 규제 환경: 한국 금융당국이 요구하는 자본 적정성 기준을 맞추기 위해 은행·건설사가 주기적으로 유상증자를 합니다. ③ 무상증자 문화: 실질 자금 조달 없이 주가 관리 목적의 무상증자(Bonus Issue)가 빈번하고, 이후 주가 조정 시 다시 유상증자로 이어지는 패턴이 반복됩니다. 주주환원(배당·자사주 소각) 문화가 선진국 대비 약한 것도 자본 배분의 비효율을 낳아 유상증자 빈도를 높입니다.",
+    aEn: "Three structural factors. ① Capital structure: Korean firms run higher leverage and turn to equity raises for crisis recapitalization. ② Regulatory environment: banks and construction firms periodically raise to meet Korean financial regulators' capital adequacy requirements. ③ Bonus-issue culture: bonus issues (with no real capital raised) are frequent for share-price management; subsequent price corrections often lead to follow-on cash raises. Weaker shareholder-return culture (vs developed markets) also creates capital-allocation inefficiency that drives more rights issues.",
   },
 ];
 
@@ -470,8 +480,8 @@ export default function EcmFollowonClient({ concept, lang }: { concept: MarketCo
               "@type": "FAQPage",
               mainEntity: FAQS.map((f) => ({
                 "@type": "Question",
-                name: f.q,
-                acceptedAnswer: { "@type": "Answer", text: f.a },
+                name: ko ? f.q : f.qEn,
+                acceptedAnswer: { "@type": "Answer", text: ko ? f.a : f.aEn },
               })),
             }),
           }}
@@ -882,7 +892,7 @@ export default function EcmFollowonClient({ concept, lang }: { concept: MarketCo
             </motion.div>
             <motion.div variants={fadeUp(0.05)}>
               <FaqAccordion
-                items={FAQS.map((f) => ({ q: f.q, a: f.a }))}
+                items={FAQS.map((f) => ({ q: ko ? f.q : f.qEn, a: ko ? f.a : f.aEn }))}
                 accent={ACCENT}
               />
             </motion.div>

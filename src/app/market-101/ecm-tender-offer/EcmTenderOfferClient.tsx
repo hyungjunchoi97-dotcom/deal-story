@@ -213,26 +213,36 @@ const SM_PRICE_DATA = [
 ];
 
 // ── FAQ ────────────────────────────────────────────────────────────────────────
-const FAQS = [
+const FAQS: { q: string; qEn: string; a: string; aEn: string }[] = [
   {
     q: "공개매수 가격보다 낮은 시장가에 파는 게 손해 아닌가요?",
+    qEn: "Isn't it a loss to sell into the market below the tender-offer price?",
     a: "원칙적으로 그렇습니다. 공개매수가가 시장가보다 높게 설정되기 때문에 공개매수에 응하는 것이 일반적으로 유리합니다. 다만 예외가 있습니다. 첫째, 경쟁 공개매수가 예상될 경우 더 높은 가격을 기다리는 전략이 유효합니다. 둘째, 공개매수 성공 후 회사 가치가 크게 오를 것으로 예상한다면 응하지 않고 주주로 남는 선택도 있습니다. 셋째, Squeeze-out 임박 시에는 어차피 강제 매수되므로 응하지 않는 것도 선택지입니다. 결국 공개매수에 응할지 여부는 '지금 확정 수익'과 '미래 불확실한 수익' 중 무엇을 선택할지의 문제입니다.",
+    aEn: "In principle, yes. Tender offer prices are set above market, so tendering is usually better. Three exceptions: ① if a competing offer is expected, waiting for a higher bid can pay off; ② if you expect significant company value uplift after deal close, staying on as a shareholder may be better; ③ if a Squeeze-out is imminent, you'll be force-purchased anyway, so declining is also viable. Ultimately it's a choice between 'certain gain now' and 'uncertain gain later.'",
   },
   {
     q: "소수 주주가 공개매수에 응하지 않으면 Squeeze-out 후 얼마를 받나요?",
+    qEn: "What do minority shareholders receive if they don't tender and face a Squeeze-out?",
     a: "한국 상법상 Squeeze-out(소수주주 강제매수)은 지배주주가 발행 주식의 95% 이상을 취득했을 때 나머지 소수주주의 주식을 강제로 매수할 수 있는 제도입니다. 매수 가격은 공개매수 가격과 동일하거나 법원이 정한 '공정한 가격'으로 결정됩니다. 실무적으로 법원이 정한 가격이 공개매수 가격보다 높아진 사례도 있지만, 대부분 공개매수 가격 수준에서 결정됩니다. 소수주주 입장에서는 공개매수에 응하지 않아 시간을 끌어도 결국 비슷한 가격에 강제 매수되는 경우가 많으므로, 유동성과 확실성 측면에서 공개매수에 응하는 편이 유리합니다.",
+    aEn: "Under Korean Commercial Code, Squeeze-out allows a controlling shareholder owning ≥95% of issued shares to force-purchase the remaining minority holdings. Price equals the tender-offer price or a court-determined 'fair price.' There are cases where court-determined prices exceeded the tender price, but most settle near the tender price. For minorities, delaying typically just results in force-purchase at a similar price, so tendering generally wins on liquidity and certainty.",
   },
   {
     q: "Poison Pill은 한국에서도 합법인가요?",
+    qEn: "Are poison pills legal in Korea?",
     a: "한국에서 Poison Pill은 제한적으로만 허용됩니다. 미국식 신주인수권 계획(Rights Plan)을 통한 전형적인 Poison Pill은 한국 상법상 이사회의 신주 발행 권한 범위 내에서만 가능합니다. 주주총회 결의 없이 이사회만으로 대규모 신주를 발행하는 데 법적 제한이 있어, 완전한 미국식 Poison Pill은 도입이 어렵습니다. 실무적으로는 정관 개정을 통한 차등의결권(아직 한국 상장사에선 제한적), 황금주(Golden Share) 등 대안적 방어장치를 활용하거나, 우호 지분 확보를 통한 방어가 일반적입니다.",
+    aEn: "Only in limited form. Classical US-style poison pills via shareholder rights plans are constrained in Korea: under Commercial Code, the board's authority to issue new shares is limited, making it difficult for the board alone to issue large-scale dilutive shares without shareholder approval. In practice, Korean companies use alternative defenses — dual-class shares (still limited for listed companies), Golden Shares — or secure friendly stakes preemptively.",
   },
   {
     q: "공개매수 신고 후 가격을 낮출 수 있나요?",
+    qEn: "Can the bidder lower the tender price after filing?",
     a: "원칙적으로 불가능합니다. 공개매수 공시 후 가격을 낮추면 기존에 청약을 완료한 주주들에게 불이익을 주기 때문에 한국 자본시장법은 이를 금지하고 있습니다. 반대로 가격을 높이는 것은 가능합니다. 실제로 경쟁 공개매수 상황(예: SM엔터테인먼트 사례)에서는 가격 인상이 경쟁 수단으로 활용됩니다. 또한 공개매수 기간 연장은 금감원 승인하에 가능하며, 최소 취득 비율 조건을 변경하는 것도 일정 요건 내에서 허용됩니다. 공개매수 철회는 매우 제한적인 요건(중대한 사정 변경, 규제기관 불승인 등)에서만 가능합니다.",
+    aEn: "In principle, no. Lowering the price after announcement would harm shareholders who already tendered — Korea's Capital Markets Act prohibits this. Raising the price is allowed and is actively used in competitive bid situations (e.g., the SM Entertainment case). Extending the offer period requires FSS approval. Modifying the minimum acceptance threshold is allowed within certain limits. Withdrawing the offer entirely requires very narrow grounds (material change, regulatory denial, etc.).",
   },
   {
     q: "주주가 공개매수에 응한 후 마음이 바뀌면 철회할 수 있나요?",
+    qEn: "Can a shareholder withdraw a tender after submitting?",
     a: "네, 청약 철회는 공개매수 기간 중에는 원칙적으로 가능합니다. 한국 자본시장법은 청약 기간 종료 전에는 주주가 청약을 취소할 수 있도록 보장하고 있습니다. 다만 청약 종료일 이후에는 철회가 불가능하며, 대금이 이미 지급된 경우 취소할 수 없습니다. 실무적으로는 경쟁 공개매수가 등장하거나, 주가가 공개매수 가격 이상으로 오른 경우 청약을 취소하고 시장에서 더 높은 가격에 파는 전략을 선택하는 주주들이 있습니다. 이것이 SM엔터 사례처럼 경쟁 공개매수 상황에서 나타나는 주주들의 전형적인 행동 패턴입니다.",
+    aEn: "Yes — withdrawal is generally allowed during the offer period. Korea's Capital Markets Act guarantees shareholders' right to cancel before the offer closes. After the offer's end date, however, withdrawal is barred, and once payment has been made, cancellation is impossible. In practice, when a competing offer emerges or the market price rises above the tender price, shareholders frequently withdraw and sell in the open market at a higher price. This is the typical behavioral pattern seen in competitive bid situations like the SM Entertainment case.",
   },
 ];
 
@@ -595,8 +605,8 @@ export default function EcmTenderOfferClient({ concept, lang }: { concept: Marke
               "@type": "FAQPage",
               mainEntity: FAQS.map((f) => ({
                 "@type": "Question",
-                name: f.q,
-                acceptedAnswer: { "@type": "Answer", text: f.a },
+                name: ko ? f.q : f.qEn,
+                acceptedAnswer: { "@type": "Answer", text: ko ? f.a : f.aEn },
               })),
             }),
           }}
@@ -1074,7 +1084,7 @@ export default function EcmTenderOfferClient({ concept, lang }: { concept: Marke
               <div className="w-8 h-0.5 mt-3" style={{ background: ACCENT }} />
             </motion.div>
             <motion.div variants={fadeUp(0.05)}>
-              <FaqAccordion items={FAQS.map((f) => ({ q: f.q, a: f.a }))} accent={ACCENT} />
+              <FaqAccordion items={FAQS.map((f) => ({ q: ko ? f.q : f.qEn, a: ko ? f.a : f.aEn }))} accent={ACCENT} />
             </motion.div>
           </motion.section>
 
