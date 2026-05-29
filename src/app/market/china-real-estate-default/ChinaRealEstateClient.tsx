@@ -470,7 +470,7 @@ export default function ChinaRealEstateClient({
               </div>
               <div className="p-5 sm:p-8">
                 <ResponsiveContainer width="100%" height={240}>
-                  <AreaChart data={spreadData} margin={{ top: 8, right: 16, left: 8, bottom: 4 }}>
+                  <AreaChart data={spreadData} margin={{ top: 30, right: 16, left: 8, bottom: 4 }}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#f3f4f6" />
                     <XAxis
                       dataKey="date"
@@ -591,7 +591,7 @@ export default function ChinaRealEstateClient({
               </div>
               <div className="p-5 sm:p-8">
                 <ResponsiveContainer width="100%" height={220}>
-                  <BarChart data={defaultVolumeData} margin={{ top: 8, right: 16, left: 8, bottom: 4 }}>
+                  <BarChart data={defaultVolumeData} margin={{ top: 30, right: 16, left: 8, bottom: 4 }}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#f3f4f6" />
                     <XAxis
                       dataKey="year"

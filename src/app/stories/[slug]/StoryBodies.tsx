@@ -158,7 +158,7 @@ export function LeesonBody({ ko, story, accent, accentLight }: BodyProps) {
           caption={ko ? "£M, 출처: BoBS 1995 보고서" : "£M, source: BoBS 1995 report"}
         >
           <ResponsiveContainer width="100%" height={260}>
-            <BarChart data={leesonLossData} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
+            <BarChart data={leesonLossData} margin={{ top: 30, right: 20, left: 0, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis dataKey="year" tick={{ fontSize: 11 }} />
               <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => `£${v}M`} />
@@ -179,7 +179,7 @@ export function LeesonBody({ ko, story, accent, accentLight }: BodyProps) {
           caption={ko ? "지진(1.17) 이후 약 12% 하락 — 리슨의 롱 포지션이 한꺼번에 무너졌다" : "~12% drop after the Jan 17 earthquake — Leeson's longs collapsed together"}
         >
           <ResponsiveContainer width="100%" height={260}>
-            <LineChart data={leesonNikkeiData} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
+            <LineChart data={leesonNikkeiData} margin={{ top: 30, right: 20, left: 0, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis dataKey="date" tick={{ fontSize: 11 }} />
               <YAxis domain={[16500, 19500]} tick={{ fontSize: 11 }} />
@@ -246,7 +246,7 @@ export function LtcmBody({ ko, story, accent, accentLight }: BodyProps) {
           caption={ko ? "$Billion. 4년 누적 후 4개월 만에 92% 소멸" : "$Billion. 4 years of gains erased in 4 months"}
         >
           <ResponsiveContainer width="100%" height={280}>
-            <AreaChart data={ltcmEquityData} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
+            <AreaChart data={ltcmEquityData} margin={{ top: 30, right: 20, left: 0, bottom: 0 }}>
               <defs>
                 <linearGradient id="ltcmGrad" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0%" stopColor={accent} stopOpacity={0.5} />
@@ -347,7 +347,7 @@ export function FuldBody({ ko, story, accent, accentLight }: BodyProps) {
           caption={ko ? "주택 시장 균열에도 레버리지를 늘렸다 — 자산가치 3% 하락 시 자본 전액 소멸" : "Leverage rose even as housing cracked — a 3% asset decline would wipe out equity"}
         >
           <ResponsiveContainer width="100%" height={260}>
-            <BarChart data={fuldLeverageData} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
+            <BarChart data={fuldLeverageData} margin={{ top: 30, right: 20, left: 0, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis dataKey="year" tick={{ fontSize: 11 }} />
               <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => `${v}×`} />
@@ -368,7 +368,7 @@ export function FuldBody({ ko, story, accent, accentLight }: BodyProps) {
           caption={ko ? "1월 $65 → 9월 15일 $0.20. 풀드의 가격 협상이 가치를 0으로 만들었다" : "$65 in Jan → $0.20 on Sep 15. Fuld's pricing negotiations brought value to zero"}
         >
           <ResponsiveContainer width="100%" height={280}>
-            <AreaChart data={fuldStockData} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
+            <AreaChart data={fuldStockData} margin={{ top: 30, right: 20, left: 0, bottom: 0 }}>
               <defs>
                 <linearGradient id="fuldGrad" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0%" stopColor="#dc2626" stopOpacity={0.4} />
@@ -442,7 +442,7 @@ export function MadoffBody({ ko, story, accent, accentLight }: BodyProps) {
           caption={ko ? "닷컴 붕괴·9·11·약세장에도 매도프만 항상 +10%. 그 일관성이 사기의 증거였다" : "Even through dot-com, 9/11, and bear markets, Madoff stayed at +10%. The consistency was the evidence."}
         >
           <ResponsiveContainer width="100%" height={280}>
-            <LineChart data={madoffReturns} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
+            <LineChart data={madoffReturns} margin={{ top: 30, right: 20, left: 0, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis dataKey="year" tick={{ fontSize: 11 }} />
               <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => `${v}%`} />
@@ -511,7 +511,7 @@ export function KervielBody({ ko, story, accent, accentLight }: BodyProps) {
           caption={ko ? "이미 서브프라임 공포 + SocGen $50B 매도가 겹치며 유럽 증시 10% 폭락" : "Already weak from subprime + SocGen's $50B sell-off = 10% European market plunge"}
         >
           <ResponsiveContainer width="100%" height={260}>
-            <AreaChart data={kervielStockData} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
+            <AreaChart data={kervielStockData} margin={{ top: 30, right: 20, left: 0, bottom: 0 }}>
               <defs>
                 <linearGradient id="kvGrad" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0%" stopColor="#dc2626" stopOpacity={0.4} />
@@ -584,7 +584,7 @@ export function MilkenBody({ ko, story, accent, accentLight }: BodyProps) {
           caption={ko ? "$Billion. 밀켄이 1970년대 후반 시작한 시장이 1.5조 달러로 성장" : "$Billion. The market Milken started in the late 70s grew to $1.5T"}
         >
           <ResponsiveContainer width="100%" height={280}>
-            <AreaChart data={milkenHYData} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
+            <AreaChart data={milkenHYData} margin={{ top: 30, right: 20, left: 0, bottom: 0 }}>
               <defs>
                 <linearGradient id="milkenGrad" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0%" stopColor={accent} stopOpacity={0.5} />
@@ -675,7 +675,7 @@ export function LivermoreBody({ ko, story, accent, accentLight }: BodyProps) {
           caption={ko ? "9월 381 → 11월 199. 리버모어는 대폭락 직전 공매도 포지션을 쌓고 $100M을 벌었다" : "Sep 381 → Nov 199. Livermore built shorts before the crash and made $100M"}
         >
           <ResponsiveContainer width="100%" height={280}>
-            <AreaChart data={livermoreDjia} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
+            <AreaChart data={livermoreDjia} margin={{ top: 30, right: 20, left: 0, bottom: 0 }}>
               <defs>
                 <linearGradient id="livGrad" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0%" stopColor="#dc2626" stopOpacity={0.4} />
@@ -700,7 +700,7 @@ export function LivermoreBody({ ko, story, accent, accentLight }: BodyProps) {
           caption={ko ? "$Million. 천재성과 자기파괴의 4사이클" : "$Million. Four cycles of genius and self-destruction"}
         >
           <ResponsiveContainer width="100%" height={260}>
-            <LineChart data={livermoreWealth} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
+            <LineChart data={livermoreWealth} margin={{ top: 30, right: 20, left: 0, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis dataKey="year" tick={{ fontSize: 11 }} />
               <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => `$${v}M`} />
@@ -747,7 +747,7 @@ export function VolckerBody({ ko, story, accent, accentLight }: BodyProps) {
           caption={ko ? "금리 20% → 인플레 잡힘 → 실업률 10.8%. 단기 고통의 정확한 트레이드오프" : "20% rates → inflation defeated → 10.8% unemployment. Precise trade-off of short-term pain"}
         >
           <ResponsiveContainer width="100%" height={300}>
-            <LineChart data={volckerData} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
+            <LineChart data={volckerData} margin={{ top: 30, right: 20, left: 0, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis dataKey="year" tick={{ fontSize: 11 }} />
               <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => `${v}%`} />
@@ -765,7 +765,7 @@ export function VolckerBody({ ko, story, accent, accentLight }: BodyProps) {
                   className="rounded-2xl p-5 border-l-4"
                   style={{ borderColor: accent, background: accentLight }}>
         <p className="text-[11px] font-bold uppercase tracking-widest mb-2" style={{ color: accent }}>
-          {ko ? "볼커가 받았던 것들" : "What Volcker Received"}
+          {ko ? "고금리 인상에 따라 볼커가 받은 위협들" : "Threats Volcker Faced for Raising Rates"}
         </p>
         <div className="grid sm:grid-cols-2 gap-3 mt-3">
           <div className="text-[13px] text-gray-700 dark:text-gray-300 leading-relaxed">
@@ -816,7 +816,7 @@ export function WassersteinBody({ ko, story, accent, accentLight }: BodyProps) {
           caption={ko ? "$/share. 'Bid 'em Up' 철학이 가격을 $75에서 $109까지 끌어올렸다" : "$/share. 'Bid 'em Up' philosophy pushed price from $75 to $109"}
         >
           <ResponsiveContainer width="100%" height={260}>
-            <BarChart data={rjrBidData} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
+            <BarChart data={rjrBidData} margin={{ top: 30, right: 20, left: 0, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis dataKey="round" tick={{ fontSize: 11 }} />
               <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => `$${v}`} />
@@ -998,7 +998,7 @@ export function JimmyLeeBody({ ko, story, accent, accentLight }: BodyProps) {
           caption={ko ? "$Billion. 지미 리의 신디케이션 구조가 $1.4조 시장의 토대가 됐다" : "$Billion. Jimmy Lee's syndication structure became the foundation of a $1.4T market"}
         >
           <ResponsiveContainer width="100%" height={280}>
-            <AreaChart data={leveragedLoanData} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
+            <AreaChart data={leveragedLoanData} margin={{ top: 30, right: 20, left: 0, bottom: 0 }}>
               <defs>
                 <linearGradient id="leeGrad" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0%" stopColor={accent} stopOpacity={0.5} />

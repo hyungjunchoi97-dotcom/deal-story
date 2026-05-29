@@ -312,7 +312,7 @@ const deal: DealData = {
   // ── LevFin 관점 오버레이 ─────────────────────────────────────
   levfinOverview: {
     angle: "Trap Door — 계약서 바스켓 조항이 핵심 담보를 어떻게 증발시키는가",
-    body: "J.Crew Trap Door는 레버리지드론 계약서에서 '바스켓(Basket)' 조항이 얼마나 치명적인 허점이 될 수 있는지를 보여준다. TLB 채권자들은 J.Crew 브랜드 IP를 암묵적 담보로 기대했지만, 투자 바스켓 조항을 통해 $250M IP가 케이맨 자회사로 이전됐다. 이 딜은 LevFin 분석가들이 '담보 패키지의 완전성(Collateral Package Completeness)'을 신용 분석의 핵심으로 보게 만든 사건이다.",
+    body: "J.Crew Trap Door는 레버리지드론 계약서에서 '바스켓(Basket)' 조항이 얼마나 치명적인 허점이 될 수 있는지를 보여준다. TLB 채권자들은 J.Crew 브랜드 IP를 암묵적 담보로 기대했지만, 투자 바스켓 조항을 통해 $250M IP가 케이맨 자회사로 이전됐다. 이 딜은 LevFin 애널리스트들이 '담보 패키지의 완전성(Collateral Package Completeness)'을 신용 분석의 핵심으로 보게 만든 사건이다.",
     tranches: [
       {
         name: "Term Loan B (TLB)",

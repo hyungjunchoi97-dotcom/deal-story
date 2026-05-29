@@ -740,7 +740,7 @@ NGEU의 핵심 특징:
 ③ 조건부 구조: RRP 이행 마일스톤 달성 시 다음 배분 가능 — 단순 지급이 아닌 성과 기반.
 ④ 그린·디지털 트윈 목표: NGEU 지출의 37% 이상은 기후 관련, 20% 이상은 디지털 전환에 사용돼야 한다.
 
-역사적 비교: 많은 분석가들이 NGEU를 1790년 알렉산더 해밀턴이 미국 독립전쟁 채무를 연방 채무로 통합한 사건 — 미국 연방 부채시장의 기원 — 에 비교한다. "유럽의 해밀턴 모멘트(Europe's Hamiltonian Moment)"라는 표현이 자주 사용된다. 물론 NGEU가 일시적 위기 대응인지 영구적 유럽 공동 재정의 시작인지는 여전히 논쟁 중이다.`,
+역사적 비교: 많은 애널리스트들이 NGEU를 1790년 알렉산더 해밀턴이 미국 독립전쟁 채무를 연방 채무로 통합한 사건 — 미국 연방 부채시장의 기원 — 에 비교한다. "유럽의 해밀턴 모멘트(Europe's Hamiltonian Moment)"라는 표현이 자주 사용된다. 물론 NGEU가 일시적 위기 대응인지 영구적 유럽 공동 재정의 시작인지는 여전히 논쟁 중이다.`,
         bodyEn:
 `In June 2021, the EU began issuing NextGenerationEU (NGEU) bonds. Total program size €800B (including €390B in grants and €360B in loans), scheduled for completion by 2026. It was the world's largest SSA program by any single issuer.
 

@@ -481,20 +481,20 @@ function SoftBankChart({ ko }: { ko: boolean }) {
         </p>
       </div>
       <div className="p-5 sm:p-6">
-        <div className="flex items-end gap-4 h-32">
+        <div className="flex items-end gap-4" style={{ height: 180 }}>
           {SOFTBANK_EB_DEALS.map((deal, i) => (
-            <div key={i} className="flex-1 flex flex-col items-center gap-1">
-              <span className="text-[9px] font-bold text-gray-500 dark:text-gray-400">{deal.amount}</span>
+            <div key={i} className="flex-1 flex flex-col items-center justify-end gap-1 h-full">
+              <span className="text-[10px] font-bold text-gray-500 dark:text-gray-400">{deal.amount}</span>
               <motion.div
                 className={`w-full rounded-t-md ${deal.color}`}
                 initial={{ height: 0 }}
-                whileInView={{ height: `${deal.bar}%` }}
+                whileInView={{ height: `${deal.bar * 1.1}px` }}
                 viewport={VP}
                 transition={{ duration: 0.6, delay: i * 0.08, ease: EASE }}
               />
-              <span className="text-[9px] text-gray-400 dark:text-gray-500">{deal.year}</span>
+              <span className="text-[10px] text-gray-400 dark:text-gray-500 mt-1">{deal.year}</span>
               {deal.price !== "N/A" && (
-                <span className={`text-[8px] font-semibold ${deal.peak ? "text-blue-600 dark:text-blue-400" : "text-gray-400"}`}>
+                <span className={`text-[9px] font-semibold ${deal.peak ? "text-blue-600 dark:text-blue-400" : "text-gray-400"}`}>
                   {ko ? `교환가 ${deal.price}` : `Exch. ${deal.price}`}
                 </span>
               )}

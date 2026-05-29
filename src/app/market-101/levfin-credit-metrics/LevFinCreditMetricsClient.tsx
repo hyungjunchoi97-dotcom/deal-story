@@ -507,7 +507,7 @@ const FAQS = [
       ? "레이팅 에이전시가 EBITDA addback을 얼마나 인정하나요? 발행사와 협상이 되나요?"
       : "How much do rating agencies accept EBITDA addbacks? Can issuers negotiate?",
     a: (ko: boolean) => ko
-      ? "네, 레이팅 에이전시는 '레이팅 커미티 토론(Rating Committee Discussion)' 과정에서 발행사의 주장을 청취합니다. 프로세스는 4–6주 소요됩니다. 비용 시너지는 50% 할인 표준, 매출 시너지는 50–100% 할인합니다. 매년 반복되는 '일회성' 비용은 강하게 도전받습니다. 실무에서 IR 팀과 CFO가 직접 에이전시 분석가와 미팅을 통해 addback 논리를 설명하고, 에이전시는 독립적인 'S&P-adjusted' 또는 'Moody's-adjusted EBITDA'를 공시합니다 — 이것이 발행사 'Adjusted EBITDA'보다 항상 낮습니다. 레이팅은 협상이지만, 에이전시가 최종 결정권을 가집니다."
+      ? "네, 레이팅 에이전시는 '레이팅 커미티 토론(Rating Committee Discussion)' 과정에서 발행사의 주장을 청취합니다. 프로세스는 4–6주 소요됩니다. 비용 시너지는 50% 할인 표준, 매출 시너지는 50–100% 할인합니다. 매년 반복되는 '일회성' 비용은 강하게 도전받습니다. 실무에서 IR 팀과 CFO가 직접 에이전시 애널리스트와 미팅을 통해 addback 논리를 설명하고, 에이전시는 독립적인 'S&P-adjusted' 또는 'Moody's-adjusted EBITDA'를 공시합니다 — 이것이 발행사 'Adjusted EBITDA'보다 항상 낮습니다. 레이팅은 협상이지만, 에이전시가 최종 결정권을 가집니다."
       : "Yes — rating agencies hear issuers' arguments during the 'Rating Committee Discussion' process, which takes 4–6 weeks. Cost synergies receive a standard 50% discount; revenue synergies 50–100%. 'One-time' charges that recur annually are strongly challenged. In practice, IR teams and CFOs meet directly with agency analysts to explain addback rationale. Agencies publish their own 'S&P-adjusted' or 'Moody's-adjusted EBITDA' — always lower than the issuer's. Ratings are a negotiation, but agencies have final say.",
   },
   {

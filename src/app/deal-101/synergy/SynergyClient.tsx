@@ -142,7 +142,7 @@ const FRAMEWORK_TABLE = [
   { category: "측정 방법", cost: "EBITDA 마진 개선폭", revenue: "추가 매출, 교차판매율" },
   { category: "주요 리스크", cost: "인력 이탈, 통합 비용 초과", revenue: "고객 이탈, 문화 충돌" },
   { category: "경영진 통제 가능성", cost: "상대적으로 높음", revenue: "낮음" },
-  { category: "M&A 프리미엄 반영", cost: "통상 50~70% 반영", revenue: "분석가마다 다름, 과대평가 위험" },
+  { category: "M&A 프리미엄 반영", cost: "통상 50~70% 반영", revenue: "애널리스트마다 다름, 과대평가 위험" },
 ];
 
 export default function SynergyClient() {

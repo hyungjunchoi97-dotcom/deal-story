@@ -83,7 +83,7 @@ function TrancheChart({ lang }: { lang: Lang }) {
         <div className="p-5 sm:p-8">
           <div className="h-56">
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={data} margin={{ top: 8, right: 8, left: 0, bottom: 16 }}>
+              <BarChart data={data} margin={{ top: 30, right: 8, left: 0, bottom: 16 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                 <XAxis dataKey="t" tick={{ fontSize: 9, fill: "#9ca3af" }} />
                 <YAxis tick={{ fontSize: 10, fill: "#9ca3af" }} unit="B" />
@@ -167,7 +167,7 @@ function IgMarketChart({ lang }: { lang: Lang }) {
         <div className="p-5 sm:p-8">
           <div className="h-48">
             <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={data} margin={{ top: 8, right: 16, left: 0, bottom: 0 }}>
+              <AreaChart data={data} margin={{ top: 30, right: 16, left: 0, bottom: 0 }}>
                 <defs>
                   <linearGradient id="igGrad" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="5%" stopColor={ACCENT} stopOpacity={0.3} />

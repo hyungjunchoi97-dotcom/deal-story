@@ -139,7 +139,7 @@ function PBRChart({ chart, lang }: { chart: NoteChartDef & { id: "pbr-comparison
   return (
     <ChartCard title={title} caption={caption}>
       <ResponsiveContainer width="100%" height={260}>
-        <LineChart data={data} margin={{ top: 8, right: 10, bottom: 0, left: -10 }}>
+        <LineChart data={data} margin={{ top: 30, right: 10, bottom: 0, left: -10 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} />
           <XAxis dataKey="year" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
           <YAxis yAxisId="left" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} domain={[0.6, 1.4]} tickFormatter={(v) => `${v}x`} />
@@ -204,7 +204,7 @@ function IndexComparisonChart({ chart, lang }: { chart: NoteChartDef & { id: "in
   return (
     <ChartCard title={title} caption={caption}>
       <ResponsiveContainer width="100%" height={260}>
-        <LineChart data={data} margin={{ top: 8, right: 10, bottom: 0, left: -10 }}>
+        <LineChart data={data} margin={{ top: 30, right: 10, bottom: 0, left: -10 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} />
           <XAxis dataKey="year" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
           <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false} domain={[60, 220]} tickFormatter={(v) => `${v}`} />
@@ -235,7 +235,7 @@ function ReserveShareChart({ chart, lang }: { chart: NoteChartDef & { id: "reser
   return (
     <ChartCard title={title} caption={caption}>
       <ResponsiveContainer width="100%" height={240}>
-        <LineChart data={data} margin={{ top: 8, right: 16, bottom: 0, left: -16 }}>
+        <LineChart data={data} margin={{ top: 30, right: 16, bottom: 0, left: -16 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} />
           <XAxis dataKey="year" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} interval={2} />
           <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false} domain={[54, 74]} tickFormatter={(v) => `${v}%`} />
@@ -313,7 +313,7 @@ function FedBalanceSheetChart({ chart, lang }: { chart: NoteChartDef & { id: "fe
   return (
     <ChartCard title={title} caption={caption}>
       <ResponsiveContainer width="100%" height={260}>
-        <BarChart data={data} margin={{ top: 8, right: 16, bottom: 0, left: -8 }} barSize={16}>
+        <BarChart data={data} margin={{ top: 30, right: 16, bottom: 0, left: -8 }} barSize={16}>
           <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} vertical={false} />
           <XAxis dataKey="year" tick={{ fontSize: 9 }} tickLine={false} axisLine={false} interval={1} />
           <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `$${v}T`} domain={[0, 10]} />
@@ -361,7 +361,7 @@ function RepoCrisisChart({ chart, lang }: { chart: NoteChartDef & { id: "repo-cr
   return (
     <ChartCard title={title} caption={caption}>
       <ResponsiveContainer width="100%" height={260}>
-        <LineChart data={data} margin={{ top: 8, right: 16, bottom: 0, left: -8 }}>
+        <LineChart data={data} margin={{ top: 30, right: 16, bottom: 0, left: -8 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} />
           <XAxis dataKey="date" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
           <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `${v}%`} domain={[0, 12]} />
@@ -405,7 +405,7 @@ function CurrencyMixChart({ chart, lang }: { chart: NoteChartDef & { id: "curren
   return (
     <ChartCard title={title} caption={caption}>
       <ResponsiveContainer width="100%" height={260}>
-        <BarChart data={data} margin={{ top: 8, right: 16, bottom: 0, left: -8 }} barSize={28}>
+        <BarChart data={data} margin={{ top: 30, right: 16, bottom: 0, left: -8 }} barSize={28}>
           <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} vertical={false} />
           <XAxis dataKey="year" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
           <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `${v}%`} domain={[0, 100]} />
@@ -449,7 +449,7 @@ function StablecoinChart({ chart, lang }: { chart: NoteChartDef & { id: "stablec
   return (
     <ChartCard title={title} caption={caption}>
       <ResponsiveContainer width="100%" height={240}>
-        <BarChart data={data} margin={{ top: 8, right: 16, bottom: 0, left: -8 }} barSize={28}>
+        <BarChart data={data} margin={{ top: 30, right: 16, bottom: 0, left: -8 }} barSize={28}>
           <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} vertical={false} />
           <XAxis dataKey="year" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
           <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `$${v}B`} />
@@ -497,7 +497,7 @@ function CapexFcfChart({ chart, lang }: { chart: NoteChartDef & { id: "capex-fcf
   return (
     <ChartCard title={title} caption={caption}>
       <ResponsiveContainer width="100%" height={280}>
-        <ComposedChart data={data} margin={{ top: 8, right: 16, bottom: 0, left: -8 }}>
+        <ComposedChart data={data} margin={{ top: 30, right: 16, bottom: 0, left: -8 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} vertical={false} />
           <XAxis dataKey="year" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
           <YAxis yAxisId="left" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `$${v}B`} />
@@ -550,7 +550,7 @@ function LucentFinancingChart({ chart, lang }: { chart: NoteChartDef & { id: "lu
   return (
     <ChartCard title={title} caption={caption}>
       <ResponsiveContainer width="100%" height={250}>
-        <LineChart data={data} margin={{ top: 8, right: 16, bottom: 0, left: -8 }}>
+        <LineChart data={data} margin={{ top: 30, right: 16, bottom: 0, left: -8 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} />
           <XAxis dataKey="fy" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
           <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `$${v}B`} />
@@ -593,7 +593,7 @@ function CiscoLostDecadeChart({ chart, lang }: { chart: NoteChartDef & { id: "ci
   return (
     <ChartCard title={title} caption={caption}>
       <ResponsiveContainer width="100%" height={260}>
-        <LineChart data={data} margin={{ top: 8, right: 16, bottom: 0, left: -8 }}>
+        <LineChart data={data} margin={{ top: 30, right: 16, bottom: 0, left: -8 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} />
           <XAxis dataKey="year" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
           <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `${v}`} domain={[0, 320]} />
@@ -763,7 +763,7 @@ function HbmShareChart({ chart, lang }: { chart: NoteChartDef & { id: "hbm-share
   return (
     <ChartCard title={title} caption={caption}>
       <ResponsiveContainer width="100%" height={260}>
-        <BarChart data={data} margin={{ top: 8, right: 16, bottom: 0, left: -8 }} barSize={28}>
+        <BarChart data={data} margin={{ top: 30, right: 16, bottom: 0, left: -8 }} barSize={28}>
           <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} vertical={false} />
           <XAxis dataKey="quarter" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
           <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `${v}%`} domain={[0, 100]} />
@@ -805,7 +805,7 @@ function NvdaDcRevenueChart({ chart, lang }: { chart: NoteChartDef & { id: "nvda
   return (
     <ChartCard title={title} caption={caption}>
       <ResponsiveContainer width="100%" height={260}>
-        <BarChart data={data} margin={{ top: 8, right: 16, bottom: 0, left: -8 }} barSize={18}>
+        <BarChart data={data} margin={{ top: 30, right: 16, bottom: 0, left: -8 }} barSize={18}>
           <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} vertical={false} />
           <XAxis dataKey="quarter" tick={{ fontSize: 9 }} tickLine={false} axisLine={false} interval={1} />
           <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `$${v}B`} />
@@ -839,7 +839,7 @@ function OpticalMixChart({ chart, lang }: { chart: NoteChartDef & { id: "optical
   return (
     <ChartCard title={title} caption={caption}>
       <ResponsiveContainer width="100%" height={240}>
-        <BarChart data={data} margin={{ top: 8, right: 16, bottom: 0, left: -8 }} barSize={32}>
+        <BarChart data={data} margin={{ top: 30, right: 16, bottom: 0, left: -8 }} barSize={32}>
           <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} vertical={false} />
           <XAxis dataKey="fy" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
           <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `$${v}B`} />
@@ -885,7 +885,7 @@ function CxlAdoptionChart({ chart, lang }: { chart: NoteChartDef & { id: "cxl-ad
   return (
     <ChartCard title={title} caption={caption}>
       <ResponsiveContainer width="100%" height={240}>
-        <BarChart data={data} margin={{ top: 8, right: 16, bottom: 0, left: -8 }} barSize={36}>
+        <BarChart data={data} margin={{ top: 30, right: 16, bottom: 0, left: -8 }} barSize={36}>
           <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} vertical={false} />
           <XAxis dataKey="year" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
           <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `${v}%`} domain={[0, 100]} />
@@ -909,7 +909,7 @@ function DcPowerDemandChart({ chart, lang }: { chart: NoteChartDef & { id: "dc-p
   return (
     <ChartCard title={title} caption={caption}>
       <ResponsiveContainer width="100%" height={250}>
-        <LineChart data={data} margin={{ top: 8, right: 16, bottom: 0, left: -8 }}>
+        <LineChart data={data} margin={{ top: 30, right: 16, bottom: 0, left: -8 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} />
           <XAxis dataKey="year" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
           <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `${v} TWh`} />
@@ -939,7 +939,7 @@ function QueueGrowthChart({ chart, lang }: { chart: NoteChartDef & { id: "queue-
   return (
     <ChartCard title={title} caption={caption}>
       <ResponsiveContainer width="100%" height={240}>
-        <BarChart data={data} margin={{ top: 8, right: 16, bottom: 0, left: -8 }} barSize={28}>
+        <BarChart data={data} margin={{ top: 30, right: 16, bottom: 0, left: -8 }} barSize={28}>
           <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} vertical={false} />
           <XAxis dataKey="year" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
           <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `${v} GW`} />
@@ -961,7 +961,7 @@ function AiPenetrationChart({ chart, lang }: { chart: NoteChartDef & { id: "ai-p
   return (
     <ChartCard title={title} caption={caption}>
       <ResponsiveContainer width="100%" height={260}>
-        <LineChart data={data} margin={{ top: 8, right: 16, bottom: 0, left: -8 }}>
+        <LineChart data={data} margin={{ top: 30, right: 16, bottom: 0, left: -8 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} />
           <XAxis dataKey="period" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
           <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `${v}%`} />
@@ -989,7 +989,7 @@ function PeSpreadChart({ chart, lang }: { chart: NoteChartDef & { id: "pe-spread
   return (
     <ChartCard title={title} caption={caption}>
       <ResponsiveContainer width="100%" height={250}>
-        <LineChart data={data} margin={{ top: 8, right: 16, bottom: 0, left: -8 }}>
+        <LineChart data={data} margin={{ top: 30, right: 16, bottom: 0, left: -8 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} />
           <XAxis dataKey="year" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
           <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `${v}x`} />
@@ -1160,19 +1160,74 @@ function MetricsGrid({ items, lang }: { items: NoteMetric[]; lang: Lang }) {
 }
 
 // ── Text body ──────────────────────────────────────────────────────────────────
+function isMarkdownTable(block: string): boolean {
+  const lines = block.split("\n").map((l) => l.trim());
+  return (
+    lines.length >= 2 &&
+    lines[0].startsWith("|") &&
+    /^\|[\s\-:|]+\|$/.test(lines[1])
+  );
+}
+
+function MarkdownTable({ block }: { block: string }) {
+  const lines = block.split("\n").map((l) => l.trim()).filter(Boolean);
+  const header = lines[0].split("|").map((c) => c.trim()).filter((_, i, a) => i !== 0 && i !== a.length - 1);
+  const rows = lines.slice(2).map((row) =>
+    row.split("|").map((c) => c.trim()).filter((_, i, a) => i !== 0 && i !== a.length - 1)
+  );
+  const renderCell = (text: string) =>
+    text.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+
+  return (
+    <div className="my-6 overflow-x-auto rounded-xl border border-gray-200 dark:border-gray-700">
+      <table className="w-full text-[13px] sm:text-sm">
+        <thead className="bg-gray-50 dark:bg-gray-800/60">
+          <tr>
+            {header.map((h, i) => (
+              <th
+                key={i}
+                className="px-3 py-2.5 text-left font-semibold text-gray-700 dark:text-gray-200 border-b border-gray-200 dark:border-gray-700"
+                dangerouslySetInnerHTML={{ __html: renderCell(h) }}
+              />
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, ri) => (
+            <tr key={ri} className="border-b border-gray-100 dark:border-gray-800 last:border-b-0">
+              {row.map((cell, ci) => (
+                <td
+                  key={ci}
+                  className="px-3 py-2.5 text-gray-600 dark:text-gray-300 align-top"
+                  dangerouslySetInnerHTML={{ __html: renderCell(cell) }}
+                />
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 function TextBody({ body }: { body: string }) {
-  const paragraphs = body.split("\n\n").filter(Boolean);
+  const blocks = body.split("\n\n").filter(Boolean);
   return (
     <div className="space-y-4">
-      {paragraphs.map((para, i) => (
-        <p
-          key={i}
-          className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed"
-          dangerouslySetInnerHTML={{
-            __html: para.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/\n/g, "<br/>"),
-          }}
-        />
-      ))}
+      {blocks.map((block, i) => {
+        if (isMarkdownTable(block)) {
+          return <MarkdownTable key={i} block={block} />;
+        }
+        return (
+          <p
+            key={i}
+            className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed"
+            dangerouslySetInnerHTML={{
+              __html: block.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/\n/g, "<br/>"),
+            }}
+          />
+        );
+      })}
     </div>
   );
 }

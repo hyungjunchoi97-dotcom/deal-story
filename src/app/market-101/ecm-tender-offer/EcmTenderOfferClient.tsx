@@ -524,7 +524,7 @@ function SmPriceChart({ ko }: { ko: boolean }) {
       <div className="p-5">
         <div className="h-52">
           <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={SM_PRICE_DATA} margin={{ top: 8, right: 8, bottom: 8, left: 0 }}>
+            <LineChart data={SM_PRICE_DATA} margin={{ top: 30, right: 8, bottom: 8, left: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} />
               <XAxis
                 dataKey="day"

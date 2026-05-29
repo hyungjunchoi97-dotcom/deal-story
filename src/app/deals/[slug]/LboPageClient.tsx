@@ -347,7 +347,7 @@ export default function LboPageClient({
             <motion.div variants={fadeUp()} className="mb-5">
               <p className="text-[11px] font-bold uppercase tracking-widest mb-1" style={{ color: ACCENT }}>Investment Thesis</p>
               <h2 className="text-xl font-bold text-gray-900 dark:text-gray-50">
-                {ko ? "투자 테제 — 4가지 가치창출 드라이버" : "Why Blackstone Bought — 4 Value Creation Drivers"}
+                {ko ? "Investment Thesis — 4가지 가치창출 드라이버" : "Investment Thesis — 4 Value Creation Drivers"}
               </h2>
               <div className="w-8 h-0.5 mt-2" style={{ background: ACCENT }} />
             </motion.div>

@@ -207,7 +207,7 @@ function CollapseTimelineChart({ lang }: { lang: Lang }) {
         <div className="p-5 sm:p-8">
           <div className="h-52">
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={data} margin={{ top: 8, right: 16, left: 0, bottom: 16 }}>
+              <BarChart data={data} margin={{ top: 30, right: 16, left: 0, bottom: 16 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#fecaca" />
                 <XAxis
                   dataKey="name"

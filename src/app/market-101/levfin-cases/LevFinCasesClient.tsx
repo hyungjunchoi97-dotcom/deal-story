@@ -384,7 +384,7 @@ const FAQS = [
       ? "Blackstone이 Hilton에서 성공한 가장 결정적 요인은 무엇인가요?"
       : "What was the single most decisive factor in Blackstone's success with Hilton?",
     a: (ko: boolean) => ko
-      ? "대부분의 분석가는 두 가지를 꼽습니다. ① 기초 사업의 질 — 호텔업은 경기 사이클 산업이지 구조적 붕괴 산업이 아닙니다. 경기가 회복되면 RevPAR도 반드시 회복됩니다. 이것이 토이저러스(구조적 붕괴, e-커머스)와의 근본적 차이입니다. ② 위기 시 추가 에쿼티 투입 의지 — 블랙스톤은 '키를 돌려줄 수도' 있었지만 대신 $800mn을 추가 투입했습니다. 이는 기초 사업에 대한 스폰서의 확신을 보여주고 채권자 신뢰를 만들었습니다. 이 추가 투입 없이는 힐튼도 구조조정을 피하지 못했을 것입니다."
+      ? "대부분의 애널리스트는 두 가지를 꼽습니다. ① 기초 사업의 질 — 호텔업은 경기 사이클 산업이지 구조적 붕괴 산업이 아닙니다. 경기가 회복되면 RevPAR도 반드시 회복됩니다. 이것이 토이저러스(구조적 붕괴, e-커머스)와의 근본적 차이입니다. ② 위기 시 추가 에쿼티 투입 의지 — 블랙스톤은 '키를 돌려줄 수도' 있었지만 대신 $800mn을 추가 투입했습니다. 이는 기초 사업에 대한 스폰서의 확신을 보여주고 채권자 신뢰를 만들었습니다. 이 추가 투입 없이는 힐튼도 구조조정을 피하지 못했을 것입니다."
       : "Most analysts point to two factors. ① Quality of the underlying business — hotels are cyclical, not structurally declining. When the economy recovers, hotel RevPAR always recovers too. This is the fundamental difference from Toys R Us (structural destruction via e-commerce). ② Willingness to inject more equity during the crisis — Blackstone could have 'handed back the keys' but instead put in $800mn more. This demonstrates sponsor conviction and creates creditor confidence. Without that injection, Hilton would likely have needed restructuring.",
   },
   {

@@ -201,7 +201,7 @@ const deal: DealData = {
       },
       {
         title: "Valeant R&D 절감 전략의 장기 가치 훼손",
-        description: "Valeant는 인수 후 Allergan R&D를 90% 이상 삭감할 계획이었다. Allergan 경영진과 분석가들은 이것이 Botox 프랜차이즈의 장기 성장 엔진을 파괴한다고 우려했다.",
+        description: "Valeant는 인수 후 Allergan R&D를 90% 이상 삭감할 계획이었다. Allergan 경영진과 애널리스트들은 이것이 Botox 프랜차이즈의 장기 성장 엔진을 파괴한다고 우려했다.",
         severity: "high",
       },
     ],

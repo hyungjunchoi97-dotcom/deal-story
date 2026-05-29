@@ -12,7 +12,7 @@ export type NoteCategory = "macro" | "strategy" | "market" | "essay" | "activism
  * 시리즈물 그룹핑 식별자. 새 시리즈 추가 시 ID 등록 → 메타데이터 정의 → 각 노트에 부여.
  * 시리즈에 속하지 않는 노트는 series 필드를 비워두면 인덱스에서 단일 카드로 렌더된다.
  */
-export type NoteSeriesId = "dollar-hegemony" | "ai-capital-cycle";
+export type NoteSeriesId = "dollar-hegemony" | "ai-capital-cycle" | "after-pax-americana";
 
 export const NOTE_SERIES_META: Record<
   NoteSeriesId,
@@ -42,6 +42,15 @@ export const NOTE_SERIES_META: Record<
     descEn: "The $600B circuit — where AI capital flows, where it could break",
     icon: "🔌",
     accent: "#8b5cf6",
+    category: "macro",
+  },
+  "after-pax-americana": {
+    label: "팩스 아메리카나 이후",
+    labelEn: "After Pax Americana",
+    desc: "셰일·인구·부채가 만드는 미국의 후퇴, 그리고 깨어나는 변방의 10년",
+    descEn: "America's retreat through shale, demographics, and debt — and the decade of awakening peripheries",
+    icon: "🌐",
+    accent: "#dc2626",
     category: "macro",
   },
 };
@@ -307,7 +316,7 @@ export type NoteReference = {
 export type NoteData = {
   slug: string;
   category: NoteCategory;
-  status: "published" | "draft";
+  status: "published" | "draft" | "coming-soon";
   title: string;
   titleEn?: string;
   description: string;
@@ -4246,4 +4255,12 @@ const aiCycle7: NoteData = {
   ],
 };
 
-export const ALL_NOTES: NoteData[] = [koreaDiscount, dollarHegemony1, dollarHegemony2, dollarHegemony3, dollarHegemony4, aiCycle1, aiCycle2, aiCycle3, aiCycle4, aiCycle5, aiCycle6, aiCycle7];
+// ── After Pax Americana 시리즈 (15편 — 별도 파일에서 import) ────────────────────
+import { AFTER_PAX_AMERICANA_NOTES } from "./after-pax-americana";
+
+export const ALL_NOTES: NoteData[] = [
+  koreaDiscount,
+  dollarHegemony1, dollarHegemony2, dollarHegemony3, dollarHegemony4,
+  aiCycle1, aiCycle2, aiCycle3, aiCycle4, aiCycle5, aiCycle6, aiCycle7,
+  ...AFTER_PAX_AMERICANA_NOTES,
+];
