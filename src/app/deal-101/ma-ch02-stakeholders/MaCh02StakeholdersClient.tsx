@@ -31,146 +31,100 @@ const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.06 } } };
 const SLUG = "ma-ch02-stakeholders";
 const ACCENT = "#3b82f6";
 
-// ── Advisor 도감 ─────────────────────────────────────────────────────
+// ── Advisor 도감 — 간략 ──────────────────────────────────────────────
 const ADVISORS = [
   {
     key: "ib",
     koRole: "IB (M&A Advisor)",
     enRole: "IB (M&A Advisor)",
     color: "#3b82f6",
-    koOutput: "전체 process · Valuation · IM/CIM · 협상 리딩",
-    enOutput: "Overall process · valuation · IM/CIM · negotiation lead",
-    koWhen: "Week 0 ~ Week 30 (풀 액티브)",
-    enWhen: "Week 0 ~ Week 30 (full-active)",
-    koInterface: "Sole point of contact between client과 모든 advisor",
-    enInterface: "Sole point of contact between client and every other advisor",
-    firms: "Goldman Sachs · Morgan Stanley · JPM · Lazard · Evercore · Centerview · PJT",
-    koRisk: "전체 process 통제 실패 — 한 advisor의 지연이 deal 전체를 흔든다",
-    enRisk: "Loss of process control — one advisor's delay can disrupt the whole deal",
+    koJob: "전체 process 리딩, valuation, IM/CIM 작성, 협상",
+    enJob: "Leads the overall process, valuation, IM/CIM, and negotiation",
+    firms: "Goldman Sachs · Morgan Stanley · JPMorgan · Lazard · Evercore · Centerview",
   },
   {
     key: "fas",
-    koRole: "회계 FAS (Financial Advisory Services)",
+    koRole: "회계 FAS (Financial Advisory)",
     enRole: "Accounting FAS",
     color: "#8b5cf6",
-    koOutput: "FDD report (QoE · NWC · Net debt 검증) · Adjusted EBITDA",
-    enOutput: "FDD report (QoE · NWC · Net debt) · Adjusted EBITDA",
-    koWhen: "Sell-side: W2-6 (Vendor DD) / Buy-side: W11-18",
-    enWhen: "Sell-side: W2-6 (Vendor DD) / Buy-side: W11-18",
-    koInterface: "IB가 결과를 받아 Valuation에 반영, buyer 자문 FAS와 직접 협상",
-    enInterface: "IB consumes outputs into valuation; talks directly to buyer's FAS",
-    firms: "Deloitte · PwC · EY · KPMG (Big 4)",
-    koRisk: "EBITDA add-back 협상에서 IB가 발화점 모르면 가격이 흔들림",
-    enRisk: "If IB doesn't see what's negotiable in add-backs, price moves against them",
+    koJob: "재무 실사 (FDD) — Adjusted EBITDA, NWC, Net Debt 검증",
+    enJob: "Financial DD — validates Adjusted EBITDA, NWC, Net Debt",
+    firms: "Deloitte · PwC · EY · KPMG",
   },
   {
     key: "consulting",
     koRole: "전략 컨설팅 (CDD)",
     enRole: "Strategy Consultants (CDD)",
     color: "#10b981",
-    koOutput: "Commercial DD report · Market sizing · 매출 projection · Synergy validation",
-    enOutput: "Commercial DD report · market sizing · revenue projection · synergy validation",
-    koWhen: "주로 Buy-side: W11-18 (Final bid 전 완성)",
-    enWhen: "Mostly Buy-side: W11-18 (complete before final bid)",
-    koInterface: "Buy-side IB가 valuation 가정의 evidence로 활용",
-    enInterface: "Buy-side IB uses outputs as evidence for valuation assumptions",
-    firms: "McKinsey · BCG · Bain (MBB) · L.E.K. · Oliver Wyman · OC&C",
-    koRisk: "Market sizing이 inflated되면 revenue 가정 무리 → final bid overpay",
-    enRisk: "Inflated market sizing leads to aggressive revenue assumptions → overpaying",
+    koJob: "상업 실사 — 시장 사이즈, 매출 projection, synergy 검증",
+    enJob: "Commercial DD — market sizing, revenue projection, synergy validation",
+    firms: "McKinsey · BCG · Bain · L.E.K. · Oliver Wyman",
   },
   {
     key: "law",
     koRole: "법무법인 (LDD + SPA)",
     enRole: "Law Firm (LDD + SPA)",
     color: "#f59e0b",
-    koOutput: "LDD report (계약·소송·IP·규제 review) · SPA 작성·협상",
-    enOutput: "LDD report (contracts · litigation · IP · regulation) · SPA drafting / negotiation",
-    koWhen: "W3-6 (VDR setup) · W11-22 (DD + SPA)",
-    enWhen: "W3-6 (VDR setup) · W11-22 (DD + SPA)",
-    koInterface: "IB와 함께 SPA 핵심 조항 협상. Closing mechanics 전담",
-    enInterface: "Co-negotiates SPA core terms with IB. Owns closing mechanics",
-    firms: "Skadden · Cravath · Wachtell · Sullivan & Cromwell · Simpson Thacher · Kirkland & Ellis · Latham & Watkins · Paul Weiss",
-    koRisk: "SPA representation 조항 한 줄이 closing 후 1년 동안 가격을 흔든다",
-    enRisk: "A single rep & warranty clause can swing price for a year after closing",
+    koJob: "법률 실사 + SPA 작성·협상 + Closing mechanics",
+    enJob: "Legal DD + SPA drafting & negotiation + closing mechanics",
+    firms: "Skadden · Cravath · Wachtell · Sullivan & Cromwell · Kirkland · Latham",
   },
   {
     key: "lenders",
-    koRole: "Lender / 인수금융 (Buy-side만)",
-    enRole: "Lenders / Acquisition Finance (Buy-side only)",
+    koRole: "Lender (Buy-side)",
+    enRole: "Lender (Buy-side)",
     color: "#f43f5e",
-    koOutput: "Debt commitment letter · Term sheet · Final credit agreement",
-    enOutput: "Debt commitment letter · term sheet · final credit agreement",
-    koWhen: "PE buyer: W6-22 (IOI에 commitment letter 첨부 필수)",
-    enWhen: "PE buyer: W6-22 (commitment letter required with IOI)",
-    koInterface: "Buy-side IB가 lender와 협상해 financing 구조 짠 후 PE에 제시",
-    enInterface: "Buy-side IB negotiates with lenders, structures financing, presents to PE",
-    firms: "JPM · BofA · Citi · Wells Fargo · Mizuho · Mitsubishi UFJ",
-    koRisk: "Financing 못 받으면 IOI 가격이 비현실적이 됨",
-    enRisk: "Without financing, the IOI price becomes unrealistic",
+    koJob: "인수금융 — Debt commitment letter, term sheet, credit agreement",
+    enJob: "Acquisition financing — debt commitment letter, term sheet, credit agreement",
+    firms: "JPM · BofA · Citi · Wells Fargo",
   },
 ];
 
-// ── IB House Types (the M&A advisor landscape) ───────────────────────
+// ── IB House Types — 간략 ────────────────────────────────────────────
 const IB_HOUSES = [
   {
     key: "big4",
     koTier: "Big 4 Corporate Finance",
     enTier: "Big 4 Corporate Finance",
     color: "#8b5cf6",
+    koSize: "$20-200M",
+    enSize: "$20-200M",
+    koJob: "Audit·Tax·FDD·Advisory 패키지. PE portfolio exit·carve-out 중심",
+    enJob: "Audit, tax, FDD, and advisory bundled. Focused on PE portfolio exits and carve-outs",
     firms: "Deloitte CF · PwC Deals · EY-Parthenon · KPMG CF",
-    koSweet: "$20-200M, PE portfolio exit, carve-out / divestiture",
-    enSweet: "$20-200M, PE portfolio exits, carve-outs / divestitures",
-    koEdge: "Audit · Tax · FDD · Advisory를 한 firm에서 패키지. PE가 portfolio 30개 회사를 같은 Big 4로 깔아두면 entire lifecycle 효율적. 회계 복잡도 높은 carve-out에서 절대 우위",
-    enEdge: "Audit, tax, FDD, advisory bundled in one firm. PE funds running 30+ portfolio companies through the same Big 4 keep the entire lifecycle efficient. Strong advantage on accounting-complex carve-outs",
-    koLimit: "SOX 독립성 — audit client에 대해서는 M&A advisory 금지. Public 대기업은 거의 다 audit relationship에 막힘",
-    enLimit: "SOX independence — barred from advising audit clients on M&A. Most public large-caps are locked out due to existing audit relationships",
-    koReal: "PE 펀드가 $80M SaaS 회사 매각 → Deloitte CF가 sell-side + FDD + tax DD 한 번에",
-    enReal: "PE selling an $80M SaaS company → Deloitte CF runs sell-side + FDD + tax DD as a single mandate",
   },
   {
     key: "mm",
     koTier: "Mid-Market Boutiques",
     enTier: "Mid-Market Boutiques",
     color: "#10b981",
+    koSize: "$100-500M",
+    enSize: "$100-500M",
+    koJob: "Sector-focused MM sell-side advisory. Houlihan은 fairness opinion 세계 1위",
+    enJob: "Sector-focused MM sell-side advisory. Houlihan ranks #1 globally in fairness opinions",
     firms: "Houlihan Lokey · Lincoln International · Harris Williams · William Blair · Raymond James · Piper Sandler · Baird",
-    koSweet: "$100-500M, sector-focused MM sell-side",
-    enSweet: "$100-500M, sector-focused MM sell-side",
-    koEdge: "Sector expertise + 두꺼운 PE network at MM. Sell-side process를 BB보다 효율적으로 굴림. Houlihan Lokey는 fairness opinion 세계 1위 (20년+) + restructuring 강자",
-    enEdge: "Sector expertise + deep PE network at the MM level. Runs sell-side processes more efficiently than BBs at this size. Houlihan Lokey holds the #1 global fairness opinion ranking for 20+ years and dominates restructuring",
-    koLimit: "Cross-border 제한적 (해외 office 적음). 자체 financing arm 없음. Mega-deal advisory 안 함",
-    enLimit: "Limited cross-border (sparse overseas offices). No financing arm. Won't compete for mega-deals",
-    koReal: "PE가 $250M industrial company 매각 → Harris Williams가 sell-side. BB는 fee가 너무 작아 안 받음",
-    enReal: "PE selling a $250M industrial → Harris Williams runs sell-side. BBs decline because the fee is too small",
   },
   {
     key: "senior",
     koTier: "Senior Banker Boutiques",
     enTier: "Senior Banker Boutiques",
     color: "#f59e0b",
+    koSize: "$1B+",
+    enSize: "$1B+",
+    koJob: "Independent advisory + MD 직접 attention. Centerview=헬스케어, PJT=restructuring",
+    enJob: "Independent advisory with direct MD attention. Centerview=healthcare, PJT=restructuring",
     firms: "Centerview · PJT Partners · Moelis · Evercore · Greenhill · Lazard · Guggenheim",
-    koSweet: "$1B+, board fairness opinion, conflict-free 전략 advisory",
-    enSweet: "$1B+, board fairness opinions, conflict-free strategic advisory",
-    koEdge: "Independence (no underwriting/trading conflicts) + MD-level attention. 각자 specialty 명확 — Centerview = 헬스케어 (Allergan/Pfizer), Evercore = restructuring + advisory, PJT = restructuring (BX에서 spin-off), Moelis = sponsor coverage, Lazard = European cross-border",
-    enEdge: "Independence (no underwriting/trading conflicts) + MD-level attention. Each has a clear specialty — Centerview = healthcare (Allergan/Pfizer), Evercore = restructuring + advisory, PJT = restructuring (spun out of Blackstone), Moelis = sponsor coverage, Lazard = European cross-border",
-    koLimit: "No financing arm — debt commitment letter 못 제공. ECM/DCM 없음. Balance sheet 없음",
-    enLimit: "No financing arm — can't provide debt commitment letters. No ECM/DCM. No balance sheet",
-    koReal: "Public company가 hostile bid 받음 → Centerview를 board advisor로 — BB는 underwriting client일 수 있어 conflict",
-    enReal: "Public company receives hostile bid → board hires Centerview as advisor — BBs might be conflicted as underwriting clients",
   },
   {
     key: "bb",
     koTier: "Bulge Brackets",
     enTier: "Bulge Brackets",
     color: "#3b82f6",
+    koSize: "$2B+ mega",
+    enSize: "$2B+ mega",
+    koJob: "Full-service. Advisory + acquisition financing + ECM/DCM. GS는 M&A 20년 1위",
+    enJob: "Full-service. Advisory + acquisition financing + ECM/DCM. GS has led M&A for 20 years",
     firms: "Goldman Sachs · Morgan Stanley · JPMorgan · BofA · Citi · Barclays · UBS · Deutsche Bank",
-    koSweet: "$2B+ mega deals, cross-border, financing 동반 deal",
-    enSweet: "$2B+ mega deals, cross-border, financing-heavy transactions",
-    koEdge: "Full-service — advisory + acquisition financing + ECM/DCM + trading + research. GS는 M&A volume 20년 1위, MS는 tech/cross-border (특히 Asia), JPM은 advisory + financing 통합이 최강. $10B+ deal 자체가 BB만 가능 — 작은 firm은 commitment letter 못 씀",
-    enEdge: "Full-service — advisory + acquisition financing + ECM/DCM + trading + research. GS has led global M&A volume for 20 years; MS is strongest in tech/cross-border (especially Asia); JPM has the best advisory + financing integration. $10B+ deals are effectively BB-only — smaller firms can't write the commitment letters",
-    koLimit: "Conflicts across business lines (advisory vs prop trading vs underwriting). Bureaucracy. MD attention이 senior boutique보다 약함 — 한 MD가 동시에 5-7개 mandate",
-    enLimit: "Conflicts across business lines (advisory vs prop trading vs underwriting). Bureaucracy. MD attention is thinner than senior boutiques — one MD typically juggles 5-7 mandates",
-    koReal: "Microsoft가 Activision $69B 인수 → GS가 advisor + ECM이 financing 동시 → 부티크는 이 size 불가",
-    enReal: "Microsoft acquiring Activision for $69B → GS as advisor with simultaneous financing through ECM → no boutique can match this scale",
   },
 ];
 
@@ -216,6 +170,19 @@ const CLIENT_SIDE = [
     koTip: "Public target은 board의 fiduciary duty가 모든 판단의 기준",
     enTip: "For public targets, the board's fiduciary duty governs every call",
   },
+];
+
+// ── Sell-side vs Buy-side comparison ─────────────────────────────────
+const SIDE_COMPARISON = [
+  { koDim: "클라이언트",           enDim: "Client",                    sellKo: "매도자 (CEO·CFO·Board)",                         sellEn: "Seller (CEO/CFO/Board)",                         buyKo: "인수자 (Strategic 또는 PE)",                         buyEn: "Acquirer (Strategic or PE)" },
+  { koDim: "목표",                 enDim: "Goal",                      sellKo: "가격 최대화 + 확실한 closing",                    sellEn: "Maximize price + secure closing",                buyKo: "타겟 발굴 + 합리적 가격에 인수",                      buyEn: "Find target + buy at a fair price" },
+  { koDim: "주요 deliverable",     enDim: "Key deliverables",          sellKo: "Teaser · CIM · Mgmt presentation · VDR · Process letter", sellEn: "Teaser · CIM · Mgmt presentation · VDR · Process letter", buyKo: "IOI · Buy-side DD · Final bid · Mark-up SPA",       buyEn: "IOI · Buy-side DD · Final bid · Mark-up SPA" },
+  { koDim: "Process role",         enDim: "Process role",              sellKo: "Auction 진행 (run the process)",                 sellEn: "Run the auction",                                 buyKo: "Auction에 참여 (compete in the process)",            buyEn: "Compete in the auction" },
+  { koDim: "DD 방향",              enDim: "DD direction",              sellKo: "Vendor DD 발주 후 buyer에게 제공",                sellEn: "Commission Vendor DD, provide to buyers",         buyKo: "본인 비용으로 buy-side DD 풀로 진행",                 buyEn: "Run full buy-side DD at own expense" },
+  { koDim: "Financing",            enDim: "Financing",                 sellKo: "필요 없음 (받는 입장)",                          sellEn: "Not needed (you receive funds)",                  buyKo: "Strategic은 balance sheet, PE는 lender commitment",  buyEn: "Strategic uses balance sheet; PE secures lender commitment" },
+  { koDim: "Timeline",             enDim: "Timeline",                  sellKo: "Mandate 받은 후 6개월 고정 schedule",             sellEn: "6-month fixed schedule from mandate",             buyKo: "Sell-side process timeline에 맞춰서 reactive",       buyEn: "Reactive — follows the sell-side timeline" },
+  { koDim: "수수료 (BB 기준)",     enDim: "Fee (BB benchmark)",        sellKo: "딜 가치의 0.5-1.0%",                              sellEn: "0.5-1.0% of deal value",                          buyKo: "딜 가치의 0.3-0.7% (sell-side보다 낮음)",            buyEn: "0.3-0.7% of deal value (lower than sell-side)" },
+  { koDim: "핵심 스킬",            enDim: "Core skill",                sellKo: "가격 최대화 — auction dynamics 설계",             sellEn: "Price maximization — auction design",             buyKo: "가격 규율 — overpay 방지 + synergy 검증",            buyEn: "Pricing discipline — avoid overpay + validate synergy" },
 ];
 
 // ── Failure modes ─────────────────────────────────────────────────────
@@ -372,43 +339,21 @@ export default function MaCh02StakeholdersClient({ lang }: { lang: Lang }) {
               <div className="w-8 h-0.5 mt-3" style={{ background: ACCENT }} />
             </motion.div>
 
-            <motion.div variants={fadeUp(0.1)} className="space-y-3">
+            <motion.div variants={fadeUp(0.1)} className="space-y-2.5">
               {ADVISORS.map((a, i) => (
                 <motion.div
                   key={a.key}
-                  initial={{ opacity: 0, y: 12 }}
+                  initial={{ opacity: 0, y: 8 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={VP}
-                  transition={{ duration: 0.4, delay: i * 0.07, ease: EASE }}
-                  className="rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden bg-white dark:bg-gray-900"
+                  transition={{ duration: 0.35, delay: i * 0.05, ease: EASE }}
+                  className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-4 flex items-start gap-3"
                 >
-                  <div className="px-5 py-3 flex items-center gap-3" style={{ background: `${a.color}10` }}>
-                    <div className="w-2 h-8 rounded-full" style={{ background: a.color }} />
-                    <p className="text-[14px] font-bold text-gray-900 dark:text-gray-100 flex-1">{ko ? a.koRole : a.enRole}</p>
-                  </div>
-                  <div className="p-5 space-y-3">
-                    <div>
-                      <p className="text-[10px] font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-1">{ko ? "Deliverable" : "Deliverable"}</p>
-                      <p className="text-[13px] text-gray-700 dark:text-gray-300 leading-snug">{ko ? a.koOutput : a.enOutput}</p>
-                    </div>
-                    <div className="grid sm:grid-cols-2 gap-3">
-                      <div>
-                        <p className="text-[10px] font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-1">{ko ? "투입 시점" : "When they're in"}</p>
-                        <p className="text-[12px] text-gray-600 dark:text-gray-400 leading-snug">{ko ? a.koWhen : a.enWhen}</p>
-                      </div>
-                      <div>
-                        <p className="text-[10px] font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-1">{ko ? "IB와의 인터페이스" : "Interface with IB"}</p>
-                        <p className="text-[12px] text-gray-600 dark:text-gray-400 leading-snug">{ko ? a.koInterface : a.enInterface}</p>
-                      </div>
-                    </div>
-                    <div>
-                      <p className="text-[10px] font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-1">{ko ? "대표 firm" : "Representative firms"}</p>
-                      <p className="text-[11px] text-gray-600 dark:text-gray-400 leading-snug font-mono">{a.firms}</p>
-                    </div>
-                    <div className="rounded-lg p-3 bg-rose-50/60 dark:bg-rose-950/20 border-l-2 border-rose-400">
-                      <p className="text-[10px] font-bold uppercase tracking-wider text-rose-700 dark:text-rose-300 mb-1">{ko ? "IB가 놓치면 — risk" : "Risk if IB drops the ball"}</p>
-                      <p className="text-[12px] text-rose-900 dark:text-rose-100 leading-snug">{ko ? a.koRisk : a.enRisk}</p>
-                    </div>
+                  <div className="flex-shrink-0 w-1 self-stretch rounded-full" style={{ background: a.color }} />
+                  <div className="flex-1 min-w-0">
+                    <p className="text-[13px] font-bold text-gray-900 dark:text-gray-100 mb-1">{ko ? a.koRole : a.enRole}</p>
+                    <p className="text-[12px] text-gray-600 dark:text-gray-300 leading-snug mb-1.5">{ko ? a.koJob : a.enJob}</p>
+                    <p className="text-[11px] text-gray-400 dark:text-gray-500 font-mono leading-snug">{a.firms}</p>
                   </div>
                 </motion.div>
               ))}
@@ -424,52 +369,31 @@ export default function MaCh02StakeholdersClient({ lang }: { lang: Lang }) {
               </h2>
               <div className="w-8 h-0.5 mt-3" style={{ background: ACCENT }} />
             </motion.div>
-            <motion.div variants={fadeUp(0.1)} className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed space-y-4 mb-6">
+            <motion.div variants={fadeUp(0.1)} className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
               <p>{ko
-                ? "§ 3 에서 'IB'를 하나로 묶었지만, 실제 M&A advisor 시장은 4개 type으로 갈라집니다. 각자 sweet spot이 명확하고, 그 영역 밖에서는 거의 경쟁하지 않습니다. $80M PE portfolio exit과 $30B mega-merger는 사실상 다른 firm 카테고리가 일합니다."
-                : "§ 3 lumped 'IB' into one bucket, but the actual M&A advisor market splits into four types. Each has a clear sweet spot and barely competes outside it. An $80M PE portfolio exit and a $30B mega-merger are run by effectively different firm categories."}</p>
-              <p>{ko
-                ? "특히 미국 시장에서 흥미로운 부분 — Big 4 회계법인이 M&A advisory를 적극적으로 합니다. Deloitte Corporate Finance LLC, PwC Deals, EY-Parthenon, KPMG Corporate Finance — 모두 진짜 advisory 부서이고, MM 영역에서 league table 상위권에 올라옵니다. 단 SOX 독립성 규정 때문에 audit client에 대해서는 M&A advisory 못 합니다 (이 제약이 Big 4를 public 대기업 영역에서 배제)."
-                : "One quirk of the US market — Big 4 accounting firms aggressively offer M&A advisory. Deloitte Corporate Finance LLC, PwC Deals, EY-Parthenon, KPMG Corporate Finance — all run real advisory arms and crack league tables at the MM level. The catch: SOX independence bars them from advising audit clients, which excludes most public large-caps."}</p>
+                ? "M&A advisor를 다 'IB'라고 부르지만 실제로는 4가지 type — 회계법인 · MM 부티크 · Senior 부티크 · BB. 각자 sweet spot deal size가 다르고, 그 영역 안에서 주로 경쟁합니다."
+                : "Everyone calls them 'IB,' but there are really 4 types — Big 4 · MM boutique · senior boutique · BB. Each has a different sweet spot deal size and competes mostly within that range."}</p>
             </motion.div>
 
-            {/* House cards */}
-            <motion.div variants={fadeUp(0.15)} className="space-y-3">
+            {/* House cards — simplified */}
+            <motion.div variants={fadeUp(0.15)} className="space-y-2.5">
               {IB_HOUSES.map((h, i) => (
                 <motion.div
                   key={h.key}
-                  initial={{ opacity: 0, y: 12 }}
+                  initial={{ opacity: 0, y: 8 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={VP}
-                  transition={{ duration: 0.4, delay: i * 0.07, ease: EASE }}
-                  className="rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden bg-white dark:bg-gray-900"
+                  transition={{ duration: 0.35, delay: i * 0.05, ease: EASE }}
+                  className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-4 flex items-start gap-3"
                 >
-                  <div className="px-5 py-3 flex items-center gap-3" style={{ background: `${h.color}10` }}>
-                    <div className="w-2 h-8 rounded-full" style={{ background: h.color }} />
-                    <div className="flex-1">
-                      <p className="text-[14px] font-bold text-gray-900 dark:text-gray-100">{ko ? h.koTier : h.enTier}</p>
-                      <p className="text-[10px] text-gray-500 dark:text-gray-400 font-mono mt-0.5">{h.firms}</p>
+                  <div className="flex-shrink-0 w-1 self-stretch rounded-full" style={{ background: h.color }} />
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-baseline gap-2 mb-1 flex-wrap">
+                      <p className="text-[13px] font-bold text-gray-900 dark:text-gray-100">{ko ? h.koTier : h.enTier}</p>
+                      <span className="text-[10px] font-mono px-1.5 py-0.5 rounded text-white" style={{ background: h.color }}>{ko ? h.koSize : h.enSize}</span>
                     </div>
-                  </div>
-                  <div className="p-5 space-y-3">
-                    <div className="grid sm:grid-cols-2 gap-3">
-                      <div>
-                        <p className="text-[10px] font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-1">{ko ? "Sweet spot" : "Sweet spot"}</p>
-                        <p className="text-[12px] text-gray-700 dark:text-gray-300 leading-snug">{ko ? h.koSweet : h.enSweet}</p>
-                      </div>
-                      <div>
-                        <p className="text-[10px] font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-1">{ko ? "실제 케이스" : "Real example"}</p>
-                        <p className="text-[12px] text-gray-700 dark:text-gray-300 leading-snug">{ko ? h.koReal : h.enReal}</p>
-                      </div>
-                    </div>
-                    <div className="rounded-lg p-3 bg-emerald-50/60 dark:bg-emerald-950/20 border-l-2 border-emerald-400">
-                      <p className="text-[10px] font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-300 mb-1">{ko ? "Edge — 왜 이 영역에서 강한가" : "Edge — why they dominate this slot"}</p>
-                      <p className="text-[12px] text-emerald-900 dark:text-emerald-100 leading-snug">{ko ? h.koEdge : h.enEdge}</p>
-                    </div>
-                    <div className="rounded-lg p-3 bg-rose-50/60 dark:bg-rose-950/20 border-l-2 border-rose-400">
-                      <p className="text-[10px] font-bold uppercase tracking-wider text-rose-700 dark:text-rose-300 mb-1">{ko ? "Limitation — 못 하는 것" : "Limitation — what they can't do"}</p>
-                      <p className="text-[12px] text-rose-900 dark:text-rose-100 leading-snug">{ko ? h.koLimit : h.enLimit}</p>
-                    </div>
+                    <p className="text-[12px] text-gray-600 dark:text-gray-300 leading-snug mb-1.5">{ko ? h.koJob : h.enJob}</p>
+                    <p className="text-[11px] text-gray-400 dark:text-gray-500 font-mono leading-snug">{h.firms}</p>
                   </div>
                 </motion.div>
               ))}
@@ -508,17 +432,6 @@ export default function MaCh02StakeholdersClient({ lang }: { lang: Lang }) {
               </div>
             </motion.div>
 
-            {/* Industry specialist note */}
-            <motion.div variants={fadeUp(0.25)} className="mt-5 rounded-xl p-4 bg-gray-50/60 dark:bg-gray-900/40 border border-gray-200 dark:border-gray-700">
-              <p className="text-[10px] font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-1.5">
-                {ko ? "+ 한 가지 더 — 산업 specialist boutiques" : "+ One more — industry specialist boutiques"}
-              </p>
-              <p className="text-[12px] text-gray-600 dark:text-gray-400 leading-relaxed">
-                {ko
-                  ? "FT Partners (fintech), Allen & Company (media), Cain Brothers (healthcare services), Qatalyst Partners (tech sell-side), Robey Warshaw (UK financials) — 자기 sector 안에서는 BB나 senior boutique보다 강함. Qatalyst가 ServiceNow IPO와 Slack/Salesforce sale을 advisor로 한 게 대표적. 산업 깊이가 worth premium일 때 선택."
-                  : "FT Partners (fintech), Allen & Company (media), Cain Brothers (healthcare services), Qatalyst Partners (tech sell-side), Robey Warshaw (UK financials) — within their vertical, they outperform BBs and senior boutiques. Qatalyst advising on the ServiceNow IPO and the Slack/Salesforce sale is the canonical example. Pick them when sector depth justifies the premium."}
-              </p>
-            </motion.div>
           </motion.section>
 
           {/* § 5 — Client side */}
@@ -558,22 +471,57 @@ export default function MaCh02StakeholdersClient({ lang }: { lang: Lang }) {
             </motion.div>
           </motion.section>
 
-          {/* § 6 — Buyer side mirror */}
+          {/* § 6 — Sell vs Buy comparison */}
           <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
             <motion.div variants={fadeUp()} className="mb-5">
               <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-1">§ 6</p>
               <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100">
-                {ko ? "Buyer side — 같은 cast가 거울처럼" : "Buyer side — the cast mirrored"}
+                {ko ? "Sell-side vs Buy-side — 한눈에 보는 차이" : "Sell-side vs Buy-side — at a glance"}
               </h2>
               <div className="w-8 h-0.5 mt-3" style={{ background: ACCENT }} />
             </motion.div>
-            <motion.div variants={fadeUp(0.1)} className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+            <motion.div variants={fadeUp(0.1)} className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
               <p>{ko
-                ? "Buyer side에도 같은 5개 advisor가 있습니다. Buyer's IB · FAS (Buy-side FDD) · Consulting (CDD) · 법무 · Lender. 차이점은 buyer가 lender를 끌어와야 한다는 것 (Strategic은 balance sheet, PE sponsor는 debt commitment). Sell-side advisor는 negotiation 과정에서 buyer side의 모든 advisor counterpart와 직접 협상합니다."
-                : "The buyer side fields the same 5 advisors: buyer's IB, FAS (buy-side FDD), consultants (CDD), law firm, lenders. The difference is that buyers need to bring in lenders (strategics use balance sheet; PE sponsors need debt commitments). During negotiation, sell-side advisors deal directly with each buyer-side counterpart."}</p>
-              <p>{ko
-                ? "Buy-side에서 IB의 역할도 거의 같습니다. Target identification + DD orchestration + valuation + 협상 + closing. 다만 process가 reverse입니다 — sell-side가 만든 CIM·VDR을 받아서 평가하고, Vendor DD report를 검증하고, IOI를 작성하고, final bid 결정."
-                : "Buy-side IB plays a nearly identical role: target identification, DD orchestration, valuation, negotiation, closing. The process just runs in reverse — receive the sell-side's CIM and VDR, validate the Vendor DD report, submit IOIs, decide the final bid."}</p>
+                ? "같은 9단계 process이지만, 매도자 advisor인지 인수자 advisor인지에 따라 일이 완전히 달라집니다. 클라이언트·목표·deliverable·DD 방향·수수료 — 9가지 차원에서 정리."
+                : "Same 9-stage process, but seller's advisor vs acquirer's advisor are completely different jobs. Client, goal, deliverables, DD direction, fees — across 9 dimensions."}</p>
+            </motion.div>
+
+            <motion.div variants={fadeUp(0.15)} className="rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700">
+              <div className="bg-gray-50 dark:bg-gray-800/60 px-5 py-3 border-b border-gray-200 dark:border-gray-700">
+                <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500">
+                  {ko ? "Sell vs Buy — 9개 차원" : "Sell vs Buy — 9 dimensions"}
+                </p>
+              </div>
+              <div className="overflow-x-auto">
+                <table className="min-w-full text-[12px]">
+                  <thead>
+                    <tr className="border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
+                      <th className="text-left px-3 py-2.5 font-semibold text-gray-500 dark:text-gray-400 w-32">{ko ? "차원" : "Dimension"}</th>
+                      <th className="text-left px-3 py-2.5 font-semibold text-blue-700 dark:text-blue-300">
+                        <span className="inline-flex items-center gap-1.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                          Sell-side
+                        </span>
+                      </th>
+                      <th className="text-left px-3 py-2.5 font-semibold text-emerald-700 dark:text-emerald-300">
+                        <span className="inline-flex items-center gap-1.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                          Buy-side
+                        </span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {SIDE_COMPARISON.map((row, i) => (
+                      <tr key={i} className={i % 2 === 0 ? "bg-white dark:bg-gray-950" : "bg-gray-50/50 dark:bg-gray-900/30"}>
+                        <td className="px-3 py-3 font-medium text-gray-800 dark:text-gray-200 align-top">{ko ? row.koDim : row.enDim}</td>
+                        <td className="px-3 py-3 text-gray-700 dark:text-gray-300 align-top leading-snug">{ko ? row.sellKo : row.sellEn}</td>
+                        <td className="px-3 py-3 text-gray-700 dark:text-gray-300 align-top leading-snug">{ko ? row.buyKo : row.buyEn}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </motion.div>
           </motion.section>
 
