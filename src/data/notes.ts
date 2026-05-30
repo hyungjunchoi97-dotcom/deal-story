@@ -4246,8 +4246,620 @@ const aiCycle7: NoteData = {
   ],
 };
 
+// ══════════════════════════════════════════════════════════════════════════════
+// NOTE #13 — Quantum Computing: 다음 자본 사이클인가, 또 하나의 거품인가
+// ══════════════════════════════════════════════════════════════════════════════
+
+const quantumComputing: NoteData = {
+  slug: "quantum-computing-next-cycle",
+  category: "macro",
+  status: "published",
+  title: "양자컴퓨터 — AI 다음 자본 사이클인가, 또 하나의 거품인가",
+  titleEn: "Quantum Computing — The Next Capital Cycle After AI, or Another Bubble?",
+  description:
+    "Google Willow, Microsoft Majorana 1, IonQ 250% — 양자컴퓨터가 갑자기 모든 곳에서 들린다. 양자가 임계점에 도달하면 무엇이 가능한가, 왜 50년간 안 됐나, 누가 어떤 길로 가고 있나, 비즈니스 모델과 밸류체인은 어떻게 짜이고 어디가 병목인가 — 35분 안에 전부 정리한다.",
+  descriptionEn:
+    "Google Willow, Microsoft Majorana 1, IonQ +250% — quantum is suddenly everywhere. What becomes possible when quantum reaches its threshold, why it took 50 years, who's leading, how the business models and value chain are structured, and where the bottlenecks sit — all in 35 minutes.",
+  date: "2026-05-29",
+  readingMinutes: 35,
+  keyPoints: [
+    "Google Willow(2024.12)는 양자 에러 교정의 임계점을 처음 실험으로 증명한 사건",
+    "양자가 임계점에 도달하면: 신약 10년→1년, 비트코인 깨짐(Q-Day), AI 학습 며칠→몇 분, $500B PQC 마이그레이션",
+    "현재 IonQ/Rigetti/D-Wave EV/Sales 200-4000배 — 현재 매출이 아니라 2035년 가능성에 가격이 매겨짐",
+    "진짜 알파는 Pick-and-Shovel — Bluefors(희석 냉동기 70% 점유, IPO 잠재력), Coherent·Lumentum(레이저), TSMC(양자 칩 위탁)",
+    "다음 NVIDIA 후보 4시나리오: 빅테크 승리(40%) / Pure Play 승리(20%) / Pick-and-Shovel 승리(30%) / 영구 거품(10%)",
+  ],
+  keyPointsEn: [
+    "Google Willow (Dec 2024) was the first experimental proof that quantum error correction crosses the threshold",
+    "If quantum reaches threshold: drug discovery 10yr→1yr, Bitcoin breaks (Q-Day), AI training days→minutes, $500B PQC migration",
+    "IonQ/Rigetti/D-Wave trade at 200-4000x EV/Sales — pricing 2035 possibility, not 2024 revenue",
+    "Real alpha is pick-and-shovel — Bluefors (70% dilution refrigerator share, IPO potential), Coherent/Lumentum (lasers), TSMC (quantum chip foundry)",
+    "Four scenarios for the next NVIDIA: BigTech wins (40%) / Pure-play wins (20%) / Pick-and-shovel wins (30%) / Permanent bubble (10%)",
+  ],
+  sections: [
+    // ─── 1. Hook ───────────────────────────────────────────────────────────────
+    {
+      heading: "들어가며",
+      headingEn: "Opening",
+      blocks: [
+        {
+          type: "text",
+          body: "2025년 2월, Microsoft가 25년간 비밀리에 진행해온 베팅을 공개했다.\n\n양자컴퓨터의 새로운 종류, Majorana 1.\n\n같은 시기 IonQ 주가는 1년 만에 250% 올랐고, 양자 ETF는 60% 상승했다.\n\nAI 자본 사이클의 피로감 속에서 \"다음 hype\"의 후보로 양자가 떠오르고 있다.\n\n그런데 양자컴퓨터가 정확히 무엇이고, 완성되면 무엇이 달라지는가?\n\n이 글은 35분 안에 결말에서 시작해서 거꾸로 풀어본다. 양자 물리 배경은 0이라고 가정한다. 모든 용어는 처음 등장할 때 비유와 함께 설명한다.",
+          bodyEn: "In February 2025, Microsoft revealed a bet it had been making quietly for 25 years.\n\nA new kind of quantum computer — Majorana 1.\n\nAround the same time, IonQ stock was up 250% in twelve months, and the quantum computing ETF was up 60%.\n\nAs the AI capital cycle starts to feel exhausted, quantum is being named as the next hype candidate.\n\nBut what *is* a quantum computer, and what changes when it's actually built?\n\nThis piece works backwards from the destination — what becomes possible — to how the technology works and who's positioned to win. Zero quantum physics background assumed. Every term is introduced with an analogy.",
+        },
+      ],
+    },
+
+    // ─── 2. 결말부터 — 양자가 할 수 있는 일 7가지 ──────────────────────────────
+    {
+      heading: "1. 일단 먼저 결말부터 한번 보자",
+      headingEn: "1. Start at the End",
+      blocks: [
+        {
+          type: "text",
+          body: "양자컴퓨터가 지금 업계에서 임계점이라고 부르는 수준에 도달하면 생기는 일을 한번 살펴보자.\n\n임계점이라는 말은 잠시 후에 자세히 설명한다. 일단은 \"에러 없이 안정적으로 계산할 수 있는 양자컴퓨터\"라고 생각하면 된다.",
+          bodyEn: "Let's look at what happens when quantum computers reach what the industry calls 'the threshold'.\n\nWe'll define 'threshold' in detail later. For now, think of it as 'a quantum computer that can run stable calculations without errors'.",
+        },
+
+        // ① 신약 개발
+        {
+          type: "text",
+          body: "### ① 신약 개발 — 10년이 1년으로\n\n지금 새로운 약을 하나 만든다고 가정하자.\n\n평균 10-15년, $26억 달러가 든다.\n\n이렇게 오래 걸리는 이유는, 분자 시뮬레이션이 불가능해서인데, 신약 후보 물질이 인체 단백질에 어떻게 결합할지 컴퓨터로 정확히 예측할 수가 없어서 결국 수만 개를 만들어 실험으로 시도해 보게 되는 것이다.\n\n양자컴퓨터가 이 임계치에 도달하게 되면, 이걸 근본적으로 다른 차원으로 바꿔버린다.\n\n분자 자체가 양자 시스템이기 때문에, 양자컴퓨터로는 분자를 분자 그대로 시뮬레이션할 수 있다.\n\n알츠하이머 치료제 후보 100만 개를 현실에서 합성하기 전에 양자 시뮬레이션으로 1차 스크리닝하고, 통과한 100개만 실제 합성하게 되면\n\n**10년이 1년이 된다.**\n\n이미 Roche, Merck, Pfizer가 IBM Quantum과 양자 신약 컨소시엄을 운영 중이다.\n\nJPMorgan도 합류했다.\n\n이게 양자컴퓨터의 가장 명확한 commercial use case라고 업계가 합의하고 있다.",
+          bodyEn: "### ① Drug Discovery — From 10 Years to 1\n\nLet's say you want to develop a new drug today.\n\nAverage 10-15 years, $2.6 billion.\n\nThe reason it takes so long: molecular simulation is impossible. You can't accurately predict how a drug candidate will bind to a human protein on a computer, so you end up synthesizing tens of thousands of variants and running physical experiments.\n\nWhen quantum hits the threshold, this changes fundamentally.\n\nMolecules *are* quantum systems. So a quantum computer can simulate a molecule *as a molecule*.\n\nIf you screen 1 million Alzheimer's candidates in quantum simulation before any lab synthesis, and only the top 100 get actually made\n\n**10 years becomes 1 year.**\n\nRoche, Merck, and Pfizer already run a quantum drug discovery consortium with IBM Quantum.\n\nJPMorgan joined too.\n\nThis is the use case the industry agrees on most: quantum's clearest commercial path.",
+        },
+
+        // ② 신소재
+        {
+          type: "text",
+          body: "### ② 새로운 소재 — 상온 초전도체, 더 좋은 배터리\n\n전기차 배터리를 생각해보자.\n\n현재 리튬이온 배터리는 화학적으로 거의 한계에 왔다.\n\n더 가볍고, 더 오래가고, 더 빨리 충전되는 배터리를 만들려면 완전히 새로운 화학을 발견해야 한다.\n\n그게 왜 어렵냐면, 가능한 분자 조합이 우주의 별 수보다 많기 때문이다.\n\n기존 컴퓨터로는 일일이 다 시뮬레이션할 수 없으니, 직감과 실험을 반복하는 수밖에 없다.\n\n양자컴퓨터는 이 화학 공간을 처음부터 끝까지 다 탐색할 수 있다.\n\n1년에 한 번 우연히 발견되는 신소재가 분기마다 5-10개씩 나올 수 있다는 얘기다.\n\n상온 초전도체 — 2023년 한국 LK-99로 떠들썩했던 그 꿈 — 같은 holy grail도 양자 시뮬레이션이 답을 줄 수 있다.\n\nSamsung, LG에너지솔루션, BMW가 이미 양자 배터리 시뮬레이션에 투자 중이다.\n\nBosch는 2024년 IonQ와 5년 계약을 체결했다.",
+          bodyEn: "### ② New Materials — Room-Temperature Superconductors, Better Batteries\n\nThink about EV batteries.\n\nLithium-ion is near its chemical limit.\n\nTo make batteries that are lighter, longer-lasting, and faster-charging, you need entirely new chemistry.\n\nThe hard part: the number of possible molecular combinations exceeds the number of stars in the universe.\n\nClassical computers can't simulate them all, so we lean on intuition and trial-and-error in the lab.\n\nQuantum computers can exhaustively search this chemical space.\n\nNew materials that today get discovered once a year by accident — quarterly, 5-10 at a time.\n\nThe holy grails — like a room-temperature superconductor (Korea's LK-99 moment in 2023) — become answerable by simulation.\n\nSamsung, LG Energy Solution, BMW are already invested in quantum battery simulation.\n\nBosch signed a 5-year contract with IonQ in 2024.",
+        },
+
+        // ③ Q-Day
+        {
+          type: "text",
+          body: "### ③ 비트코인이 깨진다 — 업계가 \"Q-Day\"라고 부르는 날\n\n이게 아마 가장 자극적인 가능성일 것이다.\n\n현재 모든 디지털 보안은 RSA-2048(은행 시스템), ECDSA(비트코인·이더리움), TLS(우리가 매일 보는 웹사이트 자물쇠)에 의존한다.\n\n이 암호 방식들은 한 가지 수학적 가정 위에 세워져 있다 — \"큰 수를 소인수분해하는 데는 슈퍼컴퓨터로도 수십억 년이 걸린다.\"\n\n그런데 1994년, MIT의 Peter Shor라는 수학자가 양자컴퓨터로 소인수분해를 단 몇 초 만에 할 수 있는 알고리즘을 발표했다.\n\n업계에서는 이걸 Shor's Algorithm이라고 부른다.\n\n즉, 충분히 큰 양자컴퓨터가 만들어지는 순간, 인터넷 보안 전체가 무너진다는 얘기다.\n\n이날을 업계에서는 **\"Q-Day\"** 라고 부른다.\n\n예상 시점: 2030-2035년 사이.\n\n그 전에 모든 시스템을 \"양자-안전 암호(Post-Quantum Cryptography, PQC)\"로 전환해야 한다.\n\n글로벌 마이그레이션 비용 추정치: **$500억 달러 이상.**",
+          bodyEn: "### ③ Bitcoin Breaks — The Day the Industry Calls 'Q-Day'\n\nThis is probably the most provocative possibility.\n\nAll digital security today rests on RSA-2048 (banking), ECDSA (Bitcoin and Ethereum), and TLS (the lock icon on every website).\n\nThese cryptographic systems all sit on one mathematical assumption — 'factoring large numbers takes supercomputers billions of years'.\n\nIn 1994, MIT mathematician Peter Shor published an algorithm that lets a quantum computer factor large numbers in seconds.\n\nThe industry calls it Shor's Algorithm.\n\nWhich means: the moment a sufficiently large quantum computer exists, internet security collapses.\n\nThe industry calls this day **'Q-Day'**.\n\nExpected timing: between 2030 and 2035.\n\nBefore that, every system must migrate to Post-Quantum Cryptography (PQC).\n\nEstimated global migration cost: **over $500 billion.**",
+        },
+
+        {
+          type: "callout",
+          callout: {
+            variant: "warning",
+            heading: "비트코인 보유자가 알아야 할 사실",
+            headingEn: "What Bitcoin Holders Need to Know",
+            body: "Satoshi Nakamoto의 100만 비트코인이 든 초기 지갑들은 공개 키가 이미 노출된 상태다. Q-Day가 오는 순간 누구나 가져갈 수 있다. 미국 NSA는 2024년에 이미 모든 정부 시스템에 2030년까지 PQC 전환을 명령했다. JPMorgan은 2023년에 양자 위협 전담팀을 구성했고, 한국 KISA(한국인터넷진흥원)도 PQC 마이그레이션 로드맵을 발표했다.",
+            bodyEn: "Satoshi Nakamoto's 1 million Bitcoins sit in early-era wallets whose public keys are already exposed. The moment Q-Day arrives, anyone could take them. The US NSA already mandated PQC migration for all government systems by 2030 (issued in 2024). JPMorgan stood up a quantum threat team in 2023. Korea's KISA has published its own PQC migration roadmap.",
+          },
+        },
+
+        // ④ AI 학습
+        {
+          type: "text",
+          body: "### ④ AI 학습 — 며칠이 몇 분으로\n\nChatGPT 같은 거대 언어 모델 학습에는 수만 개의 NVIDIA GPU가 수개월 동안 작동한다.\n\n비용은 한 번 학습에 $1억 달러 단위.\n\n양자컴퓨터는 머신러닝의 핵심 연산 일부를 지수적으로 가속할 수 있다.\n\n업계에서는 이걸 HHL 알고리즘, Quantum Neural Network 같은 이름으로 부른다.\n\n모든 AI 학습을 양자가 다 하는 건 아니다.\n\n하지만 특정 단계가 1000배 빨라지면 전체 학습 시간이 며칠에서 몇 분으로 떨어진다.\n\n이게 진짜라면, NVIDIA 가치의 일부가 양자 회사로 이전될 수 있다.\n\n지금 양자 주식들이 AI 사이클 피로감과 함께 갑자기 주목받는 이유가 여기 있다.",
+          bodyEn: "### ④ AI Training — From Days to Minutes\n\nTraining a frontier LLM like ChatGPT takes tens of thousands of NVIDIA GPUs running for months.\n\nCost per training run: hundreds of millions of dollars.\n\nQuantum computers can exponentially accelerate certain ML primitives.\n\nThe industry calls these HHL algorithms, Quantum Neural Networks, and so on.\n\nQuantum won't do all of AI training. But if a critical step gets 1000x faster, total training time collapses from days to minutes.\n\nIf that turns real, some of NVIDIA's value migrates to the quantum names.\n\nThat's why quantum stocks suddenly matter as the AI cycle starts to feel mature.",
+        },
+
+        // ⑤ 금융
+        {
+          type: "text",
+          body: "### ⑤ 금융 최적화 — 포트폴리오, 리스크, 사기 탐지\n\nJPMorgan, Goldman Sachs, HSBC, BBVA.\n\n글로벌 빅뱅크들이 모두 양자 연구팀을 보유하고 있다.\n\n왜 그럴까?\n\n- **포트폴리오 최적화**: 1만 개 자산 중 최적 조합을 찾는 문제 → 양자가 지수적으로 빠르다\n- **옵션 가격 모델링**: 몬테카를로 시뮬레이션 → 양자로 1000배 가속\n- **사기 패턴 탐지**: 그래프 검색 → Grover algorithm으로 √N 가속\n- **신용 위험 모델링**: 거대한 상관관계 행렬 → 양자에서 자연스러운 문제\n\nJPMorgan은 세계 최대 양자 컨소시엄(Q-Initiative)을 운영하고 있다.\n\nGoldman은 2020년부터 IBM Quantum과 협업 중이다.\n\n양자 시대가 오면, 금융업의 경쟁 우위 일부가 양자 인프라에서 결정된다.",
+          bodyEn: "### ⑤ Financial Optimization — Portfolios, Risk, Fraud\n\nJPMorgan, Goldman Sachs, HSBC, BBVA.\n\nEvery global megabank now runs a quantum research team.\n\nWhy?\n\n- **Portfolio optimization**: picking the best combination from 10,000 assets → exponential quantum speedup\n- **Options pricing**: Monte Carlo simulation → 1000x quantum acceleration\n- **Fraud detection**: graph search → √N speedup via Grover's algorithm\n- **Credit risk**: enormous correlation matrices → natural fit for quantum\n\nJPMorgan runs the world's largest quantum consortium (Q-Initiative).\n\nGoldman has been working with IBM Quantum since 2020.\n\nIf the quantum era arrives, part of banking's competitive edge gets re-decided at the quantum infrastructure layer.",
+        },
+
+        // ⑥ 기후
+        {
+          type: "text",
+          body: "### ⑥ 기후 모델링 — 100년 뒤를 정확히\n\n현재 IPCC 기후 모델은 너무 단순화되어 있다.\n\n진짜 기후 시스템은 분자 단위 화학 반응 × 해류 × 대기 × 빙하의 양자적 결합이다.\n\n그런데 기존 컴퓨터는 너무 단순한 가정을 해야 모델이 그나마 돌아간다.\n\n양자컴퓨터는 훨씬 더 정확한 기후 모델을 가능하게 한다.\n\n어떤 정책이 50년 뒤 어떤 결과를 만들지를 과학적으로 답할 수 있게 된다는 얘기다.\n\n탄소 포집 신소재, 더 효율적인 태양전지 — 양자가 직접 만들어낼 수 있다.",
+          bodyEn: "### ⑥ Climate Modeling — Getting 100 Years From Now Right\n\nCurrent IPCC climate models are heavily simplified.\n\nThe real climate system is molecular chemistry × ocean currents × atmosphere × ice, all quantum-coupled.\n\nClassical computers force enormous simplifications just to make the model run.\n\nQuantum makes much more accurate climate models possible.\n\nWhich means: 'what does this policy do in 50 years' becomes a scientifically answerable question.\n\nCarbon capture materials, more efficient solar cells — quantum can design them directly.",
+        },
+
+        // ⑦ 모르는 것
+        {
+          type: "text",
+          body: "### ⑦ 그리고 우리가 아직 모르는 것\n\n이게 사실 가장 중요한 항목이다.\n\n1995년 인터넷이 처음 상용화될 때, 그 인터넷이 Uber, Instagram, ChatGPT를 만들 거라고 예측한 사람은 아무도 없었다.\n\n양자컴퓨터도 마찬가지일 것이다.\n\n지금 우리는 명확한 use case 6개만 알고 있다.\n\n진짜 임팩트는 우리가 상상도 못 한 곳에서 나올 것이다.\n\n그게 모든 진짜 기반 기술의 패턴이었다.",
+          bodyEn: "### ⑦ And What We Don't Know Yet\n\nThis is actually the most important item.\n\nIn 1995, when the internet first went commercial, nobody predicted Uber, Instagram, ChatGPT.\n\nQuantum will be the same.\n\nWe currently see 6 clear use cases. The real impact will come from places we can't imagine.\n\nThat's the pattern of every genuinely foundational technology.",
+        },
+      ],
+    },
+
+    // ─── 3. 왜 기존 컴퓨터로는 못 하는가 ──────────────────────────────────────
+    {
+      heading: "2. 그런데 — 왜 기존 컴퓨터로는 이걸 못 하는가",
+      headingEn: "2. Why Classical Computers Simply Can't",
+      blocks: [
+        {
+          type: "text",
+          body: "위에서 본 6가지 일을 지금 컴퓨터로 못 하는 이유는 단순히 \"느려서\"가 아니다.\n\n수학적으로 불가능하다.\n\n이걸 이해해야 양자컴퓨터가 왜 \"그냥 더 빠른 컴퓨터\"가 아닌지 알 수 있다.",
+          bodyEn: "The reason classical computers can't do the 6 things above isn't simply that they're 'too slow'.\n\nIt's mathematically impossible.\n\nUnderstanding this is the key to seeing why quantum isn't just 'a faster computer'.",
+        },
+        {
+          type: "text",
+          body: "### 지수 장벽(exponential wall)\n\n컴퓨터 과학에는 두 종류의 문제가 있다.\n\n**첫째, Polynomial 문제 (다항식 시간으로 푸는 문제).**\n\n문제 크기가 N일 때 계산 시간이 N², N³ 정도로 제어 가능하게 늘어난다.\n\n예: 1,000명의 키를 정렬하기. 컴퓨터가 빠르면 빨리 풀린다. 인류가 잘 푸는 문제들이다.\n\n**둘째, Exponential 문제 (지수 시간으로 푸는 문제).**\n\n문제 크기가 N일 때 계산 시간이 2^N으로 늘어난다.\n\n예: 1,000개 도시를 최단 경로로 순회하기 (외판원 문제). 컴퓨터를 1조 배 빨리 만들어도 문제 크기가 조금만 커지면 의미가 없다.\n\n숫자로 보면 충격적이다.\n\n- 도시 10개 → 1초\n- 도시 20개 → 17분 (1,000배 더 걸림)\n- 도시 30개 → 12일\n- 도시 40개 → 35년\n- 도시 50개 → 35,000년\n- **도시 100개 → 우주 나이의 10^10배**\n\n컴퓨터를 100만 배 빨리 만들어도 도시가 몇 개만 더 늘면 다시 우주의 나이가 걸린다.\n\n이게 **지수 장벽**이다.",
+          bodyEn: "### The Exponential Wall\n\nComputer science divides problems into two categories.\n\n**First: polynomial problems.**\n\nFor input size N, runtime grows as N², N³ — manageable. Sorting 1,000 names is this kind. Faster computers help. Humans solve these well.\n\n**Second: exponential problems.**\n\nFor input size N, runtime grows as 2^N.\n\nExample: visit 1,000 cities in shortest order (the traveling salesman problem). Make computers a trillion times faster — barely matters once N grows.\n\nThe numbers are shocking:\n\n- 10 cities → 1 second\n- 20 cities → 17 minutes (1,000x slower)\n- 30 cities → 12 days\n- 40 cities → 35 years\n- 50 cities → 35,000 years\n- **100 cities → age of the universe × 10^10**\n\nA millionfold speedup buys you a handful more cities before you hit the age of the universe again.\n\nThis is the **exponential wall**.",
+        },
+        {
+          type: "text",
+          body: "### 분자 시뮬레이션 — 가장 명확한 지수 장벽 사례\n\n위에서 말한 신약 개발이 왜 그렇게 어려운지 정확히 보자.\n\n분자에는 전자가 있다.\n\n카페인 분자는 전자가 102개 있다. 비교적 단순한 단백질은 전자가 1만 개 이상이다. 인체 세포 안의 단백질은 수십만 개의 전자를 가지고 있다.\n\n각 전자는 다른 모든 전자와 양자적으로 얽혀 있다.\n\n업계에서는 이걸 entanglement(얽힘) 라고 부른다. 잠시 후에 자세히 본다.\n\n지금 중요한 건 이거다.\n\n분자의 정확한 상태를 컴퓨터로 계산하려면 2^(전자 수)개의 상태를 동시에 추적해야 한다.\n\n다시 숫자로 보자.\n\n- 전자 30개 분자 → 약 10억 개 상태. 슈퍼컴퓨터로 가능\n- 전자 50개 분자 → 약 1,125조 개 상태. 슈퍼컴퓨터로 몇 달\n- 전자 70개 분자 → **우주의 별 수보다 많음. 영원히 불가능**\n\n그래서 현대 화학자들은 2025년에도 카페인 정도의 분자가 어떻게 정확히 작동하는지를 컴퓨터로 풀지 못한다.\n\n신약 개발이 결국 실험에 의존할 수밖에 없는 이유가 바로 이것이다.",
+          bodyEn: "### Molecular Simulation — The Cleanest Example\n\nLet's look at exactly why drug discovery is so hard.\n\nMolecules have electrons.\n\nCaffeine has 102 electrons. A simple protein has 10,000+. A protein inside a human cell has hundreds of thousands.\n\nEvery electron is quantum-entangled with every other electron. The industry calls this *entanglement*, which we'll define properly in a moment.\n\nWhat matters now: to compute a molecule's exact state, a classical computer has to track 2^(number of electrons) states simultaneously.\n\n- 30-electron molecule → about 1 billion states. Supercomputer can handle this\n- 50-electron molecule → ~1.1 quadrillion states. Supercomputer takes months\n- 70-electron molecule → **more states than stars in the universe. Forever impossible**\n\nWhich is why, in 2025, even caffeine — a small molecule — still can't be exactly simulated by classical computers.\n\nThat's why drug discovery has to lean on physical experiments. It has no choice.",
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "quote",
+            heading: "Richard Feynman, 1981",
+            headingEn: "Richard Feynman, 1981",
+            body: "\"Nature isn't classical, dammit. And if you want to make a simulation of nature, you'd better make it quantum mechanical.\"\n\n— 1965년 노벨 물리학상 수상자가 1981년 강연에서 한 한 문장. 양자컴퓨터의 출생증명서가 된 발언이다.\n\n자연은 양자적으로 작동한다. 분자, 원자, 전자 — 모두 양자 시스템이다. 그런데 우리가 만든 컴퓨터는 0과 1뿐인 고전 컴퓨터다. 양자적인 것을 고전 컴퓨터로 시뮬레이션하려고 하니까 지수 장벽에 부딪힌다. Feynman의 결론은 단순했다 — **자연을 시뮬레이션하려면, 컴퓨터 자체가 양자여야 한다.**",
+            bodyEn: "\"Nature isn't classical, dammit. And if you want to make a simulation of nature, you'd better make it quantum mechanical.\"\n\n— Said in a 1981 lecture by the 1965 Nobel laureate in physics. It became the birth certificate of quantum computing.\n\nNature operates quantum-mechanically. Molecules, atoms, electrons — all quantum systems. But the computers we built only have 0s and 1s. When you try to simulate quantum things on classical machines, you hit the exponential wall. Feynman's conclusion was simple: **to simulate nature, the computer itself has to be quantum.**",
+          },
+        },
+      ],
+    },
+
+    // ─── 4. 양자가 어떻게 가능하게 하나 ───────────────────────────────────────
+    {
+      heading: "3. 그래서 양자컴퓨터는 어떻게 이걸 가능하게 하는가",
+      headingEn: "3. How Quantum Computers Pull This Off",
+      blocks: [
+        {
+          type: "text",
+          body: "이제 양자컴퓨터의 작동 원리를 본다. 7개 개념을 차례로 쌓아 올린다.",
+          bodyEn: "Now we walk through how a quantum computer actually works. Seven concepts, built up in order.",
+        },
+        {
+          type: "text",
+          body: "### 3.1. 큐비트(qubit) — 양자컴퓨터의 기본 단위\n\n기존 컴퓨터는 **비트(bit)**로 작동한다.\n\n비트는 *0이거나 1*. 둘 중 하나.\n\n책상 위 분필이 가로로 놓였거나(0), 세로로 놓였거나(1)인 것과 같다.\n\n양자컴퓨터의 기본 단위는 **큐비트(qubit, quantum bit)** 다.\n\n큐비트의 본질을 한 문장으로 말하면: **\"0과 1이 동시에 존재할 수 있는 비트\"**.\n\n분필이 가로와 세로 사이의 *45도 각도로 빙글빙글 도는 상태*. 측정하는 순간 가로 또는 세로 중 하나로 *결정* 된다.\n\n이게 말이 안 되게 들리는 게 정상이다. 우리 일상 감각에는 없는 현상이라서.\n\n그러나 양자역학(quantum mechanics)에서는 100년간 실험으로 검증된 사실이다.\n\n양자 입자는 측정되기 전까지 *여러 상태가 동시에 존재*한다.\n\n이걸 **중첩(superposition)** 이라고 부른다.",
+          bodyEn: "### 3.1. The Qubit — Quantum Computing's Basic Unit\n\nClassical computers run on **bits**.\n\nA bit is *either 0 or 1*. One or the other.\n\nLike a piece of chalk lying flat (0) or standing upright (1) on a desk.\n\nThe quantum computer's basic unit is a **qubit (quantum bit)**.\n\nThe essence of a qubit in one sentence: **\"a bit where 0 and 1 can exist simultaneously\"**.\n\nThe chalk spinning at 45° between flat and upright. The instant you measure, it *resolves* into flat or upright.\n\nThis sounds nonsensical — that's normal. It isn't part of everyday experience.\n\nBut in quantum mechanics, this has been experimentally verified for 100 years.\n\nQuantum particles exist in *multiple states simultaneously* until measured.\n\nThis is called **superposition**.",
+        },
+        {
+          type: "text",
+          body: "### 3.2. 왜 큐비트가 특별한가 — \"2의 N승\" 게임\n\n큐비트 1개는 *2개 상태*를 동시에 표현한다 (0과 1).\n\n큐비트 2개는 *4개 상태* (00, 01, 10, 11).\n\n큐비트 3개는 *8개 상태*.\n\n**큐비트 N개는 2^N개 상태.**\n\n숫자가 무섭게 커진다.\n\n- 큐비트 10개 = 1,024개 상태 동시 처리\n- 큐비트 50개 = 약 1,125조 상태\n- 큐비트 100개 = 약 1,267해 상태 (우주의 별 수보다 많음)\n- 큐비트 300개 = **우주의 모든 원자 수보다 많은 상태**\n\n이게 양자컴퓨터의 진짜 힘이다.\n\n기존 컴퓨터의 빠른 버전이 아니라, **계산이 일어나는 차원 자체가 다르다.**\n\n물론 함정이 있다. 큐비트가 동시에 계산하는 *모든* 상태에 접근할 수 있는 건 아니다.\n\n측정하면 그중 하나로 무너지기 때문이다.\n\n그래서 양자 알고리즘은 \"정답일 확률이 높은 상태\"가 측정될 때 살아남도록 *설계하는 기술*이다. 어렵다.\n\n그래서 양자 알고리즘이 50년간 몇 개밖에 안 만들어졌다.",
+          bodyEn: "### 3.2. Why Qubits Matter — The 2^N Game\n\n1 qubit = 2 states held simultaneously (0 and 1).\n\n2 qubits = 4 states (00, 01, 10, 11).\n\n3 qubits = 8 states.\n\n**N qubits = 2^N states.**\n\nThe numbers grow terrifyingly.\n\n- 10 qubits = 1,024 states processed at once\n- 50 qubits = ~1.1 quadrillion states\n- 100 qubits = ~10^30 states (more than stars in the universe)\n- 300 qubits = **more states than atoms in the universe**\n\nThis is quantum's real power.\n\nNot a faster classical computer — **a fundamentally different dimension of computation.**\n\nWith a catch: you can't directly access *all* the states a qubit holds. Measuring collapses it to just one.\n\nSo quantum algorithm design is the art of *engineering the system so that the correct answer is the most likely one to survive measurement*. Genuinely hard.\n\nWhich is why only a handful of meaningful quantum algorithms have been invented in 50 years.",
+        },
+        {
+          type: "text",
+          body: "### 3.3. 왜 양자컴퓨터가 만들기 어려운가 — Decoherence(탈동조)\n\n큐비트의 \"동시 존재\" 상태는 **극도로 깨지기 쉽다**.\n\n비유: 도서관에서 동전을 손바닥 위에 세로로 세워두려고 한다. 옆 사람의 기침, 에어컨 바람, 책 떨어지는 소리 — 무엇이든 한 번이라도 닿으면 동전은 쓰러진다.\n\n큐비트는 그 동전이다.\n\n주변 온도, 전자기파, 우주방사선, 옆방의 자석 — 무엇이든 큐비트를 *건드리면* 중첩이 무너진다.\n\n이걸 **탈동조(decoherence)** 라고 부른다. 양자컴퓨터가 50년간 이론이었던 가장 큰 이유.\n\n그래서 양자컴퓨터는 **절대영도(-273.15°C, 우주 공간보다 차가움)**에 가까운 환경에서 작동한다.\n\nIBM의 양자 시스템 사진을 보면 거대한 황금색 샹들리에 같은 게 보이는데, 그게 다 냉각·차폐 시스템이다.\n\n진짜 계산하는 칩은 그 맨 아래 *손톱만 한 조각*. 90%가 인프라, 10%가 양자 칩.",
+          bodyEn: "### 3.3. Why It's So Hard — Decoherence\n\nThe qubit's superposition is **extremely fragile**.\n\nAnalogy: you're trying to balance a coin upright on your palm in a library. Someone coughs, the AC turns on, a book drops — any disturbance topples the coin.\n\nThe qubit is that coin.\n\nAmbient temperature, electromagnetic noise, cosmic rays, a magnet in the next room — anything that *touches* the qubit collapses the superposition.\n\nThis is called **decoherence**. It's the biggest reason quantum computing remained theoretical for 50 years.\n\nQuantum computers therefore operate near **absolute zero (-273.15°C — colder than outer space)**.\n\nThose photos of IBM quantum systems — the giant gold chandeliers — that's almost entirely cooling and shielding hardware.\n\nThe chip actually doing computation is the *fingernail-sized piece at the very bottom*. 90% infrastructure, 10% quantum chip.",
+        },
+        {
+          type: "text",
+          body: "### 3.4. 큐비트 수가 왜 중요한가 — 그리고 함정\n\n뉴스에서 \"IBM이 1,121큐비트 칩을 발표했다\"는 식의 헤드라인이 자주 나온다.\n\n이게 무슨 의미인가?\n\n표면적으로는 큐비트 수가 많을수록 강한 양자컴퓨터다.\n\n큐비트 100개는 큐비트 50개보다 *지수적으로* 많은 상태를 다룬다.\n\n그래서 IBM/Google/Atom Computing은 큐비트 수 경쟁을 한다.\n\n**그러나 함정이 있다**: 큐비트는 *깨지기 쉽다*. 1,000개 큐비트가 있어도, 그중 999개가 오류를 내면 쓸모없다.\n\n큐비트가 *몇 개냐* 만큼 중요한 게 **얼마나 오래, 얼마나 정확하게 작동하느냐(게이트 fidelity)** 다.\n\n비유: 컴퓨터 메모리가 1테라바이트 있어도 매 초 데이터가 손상되면 의미가 없다.\n\n업계가 큐비트 수와 별도로 보는 지표:\n\n- **게이트 fidelity(연산 정확도)** — 1.0에 가까울수록 좋음. 현재 최고 0.999\n- **Coherence time(큐비트가 깨지기 전까지 유지되는 시간)** — 마이크로초 단위\n- **Connectivity(큐비트 간 연결성)** — 모든 큐비트가 서로 연산 가능한지",
+          bodyEn: "### 3.4. Why Qubit Count Matters — and the Trap\n\nHeadlines say things like 'IBM unveiled a 1,121-qubit chip'.\n\nWhat does that mean?\n\nOn the surface: more qubits = stronger quantum computer. 100 qubits handle *exponentially* more states than 50 qubits.\n\nThat's why IBM, Google, and Atom Computing race on qubit count.\n\n**But there's a trap**: qubits are fragile. 1,000 qubits where 999 of them error out is useless.\n\nJust as important as *how many* qubits — **how long and how accurately they operate (gate fidelity)**.\n\nAnalogy: 1 TB of RAM is meaningless if data corrupts every second.\n\nWhat the industry watches alongside qubit count:\n\n- **Gate fidelity** — closer to 1.0 is better. Current best: 0.999\n- **Coherence time** — how long a qubit holds state before collapsing. Microseconds.\n- **Connectivity** — can every qubit interact with every other?",
+        },
+        {
+          type: "text",
+          body: "### 3.5. \"에러 교정(error correction)\" — 양자의 성배\n\n큐비트가 깨지기 쉽다는 것은 모두 안다.\n\n그래서 50년간 양자컴퓨터의 *진짜 목표*는 \"에러를 어떻게 교정하는가\"였다.\n\n핵심 아이디어: **여러 개의 깨지기 쉬운 물리적 큐비트(physical qubit)를 묶어서 1개의 안정적인 논리적 큐비트(logical qubit)를 만드는 것**.\n\n이론적으로는, 100~1,000개의 물리적 큐비트로 1개의 논리적 큐비트를 만들 수 있다.\n\n논리적 큐비트는 일반 큐비트보다 *훨씬* 안정적이다.\n\n양자 알고리즘이 의미 있게 작동하려면 **수백 개의 논리적 큐비트**가 필요하다.\n\n즉 **수십만 개의 물리적 큐비트**.\n\n지금 우리는 어디 있는가? **0개의 논리적 큐비트**.\n\n2024년 12월 Google이 발표한 Willow 칩이 *처음으로* \"물리적 큐비트를 많이 묶을수록 에러가 *기하급수적으로 줄어든다*\"는 것을 실험으로 증명했다.\n\n즉, 논리적 큐비트로 가는 길이 *원리적으로 가능하다*는 것을 보였다.\n\n양자 역사에서 가장 중요한 실험 중 하나로 평가된다.",
+          bodyEn: "### 3.5. Error Correction — The Holy Grail\n\nEveryone knows qubits are fragile.\n\nSo for 50 years, the *real* goal of quantum computing has been: how do you correct errors?\n\nThe core idea: **bundle many fragile physical qubits into one stable logical qubit.**\n\nIn theory: 100-1,000 physical qubits = 1 logical qubit.\n\nLogical qubits are *vastly* more stable than physical qubits.\n\nFor meaningful quantum algorithms, you need **hundreds of logical qubits**.\n\nMeaning: **hundreds of thousands of physical qubits**.\n\nWhere are we today? **Zero logical qubits.**\n\nIn December 2024, Google's Willow chip was the first to experimentally prove that *bundling more physical qubits reduces error exponentially*.\n\nMeaning: the path to logical qubits is *demonstrably possible in principle*.\n\nIt's considered one of the most important experiments in quantum computing history.",
+        },
+        {
+          type: "text",
+          body: "### 3.6. 두 가지 단계 — NISQ와 Fault-Tolerant\n\n양자컴퓨터는 두 가지 레벨로 나뉜다.\n\n**NISQ (Noisy Intermediate-Scale Quantum, 노이즈 많은 중간 규모 양자)**\n\n- 50~1,000개 큐비트 수준\n- 에러 교정 안 됨 (모두 물리적 큐비트)\n- 노이즈 때문에 실용 문제는 못 품\n- **지금 우리가 있는 단계**\n- 용어를 만든 사람: Caltech의 John Preskill (2018)\n\n**Fault-Tolerant Quantum Computing (FTQC, 결함 허용 양자컴퓨터)**\n\n- 수백~수천 개의 논리적 큐비트\n- 에러가 발생해도 자동 교정\n- *실제로 가치 있는 문제* 풀 수 있음 — 신약 개발, 신소재, 암호 해독, 최적화 문제\n- **모든 양자 회사의 궁극 목표**\n- IBM은 2029년 Starling 시스템으로 달성 예정\n\n쉽게 말하면: NISQ는 *데모용*, FTQC는 *실전용*.\n\n2025년 우리는 NISQ의 마지막 단계에 있고, FTQC의 *입구*에 들어서고 있다.\n\nWillow가 그 입구를 처음 보여줬다.",
+          bodyEn: "### 3.6. Two Levels — NISQ and Fault-Tolerant\n\nQuantum computing splits into two levels.\n\n**NISQ (Noisy Intermediate-Scale Quantum)**\n\n- 50–1,000 qubits\n- No error correction (all physical qubits)\n- Noise prevents useful problems from being solved\n- **Where we are today**\n- Term coined by Caltech's John Preskill (2018)\n\n**Fault-Tolerant Quantum Computing (FTQC)**\n\n- Hundreds–thousands of logical qubits\n- Errors are automatically corrected\n- Can solve *genuinely valuable* problems — drug discovery, materials, cryptanalysis, optimization\n- **Every quantum company's ultimate goal**\n- IBM targets achievement by 2029 with its Starling system\n\nPlain English: NISQ is *demo-grade*, FTQC is *production-grade*.\n\nIn 2025, we're in the final phase of NISQ and stepping into the *threshold* of FTQC.\n\nWillow showed us that doorway for the first time.",
+        },
+        {
+          type: "text",
+          body: "### 3.7. \"Quantum Supremacy\"와 \"Quantum Advantage\"의 차이\n\n뉴스에서 자주 헷갈리는 두 용어.\n\n**Quantum Supremacy(양자 우위)**: 양자컴퓨터가 기존 컴퓨터로는 *현실적으로 풀 수 없는 한 가지 문제*를 풀었다는 의미. 그 문제가 *실용성이 있을 필요는 없다*.\n\n2019년 Google의 Sycamore 칩(53큐비트)이 53큐비트 회로 sampling 문제를 200초 만에 풀었다고 발표. 슈퍼컴퓨터로 1만 년 걸린다고 주장.\n\nIBM이 \"사실 2.5일이면 된다\"고 반박했지만, 상징적 분기점이었다.\n\n**풀린 문제는 일상에서 아무 쓸모 없는 수학 문제**.\n\n**Quantum Advantage(양자 이점)**: 양자컴퓨터가 *실제로 가치 있는* 문제를 기존 컴퓨터보다 더 빨리·싸게 푸는 것.\n\n**2025년 현재 아무도 달성 못 함.**\n\n이게 달성되는 순간 양자컴퓨터의 *상업화*가 시작된다.\n\n순서: Quantum Supremacy(2019 달성) → 더 큰 NISQ 시스템(2020-2025) → Fault-Tolerance(2025-2030) → Quantum Advantage(2030+) → 본격 상업화",
+          bodyEn: "### 3.7. Quantum Supremacy vs Quantum Advantage\n\nThese two terms get confused in headlines.\n\n**Quantum Supremacy**: a quantum computer solves *one problem that classical computers practically can't*. The problem doesn't need to be useful.\n\nIn 2019, Google's Sycamore chip (53 qubits) claimed to solve a 53-qubit circuit sampling problem in 200 seconds. They argued it would take supercomputers 10,000 years.\n\nIBM countered with '2.5 days, actually.' But the moment was symbolically pivotal.\n\n**The problem solved had zero everyday utility — it was a contrived math problem.**\n\n**Quantum Advantage**: a quantum computer solves a *genuinely valuable* problem faster or cheaper than classical.\n\n**Nobody has achieved this as of 2025.**\n\nThe moment it happens, quantum's *commercialization* begins.\n\nThe sequence: Quantum Supremacy (2019) → larger NISQ systems (2020-2025) → Fault-Tolerance (2025-2030) → Quantum Advantage (2030+) → full commercialization.",
+        },
+      ],
+    },
+
+    // ─── 5. 2025 현재 ──────────────────────────────────────────────────────────
+    {
+      heading: "4. 2025년 현재 — 5년의 역사가 이제 의미 있게 읽힌다",
+      headingEn: "4. The State of Play in 2025 — Five Years That Now Make Sense",
+      blocks: [
+        {
+          type: "text",
+          body: "용어 무장이 됐으니, 이제 양자 산업의 핵심 마일스톤이 *어떤 의미*인지가 보인다.",
+          bodyEn: "Now that we have the vocabulary, the recent milestones in the industry can be read with their actual meaning intact.",
+        },
+        {
+          type: "text",
+          body: "### 2019년 10월 — Google Sycamore (53큐비트)\n\n**Quantum Supremacy 첫 주장.**\n\n큐비트 수는 적지만 *역사적 상징*이었다.\n\nGoogle이 \"슈퍼컴퓨터로 1만 년 걸리는 계산을 200초 만에 풀었다\"고 *Nature*에 발표.\n\nIBM이 \"우리 슈퍼컴퓨터로는 2.5일이면 된다\"고 반박했지만, 그 자체로 양자컴퓨터가 *측정 가능한 우위*를 처음 보여준 순간이었다.\n\n풀린 문제는 실용성 0인 random circuit sampling. 그러나 *원리 증명*으로서의 가치가 컸다.",
+          bodyEn: "### October 2019 — Google Sycamore (53 qubits)\n\n**First claim of Quantum Supremacy.**\n\nLow qubit count — but historically symbolic.\n\nGoogle published in *Nature*: 'solved in 200 seconds a calculation that would take supercomputers 10,000 years.'\n\nIBM countered with '2.5 days on our supercomputer.' But the moment was the first time quantum showed *measurable advantage* of any kind.\n\nThe problem solved had zero utility — random circuit sampling. But as a *proof of principle*, it was huge.",
+        },
+        {
+          type: "text",
+          body: "### 2023년 12월 — IBM Condor (1,121큐비트)\n\n**큐비트 수만 보면 인류 역사 최대.**\n\nIBM이 1,121개 큐비트를 한 칩에 집어넣었다.\n\n그런데 게이트 fidelity는 낮음 — 즉 *큰 데 정확하지 않은* 시스템.\n\n이 발표로 업계는 \"큐비트 수 경쟁\"의 한계를 보기 시작했다.\n\nIBM 본인도 이후 Heron(156큐비트, fidelity 0.997)으로 *품질 우선* 노선으로 전환.",
+          bodyEn: "### December 2023 — IBM Condor (1,121 qubits)\n\n**Largest qubit count in human history (at the time).**\n\nIBM packed 1,121 qubits onto a single chip.\n\nBut gate fidelity was low — meaning it was *big but inaccurate*.\n\nThis announcement made the industry start to see the limits of the qubit-count race.\n\nIBM themselves pivoted to quality-first with Heron (156 qubits, 0.997 fidelity).",
+        },
+        {
+          type: "text",
+          body: "### 2024년 12월 — Google Willow (105큐비트) ⭐\n\n**양자 역사상 가장 중요한 단일 실험 중 하나.**\n\n*물리적 큐비트를 더 많이 묶을수록 에러가 기하급수적으로 줄어든다*는 것을 *처음으로* 실험으로 증명.\n\n즉, 에러 교정의 *원리적 가능성*을 보였다.\n\nFault-tolerance로 가는 입구를 연 사건이다.\n\n발표 즉시 IonQ 주가가 그 주에만 40% 상승. 양자 ETF QTUM도 25% 점프.\n\n시장이 \"양자가 진짜다\"라고 처음 reprice한 순간.",
+          bodyEn: "### December 2024 — Google Willow (105 qubits) ⭐\n\n**One of the most important single experiments in quantum history.**\n\nFirst experimental proof that *bundling more physical qubits exponentially reduces error*.\n\nMeaning: it demonstrated the *principle viability* of error correction.\n\nIt opened the doorway to fault-tolerance.\n\nIonQ stock jumped 40% in the week of the announcement. The QTUM quantum ETF spiked 25%.\n\nThe moment the market first repriced quantum as 'real'.",
+        },
+        {
+          type: "text",
+          body: "### 2025년 2월 — Microsoft Majorana 1\n\n**\"Topological qubit\"이라는 완전히 다른 종류의 큐비트.**\n\nMicrosoft의 25년 베팅의 첫 검증 가능한 결과물.\n\nMajorana fermion이라는 *이론상* 노이즈에 면역인 양자 상태를 사용한다.\n\n만약 사실이면 게임 체인저 — 에러 교정 부담이 *지수적으로 감소*.\n\n학계는 회의적. 2018년 Microsoft가 비슷한 결과를 발표했다가 논문을 *철회*한 전력이 있다.\n\n2025년 발표는 더 robust한 데이터를 가지고 왔지만, 검증에는 시간이 필요하다.\n\n맞다면 양자 사이클이 *5년 앞당겨질* 수 있다.",
+          bodyEn: "### February 2025 — Microsoft Majorana 1\n\n**A completely different type of qubit: 'topological'.**\n\nThe first verifiable result of Microsoft's 25-year bet.\n\nUses Majorana fermions — quantum states *theoretically* immune to noise.\n\nIf real, it's a game-changer — error correction overhead drops *exponentially*.\n\nAcademia is skeptical. In 2018, Microsoft published a similar result that was later *retracted*.\n\nThe 2025 announcement comes with more robust data, but verification takes time.\n\nIf it holds, the entire quantum cycle could be *pulled forward by 5 years*.",
+        },
+      ],
+    },
+
+    // ─── 6. 6가지 접근법 ───────────────────────────────────────────────────────
+    {
+      heading: "5. 6가지 양자 접근법 — 누가 어떤 길로 가는가",
+      headingEn: "5. Six Approaches to Quantum — Who's Betting on What",
+      blocks: [
+        {
+          type: "text",
+          body: "양자컴퓨터를 만드는 방법은 한 가지가 아니다.\n\nVHS vs Betamax처럼, 어느 기술이 표준이 될지 아무도 모른다.\n\n현재 6가지 접근법이 경쟁 중이다. 각각의 *강점·약점·대표 주자*를 본다.",
+          bodyEn: "There isn't one way to build a quantum computer.\n\nLike VHS vs Betamax, nobody knows which approach will dominate.\n\nSix approaches are currently competing. Here are their strengths, weaknesses, and key players.",
+        },
+        {
+          type: "table",
+          table: {
+            id: "quantum-approaches",
+            title: "6가지 양자 접근법 비교",
+            titleEn: "Six Quantum Approaches Compared",
+            headers: ["방식", "대표 기업", "강점", "약점"],
+            headersEn: ["Approach", "Key Players", "Strengths", "Weaknesses"],
+            rows: [
+              ["Superconducting (초전도)", "IBM, Google, Rigetti", "빠름, 큐비트 수 확장 용이", "-273°C 냉각 필수"],
+              ["Trapped Ion (이온 트랩)", "IonQ, Quantinuum", "고품질 큐비트, 모든 큐비트 연결", "게이트 속도 느림"],
+              ["Neutral Atom (중성 원자)", "Atom Computing, QuEra, Pasqal", "확장성 우수, 모듈러", "신생 기술, 검증 부족"],
+              ["Photonic (광자)", "PsiQuantum, Xanadu", "상온 작동 가능, 광섬유 네트워킹", "광자 측정 어려움"],
+              ["Topological (위상)", "Microsoft", "노이즈 면역(이론상)", "Majorana 입자 검증 미흡"],
+              ["Silicon Spin (실리콘 스핀)", "Intel, Quantum Motion", "기존 반도체 fab 활용 가능", "큐비트 수 적음"],
+            ],
+            rowsEn: [
+              ["Superconducting", "IBM, Google, Rigetti", "Fast, scales in qubit count", "Requires -273°C cooling"],
+              ["Trapped Ion", "IonQ, Quantinuum", "High-quality qubits, all-to-all connectivity", "Slow gate speed"],
+              ["Neutral Atom", "Atom Computing, QuEra, Pasqal", "Excellent scaling, modular", "New, less validated"],
+              ["Photonic", "PsiQuantum, Xanadu", "Room temperature, fiber-friendly", "Photon measurement is hard"],
+              ["Topological", "Microsoft", "Noise-immune (in theory)", "Majorana particle unverified"],
+              ["Silicon Spin", "Intel, Quantum Motion", "Reuses existing semi fabs", "Low qubit counts"],
+            ],
+            caption: "각 방식마다 큐비트가 무엇인지, 어떻게 조작하는지가 근본적으로 다르다.",
+            captionEn: "Each approach is fundamentally different in what a qubit *is* and how it's manipulated.",
+          },
+        },
+        {
+          type: "text",
+          body: "**① Superconducting** — 가장 많이 알려진 방식. IBM이 6년 만에 5큐비트에서 1,121큐비트로 갔다. 무어의 법칙 비슷한 곡선. Google Willow도 이 방식.\n\n**② Trapped Ion** — IonQ의 길. \"큐비트 수보다 품질이 중요하다\"는 메시지로 시장과 싸우고 있다. **algorithmic qubit**이라는 용어를 만들어 \"1개의 IonQ 큐비트 = 50개의 superconducting 큐비트\"라고 주장.\n\n**③ Neutral Atom** — 2024년 가장 빠르게 부상. Atom Computing이 1,180큐비트로 큐비트 수 세계 1위. Harvard의 Mikhail Lukin이 공동창업한 QuEra가 핵심 기업.\n\n**④ Photonic** — PsiQuantum의 베팅. **상온 작동**. \"큐비트 한두 개씩 늘리는 게 의미 없다. 우리는 100만 큐비트로 한 번에 fault-tolerant 시스템 만들겠다.\" 도박이지만 성공하면 게임 끝. 2024년 호주 정부와 $617M 계약.\n\n**⑤ Topological** — Microsoft의 25년 도박. **수학적으로** 노이즈 면역. 그러나 *Majorana 입자 자체가 검증 안 됨*. Microsoft는 25년간 이 길을 갔지만 한 번 논문 철회 사건 있었음.\n\n**⑥ Silicon Spin** — Intel의 다크호스. 가장 조용하지만 가장 영리할 수 있다. 만약 silicon spin이 통하면 **수백억 개 큐비트**를 만들 수 있는 인프라는 이미 갖춰져 있다.",
+          bodyEn: "**① Superconducting** — best known. IBM went from 5 qubits to 1,121 in six years. A Moore's-Law-like curve. Google Willow uses this too.\n\n**② Trapped Ion** — IonQ's path. Fighting the market with the message 'quality matters more than count.' Coined *algorithmic qubit*: '1 IonQ qubit = 50 superconducting qubits.'\n\n**③ Neutral Atom** — the fastest-rising approach of 2024. Atom Computing's 1,180-qubit system leads the world by qubit count. QuEra, co-founded by Harvard's Mikhail Lukin, is the other key player.\n\n**④ Photonic** — PsiQuantum's bet. **Room temperature**. 'Adding qubits one at a time is pointless. We'll build a 1-million-qubit fault-tolerant system in one shot.' Risky but game-over if it works. $617M Australian government contract in 2024.\n\n**⑤ Topological** — Microsoft's 25-year bet. **Mathematically** noise-immune. But the *Majorana particle itself remains unverified*. Microsoft has been on this path for 25 years and previously retracted a paper.\n\n**⑥ Silicon Spin** — Intel's dark horse. Quietest, possibly smartest. If silicon spin works, the infrastructure to produce **tens of billions of qubits** is already in place.",
+        },
+      ],
+    },
+
+    // ─── 7. 비즈니스 모델 ──────────────────────────────────────────────────────
+    {
+      heading: "6. 양자 회사들은 어떻게 돈을 버나 — 비즈니스 모델 5가지",
+      headingEn: "6. How Quantum Companies Make Money — Five Business Models",
+      blocks: [
+        {
+          type: "text",
+          body: "지금까지는 양자컴퓨터가 *완성되면* 무엇이 가능한지를 봤다.\n\n그런데 그 임계점에 도달하기 전까지, 이 회사들은 도대체 무엇을 팔아서 먹고살고 있을까?\n\n답은 5가지로 나뉜다.",
+          bodyEn: "So far we've looked at what becomes possible when quantum reaches the threshold.\n\nBut until then, what are these companies actually selling to stay alive?\n\nFive business models.",
+        },
+        {
+          type: "text",
+          body: "### ① QaaS — 양자 클라우드 (가장 큰 수익원)\n\nQaaS는 Quantum-as-a-Service의 약자다.\n\n쉽게 말하면 클라우드로 양자컴퓨터를 빌려쓰는 서비스다.\n\n지금 당장 IBM 홈페이지에 가면 누구나 무료로 양자 칩 한 시간을 사용할 수 있다.\n\n기업은 시간당 $1,000-$10,000을 내고 양자 자원을 임대한다.\n\n3대 플랫폼:\n\n- **IBM Quantum** — 가장 오래된 플랫폼, 전 세계 600,000명+ 사용자 등록\n- **Microsoft Azure Quantum** — IonQ, Quantinuum, Rigetti 등을 통합 제공\n- **AWS Braket** — IonQ, Rigetti, D-Wave를 통합\n\n이 3개 플랫폼에 양자 칩을 *공급하는* 회사가 IonQ, Quantinuum, Rigetti, D-Wave 같은 곳들이다.\n\n즉, 양자 회사들의 매출 대부분은 — 본인이 직접 파는 게 아니라 — AWS·Azure를 통해 들어온다.",
+          bodyEn: "### ① QaaS — Quantum-as-a-Service (largest revenue source)\n\nQaaS = Quantum-as-a-Service.\n\nIn plain English: rent a quantum computer from the cloud.\n\nGo to IBM's website right now — anyone can use a quantum chip for free for an hour.\n\nEnterprises pay $1,000-$10,000/hour to rent quantum resources.\n\nThree platforms dominate:\n\n- **IBM Quantum** — oldest, 600,000+ registered users globally\n- **Microsoft Azure Quantum** — aggregates IonQ, Quantinuum, Rigetti, etc.\n- **AWS Braket** — aggregates IonQ, Rigetti, D-Wave\n\nThe quantum chip *suppliers* to these three platforms are companies like IonQ, Quantinuum, Rigetti, D-Wave.\n\nWhich means: most quantum company revenue arrives via AWS or Azure — not direct.",
+        },
+        {
+          type: "text",
+          body: "### ② 정부 / 군 계약 (가장 안정적인 수익)\n\n미국 NSA, DARPA, 영국 MOD, 호주 정부, 한국 KQI.\n\n이들은 양자컴퓨터에 *수십억 달러* 단위로 발주한다.\n\n이유는 두 가지다.\n\n첫째, Q-Day(앞에서 본 비트코인 깨지는 날) 대비 국방 차원.\n\n둘째, 신소재 연구 같은 군 R&D.\n\nPsiQuantum이 2024년 호주 정부와 $617M 계약 — 양자 회사 단일 계약 사상 최대.\n\nIonQ는 2024년 미 공군과 $54M 계약, 2025년 미 사이버사령부와 추가 계약.\n\n상장 양자 회사 매출의 30-50%가 정부 계약에서 나온다.",
+          bodyEn: "### ② Government / Military Contracts (most stable revenue)\n\nUS NSA, DARPA, UK MOD, Australian government, Korea's KQI.\n\nThese entities place quantum orders in the *billions of dollars*.\n\nTwo reasons.\n\nFirst: defense preparation for Q-Day (the bitcoin-breaking day mentioned above).\n\nSecond: military R&D, especially new materials.\n\nPsiQuantum signed $617M with the Australian government in 2024 — the largest single quantum contract in history.\n\nIonQ signed $54M with the US Air Force in 2024, and additional contracts with US Cyber Command in 2025.\n\n30-50% of public quantum company revenue comes from government contracts.",
+        },
+        {
+          type: "text",
+          body: "### ③ 기업 컨소시엄 (가장 미래 지향적)\n\nRoche, Pfizer, Merck, JPMorgan, Goldman Sachs, BMW, Bosch, Samsung.\n\n이 회사들은 IBM Quantum이나 IonQ와 5년·10년짜리 R&D 파트너십을 맺는다.\n\n연간 사용료 $1M-$10M 단위.\n\n목적: 미래에 양자 임계점이 왔을 때 *우리가 첫 번째 사용자가 되는 것*.\n\n지금 당장은 ROI가 없어도, 양자 시대가 오면 게임을 *앞서서* 시작하는 셈이다.\n\nJPMorgan이 운영하는 Q-Initiative 컨소시엄에만 25개+ 글로벌 빅뱅크가 참여 중이다.",
+          bodyEn: "### ③ Enterprise Consortia (most forward-looking)\n\nRoche, Pfizer, Merck, JPMorgan, Goldman Sachs, BMW, Bosch, Samsung.\n\nThese companies sign 5- and 10-year R&D partnerships with IBM Quantum or IonQ.\n\nAnnual fees: $1M-$10M.\n\nThe goal: be the *first user* when quantum hits the threshold.\n\nThere's no ROI today, but they start the race *ahead* of competitors.\n\nJPMorgan's Q-Initiative alone has 25+ global megabanks as members.",
+        },
+        {
+          type: "text",
+          body: "### ④ 소프트웨어 / 알고리즘 (가장 자본 효율적)\n\n양자 칩 자체는 만들기가 미치도록 어렵다.\n\n하지만 그 위에 올라가는 소프트웨어는 일반 클라우드 소프트웨어처럼 SaaS 구조로 팔 수 있다.\n\n플레이어들:\n\n- **Classiq (이스라엘)** — 양자 알고리즘 자동 생성 플랫폼. $33M 시리즈 C\n- **Zapata Computing** — 양자 ML 미들웨어. SPAC 합병으로 상장\n- **QC Ware** — 컨설팅 + 알고리즘. Goldman Sachs 투자\n\n이들은 *양자 칩을 만들지 않으면서* 양자 생태계에서 돈을 번다.\n\n마치 NVIDIA가 GPU를 만들고, OpenAI가 그 위에 ChatGPT를 만든 것처럼.",
+          bodyEn: "### ④ Software / Algorithms (most capital-efficient)\n\nMaking quantum chips is insanely hard.\n\nBut the software running on top can be sold like normal cloud SaaS.\n\nPlayers:\n\n- **Classiq (Israel)** — quantum algorithm auto-generation platform. $33M Series C\n- **Zapata Computing** — quantum ML middleware. Public via SPAC\n- **QC Ware** — consulting + algorithms. Goldman Sachs is an investor\n\nThey make money in the quantum ecosystem *without building chips*.\n\nLike NVIDIA built GPUs and OpenAI built ChatGPT on top.",
+        },
+        {
+          type: "text",
+          body: "### ⑤ 컨설팅 / 통합 (가장 즉시 매출)\n\nAccenture, Deloitte, BCG, McKinsey.\n\n이들은 *양자 칩을 만들지도 않고 알고리즘을 짜지도 않으면서* 양자에서 가장 빨리 매출을 내고 있다.\n\n기업들에게 \"양자 시대 대비 전략\"을 컨설팅하는 게 본업.\n\nAccenture 양자 컨설팅 사업부는 2024년 추정 매출 $200M+.\n\n거품처럼 보이지만 — 진짜 매출이 들어오고 있다.",
+          bodyEn: "### ⑤ Consulting / Integration (fastest revenue)\n\nAccenture, Deloitte, BCG, McKinsey.\n\nThey don't make chips. They don't write algorithms. And they're earning quantum revenue the fastest.\n\nTheir job: advise enterprises on quantum-readiness strategy.\n\nAccenture's quantum consulting practice did an estimated $200M+ in 2024.\n\nLooks bubbly — but it's real revenue.",
+        },
+      ],
+    },
+
+    // ─── 8. 밸류체인 + 병목 ────────────────────────────────────────────────────
+    {
+      heading: "7. 양자 밸류체인 — 전체 지도 + 어디가 병목인가",
+      headingEn: "7. The Quantum Value Chain — Where Are the Bottlenecks",
+      blocks: [
+        {
+          type: "text",
+          body: "AI 사이클에서 NVIDIA가 왜 그렇게 컸는지 기억해보자.\n\nAI 모델을 만드는 회사들(OpenAI, Anthropic, Google)이 *전부 한 회사의 GPU를 사야 했기* 때문이다.\n\n밸류체인의 *병목*에 NVIDIA가 앉아 있었던 것이다.\n\n양자도 똑같은 패턴이 나올 가능성이 높다.\n\n양자 밸류체인을 한번 풀어보자.",
+          bodyEn: "Remember why NVIDIA grew so large in the AI cycle.\n\nEvery AI lab — OpenAI, Anthropic, Google — *had to buy GPUs from one company*.\n\nNVIDIA sat at the *bottleneck* of the value chain.\n\nQuantum is highly likely to repeat this pattern.\n\nLet's map the quantum value chain.",
+        },
+        {
+          type: "table",
+          table: {
+            id: "quantum-value-chain",
+            title: "양자 시스템 한 대를 만드는 데 필요한 6단계",
+            titleEn: "Six Layers to Build One Quantum System",
+            headers: ["단계", "구성요소", "주요 공급자", "병목 정도"],
+            headersEn: ["Layer", "Component", "Key Suppliers", "Bottleneck"],
+            rows: [
+              ["① 양자 칩", "Qubit chip", "IBM(자체), Rigetti(자체), TSMC(위탁)", "중"],
+              ["② 희석 냉동기", "Dilution Refrigerator", "**Bluefors**(70%), Oxford Instruments", "**매우 높음**"],
+              ["③ 극저온 소재", "Helium-3, isotope-pure silicon", "Air Liquide, Sumitomo", "높음"],
+              ["④ 레이저·광학", "Precision lasers", "**Coherent($COHR)**, **Lumentum($LITE)**, TOPTICA", "**높음**"],
+              ["⑤ 제어 전자장치", "Microwave control", "**Quantum Machines**(이스라엘), Zurich Instruments", "**높음**"],
+              ["⑥ 소프트웨어 스택", "Qiskit/Cirq/Q#", "IBM, Google, Microsoft (오픈소스)", "낮음"],
+            ],
+            rowsEn: [
+              ["① Quantum chip", "Qubit chip", "IBM(in-house), Rigetti(in-house), TSMC(foundry)", "Medium"],
+              ["② Dilution refrigerator", "Cryogenic system", "**Bluefors**(70%), Oxford Instruments", "**Very High**"],
+              ["③ Cryogenic materials", "Helium-3, isotope-pure silicon", "Air Liquide, Sumitomo", "High"],
+              ["④ Lasers & optics", "Precision lasers", "**Coherent($COHR)**, **Lumentum($LITE)**, TOPTICA", "**High**"],
+              ["⑤ Control electronics", "Microwave pulse generators", "**Quantum Machines**(Israel), Zurich Instruments", "**High**"],
+              ["⑥ Software stack", "Qiskit/Cirq/Q#", "IBM, Google, Microsoft (open source)", "Low"],
+            ],
+            caption: "각 단계마다 *돈을 버는 회사*가 따로 있다. 그중 가장 *병목*인 곳이 진짜 알파.",
+            captionEn: "Each layer has its own revenue-earning company. The biggest *bottleneck* is where the real alpha sits.",
+          },
+        },
+        {
+          type: "text",
+          body: "### 진짜 병목은 어디인가 — 3대 후보\n\n**병목 후보 ①: Bluefors (희석 냉동기) — 양자의 ASML**\n\n이게 양자 산업의 *가장 숨겨진 보석*이다.\n\n희석 냉동기는 -273°C에 가까운 절대영도를 만드는 거대한 장치다.\n\n모든 superconducting 양자컴퓨터(IBM, Google, Rigetti)가 이걸 *반드시* 사용한다.\n\n전 세계에서 이걸 만들 수 있는 회사가 사실상 2개다.\n\n**Bluefors (핀란드)** 와 Oxford Instruments(영국).\n\n그중 Bluefors가 시장의 *약 70%*를 가지고 있다.\n\n희석 냉동기 한 대 가격: $500K-$3M.\n\n수요는 매년 폭증 중. 양자 회사 하나가 새 시스템 만들 때마다 Bluefors가 매출을 올린다.\n\nBluefors는 비상장. 추정 매출 $200M+, 흑자 운영.\n\n이게 IPO하면 — 양자 시대의 *ASML* 같은 종목이 될 가능성이 있다.",
+          bodyEn: "### Where the Real Bottlenecks Are — Three Candidates\n\n**Bottleneck #1: Bluefors (Dilution Refrigerators) — Quantum's ASML**\n\nThis is the *hidden gem* of the quantum industry.\n\nDilution refrigerators are the massive machines that create temperatures near absolute zero (-273°C).\n\nEvery superconducting quantum computer (IBM, Google, Rigetti) *must* use one.\n\nGlobally, only two companies make them in volume.\n\n**Bluefors (Finland)** and **Oxford Instruments (UK)**.\n\nBluefors holds *about 70%* of the market.\n\nPrice per system: $500K-$3M.\n\nDemand is exploding. Every new quantum system means revenue for Bluefors.\n\nBluefors is private. Estimated revenue $200M+, profitable.\n\nIf they IPO — this could be the *ASML of the quantum era*.",
+        },
+        {
+          type: "text",
+          body: "**병목 후보 ②: 광학 부품 (Coherent, Lumentum)**\n\n이온 트랩 방식(IonQ, Quantinuum)과 광자 방식(PsiQuantum)은 모두 정밀 레이저가 필수다.\n\nCoherent($COHR, 시가총액 ~$13B)와 Lumentum($LITE, 시가총액 ~$5B)이 이 시장의 80%를 차지.\n\n이 회사들은 양자 외에도 5G 통신, 데이터센터 광통신, 의료 장비 등에서 매출이 나온다.\n\n즉 — 양자가 거품이 터져도 *본업이 살아있는* 안전한 베팅.\n\n**병목 후보 ③: Quantum Machines (이스라엘) — 양자 제어 시스템**\n\n큐비트를 *조작*하려면 정밀한 마이크로파 펄스가 필요하다.\n\n이걸 만드는 장비가 양자 제어 시스템(Quantum Control System).\n\n이스라엘 회사 Quantum Machines가 이 시장의 60-70%를 차지.\n\nIBM, Google, AWS, MIT, Caltech, Harvard — 거의 모든 양자 연구소가 사용 중.\n\n비상장. 2024년 매출 $50M+. 시리즈 B에서 $170M 조달, 시가총액 $1B+.\n\n업계 별명: \"양자의 NVIDIA Toolkit\" (NVIDIA의 CUDA 같은 위치).",
+          bodyEn: "**Bottleneck #2: Optical Components (Coherent, Lumentum)**\n\nIon trap (IonQ, Quantinuum) and photonic (PsiQuantum) approaches all need precision lasers.\n\nCoherent ($COHR, ~$13B market cap) and Lumentum ($LITE, ~$5B) together hold 80% of this market.\n\nThese companies also earn from 5G telecom, datacenter optical interconnect, and medical devices.\n\nWhich means: even if quantum collapses, the *core business survives*. Safer bet.\n\n**Bottleneck #3: Quantum Machines (Israel) — Quantum Control Systems**\n\nManipulating qubits requires precision microwave pulses.\n\nThe systems that generate these are called Quantum Control Systems.\n\nIsraeli company Quantum Machines holds 60-70% of this market.\n\nIBM, Google, AWS, MIT, Caltech, Harvard — virtually every quantum lab uses them.\n\nPrivate. 2024 revenue $50M+. Series B raised $170M at $1B+ valuation.\n\nIndustry nickname: 'Quantum's NVIDIA Toolkit' (analogous to NVIDIA's CUDA).",
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "insight",
+            heading: "Pure Play vs Pick-and-Shovel — 역사가 말해주는 패턴",
+            headingEn: "Pure Play vs Pick-and-Shovel — What History Says",
+            body: "지난 30년 모든 기술 사이클의 패턴:\n\n- **닷컴**: Cisco(picks) > Pets.com(pure play)\n- **모바일**: ARM·TSMC(picks) > 대부분의 앱 회사(pure play)\n- **AI**: NVIDIA·TSMC(picks) > 대부분의 AI 스타트업(pure play)\n- **양자**: Bluefors·Coherent·TSMC(picks) > IonQ·Rigetti?(pure play)\n\n이게 *데이터로 검증된 패턴*은 아니지만 — 역사가 그렇게 말하고 있다. 골드러시에서 곡괭이 파는 회사가 진짜 부자가 되는 패턴.",
+            bodyEn: "Every tech cycle of the past 30 years:\n\n- **Dotcom**: Cisco (picks) > Pets.com (pure play)\n- **Mobile**: ARM, TSMC (picks) > most app companies (pure play)\n- **AI**: NVIDIA, TSMC (picks) > most AI startups (pure play)\n- **Quantum**: Bluefors, Coherent, TSMC (picks) > IonQ, Rigetti? (pure play)\n\nNot a statistically validated pattern — but history keeps saying it. In a gold rush, the pickaxe sellers get rich.",
+          },
+        },
+      ],
+    },
+
+    // ─── 9. 매출 현실 ──────────────────────────────────────────────────────────
+    {
+      heading: "8. 매출과 이익 — 2025년 현실",
+      headingEn: "8. Revenue and Profits — 2025 Reality Check",
+      blocks: [
+        {
+          type: "text",
+          body: "자, 그래서 이 회사들이 *지금* 얼마를 벌고 있을까?\n\n상장 양자 회사들의 2024년 추정 매출과 손익이다.",
+          bodyEn: "So how much are these companies actually earning *today*?\n\nEstimated 2024 revenue and losses for public quantum companies.",
+        },
+        {
+          type: "table",
+          table: {
+            id: "quantum-public-stocks",
+            title: "상장 양자 회사 — 2024년 매출·시가총액·EV/Sales",
+            titleEn: "Public Quantum Companies — 2024 Revenue, Market Cap, EV/Sales",
+            headers: ["회사", "티커", "매출(2024)", "영업손익", "시가총액", "EV/Sales"],
+            headersEn: ["Company", "Ticker", "Revenue (2024)", "Operating Loss", "Market Cap", "EV/Sales"],
+            rows: [
+              ["IonQ", "$IONQ", "~$40M", "-$200M", "~$8B", "200x"],
+              ["Rigetti", "$RGTI", "~$10M", "-$80M", "~$3B", "300x"],
+              ["D-Wave", "$QBTS", "~$10M", "-$60M", "~$2B", "200x"],
+              ["Quantum Computing Inc", "$QUBT", "~$0.5M", "-$30M", "~$2B", "4,000x"],
+            ],
+            rowsEn: [
+              ["IonQ", "$IONQ", "~$40M", "-$200M", "~$8B", "200x"],
+              ["Rigetti", "$RGTI", "~$10M", "-$80M", "~$3B", "300x"],
+              ["D-Wave", "$QBTS", "~$10M", "-$60M", "~$2B", "200x"],
+              ["Quantum Computing Inc", "$QUBT", "~$0.5M", "-$30M", "~$2B", "4,000x"],
+            ],
+            caption: "비교: NVIDIA EV/Sales = 약 30배. 양자 주식은 *2024년 매출*이 아니라 *2035년 가능성*에 가격이 매겨져 있다.",
+            captionEn: "For context: NVIDIA's EV/Sales is ~30x. Quantum stocks are priced on *2035 possibility*, not *2024 revenue*.",
+          },
+        },
+        {
+          type: "text",
+          body: "매출 대비 시가총액 멀티플이 *200-4,000배*.\n\n비교: NVIDIA 시가총액 / 매출 = 약 30배.\n\n즉, 양자 주식들은 *현재 매출이 아니라 2035년 가능성*에 가격이 매겨져 있다.\n\n이게 위험하다는 신호다 — 임계점에 도달 못 하면 90% 폭락 가능성.\n\n반대로 — *진짜 임계점이 보이면* 다시 10배 갈 수 있다.\n\n빅테크 양자 부서들 (별도 공시 안 됨, 업계 추정):\n\n- **IBM Quantum** — 추정 매출 $200-400M (정부 + 컨소시엄)\n- **Google Quantum AI** — 매출 거의 0, 100% R&D 투자\n- **Microsoft Quantum** — 매출 거의 0, Azure Quantum 일부\n\n비상장 양자 회사 (가장 활발):\n\n- **Quantinuum** (Honeywell + Cambridge Quantum) — 추정 매출 $20-50M, 시가총액 $5B\n- **PsiQuantum** — 매출 거의 0 (R&D 단계), 시가총액 $4B+\n- **Atom Computing** — 매출 거의 0, 시리즈 B $60M\n\n비상장 픽-앤-쇼블 (가장 흥미로움):\n\n- **Bluefors** — 추정 매출 $200M+, *흑자*, IPO 잠재력\n- **Quantum Machines** — 추정 매출 $50M+, 시가총액 $1B+",
+          bodyEn: "EV/Sales multiples of *200-4,000x*.\n\nFor context: NVIDIA EV/Sales ≈ 30x.\n\nWhich means quantum stocks are priced on *2035 possibility*, not *2024 revenue*.\n\nThat's the risk signal — if the threshold isn't reached, 90% drawdowns are on the table.\n\nThe flip side — *if the threshold becomes visible*, they could 10x again.\n\nBigTech quantum divisions (not separately disclosed; industry estimates):\n\n- **IBM Quantum** — ~$200-400M revenue (government + consortia)\n- **Google Quantum AI** — near zero revenue, 100% R&D investment\n- **Microsoft Quantum** — near zero revenue, some Azure Quantum\n\nPrivate quantum companies (most active):\n\n- **Quantinuum** (Honeywell + Cambridge Quantum) — ~$20-50M revenue, $5B valuation\n- **PsiQuantum** — near zero revenue (R&D phase), $4B+ valuation\n- **Atom Computing** — near zero revenue, Series B $60M\n\nPrivate pick-and-shovel plays (most interesting):\n\n- **Bluefors** — ~$200M+ revenue, *profitable*, IPO candidate\n- **Quantum Machines** — ~$50M+ revenue, $1B+ valuation",
+        },
+      ],
+    },
+
+    // ─── 10. 시장 규모 ─────────────────────────────────────────────────────────
+    {
+      heading: "9. 시장 규모 추정 — 2030년, 2035년, 2040년",
+      headingEn: "9. Market Size — 2030, 2035, 2040",
+      blocks: [
+        {
+          type: "text",
+          body: "여러 컨설팅 펌이 양자 시장 규모를 추정해왔다.\n\n추정치마다 차이가 큰데, 그 자체가 *얼마나 불확실한지*를 보여준다.",
+          bodyEn: "Multiple consulting firms have estimated the quantum market.\n\nThe range across estimates is huge — which itself tells you *how uncertain* this is.",
+        },
+        {
+          type: "table",
+          table: {
+            id: "quantum-market-forecasts",
+            title: "양자 시장 규모 추정 — 컨설팅 펌별",
+            titleEn: "Quantum Market Forecasts by Firm",
+            headers: ["기관", "2030년", "2035년", "2040년"],
+            headersEn: ["Source", "2030", "2035", "2040"],
+            rows: [
+              ["BCG (보수)", "$5B-10B", "$40B-90B", "$90B-170B"],
+              ["Hyperion Research (중립)", "$15B", "$100B", "—"],
+              ["McKinsey (낙관)", "—", "**$1,300B**", "—"],
+            ],
+            rowsEn: [
+              ["BCG (Conservative)", "$5B-10B", "$40B-90B", "$90B-170B"],
+              ["Hyperion Research (Neutral)", "$15B", "$100B", "—"],
+              ["McKinsey (Bull case)", "—", "**$1,300B**", "—"],
+            ],
+            caption: "McKinsey 시나리오는 양자가 *모든 산업에 침투했을 때*. 거의 30배 차이.",
+            captionEn: "The McKinsey scenario assumes quantum permeates *every industry*. Roughly 30x spread.",
+          },
+        },
+        {
+          type: "text",
+          body: "비교 reference:\n\n- 2024년 AI 시장 규모: $200B\n- 2024년 클라우드 시장 규모: $700B\n- 2024년 글로벌 반도체 시장: $600B\n\n즉 BCG 보수 시나리오면 *2040년 양자 = 2024년 반도체의 25%*.\n\nMcKinsey 낙관 시나리오면 *2035년 양자 = 2024년 클라우드의 2배*.\n\n진실은 그 사이 어디일 것이다.\n\n별도로 — **PQC(양자-안전 암호) 마이그레이션 시장**은 *훨씬 더 확실*하다.\n\nNIST 추정: 글로벌 $500B+ 마이그레이션 비용.\n\n수혜 기업: Cloudflare, Palo Alto Networks, IBM (PQC 표준 채택)\n\n이건 양자컴퓨터가 *성공*해도 *실패*해도 어쨌든 *반드시 발생할 비용*이다.",
+          bodyEn: "For reference:\n\n- 2024 AI market: $200B\n- 2024 cloud market: $700B\n- 2024 global semiconductor market: $600B\n\nSo BCG's conservative case = *2040 quantum = 25% of 2024 semis*.\n\nMcKinsey's bull case = *2035 quantum = 2x the 2024 cloud market*.\n\nThe truth lies somewhere in between.\n\nSeparately — the **PQC migration market** is *much more certain*.\n\nNIST estimate: $500B+ global migration cost.\n\nBeneficiaries: Cloudflare, Palo Alto Networks, IBM (PQC standard adoption).\n\nThis cost will be incurred *whether quantum succeeds or fails*.",
+        },
+      ],
+    },
+
+    // ─── 11. 다음 NVIDIA ───────────────────────────────────────────────────────
+    {
+      heading: "10. 다음 NVIDIA는 누구인가 — 4가지 시나리오",
+      headingEn: "10. Who's the Next NVIDIA — Four Scenarios",
+      blocks: [
+        {
+          type: "text",
+          body: "**시나리오 A: 빅테크 승리 (IBM·Google·Microsoft) — 확률 40%**\n\n가장 가능성 높음.\n\n양자 임계점에 가장 먼저 도달하는 게 자본력 있는 빅테크.\n\n순수 양자 회사들은 *기술적으로는 앞서지만* 돈이 부족.\n\n이 경우 IonQ·Rigetti·D-Wave는 *인수* 또는 *쇠퇴*.\n\n**시나리오 B: Pure Play 승리 (IonQ·PsiQuantum) — 확률 20%**\n\n순수 양자 회사 중 한 곳이 fault-tolerant에 처음 도달.\n\n빅테크는 인수하거나 라이센스 계약.\n\n이 시나리오면 IonQ·PsiQuantum 주가 *100배*.\n\n**시나리오 C: Pick-and-Shovel 승리 (Bluefors·Coherent·TSMC) — 확률 30%**\n\n역사적으로 가장 자주 일어남.\n\n누가 양자 임계점에 도달하든 — 결국 *부품을 사야 함*.\n\nBluefors IPO 시 *양자의 ASML*.\n\nCoherent·Lumentum은 *양자 + 5G + AI* 멀티 베팅.\n\n**시나리오 D: 영구 거품 (Cisco's Lost Decade) — 확률 10%**\n\n양자가 *기술적으로 가능*하지만 *상업적으로 실패*.\n\nNISQ 정체기가 영원히 지속.\n\n이 경우 양자 주식 *90% 폭락*.",
+          bodyEn: "**Scenario A: BigTech Wins (IBM/Google/Microsoft) — 40% probability**\n\nMost likely.\n\nBigTech reaches the threshold first, thanks to capital depth.\n\nPure plays are *technically ahead* but capital-starved.\n\nIn this case, IonQ/Rigetti/D-Wave get *acquired* or *fade*.\n\n**Scenario B: Pure Play Wins (IonQ/PsiQuantum) — 20% probability**\n\nA pure play reaches fault-tolerance first.\n\nBigTech acquires or licenses.\n\nIonQ/PsiQuantum stocks go *100x*.\n\n**Scenario C: Pick-and-Shovel Wins (Bluefors/Coherent/TSMC) — 30% probability**\n\nHistorically the most frequent outcome.\n\nWhoever reaches the threshold — they still have to *buy the components*.\n\nBluefors IPO becomes *quantum's ASML*.\n\nCoherent/Lumentum are *quantum + 5G + AI* multi-bets.\n\n**Scenario D: Permanent Bubble (Cisco's Lost Decade) — 10% probability**\n\nQuantum is *technically possible* but *commercially failed*.\n\nNISQ plateau persists indefinitely.\n\nIn this scenario, quantum stocks *drop 90%*.",
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "example",
+            heading: "투자자 행동 지침 (개인 의견)",
+            headingEn: "Investor Playbook (One Person's View)",
+            body: "- **공격적**: IonQ + PsiQuantum(IPO 시) + Quantum Computing Inc\n- **균형**: IBM + Coherent + Bluefors(IPO 시) + 양자 ETF(QTUM)\n- **방어적**: Coherent + Lumentum + TSMC만\n\n어느 시나리오든 — 가장 안 깨지는 베팅은 **TSMC**다. 양자 칩 만들 곳이 결국 TSMC밖에 없기 때문. AI 사이클과 양자 사이클 둘 다에서 *유일한 공통 승자*다.",
+            bodyEn: "- **Aggressive**: IonQ + PsiQuantum (if IPO) + Quantum Computing Inc\n- **Balanced**: IBM + Coherent + Bluefors (if IPO) + QTUM ETF\n- **Defensive**: Coherent + Lumentum + TSMC only\n\nIn any scenario — the most unbreakable bet is **TSMC**. Because quantum chips ultimately have to be made there. The only *common winner* between the AI and quantum cycles.",
+          },
+        },
+        {
+          type: "text",
+          body: "다음 1-2년 동안 *모니터링해야 할 핵심 시그널*:\n\n1. **Logical qubit 수** — 1개에서 10개로 가는 게 임계점\n2. **빅테크 인수 announcement** — 양자 사이클 시작 신호\n3. **Bluefors IPO** — 가장 큰 픽-앤-쇼블 베팅 가능성\n4. **NIST PQC 표준 본격 채택** — 별도 $500B 시장 시작\n5. **양자 vs 고전 컴퓨터 실제 비용 우위 첫 사례** — Quantum Advantage 시작",
+          bodyEn: "Five signals to watch over the next 1-2 years:\n\n1. **Logical qubit count** — going from 1 to 10 is the threshold\n2. **BigTech acquisition announcements** — cycle-start signal\n3. **Bluefors IPO** — biggest pick-and-shovel opportunity\n4. **NIST PQC standards mainstream adoption** — separate $500B market kicking off\n5. **First case of quantum vs classical cost advantage** — Quantum Advantage begins",
+        },
+      ],
+    },
+
+    // ─── 12. 핵심 인물 ─────────────────────────────────────────────────────────
+    {
+      heading: "11. 핵심 인물 12명 — 이 사람들의 발표를 보면 양자가 보인다",
+      headingEn: "11. Twelve Key People — Track Their Announcements",
+      blocks: [
+        {
+          type: "text",
+          body: "양자컴퓨터는 *물리학자가 만들고 엔지니어가 상용화*한다.\n\n그래서 학계와 산업계 양쪽의 인물을 다 알아야 한다.",
+          bodyEn: "Quantum computers are *built by physicists, commercialized by engineers*.\n\nSo you need to know the players on both the academic and industrial sides.",
+        },
+        {
+          type: "text",
+          body: "### 학계 거인 (이론 + 실험)\n\n**Peter Shor (MIT)** — 1994년 Shor's Algorithm을 발견. RSA를 깰 수 있는 양자 알고리즘. *양자컴퓨터가 만들어지면 가장 먼저 일어날 일*을 25년 전에 예측한 인물.\n\n**John Preskill (Caltech)** — NISQ 용어 창안자. 양자컴퓨터의 *현재 단계*를 정의한 학자. 그의 연간 강연이 양자 산업의 *현재 위치* 가늠자.\n\n**Mikhail Lukin (Harvard)** — Neutral atom 방식의 선구자. QuEra 공동창업. 2023년 *Science* 논문으로 neutral atom의 가능성을 입증.\n\n**Pan Jianwei (潘建偉, USTC)** — 중국 양자의 아버지. 위성-지상 양자 통신을 세계 최초로 구현. 중국 양자 굴기의 상징적 인물.\n\n**Alain Aspect + Anton Zeilinger** — 2022년 노벨 물리학상. 양자얽힘(entanglement)이 *실재한다*는 것을 실험으로 증명. 양자 통신의 이론적 토대.",
+          bodyEn: "### Academic Giants (Theory + Experiment)\n\n**Peter Shor (MIT)** — Discovered Shor's Algorithm in 1994. The quantum algorithm that breaks RSA. He predicted *the first thing that would happen* when quantum computers exist, 25 years before it could.\n\n**John Preskill (Caltech)** — Coined NISQ. The scholar who defined quantum computing's *current era*. His annual talks set the *state-of-play* compass for the industry.\n\n**Mikhail Lukin (Harvard)** — Pioneer of neutral atom approach. Co-founded QuEra. His 2023 *Science* paper validated neutral atom's potential.\n\n**Pan Jianwei (潘建偉, USTC)** — China's quantum godfather. First in the world to demonstrate satellite-to-ground quantum communication. Symbolic figure of China's quantum ambitions.\n\n**Alain Aspect + Anton Zeilinger** — 2022 Nobel Prize in Physics. Experimentally proved that quantum entanglement *is real*. Theoretical foundation of quantum communication.",
+        },
+        {
+          type: "text",
+          body: "### 산업계 리더 (실행)\n\n**Hartmut Neven (Google Quantum AI)** — Google 양자 부서 총괄. 2019 Sycamore와 2024 Willow를 모두 이끔. 양자 산업의 *기술적 리더십* 상징.\n\n**Jay Gambetta (IBM Quantum)** — IBM Quantum VP. IBM의 양자 로드맵을 매년 발표. 그의 발표가 산업의 *공식 시간표* 역할.\n\n**Krysta Svore (Microsoft Quantum)** — Microsoft 양자 총괄. Topological qubit 25년 베팅의 책임자. Majorana 1 발표를 이끔.\n\n**Chad Rigetti (Rigetti)** — Rigetti 창업자. Berkeley 박사 후 IBM 거쳐 창업. Pure-play 양자의 첫 SPAC 상장 사례.\n\n**Christopher Monroe (IonQ)** — IonQ 공동창업, Maryland 교수. Trapped ion 방식의 학계-산업 다리.\n\n**Jeremy O'Brien (PsiQuantum)** — PsiQuantum CEO, Bristol 출신. Photonic 양자의 가장 야심찬 베팅을 이끔.\n\n**Peter Chapman (전 IonQ CEO)** — Amazon 출신, IonQ를 상장까지 이끔. 2024년 사임 후 후계자 Niccolo de Masi가 CEO.",
+          bodyEn: "### Industry Leaders (Execution)\n\n**Hartmut Neven (Google Quantum AI)** — Leads Google's quantum division. Drove both 2019 Sycamore and 2024 Willow. Symbol of *technical leadership* in the industry.\n\n**Jay Gambetta (IBM Quantum)** — IBM Quantum VP. Publishes IBM's quantum roadmap annually. His announcements function as the industry's *official timetable*.\n\n**Krysta Svore (Microsoft Quantum)** — Leads Microsoft Quantum. Responsible for the 25-year topological qubit bet. Led the Majorana 1 announcement.\n\n**Chad Rigetti (Rigetti)** — Founder of Rigetti. Berkeley PhD, then IBM, then founded. First SPAC IPO for pure-play quantum.\n\n**Christopher Monroe (IonQ)** — IonQ co-founder, University of Maryland professor. The academia-industry bridge for trapped ion.\n\n**Jeremy O'Brien (PsiQuantum)** — PsiQuantum CEO, Bristol-trained. Leading the most ambitious photonic quantum bet.\n\n**Peter Chapman (former IonQ CEO)** — From Amazon. Led IonQ through IPO. Stepped down in 2024; Niccolo de Masi is the current CEO.",
+        },
+      ],
+    },
+
+    // ─── 13. 글로벌 양자 패권 ──────────────────────────────────────────────────
+    {
+      heading: "12. 글로벌 양자 패권 — 어느 나라가 앞서고 있는가",
+      headingEn: "12. Global Quantum Race — Who's Leading",
+      blocks: [
+        {
+          type: "text",
+          body: "양자컴퓨터는 *국가 간 경쟁*이기도 하다.\n\nAI가 미·중 양강 구도라면, 양자는 미·중에 EU와 일본이 추가된 4강.\n\n각국 정부 투자 규모 + 핵심 거점:",
+          bodyEn: "Quantum is also a *nation-state competition*.\n\nWhere AI is US-China bipolar, quantum is US-China-EU-Japan four-pole.\n\nGovernment investment by country + key hubs:",
+        },
+        {
+          type: "table",
+          table: {
+            id: "quantum-by-country",
+            title: "국가별 양자 투자 + 핵심 거점",
+            titleEn: "Quantum Investment + Hubs by Country",
+            headers: ["국가", "정부 투자", "핵심 거점", "특이사항"],
+            headersEn: ["Country", "Govt Investment", "Key Hubs", "Notes"],
+            rows: [
+              ["🇺🇸 미국", "$1.2B+ (National Quantum Initiative) + CHIPS Act 추가", "IBM Yorktown, Google Santa Barbara, IonQ College Park", "산업계 가장 강함"],
+              ["🇨🇳 중국", "$15B+ (단일 국가 최대)", "USTC Hefei (Pan Jianwei), Origin Quantum, Alibaba Quantum Lab", "위성 양자통신 세계 1위"],
+              ["🇪🇺 EU", "€1B (Quantum Flagship 10년 프로그램)", "QuTech Delft (네덜란드), Munich Quantum Valley, ETH Zurich", "Pasqal(프랑스), IQM(핀란드) 강세"],
+              ["🇬🇧 영국", "£2.5B (National Quantum Strategy, 10년)", "Oxford Quantum, Riverlane Cambridge", "Oxford Instruments 본거지"],
+              ["🇯🇵 일본", "¥200B+ (양자기술 이노베이션 거점)", "RIKEN, Fujitsu Quantum, University of Tokyo", "냉동기·소재 강점"],
+              ["🇰🇷 한국", "₩3T / 10년 (KQI 2023~)", "KIST, ETRI, KAIST", "Samsung·LG 기업 참여"],
+              ["🇨🇦 캐나다", "C$360M+", "D-Wave (Burnaby), Xanadu (Toronto)", "D-Wave 본거지 (양자 어닐링)"],
+              ["🇦🇺 호주", "A$1B+ (Silicon Quantum Computing)", "UNSW Sydney, PsiQuantum 호주 제조 거점", "PsiQuantum과 $617M 계약"],
+            ],
+            rowsEn: [
+              ["🇺🇸 USA", "$1.2B+ (National Quantum Initiative) + CHIPS Act", "IBM Yorktown, Google Santa Barbara, IonQ College Park", "Strongest industrial base"],
+              ["🇨🇳 China", "$15B+ (largest single-country)", "USTC Hefei (Pan Jianwei), Origin Quantum, Alibaba Quantum Lab", "Leads in satellite quantum comm"],
+              ["🇪🇺 EU", "€1B (Quantum Flagship, 10yr)", "QuTech Delft (NL), Munich Quantum Valley, ETH Zurich", "Pasqal (FR), IQM (FI) strong"],
+              ["🇬🇧 UK", "£2.5B (National Quantum Strategy, 10yr)", "Oxford Quantum, Riverlane Cambridge", "Home of Oxford Instruments"],
+              ["🇯🇵 Japan", "¥200B+ (quantum innovation hubs)", "RIKEN, Fujitsu Quantum, U Tokyo", "Strong in cryogenics, materials"],
+              ["🇰🇷 Korea", "₩3T / 10yr (KQI from 2023)", "KIST, ETRI, KAIST", "Samsung/LG corporate participation"],
+              ["🇨🇦 Canada", "C$360M+", "D-Wave (Burnaby), Xanadu (Toronto)", "D-Wave home base (quantum annealing)"],
+              ["🇦🇺 Australia", "A$1B+ (Silicon Quantum Computing)", "UNSW Sydney, PsiQuantum AU manufacturing hub", "$617M PsiQuantum contract"],
+            ],
+            caption: "한국 KQI는 2023년 출범. ₩3T 10년 계획. 글로벌 기준으로는 EU/일본보다 작지만, Samsung·LG의 silicon spin 참여가 차별점.",
+            captionEn: "Korea's KQI launched in 2023 with a ₩3T (~$2.2B) 10-year plan. Smaller than EU/Japan budgets, but Samsung/LG's silicon spin participation is differentiating.",
+          },
+        },
+        {
+          type: "text",
+          body: "**미·중 양자 분리(decoupling)** 가 진행 중이다.\n\n2024년부터 미국은 중국에 *양자 관련 기술 수출*을 제한하기 시작.\n\n중국도 자체 공급망 구축 (HBM은 SK하이닉스에 의존했지만, 양자는 자국 내 폐쇄형으로 가는 중).\n\n이게 양자 산업에 *어떻게* 영향을 줄지는 아직 불확실.\n\n다만 — 양자 기술이 *AI보다 더 빨리 지정학적 자산*이 되고 있는 건 분명.",
+          bodyEn: "**US-China quantum decoupling** is underway.\n\nStarting in 2024, the US restricted exports of quantum-related technology to China.\n\nChina is building its own supply chain (HBM was SK Hynix-dependent, but quantum is going closed-loop domestically).\n\nHow this reshapes the industry is still unclear.\n\nWhat's clear: quantum tech is becoming a *geopolitical asset faster than AI did*.",
+        },
+      ],
+    },
+
+    // ─── 14. 결론 ──────────────────────────────────────────────────────────────
+    {
+      heading: "13. 결론 — 양자는 AI 다음의 자본 사이클인가",
+      headingEn: "13. Conclusion — Is Quantum Really the Next Capital Cycle After AI?",
+      blocks: [
+        {
+          type: "text",
+          body: "이 글을 마무리하기 전에, 양자컴퓨터에 대한 *3가지 솔직한 평가*를 남긴다.",
+          bodyEn: "Before closing, three honest takes on quantum computing.",
+        },
+        {
+          type: "text",
+          body: "### ① 양자는 진짜다. 다만 *지금이 1995년의 인터넷*과 비슷한 위치.\n\n기술은 작동한다. Willow가 그걸 증명했다.\n\n그러나 *상업화*까지는 5-10년이 더 필요하다.\n\n1995년 인터넷도 *기술적으로*는 작동했지만, Amazon이 흑자를 내는 데 8년이 걸렸다.\n\n양자도 비슷한 곡선을 그릴 가능성이 높다.\n\n### ② 단기 trading은 위험. 장기 holding이 답.\n\n양자 주식들의 EV/Sales 200-4000배는 *매우 위험*하다.\n\n임계점 발표가 늦어지면 50-90% 폭락 가능성.\n\n그러나 임계점이 *진짜* 보이는 순간 다시 10-100배 갈 수 있다.\n\n그래서 — 단기 trading은 위험하지만, *5년 이상 holding*하면 비대칭 베팅이 된다.\n\n### ③ 진짜 알파는 Pick-and-Shovel.\n\n역사가 그렇게 말한다.\n\nBluefors IPO가 *2026-2027년에 일어날 가능성*이 가장 큰 단일 이벤트.\n\n그 외 Coherent($COHR), Lumentum($LITE), TSMC는 *양자가 실패해도* 본업이 살아있는 안전한 베팅.",
+          bodyEn: "### ① Quantum is real. But we're roughly at *1995-internet* on the timeline.\n\nThe tech works. Willow proved that.\n\nBut commercialization is 5-10 years out.\n\nThe internet *worked* in 1995, but it took Amazon 8 years to turn a profit.\n\nQuantum will likely follow a similar curve.\n\n### ② Short-term trading is dangerous. Long-term holding is the answer.\n\nEV/Sales of 200-4000x is *very dangerous*.\n\nA delayed threshold announcement could trigger 50-90% drawdowns.\n\nBut the moment the threshold becomes *real and visible*, the same stocks can 10-100x.\n\nSo — short-term trading is dangerous; *5+ year holding* makes it an asymmetric bet.\n\n### ③ The real alpha is pick-and-shovel.\n\nHistory keeps saying so.\n\nA Bluefors IPO in *2026-2027* is the most likely single catalyst.\n\nBeyond that, Coherent ($COHR), Lumentum ($LITE), and TSMC remain safer bets — their core businesses survive *even if quantum fails*.",
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "insight",
+            heading: "마지막 한 문장",
+            headingEn: "One Last Sentence",
+            body: "AI 사이클은 \"무엇을 만들 것인가\"의 사이클이었다.\n\n양자 사이클은 \"무엇이 가능해지는가\"의 사이클이다.\n\nAI가 *인간의 일을 대체*했다면, 양자는 *자연 자체를 시뮬레이션*한다.\n\n그게 진짜 임팩트가 되려면 — 우리는 임계점이 보일 때까지 인내해야 한다.",
+            bodyEn: "The AI cycle was a 'what shall we build' cycle.\n\nThe quantum cycle is a 'what becomes possible' cycle.\n\nIf AI *replaced human work*, quantum *simulates nature itself*.\n\nFor that to become real impact — we have to wait until the threshold becomes visible.",
+          },
+        },
+      ],
+    },
+  ],
+  references: [
+    { id: 1, author: "Google Quantum AI", title: "Quantum error correction below the surface code threshold (Willow chip)", source: "Nature", year: "2024-12", url: "https://www.nature.com/articles/s41586-024-08449-y" },
+    { id: 2, author: "Microsoft Research", title: "Majorana 1: A new path to scalable quantum computing", source: "Microsoft Research Blog", year: "2025-02", url: "https://www.microsoft.com/en-us/research/blog/majorana-1/" },
+    { id: 3, author: "IBM Research", title: "IBM Quantum Roadmap 2024 Update — Toward Starling 2029", source: "IBM Research", year: "2024", url: "https://www.ibm.com/quantum/roadmap" },
+    { id: 4, author: "Shor, Peter", title: "Algorithms for quantum computation: discrete logarithms and factoring", source: "Proceedings of the 35th Annual Symposium on Foundations of Computer Science", year: "1994" },
+    { id: 5, author: "Preskill, John", title: "Quantum Computing in the NISQ era and beyond", source: "Quantum Journal", year: "2018", url: "https://quantum-journal.org/papers/q-2018-08-06-79/" },
+    { id: 6, author: "Boston Consulting Group", title: "The Long-Term Forecast for Quantum Computing Still Looks Bright", source: "BCG", year: "2024", url: "https://www.bcg.com/publications/2024/long-term-forecast-for-quantum-computing-still-looks-bright" },
+    { id: 7, author: "McKinsey & Company", title: "Quantum Technology Monitor 2024", source: "McKinsey", year: "2024", url: "https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/steady-progress-in-approaching-the-quantum-advantage" },
+    { id: 8, author: "Feynman, Richard", title: "Simulating Physics with Computers", source: "International Journal of Theoretical Physics", year: "1982", note: "1981 강연을 기반으로 한 논문. 양자컴퓨터의 출생증명서." },
+    { id: 9, author: "Arute et al. (Google)", title: "Quantum supremacy using a programmable superconducting processor (Sycamore)", source: "Nature", year: "2019", url: "https://www.nature.com/articles/s41586-019-1666-5" },
+    { id: 10, author: "NIST", title: "FIPS 203/204/205 — Post-Quantum Cryptography Standards", source: "NIST", year: "2024-08", url: "https://csrc.nist.gov/projects/post-quantum-cryptography" },
+    { id: 11, author: "Quantum Insider", title: "Quantum Computing Industry Report 2024", source: "The Quantum Insider", year: "2024", url: "https://thequantuminsider.com/" },
+    { id: 12, author: "U.S. National Quantum Initiative", title: "National Quantum Initiative Annual Report 2024", source: "NQI Coordination Office", year: "2024", url: "https://www.quantum.gov/" },
+    { id: 13, author: "PsiQuantum + Australian Government", title: "$617M agreement for utility-scale quantum computer in Brisbane", source: "PsiQuantum / AU PM Office", year: "2024-04" },
+    { id: 14, author: "IonQ Inc.", title: "Q4 2024 Earnings Report + 10-K Annual Filing", source: "SEC", year: "2024", url: "https://investors.ionq.com/" },
+    { id: 15, author: "Bluefors", title: "Company Information — Dilution Refrigerator Market", source: "Bluefors / Finland", year: "2024", url: "https://bluefors.com/" },
+    { id: 16, author: "Quantum Machines", title: "Series B Announcement — $170M raise", source: "Quantum Machines", year: "2023", url: "https://www.quantum-machines.co/" },
+    { id: 17, author: "JPMorgan Chase", title: "Q-Initiative — Quantum Computing for Finance", source: "JPMorgan", year: "2023-2024", url: "https://www.jpmorgan.com/technology/quantum-computing" },
+    { id: 18, author: "Roche/Pfizer/Merck × IBM Quantum", title: "Pharma Quantum Consortium briefing", source: "IBM Quantum", year: "2024", url: "https://www.ibm.com/quantum" },
+    { id: 19, author: "한국과학기술정보통신부", title: "양자과학기술 종합발전계획 (KQI 2023~)", source: "MSIT", year: "2023", url: "https://www.msit.go.kr/" },
+    { id: 20, author: "Pan, Jian-Wei et al. (USTC)", title: "Satellite-based entanglement distribution over 1200 kilometers", source: "Science", year: "2017", url: "https://www.science.org/doi/10.1126/science.aan3211" },
+  ],
+};
+
 export const ALL_NOTES: NoteData[] = [
   koreaDiscount,
   dollarHegemony1, dollarHegemony2, dollarHegemony3, dollarHegemony4,
   aiCycle1, aiCycle2, aiCycle3, aiCycle4, aiCycle5, aiCycle6, aiCycle7,
+  quantumComputing,
 ];
