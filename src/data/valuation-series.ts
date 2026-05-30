@@ -42,7 +42,7 @@ export const VAL_CHAPTERS: ValChapter[] = [
     taglineKo: "WACC 템플릿, Revenue 가정, NWC·CAPEX 연결, sensitivity, Bear/Base/Bull",
     taglineEn: "WACC templates, revenue assumptions, NWC/CAPEX linkage, sensitivity, bear/base/bull",
     readingMinutes: 13,
-    status: "draft",
+    status: "published",
   },
   {
     slug: "val-ch03-comps-practice",
