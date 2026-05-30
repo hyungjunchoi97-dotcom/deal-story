@@ -33,6 +33,9 @@ const KO_CONCEPT_CATALOG: ConceptItem[] = [
   { slug: "lbo-returns",           term: "LBO 101 Ch.2 — 리턴 분석",           tagline: "MOIC·IRR 충돌 시나리오, J-커브, 가치창출 3대 드라이버(EBITDA·멀티플·부채상환), Vintage Year 효과",                            category: "LBO 시리즈", published: true  },
   { slug: "lbo-deal-process",      term: "LBO 101 Ch.3 — 딜 프로세스 & 리스크", tagline: "6단계 딜 타임라인, Sources & Uses, Maturity Wall, TXU·Toys'R'Us·Caesars 실패 / Alliance Boots 성공 해부",                   category: "LBO 시리즈", published: true  },
 
+  // Valuation 시리즈
+  { slug: "val-ch01-frameworks",   term: "Valuation 101 Ch.1 — 회사에 값을 매기는 3가지 방법", tagline: "DCF · Multiples · Asset-based — 언제 어느 걸 쓰고, 왜 셋을 같이 보여주는가",                                                                                       category: "Valuation 시리즈", published: true },
+
   // M&A 시리즈 — 전과정 흐름 + 이해관계자 + 유명 뱅커 케이스
   { slug: "ma-ch01-overview",      term: "M&A 101 Ch.1 — 전과정 흐름 (6개월의 여정)", tagline: "M&A는 보기보다 단순한 흐름이다 — 9단계 타임라인 · 5개 주체 병렬 워크스트림 · 진짜 어려운 4지점",                                                  category: "M&A 시리즈", published: true  },
   { slug: "ma-ch02-stakeholders",  term: "M&A 101 Ch.2 — 이해관계자 도감 (누가 무엇을 하는가)", tagline: "한 딜에 평균 8개 firm — IB · 회계 FAS · 컨설팅 · 법무 · Lender + 클라이언트. Deliverable · 등장 시점 · IB와의 인터페이스 · risk",   category: "M&A 시리즈", published: true  },
@@ -87,6 +90,9 @@ const EN_CONCEPT_CATALOG: ConceptItem[] = [
   { slug: "lbo-capital-structure", term: "LBO 101 Ch.1 — Capital Structure",        tagline: "TLA, TLB, Senior Notes, Mezz, PIK Toggle, Equity — the debt pyramid, Covenant-Lite, DSCR, Hilton 2007 real structure",         category: "LBO Series", published: true },
   { slug: "lbo-returns",           term: "LBO 101 Ch.2 — Return Analysis",          tagline: "MOIC vs IRR conflict scenarios, the J-curve, three value drivers (EBITDA, multiple, paydown), Vintage Year effects",            category: "LBO Series", published: true },
   { slug: "lbo-deal-process",      term: "LBO 101 Ch.3 — Deal Process & Risks",     tagline: "Six-phase timeline, Sources & Uses, Maturity Wall, TXU/Toys'R'Us/Caesars failures vs Alliance Boots success",                    category: "LBO Series", published: true },
+
+  // Valuation Series
+  { slug: "val-ch01-frameworks",   term: "Valuation 101 Ch.1 — Three ways to put a number on a business", tagline: "DCF, multiples, and asset-based — when each is used, and why bankers always show all three",                                                                category: "Valuation Series", published: true },
 
   // M&A Series — lifecycle + stakeholders + banker case studies
   { slug: "ma-ch01-overview",      term: "M&A 101 Ch.1 — The Lifecycle (6-month journey)", tagline: "M&A is more linear than it looks — 9-stage timeline · 5 parallel workstreams · the 4 places where it actually gets hard",                                  category: "M&A Series", published: true },
@@ -185,7 +191,7 @@ const EN_CATEGORIES = [
 // comingSoon: true → 빈 폴더에 "Coming Soon" 배지 표시
 const KO_CAT_META: Record<string, { letter: string; icon: string; desc: string; dot: string; badgeBg: string; badgeFg: string; comingSoon?: boolean }> = {
   "M&A 시리즈":       { letter: "A", icon: "🤝", desc: "딜 본질·프로세스·협상·PMI까지 — M&A의 처음과 끝",                  dot: "bg-amber-400",   badgeBg: "bg-amber-50 dark:bg-amber-900/30",   badgeFg: "text-amber-700 dark:text-amber-300" },
-  "Valuation 시리즈": { letter: "B", icon: "📊", desc: "가치평가 본질·멀티플·DCF·LBO/PE 밸류에이션",                       dot: "bg-blue-400",    badgeBg: "bg-blue-50 dark:bg-blue-900/30",    badgeFg: "text-blue-700 dark:text-blue-300",    comingSoon: true },
+  "Valuation 시리즈": { letter: "B", icon: "📊", desc: "회사에 값을 매기는 3가지 방법 — DCF·Multiples·Asset-based 실무",   dot: "bg-blue-400",    badgeBg: "bg-blue-50 dark:bg-blue-900/30",    badgeFg: "text-blue-700 dark:text-blue-300" },
   "FDD 시리즈":       { letter: "C", icon: "🔍", desc: "재무 실사 — QoE·운전자본·잠재부채 검증 방법론",                    dot: "bg-violet-400",  badgeBg: "bg-violet-50 dark:bg-violet-900/30", badgeFg: "text-violet-700 dark:text-violet-300", comingSoon: true },
   "Modelling 시리즈": { letter: "D", icon: "📈", desc: "3-Statement·DCF·LBO 모델 구축 실전",                                dot: "bg-rose-400",    badgeBg: "bg-rose-50 dark:bg-rose-900/30",    badgeFg: "text-rose-700 dark:text-rose-300",    comingSoon: true },
   "LBO 시리즈":       { letter: "E", icon: "💰", desc: "LBO 101 — 자본구조·리턴 분석·딜 프로세스 (4 챕터)",                  dot: "bg-indigo-400",  badgeBg: "bg-indigo-50 dark:bg-indigo-900/30", badgeFg: "text-indigo-700 dark:text-indigo-300" },
@@ -202,7 +208,7 @@ const KO_CAT_META: Record<string, { letter: string; icon: string; desc: string; 
 // ── EN 카테고리 메타데이터 ─────────────────────────────────────────────────────
 const EN_CAT_META: Record<string, { letter: string; icon: string; desc: string; dot: string; badgeBg: string; badgeFg: string; comingSoon?: boolean }> = {
   "M&A Series":       { letter: "A", icon: "🤝", desc: "Deal essence · process · negotiation · PMI — M&A end to end",     dot: "bg-amber-400",   badgeBg: "bg-amber-50 dark:bg-amber-900/30",   badgeFg: "text-amber-700 dark:text-amber-300" },
-  "Valuation Series": { letter: "B", icon: "📊", desc: "Valuation fundamentals, multiples, DCF, LBO/PE valuation",         dot: "bg-blue-400",    badgeBg: "bg-blue-50 dark:bg-blue-900/30",    badgeFg: "text-blue-700 dark:text-blue-300",    comingSoon: true },
+  "Valuation Series": { letter: "B", icon: "📊", desc: "Three ways to value a business — DCF, multiples, asset-based in practice", dot: "bg-blue-400",    badgeBg: "bg-blue-50 dark:bg-blue-900/30",    badgeFg: "text-blue-700 dark:text-blue-300" },
   "FDD Series":       { letter: "C", icon: "🔍", desc: "Financial diligence — QoE, working capital, hidden liabilities",   dot: "bg-violet-400",  badgeBg: "bg-violet-50 dark:bg-violet-900/30", badgeFg: "text-violet-700 dark:text-violet-300", comingSoon: true },
   "Modelling Series": { letter: "D", icon: "📈", desc: "Building 3-Statement, DCF, and LBO models — hands-on",             dot: "bg-rose-400",    badgeBg: "bg-rose-50 dark:bg-rose-900/30",    badgeFg: "text-rose-700 dark:text-rose-300",    comingSoon: true },
   "LBO Series":       { letter: "E", icon: "💰", desc: "LBO 101 — capital structure, returns, deal process (4 chapters)",   dot: "bg-indigo-400",  badgeBg: "bg-indigo-50 dark:bg-indigo-900/30", badgeFg: "text-indigo-700 dark:text-indigo-300" },

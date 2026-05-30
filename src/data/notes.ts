@@ -12,7 +12,7 @@ export type NoteCategory = "macro" | "strategy" | "market" | "essay" | "activism
  * 시리즈물 그룹핑 식별자. 새 시리즈 추가 시 ID 등록 → 메타데이터 정의 → 각 노트에 부여.
  * 시리즈에 속하지 않는 노트는 series 필드를 비워두면 인덱스에서 단일 카드로 렌더된다.
  */
-export type NoteSeriesId = "dollar-hegemony" | "ai-capital-cycle" | "after-pax-americana";
+export type NoteSeriesId = "dollar-hegemony" | "ai-capital-cycle";
 
 export const NOTE_SERIES_META: Record<
   NoteSeriesId,
@@ -42,15 +42,6 @@ export const NOTE_SERIES_META: Record<
     descEn: "The $600B circuit — where AI capital flows, where it could break",
     icon: "🔌",
     accent: "#8b5cf6",
-    category: "macro",
-  },
-  "after-pax-americana": {
-    label: "팩스 아메리카나 이후",
-    labelEn: "After Pax Americana",
-    desc: "셰일·인구·부채가 만드는 미국의 후퇴, 그리고 깨어나는 변방의 10년",
-    descEn: "America's retreat through shale, demographics, and debt — and the decade of awakening peripheries",
-    icon: "🌐",
-    accent: "#dc2626",
     category: "macro",
   },
 };
@@ -267,103 +258,6 @@ export type PeSpreadPoint = {
   sp493: number;
 };
 
-// ── After Pax Americana — Ch.1 (Shale Pivot) 차트 데이터 타입 ──────────────────
-// US 원유 생산 (1970-2026), AreaChart 1,000 bpd
-export type UsOilProductionPoint = {
-  year: number;
-  production: number;  // thousand bpd
-  event?: string;
-};
-
-// 미국의 페르시아만 원유 수입 비중 (1973-2025), %
-export type UsPgImportPoint = {
-  year: number;
-  pct: number;
-  event?: string;
-};
-
-// LNG 수출국 랭킹 (2024), Bcf/d, horizontal bar
-export type LngExporterBar = {
-  country: string;
-  countryEn: string;
-  bcfd: number;
-  color: string;
-};
-
-// 손익분기 비교 ($/bbl WTI), horizontal bar
-export type BreakevenBar = {
-  label: string;
-  labelEn: string;
-  value: number;       // $/bbl
-  color: string;
-};
-
-// EU 러시아산 가스 비중 (2021-2025), %
-export type EuRussianGasPoint = {
-  year: number;
-  pct: number;
-  event?: string;
-};
-
-// 중국 원유 수입 mix (2024), horizontal bar
-export type ChinaOilSourceBar = {
-  country: string;
-  countryEn: string;
-  pct: number;
-  bucket: "russia" | "gulf-major" | "iran" | "other";
-  color: string;
-};
-
-// ── After Pax Americana — Ch.2 (Demographics) 차트 데이터 타입 ─────────────────
-// 6개국 합계출산율 비교 (2023/2024), horizontal bar
-export type TfrCountryBar = {
-  country: string;
-  countryEn: string;
-  tfr: number;
-  year: number;
-  color: string;
-  note?: string;
-  noteEn?: string;
-};
-
-// 한국 출생아 수 추이 (2000-2024), line/area chart
-export type KoreaBirthPoint = {
-  year: number;
-  births: number;     // 천 명
-  event?: string;
-};
-
-// 한국 노년부양비 (2025-2080), area chart
-export type KoreaDependencyPoint = {
-  year: number;
-  ratio: number;      // %
-  event?: string;
-};
-
-// 중국 총인구 trajectory (1980-2100), 공식 vs Yi Fuxian 비판본
-export type ChinaPopulationPoint = {
-  year: number;
-  official: number;       // 백만
-  yiFuxian: number | null;
-  event?: string;
-};
-
-// 미국 인구 성장 분해 (자연증가 vs 순이민), stacked bar
-export type UsPopGrowthBar = {
-  period: string;
-  periodEn: string;
-  natural: number;       // 백만
-  immigration: number;
-  immSharePct: number;
-};
-
-// 일본 잠재성장률 시계열 (1990-2024)
-export type JapanPotentialGrowthPoint = {
-  year: number;
-  potential: number;     // %
-  event?: string;
-};
-
 export type NoteChartDef =
   | { id: "pbr-comparison";    title: string; titleEn?: string; caption?: string; captionEn?: string; data: PBRPoint[] }
   | { id: "tax-rates";         title: string; titleEn?: string; caption?: string; captionEn?: string; data: TaxRateBar[] }
@@ -385,19 +279,7 @@ export type NoteChartDef =
   | { id: "dc-power-demand";   title: string; titleEn?: string; caption?: string; captionEn?: string; data: DcPowerDemandPoint[] }
   | { id: "queue-growth";      title: string; titleEn?: string; caption?: string; captionEn?: string; data: InterconnectionQueuePoint[] }
   | { id: "ai-penetration";    title: string; titleEn?: string; caption?: string; captionEn?: string; data: AiPenetrationPoint[] }
-  | { id: "pe-spread";         title: string; titleEn?: string; caption?: string; captionEn?: string; data: PeSpreadPoint[] }
-  | { id: "us-oil-production"; title: string; titleEn?: string; caption?: string; captionEn?: string; data: UsOilProductionPoint[]; annotations?: { year: number; label: string; labelEn?: string }[] }
-  | { id: "us-pg-imports";     title: string; titleEn?: string; caption?: string; captionEn?: string; data: UsPgImportPoint[]; annotations?: { year: number; label: string; labelEn?: string }[] }
-  | { id: "lng-exporters";     title: string; titleEn?: string; caption?: string; captionEn?: string; data: LngExporterBar[] }
-  | { id: "breakeven-bars";    title: string; titleEn?: string; caption?: string; captionEn?: string; data: BreakevenBar[] }
-  | { id: "eu-russian-gas";    title: string; titleEn?: string; caption?: string; captionEn?: string; data: EuRussianGasPoint[]; annotations?: { year: number; label: string; labelEn?: string }[] }
-  | { id: "china-oil-mix";     title: string; titleEn?: string; caption?: string; captionEn?: string; data: ChinaOilSourceBar[] }
-  | { id: "tfr-6countries";    title: string; titleEn?: string; caption?: string; captionEn?: string; data: TfrCountryBar[]; replacementLine?: number }
-  | { id: "korea-births";      title: string; titleEn?: string; caption?: string; captionEn?: string; data: KoreaBirthPoint[]; annotations?: { year: number; label: string; labelEn?: string }[] }
-  | { id: "korea-dependency";  title: string; titleEn?: string; caption?: string; captionEn?: string; data: KoreaDependencyPoint[]; annotations?: { year: number; label: string; labelEn?: string }[] }
-  | { id: "china-pop-trajectory"; title: string; titleEn?: string; caption?: string; captionEn?: string; data: ChinaPopulationPoint[]; annotations?: { year: number; label: string; labelEn?: string }[] }
-  | { id: "us-pop-decomp";     title: string; titleEn?: string; caption?: string; captionEn?: string; data: UsPopGrowthBar[] }
-  | { id: "japan-potential-growth"; title: string; titleEn?: string; caption?: string; captionEn?: string; data: JapanPotentialGrowthPoint[]; annotations?: { year: number; label: string; labelEn?: string }[] };
+  | { id: "pe-spread";         title: string; titleEn?: string; caption?: string; captionEn?: string; data: PeSpreadPoint[] };
 
 export type NoteBlock =
   | { type: "text";    body: string; bodyEn?: string }
@@ -425,7 +307,7 @@ export type NoteReference = {
 export type NoteData = {
   slug: string;
   category: NoteCategory;
-  status: "published" | "draft" | "coming-soon";
+  status: "published" | "draft";
   title: string;
   titleEn?: string;
   description: string;
@@ -4364,12 +4246,8 @@ const aiCycle7: NoteData = {
   ],
 };
 
-// ── After Pax Americana 시리즈 (15편 — 별도 파일에서 import) ────────────────────
-import { AFTER_PAX_AMERICANA_NOTES } from "./after-pax-americana";
-
 export const ALL_NOTES: NoteData[] = [
   koreaDiscount,
   dollarHegemony1, dollarHegemony2, dollarHegemony3, dollarHegemony4,
   aiCycle1, aiCycle2, aiCycle3, aiCycle4, aiCycle5, aiCycle6, aiCycle7,
-  ...AFTER_PAX_AMERICANA_NOTES,
 ];
