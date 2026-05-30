@@ -4648,7 +4648,7 @@ const quantumComputing: NoteData = {
       blocks: [
         {
           type: "text",
-          body: "용어 무장이 됐으니, 이제 양자 산업의 핵심 마일스톤이 *어떤 의미*인지가 보인다.",
+          body: "여기까지 따라왔으면 이제 양자 산업의 핵심 마일스톤이 *무엇을 뜻하는지* 자연스럽게 읽힌다.",
           bodyEn: "Now that we have the vocabulary, the recent milestones in the industry can be read with their actual meaning intact.",
         },
         {
