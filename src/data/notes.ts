@@ -5291,8 +5291,24 @@ const quantumComputing: NoteData = {
         },
         {
           type: "text",
-          body: "### 재무 + 월가 컨센서스 (2026.5 기준)\n\n- **시가총액**: 약 $10-12B (높은 변동성)\n- **FY26 매출**: ~$2.3B+ 예상 (회계연도 6월 종료)\n- **FY26 2분기 매출**: $665.5M (+65.5% YoY)\n- **GP율 (non-GAAP)**: ~42.5%, 영업이익률 25.2%\n- **AI/Cloud 매출 비중**: 60%+ (전년 대비 ↑)\n- **FY27 매출 가이던스**: ~$3B+\n\n**월가 의견 (2026 봄 기준)**:\n- Wells Fargo, Citi, Morgan Stanley 대부분 **Buy / Overweight**\n- 목표가 범위: **$130-180** (현재가 약 $150 수준)\n- 핵심 토론: 1.6T 트랜시버 전환 속도 / 중국 익스포저 / 양자 매출 인식 시점\n\n**투자 thesis 한 줄**: *AI 데이터센터의 \"실링\" + 양자 사이클의 \"보너스\". 양자가 깨져도 본업 살아있음.*",
-          bodyEn: "### Financials + Street Consensus (as of May 2026)\n\n- **Market cap**: ~$10-12B (high volatility)\n- **FY26 revenue**: ~$2.3B+ expected (fiscal year ends June)\n- **FY26 Q2 revenue**: $665.5M (+65.5% YoY)\n- **GP margin (non-GAAP)**: ~42.5%, op margin 25.2%\n- **AI/Cloud revenue mix**: 60%+ (up YoY)\n- **FY27 guidance**: ~$3B+\n\n**Wall Street view (Spring 2026)**:\n- Wells Fargo, Citi, Morgan Stanley mostly **Buy / Overweight**\n- Price target range: **$130-180** (vs ~$150 current)\n- Key debates: 1.6T transition pace / China exposure / quantum revenue recognition timing\n\n**Thesis one-liner**: *The 'pickaxe' of AI DC + the 'bonus' of quantum cycle. Core business survives if quantum fails.*",
+          body: "### 재무 + 월가 컨센서스 (2026.5 기준)",
+          bodyEn: "### Financials + Street Consensus (as of May 2026)",
+        },
+        {
+          type: "metrics",
+          items: [
+            { label: "시가총액", labelEn: "Market Cap", value: "$10-12B", sub: "변동성 ↑", subEn: "High volatility", color: "#0ea5e9" },
+            { label: "FY26 매출", labelEn: "FY26 Revenue", value: "~$2.3B+", sub: "6월 종료", subEn: "Ends June", color: "#8b5cf6" },
+            { label: "FY26 Q2", labelEn: "FY26 Q2", value: "$665.5M", sub: "+65.5% YoY", subEn: "+65.5% YoY", color: "#10b981" },
+            { label: "AI/Cloud 비중", labelEn: "AI/Cloud Mix", value: "60%+", sub: "전년 대비 ↑", subEn: "Up YoY", color: "#f59e0b" },
+            { label: "GP율 (non-GAAP)", labelEn: "GP Margin", value: "42.5%", sub: "Op 25.2%", subEn: "Op 25.2%", color: "#0ea5e9" },
+            { label: "목표가 범위", labelEn: "Price Target", value: "$130-180", sub: "Buy/OW 컨센", subEn: "Buy/OW", color: "#8b5cf6" },
+          ],
+        },
+        {
+          type: "text",
+          body: "**월가 의견**: Wells Fargo, Citi, Morgan Stanley 대부분 **Buy / Overweight**.\n\n핵심 토론 — 1.6T 트랜시버 전환 속도 / 중국 익스포저 / 양자 매출 인식 시점.\n\n**투자 thesis 한 줄**: *AI 데이터센터의 \"실링\" + 양자 사이클의 \"보너스\". 양자가 깨져도 본업 살아있음.*",
+          bodyEn: "**Wall Street view**: Wells Fargo, Citi, Morgan Stanley mostly **Buy / Overweight**.\n\nKey debates — 1.6T transition pace / China exposure / quantum revenue recognition timing.\n\n**Thesis one-liner**: *The 'pickaxe' of AI DC + the 'bonus' of quantum cycle. Core business survives if quantum fails.*",
         },
 
         // ─── ② Coherent ($COHR) ────────────────────────
@@ -5331,8 +5347,24 @@ const quantumComputing: NoteData = {
         },
         {
           type: "text",
-          body: "### 재무 + 월가 컨센서스\n\n- **시가총액**: 약 $13-15B\n- **FY26 매출**: ~$6.5B 예상 (회계연도 6월 종료)\n- **FY26 2분기 매출**: $1.70B (+17.5% YoY)\n- **Datacom + AI/Cloud 매출 비중**: Networking 매출의 70%+\n- **GP율**: ~38-40%\n- **Net Debt**: 높음 (II-VI 합병 leverage) — 빠르게 deleveraging 중\n- **첫 1.6T 트랜시버 매출**: FY25 4분기 (2025.6 분기)\n- **CEO Anderson 발언**: \"1.6T 모듈이 1년 전 예상보다 훨씬 빠르게 양산. 수주잔고가 **2028년까지** 이어진다.\"\n\n**월가 의견**:\n- CEO 교체 후 대부분 **Buy** 또는 **Overweight**\n- 목표가 범위: **$90-130**\n- 핵심 토론: SiC 시장 둔화 (EV 둔화) vs 1.6T 시장 점유율 / Lumentum과의 경쟁\n\n**투자 thesis 한 줄**: *Lumentum보다 다각화. SiC가 EV 둔화로 발목 잡을 수 있지만, AI + 양자 노출은 동등.*",
-          bodyEn: "### Financials + Street Consensus\n\n- **Market cap**: ~$13-15B\n- **FY26 revenue**: ~$6.5B (fiscal year ends June)\n- **FY26 Q2 revenue**: $1.70B (+17.5% YoY)\n- **Datacom + AI/Cloud mix**: 70%+ of Networking revenue\n- **GP margin**: ~38-40%\n- **Net Debt**: High (II-VI merger leverage) — rapidly deleveraging\n- **First 1.6T transceiver revenue**: FY25 Q4 (June 2025 quarter)\n- **CEO Anderson**: \"1.6T modules ramping much faster than expected a year ago. Order book extends to **2028**.\"\n\n**Wall Street view**:\n- Mostly **Buy / Overweight** post-CEO change\n- Price target range: **$90-130**\n- Key debates: SiC market slowdown (EV) vs 1.6T share / Lumentum competition\n\n**Thesis one-liner**: *More diversified than Lumentum. SiC may drag from EV slowdown, but AI + quantum exposure is equal.*",
+          body: "### 재무 + 월가 컨센서스",
+          bodyEn: "### Financials + Street Consensus",
+        },
+        {
+          type: "metrics",
+          items: [
+            { label: "시가총액", labelEn: "Market Cap", value: "$13-15B", sub: "Lumentum 대비 ↑", subEn: "Larger than Lumentum", color: "#0ea5e9" },
+            { label: "FY26 매출", labelEn: "FY26 Revenue", value: "~$6.5B", sub: "6월 종료", subEn: "Ends June", color: "#8b5cf6" },
+            { label: "FY26 Q2", labelEn: "FY26 Q2", value: "$1.70B", sub: "+17.5% YoY", subEn: "+17.5% YoY", color: "#10b981" },
+            { label: "Datacom/AI 비중", labelEn: "Datacom/AI Mix", value: "70%+", sub: "Networking 내", subEn: "Of Networking", color: "#f59e0b" },
+            { label: "수주잔고", labelEn: "Order Book", value: "→ 2028", sub: "1.6T 가속", subEn: "1.6T accel.", color: "#ec4899" },
+            { label: "목표가 범위", labelEn: "Price Target", value: "$90-130", sub: "Buy/OW 컨센", subEn: "Buy/OW", color: "#8b5cf6" },
+          ],
+        },
+        {
+          type: "text",
+          body: "**월가 의견**: CEO Jim Anderson 영입(2024.6) 이후 대부분 **Buy** 또는 **Overweight**.\n\n핵심 토론 — SiC 시장 둔화 (EV 둔화) vs 1.6T 시장 점유율 / Lumentum과의 경쟁.\n\nNet Debt 높음 (II-VI 합병 leverage) — 빠르게 deleveraging 중.\n\n**투자 thesis 한 줄**: *Lumentum보다 다각화. SiC가 EV 둔화로 발목 잡을 수 있지만, AI + 양자 노출은 동등.*",
+          bodyEn: "**Wall Street view**: Mostly **Buy / Overweight** post-CEO change (Jim Anderson, June 2024).\n\nKey debates — SiC market slowdown (EV) vs 1.6T share / Lumentum competition.\n\nNet Debt is high (II-VI merger leverage) — rapidly deleveraging.\n\n**Thesis one-liner**: *More diversified than Lumentum. SiC may drag from EV slowdown, but AI + quantum exposure is equal.*",
         },
 
         // ─── ③ TSMC ($TSM) ────────────────────────
@@ -5371,8 +5403,24 @@ const quantumComputing: NoteData = {
         },
         {
           type: "text",
-          body: "### 재무 + 월가 컨센서스\n\n- **시가총액**: 약 $1.0-1.1T (전 세계 시총 Top 10)\n- **2025 매출**: ~$110B+\n- **2026 매출 예상**: $140-150B (+30%)\n- **AI 칩 매출 비중**: ~30% (성장 가속)\n- **GP율**: 55%+ (반도체 업계 최고 수준)\n- **2nm 양산**: 2026 하반기 시작 (Apple A20·NVIDIA Rubin)\n\n**월가 의견**:\n- 거의 **전원 Buy / Overweight** (논란 없음)\n- 목표가 범위: **$260-320**\n- 핵심 토론: 중국 지정학 리스크 / 2nm 수율 ramp / 미국 fab 진척\n\n**투자 thesis 한 줄**: *AI와 양자 어느 쪽이 이겨도 결국 TSMC가 칩을 만든다. 유일한 공통 승자. 단일 리스크는 지정학(대만).*",
-          bodyEn: "### Financials + Street Consensus\n\n- **Market cap**: ~$1.0-1.1T (Top 10 globally)\n- **2025 revenue**: ~$110B+\n- **2026 forecast**: $140-150B (+30%)\n- **AI chip revenue mix**: ~30% (accelerating)\n- **GP margin**: 55%+ (highest in semi industry)\n- **2nm production**: Starts H2 2026 (Apple A20, NVIDIA Rubin)\n\n**Wall Street view**:\n- Nearly universal **Buy / Overweight** (no controversy)\n- Price target range: **$260-320**\n- Key debates: China geopolitical risk / 2nm yield ramp / US fab progress\n\n**Thesis one-liner**: *Whether AI or quantum wins, TSMC makes the chips either way. Single common winner. Only risk = Taiwan geopolitics.*",
+          body: "### 재무 + 월가 컨센서스",
+          bodyEn: "### Financials + Street Consensus",
+        },
+        {
+          type: "metrics",
+          items: [
+            { label: "시가총액", labelEn: "Market Cap", value: "$1.0-1.1T", sub: "글로벌 Top 10", subEn: "Global Top 10", color: "#0ea5e9" },
+            { label: "2025 매출", labelEn: "2025 Revenue", value: "~$110B+", sub: "전년 대비 ↑", subEn: "YoY ↑", color: "#8b5cf6" },
+            { label: "2026 매출 예상", labelEn: "2026 Forecast", value: "$140-150B", sub: "+30% YoY", subEn: "+30% YoY", color: "#10b981" },
+            { label: "AI 칩 비중", labelEn: "AI Chip Mix", value: "~30%", sub: "가속 성장", subEn: "Accelerating", color: "#f59e0b" },
+            { label: "GP율", labelEn: "GP Margin", value: "55%+", sub: "반도체 최고", subEn: "Industry-best", color: "#ec4899" },
+            { label: "목표가 범위", labelEn: "Price Target", value: "$260-320", sub: "전원 Buy", subEn: "Universal Buy", color: "#8b5cf6" },
+          ],
+        },
+        {
+          type: "text",
+          body: "**월가 의견**: 거의 *전원* **Buy / Overweight** — 논란 없음.\n\n핵심 토론 — 중국 지정학 리스크 / 2nm 수율 ramp / 미국 fab 진척.\n\n2nm 양산: 2026 하반기 시작 (Apple A20·NVIDIA Rubin 탑재).\n\n**투자 thesis 한 줄**: *AI와 양자 어느 쪽이 이겨도 결국 TSMC가 칩을 만든다. 유일한 공통 승자. 단일 리스크는 지정학(대만).*",
+          bodyEn: "**Wall Street view**: Near-universal **Buy / Overweight** — no controversy.\n\nKey debates — China geopolitical risk / 2nm yield ramp / US fab progress.\n\n2nm production starts H2 2026 (Apple A20 & NVIDIA Rubin).\n\n**Thesis one-liner**: *Whether AI or quantum wins, TSMC makes the chips either way. Single common winner. Only risk = Taiwan geopolitics.*",
         },
 
         // ─── ④ Bluefors (private) ────────────────────────
@@ -5411,8 +5459,24 @@ const quantumComputing: NoteData = {
         },
         {
           type: "text",
-          body: "### 재무 + 월가 시각 (비상장 추정)\n\n- **매출 (추정)**: $200-300M (성장 ↑)\n- **수익성**: *흑자 운영* (양자 회사 중 보기 드문 케이스)\n- **소유 구조**: 창업자 + 소수 PE\n- **2025-2026 IPO 루머**: Goldman Sachs, Morgan Stanley가 IPO 자문 경쟁 보도\n- **추정 IPO 밸류에이션**: **$3-5B+** (양자 시장 성장 시나리오에 따라 더 ↑)\n\n**왜 \"양자의 ASML\"인가**:\n\nASML이 첨단 반도체 EUV 노광기를 *독점*해서 TSMC·Samsung·Intel이 *모두 ASML 부품을 사야* 했던 것처럼,\n\nBluefors는 *모든 superconducting 양자컴퓨터에 필수*인 부품을 70% 점유한다.\n\nIBM이 1,000큐비트 칩을 만들든, Google이 100,000큐비트로 가든 — Bluefors가 *그만큼의 냉동기*를 팔아야 한다.\n\n**투자 thesis 한 줄**: *IPO만 하면 quantum era의 ASML. 그 전까지 직접 베팅 불가능. IPO 발표만 모니터링.*",
-          bodyEn: "### Financials + Street View (Private Estimates)\n\n- **Revenue (est.)**: $200-300M (growing)\n- **Profitability**: *Profitable* (rare among quantum companies)\n- **Ownership**: Founders + minority PE\n- **2025-2026 IPO rumors**: Goldman Sachs and Morgan Stanley reportedly competing for IPO advisory\n- **Est. IPO valuation**: **$3-5B+** (more if quantum market grows aggressively)\n\n**Why \"Quantum's ASML\"**:\n\nJust as ASML *monopolizes* leading-edge EUV lithography — forcing TSMC, Samsung, and Intel to all buy from ASML —\n\nBluefors holds 70% share of the *essential component* for every superconducting quantum computer.\n\nWhether IBM ships 1,000-qubit chips or Google scales to 100,000 — Bluefors sells *that many* refrigerators.\n\n**Thesis one-liner**: *If it IPOs, this is the ASML of the quantum era. Direct exposure impossible until then. Monitor for IPO announcement.*",
+          body: "### 재무 + 월가 시각 (비상장, 추정치)",
+          bodyEn: "### Financials + Street View (Private, Estimates)",
+        },
+        {
+          type: "metrics",
+          items: [
+            { label: "매출 (추정)", labelEn: "Revenue (est.)", value: "$200-300M", sub: "성장 ↑", subEn: "Growing", color: "#0ea5e9" },
+            { label: "수익성", labelEn: "Profitability", value: "흑자", valueEn: "Profitable", sub: "양자 회사 중 희귀", subEn: "Rare in quantum", color: "#10b981" },
+            { label: "시장 점유율", labelEn: "Market Share", value: "~70%", sub: "희석 냉동기", subEn: "Dilution refrig.", color: "#8b5cf6" },
+            { label: "추정 IPO 밸류", labelEn: "Est. IPO Val.", value: "$3-5B+", sub: "양자 성장 시 ↑", subEn: "↑ if quantum scales", color: "#f59e0b" },
+            { label: "IPO 시점", labelEn: "IPO Timing", value: "2026-2027?", sub: "GS·MS 경쟁", subEn: "GS·MS competing", color: "#ec4899" },
+            { label: "직접 베팅", labelEn: "Direct Access", value: "현재 불가", valueEn: "Not yet", sub: "IPO 대기", subEn: "Wait for IPO", color: "#dc2626" },
+          ],
+        },
+        {
+          type: "text",
+          body: "**왜 \"양자의 ASML\"인가**:\n\nASML이 첨단 반도체 EUV 노광기를 *독점*해서 TSMC·Samsung·Intel이 *모두 ASML 부품을 사야* 했던 것처럼,\n\nBluefors는 *모든 superconducting 양자컴퓨터에 필수*인 부품을 70% 점유한다.\n\nIBM이 1,000큐비트 칩을 만들든, Google이 100,000큐비트로 가든 — Bluefors가 *그만큼의 냉동기*를 팔아야 한다.\n\n**투자 thesis 한 줄**: *IPO만 하면 quantum era의 ASML. 그 전까지 직접 베팅 불가능. IPO 발표만 모니터링.*",
+          bodyEn: "**Why \"Quantum's ASML\"**:\n\nJust as ASML *monopolizes* leading-edge EUV lithography — forcing TSMC, Samsung, and Intel to all buy from ASML —\n\nBluefors holds 70% share of the *essential component* for every superconducting quantum computer.\n\nWhether IBM ships 1,000-qubit chips or Google scales to 100,000 — Bluefors sells *that many* refrigerators.\n\n**Thesis one-liner**: *If it IPOs, this is the ASML of the quantum era. Direct exposure impossible until then. Monitor for IPO announcement.*",
         },
 
         // ─── 종합 비교 ────────────────────────
@@ -5458,10 +5522,196 @@ const quantumComputing: NoteData = {
       ],
     },
 
-    // ─── 14. 결론 ──────────────────────────────────────────────────────────────
+    // ─── 14. 용어 사전 ────────────────────────────────────────────────────────
     {
-      heading: "14. 결론 — 양자는 AI 다음의 자본 사이클인가",
-      headingEn: "14. Conclusion — Is Quantum Really the Next Capital Cycle After AI?",
+      heading: "14. 양자컴퓨터 용어 사전 — 한 곳에서 정리",
+      headingEn: "14. Quantum Computing Glossary — All Terms in One Place",
+      blocks: [
+        {
+          type: "text",
+          body: "이 글에 너무 많은 용어가 나왔다. *처음 봤을 땐 다 외울 필요 없다.* 막히는 단어 있을 때 여기서 찾아보면 된다.\n\n5개 카테고리로 정리했다 — 양자 기초 / 양자 하드웨어 / 양자 단계 / 보안 / 반도체 + 광학.",
+          bodyEn: "Too many terms appeared in this article. *You don't need to memorize them all on first read.* This is the place to look up anything that tripped you up.\n\n5 categories — Quantum Basics / Quantum Hardware / Quantum Stages / Security / Semiconductors + Optics.",
+        },
+
+        // ── 양자 기초 ──
+        {
+          type: "table",
+          table: {
+            id: "glossary-quantum-basics",
+            title: "① 양자 기초 — 컴퓨터가 어떻게 작동하나",
+            titleEn: "① Quantum Basics — How a Quantum Computer Works",
+            headers: ["용어", "한 줄 정의", "비유"],
+            headersEn: ["Term", "One-line Definition", "Analogy"],
+            rows: [
+              ["**Bit (비트)**", "0 또는 1만 표현하는 컴퓨터의 기본 단위", "책상에 놓인 동전 — 앞면 or 뒷면"],
+              ["**Qubit (큐비트)**", "0과 1을 동시에 표현하는 양자 비트", "회전하는 동전 — 측정 순간 한쪽으로"],
+              ["**Superposition (중첩)**", "양자 입자가 여러 상태에 동시에 존재하는 현상", "회전 중인 동전 상태"],
+              ["**Entanglement (얽힘)**", "두 큐비트가 서로 *즉각적으로* 영향 미치는 상태", "다른 도시의 두 동전이 같은 면 나옴"],
+              ["**Decoherence (탈동조)**", "외부 자극으로 중첩이 깨지는 현상", "도서관에서 누가 책상 치면 동전 쓰러짐"],
+              ["**Measurement (측정)**", "큐비트의 중첩을 0 또는 1로 \"결정\"시키는 행위", "회전하는 동전을 손바닥으로 덮어 잡음"],
+            ],
+            rowsEn: [
+              ["**Bit**", "Computer's basic unit; 0 or 1 only", "Coin on a desk — heads or tails"],
+              ["**Qubit**", "Quantum bit; represents 0 and 1 simultaneously", "Spinning coin — collapses to one when measured"],
+              ["**Superposition**", "Quantum particle existing in multiple states at once", "The spinning coin state"],
+              ["**Entanglement**", "Two qubits *instantly* affecting each other", "Two coins in different cities showing the same face"],
+              ["**Decoherence**", "External disturbance collapsing the superposition", "Coin falls when someone bumps the desk"],
+              ["**Measurement**", "Act that 'forces' a qubit's superposition into 0 or 1", "Catching the spinning coin with your palm"],
+            ],
+            caption: "이 6개만 알면 양자컴퓨터의 작동 원리는 90% 이해된 것.",
+            captionEn: "Master these 6 terms and you've grasped 90% of how quantum computers work.",
+          },
+        },
+
+        // ── 양자 하드웨어 ──
+        {
+          type: "table",
+          table: {
+            id: "glossary-quantum-hardware",
+            title: "② 양자 하드웨어 — 어떻게 만드나",
+            titleEn: "② Quantum Hardware — How They're Built",
+            headers: ["용어", "한 줄 정의", "어디서 나오는가"],
+            headersEn: ["Term", "One-line Definition", "Where It Appears"],
+            rows: [
+              ["**Superconducting Qubit**", "초전도 회로에 마이크로파 펄스로 만든 큐비트", "IBM, Google, Rigetti (가장 흔함)"],
+              ["**Trapped Ion**", "진공 챔버에 원자(이온)를 레이저로 가둬 큐비트로 사용", "IonQ, Quantinuum"],
+              ["**Neutral Atom**", "중성 원자를 레이저 격자에 배치", "Atom Computing, QuEra, Pasqal"],
+              ["**Photonic Qubit**", "광자(빛)를 큐비트로 사용 — 상온 작동 가능", "PsiQuantum, Xanadu"],
+              ["**Topological Qubit**", "이론상 노이즈 면역인 가상 큐비트 (Majorana 입자)", "Microsoft (25년 베팅)"],
+              ["**Dilution Refrigerator**", "절대영도(-273°C) 만드는 거대한 황금색 장치", "Bluefors(70%), Oxford Instruments(25%)"],
+              ["**Gate Fidelity**", "양자 연산의 정확도 (1.0에 가까울수록 좋음)", "큐비트 수만큼 중요한 지표 — 현재 최고 0.999"],
+              ["**Coherence Time**", "큐비트가 깨지기 전까지 유지되는 시간", "마이크로초 단위 (µs)"],
+            ],
+            rowsEn: [
+              ["**Superconducting Qubit**", "Made via microwave pulses on superconducting circuits", "IBM, Google, Rigetti (most common)"],
+              ["**Trapped Ion**", "Atoms (ions) trapped in vacuum chambers by lasers", "IonQ, Quantinuum"],
+              ["**Neutral Atom**", "Neutral atoms arranged in laser-based lattices", "Atom Computing, QuEra, Pasqal"],
+              ["**Photonic Qubit**", "Photons (light) as qubits — operates at room temperature", "PsiQuantum, Xanadu"],
+              ["**Topological Qubit**", "Hypothetical noise-immune qubits (Majorana fermions)", "Microsoft (25-year bet)"],
+              ["**Dilution Refrigerator**", "Massive gold chandelier that creates near-absolute-zero (-273°C)", "Bluefors (70%), Oxford Instruments (25%)"],
+              ["**Gate Fidelity**", "Accuracy of quantum operations (closer to 1.0 = better)", "As important as qubit count; current best ~0.999"],
+              ["**Coherence Time**", "How long a qubit holds state before collapsing", "Microseconds (µs)"],
+            ],
+            caption: "양자 \"칩\" 사진 보면 90%는 냉각·차폐 시스템. 실제 큐비트는 손톱만 한 조각.",
+            captionEn: "Photos of a quantum 'chip' are 90% cooling/shielding. The actual qubits sit on a fingernail-sized piece.",
+          },
+        },
+
+        // ── 양자 단계 ──
+        {
+          type: "table",
+          table: {
+            id: "glossary-quantum-stages",
+            title: "③ 양자 단계 — 어디까지 왔나",
+            titleEn: "③ Quantum Stages — How Far Along",
+            headers: ["용어", "한 줄 정의", "비유"],
+            headersEn: ["Term", "One-line Definition", "Analogy"],
+            rows: [
+              ["**NISQ**", "Noisy Intermediate-Scale Quantum — 노이즈 많은 중간 규모", "지금 우리가 있는 단계 (데모만 가능)"],
+              ["**FTQC**", "Fault-Tolerant Quantum Computing — 결함 허용 양자컴퓨터", "양자 모든 회사의 *궁극 목표*"],
+              ["**Physical Qubit**", "실제 하드웨어 큐비트 (깨지기 쉬움)", "원재료"],
+              ["**Logical Qubit**", "100-1,000개 physical qubit을 묶어 만든 안정적 큐비트", "에러 교정 완료 = 진짜 의미 있는 큐비트"],
+              ["**Quantum Supremacy**", "기존 컴퓨터로 못 푸는 *한 가지* 문제 푼 것 (실용성 무관)", "Google 2019 Sycamore 53큐비트"],
+              ["**Quantum Advantage**", "*실제로 가치 있는* 문제를 양자가 더 빨리·싸게 푸는 것", "아직 누구도 달성 못 함"],
+              ["**Quantum Volume**", "큐비트 수 × Fidelity × Connectivity 종합 지표 (IBM)", "양자컴퓨터의 \"성능\" 단일 숫자"],
+            ],
+            rowsEn: [
+              ["**NISQ**", "Noisy Intermediate-Scale Quantum", "Where we are now (demos only)"],
+              ["**FTQC**", "Fault-Tolerant Quantum Computing", "*Ultimate goal* of every quantum company"],
+              ["**Physical Qubit**", "Actual hardware qubit (fragile)", "Raw material"],
+              ["**Logical Qubit**", "Stable qubit built by bundling 100-1,000 physical qubits", "Error-corrected; the meaningful unit"],
+              ["**Quantum Supremacy**", "Solving *one* problem classical can't (utility irrelevant)", "Google 2019 Sycamore (53 qubits)"],
+              ["**Quantum Advantage**", "Quantum solves a *genuinely valuable* problem faster/cheaper", "Nobody has achieved this yet"],
+              ["**Quantum Volume**", "Composite of qubits × fidelity × connectivity (IBM metric)", "Single 'performance' number"],
+            ],
+            caption: "지금 NISQ → 2025-26년 FTQC 입구 → 2029 IBM Starling (FTQC 달성 목표).",
+            captionEn: "Now NISQ → 2025-26 FTQC threshold → 2029 IBM Starling (FTQC target).",
+          },
+        },
+
+        // ── 보안 ──
+        {
+          type: "table",
+          table: {
+            id: "glossary-security",
+            title: "④ 보안·암호 용어 — Q-Day 관련",
+            titleEn: "④ Security & Crypto — Q-Day Terms",
+            headers: ["용어", "한 줄 정의", "어디 쓰이나"],
+            headersEn: ["Term", "One-line Definition", "Where Used"],
+            rows: [
+              ["**Shor's Algorithm**", "양자컴퓨터로 큰 수 소인수분해를 빠르게 푸는 알고리즘", "RSA·ECDSA 공개키 암호를 깨는 무기"],
+              ["**Grover's Algorithm**", "양자 검색 알고리즘 (제곱근 가속, Shor만큼 강력하진 않음)", "AES 대칭키 약화 (키 길이 2배 늘리면 OK)"],
+              ["**Q-Day**", "양자컴퓨터가 RSA-2048을 처음 깨는 날 (예상 2030-2035)", "비트코인, 은행, HTTPS 모두 위협"],
+              ["**RSA-2048**", "현재 은행·SWIFT·TLS에 쓰이는 공개키 암호", "Q-Day의 가장 큰 타겟"],
+              ["**ECDSA**", "비트코인·이더리움 지갑 서명에 쓰이는 타원곡선 암호", "Shor로 깨짐"],
+              ["**PQC**", "Post-Quantum Cryptography — 양자컴퓨터에 안전한 차세대 암호", "NIST가 2024년 FIPS 203/204/205 표준 확정"],
+              ["**Harvest Now, Decrypt Later**", "지금 암호화된 데이터 수집 → Q-Day 후 복호화", "국가 정보기관이 *이미* 하고 있다"],
+            ],
+            rowsEn: [
+              ["**Shor's Algorithm**", "Quantum algorithm that factors large numbers fast", "Weapon that breaks RSA/ECDSA public-key crypto"],
+              ["**Grover's Algorithm**", "Quantum search algorithm (√N speedup, weaker than Shor)", "Weakens AES symmetric crypto (doubling key length fixes it)"],
+              ["**Q-Day**", "Day quantum first breaks RSA-2048 (est. 2030-2035)", "Threatens Bitcoin, banks, HTTPS"],
+              ["**RSA-2048**", "Current public-key crypto used in banks, SWIFT, TLS", "Q-Day's biggest target"],
+              ["**ECDSA**", "Elliptic-curve crypto for Bitcoin / Ethereum wallets", "Broken by Shor"],
+              ["**PQC**", "Post-Quantum Cryptography — quantum-safe next-gen crypto", "NIST finalized FIPS 203/204/205 standards in 2024"],
+              ["**Harvest Now, Decrypt Later**", "Collect encrypted data today → decrypt after Q-Day", "Nation-state intel agencies *already* doing this"],
+            ],
+            caption: "NSA는 2024년 모든 미국 정부 시스템에 2030년까지 PQC 전환 명령. 글로벌 마이그레이션 비용 $500B+.",
+            captionEn: "The NSA mandated PQC migration for all US gov systems by 2030 (issued 2024). Global migration cost: $500B+.",
+          },
+        },
+
+        // ── 반도체 + 광학 ──
+        {
+          type: "table",
+          table: {
+            id: "glossary-semi-optics",
+            title: "⑤ 반도체 + 광학 — 픽-앤-쇼블 회사 이해용",
+            titleEn: "⑤ Semiconductors + Optics — For Understanding Pick-and-Shovel Companies",
+            headers: ["용어", "한 줄 정의", "왜 양자에 중요한가"],
+            headersEn: ["Term", "One-line Definition", "Why It Matters for Quantum"],
+            rows: [
+              ["**Foundry (파운드리)**", "반도체 *위탁 제조* 회사 (자체 설계 안 함)", "TSMC = 양자 칩 위탁 제조의 종착역"],
+              ["**CoWoS**", "Chip-on-Wafer-on-Substrate (TSMC 첨단 패키징)", "AI 칩 + 양자 컨트롤 시스템 둘 다 사용"],
+              ["**InP Wafer**", "Indium Phosphide 웨이퍼 — 광 통신용 특수 반도체", "Photonic 양자 (PsiQuantum) + 1.6T 트랜시버"],
+              ["**SiC**", "Silicon Carbide — 전기차 전력반도체용 소재", "Coherent 매출의 일부 (양자 관련 X)"],
+              ["**Optical Transceiver**", "데이터센터에서 광 신호 ↔ 전기 신호 변환 부품", "AI 데이터센터 + 양자 네트워킹"],
+              ["**1.6T**", "초당 1.6 테라비트 데이터 전송 광 트랜시버", "AI DC의 차세대 표준 (Lumentum, Coherent 주력)"],
+              ["**Cryogenic CMOS**", "초저온에서 작동하는 반도체 공정", "양자 컨트롤 칩 (TSMC 특수 공정)"],
+              ["**EUV**", "Extreme Ultraviolet 노광기 — 첨단 반도체 제조 필수", "ASML이 독점 (TSMC 2nm 양산에 필수)"],
+            ],
+            rowsEn: [
+              ["**Foundry**", "Contract semiconductor manufacturer (no in-house design)", "TSMC = endpoint for outsourced quantum chip manufacturing"],
+              ["**CoWoS**", "Chip-on-Wafer-on-Substrate (TSMC advanced packaging)", "Used by both AI chips & quantum control systems"],
+              ["**InP Wafer**", "Indium Phosphide wafer — specialty semi for optical comm.", "Photonic quantum (PsiQuantum) + 1.6T transceivers"],
+              ["**SiC**", "Silicon Carbide — for EV power semiconductors", "Part of Coherent's revenue (not quantum-related)"],
+              ["**Optical Transceiver**", "Optical-to-electrical signal converter for datacenters", "AI DC + quantum networking"],
+              ["**1.6T**", "1.6 Terabit-per-second optical transceiver", "AI DC's next standard (core for Lumentum, Coherent)"],
+              ["**Cryogenic CMOS**", "Semiconductor process operating at ultra-low temps", "Quantum control chips (TSMC specialty)"],
+              ["**EUV**", "Extreme Ultraviolet lithography — required for cutting-edge semis", "ASML monopoly (essential for TSMC's 2nm production)"],
+            ],
+            caption: "이 용어들이 \"왜 TSMC/Lumentum/Coherent가 양자 관련주\"의 답을 풀어준다.",
+            captionEn: "These terms explain *why* TSMC, Lumentum, and Coherent are considered quantum plays.",
+          },
+        },
+
+        {
+          type: "callout",
+          callout: {
+            variant: "insight",
+            heading: "이 사전을 어떻게 쓰나",
+            headingEn: "How to Use This Glossary",
+            body: "1. **처음 읽을 땐 안 외워도 된다.** 막히는 단어 있을 때 여기로 돌아오면 된다.\n\n2. **이 글에서 가장 자주 쓰이는 5개** — Qubit, Superposition, NISQ, FTQC, Logical Qubit. 이 5개만 익히면 80% 이해 가능.\n\n3. **투자자라면 추가로 5개 더** — Shor's Algorithm, Q-Day, PQC, CoWoS, Dilution Refrigerator. 이 10개로 90% 커버.",
+            bodyEn: "1. **You don't need to memorize on first read.** Come back when you get stuck.\n\n2. **The 5 most-used terms in this article** — Qubit, Superposition, NISQ, FTQC, Logical Qubit. Master these 5 = 80% comprehension.\n\n3. **For investors, 5 more** — Shor's Algorithm, Q-Day, PQC, CoWoS, Dilution Refrigerator. With these 10, you cover 90%.",
+          },
+        },
+      ],
+    },
+
+    // ─── 15. 결론 ──────────────────────────────────────────────────────────────
+    {
+      heading: "15. 결론 — 양자는 AI 다음의 자본 사이클인가",
+      headingEn: "15. Conclusion — Is Quantum Really the Next Capital Cycle After AI?",
       blocks: [
         {
           type: "text",
