@@ -18,6 +18,8 @@ type ConceptItem = {
   published: boolean;
   /** 'deal' = /deal-101/[slug], 'market' = /market-101/[slug]. 기본값 'deal' */
   kind?: "deal" | "market";
+  /** Market 101 한정 — 'article' 은 챕터, 'term' 은 용어집. Deal 101 entries 는 모두 article 취급. */
+  entryType?: "article" | "term";
 };
 
 // ── KO 개념 카탈로그 ──────────────────────────────────────────────────────────
@@ -141,6 +143,7 @@ const MARKET_CATEGORY_LABEL_EN: Record<string, string> = {
 };
 
 // Market 101 컨셉들을 동일한 ConceptItem 포맷으로 변환해서 카탈로그에 합치기
+// entryType 보존: 'article' 은 챕터, 'term' 은 용어집 — 렌더링에서 분리
 for (const c of ALL_MARKET101_CONCEPTS) {
   const catKo = MARKET_CATEGORY_LABEL_KO[c.category];
   const catEn = MARKET_CATEGORY_LABEL_EN[c.category];
@@ -152,6 +155,7 @@ for (const c of ALL_MARKET101_CONCEPTS) {
     category: catKo,
     published: true,
     kind: "market",
+    entryType: c.entryType,
   });
   EN_CONCEPT_CATALOG.push({
     slug: c.slug,
@@ -160,6 +164,7 @@ for (const c of ALL_MARKET101_CONCEPTS) {
     category: catEn,
     published: true,
     kind: "market",
+    entryType: c.entryType,
   });
 }
 
@@ -436,16 +441,42 @@ function CategoryFolder({
                 </div>
               )}
 
-              {/* 공개 개념 */}
-              {published.map((c, i) => (
-                <ConceptRow
-                  key={c.slug}
-                  concept={c}
-                  index={i}
-                  dealCount={dealCounts[c.slug] ?? 0}
-                  lang={lang}
-                />
-              ))}
+              {/* 공개 개념 — article(챕터) 먼저, term(용어) 나중. 사이에 구분선. */}
+              {(() => {
+                const articles = published.filter((c) => c.entryType !== "term");
+                const terms = published.filter((c) => c.entryType === "term");
+                let idx = 0;
+                return (
+                  <>
+                    {articles.map((c) => (
+                      <ConceptRow
+                        key={c.slug}
+                        concept={c}
+                        index={idx++}
+                        dealCount={dealCounts[c.slug] ?? 0}
+                        lang={lang}
+                      />
+                    ))}
+                    {articles.length > 0 && terms.length > 0 && (
+                      <div className="flex items-center gap-2 my-3 px-3.5">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500">
+                          {lang === "ko" ? "용어" : "Terms"}
+                        </span>
+                        <div className="flex-1 h-px bg-gray-100 dark:bg-gray-800" />
+                      </div>
+                    )}
+                    {terms.map((c) => (
+                      <ConceptRow
+                        key={c.slug}
+                        concept={c}
+                        index={idx++}
+                        dealCount={dealCounts[c.slug] ?? 0}
+                        lang={lang}
+                      />
+                    ))}
+                  </>
+                );
+              })()}
 
               {/* 준비 중 개념 */}
               {unpublished.length > 0 && (
