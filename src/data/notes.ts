@@ -5246,10 +5246,222 @@ const quantumComputing: NoteData = {
       ],
     },
 
+    // ─── 픽-앤-쇼블 4사 깊이 분석 ────────────────────────────────────────────
+    {
+      heading: "13. Pick-and-Shovel 4사 깊이 분석 — 왜 이 회사들이 양자 관련주인가",
+      headingEn: "13. Four Pick-and-Shovel Companies — Why They're Quantum Plays",
+      blocks: [
+        {
+          type: "text",
+          body: "지금까지 \"진짜 알파는 부품 공급망\"이라고 반복했다.\n\n그런데 막상 *Lumentum, Coherent, TSMC, Bluefors*가 어떻게 양자에 노출되는지, 지금은 무엇으로 돈을 벌고, 양자 사이클에서 무엇을 쥐게 될지는 안 풀었다.\n\n이 섹션이 그걸 푼다. 4사 각각 — 비즈니스 모델 / 양자 연결고리 / 현재 병목 / 미래 양자 병목 / 재무 / 월가 컨센서스.",
+          bodyEn: "We've repeated 'the real alpha is the supply chain'.\n\nBut we haven't explained how *Lumentum, Coherent, TSMC, Bluefors* are actually exposed to quantum, what they earn from today, and what bottlenecks they'll hold in the cycle.\n\nThis section unpacks that. For each company — business model / quantum linkage / current bottleneck / future quantum bottleneck / financials / Wall Street consensus.",
+        },
+
+        // ─── ① Lumentum Holdings ($LITE) ────────────────────────
+        {
+          type: "text",
+          body: "## ① Lumentum Holdings ($LITE) — 정밀 레이저의 핵심 공급자\n\n**한 줄 요약**: AI 데이터센터 광 트랜시버 + 트랩드 아이온 양자컴퓨터용 정밀 레이저 양쪽에 노출된 회사.\n\n### 비즈니스 모델 (현재 매출 구조)\n\nLumentum은 2015년 JDSU에서 분사한 광학·레이저 전문기업이다.\n\n매출은 크게 두 축:\n\n- **Cloud & Networking (FY26 매출의 60%+)**: 400G·800G·1.6T 광 트랜시버. 고객은 NVIDIA, Google, Meta, Microsoft, Amazon — 전부 AI 데이터센터.\n- **Industrial Tech (~40%)**: 산업용 레이저, EUV light source, Apple iPhone Face ID용 3D sensing.\n\n2023년 11월 Cloud Light를 $750M에 인수 — 800G/1.6T 트랜시버 *직접 공급망*을 확보했다.\n\n### 왜 양자컴퓨터 관련주인가\n\n양자컴퓨터 6가지 접근법 중 *3가지*에서 Lumentum의 핵심 부품이 필수:\n\n- **Trapped Ion (IonQ, Quantinuum)** — 이온을 가두고 조작하는 데 *극도로 정밀한 레이저*가 필요. 729nm(Ytterbium), 422nm(Strontium) 등 특수 파장.\n- **Neutral Atom (Atom Computing, QuEra)** — 원자를 격자에 가두는 레이저 핀셋(optical tweezer) 기술.\n- **Photonic (PsiQuantum)** — InP 웨이퍼 기술이 광자 양자컴퓨터의 핵심 소재.\n\nCoherent와 Lumentum 둘이 양자 정밀 레이저 시장의 *~80% 점유*.\n\n### 현재 vs 미래 병목",
+          bodyEn: "## ① Lumentum Holdings ($LITE) — Precision Laser Supplier\n\n**One-liner**: Exposed on both sides — AI datacenter optical transceivers + precision lasers for trapped-ion quantum computers.\n\n### Business Model (Current Revenue Mix)\n\nSpun off from JDSU in 2015. Two segments:\n\n- **Cloud & Networking (~60%+ of FY26 revenue)**: 400G / 800G / 1.6T optical transceivers. Customers: NVIDIA, Google, Meta, Microsoft, Amazon — all AI datacenter.\n- **Industrial Tech (~40%)**: Industrial lasers, EUV light sources, Apple iPhone Face ID 3D sensing.\n\nAcquired Cloud Light for $750M in November 2023 — securing direct 800G/1.6T transceiver supply chain.\n\n### Why It's a Quantum Play\n\nLumentum's components are essential in *3 of 6* quantum approaches:\n\n- **Trapped Ion (IonQ, Quantinuum)** — ions need *extremely precise lasers* (729nm Yb, 422nm Sr, etc.).\n- **Neutral Atom (Atom Computing, QuEra)** — optical tweezers using precision lasers to hold atoms.\n- **Photonic (PsiQuantum)** — InP wafer tech is core for photonic quantum.\n\nCoherent + Lumentum together hold *~80% share* in quantum-grade precision lasers.\n\n### Current vs Future Bottleneck",
+        },
+        {
+          type: "table",
+          table: {
+            id: "lumentum-bottlenecks",
+            title: "Lumentum 병목 매핑 — 지금 vs 양자 사이클 후",
+            titleEn: "Lumentum Bottleneck — Today vs Quantum Cycle",
+            headers: ["영역", "지금 (2026)", "양자 사이클 후 (2030+)"],
+            headersEn: ["Area", "Today (2026)", "Post-Quantum Cycle (2030+)"],
+            rows: [
+              ["메인 수익", "800G/1.6T 트랜시버 (AI 데이터센터)", "동일 + 양자 정밀 레이저 가속"],
+              ["기술 병목", "InP 웨이퍼 3→6인치 전환", "narrow-linewidth 레이저 capacity"],
+              ["고객 의존", "NVIDIA·Google·Meta·MSFT·AMZN (집중)", "+ IonQ·Quantinuum·QuEra·PsiQuantum"],
+              ["AI 노출", "**FY26 매출의 60%+**", "지속"],
+              ["양자 노출", "현재 ~2-3% 추정", "**잠재적 10-15%+**"],
+            ],
+            rowsEn: [
+              ["Main revenue", "800G/1.6T transceivers (AI DC)", "Same + quantum precision laser growth"],
+              ["Tech bottleneck", "InP wafer 3-to-6-inch transition", "Narrow-linewidth laser capacity"],
+              ["Customer concentration", "NVIDIA, Google, Meta, MSFT, AMZN", "+ IonQ, Quantinuum, QuEra, PsiQuantum"],
+              ["AI exposure", "**~60%+ of FY26 revenue**", "Continues"],
+              ["Quantum exposure", "~2-3% estimated today", "**Potentially 10-15%+**"],
+            ],
+            caption: "Lumentum의 매력 — 양자가 실패해도 AI DC 본업이 살아있는 안전 베팅. 양자가 성공하면 보너스.",
+            captionEn: "Lumentum's appeal — even if quantum fails, the AI DC core stays intact. Quantum success is upside.",
+          },
+        },
+        {
+          type: "text",
+          body: "### 재무 + 월가 컨센서스 (2026.5 기준)\n\n- **시가총액**: 약 $10-12B (높은 변동성)\n- **FY26 매출**: ~$2.3B+ 예상 (회계연도 6월 종료)\n- **FY26 2분기 매출**: $665.5M (+65.5% YoY)\n- **GP율 (non-GAAP)**: ~42.5%, 영업이익률 25.2%\n- **AI/Cloud 매출 비중**: 60%+ (전년 대비 ↑)\n- **FY27 매출 가이던스**: ~$3B+\n\n**월가 의견 (2026 봄 기준)**:\n- Wells Fargo, Citi, Morgan Stanley 대부분 **Buy / Overweight**\n- 목표가 범위: **$130-180** (현재가 약 $150 수준)\n- 핵심 토론: 1.6T 트랜시버 전환 속도 / 중국 익스포저 / 양자 매출 인식 시점\n\n**투자 thesis 한 줄**: *AI 데이터센터의 \"실링\" + 양자 사이클의 \"보너스\". 양자가 깨져도 본업 살아있음.*",
+          bodyEn: "### Financials + Street Consensus (as of May 2026)\n\n- **Market cap**: ~$10-12B (high volatility)\n- **FY26 revenue**: ~$2.3B+ expected (fiscal year ends June)\n- **FY26 Q2 revenue**: $665.5M (+65.5% YoY)\n- **GP margin (non-GAAP)**: ~42.5%, op margin 25.2%\n- **AI/Cloud revenue mix**: 60%+ (up YoY)\n- **FY27 guidance**: ~$3B+\n\n**Wall Street view (Spring 2026)**:\n- Wells Fargo, Citi, Morgan Stanley mostly **Buy / Overweight**\n- Price target range: **$130-180** (vs ~$150 current)\n- Key debates: 1.6T transition pace / China exposure / quantum revenue recognition timing\n\n**Thesis one-liner**: *The 'pickaxe' of AI DC + the 'bonus' of quantum cycle. Core business survives if quantum fails.*",
+        },
+
+        // ─── ② Coherent ($COHR) ────────────────────────
+        {
+          type: "text",
+          body: "## ② Coherent Corp ($COHR) — 광학 + 소재의 수직 통합\n\n**한 줄 요약**: Lumentum의 라이벌이자 더 큰 회사. 양자 노출은 비슷하지만 *materials science* (SiC, InP 웨이퍼) 측면이 강함.\n\n### 비즈니스 모델\n\n2022년 II-VI Inc가 기존 Coherent를 $7B에 인수해 합병한 회사.\n\n3개 사업부:\n\n- **Networking (~50%)**: 광 트랜시버, InP 디바이스 — Lumentum과 직접 경쟁\n- **Materials (~25%)**: 엔지니어드 소재, **SiC 기판** (전기차 전력반도체용)\n- **Lasers (~25%)**: 산업용 레이저, 반도체 레이저 시스템\n\n**CEO 교체 (2024.6)**: Jim Anderson (전 Lattice Semiconductor CEO) 영입. 대대적 구조조정 — 비핵심 사업부 매각, 1.6T 트랜시버 양산 가속.\n\n### 왜 양자컴퓨터 관련주인가\n\nLumentum과 유사한 경로 + 한 가지 차별점:\n\n- **InP 웨이퍼 vertical integration** — Coherent는 InP 웨이퍼부터 트랜시버까지 *수직 통합*. PsiQuantum의 광자 양자 시스템에 InP가 필수.\n- **정밀 레이저**: IonQ, Quantinuum 같은 트랩드 아이온 시스템에 공급\n- **SiC 기판**: 양자 컨트롤 전자장치(cryogenic CMOS)에 일부 사용\n\n### 현재 vs 미래 병목",
+          bodyEn: "## ② Coherent Corp ($COHR) — Vertically Integrated Optics + Materials\n\n**One-liner**: Lumentum's rival, and larger. Similar quantum exposure but stronger on the *materials science* side (SiC, InP wafers).\n\n### Business Model\n\nFormed when II-VI Inc acquired Coherent for $7B in 2022.\n\nThree segments:\n\n- **Networking (~50%)**: Optical transceivers, InP devices — direct Lumentum competitor\n- **Materials (~25%)**: Engineered materials, **SiC substrates** (for EV power semiconductors)\n- **Lasers (~25%)**: Industrial lasers, semiconductor laser systems\n\n**CEO Change (June 2024)**: Jim Anderson (former Lattice Semi CEO) joined. Aggressive restructuring — divesting non-core, accelerating 1.6T production.\n\n### Why It's a Quantum Play\n\nSimilar path to Lumentum, plus one differentiator:\n\n- **InP wafer vertical integration** — Coherent owns the full stack from InP wafer to transceiver. PsiQuantum's photonic systems need InP.\n- **Precision lasers**: Supplied to trapped-ion systems (IonQ, Quantinuum)\n- **SiC substrates**: Some usage in cryogenic CMOS for quantum control electronics\n\n### Current vs Future Bottleneck",
+        },
+        {
+          type: "table",
+          table: {
+            id: "coherent-bottlenecks",
+            title: "Coherent 병목 매핑",
+            titleEn: "Coherent Bottleneck Mapping",
+            headers: ["영역", "지금 (2026)", "양자 사이클 후"],
+            headersEn: ["Area", "Today (2026)", "Post-Quantum Cycle"],
+            rows: [
+              ["메인 수익", "1.6T 트랜시버 + SiC 기판 + 정밀 레이저", "+ 양자 광학·소재"],
+              ["기술 병목", "InP 3→6인치 전환 (수율·비용 ↓)", "InP 웨이퍼 글로벌 capacity"],
+              ["고객", "Apple·Google·Meta·MSFT + Tesla(SiC)", "+ PsiQuantum·IonQ·양자 R&D"],
+              ["AI 노출", "**Networking 매출의 70%+**", "지속"],
+              ["EV 노출", "SiC 매출 (전기차 둔화 리스크)", "축소될 수 있음"],
+              ["양자 노출", "현재 ~2-4% 추정", "**잠재적 10%+**"],
+            ],
+            rowsEn: [
+              ["Main revenue", "1.6T transceivers + SiC substrates + precision lasers", "+ Quantum optics & materials"],
+              ["Tech bottleneck", "InP 3-to-6-inch transition (yield, cost ↓)", "InP wafer global capacity"],
+              ["Customers", "Apple, Google, Meta, MSFT + Tesla (SiC)", "+ PsiQuantum, IonQ, quantum R&D"],
+              ["AI exposure", "**~70%+ of Networking revenue**", "Continues"],
+              ["EV exposure", "SiC revenue (EV slowdown risk)", "May shrink"],
+              ["Quantum exposure", "~2-4% estimated today", "**Potentially 10%+**"],
+            ],
+            caption: "Coherent는 Lumentum 대비 더 다각화된 베팅. AI + EV + 양자 + 산업. 그만큼 변동성도 ↑.",
+            captionEn: "Coherent is more diversified than Lumentum. AI + EV + Quantum + Industrial. With more volatility.",
+          },
+        },
+        {
+          type: "text",
+          body: "### 재무 + 월가 컨센서스\n\n- **시가총액**: 약 $13-15B\n- **FY26 매출**: ~$6.5B 예상 (회계연도 6월 종료)\n- **FY26 2분기 매출**: $1.70B (+17.5% YoY)\n- **Datacom + AI/Cloud 매출 비중**: Networking 매출의 70%+\n- **GP율**: ~38-40%\n- **Net Debt**: 높음 (II-VI 합병 leverage) — 빠르게 deleveraging 중\n- **첫 1.6T 트랜시버 매출**: FY25 4분기 (2025.6 분기)\n- **CEO Anderson 발언**: \"1.6T 모듈이 1년 전 예상보다 훨씬 빠르게 양산. 수주잔고가 **2028년까지** 이어진다.\"\n\n**월가 의견**:\n- CEO 교체 후 대부분 **Buy** 또는 **Overweight**\n- 목표가 범위: **$90-130**\n- 핵심 토론: SiC 시장 둔화 (EV 둔화) vs 1.6T 시장 점유율 / Lumentum과의 경쟁\n\n**투자 thesis 한 줄**: *Lumentum보다 다각화. SiC가 EV 둔화로 발목 잡을 수 있지만, AI + 양자 노출은 동등.*",
+          bodyEn: "### Financials + Street Consensus\n\n- **Market cap**: ~$13-15B\n- **FY26 revenue**: ~$6.5B (fiscal year ends June)\n- **FY26 Q2 revenue**: $1.70B (+17.5% YoY)\n- **Datacom + AI/Cloud mix**: 70%+ of Networking revenue\n- **GP margin**: ~38-40%\n- **Net Debt**: High (II-VI merger leverage) — rapidly deleveraging\n- **First 1.6T transceiver revenue**: FY25 Q4 (June 2025 quarter)\n- **CEO Anderson**: \"1.6T modules ramping much faster than expected a year ago. Order book extends to **2028**.\"\n\n**Wall Street view**:\n- Mostly **Buy / Overweight** post-CEO change\n- Price target range: **$90-130**\n- Key debates: SiC market slowdown (EV) vs 1.6T share / Lumentum competition\n\n**Thesis one-liner**: *More diversified than Lumentum. SiC may drag from EV slowdown, but AI + quantum exposure is equal.*",
+        },
+
+        // ─── ③ TSMC ($TSM) ────────────────────────
+        {
+          type: "text",
+          body: "## ③ TSMC ($TSM) — 모든 첨단 반도체의 종착역\n\n**한 줄 요약**: AI 사이클의 절대 승자. 양자 사이클에서는 *간접 노출이지만 어떤 시나리오든 안 깨짐.*\n\n### 비즈니스 모델\n\n세계 최대 순수 파운드리(foundry). 최첨단 반도체의 60%+를 위탁 제조.\n\n주요 고객: **Apple (최대), NVIDIA, AMD, Qualcomm, Broadcom, Marvell, Intel** (그렇다, 인텔도 일부 TSMC 위탁).\n\n공정 노드 로드맵:\n- **3nm**: 현재 양산 중 (NVIDIA H200, GB200, Apple M4)\n- **2nm**: 2026 양산 시작 (대만 + 애리조나 fab)\n- **1.6nm**: 2027-2028 로드맵\n\n매출 구성 (2025):\n- HPC (High-Performance Computing, AI 포함): ~50%+\n- 스마트폰: ~30%\n- IoT, 자동차, 기타: ~20%\n\n### 왜 양자컴퓨터 관련주인가\n\n양자컴퓨터에서 TSMC의 역할은 *직접적이지만 핵심은 아님*:\n\n- **양자 칩 파운드리**: IBM은 일부 자체 fab + 일부 TSMC. Rigetti는 TSMC. 신생 양자 스타트업 대부분 TSMC.\n- **CoWoS 첨단 패키징**: AI 칩에 쓰이는 그 패키징. 양자 컨트롤 시스템에도 사용. CoWoS는 TSMC 단독.\n- **Cryogenic CMOS**: 초저온에서 작동하는 양자 제어 칩 — TSMC의 특수 공정.\n- **하이브리드 양자-고전 칩**: 양자 칩 + 고전 컴퓨터 인터페이스 — 둘 다 첨단 fab 필요.\n\n*다만 양자는 매출의 1% 미만.* TSMC의 메인 게임은 AI.\n\n### 현재 vs 미래 병목",
+          bodyEn: "## ③ TSMC ($TSM) — The Final Destination of All Leading-Edge Silicon\n\n**One-liner**: Absolute winner of AI cycle. Quantum exposure is indirect — but *unbreakable in any scenario.*\n\n### Business Model\n\nWorld's largest pure-play foundry. Manufactures 60%+ of all leading-edge semiconductors.\n\nKey customers: **Apple (largest), NVIDIA, AMD, Qualcomm, Broadcom, Marvell, Intel** (yes, even Intel uses TSMC for some chips).\n\nProcess node roadmap:\n- **3nm**: In production (NVIDIA H200, GB200, Apple M4)\n- **2nm**: Production starting 2026 (Taiwan + Arizona fabs)\n- **1.6nm**: 2027-2028 roadmap\n\nRevenue mix (2025):\n- HPC (incl. AI): ~50%+\n- Smartphones: ~30%\n- IoT, auto, others: ~20%\n\n### Why It's a Quantum Play\n\nTSMC's role in quantum is *direct but not central*:\n\n- **Quantum chip foundry**: IBM uses some in-house + some TSMC. Rigetti uses TSMC. Most new quantum startups use TSMC.\n- **CoWoS advanced packaging**: Same packaging used in AI chips. Also used in quantum control systems. CoWoS is TSMC-exclusive.\n- **Cryogenic CMOS**: Quantum control chips operating at ultra-low temperatures — TSMC's specialty process.\n- **Hybrid quantum-classical chips**: Quantum chip + classical interface — both need leading-edge fab.\n\n*But quantum is <1% of TSMC's revenue.* TSMC's main game is AI.\n\n### Current vs Future Bottleneck",
+        },
+        {
+          type: "table",
+          table: {
+            id: "tsmc-bottlenecks",
+            title: "TSMC 병목 매핑",
+            titleEn: "TSMC Bottleneck Mapping",
+            headers: ["영역", "지금 (2026)", "양자 사이클 후"],
+            headersEn: ["Area", "Today (2026)", "Post-Quantum Cycle"],
+            rows: [
+              ["메인 수익", "3nm + CoWoS (AI 칩 전체)", "동일 + 양자 칩 + 하이브리드"],
+              ["기술 병목", "CoWoS 패키징 capacity (AI 출하 제약)", "Cryogenic CMOS scale-up"],
+              ["고객", "Apple·NVIDIA·AMD·Qualcomm·Broadcom", "+ 모든 양자 스타트업"],
+              ["AI 노출", "**매출의 30%+, 성장 ↑**", "지속"],
+              ["양자 노출", "**현재 <1%**", "**잠재적 3-5%**"],
+              ["지정학 리스크", "중국 침공 시나리오 — 최대 리스크", "동일"],
+            ],
+            rowsEn: [
+              ["Main revenue", "3nm + CoWoS (entire AI chip market)", "Same + quantum chips + hybrid"],
+              ["Tech bottleneck", "CoWoS packaging capacity (AI shipment constraint)", "Cryogenic CMOS scale-up"],
+              ["Customers", "Apple, NVIDIA, AMD, Qualcomm, Broadcom", "+ Every quantum startup"],
+              ["AI exposure", "**30%+ of revenue, growing**", "Continues"],
+              ["Quantum exposure", "**<1% today**", "**Potentially 3-5%**"],
+              ["Geopolitical risk", "China invasion scenario — biggest risk", "Same"],
+            ],
+            caption: "TSMC의 양자 노출은 작지만 *어느 시나리오든 양자 칩이 결국 TSMC를 거친다.* AI와 양자의 유일한 공통 승자.",
+            captionEn: "TSMC's quantum exposure is small, but *in any scenario quantum chips eventually flow through TSMC.* The only common winner of AI and quantum.",
+          },
+        },
+        {
+          type: "text",
+          body: "### 재무 + 월가 컨센서스\n\n- **시가총액**: 약 $1.0-1.1T (전 세계 시총 Top 10)\n- **2025 매출**: ~$110B+\n- **2026 매출 예상**: $140-150B (+30%)\n- **AI 칩 매출 비중**: ~30% (성장 가속)\n- **GP율**: 55%+ (반도체 업계 최고 수준)\n- **2nm 양산**: 2026 하반기 시작 (Apple A20·NVIDIA Rubin)\n\n**월가 의견**:\n- 거의 **전원 Buy / Overweight** (논란 없음)\n- 목표가 범위: **$260-320**\n- 핵심 토론: 중국 지정학 리스크 / 2nm 수율 ramp / 미국 fab 진척\n\n**투자 thesis 한 줄**: *AI와 양자 어느 쪽이 이겨도 결국 TSMC가 칩을 만든다. 유일한 공통 승자. 단일 리스크는 지정학(대만).*",
+          bodyEn: "### Financials + Street Consensus\n\n- **Market cap**: ~$1.0-1.1T (Top 10 globally)\n- **2025 revenue**: ~$110B+\n- **2026 forecast**: $140-150B (+30%)\n- **AI chip revenue mix**: ~30% (accelerating)\n- **GP margin**: 55%+ (highest in semi industry)\n- **2nm production**: Starts H2 2026 (Apple A20, NVIDIA Rubin)\n\n**Wall Street view**:\n- Nearly universal **Buy / Overweight** (no controversy)\n- Price target range: **$260-320**\n- Key debates: China geopolitical risk / 2nm yield ramp / US fab progress\n\n**Thesis one-liner**: *Whether AI or quantum wins, TSMC makes the chips either way. Single common winner. Only risk = Taiwan geopolitics.*",
+        },
+
+        // ─── ④ Bluefors (private) ────────────────────────
+        {
+          type: "text",
+          body: "## ④ Bluefors (비상장, 핀란드) — 양자의 ASML\n\n**한 줄 요약**: 모든 superconducting 양자컴퓨터의 *필수 부품* 70% 점유. IPO 시 양자 시대의 가장 큰 베팅 기회.\n\n### 비즈니스 모델\n\n2008년 핀란드 헬싱키에서 창업. 단일 제품에 거의 모든 매출.\n\n**제품: 희석 냉동기(Dilution Refrigerator)**\n\n- 절대영도(-273°C)에 가까운 환경을 만드는 장치\n- IBM, Google 양자 시스템 사진에 보이는 *황금색 거대 샹들리에*가 바로 이 회사 제품\n- 가격: 한 대당 **$500K - $3M**\n- 제조 리드타임: 12-18개월\n\n### 왜 양자컴퓨터 관련주인가\n\n*모든 superconducting 양자컴퓨터가 반드시 사용.*\n\n- **IBM Quantum** — 모든 시스템 Bluefors\n- **Google Quantum AI** — Sycamore부터 Willow까지 Bluefors\n- **Rigetti, Quantinuum (gate model 일부)** — Bluefors\n- **학계 양자 연구소 (MIT, Caltech, Oxford, USTC, KIST 등 전부)** — Bluefors\n- **양자 센싱, 다크매터 검출** 같은 인접 시장도 동일 제품\n\n글로벌 시장 점유율 **약 70%**. 경쟁사:\n- Oxford Instruments (영국, ~25%)\n- 그 외 소규모 (~5%)\n\n### 현재 vs 미래 병목",
+          bodyEn: "## ④ Bluefors (Private, Finland) — Quantum's ASML\n\n**One-liner**: 70% share in the *essential component* for every superconducting quantum computer. The single biggest bet of the quantum era if it IPOs.\n\n### Business Model\n\nFounded 2008 in Helsinki, Finland. Nearly single-product revenue.\n\n**Product: Dilution Refrigerator**\n\n- Creates near-absolute-zero (-273°C) environment\n- The *giant gold chandeliers* in IBM/Google quantum system photos — that's this company\n- Price per unit: **$500K - $3M**\n- Manufacturing lead time: 12-18 months\n\n### Why It's a Quantum Play\n\n*Every superconducting quantum computer must use one.*\n\n- **IBM Quantum** — every system\n- **Google Quantum AI** — Sycamore through Willow\n- **Rigetti, Quantinuum (gate model portion)** — Bluefors\n- **Academic labs (MIT, Caltech, Oxford, USTC, KIST, etc.)** — All Bluefors\n- **Quantum sensing, dark matter detection** also use the same equipment\n\nGlobal market share **~70%**. Competitors:\n- Oxford Instruments (UK, ~25%)\n- Others (~5%)\n\n### Current vs Future Bottleneck",
+        },
+        {
+          type: "table",
+          table: {
+            id: "bluefors-bottlenecks",
+            title: "Bluefors 병목 매핑",
+            titleEn: "Bluefors Bottleneck Mapping",
+            headers: ["영역", "지금 (2026)", "양자 사이클 후"],
+            headersEn: ["Area", "Today (2026)", "Post-Quantum Cycle"],
+            rows: [
+              ["메인 수익", "희석 냉동기 단일 제품", "동일 + 더 큰 모델 + 양자 네트워킹"],
+              ["기술 병목", "Helium-3 공급 (희귀 동위원소)", "100만 큐비트급 대형 냉동기 R&D"],
+              ["고객", "**모든 superconducting 양자 회사**", "확대 — 양자 데이터센터"],
+              ["AI 노출", "**0%** (양자 100%)", "0%"],
+              ["양자 노출", "**~100%**", "100%"],
+              ["IPO 가능성", "2026-2027 루머", "—"],
+            ],
+            rowsEn: [
+              ["Main revenue", "Dilution refrigerator (single product)", "Same + larger models + quantum networking"],
+              ["Tech bottleneck", "Helium-3 supply (rare isotope)", "1M-qubit-scale refrigerator R&D"],
+              ["Customers", "**Every superconducting quantum company**", "Expands to quantum data centers"],
+              ["AI exposure", "**0%** (100% quantum)", "0%"],
+              ["Quantum exposure", "**~100%**", "100%"],
+              ["IPO probability", "2026-2027 rumored", "—"],
+            ],
+            caption: "Bluefors는 양자 사이클 *유일하게 순수 베팅*. AI 보호막 없음. 양자가 깨지면 회사도 깨짐. 반대로 양자가 성공하면 ASML급 회사.",
+            captionEn: "Bluefors is the *only pure quantum play*. No AI cushion. If quantum fails, company fails. If quantum succeeds, ASML-grade company.",
+          },
+        },
+        {
+          type: "text",
+          body: "### 재무 + 월가 시각 (비상장 추정)\n\n- **매출 (추정)**: $200-300M (성장 ↑)\n- **수익성**: *흑자 운영* (양자 회사 중 보기 드문 케이스)\n- **소유 구조**: 창업자 + 소수 PE\n- **2025-2026 IPO 루머**: Goldman Sachs, Morgan Stanley가 IPO 자문 경쟁 보도\n- **추정 IPO 밸류에이션**: **$3-5B+** (양자 시장 성장 시나리오에 따라 더 ↑)\n\n**왜 \"양자의 ASML\"인가**:\n\nASML이 첨단 반도체 EUV 노광기를 *독점*해서 TSMC·Samsung·Intel이 *모두 ASML 부품을 사야* 했던 것처럼,\n\nBluefors는 *모든 superconducting 양자컴퓨터에 필수*인 부품을 70% 점유한다.\n\nIBM이 1,000큐비트 칩을 만들든, Google이 100,000큐비트로 가든 — Bluefors가 *그만큼의 냉동기*를 팔아야 한다.\n\n**투자 thesis 한 줄**: *IPO만 하면 quantum era의 ASML. 그 전까지 직접 베팅 불가능. IPO 발표만 모니터링.*",
+          bodyEn: "### Financials + Street View (Private Estimates)\n\n- **Revenue (est.)**: $200-300M (growing)\n- **Profitability**: *Profitable* (rare among quantum companies)\n- **Ownership**: Founders + minority PE\n- **2025-2026 IPO rumors**: Goldman Sachs and Morgan Stanley reportedly competing for IPO advisory\n- **Est. IPO valuation**: **$3-5B+** (more if quantum market grows aggressively)\n\n**Why \"Quantum's ASML\"**:\n\nJust as ASML *monopolizes* leading-edge EUV lithography — forcing TSMC, Samsung, and Intel to all buy from ASML —\n\nBluefors holds 70% share of the *essential component* for every superconducting quantum computer.\n\nWhether IBM ships 1,000-qubit chips or Google scales to 100,000 — Bluefors sells *that many* refrigerators.\n\n**Thesis one-liner**: *If it IPOs, this is the ASML of the quantum era. Direct exposure impossible until then. Monitor for IPO announcement.*",
+        },
+
+        // ─── 종합 비교 ────────────────────────
+        {
+          type: "text",
+          body: "## 종합 비교 — 어느 회사가 어떤 투자자에게 맞나",
+          bodyEn: "## Summary — Which Company for Which Investor",
+        },
+        {
+          type: "table",
+          table: {
+            id: "pick-shovel-summary",
+            title: "Pick-and-Shovel 4사 한 눈 비교",
+            titleEn: "Pick-and-Shovel 4 Companies at a Glance",
+            headers: ["회사", "시가총액", "양자 노출(현재)", "양자 노출(잠재)", "AI 보호막", "IPO", "Best for"],
+            headersEn: ["Company", "Mkt Cap", "Quantum Exp (now)", "Quantum Exp (potential)", "AI Cushion", "IPO", "Best for"],
+            rows: [
+              ["Lumentum", "~$11B", "~2-3%", "~10-15%", "**강함 (60%+)**", "상장", "균형형 투자자"],
+              ["Coherent", "~$14B", "~2-4%", "~10%", "**강함 (70%+)**", "상장", "다각화 추구"],
+              ["TSMC", "~$1T", "<1%", "~3-5%", "**절대적**", "상장", "**보수적·메가캡**"],
+              ["Bluefors", "~$3-5B (IPO 시)", "~100%", "100%", "**없음**", "**2026-2027?**", "**공격적·순수 베팅**"],
+            ],
+            rowsEn: [
+              ["Lumentum", "~$11B", "~2-3%", "~10-15%", "**Strong (60%+)**", "Public", "Balanced investor"],
+              ["Coherent", "~$14B", "~2-4%", "~10%", "**Strong (70%+)**", "Public", "Diversified seeker"],
+              ["TSMC", "~$1T", "<1%", "~3-5%", "**Absolute**", "Public", "**Conservative megacap**"],
+              ["Bluefors", "~$3-5B (at IPO)", "~100%", "100%", "**None**", "**2026-2027?**", "**Aggressive pure-play**"],
+            ],
+            caption: "보수적이면 TSMC, 균형이면 Lumentum/Coherent, 공격적이면 Bluefors IPO 대기.",
+            captionEn: "Conservative → TSMC, balanced → Lumentum/Coherent, aggressive → wait for Bluefors IPO.",
+          },
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "insight",
+            heading: "Pick-and-Shovel 베팅의 핵심 원칙",
+            headingEn: "Core Principle of Pick-and-Shovel Bets",
+            body: "**골드러시에서 부자가 된 건 금을 캔 광부가 아니라 *곡괭이 판 사람*이었다.**\n\nLevi Strauss(청바지), Wells Fargo(은행)가 캘리포니아 골드러시의 진짜 부자였다.\n\n양자 사이클도 같은 패턴일 가능성 높음.\n\nIonQ·Rigetti가 양자 시대의 \"광부\"라면, Lumentum·Coherent·TSMC·Bluefors는 \"곡괭이 판매자\".\n\n어떤 양자 회사가 임계점에 먼저 도달하든 — 결국 부품을 사야 한다.\n\n*가장 안전한 베팅은 어느 광부가 이길지 모를 때 곡괭이를 사는 것.*",
+            bodyEn: "**The Gold Rush rich were the *pickaxe sellers*, not the miners.**\n\nLevi Strauss (jeans), Wells Fargo (banking) were the real California Gold Rush winners.\n\nThe quantum cycle likely follows the same pattern.\n\nIf IonQ and Rigetti are the quantum era's \"miners,\" then Lumentum, Coherent, TSMC, and Bluefors are the \"pickaxe sellers.\"\n\nWhichever quantum company reaches the threshold first — they still have to buy components.\n\n*The safest bet, when you can't tell which miner wins, is to buy the pickaxes.*",
+          },
+        },
+      ],
+    },
+
     // ─── 14. 결론 ──────────────────────────────────────────────────────────────
     {
-      heading: "13. 결론 — 양자는 AI 다음의 자본 사이클인가",
-      headingEn: "13. Conclusion — Is Quantum Really the Next Capital Cycle After AI?",
+      heading: "14. 결론 — 양자는 AI 다음의 자본 사이클인가",
+      headingEn: "14. Conclusion — Is Quantum Really the Next Capital Cycle After AI?",
       blocks: [
         {
           type: "text",
