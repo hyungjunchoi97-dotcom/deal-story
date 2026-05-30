@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { motion, useInView } from "framer-motion";
 import {
   LineChart, Line,
@@ -41,9 +42,21 @@ import type {
   InterconnectionQueuePoint,
   AiPenetrationPoint,
   PeSpreadPoint,
+  NoteImageDef,
+  QubitRacePoint,
+  QuantumStockPoint,
+  QuantumFundingBar,
 } from "@/data/notes";
 import { NOTE_CATEGORY_META, getSeriesNav } from "@/data/notes";
 import SeriesNav from "@/components/SeriesNav";
+
+// Dynamically load Mapbox component (no SSR — mapbox-gl touches window)
+const QuantumMap = dynamic(() => import("@/components/QuantumMap"), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-[480px] rounded-2xl bg-gray-100 dark:bg-gray-800 animate-pulse" />
+  ),
+});
 
 type Lang = "ko" | "en";
 
@@ -1005,6 +1018,158 @@ function PeSpreadChart({ chart, lang }: { chart: NoteChartDef & { id: "pe-spread
   );
 }
 
+// ── Qubit Race (multi-line) ───────────────────────────────────────────────────
+function QubitRaceChart({ chart, lang }: { chart: NoteChartDef & { id: "qubit-race" }; lang: Lang }) {
+  const data = chart.data as QubitRacePoint[];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={300}>
+        <LineChart data={data} margin={{ top: 30, right: 20, left: 0, bottom: 0 }}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} />
+          <XAxis dataKey="year" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
+          <YAxis
+            tick={{ fontSize: 10 }}
+            tickLine={false}
+            axisLine={false}
+            label={{
+              value: lang === "en" ? "Qubits" : "큐비트 수",
+              angle: -90,
+              position: "insideLeft",
+              fontSize: 11,
+              fill: "#6b7280",
+            }}
+          />
+          <Tooltip content={<ChartTooltip />} />
+          <Legend wrapperStyle={{ fontSize: 11, paddingTop: 12 }} />
+          {chart.annotations?.map((a, i) => (
+            <ReferenceLine
+              key={i}
+              x={a.year}
+              stroke="#dc2626"
+              strokeDasharray="4 4"
+              label={{
+                value: lang === "en" ? (a.labelEn ?? a.label) : a.label,
+                fill: "#dc2626",
+                fontSize: 10,
+                position: "top",
+              }}
+            />
+          ))}
+          <Line type="monotone" dataKey="IBM" stroke="#0ea5e9" strokeWidth={2.5} dot={{ r: 3 }} connectNulls />
+          <Line type="monotone" dataKey="Google" stroke="#f59e0b" strokeWidth={2.5} dot={{ r: 3 }} connectNulls />
+          <Line type="monotone" dataKey="IonQ" stroke="#8b5cf6" strokeWidth={2.5} dot={{ r: 3 }} connectNulls />
+          <Line type="monotone" dataKey="Atom" stroke="#10b981" strokeWidth={2.5} dot={{ r: 3 }} connectNulls />
+          <Line type="monotone" dataKey="Quantinuum" stroke="#ef4444" strokeWidth={2.5} dot={{ r: 3 }} connectNulls />
+        </LineChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
+// ── Quantum Stocks (multi-line index) ─────────────────────────────────────────
+function QuantumStocksChart({ chart, lang }: { chart: NoteChartDef & { id: "quantum-stocks" }; lang: Lang }) {
+  const data = chart.data as QuantumStockPoint[];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={300}>
+        <LineChart data={data} margin={{ top: 30, right: 20, left: 0, bottom: 0 }}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} />
+          <XAxis dataKey="date" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
+          <YAxis
+            tick={{ fontSize: 10 }}
+            tickLine={false}
+            axisLine={false}
+            tickFormatter={(v) => `${v}`}
+            label={{
+              value: lang === "en" ? "Index (=100)" : "지수 (=100)",
+              angle: -90,
+              position: "insideLeft",
+              fontSize: 11,
+              fill: "#6b7280",
+            }}
+          />
+          <Tooltip content={<ChartTooltip />} />
+          <Legend wrapperStyle={{ fontSize: 11, paddingTop: 12 }} />
+          {chart.annotations?.map((a, i) => (
+            <ReferenceLine
+              key={i}
+              x={a.date}
+              stroke="#dc2626"
+              strokeDasharray="4 4"
+              label={{
+                value: lang === "en" ? (a.labelEn ?? a.label) : a.label,
+                fill: "#dc2626",
+                fontSize: 10,
+                position: "top",
+              }}
+            />
+          ))}
+          <Line type="monotone" dataKey="IONQ" stroke="#8b5cf6" strokeWidth={2.5} dot={{ r: 3 }} connectNulls />
+          <Line type="monotone" dataKey="RGTI" stroke="#0ea5e9" strokeWidth={2.5} dot={{ r: 3 }} connectNulls />
+          <Line type="monotone" dataKey="QBTS" stroke="#10b981" strokeWidth={2.5} dot={{ r: 3 }} connectNulls />
+          <Line type="monotone" dataKey="QUBT" stroke="#f59e0b" strokeWidth={2.5} dot={{ r: 3 }} connectNulls />
+        </LineChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
+// ── Quantum Funding (grouped bars: gov vs VC) ─────────────────────────────────
+function QuantumFundingChart({ chart, lang }: { chart: NoteChartDef & { id: "quantum-funding" }; lang: Lang }) {
+  const raw = chart.data as QuantumFundingBar[];
+  const data = raw.map((d) => ({
+    country: lang === "en" ? d.countryEn : d.country,
+    govSpend: d.govSpend,
+    vcSpend: d.vcSpend,
+  }));
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={300}>
+        <BarChart data={data} margin={{ top: 20, right: 20, left: 0, bottom: 0 }}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} />
+          <XAxis dataKey="country" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
+          <YAxis
+            tick={{ fontSize: 10 }}
+            tickLine={false}
+            axisLine={false}
+            tickFormatter={(v) => `$${v}B`}
+          />
+          <Tooltip
+            content={<ChartTooltip />}
+            formatter={((v: number) => [`$${v}B`, undefined]) as never}
+          />
+          <Legend wrapperStyle={{ fontSize: 11, paddingTop: 12 }} />
+          <Bar dataKey="govSpend" name={lang === "en" ? "Government" : "정부"} fill="#0ea5e9" radius={[4, 4, 0, 0]} />
+          <Bar dataKey="vcSpend" name={lang === "en" ? "VC / Private" : "VC / 민간"} fill="#8b5cf6" radius={[4, 4, 0, 0]} />
+        </BarChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
+// ── Quantum Map (Mapbox via dynamic import) ───────────────────────────────────
+function QuantumMapBlock({ chart, lang }: { chart: NoteChartDef & { id: "quantum-map" }; lang: Lang }) {
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  return (
+    <div className="my-4">
+      {title && (
+        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">{title}</p>
+      )}
+      <QuantumMap markers={chart.markers} center={chart.center} zoom={chart.zoom} lang={lang} />
+      {caption && (
+        <p className="text-[11px] text-gray-500 dark:text-gray-400 mt-2 text-center">{caption}</p>
+      )}
+    </div>
+  );
+}
+
 // ── Generic chart dispatcher ───────────────────────────────────────────────────
 function NoteChart({ chart, lang }: { chart: NoteChartDef; lang: Lang }) {
   if (chart.id === "pbr-comparison") return <PBRChart chart={chart} lang={lang} />;
@@ -1028,6 +1193,10 @@ function NoteChart({ chart, lang }: { chart: NoteChartDef; lang: Lang }) {
   if (chart.id === "queue-growth") return <QueueGrowthChart chart={chart} lang={lang} />;
   if (chart.id === "ai-penetration") return <AiPenetrationChart chart={chart} lang={lang} />;
   if (chart.id === "pe-spread") return <PeSpreadChart chart={chart} lang={lang} />;
+  if (chart.id === "qubit-race") return <QubitRaceChart chart={chart} lang={lang} />;
+  if (chart.id === "quantum-stocks") return <QuantumStocksChart chart={chart} lang={lang} />;
+  if (chart.id === "quantum-funding") return <QuantumFundingChart chart={chart} lang={lang} />;
+  if (chart.id === "quantum-map") return <QuantumMapBlock chart={chart} lang={lang} />;
   return null;
 }
 
@@ -1126,6 +1295,46 @@ function NoteCallout({ callout, lang }: { callout: NoteCalloutDef; lang: Lang })
         }}
       />
     </div>
+  );
+}
+
+// ── Image ──────────────────────────────────────────────────────────────────────
+function NoteImage({ image, lang }: { image: NoteImageDef; lang: Lang }) {
+  const alt = lang === "en" ? (image.altEn ?? image.alt) : image.alt;
+  const caption = lang === "en" ? (image.captionEn ?? image.caption) : image.caption;
+  return (
+    <figure className="my-6">
+      <div className="rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700/60 bg-gray-50 dark:bg-gray-800/40">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={image.src}
+          alt={alt}
+          loading="lazy"
+          className="w-full h-auto block"
+          style={image.width && image.height ? { aspectRatio: `${image.width} / ${image.height}` } : undefined}
+        />
+      </div>
+      {(caption || image.source) && (
+        <figcaption className="mt-2 text-[11px] text-gray-500 dark:text-gray-400 leading-relaxed text-center">
+          {caption}
+          {caption && image.source && " · "}
+          {image.source && (
+            image.sourceUrl ? (
+              <a
+                href={image.sourceUrl}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="underline hover:text-gray-700 dark:hover:text-gray-200"
+              >
+                {image.source}
+              </a>
+            ) : (
+              image.source
+            )
+          )}
+        </figcaption>
+      )}
+    </figure>
   );
 }
 
@@ -1273,6 +1482,13 @@ function BlockRenderer({ block, lang }: { block: NoteBlock; lang: Lang }) {
       >
         <MetricsGrid items={block.items} lang={lang} />
       </motion.div>
+    );
+  }
+  if (block.type === "image") {
+    return (
+      <InView>
+        <NoteImage image={block.image} lang={lang} />
+      </InView>
     );
   }
   return null;

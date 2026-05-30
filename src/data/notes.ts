@@ -258,6 +258,67 @@ export type PeSpreadPoint = {
   sp493: number;
 };
 
+// ── Image block ──────────────────────────────────────────────────────────────
+export type NoteImageDef = {
+  /** External URL (we use Wikipedia + official press kits) */
+  src: string;
+  alt: string;
+  altEn?: string;
+  caption?: string;
+  captionEn?: string;
+  /** "Wikipedia Commons / IBM Press Kit / Google" etc */
+  source?: string;
+  sourceUrl?: string;
+  /** Optional explicit dimensions for layout hints; image rendered responsively regardless */
+  width?: number;
+  height?: number;
+};
+
+// ── Quantum chart data types ─────────────────────────────────────────────────
+// Qubit race — milestone-driven multi-line chart
+export type QubitRacePoint = {
+  year: string;          // "2019", "2020", ... or "2024Q4"
+  IBM?: number;
+  Google?: number;
+  IonQ?: number;
+  Atom?: number;
+  Quantinuum?: number;
+  event?: string;        // optional milestone label
+};
+
+// Quantum stocks — multi-line stock price index
+export type QuantumStockPoint = {
+  date: string;          // "2023-Q1" etc
+  IONQ: number;          // indexed to 100 at start
+  RGTI: number;
+  QBTS: number;
+  QUBT?: number;
+  event?: string;
+};
+
+// Quantum funding — by country, gov vs VC
+export type QuantumFundingBar = {
+  country: string;
+  countryEn: string;
+  govSpend: number;      // $B cumulative
+  vcSpend: number;       // $B cumulative
+};
+
+// Quantum map — Mapbox markers
+export type QuantumMapMarker = {
+  id: string;
+  name: string;
+  nameEn?: string;
+  lat: number;
+  lng: number;
+  country: string;       // 🇺🇸 / 🇨🇳 emoji prefix optional
+  type: "company" | "lab" | "university" | "consortium";
+  qubits?: number;
+  capital?: string;      // "$15B" etc
+  lead?: string;         // "Pan Jianwei" etc
+  approach?: string;     // "Superconducting" / "Ion Trap" etc
+};
+
 export type NoteChartDef =
   | { id: "pbr-comparison";    title: string; titleEn?: string; caption?: string; captionEn?: string; data: PBRPoint[] }
   | { id: "tax-rates";         title: string; titleEn?: string; caption?: string; captionEn?: string; data: TaxRateBar[] }
@@ -279,14 +340,19 @@ export type NoteChartDef =
   | { id: "dc-power-demand";   title: string; titleEn?: string; caption?: string; captionEn?: string; data: DcPowerDemandPoint[] }
   | { id: "queue-growth";      title: string; titleEn?: string; caption?: string; captionEn?: string; data: InterconnectionQueuePoint[] }
   | { id: "ai-penetration";    title: string; titleEn?: string; caption?: string; captionEn?: string; data: AiPenetrationPoint[] }
-  | { id: "pe-spread";         title: string; titleEn?: string; caption?: string; captionEn?: string; data: PeSpreadPoint[] };
+  | { id: "pe-spread";         title: string; titleEn?: string; caption?: string; captionEn?: string; data: PeSpreadPoint[] }
+  | { id: "qubit-race";        title: string; titleEn?: string; caption?: string; captionEn?: string; data: QubitRacePoint[]; annotations?: { year: string; label: string; labelEn?: string }[] }
+  | { id: "quantum-stocks";    title: string; titleEn?: string; caption?: string; captionEn?: string; data: QuantumStockPoint[]; annotations?: { date: string; label: string; labelEn?: string }[] }
+  | { id: "quantum-funding";   title: string; titleEn?: string; caption?: string; captionEn?: string; data: QuantumFundingBar[] }
+  | { id: "quantum-map";       title: string; titleEn?: string; caption?: string; captionEn?: string; markers: QuantumMapMarker[]; center?: [number, number]; zoom?: number };
 
 export type NoteBlock =
   | { type: "text";    body: string; bodyEn?: string }
   | { type: "metrics"; items: NoteMetric[] }
   | { type: "chart";   chart: NoteChartDef }
   | { type: "table";   table: NoteTableDef }
-  | { type: "callout"; callout: NoteCalloutDef };
+  | { type: "callout"; callout: NoteCalloutDef }
+  | { type: "image";   image: NoteImageDef };
 
 export type NoteSection = {
   heading?: string;
@@ -4393,6 +4459,18 @@ const quantumComputing: NoteData = {
             bodyEn: "\"Nature isn't classical, dammit. And if you want to make a simulation of nature, you'd better make it quantum mechanical.\"\n\n— Said in a 1981 lecture by the 1965 Nobel laureate in physics. It became the birth certificate of quantum computing.\n\nNature operates quantum-mechanically. Molecules, atoms, electrons — all quantum systems. But the computers we built only have 0s and 1s. When you try to simulate quantum things on classical machines, you hit the exponential wall. Feynman's conclusion was simple: **to simulate nature, the computer itself has to be quantum.**",
           },
         },
+        {
+          type: "image",
+          image: {
+            src: "https://upload.wikimedia.org/wikipedia/en/4/42/Richard_Feynman_Nobel.jpg",
+            alt: "리처드 파인만, 1965년 노벨 물리학상 수상자",
+            altEn: "Richard Feynman, 1965 Nobel laureate in physics",
+            caption: "1981년 그의 강연이 양자컴퓨터의 출생증명서가 되었다.",
+            captionEn: "His 1981 lecture became the birth certificate of quantum computing.",
+            source: "Wikipedia Commons",
+            sourceUrl: "https://en.wikipedia.org/wiki/Richard_Feynman",
+          },
+        },
       ],
     },
 
@@ -4420,6 +4498,18 @@ const quantumComputing: NoteData = {
           type: "text",
           body: "### 3.3. 왜 양자컴퓨터가 만들기 어려운가 — Decoherence(탈동조)\n\n큐비트의 \"동시 존재\" 상태는 **극도로 깨지기 쉽다**.\n\n비유: 도서관에서 동전을 손바닥 위에 세로로 세워두려고 한다. 옆 사람의 기침, 에어컨 바람, 책 떨어지는 소리 — 무엇이든 한 번이라도 닿으면 동전은 쓰러진다.\n\n큐비트는 그 동전이다.\n\n주변 온도, 전자기파, 우주방사선, 옆방의 자석 — 무엇이든 큐비트를 *건드리면* 중첩이 무너진다.\n\n이걸 **탈동조(decoherence)** 라고 부른다. 양자컴퓨터가 50년간 이론이었던 가장 큰 이유.\n\n그래서 양자컴퓨터는 **절대영도(-273.15°C, 우주 공간보다 차가움)**에 가까운 환경에서 작동한다.\n\nIBM의 양자 시스템 사진을 보면 거대한 황금색 샹들리에 같은 게 보이는데, 그게 다 냉각·차폐 시스템이다.\n\n진짜 계산하는 칩은 그 맨 아래 *손톱만 한 조각*. 90%가 인프라, 10%가 양자 칩.",
           bodyEn: "### 3.3. Why It's So Hard — Decoherence\n\nThe qubit's superposition is **extremely fragile**.\n\nAnalogy: you're trying to balance a coin upright on your palm in a library. Someone coughs, the AC turns on, a book drops — any disturbance topples the coin.\n\nThe qubit is that coin.\n\nAmbient temperature, electromagnetic noise, cosmic rays, a magnet in the next room — anything that *touches* the qubit collapses the superposition.\n\nThis is called **decoherence**. It's the biggest reason quantum computing remained theoretical for 50 years.\n\nQuantum computers therefore operate near **absolute zero (-273.15°C — colder than outer space)**.\n\nThose photos of IBM quantum systems — the giant gold chandeliers — that's almost entirely cooling and shielding hardware.\n\nThe chip actually doing computation is the *fingernail-sized piece at the very bottom*. 90% infrastructure, 10% quantum chip.",
+        },
+        {
+          type: "image",
+          image: {
+            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/IBM_Q_system_%28Fraunhofer%29.jpg/1280px-IBM_Q_system_%28Fraunhofer%29.jpg",
+            alt: "IBM Quantum System — 거대한 황금색 샹들리에가 양자 컴퓨터의 트레이드마크",
+            altEn: "IBM Quantum System — the iconic gold chandelier of quantum computers",
+            caption: "보이는 부분의 90%가 냉각·차폐 시스템. 실제 계산하는 양자 칩은 맨 아래 손톱만 한 조각.",
+            captionEn: "90% of what you see is cooling and shielding. The actual quantum chip is a fingernail-sized piece at the very bottom.",
+            source: "Wikipedia Commons",
+            sourceUrl: "https://commons.wikimedia.org/wiki/File:IBM_Q_system_(Fraunhofer).jpg",
+          },
         },
         {
           type: "text",
@@ -4460,6 +4550,17 @@ const quantumComputing: NoteData = {
           bodyEn: "### October 2019 — Google Sycamore (53 qubits)\n\n**First claim of Quantum Supremacy.**\n\nLow qubit count — but historically symbolic.\n\nGoogle published in *Nature*: 'solved in 200 seconds a calculation that would take supercomputers 10,000 years.'\n\nIBM countered with '2.5 days on our supercomputer.' But the moment was the first time quantum showed *measurable advantage* of any kind.\n\nThe problem solved had zero utility — random circuit sampling. But as a *proof of principle*, it was huge.",
         },
         {
+          type: "image",
+          image: {
+            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Sycamore_processor.jpg/1280px-Sycamore_processor.jpg",
+            alt: "Google Sycamore 양자 프로세서 (53 큐비트)",
+            altEn: "Google Sycamore quantum processor (53 qubits)",
+            caption: "2019년 양자 우위를 선언한 53큐비트 칩. 실물은 손가락만 한 크기.",
+            captionEn: "The 53-qubit chip that claimed quantum supremacy in 2019. Roughly fingertip-sized in reality.",
+            source: "Wikipedia Commons / Google",
+          },
+        },
+        {
           type: "text",
           body: "### 2023년 12월 — IBM Condor (1,121큐비트)\n\n**큐비트 수만 보면 인류 역사 최대.**\n\nIBM이 1,121개 큐비트를 한 칩에 집어넣었다.\n\n그런데 게이트 fidelity는 낮음 — 즉 *큰 데 정확하지 않은* 시스템.\n\n이 발표로 업계는 \"큐비트 수 경쟁\"의 한계를 보기 시작했다.\n\nIBM 본인도 이후 Heron(156큐비트, fidelity 0.997)으로 *품질 우선* 노선으로 전환.",
           bodyEn: "### December 2023 — IBM Condor (1,121 qubits)\n\n**Largest qubit count in human history (at the time).**\n\nIBM packed 1,121 qubits onto a single chip.\n\nBut gate fidelity was low — meaning it was *big but inaccurate*.\n\nThis announcement made the industry start to see the limits of the qubit-count race.\n\nIBM themselves pivoted to quality-first with Heron (156 qubits, 0.997 fidelity).",
@@ -4473,6 +4574,28 @@ const quantumComputing: NoteData = {
           type: "text",
           body: "### 2025년 2월 — Microsoft Majorana 1\n\n**\"Topological qubit\"이라는 완전히 다른 종류의 큐비트.**\n\nMicrosoft의 25년 베팅의 첫 검증 가능한 결과물.\n\nMajorana fermion이라는 *이론상* 노이즈에 면역인 양자 상태를 사용한다.\n\n만약 사실이면 게임 체인저 — 에러 교정 부담이 *지수적으로 감소*.\n\n학계는 회의적. 2018년 Microsoft가 비슷한 결과를 발표했다가 논문을 *철회*한 전력이 있다.\n\n2025년 발표는 더 robust한 데이터를 가지고 왔지만, 검증에는 시간이 필요하다.\n\n맞다면 양자 사이클이 *5년 앞당겨질* 수 있다.",
           bodyEn: "### February 2025 — Microsoft Majorana 1\n\n**A completely different type of qubit: 'topological'.**\n\nThe first verifiable result of Microsoft's 25-year bet.\n\nUses Majorana fermions — quantum states *theoretically* immune to noise.\n\nIf real, it's a game-changer — error correction overhead drops *exponentially*.\n\nAcademia is skeptical. In 2018, Microsoft published a similar result that was later *retracted*.\n\nThe 2025 announcement comes with more robust data, but verification takes time.\n\nIf it holds, the entire quantum cycle could be *pulled forward by 5 years*.",
+        },
+        {
+          type: "chart",
+          chart: {
+            id: "qubit-race",
+            title: "큐비트 수 경쟁 — 2019~2024",
+            titleEn: "Qubit Count Race — 2019 to 2024",
+            data: [
+              { year: "2019", IBM: 53, Google: 53, IonQ: 11, event: "Sycamore" },
+              { year: "2020", IBM: 65, Google: 53, IonQ: 32 },
+              { year: "2021", IBM: 127, Google: 53, IonQ: 32 },
+              { year: "2022", IBM: 433, Google: 70, IonQ: 32, Quantinuum: 20 },
+              { year: "2023", IBM: 1121, Google: 70, IonQ: 36, Quantinuum: 32, Atom: 1180 },
+              { year: "2024", IBM: 1121, Google: 105, IonQ: 36, Quantinuum: 56, Atom: 1180 },
+            ],
+            annotations: [
+              { year: "2019", label: "Sycamore", labelEn: "Sycamore" },
+              { year: "2024", label: "Willow", labelEn: "Willow" },
+            ],
+            caption: "물리적 큐비트 수만 보면 IBM/Atom 1위. 그러나 게이트 fidelity는 별개 — 큐비트 수가 전부가 아니다.",
+            captionEn: "By raw physical qubit count, IBM/Atom lead. But gate fidelity is separate — qubit count isn't everything.",
+          },
         },
       ],
     },
@@ -4519,6 +4642,17 @@ const quantumComputing: NoteData = {
           type: "text",
           body: "**① Superconducting** — 가장 많이 알려진 방식. IBM이 6년 만에 5큐비트에서 1,121큐비트로 갔다. 무어의 법칙 비슷한 곡선. Google Willow도 이 방식.\n\n**② Trapped Ion** — IonQ의 길. \"큐비트 수보다 품질이 중요하다\"는 메시지로 시장과 싸우고 있다. **algorithmic qubit**이라는 용어를 만들어 \"1개의 IonQ 큐비트 = 50개의 superconducting 큐비트\"라고 주장.\n\n**③ Neutral Atom** — 2024년 가장 빠르게 부상. Atom Computing이 1,180큐비트로 큐비트 수 세계 1위. Harvard의 Mikhail Lukin이 공동창업한 QuEra가 핵심 기업.\n\n**④ Photonic** — PsiQuantum의 베팅. **상온 작동**. \"큐비트 한두 개씩 늘리는 게 의미 없다. 우리는 100만 큐비트로 한 번에 fault-tolerant 시스템 만들겠다.\" 도박이지만 성공하면 게임 끝. 2024년 호주 정부와 $617M 계약.\n\n**⑤ Topological** — Microsoft의 25년 도박. **수학적으로** 노이즈 면역. 그러나 *Majorana 입자 자체가 검증 안 됨*. Microsoft는 25년간 이 길을 갔지만 한 번 논문 철회 사건 있었음.\n\n**⑥ Silicon Spin** — Intel의 다크호스. 가장 조용하지만 가장 영리할 수 있다. 만약 silicon spin이 통하면 **수백억 개 큐비트**를 만들 수 있는 인프라는 이미 갖춰져 있다.",
           bodyEn: "**① Superconducting** — best known. IBM went from 5 qubits to 1,121 in six years. A Moore's-Law-like curve. Google Willow uses this too.\n\n**② Trapped Ion** — IonQ's path. Fighting the market with the message 'quality matters more than count.' Coined *algorithmic qubit*: '1 IonQ qubit = 50 superconducting qubits.'\n\n**③ Neutral Atom** — the fastest-rising approach of 2024. Atom Computing's 1,180-qubit system leads the world by qubit count. QuEra, co-founded by Harvard's Mikhail Lukin, is the other key player.\n\n**④ Photonic** — PsiQuantum's bet. **Room temperature**. 'Adding qubits one at a time is pointless. We'll build a 1-million-qubit fault-tolerant system in one shot.' Risky but game-over if it works. $617M Australian government contract in 2024.\n\n**⑤ Topological** — Microsoft's 25-year bet. **Mathematically** noise-immune. But the *Majorana particle itself remains unverified*. Microsoft has been on this path for 25 years and previously retracted a paper.\n\n**⑥ Silicon Spin** — Intel's dark horse. Quietest, possibly smartest. If silicon spin works, the infrastructure to produce **tens of billions of qubits** is already in place.",
+        },
+        {
+          type: "image",
+          image: {
+            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/D-Wave_Systems%2C_Inc.-_D-Wave_2000Q.jpg/1280px-D-Wave_Systems%2C_Inc.-_D-Wave_2000Q.jpg",
+            alt: "D-Wave 양자 어닐러 시스템",
+            altEn: "D-Wave quantum annealer system",
+            caption: "D-Wave 2000Q — 양자 어닐링(quantum annealing) 방식의 대표 시스템.",
+            captionEn: "D-Wave 2000Q — the flagship system using the quantum annealing approach.",
+            source: "Wikipedia Commons",
+          },
         },
       ],
     },
@@ -4657,6 +4791,30 @@ const quantumComputing: NoteData = {
           },
         },
         {
+          type: "chart",
+          chart: {
+            id: "quantum-stocks",
+            title: "순수 양자 주식 2년 추이 (2023.01 = 100)",
+            titleEn: "Pure-play Quantum Stock Index (Jan 2023 = 100)",
+            data: [
+              { date: "2023-Q1", IONQ: 100, RGTI: 100, QBTS: 100, QUBT: 100 },
+              { date: "2023-Q2", IONQ: 130, RGTI: 80, QBTS: 90, QUBT: 110 },
+              { date: "2023-Q3", IONQ: 180, RGTI: 110, QBTS: 130, QUBT: 150 },
+              { date: "2023-Q4", IONQ: 200, RGTI: 140, QBTS: 160, QUBT: 200 },
+              { date: "2024-Q1", IONQ: 160, RGTI: 110, QBTS: 140, QUBT: 180 },
+              { date: "2024-Q2", IONQ: 140, RGTI: 100, QBTS: 130, QUBT: 220 },
+              { date: "2024-Q3", IONQ: 200, RGTI: 130, QBTS: 150, QUBT: 300 },
+              { date: "2024-Q4", IONQ: 350, RGTI: 280, QBTS: 290, QUBT: 800, event: "Willow" },
+              { date: "2025-Q1", IONQ: 320, RGTI: 240, QBTS: 250, QUBT: 600 },
+            ],
+            annotations: [
+              { date: "2024-Q4", label: "Willow 발표", labelEn: "Willow announced" },
+            ],
+            caption: "2024년 12월 Google Willow 발표 직후 모든 양자 주식이 급등. 시장이 \"양자가 진짜\"라고 reprice한 순간.",
+            captionEn: "All quantum stocks spiked after the Dec 2024 Willow announcement — the moment the market repriced quantum as 'real'.",
+          },
+        },
+        {
           type: "text",
           body: "매출 대비 시가총액 멀티플이 *200-4,000배*.\n\n비교: NVIDIA 시가총액 / 매출 = 약 30배.\n\n즉, 양자 주식들은 *현재 매출이 아니라 2035년 가능성*에 가격이 매겨져 있다.\n\n이게 위험하다는 신호다 — 임계점에 도달 못 하면 90% 폭락 가능성.\n\n반대로 — *진짜 임계점이 보이면* 다시 10배 갈 수 있다.\n\n빅테크 양자 부서들 (별도 공시 안 됨, 업계 추정):\n\n- **IBM Quantum** — 추정 매출 $200-400M (정부 + 컨소시엄)\n- **Google Quantum AI** — 매출 거의 0, 100% R&D 투자\n- **Microsoft Quantum** — 매출 거의 0, Azure Quantum 일부\n\n비상장 양자 회사 (가장 활발):\n\n- **Quantinuum** (Honeywell + Cambridge Quantum) — 추정 매출 $20-50M, 시가총액 $5B\n- **PsiQuantum** — 매출 거의 0 (R&D 단계), 시가총액 $4B+\n- **Atom Computing** — 매출 거의 0, 시리즈 B $60M\n\n비상장 픽-앤-쇼블 (가장 흥미로움):\n\n- **Bluefors** — 추정 매출 $200M+, *흑자*, IPO 잠재력\n- **Quantum Machines** — 추정 매출 $50M+, 시가총액 $1B+",
           bodyEn: "EV/Sales multiples of *200-4,000x*.\n\nFor context: NVIDIA EV/Sales ≈ 30x.\n\nWhich means quantum stocks are priced on *2035 possibility*, not *2024 revenue*.\n\nThat's the risk signal — if the threshold isn't reached, 90% drawdowns are on the table.\n\nThe flip side — *if the threshold becomes visible*, they could 10x again.\n\nBigTech quantum divisions (not separately disclosed; industry estimates):\n\n- **IBM Quantum** — ~$200-400M revenue (government + consortia)\n- **Google Quantum AI** — near zero revenue, 100% R&D investment\n- **Microsoft Quantum** — near zero revenue, some Azure Quantum\n\nPrivate quantum companies (most active):\n\n- **Quantinuum** (Honeywell + Cambridge Quantum) — ~$20-50M revenue, $5B valuation\n- **PsiQuantum** — near zero revenue (R&D phase), $4B+ valuation\n- **Atom Computing** — near zero revenue, Series B $60M\n\nPrivate pick-and-shovel plays (most interesting):\n\n- **Bluefors** — ~$200M+ revenue, *profitable*, IPO candidate\n- **Quantum Machines** — ~$50M+ revenue, $1B+ valuation",
@@ -4748,6 +4906,17 @@ const quantumComputing: NoteData = {
           bodyEn: "### Academic Giants (Theory + Experiment)\n\n**Peter Shor (MIT)** — Discovered Shor's Algorithm in 1994. The quantum algorithm that breaks RSA. He predicted *the first thing that would happen* when quantum computers exist, 25 years before it could.\n\n**John Preskill (Caltech)** — Coined NISQ. The scholar who defined quantum computing's *current era*. His annual talks set the *state-of-play* compass for the industry.\n\n**Mikhail Lukin (Harvard)** — Pioneer of neutral atom approach. Co-founded QuEra. His 2023 *Science* paper validated neutral atom's potential.\n\n**Pan Jianwei (潘建偉, USTC)** — China's quantum godfather. First in the world to demonstrate satellite-to-ground quantum communication. Symbolic figure of China's quantum ambitions.\n\n**Alain Aspect + Anton Zeilinger** — 2022 Nobel Prize in Physics. Experimentally proved that quantum entanglement *is real*. Theoretical foundation of quantum communication.",
         },
         {
+          type: "image",
+          image: {
+            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Pan_Jianwei.jpg/800px-Pan_Jianwei.jpg",
+            alt: "Pan Jianwei (潘建偉) — 중국 양자의 아버지, USTC 교수",
+            altEn: "Pan Jianwei — China's quantum godfather, USTC professor",
+            caption: "위성-지상 양자 통신을 세계 최초로 구현. 중국 양자 굴기의 상징적 인물.",
+            captionEn: "First in the world to achieve satellite-to-ground quantum communication. Symbolic figure of China's quantum rise.",
+            source: "Wikipedia Commons",
+          },
+        },
+        {
           type: "text",
           body: "### 산업계 리더 (실행)\n\n**Hartmut Neven (Google Quantum AI)** — Google 양자 부서 총괄. 2019 Sycamore와 2024 Willow를 모두 이끔. 양자 산업의 *기술적 리더십* 상징.\n\n**Jay Gambetta (IBM Quantum)** — IBM Quantum VP. IBM의 양자 로드맵을 매년 발표. 그의 발표가 산업의 *공식 시간표* 역할.\n\n**Krysta Svore (Microsoft Quantum)** — Microsoft 양자 총괄. Topological qubit 25년 베팅의 책임자. Majorana 1 발표를 이끔.\n\n**Chad Rigetti (Rigetti)** — Rigetti 창업자. Berkeley 박사 후 IBM 거쳐 창업. Pure-play 양자의 첫 SPAC 상장 사례.\n\n**Christopher Monroe (IonQ)** — IonQ 공동창업, Maryland 교수. Trapped ion 방식의 학계-산업 다리.\n\n**Jeremy O'Brien (PsiQuantum)** — PsiQuantum CEO, Bristol 출신. Photonic 양자의 가장 야심찬 베팅을 이끔.\n\n**Peter Chapman (전 IonQ CEO)** — Amazon 출신, IonQ를 상장까지 이끔. 2024년 사임 후 후계자 Niccolo de Masi가 CEO.",
           bodyEn: "### Industry Leaders (Execution)\n\n**Hartmut Neven (Google Quantum AI)** — Leads Google's quantum division. Drove both 2019 Sycamore and 2024 Willow. Symbol of *technical leadership* in the industry.\n\n**Jay Gambetta (IBM Quantum)** — IBM Quantum VP. Publishes IBM's quantum roadmap annually. His announcements function as the industry's *official timetable*.\n\n**Krysta Svore (Microsoft Quantum)** — Leads Microsoft Quantum. Responsible for the 25-year topological qubit bet. Led the Majorana 1 announcement.\n\n**Chad Rigetti (Rigetti)** — Founder of Rigetti. Berkeley PhD, then IBM, then founded. First SPAC IPO for pure-play quantum.\n\n**Christopher Monroe (IonQ)** — IonQ co-founder, University of Maryland professor. The academia-industry bridge for trapped ion.\n\n**Jeremy O'Brien (PsiQuantum)** — PsiQuantum CEO, Bristol-trained. Leading the most ambitious photonic quantum bet.\n\n**Peter Chapman (former IonQ CEO)** — From Amazon. Led IonQ through IPO. Stepped down in 2024; Niccolo de Masi is the current CEO.",
@@ -4764,6 +4933,26 @@ const quantumComputing: NoteData = {
           type: "text",
           body: "양자컴퓨터는 *국가 간 경쟁*이기도 하다.\n\nAI가 미·중 양강 구도라면, 양자는 미·중에 EU와 일본이 추가된 4강.\n\n각국 정부 투자 규모 + 핵심 거점:",
           bodyEn: "Quantum is also a *nation-state competition*.\n\nWhere AI is US-China bipolar, quantum is US-China-EU-Japan four-pole.\n\nGovernment investment by country + key hubs:",
+        },
+        {
+          type: "chart",
+          chart: {
+            id: "quantum-funding",
+            title: "국가별 양자 자본 — 정부 vs VC (누적, $B)",
+            titleEn: "Quantum Capital by Country — Government vs VC (cumulative, $B)",
+            data: [
+              { country: "중국", countryEn: "China", govSpend: 15.0, vcSpend: 3.0 },
+              { country: "미국", countryEn: "USA", govSpend: 3.7, vcSpend: 25.0 },
+              { country: "영국", countryEn: "UK", govSpend: 3.3, vcSpend: 2.0 },
+              { country: "EU", countryEn: "EU", govSpend: 2.5, vcSpend: 4.0 },
+              { country: "호주", countryEn: "Australia", govSpend: 1.5, vcSpend: 1.0 },
+              { country: "한국", countryEn: "Korea", govSpend: 2.2, vcSpend: 0.3 },
+              { country: "일본", countryEn: "Japan", govSpend: 1.6, vcSpend: 0.5 },
+              { country: "캐나다", countryEn: "Canada", govSpend: 0.4, vcSpend: 1.2 },
+            ],
+            caption: "중국은 정부 주도, 미국은 VC 주도. 한국은 KQI(2023~)로 정부 비중 ↑.",
+            captionEn: "China is government-led; the US is VC-led. Korea's KQI (since 2023) shifted toward government dominance.",
+          },
         },
         {
           type: "table",
@@ -4795,6 +4984,40 @@ const quantumComputing: NoteData = {
             ],
             caption: "한국 KQI는 2023년 출범. ₩3T 10년 계획. 글로벌 기준으로는 EU/일본보다 작지만, Samsung·LG의 silicon spin 참여가 차별점.",
             captionEn: "Korea's KQI launched in 2023 with a ₩3T (~$2.2B) 10-year plan. Smaller than EU/Japan budgets, but Samsung/LG's silicon spin participation is differentiating.",
+          },
+        },
+        {
+          type: "chart",
+          chart: {
+            id: "quantum-map",
+            title: "글로벌 양자 R&D 허브 — 인터랙티브 지도",
+            titleEn: "Global Quantum R&D Hubs — Interactive Map",
+            center: [10, 30],
+            zoom: 1.4,
+            markers: [
+              { id: "ibm-yorktown", name: "IBM Yorktown", lat: 41.21, lng: -73.81, country: "🇺🇸", type: "lab", qubits: 1121, lead: "Jay Gambetta", approach: "Superconducting" },
+              { id: "google-sb", name: "Google Quantum AI", lat: 34.43, lng: -119.86, country: "🇺🇸", type: "lab", qubits: 105, lead: "Hartmut Neven", approach: "Superconducting" },
+              { id: "ionq-md", name: "IonQ", lat: 38.99, lng: -76.94, country: "🇺🇸", type: "company", qubits: 36, capital: "~$8B", approach: "Trapped Ion" },
+              { id: "psi-paloalto", name: "PsiQuantum", lat: 37.45, lng: -122.18, country: "🇺🇸", type: "company", capital: "$4B+", approach: "Photonic" },
+              { id: "rigetti-ca", name: "Rigetti", lat: 37.83, lng: -122.27, country: "🇺🇸", type: "company", capital: "~$3B", approach: "Superconducting" },
+              { id: "atom-co", name: "Atom Computing", lat: 39.86, lng: -104.67, country: "🇺🇸", type: "company", qubits: 1180, approach: "Neutral Atom" },
+              { id: "ustc-hefei", name: "USTC Hefei", nameEn: "USTC Hefei", lat: 31.83, lng: 117.27, country: "🇨🇳", type: "university", lead: "Pan Jianwei", approach: "Photonic + Superconducting" },
+              { id: "origin", name: "Origin Quantum", lat: 31.86, lng: 117.29, country: "🇨🇳", type: "company", approach: "Superconducting" },
+              { id: "qutech", name: "QuTech (Delft)", lat: 52.00, lng: 4.37, country: "🇳🇱", type: "lab", approach: "Multi-approach" },
+              { id: "oxford-q", name: "Oxford Quantum", lat: 51.76, lng: -1.25, country: "🇬🇧", type: "university", approach: "Ion Trap" },
+              { id: "pasqal", name: "Pasqal", lat: 48.71, lng: 2.21, country: "🇫🇷", type: "company", capital: "~$140M", approach: "Neutral Atom" },
+              { id: "munich-q", name: "Munich Quantum Valley", lat: 48.13, lng: 11.58, country: "🇩🇪", type: "consortium", approach: "Multi-approach" },
+              { id: "eth-zurich", name: "ETH Zurich", lat: 47.38, lng: 8.55, country: "🇨🇭", type: "university", approach: "Superconducting" },
+              { id: "riken", name: "RIKEN", lat: 35.78, lng: 139.99, country: "🇯🇵", type: "lab", approach: "Superconducting" },
+              { id: "kist", name: "KIST", lat: 37.60, lng: 127.05, country: "🇰🇷", type: "lab", approach: "Multi-approach" },
+              { id: "kaist", name: "KAIST", lat: 36.37, lng: 127.36, country: "🇰🇷", type: "university", approach: "Multi-approach" },
+              { id: "dwave", name: "D-Wave", lat: 49.25, lng: -122.97, country: "🇨🇦", type: "company", capital: "~$2B", approach: "Quantum Annealing" },
+              { id: "xanadu", name: "Xanadu", lat: 43.65, lng: -79.38, country: "🇨🇦", type: "company", approach: "Photonic" },
+              { id: "sqc-sydney", name: "Silicon Quantum Computing", lat: -33.92, lng: 151.23, country: "🇦🇺", type: "university", approach: "Silicon Spin" },
+              { id: "quantum-machines", name: "Quantum Machines", lat: 32.07, lng: 34.78, country: "🇮🇱", type: "company", capital: "$1B+", approach: "Control Systems" },
+            ],
+            caption: "20개 글로벌 양자 R&D 거점. 마커 클릭 시 회사·큐비트 수·자본 확인 가능.",
+            captionEn: "20 global quantum R&D hubs. Click markers for company, qubits, and capital.",
           },
         },
         {
