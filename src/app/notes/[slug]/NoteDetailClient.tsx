@@ -1299,11 +1299,19 @@ function NoteCallout({ callout, lang }: { callout: NoteCalloutDef; lang: Lang })
 }
 
 // ── Image ──────────────────────────────────────────────────────────────────────
+const IMAGE_MAX_WIDTH: Record<NonNullable<NoteImageDef["size"]>, string> = {
+  sm: "280px",
+  md: "420px",
+  lg: "640px",
+  full: "100%",
+};
+
 function NoteImage({ image, lang }: { image: NoteImageDef; lang: Lang }) {
   const alt = lang === "en" ? (image.altEn ?? image.alt) : image.alt;
   const caption = lang === "en" ? (image.captionEn ?? image.caption) : image.caption;
+  const maxWidth = IMAGE_MAX_WIDTH[image.size ?? "md"];
   return (
-    <figure className="my-6">
+    <figure className="my-6 mx-auto" style={{ maxWidth }}>
       <div className="rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700/60 bg-gray-50 dark:bg-gray-800/40">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img

@@ -272,6 +272,14 @@ export type NoteImageDef = {
   /** Optional explicit dimensions for layout hints; image rendered responsively regardless */
   width?: number;
   height?: number;
+  /**
+   * 노출 사이즈. 기본 "md".
+   *  - "sm"   : 280px 폭 (작은 초상화, 소형 아이콘)
+   *  - "md"   : 420px 폭 (기본 — 인물, 일반 사진)  ← default
+   *  - "lg"   : 640px 폭 (랜드스케이프 사진, 시스템 사진)
+   *  - "full" : 컨테이너 풀폭 (다이어그램, 인포그래픽)
+   */
+  size?: "sm" | "md" | "lg" | "full";
 };
 
 // ── Quantum chart data types ─────────────────────────────────────────────────
@@ -4469,6 +4477,7 @@ const quantumComputing: NoteData = {
             captionEn: "His 1981 lecture became the birth certificate of quantum computing.",
             source: "Wikipedia Commons",
             sourceUrl: "https://en.wikipedia.org/wiki/Richard_Feynman",
+            size: "sm",
           },
         },
       ],
@@ -4509,6 +4518,7 @@ const quantumComputing: NoteData = {
             captionEn: "90% of what you see is cooling and shielding. The actual quantum chip is a fingernail-sized piece at the very bottom.",
             source: "Wikipedia Commons",
             sourceUrl: "https://commons.wikimedia.org/wiki/File:IBM_Q_system_(Fraunhofer).jpg",
+            size: "lg",
           },
         },
         {
@@ -4558,6 +4568,7 @@ const quantumComputing: NoteData = {
             caption: "2019년 양자 우위를 선언한 53큐비트 칩. 실물은 손가락만 한 크기.",
             captionEn: "The 53-qubit chip that claimed quantum supremacy in 2019. Roughly fingertip-sized in reality.",
             source: "Wikipedia Commons / Google",
+            size: "md",
           },
         },
         {
@@ -4652,6 +4663,7 @@ const quantumComputing: NoteData = {
             caption: "D-Wave 2000Q — 양자 어닐링(quantum annealing) 방식의 대표 시스템.",
             captionEn: "D-Wave 2000Q — the flagship system using the quantum annealing approach.",
             source: "Wikipedia Commons",
+            size: "lg",
           },
         },
       ],
@@ -4914,6 +4926,7 @@ const quantumComputing: NoteData = {
             caption: "위성-지상 양자 통신을 세계 최초로 구현. 중국 양자 굴기의 상징적 인물.",
             captionEn: "First in the world to achieve satellite-to-ground quantum communication. Symbolic figure of China's quantum rise.",
             source: "Wikipedia Commons",
+            size: "sm",
           },
         },
         {
