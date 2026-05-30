@@ -1427,6 +1427,48 @@ function MarkdownTable({ block }: { block: string }) {
   );
 }
 
+/**
+ * `### Heading` 으로 시작하는 블록은 sub-header 로 렌더링한다.
+ *  - 위쪽 구분선 + 여백으로 섹션 시각적 구분
+ *  - [Heading] 브래킷 + 볼드 + 사이즈 ↑
+ *  - "### Title — Subtitle" 패턴은 Title 만 브래킷, Subtitle 은 회색 부제
+ */
+function isSubHeading(block: string): boolean {
+  return block.trimStart().startsWith("### ");
+}
+
+function SubHeadingBlock({ block }: { block: string }) {
+  const lines = block.split("\n");
+  const rawHeading = lines[0].replace(/^\s*###\s+/, "").trim();
+  const rest = lines.slice(1).join("\n").trim();
+
+  // " — " 분리: 첫 em dash 기준으로 title / subtitle 나눔
+  const dashSplit = rawHeading.split(/\s+—\s+/);
+  const title = dashSplit[0].trim();
+  const subtitle = dashSplit.length > 1 ? dashSplit.slice(1).join(" — ").trim() : "";
+
+  return (
+    <div className="mt-10 pt-6 border-t border-gray-200/70 dark:border-gray-700/60">
+      <h3 className="text-[17px] sm:text-[19px] font-bold text-gray-900 dark:text-gray-100 leading-tight">
+        [{title}]
+      </h3>
+      {subtitle && (
+        <p className="mt-2 text-[14px] sm:text-[15px] text-gray-500 dark:text-gray-400 leading-relaxed">
+          {subtitle}
+        </p>
+      )}
+      {rest && (
+        <p
+          className="mt-4 text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed"
+          dangerouslySetInnerHTML={{
+            __html: rest.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/\n/g, "<br/>"),
+          }}
+        />
+      )}
+    </div>
+  );
+}
+
 function TextBody({ body }: { body: string }) {
   const blocks = body.split("\n\n").filter(Boolean);
   return (
@@ -1434,6 +1476,9 @@ function TextBody({ body }: { body: string }) {
       {blocks.map((block, i) => {
         if (isMarkdownTable(block)) {
           return <MarkdownTable key={i} block={block} />;
+        }
+        if (isSubHeading(block)) {
+          return <SubHeadingBlock key={i} block={block} />;
         }
         return (
           <p

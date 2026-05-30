@@ -345,8 +345,8 @@ export default function MaVal01Client({ lang }: { lang: Lang }) {
               </p>
               <p className="text-[11px] text-gray-500 dark:text-gray-400 mb-4 leading-relaxed">
                 {ko
-                  ? "BB analyst가 3주 동안 한 deal valuation 작업하면서 실제로 어디에 시간을 쓰는지."
-                  : "Where a BB analyst actually spends time during three weeks on a deal valuation."}
+                  ? "한 deal의 valuation 작업이 들어가면 시간이 어디에 쓰이는지."
+                  : "Where the hours actually go in a deal valuation."}
               </p>
               <div className="space-y-2.5">
                 {TIME_ALLOC.map((t, i) => (
@@ -386,8 +386,8 @@ export default function MaVal01Client({ lang }: { lang: Lang }) {
               </p>
               <p className="text-[12px] text-gray-500 dark:text-gray-400 mt-1 leading-relaxed">
                 {ko
-                  ? "WACC 템플릿이 어떻게 굴러가는지, Revenue projection은 어디서 가져오는지, NWC·CAPEX·D&A는 어떻게 연결하는지. 실제 BB analyst가 3주 동안 하는 작업."
-                  : "How the WACC template runs, where revenue projections come from, how NWC/CAPEX/D&A get linked. The three-week workflow of a real BB analyst."}
+                  ? "WACC 템플릿이 어떻게 굴러가는지, Revenue projection은 어디서 가져오는지, NWC·CAPEX·D&A는 어떻게 연결하는지. 실제 작업 흐름을 그대로 따라가봅니다."
+                  : "How the WACC template runs, where revenue projections come from, how NWC/CAPEX/D&A get linked. Walking through the actual workflow step by step."}
               </p>
             </div>
           </motion.section>

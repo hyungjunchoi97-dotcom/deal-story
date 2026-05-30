@@ -4467,19 +4467,6 @@ const quantumComputing: NoteData = {
             bodyEn: "\"Nature isn't classical, dammit. And if you want to make a simulation of nature, you'd better make it quantum mechanical.\"\n\n— Said in a 1981 lecture by the 1965 Nobel laureate in physics. It became the birth certificate of quantum computing.\n\nNature operates quantum-mechanically. Molecules, atoms, electrons — all quantum systems. But the computers we built only have 0s and 1s. When you try to simulate quantum things on classical machines, you hit the exponential wall. Feynman's conclusion was simple: **to simulate nature, the computer itself has to be quantum.**",
           },
         },
-        {
-          type: "image",
-          image: {
-            src: "https://upload.wikimedia.org/wikipedia/en/4/42/Richard_Feynman_Nobel.jpg",
-            alt: "리처드 파인만, 1965년 노벨 물리학상 수상자",
-            altEn: "Richard Feynman, 1965 Nobel laureate in physics",
-            caption: "1981년 그의 강연이 양자컴퓨터의 출생증명서가 되었다.",
-            captionEn: "His 1981 lecture became the birth certificate of quantum computing.",
-            source: "Wikipedia Commons",
-            sourceUrl: "https://en.wikipedia.org/wiki/Richard_Feynman",
-            size: "sm",
-          },
-        },
       ],
     },
 
@@ -4507,19 +4494,6 @@ const quantumComputing: NoteData = {
           type: "text",
           body: "### 3.3. 왜 양자컴퓨터가 만들기 어려운가 — Decoherence(탈동조)\n\n큐비트의 \"동시 존재\" 상태는 **극도로 깨지기 쉽다**.\n\n비유: 도서관에서 동전을 손바닥 위에 세로로 세워두려고 한다. 옆 사람의 기침, 에어컨 바람, 책 떨어지는 소리 — 무엇이든 한 번이라도 닿으면 동전은 쓰러진다.\n\n큐비트는 그 동전이다.\n\n주변 온도, 전자기파, 우주방사선, 옆방의 자석 — 무엇이든 큐비트를 *건드리면* 중첩이 무너진다.\n\n이걸 **탈동조(decoherence)** 라고 부른다. 양자컴퓨터가 50년간 이론이었던 가장 큰 이유.\n\n그래서 양자컴퓨터는 **절대영도(-273.15°C, 우주 공간보다 차가움)**에 가까운 환경에서 작동한다.\n\nIBM의 양자 시스템 사진을 보면 거대한 황금색 샹들리에 같은 게 보이는데, 그게 다 냉각·차폐 시스템이다.\n\n진짜 계산하는 칩은 그 맨 아래 *손톱만 한 조각*. 90%가 인프라, 10%가 양자 칩.",
           bodyEn: "### 3.3. Why It's So Hard — Decoherence\n\nThe qubit's superposition is **extremely fragile**.\n\nAnalogy: you're trying to balance a coin upright on your palm in a library. Someone coughs, the AC turns on, a book drops — any disturbance topples the coin.\n\nThe qubit is that coin.\n\nAmbient temperature, electromagnetic noise, cosmic rays, a magnet in the next room — anything that *touches* the qubit collapses the superposition.\n\nThis is called **decoherence**. It's the biggest reason quantum computing remained theoretical for 50 years.\n\nQuantum computers therefore operate near **absolute zero (-273.15°C — colder than outer space)**.\n\nThose photos of IBM quantum systems — the giant gold chandeliers — that's almost entirely cooling and shielding hardware.\n\nThe chip actually doing computation is the *fingernail-sized piece at the very bottom*. 90% infrastructure, 10% quantum chip.",
-        },
-        {
-          type: "image",
-          image: {
-            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/IBM_Q_system_%28Fraunhofer%29.jpg/1280px-IBM_Q_system_%28Fraunhofer%29.jpg",
-            alt: "IBM Quantum System — 거대한 황금색 샹들리에가 양자 컴퓨터의 트레이드마크",
-            altEn: "IBM Quantum System — the iconic gold chandelier of quantum computers",
-            caption: "보이는 부분의 90%가 냉각·차폐 시스템. 실제 계산하는 양자 칩은 맨 아래 손톱만 한 조각.",
-            captionEn: "90% of what you see is cooling and shielding. The actual quantum chip is a fingernail-sized piece at the very bottom.",
-            source: "Wikipedia Commons",
-            sourceUrl: "https://commons.wikimedia.org/wiki/File:IBM_Q_system_(Fraunhofer).jpg",
-            size: "lg",
-          },
         },
         {
           type: "text",
@@ -4558,18 +4532,6 @@ const quantumComputing: NoteData = {
           type: "text",
           body: "### 2019년 10월 — Google Sycamore (53큐비트)\n\n**Quantum Supremacy 첫 주장.**\n\n큐비트 수는 적지만 *역사적 상징*이었다.\n\nGoogle이 \"슈퍼컴퓨터로 1만 년 걸리는 계산을 200초 만에 풀었다\"고 *Nature*에 발표.\n\nIBM이 \"우리 슈퍼컴퓨터로는 2.5일이면 된다\"고 반박했지만, 그 자체로 양자컴퓨터가 *측정 가능한 우위*를 처음 보여준 순간이었다.\n\n풀린 문제는 실용성 0인 random circuit sampling. 그러나 *원리 증명*으로서의 가치가 컸다.",
           bodyEn: "### October 2019 — Google Sycamore (53 qubits)\n\n**First claim of Quantum Supremacy.**\n\nLow qubit count — but historically symbolic.\n\nGoogle published in *Nature*: 'solved in 200 seconds a calculation that would take supercomputers 10,000 years.'\n\nIBM countered with '2.5 days on our supercomputer.' But the moment was the first time quantum showed *measurable advantage* of any kind.\n\nThe problem solved had zero utility — random circuit sampling. But as a *proof of principle*, it was huge.",
-        },
-        {
-          type: "image",
-          image: {
-            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Sycamore_processor.jpg/1280px-Sycamore_processor.jpg",
-            alt: "Google Sycamore 양자 프로세서 (53 큐비트)",
-            altEn: "Google Sycamore quantum processor (53 qubits)",
-            caption: "2019년 양자 우위를 선언한 53큐비트 칩. 실물은 손가락만 한 크기.",
-            captionEn: "The 53-qubit chip that claimed quantum supremacy in 2019. Roughly fingertip-sized in reality.",
-            source: "Wikipedia Commons / Google",
-            size: "md",
-          },
         },
         {
           type: "text",
@@ -4653,18 +4615,6 @@ const quantumComputing: NoteData = {
           type: "text",
           body: "**① Superconducting** — 가장 많이 알려진 방식. IBM이 6년 만에 5큐비트에서 1,121큐비트로 갔다. 무어의 법칙 비슷한 곡선. Google Willow도 이 방식.\n\n**② Trapped Ion** — IonQ의 길. \"큐비트 수보다 품질이 중요하다\"는 메시지로 시장과 싸우고 있다. **algorithmic qubit**이라는 용어를 만들어 \"1개의 IonQ 큐비트 = 50개의 superconducting 큐비트\"라고 주장.\n\n**③ Neutral Atom** — 2024년 가장 빠르게 부상. Atom Computing이 1,180큐비트로 큐비트 수 세계 1위. Harvard의 Mikhail Lukin이 공동창업한 QuEra가 핵심 기업.\n\n**④ Photonic** — PsiQuantum의 베팅. **상온 작동**. \"큐비트 한두 개씩 늘리는 게 의미 없다. 우리는 100만 큐비트로 한 번에 fault-tolerant 시스템 만들겠다.\" 도박이지만 성공하면 게임 끝. 2024년 호주 정부와 $617M 계약.\n\n**⑤ Topological** — Microsoft의 25년 도박. **수학적으로** 노이즈 면역. 그러나 *Majorana 입자 자체가 검증 안 됨*. Microsoft는 25년간 이 길을 갔지만 한 번 논문 철회 사건 있었음.\n\n**⑥ Silicon Spin** — Intel의 다크호스. 가장 조용하지만 가장 영리할 수 있다. 만약 silicon spin이 통하면 **수백억 개 큐비트**를 만들 수 있는 인프라는 이미 갖춰져 있다.",
           bodyEn: "**① Superconducting** — best known. IBM went from 5 qubits to 1,121 in six years. A Moore's-Law-like curve. Google Willow uses this too.\n\n**② Trapped Ion** — IonQ's path. Fighting the market with the message 'quality matters more than count.' Coined *algorithmic qubit*: '1 IonQ qubit = 50 superconducting qubits.'\n\n**③ Neutral Atom** — the fastest-rising approach of 2024. Atom Computing's 1,180-qubit system leads the world by qubit count. QuEra, co-founded by Harvard's Mikhail Lukin, is the other key player.\n\n**④ Photonic** — PsiQuantum's bet. **Room temperature**. 'Adding qubits one at a time is pointless. We'll build a 1-million-qubit fault-tolerant system in one shot.' Risky but game-over if it works. $617M Australian government contract in 2024.\n\n**⑤ Topological** — Microsoft's 25-year bet. **Mathematically** noise-immune. But the *Majorana particle itself remains unverified*. Microsoft has been on this path for 25 years and previously retracted a paper.\n\n**⑥ Silicon Spin** — Intel's dark horse. Quietest, possibly smartest. If silicon spin works, the infrastructure to produce **tens of billions of qubits** is already in place.",
-        },
-        {
-          type: "image",
-          image: {
-            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/D-Wave_Systems%2C_Inc.-_D-Wave_2000Q.jpg/1280px-D-Wave_Systems%2C_Inc.-_D-Wave_2000Q.jpg",
-            alt: "D-Wave 양자 어닐러 시스템",
-            altEn: "D-Wave quantum annealer system",
-            caption: "D-Wave 2000Q — 양자 어닐링(quantum annealing) 방식의 대표 시스템.",
-            captionEn: "D-Wave 2000Q — the flagship system using the quantum annealing approach.",
-            source: "Wikipedia Commons",
-            size: "lg",
-          },
         },
       ],
     },
@@ -4916,18 +4866,6 @@ const quantumComputing: NoteData = {
           type: "text",
           body: "### 학계 거인 (이론 + 실험)\n\n**Peter Shor (MIT)** — 1994년 Shor's Algorithm을 발견. RSA를 깰 수 있는 양자 알고리즘. *양자컴퓨터가 만들어지면 가장 먼저 일어날 일*을 25년 전에 예측한 인물.\n\n**John Preskill (Caltech)** — NISQ 용어 창안자. 양자컴퓨터의 *현재 단계*를 정의한 학자. 그의 연간 강연이 양자 산업의 *현재 위치* 가늠자.\n\n**Mikhail Lukin (Harvard)** — Neutral atom 방식의 선구자. QuEra 공동창업. 2023년 *Science* 논문으로 neutral atom의 가능성을 입증.\n\n**Pan Jianwei (潘建偉, USTC)** — 중국 양자의 아버지. 위성-지상 양자 통신을 세계 최초로 구현. 중국 양자 굴기의 상징적 인물.\n\n**Alain Aspect + Anton Zeilinger** — 2022년 노벨 물리학상. 양자얽힘(entanglement)이 *실재한다*는 것을 실험으로 증명. 양자 통신의 이론적 토대.",
           bodyEn: "### Academic Giants (Theory + Experiment)\n\n**Peter Shor (MIT)** — Discovered Shor's Algorithm in 1994. The quantum algorithm that breaks RSA. He predicted *the first thing that would happen* when quantum computers exist, 25 years before it could.\n\n**John Preskill (Caltech)** — Coined NISQ. The scholar who defined quantum computing's *current era*. His annual talks set the *state-of-play* compass for the industry.\n\n**Mikhail Lukin (Harvard)** — Pioneer of neutral atom approach. Co-founded QuEra. His 2023 *Science* paper validated neutral atom's potential.\n\n**Pan Jianwei (潘建偉, USTC)** — China's quantum godfather. First in the world to demonstrate satellite-to-ground quantum communication. Symbolic figure of China's quantum ambitions.\n\n**Alain Aspect + Anton Zeilinger** — 2022 Nobel Prize in Physics. Experimentally proved that quantum entanglement *is real*. Theoretical foundation of quantum communication.",
-        },
-        {
-          type: "image",
-          image: {
-            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Pan_Jianwei.jpg/800px-Pan_Jianwei.jpg",
-            alt: "Pan Jianwei (潘建偉) — 중국 양자의 아버지, USTC 교수",
-            altEn: "Pan Jianwei — China's quantum godfather, USTC professor",
-            caption: "위성-지상 양자 통신을 세계 최초로 구현. 중국 양자 굴기의 상징적 인물.",
-            captionEn: "First in the world to achieve satellite-to-ground quantum communication. Symbolic figure of China's quantum rise.",
-            source: "Wikipedia Commons",
-            size: "sm",
-          },
         },
         {
           type: "text",
