@@ -1170,6 +1170,101 @@ function QuantumMapBlock({ chart, lang }: { chart: NoteChartDef & { id: "quantum
   );
 }
 
+// ── Bit vs Qubit conceptual diagram ────────────────────────────────────────────
+function BitQubitDiagram({ chart, lang }: { chart: NoteChartDef & { id: "bit-qubit-diagram" }; lang: Lang }) {
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  const ko = lang === "ko";
+
+  return (
+    <div className="my-4">
+      {title && (
+        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">{title}</p>
+      )}
+      <div className="rounded-2xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-gray-900/40 p-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {/* BIT */}
+          <div className="text-center">
+            <p className="text-[11px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3">
+              {ko ? "고전 비트 (BIT)" : "Classical Bit"}
+            </p>
+            <div className="relative h-40 flex items-center justify-center bg-gradient-to-b from-sky-50 to-white dark:from-sky-900/20 dark:to-gray-900 rounded-xl border border-sky-100 dark:border-sky-900/40">
+              <div className="flex items-center gap-4">
+                <div className="w-16 h-16 rounded-xl bg-sky-500 flex items-center justify-center text-white text-3xl font-black shadow-lg">
+                  0
+                </div>
+                <span className="text-2xl text-gray-300 dark:text-gray-600 font-bold">OR</span>
+                <div className="w-16 h-16 rounded-xl bg-gray-200 dark:bg-gray-800 flex items-center justify-center text-gray-400 dark:text-gray-600 text-3xl font-black">
+                  1
+                </div>
+              </div>
+            </div>
+            <p className="mt-3 text-[12px] text-gray-600 dark:text-gray-300 leading-relaxed">
+              {ko
+                ? <>한 순간에 <strong>0</strong> 또는 <strong>1</strong> 중 하나. 책상 위에 놓인 동전 — 앞면 <em>또는</em> 뒷면.</>
+                : <>At any moment, either <strong>0</strong> or <strong>1</strong>. A coin lying on a desk — heads <em>or</em> tails.</>}
+            </p>
+            <p className="mt-2 text-[11px] text-gray-400 dark:text-gray-500">
+              {ko ? "동시 표현 상태 수: 1개" : "Simultaneous states: 1"}
+            </p>
+          </div>
+
+          {/* QUBIT */}
+          <div className="text-center">
+            <p className="text-[11px] font-bold uppercase tracking-widest mb-3" style={{ color: "#8b5cf6" }}>
+              {ko ? "양자 큐비트 (QUBIT)" : "Quantum Qubit"}
+            </p>
+            <div className="relative h-40 flex items-center justify-center bg-gradient-to-b from-violet-50 to-white dark:from-violet-900/20 dark:to-gray-900 rounded-xl border border-violet-100 dark:border-violet-900/40 overflow-hidden">
+              {/* Spinning superposition visual */}
+              <div className="relative w-32 h-32 flex items-center justify-center">
+                <div className="absolute inset-0 rounded-full border-4 border-dashed border-violet-300 dark:border-violet-700 animate-spin" style={{ animationDuration: "4s" }} />
+                <div className="absolute inset-3 rounded-full bg-gradient-to-br from-sky-400 via-violet-400 to-pink-400 opacity-70 blur-sm" />
+                <div className="relative z-10 flex items-center gap-1 text-white font-black text-2xl drop-shadow-lg">
+                  <span>0</span>
+                  <span className="text-violet-100">+</span>
+                  <span>1</span>
+                </div>
+              </div>
+            </div>
+            <p className="mt-3 text-[12px] text-gray-600 dark:text-gray-300 leading-relaxed">
+              {ko
+                ? <><strong>0과 1이 동시에</strong> 존재 (superposition). 회전하는 동전 — 앞면 <em>그리고</em> 뒷면이 동시에. 측정하는 순간 하나로 무너진다.</>
+                : <><strong>0 and 1 simultaneously</strong> (superposition). A spinning coin — heads <em>and</em> tails at once. Measurement collapses it to one.</>}
+            </p>
+            <p className="mt-2 text-[11px] font-bold" style={{ color: "#8b5cf6" }}>
+              {ko ? "동시 표현 상태 수: 2^N개" : "Simultaneous states: 2^N"}
+            </p>
+          </div>
+        </div>
+
+        {/* Scaling visual */}
+        <div className="mt-6 pt-6 border-t border-gray-100 dark:border-gray-800">
+          <p className="text-[11px] font-bold text-gray-500 dark:text-gray-400 mb-3 text-center">
+            {ko ? "큐비트 수가 늘어날 때 — 지수 폭발" : "Adding Qubits — Exponential Explosion"}
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center">
+            {[
+              { n: "1개", nEn: "1 qubit", states: "2", desc: ko ? "동전 한 개" : "1 coin" },
+              { n: "10개", nEn: "10 qubits", states: "1,024", desc: ko ? "보통 PC 가능" : "Normal PC" },
+              { n: "100개", nEn: "100 qubits", states: "10³⁰", desc: ko ? "별보다 많음" : "> all stars" },
+              { n: "300개", nEn: "300 qubits", states: "10⁹⁰", desc: ko ? "우주 원자보다 많음" : "> all atoms" },
+            ].map((d, i) => (
+              <div key={i} className="rounded-lg bg-violet-50 dark:bg-violet-900/20 p-2.5 border border-violet-100 dark:border-violet-900/40">
+                <p className="text-[10px] font-bold text-gray-500 dark:text-gray-400">{ko ? d.n : d.nEn}</p>
+                <p className="text-base font-black mt-0.5" style={{ color: "#8b5cf6" }}>{d.states}</p>
+                <p className="text-[9px] text-gray-400 dark:text-gray-500 mt-0.5">{d.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      {caption && (
+        <p className="text-[11px] text-gray-500 dark:text-gray-400 mt-3 text-center leading-relaxed">{caption}</p>
+      )}
+    </div>
+  );
+}
+
 // ── Generic chart dispatcher ───────────────────────────────────────────────────
 function NoteChart({ chart, lang }: { chart: NoteChartDef; lang: Lang }) {
   if (chart.id === "pbr-comparison") return <PBRChart chart={chart} lang={lang} />;
@@ -1197,6 +1292,7 @@ function NoteChart({ chart, lang }: { chart: NoteChartDef; lang: Lang }) {
   if (chart.id === "quantum-stocks") return <QuantumStocksChart chart={chart} lang={lang} />;
   if (chart.id === "quantum-funding") return <QuantumFundingChart chart={chart} lang={lang} />;
   if (chart.id === "quantum-map") return <QuantumMapBlock chart={chart} lang={lang} />;
+  if (chart.id === "bit-qubit-diagram") return <BitQubitDiagram chart={chart} lang={lang} />;
   return null;
 }
 

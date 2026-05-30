@@ -352,7 +352,8 @@ export type NoteChartDef =
   | { id: "qubit-race";        title: string; titleEn?: string; caption?: string; captionEn?: string; data: QubitRacePoint[]; annotations?: { year: string; label: string; labelEn?: string }[] }
   | { id: "quantum-stocks";    title: string; titleEn?: string; caption?: string; captionEn?: string; data: QuantumStockPoint[]; annotations?: { date: string; label: string; labelEn?: string }[] }
   | { id: "quantum-funding";   title: string; titleEn?: string; caption?: string; captionEn?: string; data: QuantumFundingBar[] }
-  | { id: "quantum-map";       title: string; titleEn?: string; caption?: string; captionEn?: string; markers: QuantumMapMarker[]; center?: [number, number]; zoom?: number };
+  | { id: "quantum-map";       title: string; titleEn?: string; caption?: string; captionEn?: string; markers: QuantumMapMarker[]; center?: [number, number]; zoom?: number }
+  | { id: "bit-qubit-diagram"; title: string; titleEn?: string; caption?: string; captionEn?: string };
 
 export type NoteBlock =
   | { type: "text";    body: string; bodyEn?: string }
@@ -4395,6 +4396,32 @@ const quantumComputing: NoteData = {
           body: "### ③ 비트코인이 깨진다 — 업계가 \"Q-Day\"라고 부르는 날\n\n이게 아마 가장 자극적인 가능성일 것이다.\n\n현재 모든 디지털 보안은 RSA-2048(은행 시스템), ECDSA(비트코인·이더리움), TLS(우리가 매일 보는 웹사이트 자물쇠)에 의존한다.\n\n이 암호 방식들은 한 가지 수학적 가정 위에 세워져 있다 — \"큰 수를 소인수분해하는 데는 슈퍼컴퓨터로도 수십억 년이 걸린다.\"\n\n그런데 1994년, MIT의 Peter Shor라는 수학자가 양자컴퓨터로 소인수분해를 단 몇 초 만에 할 수 있는 알고리즘을 발표했다.\n\n업계에서는 이걸 Shor's Algorithm이라고 부른다.\n\n즉, 충분히 큰 양자컴퓨터가 만들어지는 순간, 인터넷 보안 전체가 무너진다는 얘기다.\n\n이날을 업계에서는 **\"Q-Day\"** 라고 부른다.\n\n예상 시점: 2030-2035년 사이.\n\n그 전에 모든 시스템을 \"양자-안전 암호(Post-Quantum Cryptography, PQC)\"로 전환해야 한다.\n\n글로벌 마이그레이션 비용 추정치: **$500억 달러 이상.**",
           bodyEn: "### ③ Bitcoin Breaks — The Day the Industry Calls 'Q-Day'\n\nThis is probably the most provocative possibility.\n\nAll digital security today rests on RSA-2048 (banking), ECDSA (Bitcoin and Ethereum), and TLS (the lock icon on every website).\n\nThese cryptographic systems all sit on one mathematical assumption — 'factoring large numbers takes supercomputers billions of years'.\n\nIn 1994, MIT mathematician Peter Shor published an algorithm that lets a quantum computer factor large numbers in seconds.\n\nThe industry calls it Shor's Algorithm.\n\nWhich means: the moment a sufficiently large quantum computer exists, internet security collapses.\n\nThe industry calls this day **'Q-Day'**.\n\nExpected timing: between 2030 and 2035.\n\nBefore that, every system must migrate to Post-Quantum Cryptography (PQC).\n\nEstimated global migration cost: **over $500 billion.**",
         },
+        {
+          type: "table",
+          table: {
+            id: "qday-timeline",
+            title: "Q-Day Timeline — 어떤 암호가 언제 깨지나",
+            titleEn: "Q-Day Timeline — Which Crypto Breaks When",
+            headers: ["암호 방식", "사용처", "예상 break 시점", "PQC 대체재 (NIST)"],
+            headersEn: ["Crypto", "Used In", "Estimated Break", "PQC Replacement (NIST)"],
+            rows: [
+              ["RSA-2048", "은행, SWIFT, TLS 인증서", "**2030-2032**", "FIPS 203 (Kyber)"],
+              ["ECDSA-256", "**비트코인, 이더리움**, 디지털 서명", "**2031-2033**", "FIPS 204 (Dilithium)"],
+              ["DH/ECDH", "VPN, 메신저 키 교환", "2030-2032", "FIPS 203 (Kyber)"],
+              ["SHA-256", "비트코인 채굴, 해시", "2040+ (Grover만)", "해시 사이즈 ↑ (SHA-384)"],
+              ["AES-256", "데이터 암호화", "**안 깨짐**", "키 길이 ↑로 충분"],
+            ],
+            rowsEn: [
+              ["RSA-2048", "Banking, SWIFT, TLS certs", "**2030-2032**", "FIPS 203 (Kyber)"],
+              ["ECDSA-256", "**Bitcoin, Ethereum**, digital sigs", "**2031-2033**", "FIPS 204 (Dilithium)"],
+              ["DH/ECDH", "VPN, messaging key exchange", "2030-2032", "FIPS 203 (Kyber)"],
+              ["SHA-256", "Bitcoin mining, hashing", "2040+ (Grover only)", "Larger hash size (SHA-384)"],
+              ["AES-256", "Data encryption", "**Not broken**", "Larger key size suffices"],
+            ],
+            caption: "공개키 암호(RSA·ECDSA)는 Shor's Algorithm으로 깨지고, 대칭키 암호(AES)는 Grover로 절반 약화될 뿐. NIST가 2024년 FIPS 203/204/205 표준 확정.",
+            captionEn: "Public-key crypto (RSA, ECDSA) breaks via Shor; symmetric crypto (AES) only weakens via Grover. NIST finalized FIPS 203/204/205 standards in 2024.",
+          },
+        },
 
         {
           type: "callout",
@@ -4544,6 +4571,16 @@ const quantumComputing: NoteData = {
           bodyEn: "### 3.1. The Qubit — Quantum Computing's Basic Unit\n\nClassical computers run on **bits**.\n\nA bit is *either 0 or 1*. One or the other.\n\nLike a piece of chalk lying flat (0) or standing upright (1) on a desk.\n\nThe quantum computer's basic unit is a **qubit (quantum bit)**.\n\nThe essence of a qubit in one sentence: **\"a bit where 0 and 1 can exist simultaneously\"**.\n\nThe chalk spinning at 45° between flat and upright. The instant you measure, it *resolves* into flat or upright.\n\nThis sounds nonsensical — that's normal. It isn't part of everyday experience.\n\nBut in quantum mechanics, this has been experimentally verified for 100 years.\n\nQuantum particles exist in *multiple states simultaneously* until measured.\n\nThis is called **superposition**.",
         },
         {
+          type: "chart",
+          chart: {
+            id: "bit-qubit-diagram",
+            title: "Bit vs Qubit — 시각으로 보는 차이",
+            titleEn: "Bit vs Qubit — The Visual Difference",
+            caption: "이 한 장이 양자컴퓨터를 \"빠른 컴퓨터\"가 아니라 \"다른 차원의 계산\"으로 만드는 본질이다.",
+            captionEn: "This single image captures why a quantum computer isn't just 'a faster computer' but a 'fundamentally different computation'.",
+          },
+        },
+        {
           type: "text",
           body: "### 3.2. 왜 큐비트가 특별한가 — \"2의 N승\" 게임\n\n큐비트 1개는 *2개 상태*를 동시에 표현한다 (0과 1).\n\n큐비트 2개는 *4개 상태* (00, 01, 10, 11).\n\n큐비트 3개는 *8개 상태*.\n\n**큐비트 N개는 2^N개 상태.**\n\n숫자가 무섭게 커진다.\n\n- 큐비트 10개 = 1,024개 상태 동시 처리\n- 큐비트 50개 = 약 1,125조 상태\n- 큐비트 100개 = 약 1,267해 상태 (우주의 별 수보다 많음)\n- 큐비트 300개 = **우주의 모든 원자 수보다 많은 상태**\n\n이게 양자컴퓨터의 진짜 힘이다.\n\n기존 컴퓨터의 빠른 버전이 아니라, **계산이 일어나는 차원 자체가 다르다.**\n\n물론 함정이 있다. 큐비트가 동시에 계산하는 *모든* 상태에 접근할 수 있는 건 아니다.\n\n측정하면 그중 하나로 무너지기 때문이다.\n\n그래서 양자 알고리즘은 \"정답일 확률이 높은 상태\"가 측정될 때 살아남도록 *설계하는 기술*이다. 어렵다.\n\n그래서 양자 알고리즘이 50년간 몇 개밖에 안 만들어졌다.",
           bodyEn: "### 3.2. Why Qubits Matter — The 2^N Game\n\n1 qubit = 2 states held simultaneously (0 and 1).\n\n2 qubits = 4 states (00, 01, 10, 11).\n\n3 qubits = 8 states.\n\n**N qubits = 2^N states.**\n\nThe numbers grow terrifyingly.\n\n- 10 qubits = 1,024 states processed at once\n- 50 qubits = ~1.1 quadrillion states\n- 100 qubits = ~10^30 states (more than stars in the universe)\n- 300 qubits = **more states than atoms in the universe**\n\nThis is quantum's real power.\n\nNot a faster classical computer — **a fundamentally different dimension of computation.**\n\nWith a catch: you can't directly access *all* the states a qubit holds. Measuring collapses it to just one.\n\nSo quantum algorithm design is the art of *engineering the system so that the correct answer is the most likely one to survive measurement*. Genuinely hard.\n\nWhich is why only a handful of meaningful quantum algorithms have been invented in 50 years.",
@@ -4654,6 +4691,34 @@ const quantumComputing: NoteData = {
             ],
             caption: "물리적 큐비트 수만 보면 IBM/Atom 1위. 그러나 게이트 fidelity는 별개 — 큐비트 수가 전부가 아니다.",
             captionEn: "By raw physical qubit count, IBM/Atom lead. But gate fidelity is separate — qubit count isn't everything.",
+          },
+        },
+        {
+          type: "table",
+          table: {
+            id: "logical-qubit-roadmap",
+            title: "Logical Qubit 로드맵 — 양자가 \"진짜로\" 작동하는 시점",
+            titleEn: "Logical Qubit Roadmap — When Quantum Actually Works",
+            headers: ["연도", "IBM", "Google", "단계", "할 수 있는 일"],
+            headersEn: ["Year", "IBM", "Google", "Stage", "What's Possible"],
+            rows: [
+              ["2024", "0", "0", "NISQ", "데모, 학술 연구"],
+              ["2025", "1 (실험)", "1 (실험)", "**FTQC 입구**", "첫 logical qubit 검증"],
+              ["2026", "~10", "~10", "임계점 진입", "작은 양자 알고리즘 실증"],
+              ["2027", "~50", "~50", "초기 advantage", "특정 신소재·암호 시뮬레이션"],
+              ["2029", "**200 (Starling)**", "?", "**Fault-Tolerant 달성**", "**상업화 시작**"],
+              ["2033", "수천", "수천", "본격 상업화", "신약·암호 해독·AI 가속"],
+            ],
+            rowsEn: [
+              ["2024", "0", "0", "NISQ", "Demos, academic research"],
+              ["2025", "1 (exp.)", "1 (exp.)", "**FTQC Threshold**", "First logical qubit validated"],
+              ["2026", "~10", "~10", "Entering threshold", "Small quantum algorithms run"],
+              ["2027", "~50", "~50", "Early advantage", "Niche materials & crypto sim"],
+              ["2029", "**200 (Starling)**", "?", "**Fault-Tolerant achieved**", "**Commercialization begins**"],
+              ["2033", "Thousands", "Thousands", "Full commercialization", "Drugs, crypto, AI acceleration"],
+            ],
+            caption: "IBM의 Starling 로드맵이 업계 표준. 2029년 200 logical qubits = 양자 시대의 진짜 시작.",
+            captionEn: "IBM's Starling roadmap is the industry benchmark. 200 logical qubits in 2029 = the real beginning of the quantum era.",
           },
         },
       ],
@@ -4932,6 +4997,32 @@ const quantumComputing: NoteData = {
           type: "text",
           body: "비교 reference:\n\n- 2024년 AI 시장 규모: $200B\n- 2024년 클라우드 시장 규모: $700B\n- 2024년 글로벌 반도체 시장: $600B\n\n즉 BCG 보수 시나리오면 *2040년 양자 = 2024년 반도체의 25%*.\n\nMcKinsey 낙관 시나리오면 *2035년 양자 = 2024년 클라우드의 2배*.\n\n진실은 그 사이 어디일 것이다.\n\n별도로 — **PQC(양자-안전 암호) 마이그레이션 시장**은 *훨씬 더 확실*하다.\n\nNIST 추정: 글로벌 $500B+ 마이그레이션 비용.\n\n수혜 기업: Cloudflare, Palo Alto Networks, IBM (PQC 표준 채택)\n\n이건 양자컴퓨터가 *성공*해도 *실패*해도 어쨌든 *반드시 발생할 비용*이다.",
           bodyEn: "For reference:\n\n- 2024 AI market: $200B\n- 2024 cloud market: $700B\n- 2024 global semiconductor market: $600B\n\nSo BCG's conservative case = *2040 quantum = 25% of 2024 semis*.\n\nMcKinsey's bull case = *2035 quantum = 2x the 2024 cloud market*.\n\nThe truth lies somewhere in between.\n\nSeparately — the **PQC migration market** is *much more certain*.\n\nNIST estimate: $500B+ global migration cost.\n\nBeneficiaries: Cloudflare, Palo Alto Networks, IBM (PQC standard adoption).\n\nThis cost will be incurred *whether quantum succeeds or fails*.",
+        },
+        {
+          type: "table",
+          table: {
+            id: "tech-cycle-comparison",
+            title: "양자 vs 인터넷·모바일·클라우드·AI — 사이클 스케일 비교",
+            titleEn: "Quantum vs Internet/Mobile/Cloud/AI — Cycle Scale",
+            headers: ["사이클", "시작 시점", "2024 시장 규모", "2030 예측", "2035 예측", "현재 위치"],
+            headersEn: ["Cycle", "Started", "2024 Market", "2030 Forecast", "2035 Forecast", "Current Stage"],
+            rows: [
+              ["인터넷", "1995", "$3T+", "—", "—", "성숙기"],
+              ["모바일", "2007", "$2T", "—", "—", "성숙기"],
+              ["클라우드", "2010", "$700B", "$1.5T", "$2.5T", "성장기"],
+              ["AI", "2022", "$200B", "**$1T**", "**$2T+**", "**hype 정점**"],
+              ["**양자**", "**2025?**", "**$1B**", "**$10B**", "**$90B**", "**1995년의 인터넷**"],
+            ],
+            rowsEn: [
+              ["Internet", "1995", "$3T+", "—", "—", "Mature"],
+              ["Mobile", "2007", "$2T", "—", "—", "Mature"],
+              ["Cloud", "2010", "$700B", "$1.5T", "$2.5T", "Growth"],
+              ["AI", "2022", "$200B", "**$1T**", "**$2T+**", "**Peak hype**"],
+              ["**Quantum**", "**2025?**", "**$1B**", "**$10B**", "**$90B**", "**1995-era internet**"],
+            ],
+            caption: "양자는 2024년 $1B — AI($200B)의 0.5%. 2035년 BCG 시나리오에서도 클라우드(2024)의 13%. 사이클 *초기*에 있다는 뜻.",
+            captionEn: "Quantum was $1B in 2024 — 0.5% of AI ($200B). Even by BCG's 2035 case, it's 13% of 2024 cloud. Translation: cycle is *early*.",
+          },
         },
       ],
     },
