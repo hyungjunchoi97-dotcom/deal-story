@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { detectLang } from "@/lib/i18n";
 import { SITE_URL } from "@/lib/site";
 import { AUTHOR } from "@/lib/author";
@@ -130,6 +131,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body className="min-h-full flex flex-col font-sans overflow-x-hidden bg-white text-gray-900">
         {children}
       </body>
+      {/* Google Analytics 4 — NEXT_PUBLIC_GA_ID 환경변수 등록 시 자동 활성. 미설정이면 스크립트 안 깔림. */}
+      {process.env.NEXT_PUBLIC_GA_ID && (
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+      )}
     </html>
   );
 }

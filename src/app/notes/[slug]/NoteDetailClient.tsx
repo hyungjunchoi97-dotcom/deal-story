@@ -1387,7 +1387,9 @@ function NoteCallout({ callout, lang }: { callout: NoteCalloutDef; lang: Lang })
       <p
         className="text-[14px] text-gray-700 dark:text-gray-300 leading-relaxed"
         dangerouslySetInnerHTML={{
-          __html: body.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>"),
+          __html: body
+            .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+            .replace(/\*([^*\n]+?)\*/g, '<em class="italic text-violet-600 dark:text-violet-400">$1</em>'),
         }}
       />
     </div>
@@ -1489,7 +1491,9 @@ function MarkdownTable({ block }: { block: string }) {
     row.split("|").map((c) => c.trim()).filter((_, i, a) => i !== 0 && i !== a.length - 1)
   );
   const renderCell = (text: string) =>
-    text.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+    text
+      .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+      .replace(/\*([^*\n]+?)\*/g, '<em class="italic text-violet-600 dark:text-violet-400">$1</em>');
 
   return (
     <div className="my-6 overflow-x-auto rounded-xl border border-gray-200 dark:border-gray-700">
@@ -1557,7 +1561,10 @@ function SubHeadingBlock({ block }: { block: string }) {
         <p
           className="mt-4 text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed"
           dangerouslySetInnerHTML={{
-            __html: rest.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/\n/g, "<br/>"),
+            __html: rest
+              .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+              .replace(/\*([^*\n]+?)\*/g, '<em class="italic text-violet-600 dark:text-violet-400">$1</em>')
+              .replace(/\n/g, "<br/>"),
           }}
         />
       )}
@@ -1581,7 +1588,10 @@ function TextBody({ body }: { body: string }) {
             key={i}
             className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed"
             dangerouslySetInnerHTML={{
-              __html: block.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/\n/g, "<br/>"),
+              __html: block
+                .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+                .replace(/\*([^*\n]+?)\*/g, '<em class="italic text-violet-600 dark:text-violet-400">$1</em>')
+                .replace(/\n/g, "<br/>"),
             }}
           />
         );
