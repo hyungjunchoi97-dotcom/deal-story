@@ -38,6 +38,33 @@ const USE_CASES = [
   { koCtx: "Fairness opinion",       enCtx: "Fairness opinion",               koMain: "4 method 모두 (board에 range 제시)", enMain: "All four (range presented to board)", koSub: "—" },
 ];
 
+// 3 method 비교 — input → output 구조
+const METHODS = [
+  { koName: "DCF",                 enName: "DCF",                koInput: "미래 FCF + 할인율 (WACC)",       enInput: "Future FCF + discount rate (WACC)",   koOutput: "회사의 내재가치 (intrinsic value)",   enOutput: "Intrinsic value of the business" },
+  { koName: "Multiples (Comps)",   enName: "Multiples (Comps)",  koInput: "비슷한 회사들의 거래 배수",       enInput: "Multiples from similar companies",     koOutput: "시장이 이런 회사를 평가하는 가격",     enOutput: "What the market pays for this kind of company" },
+  { koName: "Asset-based",          enName: "Asset-based",         koInput: "자산 - 부채",                     enInput: "Assets minus liabilities",             koOutput: "청산가치 또는 장부가치",               enOutput: "Liquidation or book value" },
+];
+
+// Football field mockup data — $M 기준
+const FF_DATA = [
+  { koMethod: "Trading Comps",       enMethod: "Trading Comps",       low: 850,  high: 1100 },
+  { koMethod: "Transaction Comps",   enMethod: "Transaction Comps",   low: 1000, high: 1300 },
+  { koMethod: "DCF",                 enMethod: "DCF",                 low: 950,  high: 1250 },
+  { koMethod: "LBO reverse-math",    enMethod: "LBO reverse-math",    low: 800,  high: 1050 },
+];
+const FF_MIN = 700;
+const FF_MAX = 1400;
+const FF_OVERLAP_LOW = 1000;
+const FF_OVERLAP_HIGH = 1050;
+
+// 시간 배분 — 실제 valuation 작업에서 어디에 시간을 쓰나
+const TIME_ALLOC = [
+  { koLabel: "Revenue projection · 가정 검증",   enLabel: "Revenue projection · assumptions",   pct: 45 },
+  { koLabel: "Peer universe 선정 + Comps 정리",  enLabel: "Peer selection + comps cleanup",     pct: 30 },
+  { koLabel: "Sensitivity · 시나리오 · deck",    enLabel: "Sensitivity · scenarios · deck",      pct: 20 },
+  { koLabel: "WACC 계산",                          enLabel: "WACC calculation",                   pct: 5  },
+];
+
 export default function MaVal01Client({ lang }: { lang: Lang }) {
   const ko = lang === "ko";
   const chapter = getValChapterBySlug(SLUG)!;
@@ -152,6 +179,24 @@ export default function MaVal01Client({ lang }: { lang: Lang }) {
                   : "Assets minus liabilities. Mostly used for liquidation value. Almost never the main method for a going concern — only takes the lead when assets themselves are the story, like real estate, financial institutions, or distressed companies."}</p>
               </div>
             </div>
+
+            {/* 3 method 미니 비교 — input → output */}
+            <div className="mt-7 grid sm:grid-cols-3 gap-3">
+              {METHODS.map((m, i) => (
+                <div key={i} className="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+                  <p className="text-[12px] font-bold text-gray-900 dark:text-gray-100 mb-2.5">{ko ? m.koName : m.enName}</p>
+                  <p className="text-[10px] font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-0.5">Input</p>
+                  <p className="text-[12px] text-gray-700 dark:text-gray-300 leading-snug mb-2.5">{ko ? m.koInput : m.enInput}</p>
+                  <div className="flex items-center gap-1.5 my-1">
+                    <div className="flex-1 h-px bg-gray-200 dark:bg-gray-700" />
+                    <span className="text-[10px] text-gray-400 dark:text-gray-500">↓</span>
+                    <div className="flex-1 h-px bg-gray-200 dark:bg-gray-700" />
+                  </div>
+                  <p className="text-[10px] font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-0.5">Output</p>
+                  <p className="text-[12px] text-gray-700 dark:text-gray-300 leading-snug">{ko ? m.koOutput : m.enOutput}</p>
+                </div>
+              ))}
+            </div>
           </motion.section>
 
           <hr className="border-gray-200 dark:border-gray-800 mb-14" />
@@ -204,6 +249,71 @@ export default function MaVal01Client({ lang }: { lang: Lang }) {
                 ? "왜 그렇게 하냐면, 어느 한 method도 단독으로는 신뢰가 안 가서 그래요. DCF는 5년 뒤 매출 가정 하나로 결과가 30% 흔들리고, Comps는 peer를 누구로 정했냐에 따라 multiple이 2-3배 차이 나고, Asset-based는 going-concern 가치를 못 잡아요. 셋을 같이 보여주면서 \"여기가 overlap zone이니까 이 범위가 합리적이다\" 라고 정당화하는 게 표준 방식입니다."
                 : "Because no single method holds up alone. DCF can swing 30% on a five-year revenue assumption. Comps can move 2-3× on peer selection. Asset-based misses going-concern value. Showing all three lets you point to the overlap zone and argue 'this range is reasonable.'"}</p>
             </div>
+
+            {/* Football field mockup */}
+            <div className="mt-7 border border-gray-200 dark:border-gray-700 rounded-lg p-5">
+              <p className="text-[10px] font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-4">
+                {ko ? "Football Field 예시 — Enterprise Value ($M)" : "Football field example — Enterprise Value ($M)"}
+              </p>
+
+              <div className="relative">
+                {/* Overlap zone overlay */}
+                <div
+                  className="absolute top-0 bottom-10 rounded"
+                  style={{
+                    left: `${((FF_OVERLAP_LOW - FF_MIN) / (FF_MAX - FF_MIN)) * 100}%`,
+                    width: `${((FF_OVERLAP_HIGH - FF_OVERLAP_LOW) / (FF_MAX - FF_MIN)) * 100}%`,
+                    background: `${ACCENT}18`,
+                    border: `1px dashed ${ACCENT}80`,
+                  }}
+                >
+                  <div className="absolute -top-5 left-1/2 -translate-x-1/2 text-[9px] font-bold whitespace-nowrap" style={{ color: ACCENT }}>
+                    {ko ? "Overlap" : "Overlap"}
+                  </div>
+                </div>
+
+                {/* Method bars */}
+                <div className="space-y-2.5 mt-6 relative">
+                  {FF_DATA.map((m, i) => {
+                    const leftPct = ((m.low - FF_MIN) / (FF_MAX - FF_MIN)) * 100;
+                    const widthPct = ((m.high - m.low) / (FF_MAX - FF_MIN)) * 100;
+                    return (
+                      <div key={i} className="flex items-center gap-3">
+                        <div className="w-32 flex-shrink-0">
+                          <p className="text-[11px] text-gray-700 dark:text-gray-300">{ko ? m.koMethod : m.enMethod}</p>
+                        </div>
+                        <div className="flex-1 relative h-5">
+                          <motion.div
+                            initial={{ opacity: 0, scaleX: 0 }}
+                            whileInView={{ opacity: 1, scaleX: 1 }}
+                            viewport={VP}
+                            transition={{ duration: 0.55, delay: i * 0.07, ease: EASE }}
+                            className="absolute top-0 h-full rounded text-white text-[9px] font-bold flex items-center justify-between px-2"
+                            style={{ left: `${leftPct}%`, width: `${widthPct}%`, background: ACCENT, transformOrigin: "left" }}
+                          >
+                            <span>${m.low}</span>
+                            <span>${m.high}</span>
+                          </motion.div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* X-axis */}
+                <div className="ml-32 pl-3 mt-3 pt-2 border-t border-gray-200 dark:border-gray-700 flex justify-between text-[9px] text-gray-400 dark:text-gray-500 font-mono">
+                  <span>${FF_MIN}M</span>
+                  <span>$1B</span>
+                  <span>${FF_MAX}M</span>
+                </div>
+              </div>
+
+              <p className="mt-4 text-[11px] text-gray-500 dark:text-gray-400 leading-relaxed">
+                {ko
+                  ? "4 method가 다 \"$1.0-1.05B\" 근처에서 겹친다 (점선 박스). 이걸 \"consensus range\" 로 잡고 board·buyer 협상의 anchor로 사용."
+                  : "All four methods overlap near $1.0-1.05B (dashed box). That's the consensus range — the anchor for board and buyer negotiations."}
+              </p>
+            </div>
           </motion.section>
 
           <hr className="border-gray-200 dark:border-gray-800 mb-14" />
@@ -226,6 +336,44 @@ export default function MaVal01Client({ lang }: { lang: Lang }) {
               <p>{ko
                 ? "다음 챕터부터는 그 실제 작업을 보여드릴게요. DCF가 실무에서 어떻게 굴러가는지 (Ch.2), Comps universe를 어떻게 만드는지 (Ch.3), 그걸 다 합쳐서 football field로 가는 과정 (Ch.4)."
                 : "The next chapters walk through that actual work. How DCF really runs in practice (Ch.2), how you build a comps universe (Ch.3), and how it all gets synthesized into a football field (Ch.4)."}</p>
+            </div>
+
+            {/* 시간 배분 차트 */}
+            <div className="mt-7 border border-gray-200 dark:border-gray-700 rounded-lg p-5">
+              <p className="text-[10px] font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-1">
+                {ko ? "실제 valuation 작업 — 시간 배분" : "Real valuation work — time allocation"}
+              </p>
+              <p className="text-[11px] text-gray-500 dark:text-gray-400 mb-4 leading-relaxed">
+                {ko
+                  ? "BB analyst가 3주 동안 한 deal valuation 작업하면서 실제로 어디에 시간을 쓰는지."
+                  : "Where a BB analyst actually spends time during three weeks on a deal valuation."}
+              </p>
+              <div className="space-y-2.5">
+                {TIME_ALLOC.map((t, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <div className="w-48 flex-shrink-0">
+                      <p className="text-[12px] text-gray-700 dark:text-gray-300 leading-snug">{ko ? t.koLabel : t.enLabel}</p>
+                    </div>
+                    <div className="flex-1 h-5 rounded bg-gray-100 dark:bg-gray-800 overflow-hidden">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${t.pct}%` }}
+                        viewport={VP}
+                        transition={{ duration: 0.65, delay: i * 0.08, ease: EASE }}
+                        className="h-full rounded flex items-center justify-end pr-2 text-white text-[10px] font-bold"
+                        style={{ background: ACCENT }}
+                      >
+                        {t.pct}%
+                      </motion.div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <p className="mt-4 text-[11px] text-gray-500 dark:text-gray-400 leading-relaxed">
+                {ko
+                  ? "WACC 계산이 시간 5%. 학교에서 가장 많이 배우는 부분이 실무에서 가장 적은 시간 쓰는 부분이라는 게 흔한 역설."
+                  : "WACC takes 5% of the time. The thing schools teach most is the thing practitioners spend the least time on — a classic paradox."}
+              </p>
             </div>
           </motion.section>
 
