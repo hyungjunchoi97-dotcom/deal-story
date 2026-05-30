@@ -133,6 +133,13 @@ export type NoteTableDef = {
   rowsEn?: (string | number)[][];
   caption?: string;
   captionEn?: string;
+  /**
+   * 강조 표시할 row 인덱스 (0-based).
+   * 해당 row 들은 보라색 배경 + 더 굵은 글씨로 표시되어
+   * 표 안에서 가장 중요한 정보가 즉시 눈에 띈다.
+   * 예: highlightRows: [0, 3] → 0번째, 3번째 row 강조
+   */
+  highlightRows?: number[];
 };
 
 export type NoteCalloutDef = {
@@ -4420,6 +4427,7 @@ const quantumComputing: NoteData = {
             ],
             caption: "공개키 암호(RSA·ECDSA)는 Shor's Algorithm으로 깨지고, 대칭키 암호(AES)는 Grover로 절반 약화될 뿐. NIST가 2024년 FIPS 203/204/205 표준 확정.",
             captionEn: "Public-key crypto (RSA, ECDSA) breaks via Shor; symmetric crypto (AES) only weakens via Grover. NIST finalized FIPS 203/204/205 standards in 2024.",
+            highlightRows: [0, 1], // RSA-2048 (은행), ECDSA (비트코인) — 가장 큰 위협
           },
         },
 
@@ -4550,6 +4558,7 @@ const quantumComputing: NoteData = {
             ],
             caption: "컴퓨터를 100만 배 빨리 만들어도 도시가 몇 개만 더 늘면 다시 우주의 나이가 걸린다. 이게 지수 장벽.",
             captionEn: "Make computers a million times faster — a few more cities and you're back to the age of the universe. This is the exponential wall.",
+            highlightRows: [5], // 100개 도시 = 우주 나이 × 10^10 — 충격 포인트
           },
         },
       ],
@@ -4636,6 +4645,7 @@ const quantumComputing: NoteData = {
             ],
             caption: "큐비트 수가 늘 때마다 처리 가능한 상태가 2배씩 늘어난다 — 이게 양자컴퓨터의 진짜 힘.",
             captionEn: "Each additional qubit doubles the processable states. This is quantum's true power.",
+            highlightRows: [3, 4], // 100개·300개 — 우주 별·원자보다 많음 (충격 포인트)
           },
         },
       ],
@@ -4719,6 +4729,7 @@ const quantumComputing: NoteData = {
             ],
             caption: "IBM의 Starling 로드맵이 업계 표준. 2029년 200 logical qubits = 양자 시대의 진짜 시작.",
             captionEn: "IBM's Starling roadmap is the industry benchmark. 200 logical qubits in 2029 = the real beginning of the quantum era.",
+            highlightRows: [4], // 2029 — IBM Starling FTQC 달성 (사이클 시작점)
           },
         },
       ],
@@ -4760,6 +4771,7 @@ const quantumComputing: NoteData = {
             ],
             caption: "각 방식마다 큐비트가 무엇인지, 어떻게 조작하는지가 근본적으로 다르다.",
             captionEn: "Each approach is fundamentally different in what a qubit *is* and how it's manipulated.",
+            highlightRows: [0, 1], // Superconducting (IBM/Google 표준) + Trapped Ion (IonQ 차세대)
           },
         },
         {
@@ -4829,6 +4841,7 @@ const quantumComputing: NoteData = {
             ],
             caption: "가장 즉시 매출이 나는 곳은 컨설팅, 가장 안정적인 건 정부·군 계약. 가장 큰 잠재력은 소프트웨어.",
             captionEn: "Consulting earns fastest, government is most stable, software has the biggest scaling potential.",
+            highlightRows: [0, 1], // QaaS (최대 매출) + 정부·군 계약 (가장 안정)
           },
         },
       ],
@@ -4870,6 +4883,7 @@ const quantumComputing: NoteData = {
             ],
             caption: "각 단계마다 *돈을 버는 회사*가 따로 있다. 그중 가장 *병목*인 곳이 진짜 알파.",
             captionEn: "Each layer has its own revenue-earning company. The biggest *bottleneck* is where the real alpha sits.",
+            highlightRows: [1, 3, 4], // 희석 냉동기 (Bluefors) + 레이저 (Coherent/Lumentum) + 제어 (Quantum Machines) — 3대 병목
           },
         },
         {
@@ -5022,6 +5036,7 @@ const quantumComputing: NoteData = {
             ],
             caption: "양자는 2024년 $1B — AI($200B)의 0.5%. 2035년 BCG 시나리오에서도 클라우드(2024)의 13%. 사이클 *초기*에 있다는 뜻.",
             captionEn: "Quantum was $1B in 2024 — 0.5% of AI ($200B). Even by BCG's 2035 case, it's 13% of 2024 cloud. Translation: cycle is *early*.",
+            highlightRows: [3, 4], // AI (현재 hype 정점) + 양자 (1995년 인터넷 위치)
           },
         },
       ],
@@ -5074,6 +5089,7 @@ const quantumComputing: NoteData = {
             ],
             caption: "어느 시나리오든 가장 안 깨지는 베팅은 TSMC — AI와 양자 사이클의 유일한 공통 승자.",
             captionEn: "In any scenario, TSMC is the most unbreakable bet — the only common winner across both AI and quantum cycles.",
+            highlightRows: [0, 2], // 빅테크 승리 40% (가장 가능성 높음) + Pick-and-Shovel 30%
           },
         },
       ],
@@ -5507,6 +5523,7 @@ const quantumComputing: NoteData = {
             ],
             caption: "보수적이면 TSMC, 균형이면 Lumentum/Coherent, 공격적이면 Bluefors IPO 대기.",
             captionEn: "Conservative → TSMC, balanced → Lumentum/Coherent, aggressive → wait for Bluefors IPO.",
+            highlightRows: [2, 3], // TSMC (가장 안전한 베팅) + Bluefors (가장 비대칭 수익)
           },
         },
         {

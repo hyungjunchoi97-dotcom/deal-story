@@ -1297,11 +1297,18 @@ function NoteChart({ chart, lang }: { chart: NoteChartDef; lang: Lang }) {
 }
 
 // ── Table ──────────────────────────────────────────────────────────────────────
+function renderTableCell(text: string | number): string {
+  return String(text)
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+    .replace(/\*([^*\n]+?)\*/g, '<em class="italic text-violet-600 dark:text-violet-400">$1</em>');
+}
+
 function NoteTable({ table, lang }: { table: NoteTableDef; lang: Lang }) {
   const title = lang === "en" ? (table.titleEn ?? table.title) : table.title;
   const headers = lang === "en" ? (table.headersEn ?? table.headers) : table.headers;
   const rows = lang === "en" ? (table.rowsEn ?? table.rows) : table.rows;
   const caption = lang === "en" ? (table.captionEn ?? table.caption) : table.caption;
+  const highlightSet = new Set(table.highlightRows ?? []);
   return (
     <div className="my-2">
       {title && (
@@ -1312,25 +1319,40 @@ function NoteTable({ table, lang }: { table: NoteTableDef; lang: Lang }) {
           <thead>
             <tr className="bg-gray-50/80 dark:bg-gray-800/60 border-b border-gray-200/60 dark:border-gray-700/60">
               {headers.map((h, i) => (
-                <th key={i} className="text-left px-4 py-3 text-[11px] font-semibold text-gray-500 dark:text-gray-400 whitespace-nowrap">
-                  {h}
-                </th>
+                <th
+                  key={i}
+                  className="text-left px-4 py-3 text-[11px] font-semibold text-gray-500 dark:text-gray-400 whitespace-nowrap"
+                  dangerouslySetInnerHTML={{ __html: renderTableCell(h) }}
+                />
               ))}
             </tr>
           </thead>
           <tbody>
-            {rows.map((row, ri) => (
-              <tr
-                key={ri}
-                className="border-b border-gray-100 dark:border-gray-800/60 last:border-0 hover:bg-gray-50/60 dark:hover:bg-gray-800/30 transition-colors"
-              >
-                {row.map((cell, ci) => (
-                  <td key={ci} className="px-4 py-3 text-[13px] text-gray-700 dark:text-gray-300 leading-relaxed">
-                    {cell}
-                  </td>
-                ))}
-              </tr>
-            ))}
+            {rows.map((row, ri) => {
+              const isHL = highlightSet.has(ri);
+              return (
+                <tr
+                  key={ri}
+                  className={
+                    isHL
+                      ? "border-b border-violet-200 dark:border-violet-900/60 last:border-0 bg-violet-50/80 dark:bg-violet-900/20 border-l-[3px] border-l-violet-500 dark:border-l-violet-400 transition-colors"
+                      : "border-b border-gray-100 dark:border-gray-800/60 last:border-0 hover:bg-gray-50/60 dark:hover:bg-gray-800/30 transition-colors"
+                  }
+                >
+                  {row.map((cell, ci) => (
+                    <td
+                      key={ci}
+                      className={
+                        isHL
+                          ? "px-4 py-3 text-[13px] font-semibold text-gray-900 dark:text-gray-50 leading-relaxed"
+                          : "px-4 py-3 text-[13px] text-gray-700 dark:text-gray-300 leading-relaxed"
+                      }
+                      dangerouslySetInnerHTML={{ __html: renderTableCell(cell) }}
+                    />
+                  ))}
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
