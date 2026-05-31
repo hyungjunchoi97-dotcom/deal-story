@@ -61,8 +61,8 @@ export const VAL_CHAPTERS: ValChapter[] = [
     titleEn: "Football field synthesis and valuation by context",
     taglineKo: "4-5 method를 한 page로. IPO·M&A·LBO·Restructuring 별 강조점 차이",
     taglineEn: "Putting 4-5 methods on a single page. Different emphases for IPO, M&A, LBO, restructuring",
-    readingMinutes: 11,
-    status: "draft",
+    readingMinutes: 13,
+    status: "published",
   },
   {
     slug: "val-ch05-ipo-case",
