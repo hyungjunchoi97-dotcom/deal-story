@@ -32,7 +32,7 @@ const SIDE = {
     mobileBorder: "border-l-indigo-400",
   },
   neutral: {
-    bg: "bg-zinc-50 dark:bg-zinc-800/40",
+    bg: "bg-zinc-50 dark:bg-zinc-800",
     border: "border-zinc-200 dark:border-zinc-700",
     dot: "bg-zinc-400",
     text: "text-zinc-600 dark:text-zinc-400",
@@ -143,7 +143,9 @@ function MoveCard({
   const c = SIDE[side];
   return (
     <div
-      className={`rounded-xl border p-4 space-y-1.5 ${c.bg} ${c.border}`}
+      // relative z-10 → 가운데 세로선(absolute, z-index 미지정)이 박스 위로
+      // 비치는 것을 막아 가독성을 확보. neutral 카드(col-span-3) 특히 중요.
+      className={`relative z-10 rounded-xl border p-4 space-y-1.5 ${c.bg} ${c.border}`}
     >
       <div className="flex items-center justify-between gap-2 flex-wrap">
         <span className={`text-[11px] font-semibold uppercase tracking-wide ${c.text}`}>
