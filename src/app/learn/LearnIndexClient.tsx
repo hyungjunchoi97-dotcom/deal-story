@@ -41,6 +41,9 @@ const KO_CONCEPT_CATALOG: ConceptItem[] = [
   { slug: "val-ch05-ipo-case",      term: "Valuation 101 Ch.5 — IPO 케이스: Facebook IPO (2012)", tagline: "Morgan Stanley의 공모가 $38 산정 과정 · Peer universe의 약점 · NTM revenue의 mobile blind spot · 첫날 폭락의 valuation 분해",                                       category: "Valuation 시리즈", published: true },
   { slug: "val-ch06-distressed-case", term: "Valuation 101 Ch.6 — Distressed 케이스: Caesars Chapter 11", tagline: "Going-concern $11B vs Liquidation $7B · 채권자 등급별로 다른 valuation · Examiner 보고서 · POR 회수율 — 파산 법정의 가치 다툼",                              category: "Valuation 시리즈", published: true },
 
+  // FDD 시리즈 — Big 4 Transaction Services 표준 워크플로우
+  { slug: "fdd-ch01-overview",     term: "FDD 101 Ch.1 — FDD가 SPA 가격에 어떻게 박히는가", tagline: "Buy-side vs Sell-side(VDD) · Big 4 TS 표준 deliverable · SPA 조항 매핑 · 60일 작업 흐름",                                                                              category: "FDD 시리즈", published: true },
+
   // M&A 시리즈 — 전과정 흐름 + 이해관계자 + 유명 뱅커 케이스
   { slug: "ma-ch01-overview",      term: "M&A 101 Ch.1 — 전과정 흐름 (6개월의 여정)", tagline: "M&A는 보기보다 단순한 흐름이다 — 9단계 타임라인 · 5개 주체 병렬 워크스트림 · 진짜 어려운 4지점",                                                  category: "M&A 시리즈", published: true  },
   { slug: "ma-ch02-stakeholders",  term: "M&A 101 Ch.2 — 이해관계자 도감 (누가 무엇을 하는가)", tagline: "한 딜에 평균 8개 firm — IB · 회계 FAS · 컨설팅 · 법무 · Lender + 클라이언트. Deliverable · 등장 시점 · IB와의 인터페이스 · risk",   category: "M&A 시리즈", published: true  },
@@ -103,6 +106,9 @@ const EN_CONCEPT_CATALOG: ConceptItem[] = [
   { slug: "val-ch04-football-field", term: "Valuation 101 Ch.4 — Football field synthesis and valuation by context", tagline: "Full football field · overlap zone · sell vs buy anchor · context emphasis · four-step range narrowing",                                                  category: "Valuation Series", published: true },
   { slug: "val-ch05-ipo-case",      term: "Valuation 101 Ch.5 — IPO Case: Facebook IPO (2012)", tagline: "Pricing journey to $38 · weak peer set · mobile blind spot in NTM revenue · anatomy of a day-one collapse",                                                                category: "Valuation Series", published: true },
   { slug: "val-ch06-distressed-case", term: "Valuation 101 Ch.6 — Distressed Case: Caesars Chapter 11", tagline: "$11B going-concern vs $7B liquidation · why each creditor class brings a different valuation · the examiner report · POR recovery outcomes",                       category: "Valuation Series", published: true },
+
+  // FDD Series — Big 4 Transaction Services standard workflow
+  { slug: "fdd-ch01-overview",     term: "FDD 101 Ch.1 — How FDD findings land in the SPA price", tagline: "Buy-side vs sell-side (VDD) · Big 4 TS standard deliverables · mapping findings to SPA clauses · the 60-day workflow",                                                  category: "FDD Series", published: true },
 
   // M&A Series — lifecycle + stakeholders + banker case studies
   { slug: "ma-ch01-overview",      term: "M&A 101 Ch.1 — The Lifecycle (6-month journey)", tagline: "M&A is more linear than it looks — 9-stage timeline · 5 parallel workstreams · the 4 places where it actually gets hard",                                  category: "M&A Series", published: true },
