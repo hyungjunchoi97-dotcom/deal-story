@@ -39,9 +39,9 @@ export const VAL_CHAPTERS: ValChapter[] = [
     ch: 2,
     titleKo: "DCF 실무 — 실제로 어떻게 만들어지나",
     titleEn: "DCF in practice — how it actually gets built",
-    taglineKo: "WACC 템플릿, Revenue 가정, NWC·CAPEX 연결, sensitivity, Bear/Base/Bull",
-    taglineEn: "WACC templates, revenue assumptions, NWC/CAPEX linkage, sensitivity, bear/base/bull",
-    readingMinutes: 13,
+    taglineKo: "WACC 템플릿, CRP, Revenue 가정, NWC·CAPEX 연결, sensitivity, Bear/Base/Bull",
+    taglineEn: "WACC, CRP, revenue assumptions, NWC/CAPEX linkage, sensitivity, bear/base/bull",
+    readingMinutes: 15,
     status: "published",
   },
   {

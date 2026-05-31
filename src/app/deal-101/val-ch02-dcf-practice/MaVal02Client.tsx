@@ -281,7 +281,65 @@ export default function MaVal02Client({ lang }: { lang: Lang }) {
               <p>{ko
                 ? "그래서 WACC은 사람마다 결과가 거의 비슷해요. 9.2% 가 나오는데 옆 사람이 7.5% 나오면 둘 중 하나가 입력을 잘못 넣은 거예요. 회사가 다르면 모르겠는데 같은 회사면 ±50bps 안에 다 들어옵니다. WACC 자체를 두고 valuation 결과를 흔드는 건 거의 없습니다."
                 : "WACC ends up similar across analysts. If you get 9.2% and the desk next to you gets 7.5% for the same company, one of you typed something wrong. Within ±50 bps for the same company. WACC alone rarely swings valuation."}</p>
+
+              <p className="pt-2 font-bold text-gray-900 dark:text-gray-100">{ko
+                ? "한국·인도·브라질 회사를 평가할 땐? — Country Risk Premium"
+                : "Valuing a Korean, Indian, or Brazilian company? — Country Risk Premium"}</p>
               <p>{ko
+                ? "지금까지 설명한 WACC은 미국 회사 기준이에요. 같은 산업, 같은 마진, 같은 성장률이어도 회사가 어느 나라에 있느냐에 따라 투자자가 요구하는 수익률이 달라집니다. 정치 리스크, 환율 변동, 자본 통제 가능성 같은 게 다 가격에 박혀 있거든요. 이걸 한 줄로 잡아놓은 게 Country Risk Premium (CRP) 이에요."
+                : "Everything so far assumes a US company. Same industry, same margin, same growth — and yet investors demand different returns depending on which country the business sits in. Political risk, FX volatility, possible capital controls all get priced in. The line that captures this is the Country Risk Premium (CRP)."}</p>
+              <p>{ko
+                ? "구하는 방식은 어렵지 않아요. Damodaran 교수가 매년 country별 CRP 표를 업데이트해서 무료로 공개하는데, 거의 모든 IB가 그 숫자를 그대로 가져다 씁니다. 미국이 0%, 한국이 0.7%, 인도가 2.5%, 아르헨티나는 14% 이런 식. 이론적으로는 그 나라의 sovereign 채권 default spread에 \"주식이 채권보다 얼마나 더 변동성이 큰가\"를 곱해서 계산하는 거예요."
+                : "Calculation is easy — Professor Damodaran publishes a free country CRP table every year, and almost every IB uses it as-is. US is 0%, Korea 0.7%, India 2.5%, Argentina 14%. The theory: take the country's sovereign default spread, multiply by 'how much more volatile equities are than bonds.'"}</p>
+
+              {/* CRP 미니 표 */}
+              <div className="mt-3 border border-gray-200 dark:border-gray-700 rounded-lg p-5">
+                <p className="text-[10px] font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-4">
+                  {ko ? "Country Risk Premium — 주요 국가 (2024 근사값)" : "Country Risk Premium — major countries (2024, approx.)"}
+                </p>
+                <div className="space-y-2">
+                  {CRP_TABLE.map((c, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <div className="w-40 flex-shrink-0">
+                        <p className="text-[12px] text-gray-700 dark:text-gray-300 leading-snug">{ko ? c.koCountry : c.enCountry}</p>
+                      </div>
+                      <div className="flex-1 h-4 rounded bg-gray-100 dark:bg-gray-800 overflow-hidden relative">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${(c.crp / CRP_MAX) * 100}%` }}
+                          viewport={VP}
+                          transition={{ duration: 0.55, delay: i * 0.06, ease: EASE }}
+                          className="h-full rounded"
+                          style={{ background: c.crp === 0 ? "#cbd5e1" : ACCENT }}
+                        />
+                      </div>
+                      <div className="w-16 flex-shrink-0 text-right">
+                        <span className="text-[12px] font-mono font-bold text-gray-900 dark:text-gray-100">+{c.crp.toFixed(1)}%</span>
+                      </div>
+                      <div className="w-20 flex-shrink-0 text-right">
+                        <span className="text-[10px] text-gray-400 dark:text-gray-500 font-mono">{ko ? c.koTag : c.enTag}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <p className="mt-4 text-[11px] text-gray-500 dark:text-gray-400 leading-relaxed">
+                  {ko
+                    ? "같은 사업 모델, 같은 EBITDA여도 회사가 한국이면 cost of equity가 약 +0.7%p, 브라질이면 약 +3.5%p 더 붙습니다. EV로 환산하면 5-15% 차이."
+                    : "Same business model, same EBITDA — sitting it in Korea adds ~0.7pp to cost of equity, Brazil ~3.5pp. Translates to 5-15% EV difference."}
+                </p>
+              </div>
+
+              <p className="pt-1">{ko
+                ? "이걸 어떻게 식에 넣냐면, 두 가지 방식이 있어요. 단순하게는 ERP에 그냥 더해버립니다. Cost of equity = Rf + β × (ERP + CRP). 더 정밀하게 갈 때는 lambda(λ)라는 노출도를 따로 곱해요. Cost of equity = Rf + β × ERP + λ × CRP."
+                : "Two ways to plug it in. Simple: add CRP to ERP. Cost of equity = Rf + β × (ERP + CRP). More precise: multiply by lambda (λ), an exposure factor. Cost of equity = Rf + β × ERP + λ × CRP."}</p>
+              <p>{ko
+                ? "λ가 왜 필요하냐면, 같은 한국 회사라도 \"매출의 90%가 미국·유럽\"인 삼성전자 같은 회사와 \"매출의 95%가 국내\"인 통신사는 한국 country risk에 노출되는 정도가 다르거든요. λ는 보통 \"이 회사 매출 중 local 비중 / 그 나라 평균 회사의 local 비중\" 으로 추정합니다. 글로벌 수출 비중이 높으면 λ가 0.3-0.5 수준으로 떨어지고, 내수 회사면 1 근처."
+                : "Why λ matters: even within Korea, Samsung Electronics (90% revenue from US/Europe) is differently exposed than a domestic telco (95% local). λ is usually estimated as 'company's local revenue share / average local revenue share for that country.' Heavy exporters land at 0.3-0.5, domestic players near 1."}</p>
+              <p>{ko
+                ? "Beta 자체도 영향을 받아요. Peer를 잡을 때 미국 peer만 쓸지, 같은 나라 peer를 쓸지에 따라 unlevered β가 달라집니다. 가능하면 같은 시장 peer를 우선 쓰고, peer가 부족할 땐 글로벌 peer + CRP 보정으로 가는 게 실무 관행이에요."
+                : "Beta is affected too. Whether you use US peers only or local peers shifts the unlevered β. Standard practice: prefer same-market peers first; if the universe is too thin, fall back to global peers and let CRP do the adjustment."}</p>
+
+              <p className="pt-2">{ko
                 ? "정작 valuation 결과를 흔드는 건 WACC이 아니라 terminal growth rate예요. Gordon 공식 특성상 g가 0.5%p 움직이면 terminal value가 큰 폭으로 흔들리거든요. 그래서 sensitivity table을 항상 WACC × g 로 보여줍니다."
                 : "What actually swings the result is terminal growth, not WACC. The Gordon formula is sensitive — moving g by 0.5pp moves terminal value sharply. That's why sensitivity tables are always WACC × g."}</p>
             </div>
