@@ -66,6 +66,43 @@ create index if not exists deal_posts_category_idx on deal_posts (category);
 create index if not exists deal_posts_published_at_idx on deal_posts (published_at desc);
 create index if not exists deal_posts_is_published_idx on deal_posts (is_published);
 
+-- ── Page Likes ────────────────────────────────────────────────────────────────
+create table if not exists page_likes (
+  slug text primary key,
+  count integer not null default 0
+);
+alter table page_likes enable row level security;
+create policy "Anyone can read page_likes" on page_likes for select using (true);
+create policy "Anyone can upsert page_likes" on page_likes for insert with check (true);
+create policy "Anyone can update page_likes" on page_likes for update using (true);
+
+-- ── Comments ───────────────────────────────────────────────────────────────────
+create table if not exists comments (
+  id uuid primary key default gen_random_uuid(),
+  slug text not null,
+  parent_id uuid references comments(id) on delete cascade,
+  nickname text not null,
+  body text not null,
+  likes integer not null default 0,
+  created_at timestamptz not null default now()
+);
+create index on comments(slug);
+create index on comments(parent_id);
+alter table comments enable row level security;
+create policy "Anyone can read comments" on comments for select using (true);
+create policy "Anyone can insert comments" on comments for insert with check (true);
+create policy "Anyone can update comment likes" on comments for update using (true);
+create policy "Admin can delete comments" on comments for delete using (true);
+
+create table if not exists comment_likes (
+  comment_id uuid references comments(id) on delete cascade,
+  fingerprint text not null,
+  primary key (comment_id, fingerprint)
+);
+alter table comment_likes enable row level security;
+create policy "Anyone can read comment_likes" on comment_likes for select using (true);
+create policy "Anyone can insert comment_likes" on comment_likes for insert with check (true);
+
 -- 샘플 데이터 (선택사항 — 필요 없으면 아래 insert 제거)
 insert into deal_posts (
   slug, title, excerpt, body_md,

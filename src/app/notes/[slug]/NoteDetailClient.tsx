@@ -50,6 +50,8 @@ import type {
 import { NOTE_CATEGORY_META, getSeriesNav } from "@/data/notes";
 import SeriesNav from "@/components/SeriesNav";
 import ShareButtons from "@/components/deal/ShareButtons";
+import LikeButton from "@/components/LikeButton";
+import CommentSection from "@/components/CommentSection";
 
 // Dynamically load Mapbox component (no SSR — mapbox-gl touches window)
 const QuantumMap = dynamic(() => import("@/components/QuantumMap"), {
@@ -1983,8 +1985,9 @@ export default function NoteDetailClient({
                 variants={fadeUp(0.2)}
                 initial="hidden"
                 animate="show"
-                className="flex-shrink-0 pt-1"
+                className="flex-shrink-0 pt-1 flex items-center gap-2"
               >
+                <LikeButton slug={note.slug} lang={lang} />
                 <ShareButtons title={title} variant="top" lang={lang} />
               </motion.div>
             </div>
@@ -2147,6 +2150,12 @@ export default function NoteDetailClient({
               />
             );
           })()}
+
+          {/* Like + Comments */}
+          <div className="mt-8 flex justify-center">
+            <LikeButton slug={note.slug} lang={lang} />
+          </div>
+          <CommentSection slug={note.slug} lang={lang} />
 
           {/* Back link */}
           <div className="mt-12 pt-8 border-t border-gray-200/60 dark:border-gray-700/60">
