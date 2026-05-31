@@ -1265,6 +1265,132 @@ function BitQubitDiagram({ chart, lang }: { chart: NoteChartDef & { id: "bit-qub
   );
 }
 
+// ── Scenario Cards (4가지 시나리오 시각화) ─────────────────────────────────────
+const SCENARIO_THEME: Record<
+  "bullish" | "neutral" | "warning" | "bearish",
+  { cardBg: string; barBg: string; barFill: string; accentText: string; outcomeText: string; sentimentLabel: { ko: string; en: string } }
+> = {
+  bullish: {
+    cardBg: "bg-emerald-50 dark:bg-emerald-900/15 border-emerald-200 dark:border-emerald-800/60",
+    barBg: "bg-emerald-100 dark:bg-emerald-900/30",
+    barFill: "bg-emerald-500",
+    accentText: "text-emerald-700 dark:text-emerald-400",
+    outcomeText: "text-emerald-600 dark:text-emerald-400",
+    sentimentLabel: { ko: "수혜", en: "Bullish" },
+  },
+  neutral: {
+    cardBg: "bg-sky-50 dark:bg-sky-900/15 border-sky-200 dark:border-sky-800/60",
+    barBg: "bg-sky-100 dark:bg-sky-900/30",
+    barFill: "bg-sky-500",
+    accentText: "text-sky-700 dark:text-sky-400",
+    outcomeText: "text-sky-600 dark:text-sky-400",
+    sentimentLabel: { ko: "중립", en: "Neutral" },
+  },
+  warning: {
+    cardBg: "bg-amber-50 dark:bg-amber-900/15 border-amber-200 dark:border-amber-800/60",
+    barBg: "bg-amber-100 dark:bg-amber-900/30",
+    barFill: "bg-amber-500",
+    accentText: "text-amber-700 dark:text-amber-400",
+    outcomeText: "text-amber-600 dark:text-amber-400",
+    sentimentLabel: { ko: "고위험·고수익", en: "High Risk/Reward" },
+  },
+  bearish: {
+    cardBg: "bg-rose-50 dark:bg-rose-900/15 border-rose-200 dark:border-rose-800/60",
+    barBg: "bg-rose-100 dark:bg-rose-900/30",
+    barFill: "bg-rose-500",
+    accentText: "text-rose-700 dark:text-rose-400",
+    outcomeText: "text-rose-600 dark:text-rose-400",
+    sentimentLabel: { ko: "위험", en: "Bearish" },
+  },
+};
+
+function ScenarioCardsChart({ chart, lang }: { chart: NoteChartDef & { id: "scenario-cards" }; lang: Lang }) {
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  const ko = lang === "ko";
+  return (
+    <div className="my-4">
+      {title && (
+        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">{title}</p>
+      )}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        {chart.scenarios.map((s) => {
+          const theme = SCENARIO_THEME[s.sentiment];
+          const scenarioTitle = lang === "en" ? s.titleEn : s.title;
+          const winners = lang === "en" ? (s.winnersEn ?? s.winners) : s.winners;
+          const stockOutcome = lang === "en" ? (s.stockOutcomeEn ?? s.stockOutcome) : s.stockOutcome;
+          const reasoning = lang === "en" ? s.reasoningEn : s.reasoning;
+          return (
+            <div
+              key={s.letter}
+              className={`rounded-2xl border-2 p-5 ${theme.cardBg} relative overflow-hidden`}
+            >
+              {/* Top row: Letter + Sentiment label */}
+              <div className="flex items-start justify-between mb-3">
+                <div className="flex items-center gap-2">
+                  <div className={`w-9 h-9 rounded-xl ${theme.barFill} flex items-center justify-center text-white text-base font-black shadow-sm`}>
+                    {s.letter}
+                  </div>
+                  <p className="text-[15px] font-bold text-gray-900 dark:text-gray-100">{scenarioTitle}</p>
+                </div>
+                <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-white/80 dark:bg-gray-900/60 ${theme.accentText}`}>
+                  {theme.sentimentLabel[lang]}
+                </span>
+              </div>
+
+              {/* Probability bar */}
+              <div className="mb-4">
+                <div className="flex items-baseline justify-between mb-1.5">
+                  <span className="text-[10px] font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                    {ko ? "확률" : "Probability"}
+                  </span>
+                  <span className={`text-2xl font-black tabular-nums ${theme.accentText}`}>
+                    {s.probability}<span className="text-base">%</span>
+                  </span>
+                </div>
+                <div className={`h-2.5 rounded-full ${theme.barBg} overflow-hidden`}>
+                  <div
+                    className={`h-full ${theme.barFill} rounded-full transition-all`}
+                    style={{ width: `${s.probability}%` }}
+                  />
+                </div>
+              </div>
+
+              {/* Winners + Stock outcome row */}
+              <div className="grid grid-cols-2 gap-3 mb-3">
+                <div>
+                  <p className="text-[10px] font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-1">
+                    {ko ? "수혜 종목" : "Winners"}
+                  </p>
+                  <p className="text-[12px] font-semibold text-gray-800 dark:text-gray-200 leading-snug">
+                    {winners}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-[10px] font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-1">
+                    {ko ? "주가 시나리오" : "Stock Outcome"}
+                  </p>
+                  <p className={`text-[14px] font-black ${theme.outcomeText} leading-snug`}>
+                    {stockOutcome}
+                  </p>
+                </div>
+              </div>
+
+              {/* Reasoning */}
+              <p className="text-[12px] text-gray-600 dark:text-gray-300 leading-relaxed pt-3 border-t border-gray-200/60 dark:border-gray-700/40">
+                {reasoning}
+              </p>
+            </div>
+          );
+        })}
+      </div>
+      {caption && (
+        <p className="text-[11px] text-gray-500 dark:text-gray-400 mt-3 text-center leading-relaxed">{caption}</p>
+      )}
+    </div>
+  );
+}
+
 // ── Generic chart dispatcher ───────────────────────────────────────────────────
 function NoteChart({ chart, lang }: { chart: NoteChartDef; lang: Lang }) {
   if (chart.id === "pbr-comparison") return <PBRChart chart={chart} lang={lang} />;
@@ -1293,6 +1419,7 @@ function NoteChart({ chart, lang }: { chart: NoteChartDef; lang: Lang }) {
   if (chart.id === "quantum-funding") return <QuantumFundingChart chart={chart} lang={lang} />;
   if (chart.id === "quantum-map") return <QuantumMapBlock chart={chart} lang={lang} />;
   if (chart.id === "bit-qubit-diagram") return <BitQubitDiagram chart={chart} lang={lang} />;
+  if (chart.id === "scenario-cards") return <ScenarioCardsChart chart={chart} lang={lang} />;
   return null;
 }
 

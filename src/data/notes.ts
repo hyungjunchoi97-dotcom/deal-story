@@ -360,7 +360,24 @@ export type NoteChartDef =
   | { id: "quantum-stocks";    title: string; titleEn?: string; caption?: string; captionEn?: string; data: QuantumStockPoint[]; annotations?: { date: string; label: string; labelEn?: string }[] }
   | { id: "quantum-funding";   title: string; titleEn?: string; caption?: string; captionEn?: string; data: QuantumFundingBar[] }
   | { id: "quantum-map";       title: string; titleEn?: string; caption?: string; captionEn?: string; markers: QuantumMapMarker[]; center?: [number, number]; zoom?: number }
-  | { id: "bit-qubit-diagram"; title: string; titleEn?: string; caption?: string; captionEn?: string };
+  | { id: "bit-qubit-diagram"; title: string; titleEn?: string; caption?: string; captionEn?: string }
+  | { id: "scenario-cards";    title: string; titleEn?: string; caption?: string; captionEn?: string; scenarios: ScenarioCard[] };
+
+// ── Scenario Cards 데이터 타입 ─────────────────────────────────────────────
+export type ScenarioCard = {
+  letter: string;              // "A", "B", "C", "D"
+  title: string;               // "빅테크 승리"
+  titleEn: string;
+  probability: number;         // 0-100
+  winners: string;             // "IBM · GOOGL · MSFT"
+  winnersEn?: string;
+  stockOutcome: string;        // "+30-50%" or "+100x" or "-90%"
+  stockOutcomeEn?: string;
+  reasoning: string;           // 한 문장 핵심 설명
+  reasoningEn: string;
+  /** Bullish (수혜) / Neutral / Warning / Bearish (위험) — 카드 색상 결정 */
+  sentiment: "bullish" | "neutral" | "warning" | "bearish";
+};
 
 export type NoteBlock =
   | { type: "text";    body: string; bodyEn?: string }
@@ -5092,6 +5109,70 @@ const quantumComputing: NoteData = {
             highlightRows: [0, 2], // 빅테크 승리 40% (가장 가능성 높음) + Pick-and-Shovel 30%
           },
         },
+        {
+          type: "chart",
+          chart: {
+            id: "scenario-cards",
+            title: "4 시나리오 카드 — 한눈에 비교",
+            titleEn: "Four Scenarios at a Glance",
+            scenarios: [
+              {
+                letter: "A",
+                title: "빅테크 승리",
+                titleEn: "BigTech Wins",
+                probability: 40,
+                winners: "IBM · GOOGL · MSFT",
+                winnersEn: "IBM · GOOGL · MSFT",
+                stockOutcome: "+30-50%",
+                stockOutcomeEn: "+30-50%",
+                reasoning: "양자 임계점에 가장 먼저 도달하는 게 자본력 있는 빅테크. 순수 양자 회사들은 기술이 앞서도 돈 부족으로 인수·쇠퇴.",
+                reasoningEn: "Big Tech with deep capital reaches the threshold first. Pure-play quantum firms — technically ahead but capital-starved — get acquired or fade.",
+                sentiment: "bullish",
+              },
+              {
+                letter: "C",
+                title: "Pick-and-Shovel 승리",
+                titleEn: "Pick-and-Shovel Wins",
+                probability: 30,
+                winners: "Bluefors · COHR · LITE · TSM",
+                winnersEn: "Bluefors · COHR · LITE · TSM",
+                stockOutcome: "+10-50x",
+                stockOutcomeEn: "+10-50x",
+                reasoning: "역사적으로 가장 자주 일어남. 누가 임계점에 도달하든 부품을 사야 함. Bluefors IPO 시 양자의 ASML.",
+                reasoningEn: "Historically most frequent pattern. Whoever reaches threshold still must buy components. Bluefors IPO = the ASML of quantum.",
+                sentiment: "bullish",
+              },
+              {
+                letter: "B",
+                title: "Pure Play 승리",
+                titleEn: "Pure Play Wins",
+                probability: 20,
+                winners: "IonQ · PsiQuantum (IPO 시)",
+                winnersEn: "IonQ · PsiQuantum (if IPO)",
+                stockOutcome: "+100x",
+                stockOutcomeEn: "+100x",
+                reasoning: "순수 양자 회사 중 한 곳이 fault-tolerant에 처음 도달. 빅테크는 인수하거나 라이센스. 비대칭 수익 가능.",
+                reasoningEn: "A pure play reaches fault-tolerance first. Big Tech either acquires or licenses. Asymmetric upside possible.",
+                sentiment: "warning",
+              },
+              {
+                letter: "D",
+                title: "영구 거품 (Cisco)",
+                titleEn: "Permanent Bubble (Cisco)",
+                probability: 10,
+                winners: "(피해) 모든 양자 주식",
+                winnersEn: "(Losers) All quantum stocks",
+                stockOutcome: "-90%",
+                stockOutcomeEn: "-90%",
+                reasoning: "양자가 기술적으로 가능하지만 상업화 실패. NISQ 정체기 영구 지속. 모든 순수 양자 주식 90% 폭락.",
+                reasoningEn: "Quantum is technically possible but commercially fails. NISQ plateau persists indefinitely. All pure quantum stocks down 90%.",
+                sentiment: "bearish",
+              },
+            ],
+            caption: "확률 순으로 정렬: 빅테크(40%) → Pick-and-Shovel(30%) → Pure Play(20%) → 영구 거품(10%). 두 시나리오 모두 안전한 베팅은 TSMC.",
+            captionEn: "Sorted by probability: BigTech (40%) → Pick-and-Shovel (30%) → Pure Play (20%) → Permanent Bubble (10%). TSMC is the safe bet in either of the top-2 scenarios.",
+          },
+        },
       ],
     },
 
@@ -5495,6 +5576,78 @@ const quantumComputing: NoteData = {
           bodyEn: "Why \"Quantum's ASML\":\n\nJust as ASML *monopolizes* leading-edge EUV lithography — forcing TSMC, Samsung, and Intel to all buy from ASML —\n\nBluefors holds 70% share of the *essential component* for every superconducting quantum computer.\n\nWhether IBM ships 1,000-qubit chips or Google scales to 100,000 — Bluefors sells *that many* refrigerators.\n\nThesis one-liner: *If it IPOs, this is the ASML of the quantum era. Direct exposure impossible until then. Monitor for IPO announcement.*",
         },
 
+        // ─── Bluefors 깊이 분석 ────────────────────────
+        {
+          type: "text",
+          body: "### Bluefors 깊이 들여다보기 — 양자 밸류체인 이해의 lens\n\n*\"Bluefors가 어떻게 ASML이 됐나\"* 한 회사의 역사를 따라가면 양자 밸류체인 전체가 보인다.",
+          bodyEn: "### Inside Bluefors — Reading the Full Quantum Value Chain Through One Company\n\nFollowing *how Bluefors became the ASML of quantum* reveals the structure of the entire value chain.",
+        },
+        {
+          type: "table",
+          table: {
+            id: "bluefors-timeline",
+            title: "Bluefors 역사 timeline (2008-2027 예정)",
+            titleEn: "Bluefors Timeline (2008 to 2027E)",
+            headers: ["연도", "이벤트", "임팩트"],
+            headersEn: ["Year", "Event", "Impact"],
+            rows: [
+              ["2008", "Rob Blaauwgeers · David Gunnarsson 헬싱키 창업", "양자 시장이 학계만 있을 때 *베팅*"],
+              ["2010-15", "초기 IBM·Google 연구소에 납품 시작", "Sycamore(2019)·Willow(2024) 모두 Bluefors 위에서 작동"],
+              ["2019", "Sycamore 발표 → 주문 폭증", "양자 우위 선언으로 산업 전체 발주 가속"],
+              ["2022", "추정 매출 ~$100M 돌파", "비양자 회사 중 *유일하게 양자만으로 흑자*"],
+              ["2024.4", "Cryomech (미국) 인수 — 부품 수직 통합", "공급망의 마지막 외부 의존성 제거"],
+              ["2024.10", "헬싱키 신공장 가동 — 캐파 3배", "IBM Starling(2029) 수주 대비"],
+              ["2025", "KIDE 시스템 발표 (FTQC용 차세대 냉동기)", "IPO 스토리의 핵심 제품"],
+              ["2025 H2", "Goldman Sachs · Morgan Stanley IPO 자문 경쟁 보도", "2026-2027 IPO 윈도우 확정"],
+              ["2026 Q1", "IBM Starling 사전 발주 가속 (추정 $50-80M 단일 계약)", "매출 가속 정점 진입"],
+              ["2027E", "IPO 상장 (NASDAQ 추정, 헬싱키 듀얼 가능성)", "*양자 시대의 ASML* 공식 데뷔"],
+            ],
+            rowsEn: [
+              ["2008", "Founded in Helsinki by Rob Blaauwgeers & David Gunnarsson", "*Bet* placed when quantum was purely academic"],
+              ["2010-15", "Begins shipping to early IBM/Google labs", "Both Sycamore (2019) & Willow (2024) sit on Bluefors fridges"],
+              ["2019", "Sycamore announcement → order surge", "Quantum supremacy declaration accelerates industry-wide orders"],
+              ["2022", "Estimated revenue crosses ~$100M", "*Only company profitable on pure quantum exposure*"],
+              ["2024.4", "Acquires Cryomech (US) — vertical integration of components", "Removes last external supply-chain dependency"],
+              ["2024.10", "New Helsinki facility goes live — 3x capacity", "Preparing for IBM Starling (2029) orders"],
+              ["2025", "Launches KIDE system (next-gen FTQC fridge)", "The core product of the IPO story"],
+              ["2025 H2", "Goldman Sachs & Morgan Stanley reportedly competing for IPO mandate", "Confirms 2026-2027 IPO window"],
+              ["2026 Q1", "IBM Starling pre-orders accelerate (est. $50-80M single contract)", "Revenue acceleration peak"],
+              ["2027E", "IPO listing (NASDAQ est., possible Helsinki dual-list)", "*The ASML of the quantum era* officially debuts"],
+            ],
+            caption: "2008 학계 베팅 → 2024 수직 통합 → 2025 KIDE 제품 → 2027 IPO. 17년의 슬로우 베팅이 *양자 사이클*에 정확히 도착.",
+            captionEn: "2008 academic bet → 2024 vertical integration → 2025 KIDE product → 2027 IPO. A 17-year slow bet arriving precisely as the quantum cycle takes off.",
+            highlightRows: [4, 7, 9], // Cryomech 인수, IPO 자문 경쟁, IPO 데뷔
+          },
+        },
+        {
+          type: "text",
+          body: "### Cryomech 인수가 보여주는 양자 밸류체인의 구조\n\n2024년 Bluefors가 Cryomech를 인수한 사건이 양자 밸류체인의 *진짜 모습*을 드러낸다.\n\n양자컴퓨터를 한 채의 건물에 비유하면:\n\n- **양자 칩 (큐비트)** = 건물의 *코어 워크스페이스* — IBM, Google, IonQ가 만든다\n- **희석 냉동기 (Bluefors)** = 건물의 *전체 공조 시스템* — 절대영도 환경 제공\n- **Cryocooler (Cryomech)** = 그 공조 시스템의 *컴프레서* — 1단계 냉각 제공\n- **Helium-3 (희귀 동위원소)** = 그 컴프레서의 *작동 유체* — 글로벌 공급 제한적\n\nBluefors가 Cryomech를 인수하기 *전*에는, Bluefors의 모든 냉동기에 *Cryomech 컴프레서가 외부 부품으로 들어갔다*.\n\n즉 Bluefors가 1대 팔 때마다 Cryomech도 1대 매출이 났다.\n\n인수 *후*에는 그 매출이 *전부 Bluefors에 내부화*. 마진 ↑, 공급 안정성 ↑, 경쟁사가 Cryomech를 못 사게 차단 ↑.\n\n이게 양자 밸류체인의 *진짜 게임*. 위에서부터 아래까지 단계마다 *병목 회사*가 있고, 누군가 인수·통합하는 패턴이 *반복*된다.",
+          bodyEn: "### What the Cryomech Acquisition Reveals About the Quantum Value Chain\n\nBluefors' 2024 acquisition of Cryomech exposed the *real structure* of the quantum value chain.\n\nA quantum computer is like a building:\n\n- **Quantum chip (qubits)** = the *core workspace* — IBM, Google, IonQ build these\n- **Dilution refrigerator (Bluefors)** = the *building-wide HVAC* — provides absolute-zero environment\n- **Cryocooler (Cryomech)** = the *compressor* of that HVAC — 1st-stage cooling\n- **Helium-3 (rare isotope)** = the *working fluid* of that compressor — globally constrained supply\n\n*Before* the acquisition, every Bluefors fridge included *a Cryomech compressor as an external component*.\n\nSo for every Bluefors unit sold, Cryomech also booked revenue.\n\n*After* the acquisition, all that revenue is *internalized within Bluefors*. Margins ↑, supply stability ↑, ability to block competitors from buying Cryomech ↑.\n\nThis is the *real game* of the quantum value chain. At every layer there's a *bottleneck company*, and someone acquiring/integrating that layer is a *repeating pattern*.",
+        },
+        {
+          type: "table",
+          table: {
+            id: "bluefors-ipo-scenarios",
+            title: "Bluefors IPO 밸류에이션 시나리오 (2026E 매출 기준)",
+            titleEn: "Bluefors IPO Valuation Scenarios (2026E Revenue Basis)",
+            headers: ["시나리오", "EV/Sales 멀티플", "추정 IPO 밸류", "비교 대상"],
+            headersEn: ["Scenario", "EV/Sales Multiple", "Est. IPO Valuation", "Comparable"],
+            rows: [
+              ["보수 (기본 산업 장비)", "8-10x", "$4-6B", "일반 산업 장비 평균"],
+              ["중립 (반도체 장비)", "12-15x", "**$7-9B**", "KLA · Applied Materials 수준"],
+              ["낙관 (양자 hype)", "20-30x", "**$12-18B**", "ASML 프리미엄 시나리오"],
+            ],
+            rowsEn: [
+              ["Conservative (industrial equip.)", "8-10x", "$4-6B", "General industrial equipment"],
+              ["Neutral (semi equipment)", "12-15x", "**$7-9B**", "KLA / Applied Materials peers"],
+              ["Bull case (quantum hype)", "20-30x", "**$12-18B**", "ASML-premium scenario"],
+            ],
+            caption: "현재 IB 컨센서스 base case: 약 $6-9B. IPO 시점 양자 hype 강도가 멀티플의 변수.",
+            captionEn: "Current IB consensus base case: ~$6-9B. The level of quantum hype at IPO time is the key variable for the multiple.",
+            highlightRows: [1], // 중립 시나리오가 base case
+          },
+        },
+
         // ─── 종합 비교 ────────────────────────
         {
           type: "text",
@@ -5631,6 +5784,8 @@ const quantumComputing: NoteData = {
               ["Quantum Supremacy", "기존 컴퓨터로 못 푸는 *한 가지* 문제 푼 것 (실용성 무관)", "Google 2019 Sycamore 53큐비트"],
               ["Quantum Advantage", "*실제로 가치 있는* 문제를 양자가 더 빨리·싸게 푸는 것", "아직 누구도 달성 못 함"],
               ["Quantum Volume", "큐비트 수 × Fidelity × Connectivity 종합 지표 (IBM)", "양자컴퓨터의 \"성능\" 단일 숫자"],
+              ["Google Willow", "Google이 2024.12 발표한 105큐비트 칩 — *에러 교정의 첫 실험적 증명*", "양자 산업의 \"Wright 형제 첫 비행\" 같은 순간"],
+              ["IBM Starling", "IBM이 2029 목표로 만드는 첫 fault-tolerant 양자컴퓨터 (200 logical qubit)", "양자 시대의 \"iPhone 1\" — 진짜 상용화의 시작"],
             ],
             rowsEn: [
               ["NISQ", "Noisy Intermediate-Scale Quantum", "Where we are now (demos only)"],
@@ -5640,6 +5795,8 @@ const quantumComputing: NoteData = {
               ["Quantum Supremacy", "Solving *one* problem classical can't (utility irrelevant)", "Google 2019 Sycamore (53 qubits)"],
               ["Quantum Advantage", "Quantum solves a *genuinely valuable* problem faster/cheaper", "Nobody has achieved this yet"],
               ["Quantum Volume", "Composite of qubits × fidelity × connectivity (IBM metric)", "Single 'performance' number"],
+              ["Google Willow", "Google's 105-qubit chip announced Dec 2024 — *first experimental proof of error correction*", "Quantum's \"Wright Brothers first flight\" moment"],
+              ["IBM Starling", "IBM's first fault-tolerant quantum computer targeted for 2029 (200 logical qubits)", "Quantum's \"iPhone 1\" — start of real commercialization"],
             ],
             caption: "지금 NISQ → 2025-26년 FTQC 입구 → 2029 IBM Starling (FTQC 달성 목표).",
             captionEn: "Now NISQ → 2025-26 FTQC threshold → 2029 IBM Starling (FTQC target).",
@@ -5696,6 +5853,9 @@ const quantumComputing: NoteData = {
               ["1.6T", "초당 1.6 테라비트 데이터 전송 광 트랜시버", "AI DC의 차세대 표준 (Lumentum, Coherent 주력)"],
               ["Cryogenic CMOS", "초저온에서 작동하는 반도체 공정", "양자 컨트롤 칩 (TSMC 특수 공정)"],
               ["EUV", "Extreme Ultraviolet 노광기 — 첨단 반도체 제조 필수", "ASML이 독점 (TSMC 2nm 양산에 필수)"],
+              ["Cryomech", "1963년 미국 시러큐스 창업, cryocooler(극저온 냉각기) 단독 공급자", "Bluefors가 2024년 인수 — 양자 냉동기 수직 통합 완성"],
+              ["Helium-3", "헬륨의 희귀 동위원소, 희석 냉동기의 *작동 유체*", "글로벌 공급 극히 제한적 — Bluefors의 진짜 병목"],
+              ["DARPA", "미국 국방부 산하 첨단 연구 발주 기관 (인터넷·GPS·자율주행 발주)", "양자 R&D 자금 + 국가 신뢰 시그널 (Q-Day 대비, 양자 센서)"],
             ],
             rowsEn: [
               ["Foundry", "Contract semiconductor manufacturer (no in-house design)", "TSMC = endpoint for outsourced quantum chip manufacturing"],
@@ -5706,6 +5866,9 @@ const quantumComputing: NoteData = {
               ["1.6T", "1.6 Terabit-per-second optical transceiver", "AI DC's next standard (core for Lumentum, Coherent)"],
               ["Cryogenic CMOS", "Semiconductor process operating at ultra-low temps", "Quantum control chips (TSMC specialty)"],
               ["EUV", "Extreme Ultraviolet lithography — required for cutting-edge semis", "ASML monopoly (essential for TSMC's 2nm production)"],
+              ["Cryomech", "US (Syracuse) co. founded 1963; sole supplier of cryocoolers", "Acquired by Bluefors in 2024 — completed vertical integration of quantum cooling"],
+              ["Helium-3", "Rare isotope of helium; the *working fluid* of dilution refrigerators", "Extremely constrained global supply — Bluefors' real bottleneck"],
+              ["DARPA", "US DoD's advanced research agency (funded ARPANET, GPS, autonomous vehicles)", "Quantum R&D funding + national-trust signal (Q-Day prep, quantum sensors)"],
             ],
             caption: "이 용어들이 \"왜 TSMC/Lumentum/Coherent가 양자 관련주\"의 답을 풀어준다.",
             captionEn: "These terms explain *why* TSMC, Lumentum, and Coherent are considered quantum plays.",
