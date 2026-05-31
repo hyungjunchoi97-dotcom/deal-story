@@ -241,15 +241,13 @@ export default function DealPageClient({
             <span className="text-xs text-gray-400 dark:text-gray-500">{deal.readingMinutes}{t.minRead}</span>
           </div>
 
-          {/* ── 2. 제목 + 우측 상단 공유 */}
-          <div className="flex items-start justify-between gap-4">
-            <div className="flex-1">
-              <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-100 leading-tight">
-                {deal.title}
-              </h1>
-              <p className="mt-2 text-base text-gray-500 dark:text-gray-400">{deal.subtitle}</p>
-            </div>
-            <div className="flex-shrink-0 pt-1">
+          {/* ── 2. 제목 (풀폭) + 부제 + 공유 버튼 (아래 별도 row) */}
+          <div>
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-100 leading-tight break-keep">
+              {deal.title}
+            </h1>
+            <p className="mt-2 text-base text-gray-500 dark:text-gray-400 break-keep">{deal.subtitle}</p>
+            <div className="mt-4 flex items-center justify-end border-t border-gray-100 dark:border-gray-800 pt-3">
               <ShareButtons title={deal.title} variant="top" lang={lang} />
             </div>
           </div>
