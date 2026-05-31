@@ -83,7 +83,7 @@ const deal: DealData = {
     ],
     financialsNote: "Unit: KRW trillion. Hyundai Motor standalone consolidated basis. Source: Hyundai Motor annual reports (estimated).",
     financialsCurrency: "KRW",
-    financialsUnit: "조",
+    financialsUnit: "trillion KRW",
   },
 
   governanceOverview: {

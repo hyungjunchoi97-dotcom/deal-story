@@ -85,9 +85,9 @@ const deal: DealData = {
       { year: "FY2018", revenue: 17500, cogs: 13600, grossProfit: 3900, sga: 1400, operatingIncome: 2500, ebitda: 3600 },
       { year: "FY2019", revenue: 16200, cogs: 12800, grossProfit: 3400, sga: 1350, operatingIncome: 2050, ebitda: 3100 },
     ],
-    financialsNote: "Unit: KRW 100 million (억원) | K-IFRS consolidated | Source: Hanjin KAL annual reports",
+    financialsNote: "Unit: KRW 100M | K-IFRS consolidated | Source: Hanjin KAL annual reports",
     financialsCurrency: "₩",
-    financialsUnit: "억",
+    financialsUnit: "100M KRW",
   },
 
   // ── Governance Overview ──────────────────────────────────────

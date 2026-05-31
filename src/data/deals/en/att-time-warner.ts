@@ -222,7 +222,7 @@ const deal: DealData = {
     acquirerName: "AT&T Inc.",
     targetName: "Time Warner Inc.",
     dealTitle: "Vertical Integration vs. Antitrust Battle",
-    dealSize: "$854억",
+    dealSize: "$85.4B",
     dealSizeUSD: "USD 85.4 Billion",
     evEbitda: "~11x EBITDA",
     closeDate: "Jun 2018",

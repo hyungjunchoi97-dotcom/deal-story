@@ -84,7 +84,7 @@ const deal: DealData = {
     ],
     financialsNote: "Unit: USD hundred millions. Disney fiscal year ends in October. Based on Disney annual reports.",
     financialsCurrency: "USD",
-    financialsUnit: "억",
+    financialsUnit: "$100M",
   },
 
   governanceOverview: {

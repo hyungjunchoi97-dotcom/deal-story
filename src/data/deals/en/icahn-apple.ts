@@ -80,9 +80,9 @@ const deal: DealData = {
       { year: "2013", revenue: 1706, cogs: 1063, grossProfit: 643, sga: 104, operatingIncome: 489, ebitda: 557 },
       { year: "2014", revenue: 1828, cogs: 1126, grossProfit: 702, sga: 115, operatingIncome: 527, ebitda: 610 },
     ],
-    financialsNote: "Unit: USD 100M (億) | Apple consolidated (September fiscal year) | Source: Apple Annual Reports",
+    financialsNote: "Unit: USD 100M | Apple consolidated (September fiscal year) | Source: Apple Annual Reports",
     financialsCurrency: "USD",
-    financialsUnit: "억",
+    financialsUnit: "$100M",
   },
 
   governanceOverview: {
@@ -297,7 +297,7 @@ const deal: DealData = {
     targetBg: "bg-gray-800",
     acquirerName: "Carl Icahn / Icahn Capital LP",
     targetName: "Apple Inc.",
-    dealTitle: "Twitter Activism + Buyback Pressure / 트위터 행동주의 + 자사주매입 압박",
+    dealTitle: "Twitter Activism + Buyback Pressure",
     dealSize: "~$3.6B stake (~1% of Apple)",
     dealSizeUSD: "USD ~3.6B stake (~1% of Apple)",
     evEbitda: "N/A",

@@ -454,7 +454,7 @@ const deal: DealData = {
     targetBg: "bg-green-700",
     acquirerName: "Alimentation Couche-Tard Inc.",
     targetName: "Seven & i Holdings Co., Ltd.",
-    dealTitle: "World's Largest Convenience Store Hostile Bid / 세계 최대 편의점 제국 적대적 인수 시도",
+    dealTitle: "World's Largest Convenience Store Hostile Bid",
     dealSize: "$47B (¥7.0T, revised proposal)",
     dealSizeUSD: "USD ~47B proposed",
     evEbitda: "~9x EV/EBITDA",

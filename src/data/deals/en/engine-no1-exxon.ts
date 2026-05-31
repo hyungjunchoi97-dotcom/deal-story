@@ -81,9 +81,9 @@ const deal: DealData = {
       { year: "2019", revenue: 2647, cogs: 1800, grossProfit: 847, sga: 200, operatingIncome: 148, ebitda: 300 },
       { year: "2020", revenue: 1786, cogs: 1200, grossProfit: 586, sga: 190, operatingIncome: -221, ebitda: 150 },
     ],
-    financialsNote: "Unit: USD 100M (億) | ExxonMobil consolidated basis | Source: ExxonMobil Annual Reports (estimated)",
+    financialsNote: "Unit: USD 100M | ExxonMobil consolidated basis | Source: ExxonMobil Annual Reports (estimated)",
     financialsCurrency: "USD",
-    financialsUnit: "억",
+    financialsUnit: "$100M",
   },
 
   governanceOverview: {
@@ -323,7 +323,7 @@ const deal: DealData = {
     targetBg: "bg-red-700",
     acquirerName: "Engine No. 1 LLC",
     targetName: "ExxonMobil Corporation",
-    dealTitle: "Historic ESG Activist Victory / ESG 행동주의의 역사적 승리",
+    dealTitle: "Historic ESG Activist Victory",
     dealSize: "$40M stake vs. $250B market cap",
     dealSizeUSD: "USD 40M stake vs USD 250B market cap",
     evEbitda: "N/A",

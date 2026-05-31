@@ -161,6 +161,32 @@ for (const file of files) {
   }
 }
 
+// ── 추가 검증: 영문 데이터 파일에 한글 잔재 ───────────────────────────
+// src/data/deals/en/* 에 한글 문자가 들어가면 영문 페이지에 노출됨.
+// 의도적으로 원어 병기가 필요한 한국 케이스만 allow-list 처리.
+const EN_DEAL_DIR = join(ROOT, "src", "data", "deals", "en");
+const EN_DEAL_ALLOWLIST = new Set([
+  "src/data/deals/en/mbk-homeplus.ts",   // 한국 LBO — 법률·문화 용어 영어+괄호 한국어 의도적 병기
+  "src/data/deals/en/korea-zinc-mbk.ts", // 한국 사건 — 신문 원어명
+]);
+
+for (const file of walkDir(EN_DEAL_DIR)) {
+  const rel = relative(ROOT, file);
+  if (EN_DEAL_ALLOWLIST.has(rel)) continue;
+  const text = readFileSync(file, "utf8");
+  const lines = text.split("\n");
+  for (let i = 0; i < lines.length; i++) {
+    if (KOREAN.test(lines[i])) {
+      findings.push({
+        file: rel,
+        line: i + 1,
+        rule: "영문 파일에 한글 잔재 (en/*.ts)",
+        value: lines[i].trim().slice(0, 80),
+      });
+    }
+  }
+}
+
 // ── 결과 출력 ────────────────────────────────────────────────────────
 if (findings.length === 0) {
   console.log("✅ i18n 검사 통과 — 영문 누락 없음");

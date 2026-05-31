@@ -107,9 +107,9 @@ const deal: DealData = {
       },
     ],
     financialsNote:
-      "Unit: KRW 100 million (억원) | Hanmi Pharmaceutical consolidated estimates | Source: Public annual reports and IR materials",
+      "Unit: KRW 100M | Hanmi Pharmaceutical consolidated estimates | Source: Public annual reports and IR materials",
     financialsCurrency: "KRW",
-    financialsUnit: "억",
+    financialsUnit: "100M KRW",
   },
 
   controlBattleOverview: {
@@ -447,7 +447,7 @@ const deal: DealData = {
     targetBg: "bg-red-600",
     acquirerName: "Jong-yoon Lim (Eldest Son Faction)",
     targetName: "Hanmi Pharmaceutical Co., Ltd. / Hanmi Science Co., Ltd.",
-    dealTitle: "Founding Family Control Dispute / 오너 일가 경영권 내홍",
+    dealTitle: "Founding Family Control Dispute",
     dealSize: "Control Dispute (Hanmi Science market cap ~KRW 3T)",
     dealSizeUSD: "KRW ~3T HanMi Science market cap",
     evEbitda: "~14x EV/EBITDA",

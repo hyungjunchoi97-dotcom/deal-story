@@ -245,7 +245,7 @@ const deal: DealData = {
     targetBg: "bg-rose-500",
     acquirerName: "Johnson & Johnson",
     targetName: "Kenvue Inc.",
-    dealTitle: "Largest Healthcare Consumer Spinoff / 역대 최대 헬스케어 소비재 분사",
+    dealTitle: "Largest Healthcare Consumer Spinoff",
     dealSize: "$41B (Kenvue IPO market cap)",
     dealSizeUSD: "USD 41B market cap at IPO",
     evEbitda: "~14x EBITDA",

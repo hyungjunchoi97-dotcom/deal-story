@@ -304,7 +304,7 @@ const deal: DealData = {
     targetBg: "bg-blue-600",
     acquirerName: "The Kraft Heinz Company",
     targetName: "Unilever plc / Unilever NV",
-    dealTitle: "48-Hour Hostile Blitz & Instant Rejection / 48시간 기습 공세와 즉각 격퇴",
+    dealTitle: "48-Hour Hostile Blitz & Instant Rejection",
     dealSize: "USD 143B (proposed — withdrawn)",
     dealSizeUSD: "USD 143B proposed — withdrawn in 48 hours",
     evEbitda: "~16x EBITDA (at proposal)",

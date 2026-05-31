@@ -317,7 +317,7 @@ const deal: DealData = {
     targetBg: "bg-blue-700",
     acquirerName: "BHP Billiton Limited / plc",
     targetName: "Rio Tinto plc / Limited",
-    dealTitle: "Largest-Ever Mining Hostile Bid / 역대 최대 광업 적대적 M&A 시도",
+    dealTitle: "Largest-Ever Mining Hostile Bid",
     dealSize: "USD 148B (proposed value)",
     dealSizeUSD: "USD 148B proposed (all-stock)",
     evEbitda: "~13x EBITDA (at proposal)",

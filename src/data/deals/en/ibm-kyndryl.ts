@@ -233,7 +233,7 @@ const deal: DealData = {
     targetBg: "bg-purple-700",
     acquirerName: "IBM (International Business Machines)",
     targetName: "Kyndryl Holdings Inc.",
-    dealTitle: "Legacy IT Infrastructure Spinoff / IT 인프라 레거시 분리",
+    dealTitle: "Legacy IT Infrastructure Spinoff",
     dealSize: "$19B (Kyndryl market cap at listing)",
     dealSizeUSD: "USD 19B market cap at listing",
     evEbitda: "~10x EBITDA",

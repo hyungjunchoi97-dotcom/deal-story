@@ -235,7 +235,7 @@ const deal: DealData = {
     acquirerName: "Discovery, Inc.",
     targetName: "WarnerMedia (AT&T)",
     dealTitle: "Reverse Morris Trust Spin-off Merger",
-    dealSize: "약 $430억 (AT&T 수령 기준)",
+    dealSize: "~$43B (AT&T received)",
     dealSizeUSD: "approx. USD 43 Billion",
     evEbitda: "~9.0×",
     closeDate: "Apr 2022",

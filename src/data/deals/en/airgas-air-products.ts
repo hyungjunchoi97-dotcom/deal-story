@@ -459,7 +459,7 @@ const deal: DealData = {
     targetBg: "bg-orange-600",
     acquirerName: "Air Products and Chemicals, Inc.",
     targetName: "Airgas, Inc.",
-    dealTitle: "Textbook Poison Pill & Just Say No Defense / 포이즌 필·Just Say No 방어의 교과서",
+    dealTitle: "Textbook Poison Pill & Just Say No Defense",
     dealSize: "$5.9B (Air Products Final Offer — Withdrawn)",
     dealSizeUSD: "USD 5.9B final offer — withdrawn",
     evEbitda: "~10x EV/EBITDA (at offer price)",
