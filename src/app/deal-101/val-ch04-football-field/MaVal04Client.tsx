@@ -115,16 +115,16 @@ const LENS = [
     range: [1400, 1650] as [number, number],
     color: "#16a34a",
     koPicks: [
-      "Transaction Comps median 강조",
-      "DCF — Bull case 활용",
-      "LBO reverse-math는 deck 뒤로",
+      "Transaction Comps 중앙값을 앞세움",
+      "DCF는 Bull case 쪽을 강조",
+      "LBO reverse-math는 deck 뒤쪽으로",
     ],
     enPicks: [
       "Lead with transaction comps median",
       "DCF — lean Bull case",
       "LBO reverse-math pushed to back",
     ],
-    koPitch: "\"Premium 회사니까 transaction multiple이 합리적\"",
+    koPitch: "\"프리미엄 자산이니까 transaction 멀티플이 적절한 기준\"",
     enPitch: "\"This is a premium asset — transaction multiples are the right anchor\"",
   },
   {
@@ -134,16 +134,16 @@ const LENS = [
     range: [950, 1150] as [number, number],
     color: "#dc2626",
     koPicks: [
-      "LBO reverse-math 강조",
-      "DCF — Bear/Base 활용",
-      "Transaction Comps에 noise filter",
+      "LBO reverse-math를 앞세움",
+      "DCF는 Bear/Base 쪽을 강조",
+      "Transaction Comps에서 노이즈 거래는 제외",
     ],
     enPicks: [
       "Lead with LBO reverse-math",
       "DCF — lean Bear/Base",
       "Filter noise out of transaction comps",
     ],
-    koPitch: "\"현재 시장 환경이 conservative valuation을 정당화\"",
+    koPitch: "\"지금 시장 상황을 고려하면 보수적인 가격이 합리적\"",
     enPitch: "\"Current market conditions justify a conservative range\"",
   },
 ];
@@ -268,13 +268,13 @@ export default function MaVal04Client({ lang }: { lang: Lang }) {
             </h2>
             <div className="text-[15px] text-gray-700 dark:text-gray-300 leading-[1.85] space-y-4">
               <p>{ko
-                ? "Ch.2에서 DCF range를 만들고 Ch.3에서 Trading·Transaction range를 만들었어요. 그 결과물들이 향하는 종착지가 Football Field입니다. Board, buyer, fairness committee — pitchbook을 보는 사람들이 가장 먼저 펴는 한 페이지예요."
+                ? "Ch.2에서 DCF range를 만들었고, Ch.3에서 Trading·Transaction range를 만들었어요. 그 결과물이 다 모이는 페이지가 Football Field입니다. 이사회, 인수자, fairness 위원회 — pitchbook을 펼쳤을 때 가장 먼저 보는 한 장이에요."
                 : "Ch.2 produced a DCF range, Ch.3 produced trading and transaction ranges. Where those land is the football field. It's the one page boards, buyers, and fairness committees turn to first when they open the pitchbook."}</p>
               <p>{ko
-                ? "왜 한 method로 끝내지 않고 4-5개를 모두 보여주냐면, Ch.1에서 이야기했듯 어느 하나도 단독으로는 incomplete하기 때문이에요. DCF는 가정 한 줄로 30% 흔들리고, Comps는 peer 선정에 따라 멀티플이 2-3배 차이 나고, LBO reverse-math는 max bid만 알려줍니다. 셋·넷을 같이 보여줘야 \"여기가 합리적이다\"가 성립해요."
+                ? "왜 한 가지 method로 끝내지 않고 4-5개를 같이 보여주느냐. Ch.1에서 짚었듯 어느 하나도 혼자서는 부족하기 때문이에요. DCF는 가정 한 줄로 30% 흔들리고, Comps는 peer를 누구로 잡았느냐에 따라 멀티플이 2-3배 차이 나고, LBO reverse-math는 인수자가 낼 수 있는 최대 가격만 보여줍니다. 셋, 넷을 같이 봐야 \"이 가격이 합리적이다\"라는 말이 비로소 성립해요."
                 : "Why show four or five methods instead of just one? Because none holds up alone — Ch.1's point. DCF swings 30% on one assumption line, comps swing 2-3× on peer selection, LBO reverse-math only tells you the max bid. You need three or four side by side before 'this range is reasonable' becomes defensible."}</p>
               <p>{ko
-                ? "그래서 banker가 board에 가져가는 답은 \"EV는 $X\"가 아니라 항상 \"$A ~ $B 범위가 합리적이고, 그 안에서도 $C 부근이 anchor\" 형태입니다. 그 한 페이지를 만드는 게 valuation 작업의 마지막 단계이고, 이번 챕터에서 다루는 내용이에요."
+                ? "그래서 뱅커가 이사회에 가져가는 답은 \"EV는 $X예요\"가 아니라 항상 \"$A ~ $B 범위가 합리적이고, 그 안에서도 $C 부근이 기준점\" 같은 형태가 됩니다. 그 한 페이지를 만드는 게 valuation 작업의 마지막 단계이고, 이번 챕터에서 다룰 내용이에요."
                 : "That's why the answer a banker brings to the board is never 'EV is $X.' It's always '$A to $B is the defensible range, with $C as the anchor.' Building that single page is the last step of the valuation workflow — what this chapter walks through."}</p>
             </div>
           </motion.section>
@@ -288,13 +288,13 @@ export default function MaVal04Client({ lang }: { lang: Lang }) {
             </h2>
             <div className="text-[15px] text-gray-700 dark:text-gray-300 leading-[1.85] space-y-4">
               <p>{ko
-                ? "표준 Football Field는 가로 막대 4-6개로 구성됩니다. 막대 하나는 valuation method 하나, 막대의 길이는 그 method의 가격 range. 그리고 막대들이 겹치는 zone을 박스로 강조하는 게 일반적인 형태예요."
+                ? "표준 Football Field는 가로 막대 4-6개로 구성돼요. 막대 하나가 valuation method 하나, 막대의 길이가 그 method가 가리키는 가격 범위. 막대들이 겹치는 구간을 박스로 표시하는 게 일반적인 모양입니다."
                 : "A standard football field is 4-6 horizontal bars. Each bar is one valuation method; the bar's length is that method's price range. The zone where multiple bars overlap gets highlighted with a box."}</p>
               <p>{ko
-                ? "어떤 막대를 넣느냐는 컨텍스트마다 다른데, 가장 풍부한 sell-side M&A 케이스에서는 보통 이 정도로 쌓입니다 — 52-week high/low (참고), Trading Comps 25-75th percentile, Transaction Comps 25-75th percentile, DCF Bear-Bull range, LBO reverse-math (IRR 20-25%에서 역산한 max bid), 그리고 precedent IPO 멀티플 (필요시)."
+                ? "어떤 막대를 넣느냐는 상황마다 다른데, 가장 막대가 많이 쌓이는 sell-side M&A의 경우 보통 이 정도가 들어갑니다. 52주 고가·저가 (참고용), Trading Comps의 25-75 퍼센타일, Transaction Comps의 25-75 퍼센타일, DCF의 Bear-Bull 구간, LBO reverse-math (IRR 20-25%로 역산해서 인수자가 낼 수 있는 최대 가격), 그리고 필요하면 precedent IPO 멀티플까지."
                 : "Which bars depends on the context. A rich sell-side M&A case usually stacks like this — 52-week high/low (reference), trading comps 25-75th percentile, transaction comps 25-75th percentile, DCF bear-bull range, LBO reverse-math (max bid at IRR 20-25%), and a precedent IPO multiple if relevant."}</p>
               <p>{ko
-                ? "단위는 EV ($M) 또는 share price ($/share) 둘 다 쓰입니다. Public 회사면 $/share가 board에게 더 직관적이고, private 회사나 segment 매각이면 EV $M로 갑니다. X축 상단에 \"current trading\" 라인을 점선으로 그어주면 비교가 한눈에 들어와요."
+                ? "단위는 EV ($M) 또는 주당 가격 ($/share) 둘 다 쓰여요. 상장사면 $/share가 이사회 입장에서 더 직관적이고, 비상장사나 사업부 매각이면 EV $M로 갑니다. X축 위쪽에 \"현재 시장가\" 라인을 점선으로 그어주면 막대들과 한눈에 비교돼요."
                 : "Units are either EV ($M) or share price ($/share). For public companies, $/share reads more naturally to a board; private companies or segment carve-outs use EV in $M. A dashed 'current trading' line across the top axis makes everything immediately legible."}</p>
             </div>
 
@@ -388,7 +388,7 @@ export default function MaVal04Client({ lang }: { lang: Lang }) {
 
               <p className="mt-4 text-[11px] text-gray-500 dark:text-gray-400 leading-relaxed">
                 {ko
-                  ? "흰 세로선 = median. 진한 박스 = overlap zone ($1.2B–$1.3B). Reference 막대(52-week, IPO precedent)는 회색, LBO floor는 오렌지로 차별화."
+                  ? "흰 세로선 = 중앙값. 진한 점선 박스 = 막대들이 겹치는 구간 ($1.2B ~ $1.3B). 참고용 막대(52주 가격, IPO precedent)는 회색, LBO 하한선은 주황으로 구분."
                   : "White vertical bar = median. Highlighted box = overlap zone ($1.2B–$1.3B). Reference bars (52-week, IPO precedent) are grey; LBO floor is orange."}
               </p>
             </div>
@@ -406,13 +406,13 @@ export default function MaVal04Client({ lang }: { lang: Lang }) {
             </h2>
             <div className="text-[15px] text-gray-700 dark:text-gray-300 leading-[1.85] space-y-4">
               <p>{ko
-                ? "4-5개 막대가 겹치는 zone이 \"consensus range\"예요. 위 예시에서는 $1.2B–$1.3B 사이. 이걸 점선 박스로 강조해서 \"이 가격이 어느 한 method의 결과가 아니라 여러 method가 동시에 가리키는 가격\"이라는 메시지를 만듭니다."
+                ? "4-5개 막대가 겹치는 구간이 \"합의 범위 (consensus range)\"예요. 위 예시에서는 $1.2B에서 $1.3B 사이. 이 구간을 점선 박스로 표시해서, 이 가격이 어느 한 method가 단독으로 뽑은 숫자가 아니라 여러 method가 같이 가리키는 숫자라는 걸 시각적으로 보여줍니다."
                 : "The zone where four or five bars overlap is the 'consensus range.' In the example above it's $1.2B–$1.3B. You frame it with a dashed box to make the point — 'this price isn't one method talking, it's several pointing at the same number.'"}</p>
               <p>{ko
-                ? "Overlap이 잘 안 나오면? 그게 더 흔한 상황입니다. 그럴 때 두 가지 길이 있어요. 가정을 다시 보거나, method 한두 개를 제외하는 것. DCF만 혼자 위로 튀어 있으면 Bull case를 너무 공격적으로 잡은 거고, Transaction Comps만 혼자 아래면 deal 풀이 outdated된 거예요. 가정을 정리하면 자연스럽게 overlap이 좁혀집니다."
+                ? "막대들이 잘 안 겹친다면? 사실 그게 더 흔한 상황이에요. 그럴 때 길은 두 가지. 가정을 다시 보거나, method 한두 개를 빼는 것. DCF 막대만 위로 혼자 튀어 있으면 Bull case 가정이 너무 공격적이었다는 신호고, Transaction Comps만 혼자 아래에 있으면 참고한 거래가 너무 옛날 것일 가능성이 큽니다. 가정을 다듬으면 자연스럽게 막대들이 가운데로 모여요."
                 : "Often there's no clean overlap. Two paths from there — revisit assumptions, or drop a method. If DCF sits alone at the top, the Bull case is probably too aggressive. If transaction comps sit alone at the bottom, the deal pool is stale. Tightening assumptions usually pulls things into overlap."}</p>
               <p>{ko
-                ? "Football Field 옆에는 항상 narrative가 같이 들어가요. 막대만 보여주는 게 아니라 \"왜 우리는 high end가 맞다고 보는가\" 또는 \"low end가 conservative\"라는 한 페이지짜리 story를 붙입니다. Sell-side는 보통 growth story로 high end를, buy-side는 risk story로 low end를 정당화하고요."
+                ? "Football Field 옆에는 항상 스토리가 같이 들어갑니다. 막대만 던지는 게 아니라 \"우리는 왜 상한 쪽이 맞다고 보는가\" 또는 \"하한 쪽이 보수적이다\" 라는 한 페이지짜리 설명을 붙이는 거예요. Sell-side는 보통 성장 스토리로 상한 쪽을, buy-side는 리스크 스토리로 하한 쪽을 정당화합니다."
                 : "A football field never travels alone — narrative goes with it. Not just the bars, but a one-page story for why 'high end is right' or 'low end is conservative.' Sell-side leans on a growth story to justify the high end; buy-side leans on a risk story for the low end."}</p>
             </div>
 
@@ -422,7 +422,7 @@ export default function MaVal04Client({ lang }: { lang: Lang }) {
                 {ko ? "Sell-side vs Buy-side — 같은 회사, 두 가지 anchor" : "Sell-side vs Buy-side — same company, two anchors"}
               </p>
               <p className="text-[11px] text-gray-500 dark:text-gray-400 mb-5 leading-relaxed">
-                {ko ? "양쪽이 같은 Football Field 위에서 완전히 다른 가격을 anchor로 잡습니다." : "Both sides anchor at completely different prices on the same football field."}
+                {ko ? "같은 회사를 두고 양쪽이 완전히 다른 가격을 기준점으로 잡습니다." : "Both sides anchor at completely different prices on the same football field."}
               </p>
               <div className="space-y-5">
                 {LENS.map((l, i) => {
@@ -483,7 +483,7 @@ export default function MaVal04Client({ lang }: { lang: Lang }) {
               <div className="mt-5 pt-4 border-t border-gray-200 dark:border-gray-700">
                 <p className="text-[11px] text-gray-500 dark:text-gray-400 leading-relaxed">
                   {ko
-                    ? "같은 회사인데 양쪽 anchor 차이 $450M ($1,050M vs $1,500M). 협상은 결국 이 두 anchor 사이에서 어느 쪽으로 더 끌어가느냐의 게임."
+                    ? "같은 회사인데 양쪽 기준점 차이가 $450M ($1,050M vs $1,500M). 결국 협상은 이 두 기준점 사이에서 가격을 어느 쪽으로 더 끌어오느냐의 싸움이 됩니다."
                     : "Same company, $450M of anchor gap ($1,050M vs $1,500M). Negotiation is the game of which anchor pulls harder."}
                 </p>
               </div>
@@ -499,10 +499,10 @@ export default function MaVal04Client({ lang }: { lang: Lang }) {
             </h2>
             <div className="text-[15px] text-gray-700 dark:text-gray-300 leading-[1.85] space-y-4">
               <p>{ko
-                ? "Football Field는 같은 레이아웃이라도 어떤 컨텍스트에서 만드냐에 따라 막대의 무게 중심이 달라요. IPO에서 main으로 잡는 method와 LBO에서 main으로 잡는 method가 완전히 다릅니다. 이걸 모르고 같은 방식으로 만들면 board가 받아들이지 못해요."
+                ? "같은 레이아웃의 Football Field라도 어떤 상황에서 만드느냐에 따라 막대의 무게 중심이 달라져요. IPO에서 메인으로 잡는 method와 LBO에서 메인으로 잡는 method가 완전히 다릅니다. 이 차이를 모르고 똑같이 만들어 가져가면 이사회가 받아들이질 않아요."
                 : "Same layout, but the bar that carries the weight depends on the context. The main method in an IPO is completely different from the main method in an LBO. Build them the same way and the board won't buy it."}</p>
               <p>{ko
-                ? "5가지 컨텍스트별로 매핑하면 아래 표처럼 정리됩니다. \"Main\"이 그 상황의 anchor가 되는 method, \"Sec\"이 보조, 빈 칸은 아예 안 보여줍니다."
+                ? "5가지 상황별로 정리하면 아래 표처럼 됩니다. \"MAIN\"이 그 상황에서 기준점이 되는 method, \"Sec\"이 보조 method, 빈 칸은 그 상황에선 아예 안 쓰이는 method예요."
                 : "Mapped across five contexts it lands like this. 'Main' is the anchor method for that situation, 'Sec' is supporting, blank means it doesn't appear at all."}</p>
             </div>
 
@@ -557,16 +557,16 @@ export default function MaVal04Client({ lang }: { lang: Lang }) {
             <div className="text-[15px] text-gray-700 dark:text-gray-300 leading-[1.85] space-y-4 mt-7">
               <p className="font-bold text-gray-900 dark:text-gray-100">{ko ? "왜 이렇게 갈리는가" : "Why it splits this way"}</p>
               <p>{ko
-                ? "IPO에서는 시장 peer가 매일 가격을 매기는 \"오늘의 multiple\"이 가장 신뢰받습니다. Transaction은 control premium이 들어가 있어서 IPO에는 너무 비싼 reference예요. M&A sell-side는 반대로 control premium이 들어간 transaction이 정당한 anchor가 됩니다 — 100% 인수 상황이니까요."
+                ? "IPO에서는 시장의 peer들이 매일 가격을 매기는 \"오늘 시점의 멀티플\"이 가장 신뢰받습니다. Transaction은 control premium이 들어가 있어서 IPO 가격을 산정하기엔 너무 비싼 참고치예요. M&A sell-side는 반대로 control premium이 포함된 transaction이 적절한 기준점이 됩니다. 회사를 통째로 넘기는 상황이니까요."
                 : "In an IPO, what gets trusted most is the 'today's multiple' that market peers price daily. Transactions sit too high — they include control premium, which doesn't belong in an IPO. M&A sell-side flips it: transactions with their control premium become the right anchor, because you're selling 100% control."}</p>
               <p>{ko
-                ? "M&A buy-side가 DCF로 main을 잡는 건, buy-side는 \"이 회사가 우리한테 얼마짜리인가\"를 정량화해야 해서 그래요. Synergy를 포함한 DCF가 그 답이 되고, LBO reverse-math는 옆에서 \"PE bidder는 얼마까지 낼 수 있나\"를 견제용으로 같이 봅니다."
+                ? "M&A buy-side가 DCF를 메인으로 잡는 이유는, 인수자 입장에선 \"이 회사가 우리한테 얼마짜리냐\"를 숫자로 풀어야 하기 때문이에요. 시너지까지 반영한 DCF가 그 답이 되고, LBO reverse-math는 \"PE 인수자가 들어오면 얼마까지 낼 수 있나\"를 옆에서 같이 보면서 입찰 경쟁을 견제하는 역할을 합니다."
                 : "M&A buy-side leads with DCF because the buyer has to quantify 'what's this worth to us specifically.' DCF with synergy gives that answer; LBO reverse-math sits alongside to check 'how high can a PE bidder go.'"}</p>
               <p>{ko
-                ? "LBO에서 main이 LBO reverse-math인 건 너무 당연해요. PE는 IRR 20-25%로 들어가야 하니까, exit assumption에서 역산해서 max bid를 구하는 게 처음부터 끝까지의 작업입니다. Trading Comps는 entry·exit multiple 비교용 사이드 토픽이 되고요."
+                ? "LBO에서 LBO reverse-math가 메인인 건 너무 당연해요. PE는 IRR 20-25%를 맞춰야 하니까, exit 가정에서 역산해서 \"우리가 낼 수 있는 최대 가격\"을 구하는 게 처음부터 끝까지의 작업입니다. Trading Comps는 들어갈 때와 나올 때 멀티플을 비교해보는 보조 자료가 됩니다."
                 : "LBO's lead being reverse-math is almost a tautology. PE has to clear IRR 20-25%, so backing out max bid from exit assumptions is the whole exercise. Trading comps become a side reference for entry vs exit multiples."}</p>
               <p>{ko
-                ? "Restructuring은 완전히 다른 세계예요. \"이 회사가 going-concern으로 살아남을 가치 vs 지금 청산했을 때 가치\"의 비교가 본질입니다. Trading·Transaction 멀티플은 부적절하고, Asset-based (liquidation)가 메인, going-concern DCF가 그 위의 비교 기준이 돼요. Ch.6에서 Caesars 케이스로 자세히 다룰 예정."
+                ? "Restructuring은 완전히 다른 세계예요. 핵심 비교는 \"회사를 계속 굴렸을 때의 가치 (going-concern)\"와 \"지금 청산했을 때의 가치 (liquidation)\" 두 숫자입니다. Trading·Transaction 멀티플은 이 상황에 맞지 않고, 청산가치(asset-based)가 메인 기준이 되고, 그 위에 going-concern DCF가 비교 대상으로 올라가요. 자세한 흐름은 Ch.6의 Caesars 케이스에서 다룹니다."
                 : "Restructuring lives in a different universe. The core comparison is 'what's this worth as a going concern vs liquidated today.' Trading and transaction multiples are inappropriate; asset-based liquidation leads, with going-concern DCF as the comparator above it. Ch.6 walks through Caesars in detail."}</p>
             </div>
           </motion.section>
@@ -580,13 +580,13 @@ export default function MaVal04Client({ lang }: { lang: Lang }) {
             </h2>
             <div className="text-[15px] text-gray-700 dark:text-gray-300 leading-[1.85] space-y-4">
               <p>{ko
-                ? "처음 만든 Football Field의 막대 전체 footprint를 보면 보통 너무 wide합니다. 가장 낮은 막대의 low end와 가장 높은 막대의 high end 사이가 $700-800M 벌어지는 게 흔해요. 그 상태로는 board가 의사결정을 못 합니다. \"이 회사 EV가 $850M에서 $1,650M\" 같은 답으로 가져가면 \"그래서 얼마야\"라는 질문이 다시 돌아와요."
+                ? "처음 그린 Football Field 전체 범위를 보면 보통 너무 넓습니다. 가장 낮은 막대의 하한과 가장 높은 막대의 상한 사이가 $700-800M씩 벌어지는 게 흔해요. 이 상태 그대로 가져가면 이사회가 의사결정을 못 합니다. \"이 회사 EV는 $850M에서 $1,650M 사이입니다\" 라고 답하면 \"그래서 얼마라는 거야\" 라는 질문이 그대로 돌아와요."
                 : "The full bar footprint of a first-draft football field is usually too wide. The gap between the lowest low and the highest high routinely runs $700-800M. The board can't act on that. Bring back 'EV is somewhere between $850M and $1,650M' and you'll get 'so what is it' right back."}</p>
               <p>{ko
-                ? "그래서 마지막 작업이 range를 narrow하게 만드는 거예요. 단계는 보통 세 가지. 첫째, outlier 제거 (52-week low처럼 시장 노이즈, NM peer, 시장 컨디션이 다른 옛날 transaction). 둘째, 컨텍스트에 안 맞는 method 빼기 (IPO면 transaction comps 제외, restructuring이면 LBO 제외). 셋째, overlap zone을 \"recommended range\"로 한 줄로 정리하기."
+                ? "그래서 마지막 작업이 이 범위를 좁히는 거예요. 보통 세 단계로 진행합니다. 첫째, 이상치 제거. 52주 저가 같은 시장 노이즈, NM 처리된 peer, 거래 당시 시장 환경이 지금과 크게 다른 옛날 transaction 같은 걸 빼냅니다. 둘째, 그 상황에 안 맞는 method 빼기. IPO면 transaction comps를 빼고, restructuring이면 LBO를 빼는 식이에요. 셋째, 막대들이 겹치는 구간만 남겨서 \"권장 범위 (recommended range)\" 한 줄로 정리합니다."
                 : "The last step is narrowing. Usually three moves. One, drop outliers (52-week noise, NM peers, stale transactions with different market conditions). Two, drop methods that don't fit the context (transactions out for IPO, LBO out for restructuring). Three, condense the overlap zone into a single 'recommended range.'"}</p>
               <p>{ko
-                ? "최종 결과물이 \"$1,200M – $1,300M\" 같은 한 줄이고, 그 폭이 $100M까지 좁혀지면 board는 그 안에서 의사결정을 할 수 있어요. \"$1,250M에서 매각 deal을 시작하자\" 같은 식으로요."
+                ? "최종 결과는 \"$1,200M ~ $1,300M\" 같은 한 줄이 됩니다. 폭이 $100M 정도까지 좁혀지면 이사회는 그 안에서 결정할 수 있어요. \"$1,250M으로 매각 협상을 시작하자\" 같은 식으로요."
                 : "The final output is a single line like '$1,200M – $1,300M.' When that band is $100M wide, the board can decide inside it — 'let's open the sell-side at $1,250M.'"}</p>
             </div>
 
@@ -596,7 +596,7 @@ export default function MaVal04Client({ lang }: { lang: Lang }) {
                 {ko ? "Range Narrowing — 4단계 funnel" : "Range narrowing — four-step funnel"}
               </p>
               <p className="text-[11px] text-gray-500 dark:text-gray-400 mb-5 leading-relaxed">
-                {ko ? "$800M 폭에서 $100M 폭으로 줄여 board가 받아들일 수 있는 한 줄로." : "From $800M wide to $100M wide — a single line the board can act on."}
+                {ko ? "$800M 폭에서 $100M 폭까지 줄여서 이사회가 받아들일 수 있는 한 줄로." : "From $800M wide to $100M wide — a single line the board can act on."}
               </p>
               <div className="space-y-4">
                 {NARROW.map((n, i) => {
@@ -647,14 +647,14 @@ export default function MaVal04Client({ lang }: { lang: Lang }) {
               </div>
               <p className="mt-4 text-[11px] text-gray-500 dark:text-gray-400 leading-relaxed">
                 {ko
-                  ? "$800M (Δ $800M) → $520M → $350M → $100M. 단계마다 width가 줄어드는 게 보이도록 정렬. 4단계 결과가 board의 한 줄."
+                  ? "Δ $800M → $520M → $350M → $100M. 단계마다 폭이 좁아지는 게 한눈에 보이게 정렬. 마지막 4단계가 이사회에 가져갈 한 줄입니다."
                   : "$800M (Δ $800M) → $520M → $350M → $100M. Each step's width visibly shrinks. The fourth becomes the board's one line."}
               </p>
             </div>
 
             <div className="text-[15px] text-gray-700 dark:text-gray-300 leading-[1.85] space-y-4 mt-7">
               <p>{ko
-                ? "Ch.5와 Ch.6에서는 이 작업이 실제 deal에서 어떻게 진행됐는지를 봅니다. IPO에서 Trading Comps가 anchor가 됐을 때 어떤 일이 벌어졌는지 (Facebook IPO 2012), 그리고 going-concern vs liquidation이 법정에서 충돌했을 때 어떻게 풀렸는지 (Caesars Chapter 11)."
+                ? "Ch.5와 Ch.6에서는 지금까지 설명한 작업이 실제 거래에서 어떻게 풀렸는지를 두 가지 사례로 봅니다. IPO에서 Trading Comps를 기준점으로 잡았을 때 무슨 일이 벌어졌는지 (Facebook IPO, 2012), 그리고 \"회사를 계속 굴렸을 때의 가치\"와 \"지금 청산했을 때의 가치\" 두 숫자를 두고 채권자와 주주가 파산 법정에서 어떻게 싸웠는지 (Caesars Chapter 11)."
                 : "Ch.5 and Ch.6 watch this play out in real deals. What happens when trading comps anchor an IPO (Facebook 2012), and how going-concern vs liquidation collide in bankruptcy court (Caesars Chapter 11)."}</p>
             </div>
           </motion.section>
@@ -668,7 +668,7 @@ export default function MaVal04Client({ lang }: { lang: Lang }) {
               </p>
               <p className="text-[12px] text-gray-500 dark:text-gray-400 mt-1 leading-relaxed">
                 {ko
-                  ? "Morgan Stanley가 $38로 가격을 매긴 과정. Trading Comps가 anchor였던 deal에서 첫날 폭락이 valuation 작업의 어디에서 깨졌는지 분해."
+                  ? "Morgan Stanley가 $38이라는 공모가에 도달한 과정을 따라갑니다. Trading Comps를 기준점으로 잡았던 이 거래에서, 첫날 주가 폭락이 valuation 작업의 어느 지점에서 깨진 것인지 단계별로 짚어봅니다."
                   : "How Morgan Stanley arrived at $38. With trading comps as the anchor, where exactly the valuation broke when the stock collapsed on day one."}
               </p>
             </div>
