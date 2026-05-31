@@ -71,8 +71,8 @@ export const VAL_CHAPTERS: ValChapter[] = [
     titleEn: "IPO Valuation Case — the Facebook IPO (2012)",
     taglineKo: "Morgan Stanley의 $38 가격 산정과 첫날 폭락",
     taglineEn: "Morgan Stanley's $38 pricing and the first-day collapse",
-    readingMinutes: 12,
-    status: "draft",
+    readingMinutes: 13,
+    status: "published",
   },
   {
     slug: "val-ch06-distressed-case",
