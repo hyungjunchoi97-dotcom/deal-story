@@ -81,8 +81,8 @@ export const VAL_CHAPTERS: ValChapter[] = [
     titleEn: "Distressed Valuation Case — Caesars Chapter 11",
     taglineKo: "Going-concern $11B vs liquidation $7B. 파산 법정에서의 가치 다툼",
     taglineEn: "$11B going-concern vs $7B liquidation. The valuation fight in bankruptcy court",
-    readingMinutes: 12,
-    status: "draft",
+    readingMinutes: 13,
+    status: "published",
   },
 ];
 
