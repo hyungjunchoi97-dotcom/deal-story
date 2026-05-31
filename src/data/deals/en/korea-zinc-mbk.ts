@@ -39,9 +39,9 @@ const koreaZincMbk: DealData = {
   background: [
     "Korea Zinc was co-founded in 1949 by Choi Ki-ho and Jang Byeong-hee as a joint venture between two families — the Choi family (managing Korea Zinc operations) and the Jang family (controlling Young Poong Group). For over 70 years, both families shared board representation and co-governed the company. Korea Zinc holds roughly 10% of global zinc smelting share (world #1) and retains advanced refining capabilities for lead, silver, gold, indium and germanium — making it one of Korea's most strategic non-ferrous players.",
     "The dual-family arrangement began to fracture after Yun-bum Choi became chairman in 2022. Chairman Choi launched the 'Troika Drive' — large-scale investments into EV battery materials, green hydrogen and solar components, financed from Korea Zinc's strong zinc-smelting cash flows. Young Poong (Jang family, 25.42%), the largest shareholder but with no operating control, grew increasingly opposed to the capex burn.",
-    "**Round 1 (Sep 2024 – Mar 2025) — The Tender Offer War.** On Sep 13, 2024 MBK Partners and Young Poong jointly launched a hostile tender offer at ₩660,000/share, targeting a 14.61% additional stake to push the coalition past 40% and secure a board majority. Korea Zinc's board retaliated nine days later with a counter-buyback at ₩830,000/share — 26% above MBK. With both bids competing in the open market, the stock rocketed from ₩515,000 to ₩1,630,000 (+217%) in six weeks. MBK acquired 14.17% (coalition ~40.97%) but lost all four director seats at the January 2025 EGM, and on Mar 28, 2025 the court dismissed MBK's injunction blocking treasury-share cancellation. Round 1 closed with Chairman Choi's defense intact.",
-    "**Round 2 (Apr 2025 – Apr 2026) — A U.S. Government White Knight.** Markets assumed the contest was over. Instead, on Dec 15, 2025 Korea Zinc announced a ₩2.85 trillion private placement to \"Crucible JV LLC\" — a joint venture co-sponsored by the U.S. Department of Defense, Department of Commerce, and strategic investors. The JV took ~10.59% of Korea Zinc through 2.2 million new shares at ₩1,290,000 each. Simultaneously, Korea Zinc announced an ₩11 trillion ($7.4B) fully integrated non-ferrous smelter on the Nyrstar site in Tennessee (groundbreaking 2027, operations 2029). The plan slotted directly into the Trump-2 administration's critical-minerals security strategy.",
-    "**Legal and Boardroom Endgame.** Young Poong and MBK sought an injunction to block the new share issuance; the Seoul Central District Court dismissed it on Dec 24, 2025. In January 2026, Korea Zinc's Australian subsidiary SMC (Sun Metals Corporation) acquired 10.33% of Young Poong, triggering Article 369(3) of the Commercial Code — a cross-shareholding rule that automatically disenfranchises Young Poong's Korea Zinc votes. The March 24, 2026 AGM confirmed Chairman Choi's re-election plus a Crucible JV-nominated director (Walter McLallen); MBK/Young Poong won two seats through cumulative voting (board now 9:5), but their proposed stock split was voted down. On April 2, 2026, the Supreme Court issued its final ruling upholding the cross-shareholding mechanism — effectively ending the 18-month dispute. The stock peaked at ₩1,910,000 intraday on Dec 15, 2025 and stabilized around ₩1,528,000 by mid-May 2026.",
+    "[Round 1 (Sep 2024 – Mar 2025) — The Tender Offer War.] On Sep 13, 2024 MBK Partners and Young Poong jointly launched a hostile tender offer at ₩660,000/share, targeting a 14.61% additional stake to push the coalition past 40% and secure a board majority. Korea Zinc's board retaliated nine days later with a counter-buyback at ₩830,000/share — 26% above MBK. With both bids competing in the open market, the stock rocketed from ₩515,000 to ₩1,630,000 (+217%) in six weeks. MBK acquired 14.17% (coalition ~40.97%) but lost all four director seats at the January 2025 EGM, and on Mar 28, 2025 the court dismissed MBK's injunction blocking treasury-share cancellation. Round 1 closed with Chairman Choi's defense intact.",
+    "[Round 2 (Apr 2025 – Apr 2026) — A U.S. Government White Knight.] Markets assumed the contest was over. Instead, on Dec 15, 2025 Korea Zinc announced a ₩2.85 trillion private placement to \"Crucible JV LLC\" — a joint venture co-sponsored by the U.S. Department of Defense, Department of Commerce, and strategic investors. The JV took ~10.59% of Korea Zinc through 2.2 million new shares at ₩1,290,000 each. Simultaneously, Korea Zinc announced an ₩11 trillion ($7.4B) fully integrated non-ferrous smelter on the Nyrstar site in Tennessee (groundbreaking 2027, operations 2029). The plan slotted directly into the Trump-2 administration's critical-minerals security strategy.",
+    "[Legal and Boardroom Endgame.] Young Poong and MBK sought an injunction to block the new share issuance; the Seoul Central District Court dismissed it on Dec 24, 2025. In January 2026, Korea Zinc's Australian subsidiary SMC (Sun Metals Corporation) acquired 10.33% of Young Poong, triggering Article 369(3) of the Commercial Code — a cross-shareholding rule that automatically disenfranchises Young Poong's Korea Zinc votes. The March 24, 2026 AGM confirmed Chairman Choi's re-election plus a Crucible JV-nominated director (Walter McLallen); MBK/Young Poong won two seats through cumulative voting (board now 9:5), but their proposed stock split was voted down. On April 2, 2026, the Supreme Court issued its final ruling upholding the cross-shareholding mechanism — effectively ending the 18-month dispute. The stock peaked at ₩1,910,000 intraday on Dec 15, 2025 and stabilized around ₩1,528,000 by mid-May 2026.",
   ],
 
   // ── Deal Summary ──────────────────────────────────────────────
@@ -56,14 +56,14 @@ const koreaZincMbk: DealData = {
 
   // ── Executive Summary ─────────────────────────────────────────
   executiveSummary: [
-    "**Round 1 Tender Offer War:** MBK Partners + Young Poong launched a hostile bid at ₩660,000/share for a 14.61% stake on Sep 13, 2024; Korea Zinc countered nine days later with a defensive treasury buyback at ₩830,000/share — Korea's largest-ever control battle began.",
+    "[Round 1 Tender Offer War:] MBK Partners + Young Poong launched a hostile bid at ₩660,000/share for a 14.61% stake on Sep 13, 2024; Korea Zinc countered nine days later with a defensive treasury buyback at ₩830,000/share — Korea's largest-ever control battle began.",
     "Dueling bids drove the stock from ₩515,000 to ₩1,630,000 (+217%) in six weeks. MBK acquired 14.17% (coalition ~40.97%); all four MBK-backed director nominees were defeated at the January 2025 EGM.",
-    "Round 1 closed Mar 28, 2025 when the court dismissed MBK's final injunction on treasury-share cancellation. **Choi's defense held — but MBK/Young Poong retained ~41%, leaving the contest open.**",
-    "**Round 2 — A U.S. Government White Knight (Dec 15, 2025):** Korea Zinc issued ₩2.85 trillion in new shares (2.2M shares @ ₩1,290,000) to Crucible JV LLC — a joint venture sponsored by the U.S. Department of Defense, the Department of Commerce, and strategic investors. The JV took ~10.59% of Korea Zinc; MBK/Young Poong were diluted to ~36%.",
-    "**₩11 Trillion Tennessee Smelter:** On the same day, Korea Zinc announced an ₩11T ($7.4B) fully integrated non-ferrous metals smelter on the Nyrstar site in Tennessee (groundbreaking 2027, operations 2029) — directly aligned with the Trump-2 critical-minerals security strategy. Korea Zinc was repositioned from a Korean non-ferrous company to a Korea-U.S. critical-minerals supply chain pillar.",
-    "**Legal endgame:** Seoul Central District Court dismissed Young Poong/MBK's injunction on the new share issuance (Dec 24, 2025). SMC (Korea Zinc's Australian subsidiary) acquired 10.33% of Young Poong, triggering Article 369(3) cross-shareholding rules that automatically restricted Young Poong's voting rights. The Supreme Court confirmed the mechanism on April 2, 2026 — ending the 18-month dispute.",
-    "**March 24, 2026 AGM:** Chairman Choi re-elected with Crucible JV-nominated director Walter McLallen joining the board. MBK/Young Poong gained two seats via cumulative voting (board now 9:5). Their proposed stock split was rejected.",
-    "**Performance and price:** FY2024 revenue ₩12.08T · operating profit ₩736B (+24.5%/+11.5% YoY), FY2025 operating profit ~₩1.2T (44 consecutive years and 100 consecutive quarters of profitability), 1Q 2026 revenue ₩6.07T · operating profit ₩746B (record quarterly highs). Stock at ~₩1,528,000 in May 2026 (+197% vs. pre-contest).",
+    "Round 1 closed Mar 28, 2025 when the court dismissed MBK's final injunction on treasury-share cancellation. [Choi's defense held — but MBK/Young Poong retained ~41%, leaving the contest open.]",
+    "[Round 2 — A U.S. Government White Knight (Dec 15, 2025):] Korea Zinc issued ₩2.85 trillion in new shares (2.2M shares @ ₩1,290,000) to Crucible JV LLC — a joint venture sponsored by the U.S. Department of Defense, the Department of Commerce, and strategic investors. The JV took ~10.59% of Korea Zinc; MBK/Young Poong were diluted to ~36%.",
+    "[₩11 Trillion Tennessee Smelter:] On the same day, Korea Zinc announced an ₩11T ($7.4B) fully integrated non-ferrous metals smelter on the Nyrstar site in Tennessee (groundbreaking 2027, operations 2029) — directly aligned with the Trump-2 critical-minerals security strategy. Korea Zinc was repositioned from a Korean non-ferrous company to a Korea-U.S. critical-minerals supply chain pillar.",
+    "[Legal endgame:] Seoul Central District Court dismissed Young Poong/MBK's injunction on the new share issuance (Dec 24, 2025). SMC (Korea Zinc's Australian subsidiary) acquired 10.33% of Young Poong, triggering Article 369(3) cross-shareholding rules that automatically restricted Young Poong's voting rights. The Supreme Court confirmed the mechanism on April 2, 2026 — ending the 18-month dispute.",
+    "[March 24, 2026 AGM:] Chairman Choi re-elected with Crucible JV-nominated director Walter McLallen joining the board. MBK/Young Poong gained two seats via cumulative voting (board now 9:5). Their proposed stock split was rejected.",
+    "[Performance and price:] FY2024 revenue ₩12.08T · operating profit ₩736B (+24.5%/+11.5% YoY), FY2025 operating profit ~₩1.2T (44 consecutive years and 100 consecutive quarters of profitability), 1Q 2026 revenue ₩6.07T · operating profit ₩746B (record quarterly highs). Stock at ~₩1,528,000 in May 2026 (+197% vs. pre-contest).",
   ],
 
   // ── Industry Overview ─────────────────────────────────────────
@@ -108,7 +108,7 @@ const koreaZincMbk: DealData = {
 
   // ── Control Battle Overview ────────────────────────────────────
   controlBattleOverview: {
-    body: "This was the longest control battle in Korean M&A history at 18 months, divided into two distinct rounds. **Round 1 (Sep 2024 – Mar 2025)** played out on Korea's familiar capital-markets stage — dueling tender offers, EGM proxy fights, court injunctions — with the stock spiking from ₩515,000 to ₩1,630,000 (+217%) before Chairman Choi's defense held. **Round 2 (Apr 2025 – Apr 2026)** reset the entire game by importing an unprecedented variable: the U.S. Department of Defense as white knight. A ₩2.85 trillion private placement to Crucible JV and a separate ₩11 trillion smelter in Tennessee elevated the dispute from a Korean control contest into a Korea-U.S. critical-minerals supply chain realignment, sealed by the Supreme Court ruling of April 2, 2026.",
+    body: "This was the longest control battle in Korean M&A history at 18 months, divided into two distinct rounds. [Round 1 (Sep 2024 – Mar 2025)] played out on Korea's familiar capital-markets stage — dueling tender offers, EGM proxy fights, court injunctions — with the stock spiking from ₩515,000 to ₩1,630,000 (+217%) before Chairman Choi's defense held. [Round 2 (Apr 2025 – Apr 2026)] reset the entire game by importing an unprecedented variable: the U.S. Department of Defense as white knight. A ₩2.85 trillion private placement to Crucible JV and a separate ₩11 trillion smelter in Tennessee elevated the dispute from a Korean control contest into a Korea-U.S. critical-minerals supply chain realignment, sealed by the Supreme Court ruling of April 2, 2026.",
     catalyst:
       "Round 1's catalyst was the accumulated frustration of Young Poong, the largest shareholder shut out of operating control while Chairman Choi's 'Troika Drive' redirected zinc-smelting cash flows into EV materials, solar, and hydrogen. Round 2's catalyst was the unresolved overhang after Round 1: MBK and Young Poong still held ~41% of Korea Zinc, leaving the threat alive. Chairman Choi escalated from \"defending the share count\" to \"redefining what Korea Zinc is\" — and the Trump administration's critical-minerals security strategy provided the matching demand.",
     attackerLabel: "MBK Partners + Young Poong",
@@ -183,7 +183,7 @@ const koreaZincMbk: DealData = {
         date: "2026-01-15",
         actor: "SMC (Sun Metals Corporation)",
         side: "defense",
-        move: "**[Round 2 Begins]** SMC Acquires 10.33% of Young Poong — Cross-Shareholding Triggered",
+        move: "[[Round 2 Begins]] SMC Acquires 10.33% of Young Poong — Cross-Shareholding Triggered",
         detail:
           "Sun Metals Corporation, Korea Zinc's wholly-owned Australian subsidiary, acquired 10.33% of Young Poong on the open market. Under Article 369(3) of the Korean Commercial Code, the cross-shareholding immediately disenfranchises Young Poong's Korea Zinc votes. MBK and Young Poong filed injunctions to block the mechanism.",
         weapon: "Cross-Shareholding Disenfranchisement",
@@ -192,7 +192,7 @@ const koreaZincMbk: DealData = {
         date: "2025-12-15",
         actor: "Korea Zinc Board",
         side: "defense",
-        move: "**₩2.85 Trillion Private Placement to U.S. DoD/DoC Crucible JV**",
+        move: "[₩2.85 Trillion Private Placement to U.S. DoD/DoC Crucible JV]",
         detail:
           "Korea Zinc issued 2.2 million new shares at ₩1,290,000 (total ₩2.85T) to Crucible JV LLC — a joint venture co-sponsored by the U.S. Department of Defense, the Department of Commerce, and strategic investors. The JV acquired ~10.59% of Korea Zinc, diluting the MBK+Young Poong coalition from ~40.97% to ~36%. On the same day, Korea Zinc announced an ₩11 trillion ($7.4B) fully integrated non-ferrous smelter on the Nyrstar site in Tennessee (groundbreaking 2027, operations 2029).",
         weapon: "Strategic Equity Issuance (White Knight PIPE)",
@@ -221,7 +221,7 @@ const koreaZincMbk: DealData = {
         date: "2026-04-02",
         actor: "Supreme Court of Korea",
         side: "neutral",
-        move: "**Supreme Court Affirms Cross-Shareholding — Dispute Effectively Closed**",
+        move: "[Supreme Court Affirms Cross-Shareholding — Dispute Effectively Closed]",
         detail:
           "The Supreme Court dismissed Young Poong and MBK's final appeal, affirming that SMC's cross-shareholding restriction on Young Poong's votes is a legitimate exercise of rights under Article 369(3) of the Commercial Code. This ruling formally ended the 18-month dispute and crystallized cross-shareholding as a recognized defensive tool in Korean M&A.",
         weapon: "Supreme Court Final Ruling",
@@ -310,7 +310,7 @@ const koreaZincMbk: DealData = {
       preContest: "₩515,000 (Sep 12, 2024 — day before Round 1 launch)",
       peak: "₩1,910,000 (Dec 15, 2025 intraday — Round 2 Crucible JV announcement)",
       postContest: "~₩1,528,000 (May 13, 2026)",
-      note: "Two distinct surge cycles. **Round 1**: ₩515K → ₩1.63M (Oct 4, 2024 +217%) → ₩640K (Mar 2025 normalization). **Round 2**: ₩640K → ₩1.91M (Dec 15, 2025 Crucible JV announcement +198%) → ₩1.14M (Jan 9, 2026) → ₩1.53M (May 13, 2026). Pre-contest ₩515K → May 2026 ₩1.53M = +197% over the 20-month dispute. MSCI deletion (triggered by reduced free float from the Crucible JV issuance) was offset by strong earnings (FY2025 OP ₩1.2T, 1Q 2026 record).",
+      note: "Two distinct surge cycles. [Round 1]: ₩515K → ₩1.63M (Oct 4, 2024 +217%) → ₩640K (Mar 2025 normalization). [Round 2]: ₩640K → ₩1.91M (Dec 15, 2025 Crucible JV announcement +198%) → ₩1.14M (Jan 9, 2026) → ₩1.53M (May 13, 2026). Pre-contest ₩515K → May 2026 ₩1.53M = +197% over the 20-month dispute. MSCI deletion (triggered by reduced free float from the Crucible JV issuance) was offset by strong earnings (FY2025 OP ₩1.2T, 1Q 2026 record).",
     },
   },
 
@@ -444,11 +444,11 @@ const koreaZincMbk: DealData = {
       initials: "MBK",
       bg: "bg-slate-800",
       points: [
-        "**Round 1 attack logic**: Korea Zinc generates ~₩2 trillion annual EBITDA from world-leading zinc smelting — a PE-optimal cash flow profile for a leveraged buyout and dividend/asset-sale return extraction.",
-        "**Largest shareholder lever**: Young Poong (25.42%) had 70 years of governance frustration as the largest shareholder shut out of operating control. The narrative \"we are exercising the legitimate rights of the controlling shareholder\" provided political cover.",
-        "**Partial Round 1 success**: Acquired 14.17% (coalition ~40.97%), the single largest stake block in the Korean capital market. But translating that into board control failed at the January 2025 EGM.",
-        "**Round 2 decisive defeat**: A U.S. Department of Defense white knight was nowhere in the typical PE playbook. Injunctions against the new share issuance were dismissed by the Seoul Central District Court and the Supreme Court. SMC's cross-shareholding then restricted Young Poong's votes.",
-        "**Current standing**: MBK's 14.17% stake is mark-to-market positive (₩660K average → ~₩1.53M = +131%), but the reputational cost of a failed hostile bid is permanent. Drag-along exit via block trade is reportedly under consideration (Investchosun, 2025-2026).",
+        "[Round 1 attack logic]: Korea Zinc generates ~₩2 trillion annual EBITDA from world-leading zinc smelting — a PE-optimal cash flow profile for a leveraged buyout and dividend/asset-sale return extraction.",
+        "[Largest shareholder lever]: Young Poong (25.42%) had 70 years of governance frustration as the largest shareholder shut out of operating control. The narrative \"we are exercising the legitimate rights of the controlling shareholder\" provided political cover.",
+        "[Partial Round 1 success]: Acquired 14.17% (coalition ~40.97%), the single largest stake block in the Korean capital market. But translating that into board control failed at the January 2025 EGM.",
+        "[Round 2 decisive defeat]: A U.S. Department of Defense white knight was nowhere in the typical PE playbook. Injunctions against the new share issuance were dismissed by the Seoul Central District Court and the Supreme Court. SMC's cross-shareholding then restricted Young Poong's votes.",
+        "[Current standing]: MBK's 14.17% stake is mark-to-market positive (₩660K average → ~₩1.53M = +131%), but the reputational cost of a failed hostile bid is permanent. Drag-along exit via block trade is reportedly under consideration (Investchosun, 2025-2026).",
       ],
     },
     seller: {
@@ -456,12 +456,12 @@ const koreaZincMbk: DealData = {
       initials: "KZ",
       bg: "bg-amber-600",
       points: [
-        "**Round 1 defense**: Counter-buyback at ₩830,000 nine days after MBK's bid — the fastest defensive tender offer in Korean history. EGM proxy mobilization defeated all four MBK director nominees through NPS partial support.",
-        "**The Round 2 pivot**: With MBK/Young Poong still holding ~41% after Round 1, defense alone was insufficient. The strategic decision was to escalate from \"defending the share count\" to \"redefining what Korea Zinc is\" — partnering with the U.S. government.",
-        "**The U.S. white knight**: ₩2.85 trillion private placement to Crucible JV (DoD/DoC + strategic investors) on Dec 15, 2025, paired with the ₩11 trillion Tennessee smelter plan. The first case in Korean M&A history of international security capital arriving as a white knight.",
-        "**Cross-shareholding mechanism**: SMC's 10.33% stake in Young Poong (Jan 2026) triggered Article 369(3) of the Commercial Code — automatically restricting Young Poong's votes. Supreme Court affirmed legality on April 2, 2026.",
-        "**Strategic asset elevation**: Not just retaining control but repositioning Korea Zinc as a pillar of the Korea-U.S. critical-minerals supply chain, perfectly aligned with the Trump-2 critical-minerals strategy. The Korean non-ferrous incumbent became a global strategic asset.",
-        "**Earnings tailwind**: FY2025 OP ~₩1.2T (44 consecutive years of profit), 1Q 2026 record (revenue ₩6.07T, OP ₩746B) — defense success plus earnings strength drove the +197% post-contest move.",
+        "[Round 1 defense]: Counter-buyback at ₩830,000 nine days after MBK's bid — the fastest defensive tender offer in Korean history. EGM proxy mobilization defeated all four MBK director nominees through NPS partial support.",
+        "[The Round 2 pivot]: With MBK/Young Poong still holding ~41% after Round 1, defense alone was insufficient. The strategic decision was to escalate from \"defending the share count\" to \"redefining what Korea Zinc is\" — partnering with the U.S. government.",
+        "[The U.S. white knight]: ₩2.85 trillion private placement to Crucible JV (DoD/DoC + strategic investors) on Dec 15, 2025, paired with the ₩11 trillion Tennessee smelter plan. The first case in Korean M&A history of international security capital arriving as a white knight.",
+        "[Cross-shareholding mechanism]: SMC's 10.33% stake in Young Poong (Jan 2026) triggered Article 369(3) of the Commercial Code — automatically restricting Young Poong's votes. Supreme Court affirmed legality on April 2, 2026.",
+        "[Strategic asset elevation]: Not just retaining control but repositioning Korea Zinc as a pillar of the Korea-U.S. critical-minerals supply chain, perfectly aligned with the Trump-2 critical-minerals strategy. The Korean non-ferrous incumbent became a global strategic asset.",
+        "[Earnings tailwind]: FY2025 OP ~₩1.2T (44 consecutive years of profit), 1Q 2026 record (revenue ₩6.07T, OP ₩746B) — defense success plus earnings strength drove the +197% post-contest move.",
       ],
     },
   },
@@ -473,19 +473,19 @@ const koreaZincMbk: DealData = {
     overallVerdict:
       "Chairman Choi retained control AND elevated Korea Zinc into a global strategic asset via U.S. government partnership",
     positives: [
-      "**Round 1**: First successful defensive treasury buyback in Korea — EGM proxy victory plus dismissal of MBK's final injunction (Mar 28, 2025) repelled the PE hostile bid.",
-      "**Round 2**: U.S. DoD/DoC Crucible JV ₩2.85 trillion private placement + ₩11 trillion Tennessee smelter — the first foreign-government white knight in Korean M&A history.",
-      "**Legal certainty**: Injunction dismissals by Seoul Central District Court (Dec 24, 2025) + Supreme Court affirmation of cross-shareholding (Apr 2, 2026) eliminated remaining legal uncertainty.",
-      "**Operational performance**: FY2024 revenue ₩12T, FY2025 OP ₩1.2T (44 consecutive years profit), 1Q 2026 record quarterly performance — earnings outpaced contest-related concerns.",
-      "**Strategic asset elevation**: Repositioned from Korean non-ferrous incumbent to pillar of the Korea-U.S. critical-minerals supply chain, perfectly aligned with the Trump-2 critical-minerals security strategy.",
-      "**Stock performance**: Pre-contest ₩515,000 → May 2026 ~₩1,528,000 (+197%). MSCI deletion (from reduced free float) offset by strong earnings and the new strategic narrative.",
+      "[Round 1]: First successful defensive treasury buyback in Korea — EGM proxy victory plus dismissal of MBK's final injunction (Mar 28, 2025) repelled the PE hostile bid.",
+      "[Round 2]: U.S. DoD/DoC Crucible JV ₩2.85 trillion private placement + ₩11 trillion Tennessee smelter — the first foreign-government white knight in Korean M&A history.",
+      "[Legal certainty]: Injunction dismissals by Seoul Central District Court (Dec 24, 2025) + Supreme Court affirmation of cross-shareholding (Apr 2, 2026) eliminated remaining legal uncertainty.",
+      "[Operational performance]: FY2024 revenue ₩12T, FY2025 OP ₩1.2T (44 consecutive years profit), 1Q 2026 record quarterly performance — earnings outpaced contest-related concerns.",
+      "[Strategic asset elevation]: Repositioned from Korean non-ferrous incumbent to pillar of the Korea-U.S. critical-minerals supply chain, perfectly aligned with the Trump-2 critical-minerals security strategy.",
+      "[Stock performance]: Pre-contest ₩515,000 → May 2026 ~₩1,528,000 (+197%). MSCI deletion (from reduced free float) offset by strong earnings and the new strategic narrative.",
     ],
     risks: [
-      "**MBK/Young Poong residual stake ~36%**: Voting rights restricted but the stake remains — possibility of fresh legal challenges to the SMC cross-shareholding structure.",
-      "**MBK exit strategy**: Drag-along right on the 14.17% stake could create a short-term supply shock if a block trade or open-market sale is executed.",
-      "**U.S. political variable**: Any change to the Trump-2 critical-minerals strategy or under a subsequent administration could trigger a re-rating of the Crucible JV's value.",
-      "**MSCI deletion impact**: Reduced free float from the Crucible JV issuance triggered MSCI exclusion — expect ongoing passive-flow turbulence and foreign-investor volatility.",
-      "**Mandatory tender offer legislation**: The Capital Markets Act amendment (25% acquisition threshold triggers mandatory 50%+1 share tender, 1-year grace period) was published for legislative comment in Jan–Apr 2026. If the bill becomes law, future PE hostile bids of this structure will become difficult — a structural change in the Korean PE market.",
+      "[MBK/Young Poong residual stake ~36%]: Voting rights restricted but the stake remains — possibility of fresh legal challenges to the SMC cross-shareholding structure.",
+      "[MBK exit strategy]: Drag-along right on the 14.17% stake could create a short-term supply shock if a block trade or open-market sale is executed.",
+      "[U.S. political variable]: Any change to the Trump-2 critical-minerals strategy or under a subsequent administration could trigger a re-rating of the Crucible JV's value.",
+      "[MSCI deletion impact]: Reduced free float from the Crucible JV issuance triggered MSCI exclusion — expect ongoing passive-flow turbulence and foreign-investor volatility.",
+      "[Mandatory tender offer legislation]: The Capital Markets Act amendment (25% acquisition threshold triggers mandatory 50%+1 share tender, 1-year grace period) was published for legislative comment in Jan–Apr 2026. If the bill becomes law, future PE hostile bids of this structure will become difficult — a structural change in the Korean PE market.",
     ],
     editorNote:
       "The Korea Zinc case carries two distinct meanings for Korean capital markets. First, Round 1 was the largest control-defense case on Korea's traditional capital-markets stage — defensive tender offer, EGM, court injunction — and it accelerated debate on the Capital Markets Act and tender offer regulation. Second, Round 2 was the first time an international security capital actor appeared as a defensive instrument in Korean M&A, elevating a pure PE dispute into a Korea-U.S. critical-minerals supply chain realignment. The lesson: control defense in Korea's strategic industries can no longer be resolved within the domestic capital market alone. Reviewed as of May 2026.",
@@ -672,7 +672,7 @@ const koreaZincMbk: DealData = {
     },
     {
       q: "Why did Korea Zinc's stock surge twice?",
-      a: "Two distinct mechanisms. **Round 1 (Sep–Oct 2024)**: MBK's ₩660,000 bid and Korea Zinc's ₩830,000 counter-bid competed simultaneously. Shareholders held out for higher offers, pushing the price to ₩1,630,000 (+217%). Once Round 1 resolved in January 2025, the premium evaporated and the stock retraced to ₩640,000. **Round 2 (Dec 2025)**: The U.S. white knight wasn't a simple price-floor event — it elevated Korea Zinc's narrative from \"Korean non-ferrous incumbent\" to \"pillar of the Korea-U.S. critical-minerals supply chain.\" The stock spiked to ₩1,910,000 on Dec 15, 2025 and stabilized at ~₩1,528,000 by May 2026 (+197% vs. pre-contest).",
+      a: "Two distinct mechanisms. [Round 1 (Sep–Oct 2024)]: MBK's ₩660,000 bid and Korea Zinc's ₩830,000 counter-bid competed simultaneously. Shareholders held out for higher offers, pushing the price to ₩1,630,000 (+217%). Once Round 1 resolved in January 2025, the premium evaporated and the stock retraced to ₩640,000. [Round 2 (Dec 2025)]: The U.S. white knight wasn't a simple price-floor event — it elevated Korea Zinc's narrative from \"Korean non-ferrous incumbent\" to \"pillar of the Korea-U.S. critical-minerals supply chain.\" The stock spiked to ₩1,910,000 on Dec 15, 2025 and stabilized at ~₩1,528,000 by May 2026 (+197% vs. pre-contest).",
     },
     {
       q: "Why did the U.S. Department of Defense invest in a Korean non-ferrous company?",
@@ -688,11 +688,11 @@ const koreaZincMbk: DealData = {
     },
     {
       q: "Did MBK Partners lose money on this deal?",
-      a: "**Control objective**: Complete failure. Round 1 acquired 14.17% but couldn't translate it into a board majority; Round 2 was overwhelmed by the U.S. government white knight and the cross-shareholding restriction on Young Poong. **Financial position**: Mark-to-market positive. The 14.17% stake was acquired at an average of ~₩660,000; the May 2026 price of ~₩1,528,000 implies +131% mark-to-market gain. **Exit strategy**: Per Investchosun and other capital-markets press, MBK is exploring exit via the drag-along right with Young Poong, potentially through a block trade or open-market disposal. The financial outcome may not be a loss — but the reputational cost of a failed hostile bid is unrecoverable for a PE franchise.",
+      a: "[Control objective]: Complete failure. Round 1 acquired 14.17% but couldn't translate it into a board majority; Round 2 was overwhelmed by the U.S. government white knight and the cross-shareholding restriction on Young Poong. [Financial position]: Mark-to-market positive. The 14.17% stake was acquired at an average of ~₩660,000; the May 2026 price of ~₩1,528,000 implies +131% mark-to-market gain. [Exit strategy]: Per Investchosun and other capital-markets press, MBK is exploring exit via the drag-along right with Young Poong, potentially through a block trade or open-market disposal. The financial outcome may not be a loss — but the reputational cost of a failed hostile bid is unrecoverable for a PE franchise.",
     },
     {
       q: "What are the regulatory consequences of this case for Korean M&A?",
-      a: "Several reform threads emerged. **Tender offer regulation**: Tighter rules for competing tender offers, and clearer scope and limits for defensive treasury buybacks. **Mandatory Tender Offer rule**: The Capital Markets Act amendment (25% acquisition threshold triggers mandatory 50%+1 share tender, 1-year grace period) was published for public comment in Jan–Apr 2026. If the bill becomes law, similar PE hostile bids will become structurally difficult. **Cross-shareholding as defense**: The Supreme Court's April 2026 ruling confirms cross-shareholding as a legitimate defensive tool. **International security capital**: A new defensive avenue is open — foreign government participation in strategic-industry control defense.",
+      a: "Several reform threads emerged. [Tender offer regulation]: Tighter rules for competing tender offers, and clearer scope and limits for defensive treasury buybacks. [Mandatory Tender Offer rule]: The Capital Markets Act amendment (25% acquisition threshold triggers mandatory 50%+1 share tender, 1-year grace period) was published for public comment in Jan–Apr 2026. If the bill becomes law, similar PE hostile bids will become structurally difficult. [Cross-shareholding as defense]: The Supreme Court's April 2026 ruling confirms cross-shareholding as a legitimate defensive tool. [International security capital]: A new defensive avenue is open — foreign government participation in strategic-industry control defense.",
     },
     {
       q: "What did the 18-month battle leave for Korean capital markets?",

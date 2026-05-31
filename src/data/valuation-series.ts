@@ -51,8 +51,8 @@ export const VAL_CHAPTERS: ValChapter[] = [
     titleEn: "Comps in practice — trading and transaction",
     taglineKo: "Capital IQ 스크리닝, peer universe 선정, control premium, capital structure 조정",
     taglineEn: "Capital IQ screening, peer universe construction, control premium, capital structure adjustments",
-    readingMinutes: 12,
-    status: "draft",
+    readingMinutes: 14,
+    status: "published",
   },
   {
     slug: "val-ch04-football-field",

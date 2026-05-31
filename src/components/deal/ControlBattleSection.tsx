@@ -6,6 +6,7 @@ import type {
   BattleSide,
   WeaponEffectiveness,
 } from "@/lib/deal-data";
+import { HL } from "./HighlightText";
 
 // ── 색상 맵 ───────────────────────────────────────────────────────
 
@@ -153,10 +154,10 @@ function MoveCard({
         </span>
       </div>
       <p className="font-bold text-sm text-gray-900 dark:text-gray-50 leading-snug">
-        {move.move}
+        <HL text={move.move} />
       </p>
       <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
-        {move.detail}
+        <HL text={move.detail} />
       </p>
       {(move.financialImpact || move.weapon) && (
         <div className="flex flex-wrap gap-1.5 pt-1">
@@ -284,8 +285,8 @@ function BattleTimeline({
                   </span>
                   <span className="text-[10px] text-gray-400 font-mono">{move.date}</span>
                 </div>
-                <p className="text-sm font-bold text-gray-900 dark:text-gray-50 leading-snug">{move.move}</p>
-                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 leading-relaxed">{move.detail}</p>
+                <p className="text-sm font-bold text-gray-900 dark:text-gray-50 leading-snug"><HL text={move.move} /></p>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 leading-relaxed"><HL text={move.detail} /></p>
                 {(move.weapon || move.financialImpact) && (
                   <div className="flex gap-1.5 mt-1.5 flex-wrap">
                     {move.weapon && (
@@ -348,7 +349,7 @@ function FinancialArsenal({
                 {EFFECTIVENESS[w.effectiveness][lang]}
               </span>
             </div>
-            <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">{w.description}</p>
+            <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed"><HL text={w.description} /></p>
           </motion.div>
         ))}
       </div>
@@ -376,7 +377,7 @@ function FinancialArsenal({
                 {EFFECTIVENESS[w.effectiveness][lang]}
               </span>
             </div>
-            <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">{w.description}</p>
+            <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed"><HL text={w.description} /></p>
           </motion.div>
         ))}
       </div>
@@ -475,7 +476,7 @@ function PriceImpact({
         </div>
       </div>
       <p className="text-xs text-gray-500 dark:text-gray-500 mt-4 leading-relaxed border-t border-gray-100 dark:border-gray-800 pt-3">
-        {priceImpact.note}
+        <HL text={priceImpact.note} />
       </p>
     </motion.div>
   );
@@ -509,10 +510,10 @@ function TurningPoint({
             </span>
           </div>
           <p className="font-semibold text-base text-gray-900 dark:text-gray-50 mb-1.5">
-            {turningPoint.event}
+            <HL text={turningPoint.event} />
           </p>
           <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-            {turningPoint.detail}
+            <HL text={turningPoint.detail} />
           </p>
         </div>
       </div>
@@ -569,13 +570,13 @@ function Verdict({
             </span>
           </div>
           <p className="font-bold text-lg text-gray-900 dark:text-gray-50 mb-1">
-            {verdict.winnerLabel}
+            <HL text={verdict.winnerLabel} />
           </p>
           <p className="text-xs text-gray-500 dark:text-gray-500 mb-3">
             {t.margin}: <span className="font-mono font-semibold text-gray-700 dark:text-gray-300">{verdict.margin}</span>
           </p>
           <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed border-t border-gray-200/70 dark:border-gray-700/50 pt-3">
-            {verdict.note}
+            <HL text={verdict.note} />
           </p>
         </div>
       </div>
@@ -603,14 +604,14 @@ export default function ControlBattleSection({ data, lang = "ko" }: Props) {
         variants={fadeUp}
         className="space-y-4"
       >
-        <p className="text-base text-gray-600 dark:text-gray-400 leading-relaxed">{data.body}</p>
+        <p className="text-base text-gray-600 dark:text-gray-400 leading-relaxed"><HL text={data.body} /></p>
 
         {/* 분쟁 발단 박스 */}
         <div className="rounded-xl border border-amber-200 dark:border-amber-800/60 bg-amber-50/60 dark:bg-amber-950/20 px-5 py-4">
           <span className="text-xs font-bold text-amber-700 dark:text-amber-400 uppercase tracking-widest block mb-1.5">
             {t.catalyst}
           </span>
-          <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">{data.catalyst}</p>
+          <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed"><HL text={data.catalyst} /></p>
         </div>
       </motion.div>
 

@@ -16,6 +16,7 @@ import MetricCard from "@/components/deal/MetricCard";
 import CompanyLogo from "@/components/deal/CompanyLogo";
 import GovernanceOverviewSection from "@/components/deal/GovernanceOverviewSection";
 import ControlBattleSection from "@/components/deal/ControlBattleSection";
+import { HL } from "@/components/deal/HighlightText";
 import RestructuringSection from "@/components/deal/RestructuringSection";
 import LevFinSection from "@/components/deal/LevFinSection";
 import SyndicatedLoanSection from "@/components/deal/SyndicatedLoanSection";
@@ -256,7 +257,7 @@ export default function DealPageClient({
           {/* ── 3. 배경 */}
           <SectionTitle>{t.background}</SectionTitle>
           <div className="space-y-4 text-[0.9375rem] text-gray-600 dark:text-gray-400 leading-relaxed">
-            {deal.background.map((para, i) => <p key={i}>{para}</p>)}
+            {deal.background.map((para, i) => <p key={i}><HL text={para} /></p>)}
           </div>
 
           {/* ── 4. 딜 요약 카드 */}
@@ -303,7 +304,7 @@ export default function DealPageClient({
               {deal.executiveSummary.map((point, i) => (
                 <li key={i} className="flex items-start gap-2 text-sm text-blue-800 dark:text-blue-200 leading-relaxed">
                   <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0" />
-                  {point}
+                  <span><HL text={point} /></span>
                 </li>
               ))}
             </ul>
@@ -556,7 +557,7 @@ export default function DealPageClient({
               <ul className="space-y-2.5">
                 {deal.rationale.buyer.points.map((point, i) => (
                   <li key={i} className="flex items-start gap-2 text-[13px] text-gray-700 dark:text-gray-300 leading-relaxed">
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0" />{point}
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0" /><span><HL text={point} /></span>
                   </li>
                 ))}
               </ul>
@@ -571,7 +572,7 @@ export default function DealPageClient({
               <ul className="space-y-2.5">
                 {deal.rationale.seller.points.map((point, i) => (
                   <li key={i} className="flex items-start gap-2 text-[13px] text-gray-700 dark:text-gray-300 leading-relaxed">
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0" />{point}
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0" /><span><HL text={point} /></span>
                   </li>
                 ))}
               </ul>
@@ -600,7 +601,7 @@ export default function DealPageClient({
               <ul className="space-y-2">
                 {deal.postDealAssessment.positives.map((p, i) => (
                   <li key={i} className="flex items-start gap-2 text-[13px] text-gray-700 dark:text-gray-300 leading-relaxed">
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0" />{p}
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0" /><span><HL text={p} /></span>
                   </li>
                 ))}
               </ul>
@@ -610,7 +611,7 @@ export default function DealPageClient({
               <ul className="space-y-2">
                 {deal.postDealAssessment.risks.map((p, i) => (
                   <li key={i} className="flex items-start gap-2 text-[13px] text-gray-700 dark:text-gray-300 leading-relaxed">
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-amber-400 flex-shrink-0" />{p}
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-amber-400 flex-shrink-0" /><span><HL text={p} /></span>
                   </li>
                 ))}
               </ul>
@@ -619,7 +620,7 @@ export default function DealPageClient({
           <Tombstone {...deal.tombstone} />
           <div className="rounded-xl border border-gray-200 dark:border-gray-700/60 bg-gray-50 dark:bg-gray-800/40 p-5 text-[0.9375rem] text-gray-600 dark:text-gray-400 leading-relaxed">
             <p className="font-bold text-gray-800 dark:text-gray-200 mb-2 text-sm">{t.editorNote}</p>
-            <p>{deal.postDealAssessment.editorNote}</p>
+            <p><HL text={deal.postDealAssessment.editorNote} /></p>
           </div>
 
           {/* ── 핵심 개념 */}
