@@ -22,8 +22,10 @@ const deal: DealData = {
   background: [
     "In 2015, Homeplus was South Korea's second-largest hypermarket chain, behind Emart, with approximately 140 stores nationwide and over 22,000 employees. It was the crown jewel of Tesco PLC's Asia growth strategy — Tesco entered Korea in 1999 through a joint venture with Samsung C&T and had built Homeplus into one of Asia's most successful foreign retail operations.",
     "By 2014, Tesco faced existential pressure at home. An accounting fraud scandal at UK headquarters caused Tesco shares to collapse; new CEO Dave Lewis launched a global restructuring and declared all non-UK businesses for potential sale. Korea and Thailand were the primary targets. Homeplus Korea — despite being profitable at the store level — was put on the block as Tesco sought to repair its UK balance sheet.",
-    "MBK Partners, founded by Michael ByungJu Kim (a Goldmanite), is a North Asia-focused PE firm with ~$25B in AUM and a track record in large-cap Korean and Chinese buyouts. MBK identified Homeplus as a rare large-scale LBO opportunity in Korea — the country had seen almost no large-format retail PE deals. The asset-heavy nature of hypermarket real estate made it a compelling LBO candidate.",
-    "The ₩7.2T headline price was backed by a consortium including Canada Pension Plan Investment Board (CPPIB), which provided equity co-investment. MBK structured the deal with significant leverage — acquisition financing (인수금융) provided by domestic and international banks — with the expectation that a Sale & Leaseback of the store real estate would rapidly deleverage the structure post-close.",
+    "[Michael ByungJu Kim's career and his tie to Homeplus.] MBK Partners' founder is not just \"ex-Goldman.\" His career ran [Goldman Sachs] → [Salomon Smith Barney] → [The Carlyle Group], and his final title before founding MBK was [Chairman of Carlyle Asia]. In 2005, he left Carlyle and co-founded MBK Partners with several Carlyle colleagues. The firm's name — MBK — is taken from his own initials (Michael ByungJu Kim).",
+    "[The original preferred bidder was not MBK — it was Carlyle.] When Tesco's sale of Homeplus moved into preferred-bidder talks, the initial counterparty was [Carlyle Group] — Mr. Kim's former firm. When Carlyle's price negotiations broke down and the firm walked away, MBK stepped in with a [higher bid than what Carlyle had been negotiating] and took preferred-bidder status. The narrative was unusually personal: the same asset his old firm could not close on was acquired — at a higher price — by the fund Mr. Kim had built since leaving.",
+    "MBK Partners was founded in 2005 with Mr. Kim's Carlyle colleagues and became a North Asia-focused PE firm with ~$25B in AUM by 2015. With prior Korean LBO wins (ING Life Korea / later Orange Life, C&M Cable TV), MBK presented Homeplus as a rare large-scale hypermarket LBO opportunity in a market that had seen almost no PE deals in the format, and the asset-heavy hypermarket real estate made the structure compelling.",
+    "The ₩7.2T headline price was backed by a consortium including Canada Pension Plan Investment Board (CPPIB), which provided equity co-investment. MBK structured the deal with significant leverage — acquisition financing (인수금융) provided by domestic and international banks — with the expectation that a Sale & Leaseback of the store real estate would rapidly deleverage the structure post-close. For Mr. Kim personally, the transaction also carried the symbolism of [\"acquiring at a higher price the asset his former firm could not close on.\"]",
   ],
 
   dealSummary: {
@@ -37,9 +39,11 @@ const deal: DealData = {
 
   executiveSummary: [
     "Asia's largest retail LBO: ₩7.2T acquisition of Homeplus from Tesco PLC — MBK Partners' flagship deal.",
+    "[The original preferred bidder was not MBK — it was Carlyle.] Michael ByungJu Kim's former firm (he was Chairman of Carlyle Asia) walked from price talks; after founding MBK, he took preferred-bidder status with a [higher bid than Carlyle had been negotiating].",
+    "[Michael ByungJu Kim's career]: [Goldman Sachs] → [Salomon Smith Barney] → [Carlyle Asia Chairman] → founded MBK Partners in 2005. The Homeplus deal symbolized \"acquiring — at a higher price — the asset his old firm could not close.\"",
     "Textbook LBO setup: asset-heavy hypermarket real estate enabled an immediate Sale & Leaseback of ~₩4T, deleveraging the structure in 2016–2017.",
     "E-commerce disruption: online grocery growth (Coupang, Market Kurly) eroded hypermarket traffic; Homeplus failed to execute a digital pivot despite investment.",
-    "Court receivership (기업회생): Homeplus filed for court receivership in February 2024 — Korea's most high-profile PE-backed retail collapse.",
+    "Court receivership: Homeplus filed for court receivership in February 2024 — Korea's most high-profile PE-backed retail collapse.",
     "EV/EBITDA: ~22.5x on 2014 EBITDA — a premium valuation justified by real estate value, now seen as having overpriced the operating business.",
   ],
 
@@ -251,8 +255,16 @@ const deal: DealData = {
 
   faq: [
     {
+      q: "Was MBK the original preferred bidder for Homeplus?",
+      a: "No. The initial preferred-bidder counterparty was [The Carlyle Group]. The twist: Michael ByungJu Kim, who founded MBK Partners, had served as [Chairman of Carlyle Asia] immediately before MBK. When Carlyle's price talks broke down and the firm walked, Mr. Kim's MBK stepped in with a [higher bid than Carlyle had been negotiating] and won preferred-bidder status. The asset his former firm could not close on was acquired — at a higher price — by the fund he had built since leaving. An unusually personal deal narrative for a Korean LBO.",
+    },
+    {
+      q: "What is Michael ByungJu Kim's career background?",
+      a: "Michael ByungJu Kim's career path was [Goldman Sachs] → [Salomon Smith Barney] → [The Carlyle Group], with his final title being [Chairman of Carlyle Asia]. In 2005 he left Carlyle and co-founded MBK Partners with several Carlyle Asia colleagues — the firm's name comes from his initials (Michael ByungJu Kim). Since founding, MBK has led some of North Asia's largest buyouts: ING Life Korea (later Orange Life), C&M Cable TV, Homeplus, Dialog Semiconductor, and others.",
+    },
+    {
       q: "Why did MBK Partners pay 22.5x EBITDA for a hypermarket chain?",
-      a: "The high multiple was justified by two factors beyond operating EBITDA: (1) Homeplus owned ~₩4–5T of real estate that could be monetized through Sale & Leaseback — effectively making the operating business much cheaper on an 'ex-real estate' basis; and (2) Tesco's bureaucratic overhead was suppressing margins that MBK expected to recover post-exit. The real estate thesis executed perfectly; the operational thesis did not.",
+      a: "The high multiple was justified by two factors beyond operating EBITDA: (1) Homeplus owned ~₩4–5T of real estate that could be monetized through Sale & Leaseback — effectively making the operating business much cheaper on an 'ex-real estate' basis; and (2) Tesco's bureaucratic overhead was suppressing margins that MBK expected to recover post-exit. The real estate thesis executed perfectly; the operational thesis did not. For Mr. Kim personally, the deal also carried the symbolism of acquiring — at a higher price — the asset [Carlyle Asia] (the firm he had just left) could not close on.",
     },
     {
       q: "How did the Sale & Leaseback work, and did it succeed?",
