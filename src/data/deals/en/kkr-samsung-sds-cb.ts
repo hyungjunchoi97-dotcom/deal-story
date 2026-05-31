@@ -31,17 +31,17 @@ const deal: DealData = {
     "Plain-Vanilla Convertible",
   ],
   excerpt:
-    "On April 15, 2026, Samsung SDS issued ₩1.22 trillion (~USD 820M) of unregistered, unsecured private convertible bonds to KKR — the largest single private CB issuance in Korean market history. The structure is the real story: 180,000 KRW conversion price (+18% conversion premium), 2.5% coupon, 6-year maturity, and **no refixing or put option** — a plain-vanilla convertible that is almost never seen in Korea's private CB market, which typically tilts toward investor protection. The acquisition vehicle Startech AI L.P. was funded primarily by KKR's **Asia Fund V (Private Equity arm)**, not its infrastructure fund. This is not a yield trade — KKR is pricing the **long-term partnership with Samsung Group itself**.",
+    "On April 15, 2026, Samsung SDS issued ₩1.22 trillion (~USD 820M) of unregistered, unsecured private convertible bonds to KKR — the largest single private CB issuance in Korean market history. The structure is the real story: 180,000 KRW conversion price (+18% conversion premium), 2.5% coupon, 6-year maturity, and [no refixing or put option] — a plain-vanilla convertible that is almost never seen in Korea's private CB market, which typically tilts toward investor protection. The acquisition vehicle Startech AI L.P. was funded primarily by KKR's [Asia Fund V (Private Equity arm)], not its infrastructure fund. This is not a yield trade — KKR is pricing the [long-term partnership with Samsung Group itself].",
 
   acquirer: { initials: "KKR", bg: "bg-orange-600", label: "KKR (Asia Fund V · Startech AI L.P.)" },
   target: { initials: "SDS", bg: "bg-blue-700", label: "Samsung SDS" },
 
   background: [
     "Samsung SDS, founded in 1985 as a spinout from Samsung Electronics' IT department, is the IT services subsidiary of Korea's largest conglomerate. Its three core lines are systems integration / IT outsourcing (SI/ITO), supply chain logistics (SCL — global logistics), and cloud / AI (Samsung Cloud Platform, Brity AI). As of 1Q 2026, revenue runs at roughly ₩3.7T per quarter with ~₩240B in operating profit, and a market cap of around ₩13T. Samsung Electronics holds ~22.6%, while Chairman Lee Jae-yong's family holds ~17.0% — a textbook chaebol IT subsidiary governance structure.",
-    "[A 10-year silence on equity capital, broken.] Samsung SDS had not issued a single new share since 2015. Stable conglomerate IT revenue let the company self-fund operations from cash flow. But in 2024~2025, intense capital competition in **generative AI, MLOps, data centers, and industrial AI** reset the bar — internal R&D plus selective M&A would require **war chest** capital far beyond what cash flow alone could provide. The company sat on roughly ₩6.4T of cash; an additional ₩1T+ would push the AI/M&A dry powder to ~₩7.6T at once. That is the trigger for this transaction.",
-    "[Why a CB, not new shares.] A primary equity raise would have immediately diluted Samsung Electronics' 22.6% stake. Samsung SDS needed to raise ₩1T+ **while minimizing impact on group governance**, and a CB delivers exactly that — conversion would be staggered over six years, and if it never converts, the instrument simply matures as a bond. ₩1.22T from the CB plus the existing ₩6.4T of cash equals an **AI/M&A war chest of ~₩7.6T** — the company-side essence of this deal.",
-    "[Why KKR's PE arm and not its infrastructure arm — the SK conflict.] KKR typically deploys its **Asia Pacific Infrastructure Fund** for capital-markets transactions like this. But KKR had previously taken a minority stake in SK Group's AI data center joint venture using its infrastructure fund, and SK had imposed a **\"no participation in similar businesses by other Korean conglomerates\"** non-compete clause. That clause blocked KKR's infra fund from this deal. As a result, KKR deployed its **Asia Fund V (PE arm)** capital as the primary source, through a newly formed vehicle **Startech AI L.P.**. The deal was funded entirely out of fund equity — **no acquisition financing, no syndication, no third-party LP capital** — closing on ₩1.22T of dry powder alone.",
-    "On April 15, 2026, the Samsung SDS board resolved to issue the 24th series of unregistered, unsecured private convertible bonds for ₩1.22T, with funding completed on April 30. The conversion period runs from April 30, 2027 through April 23, 2032. Fully converted, the bonds represent approximately **8.06%** of new shares outstanding. The deal marks the first time a foreign mega-PE firm has taken a direct position in the capital structure of a Samsung Group company.",
+    "[A 10-year silence on equity capital, broken.] Samsung SDS had not issued a single new share since 2015. Stable conglomerate IT revenue let the company self-fund operations from cash flow. But in 2024~2025, intense capital competition in [generative AI, MLOps, data centers, and industrial AI] reset the bar — internal R&D plus selective M&A would require [war chest] capital far beyond what cash flow alone could provide. The company sat on roughly ₩6.4T of cash; an additional ₩1T+ would push the AI/M&A dry powder to ~₩7.6T at once. That is the trigger for this transaction.",
+    "[Why a CB, not new shares.] A primary equity raise would have immediately diluted Samsung Electronics' 22.6% stake. Samsung SDS needed to raise ₩1T+ [while minimizing impact on group governance], and a CB delivers exactly that — conversion would be staggered over six years, and if it never converts, the instrument simply matures as a bond. ₩1.22T from the CB plus the existing ₩6.4T of cash equals an [AI/M&A war chest of ~₩7.6T] — the company-side essence of this deal.",
+    "[Why KKR's PE arm and not its infrastructure arm — the SK conflict.] KKR typically deploys its [Asia Pacific Infrastructure Fund] for capital-markets transactions like this. But KKR had previously taken a minority stake in SK Group's AI data center joint venture using its infrastructure fund, and SK had imposed a [\"no participation in similar businesses by other Korean conglomerates\"] non-compete clause. That clause blocked KKR's infra fund from this deal. As a result, KKR deployed its [Asia Fund V (PE arm)] capital as the primary source, through a newly formed vehicle [Startech AI L.P.]. The deal was funded entirely out of fund equity — [no acquisition financing, no syndication, no third-party LP capital] — closing on ₩1.22T of dry powder alone.",
+    "On April 15, 2026, the Samsung SDS board resolved to issue the 24th series of unregistered, unsecured private convertible bonds for ₩1.22T, with funding completed on April 30. The conversion period runs from April 30, 2027 through April 23, 2032. Fully converted, the bonds represent approximately [8.06%] of new shares outstanding. The deal marks the first time a foreign mega-PE firm has taken a direct position in the capital structure of a Samsung Group company.",
   ],
 
   dealSummary: {
@@ -56,15 +56,15 @@ const deal: DealData = {
   executiveSummary: [
     "[Largest single private CB in Korean market history] Samsung SDS issued ₩1.22T (~USD 820M) of private convertible bonds, with KKR as sole purchaser (board resolution Apr 15, 2026; funded Apr 30, 2026).",
     "[Plain-vanilla convertible structure] 180,000 KRW conversion price (+18% premium to spot), 6-year maturity (Apr 30, 2032), 2.5% coupon and yield-to-maturity.",
-    "[Issuer-favorable terms KKR accepted] **No refixing** (downward adjustment of conversion price on share price declines) and **no put option** (early redemption right) — both standard in Korean private CBs, both waived here. A clear signal that KKR is pricing the **long-term partnership**, not yield.",
-    "[KKR's PE arm took this, not its infrastructure arm] Acquisition vehicle Startech AI L.P. was funded primarily by **Asia Fund V (Private Equity)**. KKR's Asia Pacific Infrastructure Fund was blocked from participating by a **\"no similar-business participation\"** non-compete clause that SK Group had imposed on its prior AI data center JV with KKR.",
+    "[Issuer-favorable terms KKR accepted] [No refixing] (downward adjustment of conversion price on share price declines) and [no put option] (early redemption right) — both standard in Korean private CBs, both waived here. A clear signal that KKR is pricing the [long-term partnership], not yield.",
+    "[KKR's PE arm took this, not its infrastructure arm] Acquisition vehicle Startech AI L.P. was funded primarily by [Asia Fund V (Private Equity)]. KKR's Asia Pacific Infrastructure Fund was blocked from participating by a [\"no similar-business participation\"] non-compete clause that SK Group had imposed on its prior AI data center JV with KKR.",
     "[Zero outside money] No acquisition financing, no syndication, no third-party LP. Closed with ₩1.22T of fund dry powder alone.",
-    "[Samsung SDS's intent] Avoid diluting Samsung Electronics' 22.6% stake while raising ₩1.22T. Combined with existing ₩6.4T cash, this creates an **AI/M&A war chest of ~₩7.6T** — ending a 10-year silence on equity capital.",
+    "[Samsung SDS's intent] Avoid diluting Samsung Electronics' 22.6% stake while raising ₩1.22T. Combined with existing ₩6.4T cash, this creates an [AI/M&A war chest of ~₩7.6T] — ending a 10-year silence on equity capital.",
     "[KKR's heads-I-win-tails-I-don't-lose structure] No short-term liquidity exit during 6-year lockup. If shares clear 180,000 KRW, KKR converts to ~8% equity at a gain. If not, KKR collects 2.5% coupon plus yield-to-maturity in bond form. Downside is protected; upside is open.",
   ],
 
   industryOverview: {
-    body: "Korea's IT services industry entered 2026 with four simultaneous capital races: **generative AI, industrial AI, MLOps, data centers**. Samsung SDS, LG CNS, SK C&C, Lotte Innovate, and Posco DX — the chaebol IT subsidiaries — are all scrambling to secure R&D plus M&A funding for the AI transition. Globally, Accenture, IBM, Cognizant, and Capgemini are running the same transition on their own balance sheets. What distinguishes Korea's chaebol IT subsidiaries is **group governance protection** — new share issuances dilute parent shareholdings, so structured instruments (CBs, EBs, hybrid capital) are increasingly preferred over straight equity.",
+    body: "Korea's IT services industry entered 2026 with four simultaneous capital races: [generative AI, industrial AI, MLOps, data centers]. Samsung SDS, LG CNS, SK C&C, Lotte Innovate, and Posco DX — the chaebol IT subsidiaries — are all scrambling to secure R&D plus M&A funding for the AI transition. Globally, Accenture, IBM, Cognizant, and Capgemini are running the same transition on their own balance sheets. What distinguishes Korea's chaebol IT subsidiaries is [group governance protection] — new share issuances dilute parent shareholdings, so structured instruments (CBs, EBs, hybrid capital) are increasingly preferred over straight equity.",
     metrics: [
       { label: "Samsung SDS market cap (Apr 2026)",   value: "~₩13T",       sub: "At deal announcement" },
       { label: "Samsung SDS FY2025 revenue",          value: "~₩14.6T",     sub: "+8.2% YoY" },
@@ -72,7 +72,7 @@ const deal: DealData = {
       { label: "Samsung SDS cash & equivalents",       value: "~₩6.4T",      sub: "1Q 2026 estimated" },
     ],
     subBody:
-      "It is extremely rare in Korean PE history for a foreign asset manager to take a direct position in the capital structure of a chaebol IT subsidiary. These subsidiaries typically rely on intra-group cash pooling or domestic-institutional hybrid securities. This deal marks the first time a foreign mega-PE firm has declared, **\"in six years we intend to be a potential 8% shareholder of a Korean chaebol IT company.\"**",
+      "It is extremely rare in Korean PE history for a foreign asset manager to take a direct position in the capital structure of a chaebol IT subsidiary. These subsidiaries typically rely on intra-group cash pooling or domestic-institutional hybrid securities. This deal marks the first time a foreign mega-PE firm has declared, [\"in six years we intend to be a potential 8% shareholder of a Korean chaebol IT company.\"]",
     players: [
       { name: "KKR",                role: "Global mega-PE, sole purchaser (Asia Fund V · Startech AI L.P.)" },
       { name: "Samsung SDS",        role: "Issuer, Samsung Group IT services subsidiary" },
@@ -84,7 +84,7 @@ const deal: DealData = {
 
   companyOverview: {
     targetName: "Samsung SDS Co., Ltd.",
-    body: "Samsung SDS was founded in May 1985 as Korea's first systems integration company, spun out of Samsung Electronics' internal IT department. Listed on the KOSPI in November 2014. Three core business lines: **① SI/ITO — enterprise IT build and operations**, **② SCL — supply chain logistics, global freight**, **③ Cloud / AI — Samsung Cloud Platform, Brity AI**. The company runs Samsung Group's global IT operations as the anchor customer while gradually reducing intragroup dependency and expanding external revenue. As of 2025, ~25,000 employees across 30+ entities in 14 countries.",
+    body: "Samsung SDS was founded in May 1985 as Korea's first systems integration company, spun out of Samsung Electronics' internal IT department. Listed on the KOSPI in November 2014. Three core business lines: [① SI/ITO — enterprise IT build and operations], [② SCL — supply chain logistics, global freight], [③ Cloud / AI — Samsung Cloud Platform, Brity AI]. The company runs Samsung Group's global IT operations as the anchor customer while gradually reducing intragroup dependency and expanding external revenue. As of 2025, ~25,000 employees across 30+ entities in 14 countries.",
     metrics: [
       { label: "Founded",                 value: "1985",          sub: "Spinout from Samsung Electronics" },
       { label: "Listed",                  value: "Nov 14, 2014",   sub: "KOSPI, ticker 018260" },
@@ -104,7 +104,7 @@ const deal: DealData = {
   },
 
   dealStructure: {
-    body: "This deal is structured around **four negatives**: no new shares, no treasury share sale, no asset divestiture, no acquisition financing. Samsung SDS issued ₩1.22T of unregistered, unsecured private convertible bonds in a single tranche, sold entirely to KKR. KKR holds the bonds until either (a) conversion between Apr 30, 2027 and Apr 23, 2032 or (b) maturity redemption on Apr 30, 2032. Both the bonds themselves and the shares issued upon conversion are **locked up for 6 years**. KKR funded the purchase entirely from **Asia Fund V (PE arm)** equity — no acquisition financing was used.",
+    body: "This deal is structured around [four negatives]: no new shares, no treasury share sale, no asset divestiture, no acquisition financing. Samsung SDS issued ₩1.22T of unregistered, unsecured private convertible bonds in a single tranche, sold entirely to KKR. KKR holds the bonds until either (a) conversion between Apr 30, 2027 and Apr 23, 2032 or (b) maturity redemption on Apr 30, 2032. Both the bonds themselves and the shares issued upon conversion are [locked up for 6 years]. KKR funded the purchase entirely from [Asia Fund V (PE arm)] equity — no acquisition financing was used.",
     preOwnership: {
       nodes: [
         { id: "se_pre",     label: "Samsung Electronics",        sub: "~22.6%",          type: "acquirer" },
@@ -198,7 +198,7 @@ const deal: DealData = {
   },
 
   valuation: {
-    body: "The key valuation variables here are the **180,000 KRW conversion price** and the **+18% conversion premium** vs. the prior close (~153,000 KRW at the board resolution date). The instrument is a six-year option for KKR. If Samsung SDS shares clear 180,000 KRW any time before Apr 23, 2032, KKR can convert into ~8.06% of the company at an immediate gain. If they never clear that level, KKR collects 2.5% coupon plus yield-to-maturity in bond form. This asymmetric payoff is why the market describes the structure as **heads I win, tails I don't lose**.",
+    body: "The key valuation variables here are the [180,000 KRW conversion price] and the [+18% conversion premium] vs. the prior close (~153,000 KRW at the board resolution date). The instrument is a six-year option for KKR. If Samsung SDS shares clear 180,000 KRW any time before Apr 23, 2032, KKR can convert into ~8.06% of the company at an immediate gain. If they never clear that level, KKR collects 2.5% coupon plus yield-to-maturity in bond form. This asymmetric payoff is why the market describes the structure as [heads I win, tails I don't lose].",
     rows: [
       { item: "Prior close (Apr 14, 2026 estimated)",     val: "~₩153,000",       note: "Day before board resolution" },
       { item: "Conversion price",                          val: "₩180,000",        note: "+18% conversion premium", accent: true },
@@ -232,9 +232,9 @@ const deal: DealData = {
       bg: "bg-blue-700",
       points: [
         "[Parent-stake protection] A primary equity issuance would have immediately diluted Samsung Electronics' 22.6% stake. A CB defers conversion across six years or matures as a bond — zero immediate impact on group governance. Chairman Lee Jae-yong's family 17% stake is similarly protected.",
-        "[Ending a 10-year capital silence to build an AI war chest] No new share issuance since 2015. Self-funded operations from cash flow. AI/M&A competition forced the issue — existing ₩6.4T cash plus ₩1.22T from this deal equals an **~₩7.6T AI/M&A war chest**, the core purpose of the transaction.",
-        "[Plain-vanilla convertible — issuer-favorable terms] Korean private CBs almost always include refixing (downward adjustment of conversion price on stock weakness), which is a burden on issuers. KKR's acceptance of **no refixing** is exceptionally issuer-favorable. The 6-year lockup also denies KKR any short-term selling pressure.",
-        "[Global PE partner introduction] A foreign mega-PE locked in for six years with a potential 8% stake means Samsung SDS gains exposure to **KKR's global portfolio company network** — AI/M&A target sourcing, overseas expansion co-investment, and partnership opportunities.",
+        "[Ending a 10-year capital silence to build an AI war chest] No new share issuance since 2015. Self-funded operations from cash flow. AI/M&A competition forced the issue — existing ₩6.4T cash plus ₩1.22T from this deal equals an [~₩7.6T AI/M&A war chest], the core purpose of the transaction.",
+        "[Plain-vanilla convertible — issuer-favorable terms] Korean private CBs almost always include refixing (downward adjustment of conversion price on stock weakness), which is a burden on issuers. KKR's acceptance of [no refixing] is exceptionally issuer-favorable. The 6-year lockup also denies KKR any short-term selling pressure.",
+        "[Global PE partner introduction] A foreign mega-PE locked in for six years with a potential 8% stake means Samsung SDS gains exposure to [KKR's global portfolio company network] — AI/M&A target sourcing, overseas expansion co-investment, and partnership opportunities.",
         "[2.5% coupon — low-cost capital] Coupon well below average Korean corporate bond yields. Minimizes ongoing interest burden while securing ₩1.22T.",
       ],
     },
@@ -242,7 +242,7 @@ const deal: DealData = {
 
   postDealAssessment: {
     asOfDate: "May 2026",
-    body: "The transaction closed on Apr 30, 2026. The six-year lockup means there is no short-term variability, and the true assessment of this deal lands at the **Apr 30, 2027 conversion eligibility date** and the **Apr 30, 2032 maturity**. The initial market reaction has settled into the consensus view that this is \"highly issuer-favorable for Samsung SDS, with KKR pricing long-term partnership value over yield.\" As the first direct foreign mega-PE position in a Samsung Group company's capital structure, the deal has prompted speculation about similar transactions at LG CNS, SK C&C, and other chaebol IT subsidiaries.",
+    body: "The transaction closed on Apr 30, 2026. The six-year lockup means there is no short-term variability, and the true assessment of this deal lands at the [Apr 30, 2027 conversion eligibility date] and the [Apr 30, 2032 maturity]. The initial market reaction has settled into the consensus view that this is \"highly issuer-favorable for Samsung SDS, with KKR pricing long-term partnership value over yield.\" As the first direct foreign mega-PE position in a Samsung Group company's capital structure, the deal has prompted speculation about similar transactions at LG CNS, SK C&C, and other chaebol IT subsidiaries.",
     overallVerdict: "Close to a win-win for both issuer and purchaser — but final assessment crystallizes in six years",
     positives: [
       "[Samsung SDS] Secured ₩1.22T without diluting the parent's stake. Total AI/M&A war chest now ~₩7.6T — the strategic turning point after a 10-year capital silence",
@@ -257,7 +257,7 @@ const deal: DealData = {
       "[Group-governance signal] Samsung Group's openness to foreign-PE capital sets a market expectation that may make issuer-favorable terms harder to obtain in subsequent deals",
     ],
     editorNote:
-      "The real significance of this deal is not the \"largest single private CB in Korea\" headline number, but **the first time a foreign mega-PE firm has declared, in writing, that it intends to be a potential 8% shareholder of a Samsung Group company in six years**. KKR's acceptance of a plain-vanilla convertible structure — no refixing, no put — is not a concession but a signal: **\"we are pricing the long-term partnership possibility itself, not bond yield.\"** Likely to be cited as a template transaction in Korean PE and capital markets going forward. — Reviewed as of May 2026.",
+      "The real significance of this deal is not the \"largest single private CB in Korea\" headline number, but [the first time a foreign mega-PE firm has declared, in writing, that it intends to be a potential 8% shareholder of a Samsung Group company in six years]. KKR's acceptance of a plain-vanilla convertible structure — no refixing, no put — is not a concession but a signal: [\"we are pricing the long-term partnership possibility itself, not bond yield.\"] Likely to be cited as a template transaction in Korean PE and capital markets going forward. — Reviewed as of May 2026.",
   },
 
   tombstone: {
@@ -311,11 +311,11 @@ const deal: DealData = {
     },
     {
       term: "Refixing Clause",
-      description: "A provision that automatically lowers the conversion price if the share price falls below a threshold, partially compensating the investor for downside. Standard in Korean private CBs and burdensome for issuers. **Absent here** — unusual issuer-favorable structure.",
+      description: "A provision that automatically lowers the conversion price if the share price falls below a threshold, partially compensating the investor for downside. Standard in Korean private CBs and burdensome for issuers. [Absent here] — unusual issuer-favorable structure.",
     },
     {
       term: "Put Option",
-      description: "An investor's right to demand early redemption of the bond before maturity. Common in Korean private CBs. **Absent here** — KKR has no early-exit mechanism during the 6-year lockup.",
+      description: "An investor's right to demand early redemption of the bond before maturity. Common in Korean private CBs. [Absent here] — KKR has no early-exit mechanism during the 6-year lockup.",
     },
     {
       term: "Conversion Premium",
@@ -342,27 +342,27 @@ const deal: DealData = {
   faq: [
     {
       q: "Why did Samsung SDS choose a convertible bond instead of issuing new shares?",
-      a: "A primary equity issuance would have immediately diluted Samsung Electronics' 22.6% stake. A CB defers conversion over six years (or simply matures as a bond if never converted) — zero immediate impact on group governance. Samsung SDS needed to **protect parent stake AND raise ₩1.22T at the same time**, and a CB delivered exactly that. Combined with the existing ₩6.4T of cash, the deal builds an **AI/M&A war chest of ~₩7.6T**.",
+      a: "A primary equity issuance would have immediately diluted Samsung Electronics' 22.6% stake. A CB defers conversion over six years (or simply matures as a bond if never converted) — zero immediate impact on group governance. Samsung SDS needed to [protect parent stake AND raise ₩1.22T at the same time], and a CB delivered exactly that. Combined with the existing ₩6.4T of cash, the deal builds an [AI/M&A war chest of ~₩7.6T].",
     },
     {
       q: "Why is KKR's waiver of refixing and put so unusual?",
-      a: "In Korean private CB markets, refixing (downward adjustment of conversion price on share weakness) and put options (early redemption rights) are nearly standard investor protections. Both are burdens on the issuer. KKR waiving both is a clear signal that this is not a yield trade — **\"we are pricing the long-term partnership with Samsung Group itself, not a bond return.\"** It is exceptionally rare for a global mega-PE firm to accept issuer-favorable terms of this magnitude in Korean capital markets.",
+      a: "In Korean private CB markets, refixing (downward adjustment of conversion price on share weakness) and put options (early redemption rights) are nearly standard investor protections. Both are burdens on the issuer. KKR waiving both is a clear signal that this is not a yield trade — [\"we are pricing the long-term partnership with Samsung Group itself, not a bond return.\"] It is exceptionally rare for a global mega-PE firm to accept issuer-favorable terms of this magnitude in Korean capital markets.",
     },
     {
       q: "Why did KKR's PE arm — Asia Fund V — take this deal instead of the infrastructure fund?",
-      a: "In 2024, KKR took a minority stake in SK Group's AI data center JV using its **Asia Pacific Infrastructure Fund**. As part of that deal, SK imposed a **\"no participation in similar businesses by other Korean conglomerates\"** non-compete clause. Samsung SDS's AI/data center business fell within the scope of that restriction, so the infrastructure fund was effectively blocked. The PE arm (Asia Fund V) stepped in by default — an interesting illustration of internal **fund-conflict dynamics** at KKR shaping deal structure.",
+      a: "In 2024, KKR took a minority stake in SK Group's AI data center JV using its [Asia Pacific Infrastructure Fund]. As part of that deal, SK imposed a [\"no participation in similar businesses by other Korean conglomerates\"] non-compete clause. Samsung SDS's AI/data center business fell within the scope of that restriction, so the infrastructure fund was effectively blocked. The PE arm (Asia Fund V) stepped in by default — an interesting illustration of internal [fund-conflict dynamics] at KKR shaping deal structure.",
     },
     {
       q: "What does \"zero outside money\" mean in this context?",
-      a: "This deal closed without **any external capital** — no acquisition financing (LBO debt), no bank syndication, no third-party LP co-investment. KKR funded the full ₩1.22T from Asia Fund V dry powder alone. Normally a mega-PE transaction of this size involves syndicated debt plus co-invest LPs, but here KKR's PE-arm capital alone was sufficient. It demonstrates both **deployment capacity at scale** and the fact that this is a **pure capital transaction** for which LBO leverage is structurally unnecessary.",
+      a: "This deal closed without [any external capital] — no acquisition financing (LBO debt), no bank syndication, no third-party LP co-investment. KKR funded the full ₩1.22T from Asia Fund V dry powder alone. Normally a mega-PE transaction of this size involves syndicated debt plus co-invest LPs, but here KKR's PE-arm capital alone was sufficient. It demonstrates both [deployment capacity at scale] and the fact that this is a [pure capital transaction] for which LBO leverage is structurally unnecessary.",
     },
     {
       q: "What scenarios are possible when the six-year lockup ends?",
-      a: "Three main scenarios. ① **Share price above 180,000 KRW + KKR converts** — KKR becomes ~8.06% shareholder of Samsung SDS, realizing equity gains. ② **Share price below 180,000 KRW + KKR redeems** — KKR collects 2.5% coupon over six years plus yield-to-maturity, recovering principal as bond. ③ **Partial conversion / partial redemption** — depending on market conditions, KKR may split the position. In any scenario, downside risk is limited and upside is open — the asymmetric payoff the market labels as **heads-I-win-tails-I-don't-lose**.",
+      a: "Three main scenarios. ① [Share price above 180,000 KRW + KKR converts] — KKR becomes ~8.06% shareholder of Samsung SDS, realizing equity gains. ② [Share price below 180,000 KRW + KKR redeems] — KKR collects 2.5% coupon over six years plus yield-to-maturity, recovering principal as bond. ③ [Partial conversion / partial redemption] — depending on market conditions, KKR may split the position. In any scenario, downside risk is limited and upside is open — the asymmetric payoff the market labels as [heads-I-win-tails-I-don't-lose].",
     },
     {
       q: "What does this deal mean for Korean capital markets?",
-      a: "Two main implications. First, **foreign mega-PE has taken a direct position in a Samsung Group company's capital structure for the first time**. Similar transactions at LG CNS, SK C&C, Lotte Innovate, and other chaebol IT subsidiaries are now more plausible. Second, **Korean private CB markets can support issuer-favorable plain-vanilla structures with global mega-PE counterparties** — proving that the refixing-dependent norm is not the only viable structure. Issuer bargaining power in Korea's private CB market is likely to rise overall.",
+      a: "Two main implications. First, [foreign mega-PE has taken a direct position in a Samsung Group company's capital structure for the first time]. Similar transactions at LG CNS, SK C&C, Lotte Innovate, and other chaebol IT subsidiaries are now more plausible. Second, [Korean private CB markets can support issuer-favorable plain-vanilla structures with global mega-PE counterparties] — proving that the refixing-dependent norm is not the only viable structure. Issuer bargaining power in Korea's private CB market is likely to rise overall.",
     },
   ],
 };
