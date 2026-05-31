@@ -33,6 +33,8 @@ import danaherAcquisitions from "./danaher-acquisitions";
 import elliottSamsung from "./elliott-samsung";
 import hanjinKcgi from "./hanjin-kcgi";
 import koreaZincMbk from "./korea-zinc-mbk";
+import kkrSamsungSdsCb from "./kkr-samsung-sds-cb";
+import mbkMakinoAltemira from "./mbk-makino-altemira";
 import lvmhHermes from "./lvmh-hermes";
 import jpmorganBearStearns from "./jpmorgan-bear-stearns";
 import pershingSquareCpRail from "./pershing-square-cp-rail";
@@ -95,6 +97,8 @@ import sertaSimmonsUptier from "./serta-simmons-uptier";
  * English deal registry — ordered by closedAt descending
  */
 export const ALL_DEALS_EN: DealData[] = [
+  mbkMakinoAltemira,       // 2026-05-11 (ma — Japan FEFTA + 19-day pivot)
+  kkrSamsungSdsCb,         // 2026-04-30 (ma — Korea's largest single private CB)
   coucheTard7eleven,       // 2025-12-31 (control, ongoing)
   koreaZincMbk,            // 2025-03-28 (control)
   hanmiPharmaControl,      // 2024-12-31 (control, ongoing)
