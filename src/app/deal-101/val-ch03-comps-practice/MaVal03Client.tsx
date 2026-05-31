@@ -135,12 +135,19 @@ export default function MaVal03Client({ lang }: { lang: Lang }) {
             <span>·</span>
             <span>{chapter.readingMinutes}{ko ? "분 읽기" : " min"}</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100 mb-3 leading-tight">
-            {ko ? chapter.titleKo : chapter.titleEn}
-          </h1>
-          <p className="text-base text-gray-500 dark:text-gray-400 leading-relaxed">
-            {ko ? chapter.taglineKo : chapter.taglineEn}
-          </p>
+          <div className="flex items-start justify-between gap-4">
+            <div className="flex-1 min-w-0">
+              <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100 mb-3 leading-tight">
+                {ko ? chapter.titleKo : chapter.titleEn}
+              </h1>
+              <p className="text-base text-gray-500 dark:text-gray-400 leading-relaxed">
+                {ko ? chapter.taglineKo : chapter.taglineEn}
+              </p>
+            </div>
+            <div className="flex-shrink-0 pt-1">
+              <ShareButtons title={ko ? chapter.titleKo : chapter.titleEn} variant="top" lang={lang} />
+            </div>
+          </div>
         </section>
 
         {/* Series chapter pills */}
@@ -276,6 +283,9 @@ export default function MaVal03Client({ lang }: { lang: Lang }) {
                 : "NTM consensus comes from FactSet, Capital IQ, or Bloomberg. It's the average of 30-50 sell-side analyst estimates, updated daily into a single NTM EBITDA number per company. You just use it — no need to build your own."}</p>
             </div>
           </motion.section>
+
+          {/* Mid share */}
+          <ShareButtons title={ko ? chapter.titleKo : chapter.titleEn} variant="mid" lang={lang} />
 
           <hr className="border-gray-200 dark:border-gray-800 mb-14" />
 
@@ -508,10 +518,13 @@ export default function MaVal03Client({ lang }: { lang: Lang }) {
             </div>
           </motion.section>
 
-          {/* Share */}
-          <div className="pt-4 border-t border-gray-200/60 dark:border-gray-700/60">
-            <ShareButtons lang={lang} title={ko ? chapter.titleKo : chapter.titleEn} />
-          </div>
+          {/* Bottom share — 카드형 + AuthorByline */}
+          <ShareButtons
+            title={ko ? chapter.titleKo : chapter.titleEn}
+            variant="bottom"
+            lang={lang}
+            readingMinutes={chapter.readingMinutes}
+          />
 
           {/* Series prev/next */}
           {(prev || next) && (
