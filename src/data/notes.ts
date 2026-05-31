@@ -4403,8 +4403,8 @@ const quantumComputing: NoteData = {
         // ① 신약 개발
         {
           type: "text",
-          body: "### ① 신약 개발 — 10년이 1년으로\n\n지금 새로운 약을 하나 만든다고 가정하자.\n\n평균 10-15년, $26억 달러가 든다.\n\n이렇게 오래 걸리는 이유는, 분자 시뮬레이션이 불가능해서인데, 신약 후보 물질이 인체 단백질에 어떻게 결합할지 컴퓨터로 정확히 예측할 수가 없어서 결국 수만 개를 만들어 실험으로 시도해 보게 되는 것이다.\n\n양자컴퓨터가 이 임계치에 도달하게 되면, 이걸 근본적으로 다른 차원으로 바꿔버린다.\n\n분자 자체가 양자 시스템이기 때문에, 양자컴퓨터로는 분자를 분자 그대로 시뮬레이션할 수 있다.\n\n알츠하이머 치료제 후보 100만 개를 현실에서 합성하기 전에 양자 시뮬레이션으로 1차 스크리닝하고, 통과한 100개만 실제 합성하게 되면\n\n10년이 1년이 된다.\n\n이미 Roche, Merck, Pfizer가 IBM Quantum과 양자 신약 컨소시엄을 운영 중이다.\n\nJPMorgan도 합류했다.\n\n이게 양자컴퓨터의 가장 명확한 commercial use case라고 업계가 합의하고 있다.",
-          bodyEn: "### ① Drug Discovery — From 10 Years to 1\n\nLet's say you want to develop a new drug today.\n\nAverage 10-15 years, $2.6 billion.\n\nThe reason it takes so long: molecular simulation is impossible. You can't accurately predict how a drug candidate will bind to a human protein on a computer, so you end up synthesizing tens of thousands of variants and running physical experiments.\n\nWhen quantum hits the threshold, this changes fundamentally.\n\nMolecules *are* quantum systems. So a quantum computer can simulate a molecule *as a molecule*.\n\nIf you screen 1 million Alzheimer's candidates in quantum simulation before any lab synthesis, and only the top 100 get actually made\n\n10 years becomes 1 year.\n\nRoche, Merck, and Pfizer already run a quantum drug discovery consortium with IBM Quantum.\n\nJPMorgan joined too.\n\nThis is the use case the industry agrees on most: quantum's clearest commercial path.",
+          body: "### ① 신약 개발 — 10년이 1년으로\n\n지금 새로운 약을 하나 만든다고 가정하자.\n\n평균 10-15년, $26억 달러가 든다.\n\n이렇게 오래 걸리는 이유는, 분자 시뮬레이션이 불가능해서인데, 신약 후보 물질이 인체 단백질에 어떻게 결합할지 컴퓨터로 정확히 예측할 수가 없어서 결국 수만 개를 만들어 실험으로 시도해 보게 되는 것이다.\n\n양자컴퓨터가 이 임계치에 도달하게 되면, 이걸 근본적으로 다른 차원으로 바꿔버린다.\n\n분자 자체가 양자 시스템이기 때문에, 양자컴퓨터로는 분자를 분자 그대로 시뮬레이션할 수 있다.\n\n알츠하이머 치료제 후보 100만 개를 현실에서 합성하기 전에 양자 시뮬레이션으로 1차 스크리닝하고, 통과한 100개만 실제 합성하게 되면\n\n10년이 1년이 된다.\n\n이미 Roche, Merck, Pfizer가 IBM Quantum과 양자 신약 컨소시엄을 운영 중이다.\n\nJP모건도 합류했다.\n\n이게 양자컴퓨터의 가장 명확한 상업적 활용 사례라고 업계가 합의하고 있다.",
+          bodyEn: "### ① Drug Discovery — From 10 Years to 1\n\nLet's say you want to develop a new drug today.\n\nAverage 10-15 years, $2.6 billion.\n\nThe reason it takes so long: molecular simulation is impossible. You can't accurately predict how a drug candidate will bind to a human protein on a computer, so you end up synthesizing tens of thousands of variants and running physical experiments.\n\nWhen quantum hits the threshold, this changes fundamentally.\n\nMolecules *are* quantum systems. So a quantum computer can simulate a molecule *as a molecule*.\n\nIf you screen 1 million Alzheimer's candidates in quantum simulation before any lab synthesis, and only the top 100 get actually made\n\n10 years becomes 1 year.\n\nRoche, Merck, and Pfizer already run a quantum drug discovery consortium with IBM Quantum.\n\nJP모건 joined too.\n\nThis is the use case the industry agrees on most: quantum's clearest commercial path.",
         },
 
         // ② 신소재
@@ -4417,7 +4417,7 @@ const quantumComputing: NoteData = {
         // ③ Q-Day
         {
           type: "text",
-          body: "### ③ 비트코인이 깨진다 — 업계가 \"Q-Day\"라고 부르는 날\n\n이게 아마 가장 자극적인 가능성일 것이다.\n\n현재 모든 디지털 보안은 RSA-2048(은행 시스템), ECDSA(비트코인·이더리움), TLS(우리가 매일 보는 웹사이트 자물쇠)에 의존한다.\n\n이 암호 방식들은 한 가지 수학적 가정 위에 세워져 있다 — \"큰 수를 소인수분해하는 데는 슈퍼컴퓨터로도 수십억 년이 걸린다.\"\n\n그런데 1994년, MIT의 Peter Shor라는 수학자가 양자컴퓨터로 소인수분해를 단 몇 초 만에 할 수 있는 알고리즘을 발표했다.\n\n업계에서는 이걸 Shor's Algorithm이라고 부른다.\n\n즉, 충분히 큰 양자컴퓨터가 만들어지는 순간, 인터넷 보안 전체가 무너진다는 얘기다.\n\n이날을 업계에서는 \"Q-Day\" 라고 부른다.\n\n예상 시점: 2030-2035년 사이.\n\n그 전에 모든 시스템을 \"양자-안전 암호(Post-Quantum Cryptography, PQC)\"로 전환해야 한다.\n\n글로벌 마이그레이션 비용 추정치: $500억 달러 이상.",
+          body: "### ③ 비트코인이 깨진다 — 업계가 \"Q-Day\"라고 부르는 날\n\n양자컴퓨터가 가져올 가장 자극적인 변화가 이거다.\n\n지금 우리가 쓰는 *모든* 디지털 보안은 세 가지 암호 방식 위에 세워져 있다.\n\n첫째, **RSA-2048**.\n\n1977년 미국 MIT에서 발명된 *공개키 암호 방식*. 은행 송금, SWIFT 국제 결제, 정부 시스템, 기업 VPN — 사실상 *전 세계 금융 시스템* 이 이걸로 보호된다.\n\n둘째, **ECDSA**.\n\n타원곡선 디지털 서명 알고리즘. *비트코인과 이더리움 지갑*의 전자 서명 표준. 누가 코인을 보낼 때 \"이건 진짜 내 지갑에서 보내는 거야\"를 수학적으로 증명하는 방식이다.\n\n셋째, **TLS**.\n\n웹사이트 주소창의 *자물쇠 아이콘*이 바로 이거다. HTTPS의 \"S\"가 TLS의 약자. 우리가 매일 인스타·유튜브·온라인 쇼핑 할 때마다 작동한다.\n\n이 세 방식 모두 *한 가지 수학적 가정* 위에 세워져 있다 — \"수백 자리의 큰 숫자를 소수의 곱으로 분해(소인수분해)하는 데는 슈퍼컴퓨터로도 수십억 년이 걸린다.\"\n\n그런데 1994년, 미국 MIT의 수학자 **피터 쇼어**(Peter Shor)가 양자컴퓨터로는 그 소인수분해를 *단 몇 초 만에* 풀 수 있는 알고리즘을 발표했다.\n\n업계에서는 이걸 **쇼어 알고리즘**(Shor's Algorithm)이라고 부른다.\n\n즉, 충분히 큰 양자컴퓨터가 만들어지는 순간 — *인터넷 보안 전체가 한 번에 무너진다*는 얘기다.\n\n이날을 업계에서는 **Q-Day**(Quantum Day의 약자)라고 부른다.\n\n예상 시점: 2030년에서 2035년 사이.\n\n그 전에 *모든 시스템*을 \"양자에도 안전한 새로운 암호 방식\"으로 갈아끼워야 한다. 업계에서 **PQC**(Post-Quantum Cryptography, 양자 이후 시대 암호)라고 부르는 것.\n\n글로벌 전환 비용 추정치: **5,000억 달러 이상**.",
           bodyEn: "### ③ Bitcoin Breaks — The Day the Industry Calls 'Q-Day'\n\nThis is probably the most provocative possibility.\n\nAll digital security today rests on RSA-2048 (banking), ECDSA (Bitcoin and Ethereum), and TLS (the lock icon on every website).\n\nThese cryptographic systems all sit on one mathematical assumption — 'factoring large numbers takes supercomputers billions of years'.\n\nIn 1994, MIT mathematician Peter Shor published an algorithm that lets a quantum computer factor large numbers in seconds.\n\nThe industry calls it Shor's Algorithm.\n\nWhich means: the moment a sufficiently large quantum computer exists, internet security collapses.\n\nThe industry calls this day 'Q-Day'.\n\nExpected timing: between 2030 and 2035.\n\nBefore that, every system must migrate to Post-Quantum Cryptography (PQC).\n\nEstimated global migration cost: over $500 billion.",
         },
         {
@@ -4454,23 +4454,23 @@ const quantumComputing: NoteData = {
             variant: "warning",
             heading: "비트코인 보유자가 알아야 할 사실",
             headingEn: "What Bitcoin Holders Need to Know",
-            body: "Satoshi Nakamoto의 100만 비트코인이 든 초기 지갑들은 공개 키가 이미 노출된 상태다. Q-Day가 오는 순간 누구나 가져갈 수 있다. 미국 NSA는 2024년에 이미 모든 정부 시스템에 2030년까지 PQC 전환을 명령했다. JPMorgan은 2023년에 양자 위협 전담팀을 구성했고, 한국 KISA(한국인터넷진흥원)도 PQC 마이그레이션 로드맵을 발표했다.",
-            bodyEn: "Satoshi Nakamoto's 1 million Bitcoins sit in early-era wallets whose public keys are already exposed. The moment Q-Day arrives, anyone could take them. The US NSA already mandated PQC migration for all government systems by 2030 (issued in 2024). JPMorgan stood up a quantum threat team in 2023. Korea's KISA has published its own PQC migration roadmap.",
+            body: "Satoshi Nakamoto의 100만 비트코인이 든 초기 지갑들은 공개 키가 이미 노출된 상태다. Q-Day가 오는 순간 누구나 가져갈 수 있다. 미국 NSA는 2024년에 이미 모든 정부 시스템에 2030년까지 PQC 전환을 명령했다. JP모건은 2023년에 양자 위협 전담팀을 구성했고, 한국 KISA(한국인터넷진흥원)도 PQC 마이그레이션 로드맵을 발표했다.",
+            bodyEn: "Satoshi Nakamoto's 1 million Bitcoins sit in early-era wallets whose public keys are already exposed. The moment Q-Day arrives, anyone could take them. The US NSA already mandated PQC migration for all government systems by 2030 (issued in 2024). JP모건 stood up a quantum threat team in 2023. Korea's KISA has published its own PQC migration roadmap.",
           },
         },
 
         // ④ AI 학습
         {
           type: "text",
-          body: "### ④ AI 학습 — 며칠이 몇 분으로\n\nChatGPT 같은 거대 언어 모델 학습에는 수만 개의 NVIDIA GPU가 수개월 동안 작동한다.\n\n비용은 한 번 학습에 $1억 달러 단위.\n\n양자컴퓨터는 머신러닝의 핵심 연산 일부를 지수적으로 가속할 수 있다.\n\n업계에서는 이걸 HHL 알고리즘, Quantum Neural Network 같은 이름으로 부른다.\n\n모든 AI 학습을 양자가 다 하는 건 아니다.\n\n하지만 특정 단계가 1000배 빨라지면 전체 학습 시간이 며칠에서 몇 분으로 떨어진다.\n\n이게 진짜라면, NVIDIA 가치의 일부가 양자 회사로 이전될 수 있다.\n\n지금 양자 주식들이 AI 사이클 피로감과 함께 갑자기 주목받는 이유가 여기 있다.",
+          body: "### ④ AI 학습 — 며칠이 몇 분으로\n\nChatGPT 같은 거대 언어 모델을 학습시킬 때는 수만 개의 NVIDIA GPU가 수개월 동안 작동한다.\n\n한 번 학습에 드는 비용이 *1억 달러 단위* (한화 약 1,300억 원).\n\n양자컴퓨터는 머신러닝의 핵심 연산 일부를 *지수적으로* 가속할 수 있다.\n\n예를 들어 **HHL 알고리즘**(거대한 행렬 방정식을 푸는 양자 알고리즘) 이나 **양자 신경망**(Quantum Neural Network — 양자컴퓨터 위에서 작동하는 AI 모델 구조) 같은 게 있다.\n\nAI 학습 *전체*를 양자가 다 하는 건 아니다. 하지만 *특정 단계*가 1,000배 빨라지면 전체 학습 시간이 *며칠 → 몇 분*으로 떨어진다.\n\n이게 진짜라면 — NVIDIA가 가져가던 가치의 일부가 양자 관련 회사로 이전될 수 있다는 얘기다.\n\n양자 주식들이 AI 사이클 피로감과 함께 갑자기 주목받는 이유가 여기에 있다.",
           bodyEn: "### ④ AI Training — From Days to Minutes\n\nTraining a frontier LLM like ChatGPT takes tens of thousands of NVIDIA GPUs running for months.\n\nCost per training run: hundreds of millions of dollars.\n\nQuantum computers can exponentially accelerate certain ML primitives.\n\nThe industry calls these HHL algorithms, Quantum Neural Networks, and so on.\n\nQuantum won't do all of AI training. But if a critical step gets 1000x faster, total training time collapses from days to minutes.\n\nIf that turns real, some of NVIDIA's value migrates to the quantum names.\n\nThat's why quantum stocks suddenly matter as the AI cycle starts to feel mature.",
         },
 
         // ⑤ 금융
         {
           type: "text",
-          body: "### ⑤ 금융 최적화 — 포트폴리오, 리스크, 사기 탐지\n\nJPMorgan, Goldman Sachs, HSBC, BBVA.\n\n글로벌 빅뱅크들이 모두 양자 연구팀을 보유하고 있다.\n\n왜 그럴까?\n\n- 포트폴리오 최적화: 1만 개 자산 중 최적 조합을 찾는 문제 → 양자가 지수적으로 빠르다\n- 옵션 가격 모델링: 몬테카를로 시뮬레이션 → 양자로 1000배 가속\n- 사기 패턴 탐지: 그래프 검색 → Grover algorithm으로 √N 가속\n- 신용 위험 모델링: 거대한 상관관계 행렬 → 양자에서 자연스러운 문제\n\nJPMorgan은 세계 최대 양자 컨소시엄(Q-Initiative)을 운영하고 있다.\n\nGoldman은 2020년부터 IBM Quantum과 협업 중이다.\n\n양자 시대가 오면, 금융업의 경쟁 우위 일부가 양자 인프라에서 결정된다.",
-          bodyEn: "### ⑤ Financial Optimization — Portfolios, Risk, Fraud\n\nJPMorgan, Goldman Sachs, HSBC, BBVA.\n\nEvery global megabank now runs a quantum research team.\n\nWhy?\n\n- Portfolio optimization: picking the best combination from 10,000 assets → exponential quantum speedup\n- Options pricing: Monte Carlo simulation → 1000x quantum acceleration\n- Fraud detection: graph search → √N speedup via Grover's algorithm\n- Credit risk: enormous correlation matrices → natural fit for quantum\n\nJPMorgan runs the world's largest quantum consortium (Q-Initiative).\n\nGoldman has been working with IBM Quantum since 2020.\n\nIf the quantum era arrives, part of banking's competitive edge gets re-decided at the quantum infrastructure layer.",
+          body: "### ⑤ 금융 최적화 — 포트폴리오, 리스크, 사기 탐지\n\nJP모건, 골드만삭스, HSBC, BBVA.\n\n글로벌 대형 은행들이 *모두* 사내에 양자 연구팀을 두고 있다.\n\n왜 그럴까?\n\n- **포트폴리오 최적화**: 1만 개 자산 중 최적 조합 찾기 → 양자가 *지수적*으로 빠름\n- **옵션 가격 모델링**: 몬테카를로 시뮬레이션(난수로 수많은 시나리오를 돌려 평균을 내는 방법) → 양자로 1,000배 가속\n- **사기 패턴 탐지**: 거대한 거래 그래프에서 이상 패턴 찾기 → *그로버 알고리즘*(Grover's Algorithm — 양자 검색 알고리즘)으로 √N배 가속\n- **신용 위험 모델링**: 거대한 상관관계 행렬 계산 → 양자가 자연스럽게 잘 푸는 문제\n\nJP모건은 세계 최대 양자 컨소시엄인 *Q-Initiative*를 운영하고 있다. 25개 이상의 글로벌 은행이 참여.\n\n골드만삭스는 2020년부터 IBM Quantum과 협업 중.\n\n양자 시대가 오면, *금융업의 경쟁 우위 일부*가 양자 인프라에서 결정된다는 얘기다.",
+          bodyEn: "### ⑤ Financial Optimization — Portfolios, Risk, Fraud\n\nJP모건, 골드만삭스, HSBC, BBVA.\n\nEvery global megabank now runs a quantum research team.\n\nWhy?\n\n- Portfolio optimization: picking the best combination from 10,000 assets → exponential quantum speedup\n- Options pricing: Monte Carlo simulation → 1000x quantum acceleration\n- Fraud detection: graph search → √N speedup via Grover's algorithm\n- Credit risk: enormous correlation matrices → natural fit for quantum\n\nJP모건 runs the world's largest quantum consortium (Q-Initiative).\n\nGoldman has been working with IBM Quantum since 2020.\n\nIf the quantum era arrives, part of banking's competitive edge gets re-decided at the quantum infrastructure layer.",
         },
 
         // ⑥ 기후
@@ -4495,20 +4495,20 @@ const quantumComputing: NoteData = {
             headers: ["Use Case", "현재 (기존 컴퓨터)", "양자 임계점 이후", "이미 참여한 기업"],
             headersEn: ["Use Case", "Today (classical)", "Post-threshold", "Players already in"],
             rows: [
-              ["신약 개발", "10-15년 / $26억", "1년 / 대폭 ↓", "Pfizer · Roche · Merck · JPMorgan"],
+              ["신약 개발", "10-15년 / $26억", "1년 / 대폭 ↓", "Pfizer · Roche · Merck · JP모건"],
               ["신소재", "연 1건 우연 발견", "분기 5-10건", "Samsung · LG ES · BMW · Bosch"],
-              ["Q-Day (암호 붕괴)", "안전", "RSA·ECDSA 무력화", "NSA · NIST · JPMorgan · KISA"],
+              ["Q-Day (암호 붕괴)", "안전", "RSA·ECDSA 무력화", "NSA · NIST · JP모건 · KISA"],
               ["AI 학습", "수개월 / $1억", "며칠→몇 분", "(잠재) NVIDIA 일부 가치 이전"],
-              ["금융 최적화", "근사치만 가능", "1000배 가속", "JPMorgan · Goldman · HSBC · BBVA"],
+              ["금융 최적화", "근사치만 가능", "1000배 가속", "JP모건 · Goldman · HSBC · BBVA"],
               ["기후 모델", "단순화된 IPCC 모델", "정확한 100년 예측", "IPCC · 각국 정부"],
               ["우리가 모르는 것", "—", "1995→Uber 패턴", "—"],
             ],
             rowsEn: [
-              ["Drug Discovery", "10-15 yrs / $2.6B", "1 yr / much less", "Pfizer · Roche · Merck · JPMorgan"],
+              ["Drug Discovery", "10-15 yrs / $2.6B", "1 yr / much less", "Pfizer · Roche · Merck · JP모건"],
               ["New Materials", "~1 discovery / yr", "5-10 / quarter", "Samsung · LG ES · BMW · Bosch"],
-              ["Q-Day (Crypto)", "Safe", "RSA/ECDSA broken", "NSA · NIST · JPMorgan · KISA"],
+              ["Q-Day (Crypto)", "Safe", "RSA/ECDSA broken", "NSA · NIST · JP모건 · KISA"],
               ["AI Training", "Months / $100M", "Days → minutes", "(Potential) NVIDIA value shift"],
-              ["Financial Optim.", "Approximations only", "1000x speedup", "JPMorgan · Goldman · HSBC · BBVA"],
+              ["Financial Optim.", "Approximations only", "1000x speedup", "JP모건 · Goldman · HSBC · BBVA"],
               ["Climate Models", "Simplified IPCC", "Accurate 100-yr", "IPCC · national govs"],
               ["Unknown", "—", "1995→Uber pattern", "—"],
             ],
@@ -4821,13 +4821,13 @@ const quantumComputing: NoteData = {
         },
         {
           type: "text",
-          body: "### ③ 기업 컨소시엄 (가장 미래 지향적)\n\nRoche, Pfizer, Merck, JPMorgan, Goldman Sachs, BMW, Bosch, Samsung.\n\n이 회사들은 IBM Quantum이나 IonQ와 5년·10년짜리 R&D 파트너십을 맺는다.\n\n연간 사용료 $1M-$10M 단위.\n\n목적: 미래에 양자 임계점이 왔을 때 *우리가 첫 번째 사용자가 되는 것*.\n\n지금 당장은 ROI가 없어도, 양자 시대가 오면 게임을 *앞서서* 시작하는 셈이다.\n\nJPMorgan이 운영하는 Q-Initiative 컨소시엄에만 25개+ 글로벌 빅뱅크가 참여 중이다.",
-          bodyEn: "### ③ Enterprise Consortia (most forward-looking)\n\nRoche, Pfizer, Merck, JPMorgan, Goldman Sachs, BMW, Bosch, Samsung.\n\nThese companies sign 5- and 10-year R&D partnerships with IBM Quantum or IonQ.\n\nAnnual fees: $1M-$10M.\n\nThe goal: be the *first user* when quantum hits the threshold.\n\nThere's no ROI today, but they start the race *ahead* of competitors.\n\nJPMorgan's Q-Initiative alone has 25+ global megabanks as members.",
+          body: "### ③ 기업 컨소시엄 (가장 미래 지향적)\n\nRoche, Pfizer, Merck, JP모건, 골드만삭스, BMW, Bosch, Samsung.\n\n이 회사들은 IBM Quantum이나 IonQ와 5년·10년짜리 R&D 파트너십을 맺는다.\n\n연간 사용료 $1M-$10M 단위.\n\n목적: 미래에 양자 임계점이 왔을 때 *우리가 첫 번째 사용자가 되는 것*.\n\n지금 당장은 ROI가 없어도, 양자 시대가 오면 게임을 *앞서서* 시작하는 셈이다.\n\nJP모건이 운영하는 Q-Initiative 컨소시엄에만 25개+ 글로벌 빅뱅크가 참여 중이다.",
+          bodyEn: "### ③ Enterprise Consortia (most forward-looking)\n\nRoche, Pfizer, Merck, JP모건, 골드만삭스, BMW, Bosch, Samsung.\n\nThese companies sign 5- and 10-year R&D partnerships with IBM Quantum or IonQ.\n\nAnnual fees: $1M-$10M.\n\nThe goal: be the *first user* when quantum hits the threshold.\n\nThere's no ROI today, but they start the race *ahead* of competitors.\n\nJP모건's Q-Initiative alone has 25+ global megabanks as members.",
         },
         {
           type: "text",
-          body: "### ④ 소프트웨어 / 알고리즘 (가장 자본 효율적)\n\n양자 칩 자체는 만들기가 미치도록 어렵다.\n\n하지만 그 위에 올라가는 소프트웨어는 일반 클라우드 소프트웨어처럼 SaaS 구조로 팔 수 있다.\n\n플레이어들:\n\n- Classiq (이스라엘) — 양자 알고리즘 자동 생성 플랫폼. $33M 시리즈 C\n- Zapata Computing — 양자 ML 미들웨어. SPAC 합병으로 상장\n- QC Ware — 컨설팅 + 알고리즘. Goldman Sachs 투자\n\n이들은 *양자 칩을 만들지 않으면서* 양자 생태계에서 돈을 번다.\n\n마치 NVIDIA가 GPU를 만들고, OpenAI가 그 위에 ChatGPT를 만든 것처럼.",
-          bodyEn: "### ④ Software / Algorithms (most capital-efficient)\n\nMaking quantum chips is insanely hard.\n\nBut the software running on top can be sold like normal cloud SaaS.\n\nPlayers:\n\n- Classiq (Israel) — quantum algorithm auto-generation platform. $33M Series C\n- Zapata Computing — quantum ML middleware. Public via SPAC\n- QC Ware — consulting + algorithms. Goldman Sachs is an investor\n\nThey make money in the quantum ecosystem *without building chips*.\n\nLike NVIDIA built GPUs and OpenAI built ChatGPT on top.",
+          body: "### ④ 소프트웨어 / 알고리즘 (가장 자본 효율적)\n\n양자 칩 자체는 만들기가 미치도록 어렵다.\n\n하지만 그 위에 올라가는 소프트웨어는 일반 클라우드 소프트웨어처럼 SaaS 구조로 팔 수 있다.\n\n플레이어들:\n\n- Classiq (이스라엘) — 양자 알고리즘 자동 생성 플랫폼. $33M 시리즈 C\n- Zapata Computing — 양자 ML 미들웨어. SPAC 합병으로 상장\n- QC Ware — 컨설팅 + 알고리즘. 골드만삭스 투자\n\n이들은 *양자 칩을 만들지 않으면서* 양자 생태계에서 돈을 번다.\n\n마치 NVIDIA가 GPU를 만들고, OpenAI가 그 위에 ChatGPT를 만든 것처럼.",
+          bodyEn: "### ④ Software / Algorithms (most capital-efficient)\n\nMaking quantum chips is insanely hard.\n\nBut the software running on top can be sold like normal cloud SaaS.\n\nPlayers:\n\n- Classiq (Israel) — quantum algorithm auto-generation platform. $33M Series C\n- Zapata Computing — quantum ML middleware. Public via SPAC\n- QC Ware — consulting + algorithms. 골드만삭스 is an investor\n\nThey make money in the quantum ecosystem *without building chips*.\n\nLike NVIDIA built GPUs and OpenAI built ChatGPT on top.",
         },
         {
           type: "text",
@@ -4845,14 +4845,14 @@ const quantumComputing: NoteData = {
             rows: [
               ["QaaS (양자 클라우드)", "가장 큼", "IBM Quantum · Azure · AWS Braket", "중", "높음"],
               ["정부·군 계약", "30-50%", "PsiQuantum · IonQ · Quantinuum", "높음", "낮음"],
-              ["기업 컨소시엄", "중", "Roche · Pfizer · JPMorgan · BMW", "높음", "중"],
+              ["기업 컨소시엄", "중", "Roche · Pfizer · JP모건 · BMW", "높음", "중"],
               ["소프트웨어/알고리즘", "작음 (성장 중)", "Classiq · Zapata · QC Ware", "중", "매우 높음"],
               ["컨설팅/통합", "즉시 매출", "Accenture · Deloitte · BCG · McKinsey", "높음", "중"],
             ],
             rowsEn: [
               ["QaaS (Quantum Cloud)", "Largest", "IBM Quantum · Azure · AWS Braket", "Medium", "High"],
               ["Government/Military", "30-50%", "PsiQuantum · IonQ · Quantinuum", "High", "Low"],
-              ["Enterprise Consortia", "Medium", "Roche · Pfizer · JPMorgan · BMW", "High", "Medium"],
+              ["Enterprise Consortia", "Medium", "Roche · Pfizer · JP모건 · BMW", "High", "Medium"],
               ["Software/Algorithms", "Small (growing)", "Classiq · Zapata · QC Ware", "Medium", "Very High"],
               ["Consulting/Integration", "Immediate", "Accenture · Deloitte · BCG · McKinsey", "High", "Medium"],
             ],
@@ -5397,15 +5397,15 @@ const quantumComputing: NoteData = {
             { label: "시가총액", labelEn: "Market Cap", value: "$10-12B", sub: "변동성 ↑", subEn: "High volatility", color: "#0ea5e9" },
             { label: "FY26 매출", labelEn: "FY26 Revenue", value: "~$2.3B+", sub: "6월 종료", subEn: "Ends June", color: "#8b5cf6" },
             { label: "FY26 Q2", labelEn: "FY26 Q2", value: "$665.5M", sub: "+65.5% YoY", subEn: "+65.5% YoY", color: "#10b981" },
-            { label: "AI/Cloud 비중", labelEn: "AI/Cloud Mix", value: "60%+", sub: "전년 대비 ↑", subEn: "Up YoY", color: "#f59e0b" },
+            { label: "AI·클라우드 비중", labelEn: "AI·클라우드 Mix", value: "60%+", sub: "전년 대비 ↑", subEn: "Up YoY", color: "#f59e0b" },
             { label: "GP율 (non-GAAP)", labelEn: "GP Margin", value: "42.5%", sub: "Op 25.2%", subEn: "Op 25.2%", color: "#0ea5e9" },
             { label: "목표가 범위", labelEn: "Price Target", value: "$130-180", sub: "Buy/OW 컨센", subEn: "Buy/OW", color: "#8b5cf6" },
           ],
         },
         {
           type: "text",
-          body: "월가 의견: Wells Fargo, Citi, Morgan Stanley 대부분 Buy / Overweight.\n\n핵심 토론 — 1.6T 트랜시버 전환 속도 / 중국 익스포저 / 양자 매출 인식 시점.\n\n투자 thesis 한 줄: *AI 데이터센터의 \"실링\" + 양자 사이클의 \"보너스\". 양자가 깨져도 본업 살아있음.*",
-          bodyEn: "Wall Street view: Wells Fargo, Citi, Morgan Stanley mostly Buy / Overweight.\n\nKey debates — 1.6T transition pace / China exposure / quantum revenue recognition timing.\n\nThesis one-liner: *The 'pickaxe' of AI DC + the 'bonus' of quantum cycle. Core business survives if quantum fails.*",
+          body: "월가 의견: Wells Fargo, Citi, 모건스탠리 대부분 Buy / Overweight.\n\n핵심 토론 — 1.6T 트랜시버 전환 속도 / 중국 익스포저 / 양자 매출 인식 시점.\n\n투자 thesis 한 줄: *AI 데이터센터의 \"실링\" + 양자 사이클의 \"보너스\". 양자가 깨져도 본업 살아있음.*",
+          bodyEn: "Wall Street view: Wells Fargo, Citi, 모건스탠리 mostly Buy / Overweight.\n\nKey debates — 1.6T transition pace / China exposure / quantum revenue recognition timing.\n\nThesis one-liner: *The 'pickaxe' of AI DC + the 'bonus' of quantum cycle. Core business survives if quantum fails.*",
         },
 
         // ─── ② Coherent ($COHR) ────────────────────────
@@ -5598,7 +5598,7 @@ const quantumComputing: NoteData = {
               ["2024.4", "Cryomech (미국) 인수 — 부품 수직 통합", "공급망의 마지막 외부 의존성 제거"],
               ["2024.10", "헬싱키 신공장 가동 — 캐파 3배", "IBM Starling(2029) 수주 대비"],
               ["2025", "KIDE 시스템 발표 (FTQC용 차세대 냉동기)", "IPO 스토리의 핵심 제품"],
-              ["2025 H2", "Goldman Sachs · Morgan Stanley IPO 자문 경쟁 보도", "2026-2027 IPO 윈도우 확정"],
+              ["2025 H2", "골드만삭스 · 모건스탠리 IPO 자문 경쟁 보도", "2026-2027 IPO 윈도우 확정"],
               ["2026 Q1", "IBM Starling 사전 발주 가속 (추정 $50-80M 단일 계약)", "매출 가속 정점 진입"],
               ["2027E", "IPO 상장 (NASDAQ 추정, 헬싱키 듀얼 가능성)", "*양자 시대의 ASML* 공식 데뷔"],
             ],
@@ -5610,7 +5610,7 @@ const quantumComputing: NoteData = {
               ["2024.4", "Acquires Cryomech (US) — vertical integration of components", "Removes last external supply-chain dependency"],
               ["2024.10", "New Helsinki facility goes live — 3x capacity", "Preparing for IBM Starling (2029) orders"],
               ["2025", "Launches KIDE system (next-gen FTQC fridge)", "The core product of the IPO story"],
-              ["2025 H2", "Goldman Sachs & Morgan Stanley reportedly competing for IPO mandate", "Confirms 2026-2027 IPO window"],
+              ["2025 H2", "골드만삭스 & 모건스탠리 reportedly competing for IPO mandate", "Confirms 2026-2027 IPO window"],
               ["2026 Q1", "IBM Starling pre-orders accelerate (est. $50-80M single contract)", "Revenue acceleration peak"],
               ["2027E", "IPO listing (NASDAQ est., possible Helsinki dual-list)", "*The ASML of the quantum era* officially debuts"],
             ],

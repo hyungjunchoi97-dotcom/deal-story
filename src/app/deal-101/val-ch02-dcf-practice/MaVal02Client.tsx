@@ -88,6 +88,19 @@ const SENS_GRID: number[][] = [
 const SENS_BASE_ROW = 1; // g=2.5
 const SENS_BASE_COL = 2; // WACC=9.0
 
+// Country Risk Premium — Damodaran 2024 기준 (근사값, %)
+const CRP_TABLE = [
+  { koCountry: "미국 · 서유럽 · 일본",       enCountry: "US · Western Europe · Japan", crp: 0.0,  koTag: "선진국",       enTag: "Developed" },
+  { koCountry: "한국",                          enCountry: "South Korea",                  crp: 0.7,  koTag: "Aa3",           enTag: "Aa3" },
+  { koCountry: "중국",                          enCountry: "China",                         crp: 0.9,  koTag: "A1",            enTag: "A1" },
+  { koCountry: "인도",                          enCountry: "India",                         crp: 2.5,  koTag: "Baa3",          enTag: "Baa3" },
+  { koCountry: "멕시코 · 인도네시아",          enCountry: "Mexico · Indonesia",            crp: 2.5,  koTag: "Baa2 / Baa2",  enTag: "Baa2 / Baa2" },
+  { koCountry: "브라질",                        enCountry: "Brazil",                        crp: 3.5,  koTag: "Ba2",           enTag: "Ba2" },
+  { koCountry: "터키 · 이집트",                 enCountry: "Turkey · Egypt",                crp: 7.5,  koTag: "B-grade",       enTag: "B-grade" },
+  { koCountry: "아르헨티나",                    enCountry: "Argentina",                     crp: 14.0, koTag: "Ca",            enTag: "Ca" },
+];
+const CRP_MAX = 15;
+
 // Bear / Base / Bull — 매출 성장률 시나리오에 따른 EV
 const SCENARIOS = [
   {
