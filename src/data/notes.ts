@@ -5692,10 +5692,260 @@ const quantumComputing: NoteData = {
       ],
     },
 
-    // ─── 14. 용어 사전 ────────────────────────────────────────────────────────
+    // ─── 14. IonQ 깊이 분석 ──────────────────────────────────────────────────
     {
-      heading: "14. 양자컴퓨터 용어 사전 — 한 곳에서 정리",
-      headingEn: "14. Quantum Computing Glossary — All Terms in One Place",
+      heading: "14. IonQ 깊이 분석 — 일반인이 \"양자\" 하면 가장 먼저 떠올리는 회사",
+      headingEn: "14. IonQ Deep Dive — The Company Everyone Thinks of First When They Hear 'Quantum'",
+      blocks: [
+        {
+          type: "text",
+          body: "지금까지 *부품 공급망*(Pick-and-Shovel)에 대해 길게 풀었다.\n\n그런데 — 대부분의 일반 투자자가 \"양자컴퓨터\" 하면 가장 먼저 떠올리는 회사는 사실 *IonQ*다.\n\n2021년 SPAC 상장 후 *최초의 순수 양자컴퓨팅 상장사*였고, 한동안 양자 ETF($QTUM, $QTML)의 대표 종목이었다. 2024-2025년에는 변동성이 극심한 \"meme 양자주\"로 자주 회자됐다.\n\n그런데 막상 — *이 회사가 정확히 뭐 하는 회사인지, 어떻게 돈을 버는지, Trapped Ion이 왜 다른 양자컴퓨터와 다른지, \"algorithmic qubit\"이 무슨 뜻인지*는 한국 매체에서 거의 다루지 않았다.\n\n이 섹션이 그걸 푼다.",
+          bodyEn: "We've spent a lot on the *supply chain* (Pick-and-Shovel) side.\n\nBut — when most retail investors hear \"quantum computing,\" the first name they think of is *IonQ*.\n\nIt was the *first pure-play quantum computing company to go public* (SPAC merger, October 2021), and for a while the headline name in quantum ETFs ($QTUM, $QTML). In 2024-2025 it became a violently traded \"meme quantum stock.\"\n\nYet — *what the company actually does, how it makes money, why Trapped Ion is different from other quantum platforms, what \"algorithmic qubit\" actually means* — Korean media has barely touched any of this.\n\nThis section unpacks it.",
+        },
+
+        // ─── ① 회사 개요 ────────────────────────
+        {
+          type: "text",
+          body: "## ① 회사 개요 — 30초 요약\n\nIonQ는 2015년 *Chris Monroe* (University of Maryland 교수)와 *Jungsang Kim* (Duke 교수, *한국계*)이 공동 창업한 트랩드 아이온(Trapped Ion) 양자컴퓨팅 회사다.\n\n본사는 미국 메릴랜드 College Park. 2021년 10월 dMY Technology Group III와의 *SPAC 합병*으로 NYSE에 상장 (티커 $IONQ). 당시 합병 후 기업가치 약 $2B.\n\n2024년 1월 *Niccolo de Masi* (전 dMY Technology CEO)가 새 CEO로 취임. 창업자 Peter Chapman은 Executive Chair로 이동.\n\n2024-2025년 사이 *Qubitekk*(양자 네트워킹), *ID Quantique*(양자 키 분배·QKD 글로벌 리더, 스위스) 등을 차례로 인수하며 *양자 네트워크 + 양자 보안*까지 영역을 확장했다.\n\n### 한 줄 요약\n\n*\"IonQ = 트랩드 아이온 방식의 대표 상장사 + 양자 네트워크/보안으로 영역 확장 중인 변동성 높은 순수 양자 베팅.\"*",
+          bodyEn: "## ① Company Overview — 30-Second Summary\n\nIonQ is a Trapped Ion quantum computing company co-founded in 2015 by *Chris Monroe* (University of Maryland) and *Jungsang Kim* (Duke University, *Korean-American*).\n\nHeadquarters: College Park, Maryland. Went public via *SPAC merger* with dMY Technology Group III in October 2021 (NYSE: IONQ). Pro-forma EV at merger was ~$2B.\n\nIn January 2024, *Niccolo de Masi* (former dMY Technology CEO) took over as CEO. Co-founder Peter Chapman moved to Executive Chair.\n\nIn 2024-2025 IonQ acquired *Qubitekk* (quantum networking) and *ID Quantique* (Swiss-based global QKD leader), expanding into *quantum networking + quantum security*.\n\n### One-Liner\n\n*\"IonQ = the flagship trapped-ion public quantum company + expanding into quantum networking & security = a high-volatility pure-play quantum bet.\"*",
+        },
+
+        // ─── ② Trapped Ion 방식 ────────────────────────
+        {
+          type: "text",
+          body: "## ② Trapped Ion 방식 — IonQ의 정체성\n\n양자컴퓨터 6가지 접근법(Section 5 참조) 중 IonQ는 *Trapped Ion* (포획 이온) 방식이다.\n\n쉽게 설명하면 — *진공 챔버 안에 이터븀(Ytterbium) 원자 몇십 개를 가둬놓고, 정밀 레이저로 두드려서 큐비트로 사용*하는 방식.\n\n비교: IBM/Google이 쓰는 *Superconducting* (초전도) 방식은 *극저온 냉장고 안에 인공 회로*를 만든다.\n\n둘은 *완전히 다른 물리학*에 베팅한 셈이다. 어느 쪽이 결국 \"임계점\"에 먼저 도달할지는 — 2026년 5월 시점에도 *결론이 안 났다*.",
+          bodyEn: "## ② Trapped Ion — IonQ's Identity\n\nAmong the 6 quantum approaches (see Section 5), IonQ uses *Trapped Ion*.\n\nSimplified — *trap a few dozen Ytterbium atoms in a vacuum chamber, hit them with precision lasers, and use them as qubits.*\n\nCompare: IBM/Google's *Superconducting* approach builds *artificial circuits inside a dilution refrigerator*.\n\nThese are *bets on completely different physics*. Which one reaches the \"threshold\" first is — *still undecided as of May 2026*.",
+        },
+        {
+          type: "table",
+          table: {
+            id: "trapped-ion-vs-superconducting",
+            title: "Trapped Ion (IonQ) vs Superconducting (IBM/Google) — 한눈 비교",
+            titleEn: "Trapped Ion (IonQ) vs Superconducting (IBM/Google) — At a Glance",
+            headers: ["항목", "Trapped Ion (IonQ, Quantinuum)", "Superconducting (IBM, Google)"],
+            headersEn: ["Dimension", "Trapped Ion (IonQ, Quantinuum)", "Superconducting (IBM, Google)"],
+            rows: [
+              ["큐비트 매체", "실제 이터븀 원자 (자연이 만든 큐비트)", "인공 회로 (사람이 만든 큐비트)"],
+              ["동작 온도", "거의 상온 (진공 + 레이저 냉각)", "극저온 -273°C (희석 냉장고)"],
+              ["coherence 시간", "*수 초~수 분* (매우 김)", "수 마이크로초~밀리초 (짧음)"],
+              ["게이트 정확도", "*99.9%+* (현 최고 수준)", "99.5-99.9%"],
+              ["scaling 속도", "*느림* (이온을 하나씩 정렬)", "빠름 (반도체식 양산)"],
+              ["대표 시스템", "IonQ Forte / Tempo, Quantinuum H2", "IBM Condor (1,121q), Google Willow (105q)"],
+              ["physical qubit 수", "~64-256개 (작음)", "*1,000개 이상* (큼)"],
+              ["전력 소비", "낮음 (refrigerator 없음)", "*매우 높음* (cryogenic 인프라)"],
+              ["대표 약점", "이온 한 개당 시간이 오래 걸림", "decoherence (큐비트가 빨리 죽음)"],
+              ["대표 강점", "*품질이 좋음* (1큐비트가 더 일을 잘함)", "*개수가 많음* (양으로 밀어붙임)"],
+            ],
+            rowsEn: [
+              ["Qubit medium", "Real ytterbium atoms (nature-made qubits)", "Artificial circuits (human-made qubits)"],
+              ["Operating temp", "Near room temp (vacuum + laser cooling)", "Cryogenic -273°C (dilution fridge)"],
+              ["Coherence time", "*Seconds to minutes* (very long)", "Microseconds to milliseconds (short)"],
+              ["Gate fidelity", "*99.9%+* (industry-leading)", "99.5-99.9%"],
+              ["Scaling speed", "*Slow* (one ion at a time)", "Fast (semiconductor-style fab)"],
+              ["Flagship system", "IonQ Forte / Tempo, Quantinuum H2", "IBM Condor (1,121q), Google Willow (105q)"],
+              ["Physical qubit count", "~64-256 (small)", "*1,000+* (large)"],
+              ["Power consumption", "Low (no refrigerator)", "*Very high* (cryogenic infra)"],
+              ["Key weakness", "Each ion is slow to manipulate", "Decoherence (qubits die fast)"],
+              ["Key strength", "*High quality* per qubit", "*High quantity* — brute force"],
+            ],
+            caption: "한 줄: IonQ는 \"품질 베팅\", IBM/Google은 \"수량 베팅\". 결국 *Logical Qubit* 임계점에는 둘 다 도달해야 한다.",
+            captionEn: "One line: IonQ is the \"quality bet,\" IBM/Google is the \"quantity bet.\" Both must still reach the *Logical Qubit* threshold.",
+            highlightRows: [2, 6, 9],
+          },
+        },
+
+        // ─── ③ Algorithmic Qubit 논쟁 ────────────────────────
+        {
+          type: "text",
+          body: "## ③ \"Algorithmic Qubit\" 논쟁 — 진짜 진보인가, 마케팅인가\n\nIonQ는 2020년부터 자체 지표 *#AQ (Algorithmic Qubit, 알고리즘 큐비트)*를 사용해왔다.\n\n정의: *\"실제로 의미 있는 양자 알고리즘을 돌릴 수 있는 큐비트 수.\"*\n\nIonQ 주장:\n\n- 2020년: #AQ 22 → 2022년 #AQ 29 → 2024년 *#AQ 36* 달성\n- *#AQ 64* 도달 시 \"양자 우월성을 산업에 적용 가능한 영역\"이라고 주장\n\n그런데 — 비판자들도 만만치 않다:",
+          bodyEn: "## ③ The \"Algorithmic Qubit\" Debate — Real Progress or Marketing?\n\nSince 2020 IonQ has used its own metric *#AQ (Algorithmic Qubit)*.\n\nDefinition: *\"the number of qubits actually capable of running meaningful quantum algorithms.\"*\n\nIonQ's claims:\n\n- 2020: #AQ 22 → 2022: #AQ 29 → 2024: *#AQ 36* achieved\n- IonQ argues *#AQ 64* will mark \"quantum advantage applicable to industry\"\n\nBut — critics are loud:",
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "warning",
+            heading: "Algorithmic Qubit 논쟁 — 양쪽 입장",
+            headingEn: "The #AQ Debate — Both Sides",
+            body: "*IonQ 옹호 측*\n\n- physical qubit 수만 세는 건 무의미. 게이트 정확도·연결성·error rate 다 포함해야 진짜 capability\n- IBM의 Quantum Volume (QV)과 비슷한 개념 (QV도 IBM 자체 지표)\n- 산업 표준 부재 상황에서 best-effort metric\n\n*비판 측 (학계 일부, 경쟁사)*\n\n- IonQ가 *자기 자신을 측정*하는 지표. 외부 검증 어려움\n- 알고리즘 종류에 따라 결과가 크게 달라짐 — *cherry-picking* 가능성\n- 진짜 의미 있는 지표는 *Logical Qubit* 수 (오류 보정된 진짜 큐비트). IonQ는 아직 logical qubit이 *극소수*\n- 2024년 Forbes / IEEE Spectrum에서 *\"#AQ는 마케팅 metric에 가깝다\"* 비판 기사들\n\n*결론*: 양쪽 다 맞는 부분이 있다. #AQ는 *추세*를 보기엔 유용하지만, *경쟁사와의 직접 비교*에는 부적합. 진짜 평가는 *Logical Qubit* 도달 시점에서 갈린다.",
+            bodyEn: "*IonQ supporters*\n\n- Counting raw physical qubits is meaningless. Real capability needs gate fidelity, connectivity, error rate\n- Similar concept to IBM's Quantum Volume (QV, also an IBM-internal metric)\n- A best-effort metric in the absence of industry standards\n\n*Critics (parts of academia, competitors)*\n\n- IonQ is *measuring itself*. Hard to independently verify\n- Results vary widely by algorithm — *cherry-picking* possible\n- The truly meaningful metric is *Logical Qubit* count (error-corrected real qubits). IonQ still has *very few* logical qubits\n- 2024 articles in Forbes and IEEE Spectrum called *\"#AQ closer to a marketing metric\"*\n\n*Bottom line*: Both sides have a point. #AQ is useful for *tracking trend* but inadequate for *direct cross-company comparison*. The real verdict comes when someone hits *Logical Qubit* scale.",
+          },
+        },
+
+        // ─── ④ 비즈니스 모델 ────────────────────────
+        {
+          type: "text",
+          body: "## ④ 비즈니스 모델 — IonQ는 어떻게 돈을 버나\n\n양자컴퓨터 5가지 BM(Section 6 참조) 중 IonQ는 *QCaaS + 시스템 판매 + 정부 계약*의 혼합형이다.",
+          bodyEn: "## ④ Business Model — How IonQ Makes Money\n\nAmong the 5 quantum BMs (Section 6), IonQ runs a *QCaaS + system sales + government contracts* hybrid.",
+        },
+        {
+          type: "table",
+          table: {
+            id: "ionq-revenue-streams",
+            title: "IonQ 매출 구성 (2025E 기준)",
+            titleEn: "IonQ Revenue Streams (2025E Basis)",
+            headers: ["채널", "비중 (추정)", "고객·파트너 사례", "특징"],
+            headersEn: ["Channel", "% Mix (est.)", "Customers / Partners", "Notes"],
+            rows: [
+              ["클라우드 QCaaS", "~35%", "AWS Braket, Azure Quantum, GCP", "시간당 과금. 1샷당 평균 ~$0.30"],
+              ["대규모 시스템 판매", "~25%", "AFRL($54M), 한국 (Hyundai·LG·삼성)", "1대당 *수천만 달러*"],
+              ["정부 R&D 계약", "~25%", "DARPA, DOE, AFRL, 영국 NQCC", "다년간 grant 형태"],
+              ["네트워크·QKD (신규)", "~10%", "ID Quantique 인수로 진입", "장기 옵션 가치"],
+              ["컨설팅·교육", "~5%", "BMW, Hyundai, Goldman Sachs PoC", "관계 구축 단계"],
+            ],
+            rowsEn: [
+              ["Cloud QCaaS", "~35%", "AWS Braket, Azure Quantum, GCP", "Pay-per-shot, avg ~$0.30/shot"],
+              ["Large system sales", "~25%", "AFRL ($54M), Korea (Hyundai, LG, Samsung)", "*Tens of millions* per unit"],
+              ["Government R&D", "~25%", "DARPA, DOE, AFRL, UK NQCC", "Multi-year grants"],
+              ["Network / QKD (new)", "~10%", "Via ID Quantique acquisition", "Long-term option value"],
+              ["Consulting / education", "~5%", "BMW, Hyundai, Goldman Sachs PoC", "Relationship building"],
+            ],
+            caption: "단일 채널 의존 없음. 그러나 *정부 + 메가캡 PoC* 비중이 절반 이상 — \"진짜 상업 매출\"이라고 보긴 어려운 구조.",
+            captionEn: "No single channel dominates. But *government + megacap PoC* makes up over half — hard to call this \"real commercial revenue\" yet.",
+            highlightRows: [0, 2],
+          },
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "insight",
+            heading: "한국 투자자가 알아야 할 한 가지",
+            headingEn: "One Thing Korean Investors Should Know",
+            body: "2023년 1월, IonQ는 *현대자동차*와 차세대 *EV 배터리 화학 시뮬레이션* 협력을 발표했다.\n\n2024년에는 *Hyundai Motor + IonQ + Microsoft* 3사 협력으로 확장. 한국 정부의 *양자 100큐비트 컴퓨터 프로젝트*에도 IonQ 시스템이 후보로 거론됐다.\n\nSamsung, LG도 IonQ Forte 시스템을 *클라우드 형태로 활용*한 PoC를 진행한 것으로 알려져 있다.\n\n*즉, 한국 기업의 양자 노출은 대부분 IonQ로 향해 있다.* IBM이 한국 양자 컨소시엄에 본격 진출하기 전까지는 — IonQ가 한국 산업 양자의 *de facto* 파트너.",
+            bodyEn: "In January 2023, IonQ announced a partnership with *Hyundai Motor* for next-generation *EV battery chemistry simulation*.\n\nIn 2024 this expanded into a *Hyundai + IonQ + Microsoft* tri-party collaboration. IonQ systems were also discussed as candidates for the Korean government's *100-qubit quantum computer initiative*.\n\nSamsung and LG are reportedly running PoCs on IonQ's Forte system *via cloud*.\n\n*In other words, Korea's industrial quantum exposure mostly points to IonQ.* Until IBM enters the Korean quantum consortium in earnest — IonQ is the *de facto* industrial partner.",
+          },
+        },
+
+        // ─── ⑤ 재무 ────────────────────────
+        {
+          type: "text",
+          body: "## ⑤ 재무 — 매출, 손실, 현금 (2026.5 기준)",
+          bodyEn: "## ⑤ Financials — Revenue, Loss, Cash (as of May 2026)",
+        },
+        {
+          type: "metrics",
+          items: [
+            { label: "시가총액", labelEn: "Market Cap", value: "$8-10B", sub: "변동성 극심", subEn: "Extreme volatility", color: "#0ea5e9" },
+            { label: "2025E 매출", labelEn: "2025E Revenue", value: "~$55-70M", sub: "+90% YoY", subEn: "+90% YoY", color: "#8b5cf6" },
+            { label: "2026E 매출", labelEn: "2026E Revenue", value: "~$100-150M", sub: "컨센서스", subEn: "Consensus", color: "#10b981" },
+            { label: "EV / Sales (2025)", labelEn: "EV/Sales (2025)", value: "~150x", sub: "AI 평균의 15배", subEn: "~15× AI avg", color: "#f59e0b" },
+            { label: "현금 보유", labelEn: "Cash on hand", value: "$400M+", sub: "추가 증자 2025", subEn: "Raised more in 2025", color: "#0ea5e9" },
+            { label: "영업 손실", labelEn: "Operating Loss", value: "약 -$200M/년", sub: "흑자 *2028+* 전망", subEn: "Profit *2028+*", color: "#ef4444" },
+          ],
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "warning",
+            heading: "이 숫자가 의미하는 것 — 그리고 의미하지 않는 것",
+            headingEn: "What These Numbers Mean — And Don't Mean",
+            body: "*의미하는 것*\n\n- 매출은 *진짜로 빠르게 성장* 중 (YoY +80~90%)\n- 현금은 *최소 3-4년치* 확보\n- 정부·메가캡 신뢰는 *명확히 확보*된 단계\n\n*의미하지 않는 것*\n\n- *흑자가 가까웠다* — 2028년 이전엔 어려움\n- *EV/Sales 150배가 정당화*된다 — 어떤 SaaS 회사보다도 비싼 멀티플\n- *Trapped Ion이 결국 승리한다* — Superconducting/Photonic이 임계점에 먼저 도달할 시나리오 여전히 50% 이상\n\n*결론*: IonQ는 *베팅*이지 *밸류에이션*이 아니다. PE/PSR로 평가할 수 없다. *Logical Qubit 임계점 도달 여부*가 유일한 진짜 변수.",
+            bodyEn: "*What they mean*\n\n- Revenue is *genuinely growing fast* (YoY +80-90%)\n- Cash runway is *at least 3-4 years*\n- Government and megacap trust *clearly established*\n\n*What they don't mean*\n\n- *Profitability is near* — unlikely before 2028\n- *EV/Sales of 150x is justified* — more expensive than any SaaS company\n- *Trapped Ion will win* — scenarios where Superconducting / Photonic reach the threshold first still > 50%\n\n*Bottom line*: IonQ is a *bet*, not a *valuation*. PE/PSR can't measure it. The only real variable is *whether Logical Qubit threshold is reached*.",
+          },
+        },
+
+        // ─── ⑥ 타임라인 ────────────────────────
+        {
+          type: "text",
+          body: "## ⑥ IonQ 타임라인 — 2015 창업부터 2026까지",
+          bodyEn: "## ⑥ IonQ Timeline — From 2015 Founding to 2026",
+        },
+        {
+          type: "table",
+          table: {
+            id: "ionq-timeline",
+            title: "IonQ 주요 마일스톤 (2015-2026)",
+            titleEn: "IonQ Key Milestones (2015-2026)",
+            headers: ["연도", "이벤트", "의미"],
+            headersEn: ["Year", "Event", "Significance"],
+            rows: [
+              ["2015", "Chris Monroe + Jungsang Kim 공동 창업, 메릴랜드 College Park", "트랩드 아이온 학계 → 상업화 첫 발"],
+              ["2017", "NEA·GV(구글 벤처)·Amazon 등에서 Series B $20M", "메가캡 VC 양자 베팅의 첫 신호"],
+              ["2019", "11큐비트 첫 시스템 출시, AWS·Azure 클라우드 연동", "QCaaS 모델 진입"],
+              ["2020", "#AQ 22 발표 — 자체 metric 도입", "Algorithmic Qubit 논쟁의 시작"],
+              ["2021.10", "*SPAC 합병으로 NYSE 상장* (티커 IONQ, EV ~$2B)", "최초의 순수 양자컴퓨팅 상장사"],
+              ["2022", "Forte 시스템 발표 (32큐비트), AFRL $54M 계약 수주", "정부 신뢰 확보"],
+              ["2023.1", "*현대자동차*와 EV 배터리 시뮬레이션 협력 발표", "한국 산업 양자 진입"],
+              ["2024.1", "Niccolo de Masi 신임 CEO 취임", "운영·재무 강화 시그널"],
+              ["2024.11", "*Qubitekk* 인수 — 양자 네트워킹 진입", "양자 인터넷 베팅"],
+              ["2025.5", "*ID Quantique* 인수 합의 — 글로벌 QKD 리더", "양자 보안으로 영역 확장"],
+              ["2025.Q4", "Tempo 시스템 (64+ 큐비트) 출시, #AQ 64 도전", "상업 임계점 시도"],
+              ["2026.Q1", "주가 변동성 극심 — 양자 ETF 자금 유입/유출 영향", "\"meme 양자주\" 평판 고착"],
+            ],
+            rowsEn: [
+              ["2015", "Chris Monroe + Jungsang Kim co-found IonQ in College Park, MD", "Trapped ion goes from academia to commercial"],
+              ["2017", "Series B $20M from NEA, GV (Google Ventures), Amazon", "First megacap VC signal in quantum"],
+              ["2019", "First 11-qubit system, integrates with AWS / Azure cloud", "Enters QCaaS model"],
+              ["2020", "Announces #AQ 22 — proprietary metric", "Beginning of the Algorithmic Qubit debate"],
+              ["2021.10", "*SPAC merger → NYSE listing* (IONQ, EV ~$2B)", "First pure-play public quantum company"],
+              ["2022", "Forte system (32 qubits) launched, $54M AFRL contract", "Government trust established"],
+              ["2023.1", "*Hyundai Motor* EV battery simulation partnership", "Korean industrial entry"],
+              ["2024.1", "Niccolo de Masi appointed new CEO", "Operations & finance signal"],
+              ["2024.11", "Acquires *Qubitekk* — enters quantum networking", "Quantum internet bet"],
+              ["2025.5", "Agrees to acquire *ID Quantique* — global QKD leader", "Expansion into quantum security"],
+              ["2025.Q4", "Tempo (64+ qubits) launched, aiming for #AQ 64", "Attempting the commercial threshold"],
+              ["2026.Q1", "Extreme stock volatility tied to quantum ETF flows", "'Meme quantum stock' reputation cemented"],
+            ],
+            caption: "IonQ의 \"진짜 변곡점\"은 — 2021 SPAC 상장 → 2023 현대 계약 → 2025 ID Quantique 인수 → 2025-2026 Tempo + #AQ 64.",
+            captionEn: "The real inflection points: 2021 SPAC IPO → 2023 Hyundai deal → 2025 ID Quantique acquisition → 2025-2026 Tempo + #AQ 64.",
+            highlightRows: [4, 6, 9, 10],
+          },
+        },
+
+        // ─── ⑦ IonQ-specific 시나리오 ────────────────────────
+        {
+          type: "text",
+          body: "## ⑦ IonQ 시나리오 — Section 10의 4가지 시나리오에서 IonQ 위치\n\nSection 10에서 다음 NVIDIA가 누구일지 4가지 시나리오를 풀었다. 같은 프레임을 *IonQ에 특화*해서 다시 본다.",
+          bodyEn: "## ⑦ IonQ Scenarios — IonQ's Position in the 4 Scenarios from Section 10\n\nIn Section 10 we laid out 4 scenarios for \"who is the next NVIDIA.\" Now we re-frame those scenarios *specifically for IonQ*.",
+        },
+        {
+          type: "table",
+          table: {
+            id: "ionq-scenarios",
+            title: "IonQ 시나리오 매트릭스",
+            titleEn: "IonQ Scenario Matrix",
+            headers: ["시나리오", "전제 조건", "IonQ 결과", "주가 imply"],
+            headersEn: ["Scenario", "Preconditions", "IonQ Outcome", "Stock Implication"],
+            rows: [
+              ["A. Trapped Ion 우월", "Trapped Ion이 Logical Qubit 임계점 *먼저* 도달", "IonQ + Quantinuum이 시장 지배", "현재 대비 *10-30배* 가능"],
+              ["B. Superconducting 우월", "IBM/Google이 임계점 먼저 (가장 자주 거론되는 base case)", "IonQ는 niche 플레이어로 축소", "현재 대비 *-60~-80%* 폭락"],
+              ["C. 분야별 분할", "용도별로 다른 방식이 우위 (양자 시뮬레이션=Trapped, 양자 머신러닝=Superconducting)", "IonQ는 *시뮬레이션·화학·금융* 영역 지배", "현재 대비 *2-5배* 정도"],
+              ["D. 광자 양자(Photonic) 우월", "PsiQuantum 등 photonic이 임계점 먼저", "IonQ·IBM·Google 모두 niche로 축소", "전 양자주 *-50%+* 폭락"],
+            ],
+            rowsEn: [
+              ["A. Trapped Ion wins", "Trapped ion hits Logical Qubit threshold *first*", "IonQ + Quantinuum dominate the market", "*10-30×* upside from today"],
+              ["B. Superconducting wins", "IBM/Google reach threshold first (most-cited base case)", "IonQ shrinks to niche player", "*-60 to -80%* drawdown"],
+              ["C. Application split", "Different platforms win different uses (sim=Trapped, ML=Super)", "IonQ dominates *simulation, chemistry, finance*", "*2-5×* upside"],
+              ["D. Photonic wins", "PsiQuantum or similar hits threshold first", "IonQ, IBM, Google all become niche", "All quantum stocks *-50%+* drawdown"],
+            ],
+            caption: "IonQ의 비대칭 베팅 — A·C가 합치면 ~50% 확률, B·D가 합치면 ~50%. *기대값은 양수지만 분산은 매우 큼.*",
+            captionEn: "IonQ as an asymmetric bet — A + C combined ~50% probability, B + D ~50%. *Positive expected value, but extreme variance.*",
+            highlightRows: [0, 1],
+          },
+        },
+
+        // ─── ⑧ Wall Street view ────────────────────────
+        {
+          type: "text",
+          body: "## ⑧ Wall Street 컨센서스 + 한 줄 thesis\n\n*월가 분석 커버리지*는 아직 얇다 (양자 자체가 신생 섹터).\n\n주요 코멘트:\n\n- *Needham*: Buy, 목표가 $14-18 (긍정적이지만 valuation 부담 인정)\n- *Benchmark*: Buy, $20+ (낙관적 — Tempo 시스템 성공 가정)\n- *Morgan Stanley*: \"호기심 종목\" (공식 rating 보류)\n- *Goldman Sachs*: 양자 섹터 전체 *Neutral* (개별 종목 추천 없음)\n\n공통 의견: *\"펀더멘털로 평가 불가능. binary 베팅에 가깝다.\"*\n\n### IonQ thesis 한 줄\n\n*\"IonQ는 양자컴퓨터의 NVIDIA가 될 수도, 양자컴퓨터의 *Sun Microsystems*가 될 수도 있다 — 진짜 변수는 Trapped Ion이 Logical Qubit 임계점에 *먼저* 도달하느냐다.\"*",
+          bodyEn: "## ⑧ Wall Street Consensus + Thesis One-Liner\n\n*Sell-side coverage* is thin (quantum itself is a nascent sector).\n\nKey notes:\n\n- *Needham*: Buy, PT $14-18 (positive but acknowledges valuation strain)\n- *Benchmark*: Buy, PT $20+ (bullish — assumes Tempo system success)\n- *Morgan Stanley*: \"interesting watch\" (no formal rating)\n- *Goldman Sachs*: Quantum sector *Neutral* (no individual recs)\n\nConsensus: *\"Impossible to value on fundamentals. Closer to a binary bet.\"*\n\n### IonQ Thesis (one sentence)\n\n*\"IonQ might become the NVIDIA of quantum computing — or it might become the *Sun Microsystems* of quantum computing — and the real variable is whether Trapped Ion hits the Logical Qubit threshold *first*.\"*",
+        },
+        {
+          type: "callout",
+          callout: {
+            variant: "insight",
+            heading: "IonQ를 한 단어로 정리하면",
+            headingEn: "IonQ in One Word",
+            body: "*\"Optionality.\"*\n\nIonQ는 \"좋은 회사\"가 아니다. 그리고 \"나쁜 회사\"도 아니다.\n\nIonQ는 *옵션*이다. 양자컴퓨터의 *Trapped Ion 경로가 승리*하면 큰 보상을 주는 *콜 옵션*.\n\n옵션이기 때문에 — *포트폴리오의 작은 비중*으로만 들어가야 한다. *현금 흐름으로 평가할 수 없는 자산*이고, 변동성이 *normal 종목의 5-10배*다.\n\n옵션 가격이 비싸 보일 수도 있다 (EV/Sales 150배). 그러나 *Trapped Ion이 진짜 임계점에 먼저 도달하는 시나리오에서는* — 지금 가격도 *터무니없이 싸 보일* 수 있다.\n\n*그게 옵션의 본질이다 — 평가 불가능, 베팅만 가능.*",
+            bodyEn: "*\"Optionality.\"*\n\nIonQ is not \"a good company.\" Nor \"a bad company.\"\n\nIonQ is an *option*. A *call option* paying off massively if *Trapped Ion wins* the quantum path.\n\nBecause it's an option — it should only sit in a *small slice* of a portfolio. It's *an asset that cannot be valued by cash flows*, with volatility *5-10× normal stocks*.\n\nThe premium may look expensive (EV/Sales 150x). But *if Trapped Ion really hits the threshold first* — today's price may look *absurdly cheap* in retrospect.\n\n*That's the essence of an option — not valuable, only bettable.*",
+          },
+        },
+      ],
+    },
+
+    // ─── 15. 용어 사전 ────────────────────────────────────────────────────────
+    {
+      heading: "15. 양자컴퓨터 용어 사전 — 한 곳에서 정리",
+      headingEn: "15. Quantum Computing Glossary — All Terms in One Place",
       blocks: [
         {
           type: "text",
@@ -5888,10 +6138,10 @@ const quantumComputing: NoteData = {
       ],
     },
 
-    // ─── 15. 결론 ──────────────────────────────────────────────────────────────
+    // ─── 16. 결론 ──────────────────────────────────────────────────────────────
     {
-      heading: "15. 결론 — 양자는 AI 다음의 자본 사이클인가",
-      headingEn: "15. Conclusion — Is Quantum Really the Next Capital Cycle After AI?",
+      heading: "16. 결론 — 양자는 AI 다음의 자본 사이클인가",
+      headingEn: "16. Conclusion — Is Quantum Really the Next Capital Cycle After AI?",
       blocks: [
         {
           type: "text",

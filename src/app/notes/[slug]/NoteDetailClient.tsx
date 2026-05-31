@@ -49,6 +49,7 @@ import type {
 } from "@/data/notes";
 import { NOTE_CATEGORY_META, getSeriesNav } from "@/data/notes";
 import SeriesNav from "@/components/SeriesNav";
+import ShareButtons from "@/components/deal/ShareButtons";
 
 // Dynamically load Mapbox component (no SSR — mapbox-gl touches window)
 const QuantumMap = dynamic(() => import("@/components/QuantumMap"), {
@@ -1957,24 +1958,36 @@ export default function NoteDetailClient({
               </span>
             </motion.div>
 
-            {/* Title */}
-            <motion.h1
-              variants={fadeUp(0.1)}
-              initial="hidden"
-              animate="show"
-              className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100 leading-tight"
-            >
-              {title}
-            </motion.h1>
+            {/* Title + 우측 상단 공유 — 딜 페이지와 동일 패턴 */}
+            <div className="flex items-start justify-between gap-4">
+              <div className="flex-1 min-w-0">
+                <motion.h1
+                  variants={fadeUp(0.1)}
+                  initial="hidden"
+                  animate="show"
+                  className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100 leading-tight"
+                >
+                  {title}
+                </motion.h1>
 
-            <motion.p
-              variants={fadeUp(0.15)}
-              initial="hidden"
-              animate="show"
-              className="mt-3 text-base text-gray-500 dark:text-gray-400 leading-relaxed max-w-xl"
-            >
-              {description}
-            </motion.p>
+                <motion.p
+                  variants={fadeUp(0.15)}
+                  initial="hidden"
+                  animate="show"
+                  className="mt-3 text-base text-gray-500 dark:text-gray-400 leading-relaxed max-w-xl"
+                >
+                  {description}
+                </motion.p>
+              </div>
+              <motion.div
+                variants={fadeUp(0.2)}
+                initial="hidden"
+                animate="show"
+                className="flex-shrink-0 pt-1"
+              >
+                <ShareButtons title={title} variant="top" lang={lang} />
+              </motion.div>
+            </div>
 
             {/* Meta */}
             <motion.div
@@ -2072,15 +2085,44 @@ export default function NoteDetailClient({
 
         {/* ── Body ───────────────────────────────────────────────── */}
         <div className="max-w-3xl mx-auto px-5 pb-16">
-          {note.sections.map((section, idx) => (
-            <SectionRenderer
-              key={idx}
-              section={section}
-              idx={idx}
-              accent={meta.accent}
-              lang={lang}
-            />
-          ))}
+          {note.sections.map((section, idx) => {
+            // 긴 글일수록 중간 공유 토글을 자주 노출.
+            //  - 8 섹션 이상: 매 4 섹션마다 (3, 7, 11, ...)
+            //  - 5~7 섹션: 중간에 한 번
+            //  - 그 외: 미노출 (BOTTOM 만으로 충분)
+            const total = note.sections.length;
+            const isLast = idx === total - 1;
+            let showMid = false;
+            if (!isLast) {
+              if (total >= 8) {
+                showMid = (idx + 1) % 4 === 0;
+              } else if (total >= 5) {
+                showMid = idx === Math.floor(total / 2);
+              }
+            }
+            return (
+              <div key={idx}>
+                <SectionRenderer
+                  section={section}
+                  idx={idx}
+                  accent={meta.accent}
+                  lang={lang}
+                />
+                {showMid && (
+                  <ShareButtons title={title} variant="mid" lang={lang} />
+                )}
+              </div>
+            );
+          })}
+
+          {/* BOTTOM — 본문 종료 시점에 풀 카드형 공유 + AuthorByline */}
+          <ShareButtons
+            title={title}
+            variant="bottom"
+            lang={lang}
+            updatedAt={note.date}
+            readingMinutes={note.readingMinutes}
+          />
 
           <References refs={note.references} lang={lang} />
 
