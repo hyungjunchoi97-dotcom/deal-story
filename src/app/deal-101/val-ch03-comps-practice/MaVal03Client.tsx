@@ -63,13 +63,13 @@ const FUNNEL_MAX = 500;
 
 // Trading vs Transaction 비교 표
 const COMPS_COMPARE = [
-  { koMetric: "데이터 소스",        enMetric: "Data source",          trading: "Bloomberg · CapIQ · FactSet",       txn: "Mergermarket · CapIQ Transactions" },
-  { koMetric: "관찰 대상",          enMetric: "Universe",             trading: "11개 상장 peer",                       txn: "최근 5년 8개 deal" },
-  { koMetric: "가격 시점",          enMetric: "Price timing",         trading: "오늘 시장 가격",                       txn: "Deal announcement 시점" },
-  { koMetric: "Control premium",   enMetric: "Control premium",      trading: "없음 (minority stake 가격)",          txn: "포함 (보통 +15~30%)" },
-  { koMetric: "EV / Revenue",      enMetric: "EV / Revenue",         trading: "2.4x (median)",                        txn: "3.1x (median)" },
-  { koMetric: "EV / EBITDA",       enMetric: "EV / EBITDA",          trading: "12.5x (median)",                       txn: "15.2x (median)" },
-  { koMetric: "P / E",              enMetric: "P / E",                trading: "22x (median)",                         txn: "—" },
+  { koMetric: "데이터 소스",       enMetric: "Data source",      koTrading: "Bloomberg · CapIQ · FactSet", enTrading: "Bloomberg · CapIQ · FactSet", koTxn: "Mergermarket · CapIQ Transactions", enTxn: "Mergermarket · CapIQ Transactions" },
+  { koMetric: "관찰 대상",         enMetric: "Universe",         koTrading: "11개 상장 peer",                  enTrading: "11 listed peers",              koTxn: "최근 5년 8개 deal",                       enTxn: "8 deals over last 5 years" },
+  { koMetric: "가격 시점",         enMetric: "Price timing",     koTrading: "오늘 시장 가격",                  enTrading: "Today's market price",          koTxn: "Deal announcement 시점",                  enTxn: "At deal announcement" },
+  { koMetric: "Control premium",  enMetric: "Control premium",  koTrading: "없음 (minority stake 가격)",     enTrading: "None (minority stake price)",   koTxn: "포함 (보통 +15~30%)",                     enTxn: "Included (typically +15–30%)" },
+  { koMetric: "EV / Revenue",     enMetric: "EV / Revenue",     koTrading: "2.4x (median)",                    enTrading: "2.4x (median)",                  koTxn: "3.1x (median)",                            enTxn: "3.1x (median)" },
+  { koMetric: "EV / EBITDA",      enMetric: "EV / EBITDA",      koTrading: "12.5x (median)",                   enTrading: "12.5x (median)",                 koTxn: "15.2x (median)",                           enTxn: "15.2x (median)" },
+  { koMetric: "P / E",             enMetric: "P / E",            koTrading: "22x (median)",                     enTrading: "22x (median)",                   koTxn: "—",                                          enTxn: "—" },
 ];
 
 // Capital structure bridge — Equity → EV
@@ -330,8 +330,8 @@ export default function MaVal03Client({ lang }: { lang: Lang }) {
                     {COMPS_COMPARE.map((c, i) => (
                       <tr key={i} className="border-b border-gray-100 dark:border-gray-800/60 last:border-0">
                         <td className="py-2 pr-3 text-gray-500 dark:text-gray-400 align-top text-[11px]">{ko ? c.koMetric : c.enMetric}</td>
-                        <td className="py-2 pr-3 text-gray-700 dark:text-gray-300 align-top">{c.trading}</td>
-                        <td className="py-2 align-top font-medium" style={{ color: i >= 4 && i <= 5 ? ACCENT : undefined }}>{c.txn}</td>
+                        <td className="py-2 pr-3 text-gray-700 dark:text-gray-300 align-top">{ko ? c.koTrading : c.enTrading}</td>
+                        <td className="py-2 align-top font-medium" style={{ color: i >= 4 && i <= 5 ? ACCENT : undefined }}>{ko ? c.koTxn : c.enTxn}</td>
                       </tr>
                     ))}
                   </tbody>

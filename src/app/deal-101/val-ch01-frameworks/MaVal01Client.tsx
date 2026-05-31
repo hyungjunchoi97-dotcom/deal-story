@@ -30,12 +30,12 @@ const SLUG = "val-ch01-frameworks";
 const ACCENT = "#3b82f6";
 
 const USE_CASES = [
-  { koCtx: "IPO 가격 산정",          enCtx: "IPO pricing",                   koMain: "Trading Comps",                     enMain: "Trading Comps",                     koSub: "DCF" },
-  { koCtx: "M&A 매각 (sell-side)",   enCtx: "M&A sell-side",                  koMain: "Football Field (4 method 다)",      enMain: "Full football field",               koSub: "—" },
-  { koCtx: "M&A 인수 (buy-side)",    enCtx: "M&A buy-side",                   koMain: "DCF + Transaction Comps",            enMain: "DCF + Transaction Comps",            koSub: "LBO reverse-math" },
-  { koCtx: "PE / LBO 인수",          enCtx: "PE / LBO acquisition",           koMain: "LBO reverse-math + Trading Comps",   enMain: "LBO reverse-math + Trading Comps",   koSub: "DCF" },
-  { koCtx: "Restructuring",          enCtx: "Restructuring",                  koMain: "Going-concern DCF vs Liquidation",  enMain: "Going-concern DCF vs liquidation",  koSub: "Asset-based" },
-  { koCtx: "Fairness opinion",       enCtx: "Fairness opinion",               koMain: "4 method 모두 (board에 range 제시)", enMain: "All four (range presented to board)", koSub: "—" },
+  { koCtx: "IPO 가격 산정",          enCtx: "IPO pricing",                   koMain: "Trading Comps",                     enMain: "Trading Comps",                     koSub: "DCF",                  enSub: "DCF" },
+  { koCtx: "M&A 매각 (sell-side)",   enCtx: "M&A sell-side",                  koMain: "Football Field (4 method 다)",      enMain: "Full football field",               koSub: "—",                    enSub: "—" },
+  { koCtx: "M&A 인수 (buy-side)",    enCtx: "M&A buy-side",                   koMain: "DCF + Transaction Comps",            enMain: "DCF + Transaction Comps",            koSub: "LBO reverse-math",     enSub: "LBO reverse-math" },
+  { koCtx: "PE / LBO 인수",          enCtx: "PE / LBO acquisition",           koMain: "LBO reverse-math + Trading Comps",   enMain: "LBO reverse-math + Trading Comps",   koSub: "DCF",                  enSub: "DCF" },
+  { koCtx: "Restructuring",          enCtx: "Restructuring",                  koMain: "Going-concern DCF vs Liquidation",  enMain: "Going-concern DCF vs liquidation",  koSub: "Asset-based",          enSub: "Asset-based" },
+  { koCtx: "Fairness opinion",       enCtx: "Fairness opinion",               koMain: "4 method 모두 (board에 range 제시)", enMain: "All four (range presented to board)", koSub: "—",                    enSub: "—" },
 ];
 
 // 3 method 비교 — input → output 구조
@@ -233,7 +233,7 @@ export default function MaVal01Client({ lang }: { lang: Lang }) {
                     <tr key={i} className="border-b border-gray-100 dark:border-gray-800/60 last:border-0">
                       <td className="py-3 pr-4 text-gray-700 dark:text-gray-300 align-top">{ko ? u.koCtx : u.enCtx}</td>
                       <td className="py-3 pr-4 text-gray-900 dark:text-gray-100 align-top">{ko ? u.koMain : u.enMain}</td>
-                      <td className="py-3 text-gray-500 dark:text-gray-400 align-top">{u.koSub}</td>
+                      <td className="py-3 text-gray-500 dark:text-gray-400 align-top">{ko ? u.koSub : u.enSub}</td>
                     </tr>
                   ))}
                 </tbody>
