@@ -422,41 +422,55 @@ export default function DcmInternationalMarketsClient({ concept, lang }: Props) 
               : "Geographic context and size comparison for the 5 major international bond markets."}
           </p>
 
-          {/* Stylized world strip */}
-          <div className="relative rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900" style={{ height: "200px" }}>
-            {/* Continents as abstract blobs */}
-            <div className="absolute inset-0 opacity-20">
-              <div className="absolute bg-green-400 rounded-full" style={{ left: "12%", top: "20%", width: "18%", height: "60%" }} />
-              <div className="absolute bg-green-400 rounded-full" style={{ left: "35%", top: "15%", width: "22%", height: "65%" }} />
-              <div className="absolute bg-green-400 rounded-full" style={{ left: "64%", top: "18%", width: "18%", height: "55%" }} />
-              <div className="absolute bg-green-400 rounded-3xl" style={{ left: "83%", top: "25%", width: "12%", height: "45%" }} />
+          {/* Stylized world strip — bubble size reflects market size (sqrt scale) */}
+          <div className="relative rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900" style={{ height: "240px" }}>
+            {/* Continents as abstract blobs — 3 regions: Americas, Europe, Asia */}
+            <div className="absolute inset-0 opacity-15">
+              <div className="absolute bg-green-400 rounded-full" style={{ left: "8%",  top: "18%", width: "22%", height: "64%" }} />
+              <div className="absolute bg-green-400 rounded-full" style={{ left: "36%", top: "12%", width: "26%", height: "72%" }} />
+              <div className="absolute bg-green-400 rounded-full" style={{ left: "68%", top: "15%", width: "28%", height: "68%" }} />
             </div>
 
-            {/* Market pins */}
+            {/* Region labels (subtle) */}
             {[
-              { id: "yankee",   x: "18%", label: "🇺🇸 Yankee",   size: "$5T",   color: "#94a3b8" },
-              { id: "eurobond", x: "42%", label: "🌍 Eurobond",  size: "$25T+", color: "#22d3ee" },
-              { id: "arirang",  x: "70%", label: "🇰🇷 Arirang",  size: "$0.1T", color: "#14b8a6" },
-              { id: "samurai",  x: "75%", label: "🇯🇵 Samurai",  size: "$0.5T", color: "#f87171" },
-              { id: "formosa",  x: "73%", label: "🇹🇼 Formosa",  size: "$0.3T", color: "#86efac" },
+              { text: ko ? "Americas" : "Americas", left: "19%" },
+              { text: ko ? "EMEA"     : "EMEA",     left: "49%" },
+              { text: ko ? "Asia"     : "Asia",     left: "82%" },
+            ].map((r, i) => (
+              <div
+                key={i}
+                className="absolute text-white/35 text-[10px] font-bold uppercase tracking-widest"
+                style={{ left: r.left, top: "8px", transform: "translateX(-50%)" }}
+              >
+                {r.text}
+              </div>
+            ))}
+
+            {/* Market pins — bubble diameter ∝ √(market size in $T); labels v-staggered for Asia cluster */}
+            {[
+              { id: "yankee",   x: "19%", topPct: 42, diameter: 56, label: "🇺🇸 Yankee",   size: "$5T",   color: "#94a3b8", labelOffset: 0 },
+              { id: "eurobond", x: "49%", topPct: 32, diameter: 112, label: "🌍 Eurobond",  size: "$25T+", color: "#22d3ee", labelOffset: 0 },
+              { id: "samurai",  x: "72%", topPct: 40, diameter: 30, label: "🇯🇵 Samurai",  size: "$0.5T", color: "#f87171", labelOffset: 0  },
+              { id: "formosa",  x: "84%", topPct: 50, diameter: 24, label: "🇹🇼 Formosa",  size: "$0.3T", color: "#86efac", labelOffset: 0  },
+              { id: "arirang",  x: "92%", topPct: 58, diameter: 14, label: "🇰🇷 Arirang",  size: "$0.1T", color: "#14b8a6", labelOffset: 0  },
             ].map(pin => (
               <div
                 key={pin.id}
                 className="absolute flex flex-col items-center"
-                style={{ left: pin.x, top: "15%", transform: "translateX(-50%)" }}
+                style={{ left: pin.x, top: `${pin.topPct}%`, transform: "translate(-50%, -50%)" }}
               >
                 <div
-                  className="w-3 h-3 rounded-full border-2 border-white shadow-lg"
-                  style={{ background: pin.color }}
+                  className="rounded-full border-2 border-white/80 shadow-lg"
+                  style={{ background: pin.color, width: pin.diameter, height: pin.diameter, opacity: 0.85 }}
                 />
                 <div
-                  className="mt-1 text-white text-[10px] font-semibold px-2 py-0.5 rounded-full whitespace-nowrap"
-                  style={{ background: "rgba(0,0,0,0.55)" }}
+                  className="mt-1.5 text-white text-[10px] font-semibold px-2 py-0.5 rounded-full whitespace-nowrap"
+                  style={{ background: "rgba(0,0,0,0.65)", marginTop: pin.labelOffset || 6 }}
                 >
                   {pin.label}
                 </div>
                 <div
-                  className="mt-0.5 text-[10px] font-bold px-2 rounded-full"
+                  className="mt-0.5 text-[10px] font-bold px-2 rounded-full whitespace-nowrap"
                   style={{ background: pin.color, color: "#fff" }}
                 >
                   {pin.size}
@@ -464,11 +478,11 @@ export default function DcmInternationalMarketsClient({ concept, lang }: Props) 
               </div>
             ))}
 
-            {/* Asia cluster label */}
+            {/* Footnote */}
             <div
-              className="absolute bottom-3 right-4 text-white text-xs opacity-60 italic"
+              className="absolute bottom-2 right-3 text-white text-[10px] opacity-50 italic"
             >
-              {ko ? "아시아 시장 (한국·일본·대만)은 지역 클러스터" : "Asia cluster: Korea · Japan · Taiwan"}
+              {ko ? "버블 크기 = 발행잔액 √ 스케일" : "Bubble size = √(outstanding) scale"}
             </div>
           </div>
         </motion.section>
