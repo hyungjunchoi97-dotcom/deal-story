@@ -44,7 +44,7 @@ export const FDD_CHAPTERS: FddChapter[] = [
     taglineKo: "Reported → Adjusted EBITDA bridge, 1회성 add-back, run-rate 조정, 매도인의 trick",
     taglineEn: "Reported → adjusted EBITDA bridge, one-time add-backs, run-rate adjustments, seller's tricks",
     readingMinutes: 13,
-    status: "draft",
+    status: "published",
   },
   {
     slug: "fdd-ch03-nwc",
