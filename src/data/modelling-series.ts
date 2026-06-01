@@ -56,7 +56,7 @@ export const MOD_CHAPTERS: ModChapter[] = [
     taglineKo: "Revenue build · WACC sheet · FCF cell-by-cell · Terminal Value 두 가지 방식 · Sensitivity data table",
     taglineEn: "Revenue build, WACC sheet, FCF cell by cell, two terminal-value methods, sensitivity data tables",
     readingMinutes: 13,
-    status: "draft",
+    status: "published",
   },
   {
     slug: "mod-ch04-lbo",
