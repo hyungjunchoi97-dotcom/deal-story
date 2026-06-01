@@ -11,6 +11,7 @@ import Footer from "@/components/Footer";
 import ShareButtons from "@/components/deal/ShareButtons";
 import FaqAccordion from "@/components/FaqAccordion";
 import type { MarketConcept } from "@/data/market-101-concepts";
+import LikeButton from "@/components/LikeButton";
 
 type Lang = "ko" | "en";
 interface Props { concept: MarketConcept; lang: Lang; }
@@ -318,7 +319,8 @@ export default function StructuredCasesClient({ concept, lang }: Props) {
               variant="top"
               lang={lang}
             />
-          </motion.div>
+          
+            <LikeButton slug={concept.slug} lang={lang} /></motion.div>
 
           {/* ── 챕터 네비게이션 ── */}
           <motion.div variants={fadeUp(0.1)} initial="hidden" animate="show" className="mt-8">

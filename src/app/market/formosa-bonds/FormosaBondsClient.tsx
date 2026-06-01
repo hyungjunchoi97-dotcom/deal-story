@@ -13,6 +13,7 @@ import FaqAccordion from "@/components/FaqAccordion";
 import type { MarketDeal } from "@/data/market-deals";
 import SeriesNav from "@/components/SeriesNav";
 import { getMarketDealNav } from "@/data/market-deals";
+import LikeButton from "@/components/LikeButton";
 
 type Lang = "ko" | "en";
 const EASE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
@@ -230,7 +231,8 @@ export default function FormosaBondsClient({ deal, lang }: { deal: MarketDeal; l
             </motion.div>
           </div>
         </section>
-        <div className="flex justify-end max-w-3xl mx-auto px-5 mb-6 mt-4"><ShareButtons title={ko ? deal.title : deal.titleEn} variant="top" lang={lang} /></div>
+        <div className="flex justify-end max-w-3xl mx-auto px-5 mb-6 mt-4"><ShareButtons title={ko ? deal.title : deal.titleEn} variant="top" lang={lang} />
+          <LikeButton slug={deal.slug} lang={lang} /></div>
         {deal.executiveSummary && (
           <motion.div variants={fadeUp(0.1)} initial="hidden" whileInView="show" viewport={VP} className="max-w-3xl mx-auto px-5 pt-4">
             <div className="rounded-xl border-l-4 px-5 py-4" style={{ borderColor: ACCENT, background: ACCENT_LIGHT }}>

@@ -10,6 +10,7 @@ import FaqAccordion from "@/components/FaqAccordion";
 import type { MarketConcept } from "@/data/market-101-concepts";
 import SeriesNav from "@/components/SeriesNav";
 import { getMarket101Nav } from "@/data/market-101-concepts";
+import LikeButton from "@/components/LikeButton";
 
 type Lang = "ko" | "en";
 interface Props { concept: MarketConcept; lang: Lang; }

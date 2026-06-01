@@ -9,6 +9,7 @@ import FaqAccordion from "@/components/FaqAccordion";
 import type { MarketConcept } from "@/data/market-101-concepts";
 import SeriesNav from "@/components/SeriesNav";
 import { getMarket101Nav } from "@/data/market-101-concepts";
+import LikeButton from "@/components/LikeButton";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 type Lang = "ko" | "en";
@@ -266,7 +267,8 @@ export default function DcmRateBenchmarksClient({ concept, lang }: Props) {
         {/* ── Share TOP ─────────────────────────────────────────────────────── */}
         <div className="flex justify-end mb-6">
           <ShareButtons title={title} variant="top" lang={lang} />
-        </div>
+        
+          <LikeButton slug={concept.slug} lang={lang} /></div>
 
         {/* ── 3-Stat Callout ────────────────────────────────────────────────── */}
         <motion.div
@@ -1638,7 +1640,8 @@ export default function DcmRateBenchmarksClient({ concept, lang }: Props) {
         {/* ── Share BOTTOM ──────────────────────────────────────────────────── */}
         <ShareButtons title={title} variant="bottom" lang={lang} />
 
-        {/* ═══════════════════════════════════════════════════════════════════ */}
+        
+        <LikeButton slug={concept.slug} lang={lang} />{/* ═══════════════════════════════════════════════════════════════════ */}
         {/* References                                                         */}
         {/* ═══════════════════════════════════════════════════════════════════ */}
         <motion.section

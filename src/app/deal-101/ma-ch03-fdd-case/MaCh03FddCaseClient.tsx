@@ -21,6 +21,7 @@ import Footer from "@/components/Footer";
 import ShareButtons from "@/components/deal/ShareButtons";
 import SeriesNav from "@/components/SeriesNav";
 import { MA_CHAPTERS, getMaChapterBySlug, getMaSeriesNav } from "@/data/ma-series";
+import LikeButton from "@/components/LikeButton";
 
 type Lang = "ko" | "en";
 

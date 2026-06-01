@@ -2,6 +2,7 @@
  * notes.ts — Notes 섹션 SSOT
  * 카테고리: macro | strategy | market | essay | activism
  */
+import { privateCreditEra } from "./notes/private-credit-era";
 
 // ── Categories ─────────────────────────────────────────────────────────────────
 
@@ -334,6 +335,96 @@ export type QuantumMapMarker = {
   approach?: string;     // "Superconducting" / "Ion Trap" etc
 };
 
+// ── Private Credit chart data types ─────────────────────────────────────────
+export type PcAumPoint = {
+  year: number;
+  aum: number;            // $B
+};
+
+export type BankPcSharePoint = {
+  year: number;
+  bsl: number;            // %
+  pc: number;             // %
+};
+
+export type PcAssetClassPoint = {
+  strategy: string;
+  strategyEn: string;
+  share: number;          // %
+};
+
+export type AbfGrowthPoint = {
+  year: number;
+  market: number;         // $T
+  projected?: boolean;
+};
+
+export type InsurerPcBalancePoint = {
+  firm: string;
+  insurance: number;      // $B (insurance GA)
+  pcAUM: number;          // $B (PC AUM)
+};
+
+export type KoreaAcqFinancePoint = {
+  firm: string;
+  firmEn: string;
+  value: number;          // ₩조
+  deals: number;
+};
+
+export type KoreaPcMarketPoint = {
+  year: number;
+  acqFin: number;         // ₩조
+  npl: number;            // ₩조
+  pf: number;             // ₩조
+};
+
+export type PcDefaultRatePoint = {
+  period: string;
+  directLending: number;  // %
+  bsl: number;            // %
+};
+
+export type ApolloAtheneStage = {
+  step: number;            // 1..6
+  actor: string;
+  actorEn: string;
+  flow: string;            // 화살표 라벨 (예: "보험료 4-5%")
+  flowEn: string;
+  detail: string;          // 1-line description
+  detailEn: string;
+  color: string;           // hex
+};
+
+export type ContagionNode = {
+  label: string;
+  labelEn: string;
+  color: string;
+};
+
+export type ContagionChannel = {
+  id: string;
+  label: string;           // "자산운용사"
+  labelEn: string;
+  channel: string;         // "재간접/세컨더리"
+  channelEn: string;
+  risk: "low" | "medium" | "high";
+  detail: string;          // 1-line description
+  detailEn: string;
+};
+
+export type WatchIndicatorPoint = {
+  indicator: string;
+  indicatorEn: string;
+  current: string;         // "6.0%"
+  normalRange: string;     // "<4%"
+  cautionRange: string;    // "4-6%"
+  dangerRange: string;     // "6%+"
+  status: "normal" | "caution" | "danger";
+  source: string;
+  sourceEn?: string;
+};
+
 export type NoteChartDef =
   | { id: "pbr-comparison";    title: string; titleEn?: string; caption?: string; captionEn?: string; data: PBRPoint[] }
   | { id: "tax-rates";         title: string; titleEn?: string; caption?: string; captionEn?: string; data: TaxRateBar[] }
@@ -361,7 +452,19 @@ export type NoteChartDef =
   | { id: "quantum-funding";   title: string; titleEn?: string; caption?: string; captionEn?: string; data: QuantumFundingBar[] }
   | { id: "quantum-map";       title: string; titleEn?: string; caption?: string; captionEn?: string; markers: QuantumMapMarker[]; center?: [number, number]; zoom?: number }
   | { id: "bit-qubit-diagram"; title: string; titleEn?: string; caption?: string; captionEn?: string }
-  | { id: "scenario-cards";    title: string; titleEn?: string; caption?: string; captionEn?: string; scenarios: ScenarioCard[] };
+  | { id: "scenario-cards";    title: string; titleEn?: string; caption?: string; captionEn?: string; scenarios: ScenarioCard[] }
+  // ── Private Credit charts ────────────────────────────────────────────────
+  | { id: "pc-aum-growth";       title: string; titleEn?: string; caption?: string; captionEn?: string; data: PcAumPoint[]; annotations?: { year: number; label: string; labelEn?: string }[] }
+  | { id: "bank-vs-pc-share";    title: string; titleEn?: string; caption?: string; captionEn?: string; data: BankPcSharePoint[] }
+  | { id: "pc-asset-classes";    title: string; titleEn?: string; caption?: string; captionEn?: string; data: PcAssetClassPoint[] }
+  | { id: "abf-growth";          title: string; titleEn?: string; caption?: string; captionEn?: string; data: AbfGrowthPoint[] }
+  | { id: "insurer-balance-sheet"; title: string; titleEn?: string; caption?: string; captionEn?: string; data: InsurerPcBalancePoint[] }
+  | { id: "korea-acq-finance";   title: string; titleEn?: string; caption?: string; captionEn?: string; data: KoreaAcqFinancePoint[] }
+  | { id: "korea-pc-markets";    title: string; titleEn?: string; caption?: string; captionEn?: string; data: KoreaPcMarketPoint[] }
+  | { id: "pc-default-rates";    title: string; titleEn?: string; caption?: string; captionEn?: string; data: PcDefaultRatePoint[] }
+  | { id: "apollo-athene-flow";  title: string; titleEn?: string; caption?: string; captionEn?: string; stages: ApolloAtheneStage[] }
+  | { id: "pc-contagion-map";    title: string; titleEn?: string; caption?: string; captionEn?: string; center: ContagionNode; channels: ContagionChannel[] }
+  | { id: "watch-dashboard";     title: string; titleEn?: string; caption?: string; captionEn?: string; data: WatchIndicatorPoint[] };
 
 // ── Scenario Cards 데이터 타입 ─────────────────────────────────────────────
 export type ScenarioCard = {
@@ -6195,4 +6298,5 @@ export const ALL_NOTES: NoteData[] = [
   dollarHegemony1, dollarHegemony2, dollarHegemony3, dollarHegemony4,
   aiCycle1, aiCycle2, aiCycle3, aiCycle4, aiCycle5, aiCycle6, aiCycle7,
   quantumComputing,
+  privateCreditEra,
 ];

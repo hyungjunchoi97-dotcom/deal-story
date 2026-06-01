@@ -8,6 +8,7 @@ import ShareButtons from "@/components/deal/ShareButtons";
 import FaqAccordion from "@/components/FaqAccordion";
 
 import type { MarketConcept } from "@/data/market-101-concepts";
+import LikeButton from "@/components/LikeButton";
 
 type Lang = "ko" | "en";
 interface Props { concept: MarketConcept; lang: Lang; }

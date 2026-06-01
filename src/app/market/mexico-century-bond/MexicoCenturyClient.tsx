@@ -22,6 +22,7 @@ import FaqAccordion from "@/components/FaqAccordion";
 import type { MarketDeal } from "@/data/market-deals";
 import SeriesNav from "@/components/SeriesNav";
 import { getMarketDealNav } from "@/data/market-deals";
+import LikeButton from "@/components/LikeButton";
 
 // ── Animation ─────────────────────────────────────────────────────────────────
 const EASE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
@@ -536,7 +537,8 @@ export default function MexicoCenturyClient({
         <div className="max-w-3xl mx-auto px-5">
           <div className="flex justify-end mb-6 mt-4">
             <ShareButtons title={ko ? deal.title : deal.titleEn} variant="top" lang={lang} />
-          </div>
+          
+            <LikeButton slug={deal.slug} lang={lang} /></div>
         </div>
 
         {/* ── Executive Summary ── */}
@@ -715,7 +717,8 @@ export default function MexicoCenturyClient({
           {/* ── Share bottom ── */}
           <ShareButtons title={ko ? deal.title : deal.titleEn} variant="bottom" lang={lang} />
 
-          {/* ── References ── */}
+          
+          <LikeButton slug={deal.slug} lang={lang} />{/* ── References ── */}
           {deal.references && deal.references.length > 0 && (
             <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP} className="border-t border-gray-200 dark:border-gray-700 pt-8">
               <motion.h2 variants={fadeUp()} className="text-[13px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-4">

@@ -23,6 +23,7 @@ import FaqAccordion from "@/components/FaqAccordion";
 import type { MarketDeal } from "@/data/market-deals";
 import SeriesNav from "@/components/SeriesNav";
 import { getMarketDealNav } from "@/data/market-deals";
+import LikeButton from "@/components/LikeButton";
 
 type Lang = "ko" | "en";
 
@@ -590,7 +591,8 @@ export default function SantanderAt1Client({
         {/* ── Share — top ── */}
         <div className="flex justify-end mb-6">
           <ShareButtons title={ko ? deal.title : deal.titleEn} variant="top" lang={lang} />
-        </div>
+        
+          <LikeButton slug={deal.slug} lang={lang} /></div>
 
         {/* ── Executive Summary ── */}
         {deal.executiveSummary && (

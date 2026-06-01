@@ -10,6 +10,7 @@ import FaqAccordion from "@/components/FaqAccordion";
 import type { MarketConcept } from "@/data/market-101-concepts";
 import SeriesNav from "@/components/SeriesNav";
 import { getMarket101Nav } from "@/data/market-101-concepts";
+import LikeButton from "@/components/LikeButton";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 type Lang = "ko" | "en";
@@ -941,7 +942,8 @@ export default function DcmOverviewClient({
         {/* ── Share — top ── */}
         <div className="flex justify-end mb-6">
           <ShareButtons title={ko ? concept.title : (concept.titleEn ?? concept.title)} variant="top" lang={lang} />
-        </div>
+        
+          <LikeButton slug={concept.slug} lang={lang} /></div>
 
         {/* ── Chapter Navigation ── */}
         <ChapterNav lang={lang} />
@@ -1294,7 +1296,8 @@ export default function DcmOverviewClient({
         <ShareButtons title={ko ? concept.title : (concept.titleEn ?? concept.title)} variant="bottom" lang={lang} />
 
 
-          {/* ── References ── */}
+          
+        <LikeButton slug={concept.slug} lang={lang} />{/* ── References ── */}
           {concept.references && concept.references.length > 0 && (
             <motion.section
               variants={stagger}

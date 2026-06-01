@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import LikeButton from "@/components/LikeButton";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 16 },
@@ -399,6 +400,7 @@ export function RegulatoryRiskClient() {
           </motion.section>
 
         </div>
+        <LikeButton slug={"regulatory-risk"} lang="ko" />
       </main>
       <Footer />
     </>

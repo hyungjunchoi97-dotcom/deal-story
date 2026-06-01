@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import type { MarketConcept } from "@/data/market-101-concepts";
 import SeriesNav from "@/components/SeriesNav";
 import { getMarket101Nav } from "@/data/market-101-concepts";
+import LikeButton from "@/components/LikeButton";
 
 type Lang = "ko" | "en";
 
@@ -645,6 +646,7 @@ export default function DcmEcosystemClient({ concept, lang }: { concept: MarketC
               />
             );
           })()}
+        <LikeButton slug={concept.slug} lang={lang} />
       </main>
       <Footer />
     </>

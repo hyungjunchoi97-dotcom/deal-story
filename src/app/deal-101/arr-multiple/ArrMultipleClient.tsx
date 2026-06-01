@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import LikeButton from "@/components/LikeButton";
 
 // ── 애니메이션 variants ──────────────────────────────────────────
 const EASE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
@@ -392,6 +393,7 @@ export default function ArrMultipleClient() {
           </motion.div>
 
         </div>
+        <LikeButton slug={"arr-multiple"} lang="ko" />
       </main>
       <Footer />
     </>

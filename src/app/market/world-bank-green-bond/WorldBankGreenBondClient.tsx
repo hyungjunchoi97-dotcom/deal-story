@@ -21,6 +21,7 @@ import FaqAccordion from "@/components/FaqAccordion";
 import type { MarketDeal } from "@/data/market-deals";
 import SeriesNav from "@/components/SeriesNav";
 import { getMarketDealNav } from "@/data/market-deals";
+import LikeButton from "@/components/LikeButton";
 
 type Lang = "ko" | "en";
 
@@ -348,7 +349,8 @@ export default function WorldBankGreenBondClient({ deal, lang }: { deal: MarketD
 
         <div className="flex justify-end max-w-3xl mx-auto px-5 mb-6 mt-4">
           <ShareButtons title={ko ? deal.title : deal.titleEn} variant="top" lang={lang} />
-        </div>
+        
+          <LikeButton slug={deal.slug} lang={lang} /></div>
 
         {deal.executiveSummary && (
           <motion.div variants={fadeUp(0.1)} initial="hidden" whileInView="show" viewport={VP} className="max-w-3xl mx-auto px-5 pt-4">

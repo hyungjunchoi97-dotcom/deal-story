@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import LikeButton from "@/components/LikeButton";
 
 // ── 애니메이션 헬퍼 ──────────────────────────────────────────────
 const fadeUp = {
@@ -636,6 +637,7 @@ export default function MaProcessClient() {
           </motion.section>
 
         </div>
+        <LikeButton slug={"ma-process"} lang="ko" />
       </main>
       <Footer />
     </>

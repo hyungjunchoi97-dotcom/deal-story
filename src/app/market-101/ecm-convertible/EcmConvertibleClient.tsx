@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import ShareButtons from "@/components/deal/ShareButtons";
 import FaqAccordion from "@/components/FaqAccordion";
 import type { MarketConcept } from "@/data/market-101-concepts";
+import LikeButton from "@/components/LikeButton";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 type Lang = "ko" | "en";
@@ -844,7 +845,8 @@ export default function EcmConvertibleClient({ concept, lang }: Props) {
 
             <motion.div variants={fadeUp(0.2)}>
               <ShareButtons title={ko ? concept.title : (concept.titleEn ?? concept.title)} variant="top" lang={lang} />
-            </motion.div>
+            
+              <LikeButton slug={concept.slug} lang={lang} /></motion.div>
           </motion.div>
         </section>
 

@@ -13,6 +13,7 @@ import type { MarketDeal } from "@/data/market-deals";
 import { DEAL_CATEGORY_META } from "@/data/market-deals";
 import SeriesNav from "@/components/SeriesNav";
 import { getMarketDealNav } from "@/data/market-deals";
+import LikeButton from "@/components/LikeButton";
 
 // ── Animation ─────────────────────────────────────────────────────────────────
 const EASE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
@@ -1016,6 +1017,7 @@ export default function ChinaRealEstateClient({
               />
             );
           })()}
+        <LikeButton slug={deal.slug} lang={lang} />
       </main>
       <Footer />
     </>

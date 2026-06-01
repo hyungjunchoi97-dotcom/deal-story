@@ -21,6 +21,7 @@ import {
   MilkenBody, LivermoreBody, VolckerBody,
   WassersteinBody, WeinbergBody, RohatynBody, JimmyLeeBody,
 } from "./StoryBodies";
+import LikeButton from "@/components/LikeButton";
 
 type Lang = "ko" | "en";
 
@@ -1027,7 +1028,8 @@ export default function StoriesClient({ story, lang }: { story: InvestorStory; l
         {/* ── Share — top ── */}
         <div className="max-w-3xl mx-auto px-5 pt-6 flex justify-end">
           <ShareButtons title={ko ? story.title : story.titleEn} variant="top" lang={lang} />
-        </div>
+        
+          <LikeButton slug={story.slug} lang={lang} /></div>
 
         {/* ── Executive Summary ─────────────────────────────────────────────── */}
         <div className="max-w-3xl mx-auto px-5 pt-8">
@@ -1178,7 +1180,8 @@ export default function StoriesClient({ story, lang }: { story: InvestorStory; l
             {/* ── Share — bottom ── */}
             <ShareButtons title={ko ? story.title : story.titleEn} variant="bottom" lang={lang} />
 
-            {/* ── Navigation ── */}
+            
+            <LikeButton slug={story.slug} lang={lang} />{/* ── Navigation ── */}
             <div className="mt-14 pt-6 border-t border-gray-100 dark:border-gray-800 flex flex-wrap items-center gap-4">
               <Link href={storiesHref} className="text-sm text-blue-500 hover:underline">
                 {ko ? "← 다른 일화 보기" : "← All Stories"}

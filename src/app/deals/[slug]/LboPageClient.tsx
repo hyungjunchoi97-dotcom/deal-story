@@ -13,6 +13,7 @@ import Footer from "@/components/Footer";
 import ShareButtons from "@/components/deal/ShareButtons";
 import FaqAccordion from "@/components/FaqAccordion";
 import type { LboDeal } from "@/lib/lbo-deal-data";
+import LikeButton from "@/components/LikeButton";
 
 type Lang = "ko" | "en";
 
@@ -179,7 +180,8 @@ export default function LboPageClient({
             {/* Share TOP */}
             <motion.div variants={fadeUp(0.18)} initial="hidden" animate="show">
               <ShareButtons title={title} variant="top" lang={lang} />
-            </motion.div>
+            
+              <LikeButton slug={deal.slug} lang={lang} /></motion.div>
           </div>
         </section>
 
@@ -870,7 +872,8 @@ export default function LboPageClient({
           {/* Share BOTTOM */}
           <ShareButtons title={title} variant="bottom" lang={lang} />
 
-          {/* ═══════════════════════════════════════════════════════════════ */}
+          
+          <LikeButton slug={deal.slug} lang={lang} />{/* ═══════════════════════════════════════════════════════════════ */}
           {/* SOURCES                                                         */}
           {/* ═══════════════════════════════════════════════════════════════ */}
           {deal.sources && deal.sources.length > 0 && (

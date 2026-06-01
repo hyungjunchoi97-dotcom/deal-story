@@ -19,6 +19,7 @@ import FaqAccordion from "@/components/FaqAccordion";
 import type { MarketConcept } from "@/data/market-101-concepts";
 import SeriesNav from "@/components/SeriesNav";
 import { getMarket101Nav } from "@/data/market-101-concepts";
+import LikeButton from "@/components/LikeButton";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 type Lang = "ko" | "en";
@@ -845,7 +846,8 @@ export default function EcmPitchbookClient({ concept, lang }: { concept: MarketC
 
         <div className="flex justify-end max-w-3xl mx-auto px-5 mb-2 mt-4">
           <ShareButtons title={ko ? concept.title : (concept.titleEn ?? concept.title)} variant="top" lang={lang} />
-        </div>
+        
+          <LikeButton slug={concept.slug} lang={lang} /></div>
 
         <PracticalSeriesNav lang={lang} />
         <ChapterNav lang={lang} />
@@ -1178,7 +1180,9 @@ export default function EcmPitchbookClient({ concept, lang }: { concept: MarketC
 
           <ShareButtons title={ko ? concept.title : (concept.titleEn ?? concept.title)} variant="bottom" lang={lang} />
 
-          {/* References */}
+          
+
+          <LikeButton slug={concept.slug} lang={lang} />{/* References */}
           {concept.references && concept.references.length > 0 && (
             <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP} className="border-t border-gray-200 dark:border-gray-700 pt-8">
               <motion.h2 variants={fadeUp()} className="text-[13px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-4">

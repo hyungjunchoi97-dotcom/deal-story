@@ -21,6 +21,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ShareButtons from "@/components/deal/ShareButtons";
 import FaqAccordion from "@/components/FaqAccordion";
+import LikeButton from "@/components/LikeButton";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 type Lang = "ko" | "en";
@@ -480,7 +481,8 @@ export default function HcaLboClient({ lang }: Props) {
 
         <div className="max-w-3xl mx-auto px-5 pt-6 flex justify-end">
           <ShareButtons title={title} variant="top" lang={lang} />
-        </div>
+        
+          <LikeButton slug={"hca-lbo"} lang={lang} /></div>
 
         {/* ── Body ── */}
         <div className="max-w-3xl mx-auto px-5 py-6 space-y-20">
@@ -1604,7 +1606,8 @@ export default function HcaLboClient({ lang }: Props) {
           {/* ── Share — bottom ── */}
           <div className="flex justify-end pb-4">
             <ShareButtons title={title} variant="bottom" lang={lang} />
-          </div>
+          
+            <LikeButton slug={"hca-lbo"} lang={lang} /></div>
         </div>
       </main>
       <Footer />

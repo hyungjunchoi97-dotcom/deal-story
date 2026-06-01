@@ -12,6 +12,7 @@ import FaqAccordion from "@/components/FaqAccordion";
 import type { MarketDeal } from "@/data/market-deals";
 import SeriesNav from "@/components/SeriesNav";
 import { getMarketDealNav } from "@/data/market-deals";
+import LikeButton from "@/components/LikeButton";
 
 type Lang = "ko" | "en";
 const EASE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];

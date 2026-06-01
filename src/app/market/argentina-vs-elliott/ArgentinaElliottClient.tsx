@@ -23,6 +23,7 @@ import FaqAccordion from "@/components/FaqAccordion";
 import type { MarketDeal } from "@/data/market-deals";
 import SeriesNav from "@/components/SeriesNav";
 import { getMarketDealNav } from "@/data/market-deals";
+import LikeButton from "@/components/LikeButton";
 
 // ── Animation ─────────────────────────────────────────────────────────────────
 const EASE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
@@ -729,7 +730,8 @@ export default function ArgentinaElliottClient({
         <div className="max-w-3xl mx-auto px-5">
           <div className="flex justify-end mb-6 mt-4">
             <ShareButtons title={ko ? deal.title : deal.titleEn} variant="top" lang={lang} />
-          </div>
+          
+            <LikeButton slug={deal.slug} lang={lang} /></div>
         </div>
 
         {/* ── Executive Summary ── */}
@@ -987,7 +989,8 @@ export default function ArgentinaElliottClient({
           {/* ── Share — bottom ── */}
           <ShareButtons title={ko ? deal.title : deal.titleEn} variant="bottom" lang={lang} />
 
-          {/* ── References ── */}
+          
+          <LikeButton slug={deal.slug} lang={lang} />{/* ── References ── */}
           {deal.references && deal.references.length > 0 && (
             <motion.section
               variants={stagger}

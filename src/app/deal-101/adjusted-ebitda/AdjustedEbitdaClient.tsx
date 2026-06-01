@@ -4,6 +4,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
+import LikeButton from "@/components/LikeButton";
 
 // ── Animation variants ──────────────────────────────────────────
 const EASE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
@@ -780,6 +781,7 @@ export default function AdjustedEbitdaClient({ relatedDeals, lang = "ko" }: Prop
           </motion.div>
 
         </div>
+        <LikeButton slug={"adjusted-ebitda"} lang={lang} />
       </main>
       <Footer />
     </>

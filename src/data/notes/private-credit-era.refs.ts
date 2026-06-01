@@ -1,0 +1,128 @@
+/**
+ * References — Private Credit Era note.
+ * 100+ sources sourced from private-credit-research.md catalog.
+ */
+
+import type { NoteReference } from "../notes";
+
+export const REFERENCES: NoteReference[] = [
+  // ── Global PC market size & overviews ────────────────────────────
+  { id: 1, author: "Preqin", title: "Private Debt Outlook 2025 — AUM trajectory and 2030 projection ($2.64T)", source: "Preqin", year: "2024" },
+  { id: 2, author: "PitchBook", title: "Q4 2024 Private Credit Report — JPM-cited ~$1.2T narrow estimate", source: "PitchBook", year: "2024" },
+  { id: 3, author: "Investment Executive", title: "Global private credit market reaches $3.5T AUM threshold (broad definition)", source: "Investment Executive", year: "2024-12", url: "https://www.investmentexecutive.com/news/global-private-credit-market-reaches-us3-5-trillion-aum-threshold-report/" },
+  { id: 4, author: "J.P. Morgan", title: "Private Credit: Promising or Problematic?", source: "JPMorgan Insights", year: "2024", url: "https://www.jpmorgan.com/insights/markets-and-economy/top-market-takeaways/tmt-private-credit-promising-or-problematic" },
+  { id: 5, author: "McKinsey & Company", title: "The next era of private credit", source: "McKinsey", year: "2024", url: "https://www.mckinsey.com/industries/private-capital/our-insights/the-next-era-of-private-credit" },
+  { id: 6, author: "BlackRock × Preqin", title: "Private Markets in 2030", source: "BlackRock Aladdin", year: "2024", url: "https://www.blackrock.com/aladdin/discover/press-release/preqin-private-markets-in-2030-report" },
+  { id: 7, author: "Brookfield", title: "Private credit opportunities — universe keeps expanding", source: "Brookfield Insights", year: "2024", url: "https://www.brookfield.com/views-news/insights/private-credit-opportunities-universe-keeps-expanding" },
+  { id: 8, author: "Lord Abbett", title: "A Closer Look at the Growth of Private Credit Markets", source: "Lord Abbett", year: "2025", url: "https://www.lordabbett.com/en-us/institutional-investor/insights/investment-objectives/2025/a-closer-look-at-the-growth-of-private-credit-markets.html" },
+  { id: 9, author: "Chronograph", title: "The Rise of Private Credit: What Has Driven Its Growth", source: "Chronograph", year: "2024", url: "https://www.chronograph.pe/the-rise-of-private-credit-what-has-driven-its-growth/" },
+  { id: 10, author: "Federal Reserve", title: "Private Credit Growth and Monetary Policy Transmission", source: "FEDS Notes", year: "2024-08", url: "https://www.federalreserve.gov/econres/notes/feds-notes/private-credit-growth-and-monetary-policy-transmission-20240802.html" },
+
+  // ── IMF / BIS / FSB / Central Banks ───────────────────────────────
+  { id: 11, author: "IMF", title: "GFSR April 2024, Chapter 2 — The Rise and Risks of Private Credit", source: "IMF", year: "2024-04", url: "https://www.imf.org/-/media/files/publications/gfsr/2024/april/english/ch2.pdf" },
+  { id: 12, author: "IMF", title: "Global Financial Stability Report — October 2024 (no PC-specific chapter)", source: "IMF", year: "2024-10", url: "https://www.imf.org/en/publications/gfsr/issues/2024/10/22/global-financial-stability-report-october-2024" },
+  { id: 13, author: "FSB", title: "Report on Vulnerabilities in Private Credit", source: "Financial Stability Board", year: "2026-05", url: "https://www.fsb.org/uploads/P060526.pdf" },
+  { id: 14, author: "BIS", title: "The global drivers of private credit", source: "BIS Quarterly Review", year: "2025-03", url: "https://www.bis.org/publ/qtrpdf/r_qt2503b.pdf" },
+  { id: 15, author: "BIS", title: "The rise of non-bank financial institutions (Bulletin 116)", source: "BIS", year: "2024", url: "https://www.bis.org/publ/bisbull116.pdf" },
+  { id: 16, author: "BIS BCBS", title: "Basel III phase-in arrangements", source: "BIS", url: "https://www.bis.org/bcbs/basel3/basel3_phase_in_arrangements.pdf" },
+  { id: 17, author: "BIS BCBS", title: "Banks' interconnections with NBFI (d598)", source: "BIS", year: "2024", url: "https://www.bis.org/bcbs/publ/d598.pdf" },
+  { id: 18, author: "BIS", title: "Non-bank financial intermediaries and financial stability (WP 972)", source: "BIS Working Paper", year: "2021", url: "https://www.bis.org/publ/work972.pdf" },
+  { id: 19, author: "Bank of England", title: "Financial Stability Report June 2024", source: "BoE", year: "2024-06", url: "https://www.bankofengland.co.uk/-/media/boe/files/financial-stability-report/2024/financial-stability-report-june-2024.pdf" },
+  { id: 20, author: "Bank of England", title: "Financial Stability Report November 2024", source: "BoE", year: "2024-11", url: "https://www.bankofengland.co.uk/financial-stability-report/2024/november-2024" },
+  { id: 21, author: "Lee Foulger (BoE)", title: "Non-bank risks, financial stability and the role of private credit", source: "BoE speech, DealCatalyst-AFME", year: "2024-01", url: "https://www.bankofengland.co.uk/speech/2024/january/lee-foulger-keynote-address-at-the-dealcatalyst-afme-european-direct-lending" },
+  { id: 22, author: "Bank of England", title: "System-Wide Exploratory Scenario — Private Markets", source: "BoE SWES", year: "2024-2025", url: "https://www.bankofengland.co.uk/financial-stability/boe-system-wide-exploratory-scenario-exercise/boe-private-markets-swes" },
+  { id: 23, author: "FSB", title: "Global Monitoring Report on NBFI 2025", source: "FSB", year: "2025-12", url: "https://www.fsb.org/uploads/P161225.pdf" },
+  { id: 24, author: "한국은행", title: "금융안정보고서 2024년 6월", source: "Bank of Korea", year: "2024-06", url: "https://www.bok.or.kr/portal/bbs/P0000593/view.do?nttId=10085314" },
+  { id: 25, author: "한국은행", title: "금융안정보고서 2024년 12월", source: "Bank of Korea", year: "2024-12", url: "https://www.bok.or.kr/portal/bbs/P0000593/view.do?nttId=10088838" },
+
+  // ── US regulators & index providers ───────────────────────────────
+  { id: 26, author: "OCC / Fed / FDIC", title: "Interagency Guidance on Leveraged Lending (LLG)", source: "Federal Register", year: "2013-03-22", url: "https://www.federalregister.gov/documents/2013/03/22/2013-06567/interagency-guidance-on-leveraged-lending" },
+  { id: 27, author: "OCC", title: "Bulletin 2025-44 — Withdrawal of Interagency LLG", source: "OCC", year: "2025-12", url: "https://www.occ.gov/news-issuances/bulletins/2025/bulletin-2025-44.html" },
+  { id: 28, author: "LSTA", title: "2024 Direct Lending Review — Volume Surges", source: "LSTA", year: "2024", url: "https://www.lsta.org/news-resources/2024-direct-lending-review-volume-surges-amid-favorable-market-conditions/" },
+  { id: 29, author: "LSTA", title: "The Latest Financial Stability Reports: Nonbanks and PCC", source: "LSTA", year: "2024", url: "https://www.lsta.org/news-resources/the-latest-financial-stability-reports-whats-new-on-nonbanks-and-pcc/" },
+  { id: 30, author: "S&P Global LCD", title: "Cov-Lite and BSL data (paywalled, cited via secondary sources)", source: "S&P LCD" },
+  { id: 31, author: "KBRA", title: "Direct Lending Deals (DLD) — volume and default data", source: "KBRA DLD", year: "2024" },
+  { id: 32, author: "Proskauer", title: "Q4 Private Credit Default Rate 2.67%", source: "Proskauer Private Credit Default Index", year: "2024", url: "https://www.proskauer.com/report/proskauer-announces-q4-private-credit-default-rate-of-267" },
+  { id: 33, author: "Proskauer / Yahoo Finance", title: "Despite covenant-lite trend, lender protections stronger in PC than BSL", source: "Proskauer", year: "2024", url: "https://finance.yahoo.com/news/despite-covenant-lite-trend-lender-201828993.html" },
+  { id: 34, author: "Paul Weiss", title: "Covenant-Lite Loans Overview", source: "Paul Weiss", url: "https://www.paulweiss.com/media/fzvn3pet/covenant-lite_loans_overview.pdf" },
+  { id: 35, author: "Global Legal Insights", title: "Private Credit Laws and Regulations — Growth and Future of PC", source: "GLI", year: "2024", url: "https://www.globallegalinsights.com/practice-areas/private-credit-laws-and-regulations/the-growth-and-future-of-private-credit-from-shadow-finance-to-mainstream/" },
+  { id: 36, author: "Proskauer", title: "Overview and Comparison of the Broadly Syndicated Loan and Private Credit Markets", source: "Proskauer", url: "https://www.proskauer.com/pub/overview-and-comparison-of-the-broadly-syndicated-loan-and-private-credit-markets" },
+  { id: 37, author: "Macquarie Asset Management", title: "Direct lending — Uncovering the strategic edge", source: "Macquarie", year: "2024", url: "https://www.macquarie.com/is/en/about/company/macquarie-asset-management/institutional-investor/insights/perspectives/direct-lending-uncovering-the-strategic-edge.html" },
+  { id: 38, author: "Goodwin", title: "Pluralsight Change of Control Transaction", source: "Goodwin Procter", year: "2024-08", url: "https://www.goodwinlaw.com/en/insights/publications/2024/08/alerts-privateequity-ma-pluralsight-change-of-control-transaction" },
+  { id: 39, author: "Transacted", title: "Vista Equity Transfers Pluralsight Ownership to Private Lenders", source: "Transacted", year: "2024", url: "https://www.transacted.io/vista-equity-partners-transfers-pluralsight-ownership-to-private-lenders-blackrock-goldman-sachs-blue-owl-capital-among-new-owners" },
+  { id: 40, author: "CreditSights", title: "US Trendlines: New-Issue PC Covenants Strengthen, Cov-Lite Share Down", source: "CreditSights", year: "2024", url: "https://know.creditsights.com/us-trendlines-new-issue-private-credit-covenants-strengthen-in-ytd-with-cov-lite-share-down/" },
+  { id: 41, author: "NEPC", title: "The NEPC Guide to Private Debt", source: "NEPC", url: "https://www.nepc.com/the-nepc-guide-to-private-debt/" },
+  { id: 42, author: "Hamilton Lane", title: "Private Credit Viewpoints 2024", source: "Hamilton Lane", year: "2024", url: "https://www.hamiltonlane.com/en-us/insight/private-credit" },
+
+  // ── Manager IR (Big 7 + Sixth Street) ────────────────────────────
+  { id: 43, author: "Apollo Global Management", title: "Q4 2024 earnings — $751B AUM, $535.6B perpetual capital", source: "Apollo IR / SEC 8-K", year: "2024-Q4" },
+  { id: 44, author: "BSIC", title: "Apollo's merger with Athene — a final $29bn step in a long-lasting relationship", source: "BSIC", year: "2022", url: "https://bsic.it/apollos-merger-with-athene-a-final-29bn-step-in-a-long-lasting-relationship/" },
+  { id: 45, author: "Marc Rowan / Nikkei", title: "Apollo CEO says investors will capture more of the lending market", source: "Apollo Insights", year: "2024-07", url: "https://www.apollo.com/insights-news/insights/2024/07/nikkei-interview-apollo-ceo-says-investors-will-capture-more-of-the-lending-market" },
+  { id: 46, author: "Marc Rowan × David Rubenstein", title: "Economic Club interview on Private Credit", source: "Apollo Insights", year: "2024-03", url: "https://www.apollo.com/insights-news/insights/2024/03/marc-rowan-interview-with-david-rubenstein-private-credit" },
+  { id: 47, author: "Blackstone", title: "Q4 2024 — Credit & Insurance segment $375.5B AUM (+20% YoY)", source: "Blackstone IR", year: "2024-Q4" },
+  { id: 48, author: "BCRED (Blackstone Private Credit Fund)", title: "Q3/Q4 2024 8-K filings", source: "SEC EDGAR CIK 0001803498", year: "2024" },
+  { id: 49, author: "BXSL (Blackstone Secured Lending)", title: "Q4 2024 Investor Presentation", source: "BXSL IR", year: "2024-Q4" },
+  { id: 50, author: "Alternative Credit Investor", title: "Blackstone's private credit unit returned 15.7% in 2024", source: "ACI", year: "2025-01", url: "https://alternativecreditinvestor.com/2025/01/30/blackstones-private-credit-unit-returned-15-7pc-last-year/" },
+  { id: 51, author: "Ares Management", title: "Q4 2023 / Q1 2024 8-K — Direct Lending $199.4B", source: "SEC EDGAR", year: "2024" },
+  { id: 52, author: "Ares Capital (ARCC)", title: "Q4 2024 earnings digest", source: "Yahoo Finance", year: "2024-Q4", url: "https://finance.yahoo.com/news/ares-capital-corp-arcc-q4-071347145.html" },
+  { id: 53, author: "KKR", title: "Q4 2023 earnings & Global Atlantic acquisition close", source: "SEC 8-K / KKR IR", year: "2024-01" },
+  { id: 54, author: "Global Atlantic", title: "Press release — KKR completes acquisition of Global Atlantic (100%)", source: "Global Atlantic", year: "2024-01", url: "https://www.globalatlantic.com/news/KKR-completes-acquisition-of-global-atlantic" },
+  { id: 55, author: "Blue Owl Capital", title: "Q4 2024 earnings deck", source: "SEC EDGAR CIK 0001823945", year: "2024-Q4" },
+  { id: 56, author: "OBDC (Blue Owl Capital Corporation)", title: "Q3 2024 8-K — NAV/share $15.28, merger with OBDE", source: "SEC EDGAR", year: "2024" },
+  { id: 57, author: "HPS Investment Partners", title: "Our Story / company history (Highbridge Principal Strategies → HPS → BlackRock)", source: "HPS site / Wikipedia", year: "2024", url: "https://www.hpspartners.com/our-story/history" },
+  { id: 58, author: "BlackRock", title: "BlackRock agrees to acquire HPS (~$12B all-stock; ~$148B AUM)", source: "BlackRock Press Release", year: "2024-12-03", url: "https://www.blackrock.com/corporate/newsroom/press-releases/article/corporate-one/press-releases/blackrock-agrees-to-acquire-hps" },
+  { id: 59, author: "Oaktree Capital / Howard Marks", title: "Memo library (Gimme Credit; What's Going on in Private Credit)", source: "Oaktree", year: "2024", url: "https://www.oaktreecapital.com/insights/memo" },
+  { id: 60, author: "Sixth Street Partners", title: "Company profile & TPG separation history", source: "Wikipedia / Fortune", year: "2024-04", url: "https://fortune.com/2024/04/02/sixth-street-goldman-sachs-alan-waxman-chavez-tpg-wall-street-ipos-private-equity/" },
+
+  // ── Critical perspectives ────────────────────────────────────────
+  { id: 61, author: "Cliff Asness (AQR)", title: "Volatility Laundering", source: "AQR Insights", url: "https://www.aqr.com/Insights/Perspectives/Volatility-Laundering" },
+  { id: 62, author: "Institutional Investor", title: "Cliff Asness on PE illiquidity risk", source: "Institutional Investor", url: "https://www.institutionalinvestor.com/article/2bstolqfnrubgold0lkow/portfolio/cliff-asness-questions-whether-investors-in-private-equity-are-being-rewarded-or-penalized-for-taking-illiquidity-risk" },
+  { id: 63, author: "Morningstar", title: "How Private Equity Funds Understate Risk", source: "Morningstar", url: "https://www.morningstar.com/alternative-investments/how-private-equity-funds-understate-risk-their-investments" },
+  { id: 64, author: "DoubleLine", title: "Volatility Laundering in Private Credit", source: "DoubleLine", url: "https://doubleline.com/markets-insights/volatility-laundering-in-private-credit/" },
+  { id: 65, author: "AlphaArchitect", title: "Volatility Laundering — PC vs PE", source: "AlphaArchitect", url: "https://alphaarchitect.com/volatility-laundering/" },
+  { id: 66, author: "Resonanz Capital", title: "Covenant-Lite to Covenant-Void? Navigating Private Credit Risk", source: "Resonanz", year: "2024", url: "https://resonanzcapital.com/insights/covenant-lite-to-covenant-void-navigating-private-credit-risk" },
+  { id: 67, author: "Pensions & Investments", title: "AQR's Cliff Asness on private credit", source: "P&I", url: "https://www.pionline.com/alternatives/aqrs-cliff-asness-his-firms-turnaround-pod-shops-private-credit-suck-lot-capital/" },
+
+  // ── NAV Finance / ABF ────────────────────────────────────────────
+  { id: 68, author: "Wikipedia", title: "NAV lending", source: "Wikipedia", url: "https://en.wikipedia.org/wiki/NAV_lending" },
+  { id: 69, author: "Moonfare", title: "NAV loans explained", source: "Moonfare", url: "https://www.moonfare.com/blog/what-is-nav-lending" },
+  { id: 70, author: "Penn Law Review", title: "NAV Financing and Private Equity", source: "Penn Law Review", year: "2024-05", url: "https://pennlawreview.com/2024/05/24/net-asset-value-financing-and-private-equity/" },
+  { id: 71, author: "Balentic", title: "NAV Loans Unlocked — Navigating Risk and Opportunity", source: "Balentic", url: "https://balentic.com/nav-loans-unlocked-navigating-risk-and-opportunity-part-1/" },
+  { id: 72, author: "17Capital", title: "Market Outlook 2024-25 (TAM ~$700B; 2030 ~$145B annual)", source: "17Capital IR", year: "2024" },
+  { id: 73, author: "Rede Partners", title: "NAV Financing Market Study 2025 — €800M+ per-lender avg, +142% YoY", source: "Rede Partners", year: "2025" },
+  { id: 74, author: "Apollo Asset Backed Credit Co LLC", title: "SEC filings — ABF vehicle", source: "SEC EDGAR CIK 0002000597", year: "2024" },
+
+  // ── Korea: acquisition finance, real estate PF, NPL, BDC ──────────
+  { id: 75, author: "thebell", title: "2024 인수금융 League Table — ₩20.3조 / 145건", source: "thebell", year: "2024-12", url: "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202412311344246320105816" },
+  { id: 76, author: "한국경제", title: "KB증권 인수금융 1위 — LG CNS 단독주선 ₩2.96조", source: "한국경제", year: "2024-12-24", url: "https://www.hankyung.com/amp/202412246824r" },
+  { id: 77, author: "블로터", title: "연합자산관리(UAMCO), 2024년 NPL 인수 ₩3.77조", source: "블로터", year: "2024", url: "https://www.bloter.net/news/articleView.html?idxno=631544" },
+  { id: 78, author: "thebell", title: "유암코, NPL 시장 선두 (점유 45.3%)", source: "thebell", year: "2025-06", url: "https://m.thebell.co.kr/m/newsview.asp?svccode=&newskey=202506111501362920108589" },
+  { id: 79, author: "삼일PwC", title: "2025 NPL 시장 보고서", source: "삼일PwC", year: "2025", url: "https://www.pwc.com/kr/ko/insights/issue-brief/samilpwc_2025-npl-market.pdf" },
+  { id: 80, author: "자본시장연구원", title: "국내 PEF의 가치제고와 투자성과 분석", source: "KCMI", year: "2023", url: "https://www.kcmi.re.kr/report/report_view?report_no=1802" },
+  { id: 81, author: "자본시장연구원", title: "국내 PEF의 평가와 향후 과제", source: "KCMI", year: "2022", url: "https://www.kcmi.re.kr/report/report_view?report_no=1221" },
+  { id: 82, author: "삼성증권 리서치", title: "사모대출(Private debt) 시장: 제2의 성장기", source: "삼성증권", year: "2024-12", url: "https://www.samsungpop.com/common.do?cmd=down&contentType=application/pdf&inlineYn=Y&saveKey=research.pdf&fileName=3020/2024122712514250K_02_02.pdf" },
+  { id: 83, author: "나무위키", title: "홈플러스 법인회생 절차 신청 사건", source: "나무위키", year: "2025", url: "https://namu.wiki/w/%ED%99%88%ED%94%8C%EB%9F%AC%EC%8A%A4%20%EB%B2%95%EC%9D%B8%ED%9A%8C%EC%83%9D%20%EC%A0%88%EC%B0%A8%20%EC%8B%A0%EC%B2%AD%20%EC%82%AC%EA%B1%B4" },
+  { id: 84, author: "인더스트리뉴스", title: "MBK 홈플러스 인수 10년 현금 5조 유출 의혹", source: "인더스트리뉴스", url: "https://www.industrynews.co.kr/news/articleView.html?idxno=61328" },
+  { id: 85, author: "thebell", title: "MBK, 홈플러스 자회사 통한 인수구조 설계", source: "thebell", year: "2015-09", url: "https://www.thebell.co.kr/free/content/ArticleView.asp?key=201509100100019310001183&lcode=00" },
+  { id: 86, author: "노컷뉴스", title: "MBK 인수 방식, 홈플러스 부채 ₩8.5조 후폭풍", source: "노컷뉴스", url: "https://www.nocutnews.co.kr/news/6311233" },
+  { id: 87, author: "한국경제", title: "10년 전 예고된 홈플러스 독배", source: "한국경제", year: "2025-11", url: "https://www.hankyung.com/article/2025111668281" },
+  { id: 88, author: "한국주택금융공사", title: "새마을금고 사태 분석 (PF 연체 ~6%)", source: "HF", year: "2023", url: "https://researcher.hf.go.kr/researcher/sub02/sub02_07.do?mode=download&articleNo=591849&attachNo=90537" },
+  { id: 89, author: "삼일PwC", title: "부동산 PF 리뷰 — 잔액 ₩230조 (2023.12)", source: "삼일PwC", year: "2024", url: "https://www.pwc.com/kr/ko/insights/industry-focus/samilpwc_project-financing-review.pdf" },
+  { id: 90, author: "금융위원회", title: "부동산 PF 정상화 방안", source: "FSC", year: "2024", url: "https://www.fsc.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=83674&fileTy=ATTACH&fileNo=4" },
+  { id: 91, author: "인베스트조선", title: "KKR·아폴로·PAG, 외국인 전용 놀이터 된 韓 부동산", source: "인베스트조선", year: "2024-04", url: "https://www.investchosun.com/site/data/html_dir/2024/04/02/2024040280144.html" },
+  { id: 92, author: "인베스트조선", title: "KKR·블랙스톤, 준전시 상황에 관망", source: "인베스트조선", year: "2024-12", url: "https://www.investchosun.com/site/data/html_dir/2024/12/11/2024121180066.html" },
+  { id: 93, author: "KPMG Korea", title: "부동산 PF 이슈모니터 2024년 4월", source: "KPMG", year: "2024-04", url: "https://assets.kpmg.com/content/dam/kpmg/kr/pdf/2024/issue-monitor/kpmg-korea-real-estate-pf-20240424.pdf" },
+  { id: 94, author: "KKR Korea", title: "SK E&S 상환전환우선주(RCPS) 신규 투자계약", source: "KKR Korea", year: "2023", url: "https://www.kkr.com/kr/ko/kkr-sk-es-%EC%83%81%ED%99%98%EC%A0%84%ED%99%98%EC%9A%B0%EC%84%A0%EC%A3%BCrcps%EC%97%90-%EC%8B%A0%EA%B7%9C-%ED%88%AC%EC%9E%90%EA%B3%84%EC%95%BD-%EC%B2%B4%EA%B2%B0" },
+  { id: 95, author: "헤럴드경제", title: "PE 시장 과도기, 개인투자자 출자", source: "헤럴드경제", url: "https://mbiz.heraldcorp.com/article/3295175" },
+
+  // ── Media & misc ─────────────────────────────────────────────────
+  { id: 96, author: "Bloomberg / Reuters / FT", title: "Private Credit coverage (paywalled; cited via secondary sources)", source: "Bloomberg, Reuters, FT", year: "2024-2026" },
+  { id: 97, author: "CNBC", title: "Apollo's Marc Rowan: traditional investing model is broken", source: "CNBC", year: "2025-09", url: "https://www.cnbc.com/2025/09/02/apollo-ceo-marc-rowan-says-traditional-investing-model-is-broken.html" },
+  { id: 98, author: "CNBC", title: "Howard Marks warns over 'credit carelessness'", source: "CNBC", year: "2025-11", url: "https://www.cnbc.com/2025/11/12/veteran-investor-howard-marks-warns-over-credit-carelessness.html" },
+  { id: 99, author: "Yahoo Finance / Reuters", title: "Exclusive — Vista Equity talks to hand Pluralsight to lenders", source: "Yahoo Finance", year: "2024", url: "https://finance.yahoo.com/news/exclusive-vista-equity-talks-hand-183356419.html" },
+  { id: 100, author: "Yahoo Finance", title: "Apollo Global Management Q4 2024 earnings highlights", source: "Yahoo Finance", year: "2024-Q4", url: "https://finance.yahoo.com/news/apollo-global-management-inc-apo-070741467.html" },
+  { id: 101, author: "BCRED", title: "Q3 2025 Update — perpetual non-traded BDC dynamics", source: "BCRED", year: "2025-Q3", url: "https://www.bcred.com/q3-2025-update/" },
+  { id: 102, author: "Mizuho — Michal Katz", title: "The Balance Between Private Credit and Syndicated Loans", source: "Mizuho", url: "https://www.mizuhogroup.com/beyond-the-obvious/michal-katzs-american-banker-article-the-balance-between-private-credit-and-syndicated-loans" },
+  { id: 103, author: "PineBridge", title: "Not Either/Or: Why Private Credit and Broadly Syndicated Loans Can Thrive", source: "PineBridge", url: "https://www.pinebridge.com/en/insights/not-either-or-why-private-credit-and-broadly-syndicated-loans-can-thrive" },
+  { id: 104, author: "Managed Funds Association (MFA)", title: "Statement regarding IMF Private Credit report", source: "MFA", year: "2024", url: "https://www.mfaalts.org/statement/mfa-statement-regarding-imf-private-credit-report/" },
+];

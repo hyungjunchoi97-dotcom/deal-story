@@ -10,6 +10,7 @@ import FaqAccordion from "@/components/FaqAccordion";
 import type { MarketConcept } from "@/data/market-101-concepts";
 import SeriesNav from "@/components/SeriesNav";
 import { getMarket101Nav } from "@/data/market-101-concepts";
+import LikeButton from "@/components/LikeButton";
 
 type Lang = "ko" | "en";
 interface Props { concept: MarketConcept; lang: Lang; }
@@ -374,7 +375,8 @@ export default function DcmStructureRegulationClient({ concept, lang }: Props) {
         {/* ── Share — top ── */}
         <div className="flex justify-end mb-6">
           <ShareButtons title={ko ? concept.title : (concept.titleEn ?? concept.title)} variant="top" lang={lang} />
-        </div>
+        
+          <LikeButton slug={concept.slug} lang={lang} /></div>
 
         {/* ── 3-stat callout ───────────────────────────────────────────────── */}
         <motion.div
@@ -895,7 +897,8 @@ export default function DcmStructureRegulationClient({ concept, lang }: Props) {
         <ShareButtons title={ko ? concept.title : (concept.titleEn ?? concept.title)} variant="bottom" lang={lang} />
 
 
-        {/* ── References ─────────────────────────────────────────────────── */}
+        
+        <LikeButton slug={concept.slug} lang={lang} />{/* ── References ─────────────────────────────────────────────────── */}
         <motion.section
           variants={stagger}
           initial="hidden"

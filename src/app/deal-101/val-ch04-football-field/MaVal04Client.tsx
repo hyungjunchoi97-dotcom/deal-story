@@ -15,6 +15,7 @@ import Footer from "@/components/Footer";
 import ShareButtons from "@/components/deal/ShareButtons";
 import SeriesNav from "@/components/SeriesNav";
 import { VAL_CHAPTERS, getValChapterBySlug, getValSeriesNav } from "@/data/valuation-series";
+import LikeButton from "@/components/LikeButton";
 
 type Lang = "ko" | "en";
 
@@ -229,7 +230,8 @@ export default function MaVal04Client({ lang }: { lang: Lang }) {
             </div>
             <div className="flex-shrink-0 pt-1">
               <ShareButtons title={ko ? chapter.titleKo : chapter.titleEn} variant="top" lang={lang} />
-            </div>
+            
+              <LikeButton slug={concept.slug} lang={lang} /></div>
           </div>
         </section>
 
@@ -682,7 +684,8 @@ export default function MaVal04Client({ lang }: { lang: Lang }) {
             readingMinutes={chapter.readingMinutes}
           />
 
-          {/* Series prev/next */}
+          
+          <LikeButton slug={concept.slug} lang={lang} />{/* Series prev/next */}
           {(prev || next) && (
             <div className="mt-6">
               <SeriesNav

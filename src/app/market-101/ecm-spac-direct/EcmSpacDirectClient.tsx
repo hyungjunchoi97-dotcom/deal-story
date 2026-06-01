@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import ShareButtons from "@/components/deal/ShareButtons";
 import FaqAccordion from "@/components/FaqAccordion";
 import type { MarketConcept } from "@/data/market-101-concepts";
+import LikeButton from "@/components/LikeButton";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 type Lang = "ko" | "en";
@@ -583,7 +584,8 @@ export default function EcmSpacDirectClient({ concept, lang }: Props) {
         {/* Share top */}
         <div className="max-w-3xl mx-auto px-5 mb-6 flex justify-end">
           <ShareButtons title={ko ? concept.title : (concept.titleEn ?? concept.title)} variant="top" lang={lang} />
-        </div>
+        
+          <LikeButton slug={concept.slug} lang={lang} /></div>
 
         <div className="max-w-3xl mx-auto px-5 py-8 space-y-20">
 
@@ -888,7 +890,8 @@ export default function EcmSpacDirectClient({ concept, lang }: Props) {
           {/* Share bottom */}
           <ShareButtons title={ko ? concept.title : (concept.titleEn ?? concept.title)} variant="bottom" lang={lang} />
 
-          {/* ── References ── */}
+          
+          <LikeButton slug={concept.slug} lang={lang} />{/* ── References ── */}
           {concept.references && concept.references.length > 0 && (
             <motion.section
               variants={stagger}

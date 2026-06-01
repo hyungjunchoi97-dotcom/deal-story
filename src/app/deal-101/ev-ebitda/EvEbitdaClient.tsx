@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { DEAL_CATEGORY_COLOR, DEAL_CATEGORY_LABEL } from "@/lib/types";
 import type { DealCategory } from "@/lib/types";
 import { motion } from "framer-motion";
+import LikeButton from "@/components/LikeButton";
 
 // ── 애니메이션 variants ──────────────────────────────────────────
 const EASE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
@@ -723,6 +724,7 @@ export default function EvEbitdaClient({ relatedDeals }: { relatedDeals: Related
           </motion.div>
 
         </div>
+        <LikeButton slug={"ev-ebitda"} lang="ko" />
       </main>
       <Footer />
     </>
