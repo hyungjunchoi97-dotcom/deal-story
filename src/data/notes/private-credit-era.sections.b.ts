@@ -18,13 +18,13 @@ export const SECTIONS_PART_B: NoteSection[] = [
   // 10. 빅 7 글로벌 플레이어
   // ════════════════════════════════════════════════════════════════
   {
-    heading: "10. 빅 7 + 1 — 누가 시장을 굴리는가",
+    heading: "10. 빅 7 + 1, 누가 시장을 굴리는가",
     headingEn: "10. The Big 7 (plus One) — Who Runs the Market",
     blocks: [
       {
         type: "text",
         body:
-          "PC 시장은 *집중*이 본질이다. 운용 AUM 합산 기준 상위 7개사 — Apollo·Blackstone·KKR·Ares·Blue Owl·Oaktree·HPS — 가 글로벌 PC 자산의 *절반 이상*을 통제한다. 여기에 별도 단락으로 다룰 만한 *Sixth Street*까지 더하면 *빅 7 + 1*이다.\n\n표는 단순한 줄세우기가 아니다. 각 운용사의 *모델*이 다르다 — Apollo는 보험사 합병형(Athene), Blackstone은 위탁운용형(SMA, Corebridge·Allstate), KKR은 100% 인수형(Global Atlantic), Ares는 합작형(Aspida), Blue Owl은 멀티플랫폼 인수형(Atalaya·Kuvare), Oaktree는 distressed 전통강자(Brookfield 산하), HPS는 mezz·specialty 전문(BlackRock에 매각).¹⁹\n\n또한 *AUM 정의*가 회사별로 다르다는 점은 반드시 기억해야 한다 — Apollo의 \"Direct Origination + ABF + Opportunistic + Multi-credit 합계 $749.2B\"와 KBRA의 \"Direct Lending\" 한정 수치는 다른 동물이다. 본문 표의 AUM은 *2024 Q4 IR 또는 2025 H1 공시* 기준이며, ±10% 오차는 정의 차이에서 온다.²⁰",
+          "PC 시장은 집중이 본질임.\n\n운용 AUM 합산 기준 상위 7개사 Apollo·Blackstone·KKR·Ares·Blue Owl·Oaktree·HPS가 글로벌 PC 자산의 절반 이상을 통제함.\n\n여기에 별도 단락으로 다룰 만한 Sixth Street까지 더하면 빅 7 + 1이 됨.\n\n표는 단순한 줄세우기가 아님.\n\n각 운용사의 모델이 다름. Apollo는 보험사 합병형(Athene), Blackstone은 위탁운용형(SMA, Corebridge·Allstate), KKR은 100% 인수형(Global Atlantic), Ares는 합작형(Aspida), Blue Owl은 멀티플랫폼 인수형(Atalaya·Kuvare), Oaktree는 distressed 전통강자(Brookfield 산하), HPS는 mezz·specialty 전문(BlackRock에 매각).¹⁹\n\n또한 AUM 정의가 회사별로 다르다는 점은 반드시 기억할 것.\n\nApollo의 \"Direct Origination + ABF + Opportunistic + Multi-credit 합계 $749.2B\"와 KBRA의 \"Direct Lending\" 한정 수치는 다른 동물임.\n\n본문 표의 AUM은 2024 Q4 IR 또는 2025 H1 공시 기준이며, ±10% 오차는 정의 차이에서 옴.²⁰",
         bodyEn:
           "PC is a *concentration* business. The top seven managers — Apollo, Blackstone, KKR, Ares, Blue Owl, Oaktree, HPS — control *more than half* of global PC AUM. Add *Sixth Street*, which deserves its own paragraph, and you get the *Big 7 plus One*.\n\nThe table is not just a ranking. Each manager runs a different *model*: Apollo merged with its insurer (Athene); Blackstone runs separately managed accounts (Corebridge, Allstate); KKR bought its insurer outright (Global Atlantic); Ares incubated one (Aspida); Blue Owl bolted on platforms (Atalaya, Kuvare); Oaktree is the distressed legacy house under Brookfield; HPS, a junior-debt and specialty shop, was bought by BlackRock.¹⁹\n\nOne caveat: *AUM definitions differ*. Apollo's \"Direct Origination + ABF + Opportunistic + Multi-credit\" totalling $749.2B is not the same animal as KBRA's narrow \"Direct Lending\" tally. The numbers below are *2024 Q4 IR or 2025 H1 disclosures*; expect ±10% drift driven by definition.²⁰",
       },
@@ -37,14 +37,14 @@ export const SECTIONS_PART_B: NoteSection[] = [
           headers: ["운용사", "총 AUM ('24Q4)", "Credit AUM", "보험사", "모델", "특화"],
           headersEn: ["Manager", "Total AUM (Q4'24)", "Credit AUM", "Insurance Arm", "Model", "Specialty"],
           rows: [
-            ["*Apollo*", "~$751B", "~$598B", "Athene + Athora", "*합병형*", "ABF · IG PC · Distressed"],
-            ["Blackstone", "~$1.1T (C&I $375.5B)", "~$375B (C&I)", "Corebridge · Allstate (SMA)", "*위탁형*", "Large-cap unitranche · Infra debt"],
-            ["KKR", "~$638B", "~$240B", "Global Atlantic (100%)", "*100% 인수*", "Leveraged credit · ABF"],
-            ["Ares", "~$484B", "~$199B (DL)", "Aspida", "*합작형*", "Direct lending 1위 · NAV lending"],
-            ["Blue Owl", "~$235B", "~$235B", "Kuvare AM (2024 인수)", "*멀티 플랫폼*", "Upper-MM unitranche · GP financing"],
-            ["Oaktree", "~$205B", "(대부분)", "American Equity Life (Brookfield)", "*distressed 전통*", "Distressed · HY · Opportunity"],
-            ["HPS", "~$165B (2025.6)", "(전체)", "(직접 보유 없음)", "*specialty*", "Junior · mezz · Large-cap DL"],
-            ["Sixth Street", "~$75B", "(대부분)", "(없음)", "*cross-platform*", "Sports media · Growth credit"],
+            ["Apollo", "~$751B", "~$598B", "Athene + Athora", "합병형", "ABF · IG PC · Distressed"],
+            ["Blackstone", "~$1.1T (C&I $375.5B)", "~$375B (C&I)", "Corebridge · Allstate (SMA)", "위탁형", "Large-cap unitranche · Infra debt"],
+            ["KKR", "~$638B", "~$240B", "Global Atlantic (100%)", "100% 인수", "Leveraged credit · ABF"],
+            ["Ares", "~$484B", "~$199B (DL)", "Aspida", "합작형", "Direct lending 1위 · NAV lending"],
+            ["Blue Owl", "~$235B", "~$235B", "Kuvare AM (2024 인수)", "멀티 플랫폼", "Upper-MM unitranche · GP financing"],
+            ["Oaktree", "~$205B", "(대부분)", "American Equity Life (Brookfield)", "distressed 전통", "Distressed · HY · Opportunity"],
+            ["HPS", "~$165B (2025.6)", "(전체)", "(직접 보유 없음)", "specialty", "Junior · mezz · Large-cap DL"],
+            ["Sixth Street", "~$75B", "(대부분)", "(없음)", "cross-platform", "Sports media · Growth credit"],
           ],
           rowsEn: [
             ["*Apollo*", "~$751B", "~$598B", "Athene + Athora", "*Merger model*", "ABF · IG PC · Distressed"],
@@ -56,7 +56,7 @@ export const SECTIONS_PART_B: NoteSection[] = [
             ["HPS", "~$165B (H1'25)", "(all)", "(none directly held)", "*Specialty*", "Junior · mezz · Large-cap DL"],
             ["Sixth Street", "~$75B", "(majority)", "(none)", "*Cross-platform*", "Sports media · Growth credit"],
           ],
-          caption: "출처: 각사 IR 2024 Q4·2025 H1. AUM 정의는 회사별 상이 (Apollo \"Direct Origination + ABF\" 합계 vs Ares \"Direct Lending\" 단독). Sixth Street은 2020년 TPG에서 분사. *2025.7 BlackRock의 HPS 인수 완결*로 BlackRock 통합 PC franchise는 ~$220B.²¹",
+          caption: "출처: 각사 IR 2024 Q4·2025 H1. AUM 정의는 회사별 상이 (Apollo \"Direct Origination + ABF\" 합계 vs Ares \"Direct Lending\" 단독). Sixth Street은 2020년 TPG에서 분사. 2025.7 BlackRock의 HPS 인수 완결로 BlackRock 통합 PC franchise는 ~$220B.²¹",
           captionEn: "Sources: company IR Q4 2024 / H1 2025. AUM definitions differ by firm (Apollo's \"Direct Origination + ABF\" composite vs Ares' standalone \"Direct Lending\"). Sixth Street spun out of TPG in 2020. *BlackRock closed the HPS acquisition in July 2025*, bringing the combined BlackRock PC franchise to ~$220B.²¹",
           highlightRows: [0, 4],
         },
@@ -67,7 +67,7 @@ export const SECTIONS_PART_B: NoteSection[] = [
           id: "pc-asset-classes",
           title: "Chart 3 — 2024년 PC AUM 자산 클래스별 비중 (%)",
           titleEn: "Chart 3 — PC AUM Breakdown by Strategy, 2024 (%)",
-          caption: "출처: Preqin + McKinsey 종합. 운용사별 분류 차이로 ±5% 오차. Direct Lending이 시장의 *약 절반*을 차지하는 점이 핵심.",
+          caption: "출처: Preqin + McKinsey 종합. 운용사별 분류 차이로 ±5% 오차. Direct Lending이 시장의 약 절반을 차지하는 점이 핵심.",
           captionEn: "Sources: Preqin + McKinsey composite; ±5% drift across managers. The key fact is that *direct lending is roughly half* of the market.",
           data: [
             { strategy: "Direct Lending", strategyEn: "Direct Lending", share: 44 },
@@ -88,7 +88,7 @@ export const SECTIONS_PART_B: NoteSection[] = [
           heading: "왜 Sixth Street만 별도인가",
           headingEn: "Why Sixth Street Sits Apart",
           body:
-            "AUM은 ~$75B로 빅 7보다 작지만 *cross-platform thematic* 전략이 독특하다 — Real Madrid·FC Barcelona의 미디어 라이선스 financing, Airbnb pre-IPO convertible, 스포츠팀 지분 financing 등. 2020년 TPG에서 분사한 이후 *deal-by-deal* 색깔이 강하다. 빅 7과 같은 \"flow business\"가 아니라 *event-driven*에 가깝다. → ✓13에서 다시 등장.²²",
+            "AUM은 ~$75B로 빅 7보다 작지만 cross-platform thematic 전략이 독특함.\n\nReal Madrid·FC Barcelona의 미디어 라이선스 financing, Airbnb pre-IPO convertible, 스포츠팀 지분 financing 등.\n\n2020년 TPG에서 분사한 이후 deal-by-deal 색깔이 강함.\n\n빅 7과 같은 \"flow business\"가 아니라 event-driven에 가까움. → ✓13에서 다시 등장.²²",
           bodyEn:
             "At ~$75B, Sixth Street is smaller than the Big 7 — but its *cross-platform thematic* style stands apart: Real Madrid and FC Barcelona media-rights financing, Airbnb's pre-IPO convertible, sports-franchise equity financings. Since spinning out of TPG in 2020 it has been a *deal-by-deal* shop, *event-driven* rather than the Big 7's \"flow business.\" Re-appears in → ✓13.²²",
         },
@@ -100,13 +100,13 @@ export const SECTIONS_PART_B: NoteSection[] = [
   // 11. Apollo × Athene 보험사 모델
   // ════════════════════════════════════════════════════════════════
   {
-    heading: "11. 보험사 자본의 무한 엔진 — Apollo × Athene 모델",
+    heading: "11. 보험사 자본의 무한 엔진, Apollo × Athene 모델",
     headingEn: "11. The Infinite Engine of Insurance Capital — Apollo × Athene",
     blocks: [
       {
         type: "text",
         body:
-          "*왜 PC 운용사가 보험사를 사는가.* 답은 한 줄로 요약된다 — *영구 자본 + 스프레드 차익*. 펀드는 만기가 있다. LP가 돈을 빼면 deployment가 멈춘다. 그러나 *연금(annuity) 부채*는 평균 듀레이션이 7-10년이고, 만기 도래분만 신규 발행으로 갈음하면 *영원히 굴릴 수 있다*. 이것이 영구 자본(Permanent Capital)이다.\n\n동시에 보험사의 부채비용(annuity cost)은 ~4-5%, IG PC(Investment Grade Private Credit) 운용수익은 ~6-8%. 200-300bp의 *spread*가 운용사 fee와 보험사 마진으로 분배된다. Apollo의 표현으로 *\"insurance capital is the deepest, longest, and most cost-efficient funding source available\"*. → ✓14 위기 진앙에서 이 모델이 왜 systemic risk로 분류되는지 다시 다룬다.²³",
+          "왜 PC 운용사가 보험사를 사는가.\n\n답은 한 줄로 요약됨. 영구 자본 + 스프레드 차익.\n\n펀드는 만기가 있음.\n\nLP가 돈을 빼면 deployment가 멈춤.\n\n그러나 연금(annuity) 부채는 평균 듀레이션이 7-10년이고, 만기 도래분만 신규 발행으로 갈음하면 영원히 굴릴 수 있음.\n\n이것이 영구 자본(Permanent Capital)임.\n\n동시에 보험사의 부채비용(annuity cost)은 ~4-5%, IG PC(Investment Grade Private Credit) 운용수익은 ~6-8%.\n\n200-300bp의 spread가 운용사 fee와 보험사 마진으로 분배됨.\n\nApollo의 표현으로 \"insurance capital is the deepest, longest, and most cost-efficient funding source available\".\n\n→ ✓14 위기 진앙에서 이 모델이 왜 systemic risk로 분류되는지 다시 다룸.²³",
         bodyEn:
           "*Why does a PC manager buy an insurer?* In one line: *permanent capital plus spread arbitrage*. Funds have maturities. When LPs redeem, deployment stops. *Annuity liabilities*, by contrast, average 7-10 years and can be rolled forever by writing new policies — that is permanent capital.\n\nAt the same time, annuity cost runs ~4-5% while investment-grade PC yields ~6-8%. The 200-300bp *spread* is split between the manager's fee and the insurer's margin. In Apollo's own framing: *insurance capital is the deepest, longest, and most cost-efficient funding source available*. → ✓14 explains why regulators classify the same architecture as systemic risk.²³",
       },
@@ -116,7 +116,7 @@ export const SECTIONS_PART_B: NoteSection[] = [
           id: "apollo-athene-flow",
           title: "Diagram — Apollo × Athene 6단계 자본 흐름",
           titleEn: "Diagram — Apollo × Athene Six-Stage Capital Flow",
-          caption: "Source: Apollo IR 2024, Athene 10-K. 단계별 마진은 *Apollo 자체 추정* 수준이며 실제 spread는 vintage·duration·credit mix에 따라 변동.",
+          caption: "Source: Apollo IR 2024, Athene 10-K. 단계별 마진은 Apollo 자체 추정 수준이며 실제 spread는 vintage·duration·credit mix에 따라 변동.",
           captionEn: "Sources: Apollo IR 2024, Athene 10-K. Stage margins are *Apollo's own indicative ranges*; realised spreads move with vintage, duration, and credit mix.",
           stages: [
             { step: 1, actor: "연금 가입자", actorEn: "Annuity holders", flow: "보험료 납부 (~$1)", flowEn: "Premium paid (~$1)", detail: "은퇴자가 매월·일시납으로 연금 매입", detailEn: "Retirees buy annuities monthly or as a lump sum", color: "#0ea5e9" },
@@ -151,10 +151,10 @@ export const SECTIONS_PART_B: NoteSection[] = [
         type: "callout",
         callout: {
           variant: "warning",
-          heading: "NAIC와 BoE의 우려 — 같은 그림, 다른 시선",
+          heading: "NAIC와 BoE의 우려, 같은 그림 다른 시선",
           headingEn: "NAIC and BoE See the Same Picture — Differently",
           body:
-            "NAIC(전미보험감독관협회)는 2024년 RBC(Risk-Based Capital) framework 강화안에서 *affiliated investment*에 추가 자본 charge를 검토했다. CLO equity·BDC 지분 등 illiquid 자산 보유 한도, Bermuda 재보험사로의 위험 이전(특히 Athene·Global Atlantic·Resolution Life 패턴)에 대한 Bermuda Working Group까지 출범했다.\n\nBoE는 2024년 11월 FSR에서 *\"PE firms owning life insurers\"* 를 systemic risk로 명시했다. 우려 메커니즘은 단순하다 — 보험 연금 부채 → illiquid PC로 운용 → 시장 충격 시 자산 매도 어려움 → 폴리시홀더 손실 가능성. 2025년 BoE의 SWES(System-Wide Exploratory Scenario)에 *private markets* 가 포함된 것은 이 우려의 공식화다.²⁴",
+            "NAIC(전미보험감독관협회)는 2024년 RBC(Risk-Based Capital) framework 강화안에서 affiliated investment에 추가 자본 charge를 검토함.\n\nCLO equity·BDC 지분 등 illiquid 자산 보유 한도, Bermuda 재보험사로의 위험 이전(특히 Athene·Global Atlantic·Resolution Life 패턴)에 대한 Bermuda Working Group까지 출범.\n\nBoE는 2024년 11월 FSR에서 \"PE firms owning life insurers\"를 systemic risk로 명시.\n\n우려 메커니즘은 단순함. 보험 연금 부채 → illiquid PC로 운용 → 시장 충격 시 자산 매도 어려움 → 폴리시홀더 손실 가능성.\n\n2025년 BoE의 SWES(System-Wide Exploratory Scenario)에 private markets가 포함된 것은 이 우려의 공식화임.²⁴",
           bodyEn:
             "The NAIC (National Association of Insurance Commissioners) is tightening its RBC (Risk-Based Capital) framework with an extra capital charge on *affiliated investments*; it is reviewing holding caps on CLO equity and BDC stakes; and it has stood up a Bermuda Working Group specifically targeting the Athene/Global Atlantic/Resolution Life pattern of reinsuring liabilities offshore.\n\nThe Bank of England's November 2024 FSR labelled *PE firms owning life insurers* as a systemic risk. The mechanism is simple — annuity liabilities funded with illiquid PC, hard to liquidate in a stress, with the policyholder exposed to the residual. The Bank's 2025 System-Wide Exploratory Scenario (SWES) explicitly included *private markets* — the formalisation of that concern.²⁴",
         },
@@ -168,13 +168,13 @@ export const SECTIONS_PART_B: NoteSection[] = [
           headers: ["연도", "운용사 × 보험사", "구조", "사이즈", "핵심 의미"],
           headersEn: ["Year", "Manager × Insurer", "Structure", "Size", "Significance"],
           rows: [
-            ["2009", "Apollo → Athene 출범", "Apollo design·sponsor (Bermuda)", "신생 리인슈어러", "*패턴의 원조*"],
+            ["2009", "Apollo → Athene 출범", "Apollo design·sponsor (Bermuda)", "신생 리인슈어러", "패턴의 원조"],
             ["2021.3 → 2022.1", "Apollo × Athene 합병", "All-stock ($11B)", "Apollo 76% / Athene 24%", "Asset Mgr + Retirement dual platform"],
-            ["2021 / 2024.1", "KKR × Global Atlantic", "63% (2021) → 100% (2024.1, $2.7B)", "GA AUM ~$158B", "*인수형의 표본*"],
-            ["2022.9", "Blackstone × Corebridge", "SMA 위탁", "초기 ~$50B → 5년 $92.5B 한도", "*지분 없는 위탁형*"],
-            ["2020", "Ares × Aspida", "합작 출범", "2024 신규자본 ~$1B 투입", "*합작형*"],
-            ["2024", "Blue Owl × Kuvare AM", "인수", "~$20B AUM", "*멀티 플랫폼*"],
-            ["2024", "Brookfield × American Equity Life", "인수", "~$70B", "*Oaktree 모회사 통합*"],
+            ["2021 / 2024.1", "KKR × Global Atlantic", "63% (2021) → 100% (2024.1, $2.7B)", "GA AUM ~$158B", "인수형의 표본"],
+            ["2022.9", "Blackstone × Corebridge", "SMA 위탁", "초기 ~$50B → 5년 $92.5B 한도", "지분 없는 위탁형"],
+            ["2020", "Ares × Aspida", "합작 출범", "2024 신규자본 ~$1B 투입", "합작형"],
+            ["2024", "Blue Owl × Kuvare AM", "인수", "~$20B AUM", "멀티 플랫폼"],
+            ["2024", "Brookfield × American Equity Life", "인수", "~$70B", "Oaktree 모회사 통합"],
           ],
           rowsEn: [
             ["2009", "Apollo designs Athene", "Apollo sponsor (Bermuda reinsurer)", "Greenfield startup", "*The original pattern*"],
@@ -197,13 +197,13 @@ export const SECTIONS_PART_B: NoteSection[] = [
   // 12. 한국 PC 시장
   // ════════════════════════════════════════════════════════════════
   {
-    heading: "12. 한국 PC 시장 — 인수금융·PF·NPL, 그리고 데이터의 한계",
+    heading: "12. 한국 PC 시장, 인수금융·PF·NPL 그리고 데이터의 한계",
     headingEn: "12. Korea's PC Market — Acquisition Finance, PF, NPL, and the Data Gap",
     blocks: [
       {
         type: "text",
         body:
-          "글로벌 PC가 미국·유럽 중심으로 정의된다면, 한국의 *PC 인접 시장*은 세 갈래로 나뉜다 — *인수금융*, *부동산 PF(Project Financing)*, *NPL(Non-Performing Loan, 부실채권)*. 여기에 *K-BDC*(국내 BDC 도입 논의), *개인투자자 PC 접근*까지 더하면 다섯 영역이다. 각 영역의 시장 규모와 데이터 한계를 차례로 본다.",
+          "글로벌 PC가 미국·유럽 중심으로 정의된다면, 한국의 PC 인접 시장은 세 갈래로 나뉨.\n\n인수금융, 부동산 PF(Project Financing), NPL(Non-Performing Loan, 부실채권).\n\n여기에 K-BDC(국내 BDC 도입 논의), 개인투자자 PC 접근까지 더하면 다섯 영역.\n\n각 영역의 시장 규모와 데이터 한계를 차례로 봄.",
         bodyEn:
           "If global PC is defined around the US and Europe, Korea's *PC-adjacent markets* split into three: *acquisition finance*, *real-estate Project Financing (PF)*, and *NPL (Non-Performing Loans)*. Add *K-BDC* (the domestic BDC debate) and *retail PC access*, and you get five buckets. Each has its own size — and its own data gap.",
       },
@@ -211,7 +211,7 @@ export const SECTIONS_PART_B: NoteSection[] = [
       {
         type: "text",
         body:
-          "*12-1. 인수금융.* 2024년 국내 M&A 인수금융 주선 규모는 ₩20.3조 (145건). 2023년 ~₩16조대 저점에서 회복했다. 1위는 KB증권 ₩2.96조 (8건), 그 뒤로 한국투자증권 ₩2.51조 (20건), KB국민은행 ₩2.5조 (15건) 순이다. *2024 thebell League Table* 기준.²⁵",
+          "12-1. 인수금융.\n\n2024년 국내 M&A 인수금융 주선 규모는 ₩20.3조 (145건).\n\n2023년 ~₩16조대 저점에서 회복함.\n\n1위는 KB증권 ₩2.96조 (8건), 그 뒤로 한국투자증권 ₩2.51조 (20건), KB국민은행 ₩2.5조 (15건) 순.\n\n2024 thebell League Table 기준.²⁵",
         bodyEn:
           "*12-1. Acquisition finance.* 2024 arrangement volume reached ₩20.3T across 145 deals — a rebound from the ~₩16T low of 2023. KB Securities led with ₩2.96T (8 deals), followed by Korea Investment & Securities ₩2.51T (20 deals) and KB Kookmin Bank ₩2.5T (15 deals). Source: *thebell League Table 2024*.²⁵",
       },
@@ -221,7 +221,7 @@ export const SECTIONS_PART_B: NoteSection[] = [
           id: "korea-acq-finance",
           title: "Chart 6 — 한국 인수금융 주선 상위 기관 (2024, ₩조)",
           titleEn: "Chart 6 — Korea Acquisition Finance League Table 2024 (₩T)",
-          caption: "출처: thebell League Table 2024. 삼성증권은 상반기 1위였으나 연간 수치 별도 cross-check 필요 — 표에서 제외. 외국계 (Apollo·KKR·PAG) 는 *공동 주관* 형태로 일부 참여.",
+          caption: "출처: thebell League Table 2024. 삼성증권은 상반기 1위였으나 연간 수치 별도 cross-check 필요로 표에서 제외. 외국계 (Apollo·KKR·PAG) 는 공동 주관 형태로 일부 참여.",
           captionEn: "Source: thebell League Table 2024. Samsung Securities led in H1 but the annual figure could not be cross-checked, so it is excluded here. Foreign managers (Apollo, KKR, PAG) appeared on selected deals as *co-arrangers*.",
           data: [
             { firm: "KB증권", firmEn: "KB Securities", value: 2.96, deals: 8 },
@@ -239,7 +239,7 @@ export const SECTIONS_PART_B: NoteSection[] = [
       {
         type: "text",
         body:
-          "*12-2. 부동산 PF.* 2023년 12월 기준 잔액 ~₩230조 (주거 ~70%). 2023년 6월 새마을금고 PF 연체율이 ~6%에 도달하면서 시장이 한 차례 흔들렸다 — 새마을금고가 사실상 PF에서 철수했고, 부담은 증권사·캐피탈로 옮겨갔다. 2024년 금융위가 PF 정상화 방안을 발표하고 사업성 평가·재구조화가 진행됐다. 외국계는 KKR·Apollo·PAG·Blackstone·Goldman Sachs·GIC가 *물류센터·오피스·데이터센터*에 집중 — 2023년 해외자본 국내 부동산 투자가 ~$1.6B 수준이었다.²⁶",
+          "12-2. 부동산 PF.\n\n2023년 12월 기준 잔액 ~₩230조 (주거 ~70%).\n\n2023년 6월 새마을금고 PF 연체율이 ~6%에 도달하면서 시장이 한 차례 흔들림.\n\n새마을금고가 사실상 PF에서 철수했고, 부담은 증권사·캐피탈로 옮겨감.\n\n2024년 금융위가 PF 정상화 방안을 발표하고 사업성 평가·재구조화가 진행됨.\n\n외국계는 KKR·Apollo·PAG·Blackstone·Goldman Sachs·GIC가 물류센터·오피스·데이터센터에 집중.\n\n2023년 해외자본 국내 부동산 투자가 ~$1.6B 수준이었음.²⁶",
         bodyEn:
           "*12-2. Real-estate PF.* Outstanding balance was ~₩230T at end-2023 (housing ~70%). In June 2023, MG Community Credit Cooperatives' PF delinquency hit ~6%, effectively pushing them out of PF and shifting the burden to securities firms and capital companies. In 2024 the FSC announced a PF normalisation framework, with viability assessments and restructuring under way. Foreign managers — KKR, Apollo, PAG, Blackstone, Goldman Sachs, GIC — concentrate on *logistics centres, offices, and data centres*. Foreign capital deployed into Korean real estate hit ~$1.6B in 2023.²⁶",
       },
@@ -247,7 +247,7 @@ export const SECTIONS_PART_B: NoteSection[] = [
       {
         type: "text",
         body:
-          "*12-3. NPL.* 2024년 시장에 풀린 NPL 매물 ~₩8.31조 (2023년 ~₩5.43조 대비 +53%). 1위는 *연합자산관리(UAMCO)* — 2024년 매입 ₩3.77조, 시장점유 45.3% (전년 37.1%). 자금조달은 회사채 ₩3.9조. 2026년 전망은 ~₩4조 전후로 normalize 예상. 외국계는 Oaktree·CarVal 등이 등장하지만 2024년 활동은 자료 한계로 cross-check가 어렵다.²⁷",
+          "12-3. NPL.\n\n2024년 시장에 풀린 NPL 매물 ~₩8.31조 (2023년 ~₩5.43조 대비 +53%).\n\n1위는 연합자산관리(UAMCO). 2024년 매입 ₩3.77조, 시장점유 45.3% (전년 37.1%).\n\n자금조달은 회사채 ₩3.9조. 2026년 전망은 ~₩4조 전후로 normalize 예상.\n\n외국계는 Oaktree·CarVal 등이 등장하지만 2024년 활동은 자료 한계로 cross-check가 어려움.²⁷",
         bodyEn:
           "*12-3. NPL.* In 2024, ~₩8.31T of NPL deals came to market — up 53% from ~₩5.43T in 2023. *UAMCO (Korea's joint-venture asset manager)* was #1, buying ₩3.77T for a 45.3% share (up from 37.1%), funded with ₩3.9T of corporate bond issuance. The 2026 outlook is normalisation to ~₩4T. Foreign managers — Oaktree, CarVal — show up in the dataset, but 2024 activity is hard to cross-check.²⁷",
       },
@@ -278,7 +278,7 @@ export const SECTIONS_PART_B: NoteSection[] = [
           heading: "12-4. K-BDC와 개인투자자 접근로",
           headingEn: "12-4. K-BDC and Retail Access",
           body:
-            "한국은 *미국형 BDC* 가 아직 없다. 2024-2025년 자본시장법 개정 논의에서 K-BDC 도입과 일반 투자자의 PEF 출자 한도 완화가 주요 의제로 올라왔다. 현재 한국에서 글로벌 PC에 접근하는 경로는 ① 미래에셋·삼성자산운용 등의 BDC ETF (미국 BDC index 추종), ② 사모재간접펀드 형태로 ARCC·OBDC·BCRED 간접 노출이다. 단, 정확한 AUM·티커는 cross-check 필요 영역.²⁸",
+            "한국은 미국형 BDC가 아직 없음.\n\n2024-2025년 자본시장법 개정 논의에서 K-BDC 도입과 일반 투자자의 PEF 출자 한도 완화가 주요 의제로 올라옴.\n\n현재 한국에서 글로벌 PC에 접근하는 경로는 ① 미래에셋·삼성자산운용 등의 BDC ETF (미국 BDC index 추종), ② 사모재간접펀드 형태로 ARCC·OBDC·BCRED 간접 노출.\n\n단, 정확한 AUM·티커는 cross-check 필요 영역.²⁸",
           bodyEn:
             "Korea does not yet have a *US-style BDC*. The 2024-2025 capital-markets reform debate put K-BDC introduction and looser retail PEF-investment caps on the table. Today, Korean investors reach global PC through either (i) BDC ETFs from Mirae Asset, Samsung AM and others (tracking US BDC indices), or (ii) feeder funds offering indirect exposure to ARCC, OBDC, and BCRED. Precise AUMs and tickers in this segment need cross-check.²⁸",
         },
@@ -288,10 +288,10 @@ export const SECTIONS_PART_B: NoteSection[] = [
         type: "callout",
         callout: {
           variant: "warning",
-          heading: "12-5. 한국 데이터의 한계 — 솔직하게 적는다",
+          heading: "12-5. 한국 데이터의 한계, 솔직하게 적음",
           headingEn: "12-5. The Korean Data Gap — Stated Plainly",
           body:
-            "*첫째*, NH·KB·한국투자증권 등 *국내 PC 운용사별 부문 AUM 별도 공시가 부재*하다. 인수금융·PC 부문이 IR에서 분리 표기되지 않는다. *둘째*, 금감원 자본시장통계는 PEF·헤지펀드 중심이고 *PC 별도 통계가 없다*. *셋째*, 본 노트의 한국 수치는 보도(thebell·인베스트조선·머니투데이·한국경제)와 KCMI(자본시장연구원) 자료 종합이다. *cross-check 권장* 영역은 ① 외국계 한국 부동산 PF 실제 deployment 규모 ② 국내 PC 운용사 부문별 AUM ③ ABF의 PC 펀드 보유 비중. 이 세 영역은 \"보도 기반\"임을 명시한다.²⁹",
+            "첫째, NH·KB·한국투자증권 등 국내 PC 운용사별 부문 AUM 별도 공시가 부재함.\n\n인수금융·PC 부문이 IR에서 분리 표기되지 않음.\n\n둘째, 금감원 자본시장통계는 PEF·헤지펀드 중심이고 PC 별도 통계가 없음.\n\n셋째, 본 노트의 한국 수치는 보도(thebell·인베스트조선·머니투데이·한국경제)와 KCMI(자본시장연구원) 자료 종합임.\n\ncross-check 권장 영역은 ① 외국계 한국 부동산 PF 실제 deployment 규모 ② 국내 PC 운용사 부문별 AUM ③ ABF의 PC 펀드 보유 비중.\n\n이 세 영역은 \"보도 기반\"임을 명시함.²⁹",
           bodyEn:
             "*First*, domestic firms (NH, KB, Korea Investment) *do not separately disclose acquisition-finance and PC segment AUM* in IR. *Second*, FSS capital-markets statistics centre on PEFs and hedge funds; *PC has no standalone series*. *Third*, the Korea numbers in this note are a composite of press reporting (thebell, Investchosun, Money Today, Hankyung) and KCMI (Korea Capital Market Institute) studies. *Cross-check is recommended* for: (i) actual foreign-PC deployment into Korean real-estate PF, (ii) Korean PC managers' segment AUM, and (iii) PC funds' share of broad ABF holdings. These are flagged as \"press-based\" throughout.²⁹",
         },
@@ -303,13 +303,13 @@ export const SECTIONS_PART_B: NoteSection[] = [
   // 13. 케이스 3개 + 대칭 비교
   // ════════════════════════════════════════════════════════════════
   {
-    heading: "13. 케이스 3개 — Pluralsight · MBK 홈플러스 · Blue Owl OBDC II",
+    heading: "13. 케이스 3개, Pluralsight · MBK 홈플러스 · Blue Owl OBDC II",
     headingEn: "13. Three Cases — Pluralsight, MBK Homeplus, Blue Owl OBDC II",
     blocks: [
       {
         type: "text",
         body:
-          "PC 시장의 *현재*를 보려면 통계가 아니라 *사례*를 봐야 한다. 세 케이스는 의도적으로 *서로 다른 축*을 친다 — Pluralsight는 *미국 software LBO의 valuation 위험*, MBK 홈플러스는 *한국 PEF·인수금융 최대 손실 사례 가능성*, Blue Owl OBDC II는 *retail PC의 유동성 한계 첫 노출*. 세 사건이 같은 분기에 신호를 보냈다는 점이 우리가 *✓1*에서 세 시그널을 꺼낸 이유다.",
+          "PC 시장의 현재를 보려면 통계가 아니라 사례를 봐야 함.\n\n세 케이스는 의도적으로 서로 다른 축을 침.\n\nPluralsight는 미국 software LBO의 valuation 위험, MBK 홈플러스는 한국 PEF·인수금융 최대 손실 사례 가능성, Blue Owl OBDC II는 retail PC의 유동성 한계 첫 노출.\n\n세 사건이 같은 분기에 신호를 보냈다는 점이 ✓1에서 세 시그널을 꺼낸 이유임.",
         bodyEn:
           "To see the *present* of PC, you read cases, not statistics. The three below are picked to hit *different axes* — Pluralsight on *US software-LBO valuation risk*, MBK Homeplus on *Korea's potential single largest PEF/acq-finance loss*, and Blue Owl OBDC II on *the first liquidity stress in retail PC*. They lit up in one quarter — exactly why we opened the note in *✓1* with the same three signals.",
       },
@@ -317,7 +317,7 @@ export const SECTIONS_PART_B: NoteSection[] = [
       {
         type: "text",
         body:
-          "*Case 1. Pluralsight (Vista Equity).* 2021년 Vista가 ~$3.5B에 인수한 온라인 코딩 교육 회사. 2024년 5월 Vista는 $1.6B equity 가치를 *0으로 mark-down*. 같은 해 8월 *debt-for-equity swap*으로 PC 채권단 — Blue Owl·Ares·Golub·Oaktree·Benefit Street·Goldman·BlackRock — 이 회사를 인수했다. *첫 대형 PC change-of-control 사례*. AI가 코딩 교육을 disrupt했다는 해석과 Vista의 leverage·multiple이 과도했다는 해석이 공존한다.³⁰",
+          "Case 1. Pluralsight (Vista Equity).\n\n2021년 Vista가 ~$3.5B에 인수한 온라인 코딩 교육 회사.\n\n2024년 5월 Vista는 $1.6B equity 가치를 0으로 mark-down.\n\n같은 해 8월 debt-for-equity swap으로 PC 채권단 Blue Owl·Ares·Golub·Oaktree·Benefit Street·Goldman·BlackRock이 회사를 인수.\n\n첫 대형 PC change-of-control 사례.\n\nAI가 코딩 교육을 disrupt했다는 해석과 Vista의 leverage·multiple이 과도했다는 해석이 공존함.³⁰",
         bodyEn:
           "*Case 1. Pluralsight (Vista Equity).* Vista bought the online coding-education business in 2021 for ~$3.5B. In May 2024, Vista *marked the $1.6B equity to zero*. In August 2024, the PC syndicate — Blue Owl, Ares, Golub, Oaktree, Benefit Street, Goldman, BlackRock — took control via a *debt-for-equity swap*. The *first major PC change-of-control deal*. Read it two ways: AI is disrupting paid coding-education, and Vista paid too much with too much leverage.³⁰",
       },
@@ -325,7 +325,7 @@ export const SECTIONS_PART_B: NoteSection[] = [
       {
         type: "text",
         body:
-          "*Case 2. MBK 홈플러스 (2015 인수 → 2025.3 회생).* MBK파트너스가 2015년 Tesco로부터 ₩7.2조에 인수. 인수금융 ~₩4.3조 (전체의 59.8%) — 주선 KB국민은행·NH투자증권·신한은행. 10년이 지난 2025년 3월 4일 서울회생법원에 법인회생 신청. 보도 기준 누적 부채 ~₩8.5조. 한국 PEF·인수금융 *역사상 단일 최대 손실 사례 가능성*이 열렸다. *글로벌 PC와의 대칭* — Pluralsight는 software AI disruption이 핵심이고, 홈플러스는 *오프라인 리테일 구조변화 + 과도한 leverage* 가 핵심이다. 둘 다 *원금 손상*이라는 결말은 같다.³¹",
+          "Case 2. MBK 홈플러스 (2015 인수 → 2025.3 회생).\n\nMBK파트너스가 2015년 Tesco로부터 ₩7.2조에 인수.\n\n인수금융 ~₩4.3조 (전체의 59.8%), 주선 KB국민은행·NH투자증권·신한은행.\n\n10년이 지난 2025년 3월 4일 서울회생법원에 법인회생 신청.\n\n보도 기준 누적 부채 ~₩8.5조.\n\n한국 PEF·인수금융 역사상 단일 최대 손실 사례 가능성.\n\n글로벌 PC와의 대칭. Pluralsight는 software AI disruption이 핵심이고, 홈플러스는 오프라인 리테일 구조변화 + 과도한 leverage가 핵심임.\n\n둘 다 원금 손상이라는 결말은 같음.³¹",
         bodyEn:
           "*Case 2. MBK Homeplus (2015 buyout → March 2025 reorganization).* MBK Partners bought Homeplus from Tesco in 2015 for ₩7.2T, funded with ~₩4.3T (59.8%) of acquisition finance arranged by KB Kookmin Bank, NH Investment, and Shinhan Bank. A decade later, on 4 March 2025, the company filed for court-supervised reorganization at the Seoul Bankruptcy Court. Press reports put accumulated debt at ~₩8.5T. This may become *the single largest PEF/acquisition-finance loss in Korean history*. *The contrast with global PC*: Pluralsight is software disrupted by AI; Homeplus is *offline-retail structural decline plus too much leverage*. Same ending — *principal impairment*.³¹",
       },
@@ -333,7 +333,7 @@ export const SECTIONS_PART_B: NoteSection[] = [
       {
         type: "text",
         body:
-          "*Case 3. Blue Owl OBDC II — 2025 봄 fire-sale 보도.* OBDC II는 Blue Owl의 *비상장* BDC. 2025년 봄, 일부 자산을 *시장에 할인 매각*한다는 보도가 나왔다. 평소 hold-to-maturity가 원칙인 PC에서 *비공개 자산을 시장에 던지는 행동* 자체가 드물다. non-traded BDC·인터벌 펀드의 환매 한도(분기 2% / 연 5%)가 작동하기 시작했다는 *첫 시그널*. 2022-23년 Blackstone BREIT 환매 폭주의 *PC 버전*이 시작됐다는 해석이 나왔다.³²",
+          "Case 3. Blue Owl OBDC II, 2025 봄 fire-sale 보도.\n\nOBDC II는 Blue Owl의 비상장 BDC.\n\n2025년 봄, 일부 자산을 시장에 할인 매각한다는 보도가 나옴.\n\n평소 hold-to-maturity가 원칙인 PC에서 비공개 자산을 시장에 던지는 행동 자체가 드묾.\n\nnon-traded BDC·인터벌 펀드의 환매 한도(분기 2% / 연 5%)가 작동하기 시작했다는 첫 시그널.\n\n2022-23년 Blackstone BREIT 환매 폭주의 PC 버전이 시작됐다는 해석이 나옴.³²",
         bodyEn:
           "*Case 3. Blue Owl OBDC II — spring 2025 fire-sale reports.* OBDC II is Blue Owl's *non-traded* BDC. In spring 2025, the press reported the fund was discounting selected positions to market buyers. In a hold-to-maturity asset class, *selling private positions into the market is itself unusual*. It was the *first signal* that the non-traded BDC and interval-fund redemption gates (2% per quarter / 5% per year) were starting to bite — the *PC version* of the 2022-23 BREIT redemption rush, in one reading.³²",
       },
@@ -341,16 +341,16 @@ export const SECTIONS_PART_B: NoteSection[] = [
         type: "table",
         table: {
           id: "three-cases-symmetry",
-          title: "세 케이스 대칭 비교 — 무엇이 공통이고 무엇이 다른가",
+          title: "세 케이스 대칭 비교, 무엇이 공통이고 무엇이 다른가",
           titleEn: "Three Cases Side-by-Side — Common Ground, Divergence",
           headers: ["축", "Pluralsight", "MBK 홈플러스", "Blue Owl OBDC II"],
           headersEn: ["Axis", "Pluralsight", "MBK Homeplus", "Blue Owl OBDC II"],
           rows: [
             ["국가/시장", "미국 software LBO", "한국 오프라인 리테일 PEF", "미국 retail PC (non-traded BDC)"],
-            ["트리거", "*AI disruption + 과도 leverage*", "*리테일 구조변화 + 인수금융 부담*", "*환매 한도 + valuation 갭*"],
+            ["트리거", "AI disruption + 과도 leverage", "리테일 구조변화 + 인수금융 부담", "환매 한도 + valuation 갭"],
             ["결말", "PC 채권단 debt-for-equity", "회생 신청, 회수율 ~10% 미만 보도", "fire-sale (현재진행)"],
             ["손실 주체", "Vista equity ($1.6B) → 0", "MBK + 한국 PEF LP + 인수금융 채권단", "OBDC II 투자자"],
-            ["systemic 함의", "*software LBO portfolio 재평가*", "*한국 PEF 시장 신뢰 충격*", "*retail PC의 첫 stress test*"],
+            ["systemic 함의", "software LBO portfolio 재평가", "한국 PEF 시장 신뢰 충격", "retail PC의 첫 stress test"],
             ["관련 자산 클래스", "Direct Lending (sponsor-backed)", "인수금융 (한국 BSL 등가)", "Direct Lending + interval fund 구조"],
           ],
           rowsEn: [
@@ -361,7 +361,7 @@ export const SECTIONS_PART_B: NoteSection[] = [
             ["Systemic read", "*Software LBO mark-to-market*", "*Korean PEF trust shock*", "*First stress test of retail PC*"],
             ["Asset class", "Direct Lending (sponsor-backed)", "Acquisition finance (Korea BSL equivalent)", "Direct Lending + interval-fund wrapper"],
           ],
-          caption: "세 사건 모두 *2025년 봄~여름*에 신호를 보냈다. 자산 클래스·지역·트리거는 다르지만 *원금 손상·유동성 한계·valuation 신뢰* 라는 같은 질문에 도달한다.",
+          caption: "세 사건 모두 2025년 봄~여름에 신호를 보냄. 자산 클래스·지역·트리거는 다르지만 원금 손상·유동성 한계·valuation 신뢰라는 같은 질문에 도달함.",
           captionEn: "All three lit up in *spring–summer 2025*. The asset class, geography, and trigger differ; the questions are the same — *principal impairment, liquidity limits, valuation credibility*.",
           highlightRows: [1, 4],
         },
@@ -373,13 +373,13 @@ export const SECTIONS_PART_B: NoteSection[] = [
   // 14. 위기 진앙 5채널
   // ════════════════════════════════════════════════════════════════
   {
-    heading: "14. 위기 진앙 — 5채널 전염 메커니즘과 디폴트 현주소",
+    heading: "14. 위기 진앙, 5채널 전염 메커니즘과 디폴트 현주소",
     headingEn: "14. The Fault Line — Five Contagion Channels and Where Defaults Stand",
     blocks: [
       {
         type: "text",
         body:
-          "*\"PC가 systemic risk인가\"*는 잘못된 질문이다. 정확한 질문은 *\"PC에서 시작된 충격이 어떤 채널로 다른 시장에 옮겨가는가\"*다. IMF GFSR April 2024 Chapter 2와 BoE 2024 FSR이 공통으로 지적한 *5개 전염 채널*을 정리한다.\n\n그 전에 *디폴트 현주소* 부터. Direct Lending TTM(Trailing Twelve Months) 디폴트율은 2024 Q4 *2.67%* (Proskauer PC Default Index). BSL은 *4.33%* (Fitch). Sponsor-backed borrower는 ~2.5%, Non-sponsored는 ~4.0%. KBRA DLD의 2024 전망은 *2.75%* — *\"mild and benign\"*. *현재 디폴트 자체는 낮다*. 우려는 *시장 미경험* (post-2008 사이클 한 번도 안 겪음) 과 *stress 시 5채널 연쇄* 다.³³",
+          "\"PC가 systemic risk인가\"는 잘못된 질문임.\n\n정확한 질문은 \"PC에서 시작된 충격이 어떤 채널로 다른 시장에 옮겨가는가\"임.\n\nIMF GFSR April 2024 Chapter 2와 BoE 2024 FSR이 공통으로 지적한 5개 전염 채널을 정리함.\n\n그 전에 디폴트 현주소부터.\n\nDirect Lending TTM(Trailing Twelve Months) 디폴트율은 2024 Q4 2.67% (Proskauer PC Default Index).\n\nBSL은 4.33% (Fitch). Sponsor-backed borrower는 ~2.5%, Non-sponsored는 ~4.0%.\n\nKBRA DLD의 2024 전망은 2.75%, \"mild and benign\".\n\n현재 디폴트 자체는 낮음.\n\n우려는 시장 미경험 (post-2008 사이클 한 번도 안 겪음)과 stress 시 5채널 연쇄임.³³",
         bodyEn:
           "*\"Is PC a systemic risk?\"* is the wrong question. The right one is *\"through which channels would a shock starting in PC propagate to other markets?\"* The IMF GFSR April 2024 Chapter 2 and the BoE 2024 FSR converge on *five contagion channels*. We line them up below.\n\nFirst the *baseline*. Direct Lending TTM (trailing-twelve-month) default rate was *2.67%* in Q4 2024 (Proskauer PC Default Index); BSL ran *4.33%* (Fitch). Sponsor-backed borrowers: ~2.5%; non-sponsored: ~4.0%. KBRA DLD's 2024 forecast was *2.75%* — *mild and benign*. *Defaults today are low*. The worry is *the asset class has never lived through a full cycle since 2008*, and *under stress, the five channels link up*.³³",
       },
@@ -389,7 +389,7 @@ export const SECTIONS_PART_B: NoteSection[] = [
           id: "pc-default-rates",
           title: "Chart 8 — 미국 Direct Lending vs BSL Default Rate TTM (%)",
           titleEn: "Chart 8 — US Direct Lending vs BSL TTM Default Rate (%)",
-          caption: "출처: Proskauer PC Default Index (DL), Fitch Ratings (BSL), KBRA DLD. *PC 디폴트율이 낮은 것은 데이터로 확인되지만*, 데이터 자체가 짧은(post-2008 사이클 부재) 한계가 있다.",
+          caption: "출처: Proskauer PC Default Index (DL), Fitch Ratings (BSL), KBRA DLD. PC 디폴트율이 낮은 것은 데이터로 확인되지만, 데이터 자체가 짧은(post-2008 사이클 부재) 한계가 있음.",
           captionEn: "Sources: Proskauer PC Default Index (DL), Fitch Ratings (BSL), KBRA DLD. *Lower PC default rates are confirmed by the data — but the data itself is short*: no full post-2008 cycle yet.",
           data: [
             { period: "2022 Q4", directLending: 1.5, bsl: 1.6 },
@@ -406,7 +406,7 @@ export const SECTIONS_PART_B: NoteSection[] = [
           id: "pc-contagion-map",
           title: "Diagram — PC 펀드 발 5채널 전염 지도",
           titleEn: "Diagram — Five Contagion Channels from a PC Fund Shock",
-          caption: "Source: IMF GFSR April 2024 Ch.2, BoE FSR Nov 2024, BIS Quarterly Review March 2025 종합. *위험 강도는 채널별 상대 평가* — danger(빨강) = 즉시 전염, caution(주황) = 지연 전염, info(파랑) = 잠재 채널.",
+          caption: "Source: IMF GFSR April 2024 Ch.2, BoE FSR Nov 2024, BIS Quarterly Review March 2025 종합. 위험 강도는 채널별 상대 평가. danger(빨강) = 즉시 전염, caution(주황) = 지연 전염, info(파랑) = 잠재 채널.",
           captionEn: "Sources: IMF GFSR April 2024 Ch.2, BoE FSR Nov 2024, BIS Quarterly Review March 2025. *Severity is a relative ranking* — danger (red) = immediate transmission, caution (amber) = delayed, info (blue) = latent.",
           center: { label: "PC 펀드", labelEn: "PC Fund", color: "#8b5cf6" },
           channels: [
@@ -422,10 +422,10 @@ export const SECTIONS_PART_B: NoteSection[] = [
         type: "callout",
         callout: {
           variant: "warning",
-          heading: "양쪽 모두 맞다 — 단 *시점*이 다르다",
+          heading: "양쪽 모두 맞음, 단 시점이 다름",
           headingEn: "Both Sides Are Right — But on *Different Timeframes*",
           body:
-            "Marc Rowan(Apollo)·Howard Marks(Oaktree) 의 반론은 *현재 디폴트 수치*에 기반한다 — PC 자체는 sponsor 인센티브 정렬·hold-to-maturity·bilateral covenant로 BSL보다 안전. 단, Marks는 2024년 *\"What's Going on in Private Credit?\"* 메모에서 *software LBO 집중*과 *AI disruption 가능성*을 명시 경고. 결론은 *\"credit carelessness 있으나 systemic은 아니다\"* (CNBC 2025.11).\n\n반대편 — Cliff Asness(AQR)의 *\"Volatility Laundering\"*은 *mark-to-market 부재*를 핵심으로 한다. *PE/PC는 quarterly fair value를 쓰기 때문에 표시 변동성이 낮아 보일 뿐*. IMF·BIS·BoE는 *stale valuation + opacity + leverage layers + interconnections* 네 가지를 공식 경고. 양쪽 합의 사항: *PC 자체 디폴트는 낮다 + 단 5채널 인터커넥션 stress test가 부재하다*.³⁴",
+            "Marc Rowan(Apollo)·Howard Marks(Oaktree)의 반론은 현재 디폴트 수치에 기반함.\n\nPC 자체는 sponsor 인센티브 정렬·hold-to-maturity·bilateral covenant로 BSL보다 안전.\n\n단, Marks는 2024년 \"What's Going on in Private Credit?\" 메모에서 software LBO 집중과 AI disruption 가능성을 명시 경고.\n\n결론은 \"credit carelessness 있으나 systemic은 아니다\" (CNBC 2025.11).\n\n반대편으로 Cliff Asness(AQR)의 \"Volatility Laundering\"은 mark-to-market 부재를 핵심으로 봄.\n\nPE/PC는 quarterly fair value를 쓰기 때문에 표시 변동성이 낮아 보일 뿐.\n\nIMF·BIS·BoE는 stale valuation + opacity + leverage layers + interconnections 네 가지를 공식 경고.\n\n양쪽 합의 사항. PC 자체 디폴트는 낮음. 단 5채널 인터커넥션 stress test가 부재함.³⁴",
           bodyEn:
             "Marc Rowan (Apollo) and Howard Marks (Oaktree) anchor their defense on *current default numbers* — PC itself is safer than BSL thanks to sponsor alignment, hold-to-maturity, and bilateral covenants. Marks did flag *software-LBO concentration and AI disruption* in his 2024 memo *\"What's Going on in Private Credit?\"* — his conclusion was *\"credit carelessness, but not systemic\"* (CNBC, Nov 2025).\n\nOn the other side, Cliff Asness (AQR) built *\"Volatility Laundering\"* on the *absence of mark-to-market*: *PE/PC use quarterly fair value, so apparent volatility looks low*. The IMF, BIS, and BoE formally flagged four issues — *stale valuations, opacity, layered leverage, and interconnections*. Both camps agree: *PC defaults are low — but the five-channel interconnection has never been stress-tested*.³⁴",
         },
@@ -437,14 +437,14 @@ export const SECTIONS_PART_B: NoteSection[] = [
   // 15. 액션 가이드 + Watch Dashboard
   // ════════════════════════════════════════════════════════════════
   {
-    heading: "15. 액션 가이드 — 기관·일반·매주 봐야 할 7지표",
+    heading: "15. 액션 가이드, 기관·일반·매주 봐야 할 7지표",
     headingEn: "15. Action Guide — For Institutions, for Individuals, and the Weekly Seven",
     blocks: [
       // ── 15-1 기관 5 ─────────────────────────────────────
       {
         type: "text",
         body:
-          "*15-1. 기관 투자자에게 — 5가지 액션.*\n\n① *vintage diversification 명시 정책*. 2021-23 peak vintage (low rate, 높은 multiple) 비중을 한도화. 신규 commitment는 2024 후반 ~2026 vintage에 집중.\n\n② *manager concentration 한도*. 빅 7 중 한 곳에 PC 포트폴리오의 30% 이상을 *맡기지 않는다*. Apollo×Athene·KKR×Global Atlantic처럼 *보험사-PC 자기거래 비중*도 별도 한도.\n\n③ *NAV financing 정책 명시*. ILPA 2024 가이드라인을 LPA(Limited Partnership Agreement)에 반영 — NAV loan dividend recap은 *LP 사전 동의 필수*.\n\n④ *covenant audit 분기 1회*. cov-lite 비율, maintenance covenant 유무, equity cure 가능성 — 운용사 IR에서 분기마다 받아본다.\n\n⑤ *interval fund / non-traded BDC 환매 모니터링*. BCRED·OBDC II·ARCC 등 분기 redemption 비율 추적. 한도(분기 2% / 연 5%) 도달 시 *즉시 회의*.³⁵",
+          "15-1. 기관 투자자에게, 5가지 액션.\n\n① vintage diversification 명시 정책.\n\n2021-23 peak vintage (low rate, 높은 multiple) 비중을 한도화. 신규 commitment는 2024 후반 ~2026 vintage에 집중.\n\n② manager concentration 한도.\n\n빅 7 중 한 곳에 PC 포트폴리오의 30% 이상을 맡기지 않음. Apollo×Athene·KKR×Global Atlantic처럼 보험사-PC 자기거래 비중도 별도 한도.\n\n③ NAV financing 정책 명시.\n\nILPA 2024 가이드라인을 LPA(Limited Partnership Agreement)에 반영. NAV loan dividend recap은 LP 사전 동의 필수.\n\n④ covenant audit 분기 1회.\n\ncov-lite 비율, maintenance covenant 유무, equity cure 가능성. 운용사 IR에서 분기마다 받아봄.\n\n⑤ interval fund / non-traded BDC 환매 모니터링.\n\nBCRED·OBDC II·ARCC 등 분기 redemption 비율 추적. 한도(분기 2% / 연 5%) 도달 시 즉시 회의.³⁵",
         bodyEn:
           "*15-1. For institutional investors — five actions.*\n\n(1) *Vintage diversification policy in writing.* Cap exposure to the 2021-23 peak vintages (low rates, high multiples); concentrate new commitments in late-2024 through 2026 vintages.\n\n(2) *Manager concentration limit.* No single Big-7 manager gets more than 30% of the PC sleeve. The *insurer-PC affiliated share* (Apollo × Athene, KKR × Global Atlantic) gets its own separate cap.\n\n(3) *Written NAV-financing policy.* Bake ILPA's 2024 guidelines into the LPA (Limited Partnership Agreement): NAV-loan dividend recaps require *prior LP consent*.\n\n(4) *Quarterly covenant audit.* Pull cov-lite ratios, maintenance-covenant status, and equity-cure mechanics from manager IR every quarter.\n\n(5) *Interval-fund / non-traded BDC redemption monitoring.* Track quarterly redemption rates at BCRED, OBDC II, ARCC; if they touch the gate (2%/quarter, 5%/year), *escalate immediately*.³⁵",
       },
@@ -452,7 +452,7 @@ export const SECTIONS_PART_B: NoteSection[] = [
       {
         type: "text",
         body:
-          "*15-2. 일반 투자자에게 — 5가지 액션.*\n\n① *PC ETF·BDC ETF 비중을 portfolio의 5-10% 이하*. 분산 효과 + 수익률 보완 목적. 단, *equity-like risk*임을 인식.\n\n② *non-traded BDC·인터벌 펀드 *절대* 가입 신중*. 환매 한도가 *실제로 작동*한다는 사실이 2025년 봄 OBDC II로 확인됐다.\n\n③ *상장 BDC (ARCC·OBDC·BXSL·TSLX) 만 검토*. NAV 대비 할인·할증, dividend coverage, NII(Net Investment Income) 추적. *premium 거래 시점에 매수 금지*.\n\n④ *PC 운용사 *주가* 와 보험사 자회사 자산을 분리해서 본다*. Apollo·KKR·Blackstone 주가는 PC 펀드 management fee + 보험사 spread + LP 모집 속도의 함수. *세 요소 중 어디서 흔들리는지*를 본다.\n\n⑤ *한국 시장 노출은 인수금융 직접 노출 대신 상장 PEF GP (가능한 경우) 또는 외국계 PC를 통한 간접 노출*. 한국 PC 데이터의 한계 (✓12-5)를 인식.³⁶",
+          "15-2. 일반 투자자에게, 5가지 액션.\n\n① PC ETF·BDC ETF 비중을 portfolio의 5-10% 이하.\n\n분산 효과 + 수익률 보완 목적. 단, equity-like risk임을 인식.\n\n② non-traded BDC·인터벌 펀드 절대 가입 신중.\n\n환매 한도가 실제로 작동한다는 사실이 2025년 봄 OBDC II로 확인됨.\n\n③ 상장 BDC (ARCC·OBDC·BXSL·TSLX) 만 검토.\n\nNAV 대비 할인·할증, dividend coverage, NII(Net Investment Income) 추적. premium 거래 시점에 매수 금지.\n\n④ PC 운용사 주가와 보험사 자회사 자산을 분리해서 봄.\n\nApollo·KKR·Blackstone 주가는 PC 펀드 management fee + 보험사 spread + LP 모집 속도의 함수. 세 요소 중 어디서 흔들리는지를 봄.\n\n⑤ 한국 시장 노출은 인수금융 직접 노출 대신 상장 PEF GP (가능한 경우) 또는 외국계 PC를 통한 간접 노출.\n\n한국 PC 데이터의 한계 (✓12-5)를 인식.³⁶",
         bodyEn:
           "*15-2. For retail investors — five actions.*\n\n(1) *Keep PC and BDC ETFs to 5-10% of portfolio*. Use them for diversification and yield. But recognise this is *equity-like risk*.\n\n(2) *Be very cautious about non-traded BDCs and interval funds.* Spring 2025 OBDC II confirmed that the gates *actually trigger*.\n\n(3) *Stick to listed BDCs (ARCC, OBDC, BXSL, TSLX).* Track NAV premium/discount, dividend coverage, and NII (Net Investment Income). *Don't buy when the fund is trading at a premium*.\n\n(4) *Separate the manager's stock price from its insurer assets.* Apollo, KKR, Blackstone share prices are a function of PC fee income + insurer spread + LP fundraising velocity — figure out *which leg is moving*.\n\n(5) *For Korea exposure, prefer listed GP (where available) or indirect exposure through foreign PC*, not direct acquisition-finance positions. Respect the Korean data gap (✓12-5).³⁶",
       },
@@ -460,7 +460,7 @@ export const SECTIONS_PART_B: NoteSection[] = [
       {
         type: "text",
         body:
-          "*15-3. Watch Dashboard — 매주 봐야 할 7지표.*\n\n아래 7개 변수는 *PC sector 전체의 stress 신호*다. 정상·주의·위험 구간을 사전 정의해두고 *매주 같은 페이지로* 본다. 한 지표가 \"주의\" 진입하면 회의, 두 지표가 동시에 \"위험\" 진입하면 portfolio rebalancing 시작.",
+          "15-3. Watch Dashboard, 매주 봐야 할 7지표.\n\n아래 7개 변수는 PC sector 전체의 stress 신호임.\n\n정상·주의·위험 구간을 사전 정의해두고 매주 같은 페이지로 봄.\n\n한 지표가 \"주의\" 진입하면 회의, 두 지표가 동시에 \"위험\" 진입하면 portfolio rebalancing 시작.",
         bodyEn:
           "*15-3. The Watch Dashboard — seven indicators to track weekly.*\n\nThese seven cover *the full sector stress map*. Define normal / caution / danger bands up front, then check the *same page every week*. One indicator entering \"caution\" triggers a meeting; two entering \"danger\" simultaneously triggers portfolio rebalancing.",
       },
@@ -468,9 +468,9 @@ export const SECTIONS_PART_B: NoteSection[] = [
         type: "chart",
         chart: {
           id: "watch-dashboard",
-          title: "Watch Dashboard — 매주 7지표 상황판",
+          title: "Watch Dashboard, 매주 7지표 상황판",
           titleEn: "Watch Dashboard — Seven Indicators, Weekly",
-          caption: "출처: 각 지표는 KBRA DLD·Proskauer·BCRED 8-K·ILPA·NAIC·thebell·Apollo IR에서 update. *현재 status*는 2025 H1 ~ 2026.5.31 verified data 기준. 종합 판정은 표 하단에 자동.",
+          caption: "출처: 각 지표는 KBRA DLD·Proskauer·BCRED 8-K·ILPA·NAIC·thebell·Apollo IR에서 update. 현재 status는 2025 H1 ~ 2026.5.31 verified data 기준. 종합 판정은 표 하단에 자동.",
           captionEn: "Sources by indicator: KBRA DLD, Proskauer, BCRED 8-K, ILPA, NAIC, thebell, Apollo IR. *Current status* uses verified data through H1 2025 to 31 May 2026. The overall verdict line appears below the table.",
           data: [
             { indicator: "DL TTM 디폴트율", indicatorEn: "DL TTM default rate", current: "2.67% (24Q4)", normalRange: "<3%", cautionRange: "3-4%", dangerRange: "4%+", status: "normal", source: "Proskauer PC Default Index", sourceEn: "Proskauer PC Default Index" },
@@ -496,7 +496,7 @@ export const SECTIONS_PART_B: NoteSection[] = [
       {
         type: "text",
         body:
-          "마지막으로 *2026년 12개월간 봐야 할 거래 6개*. 어떤 것은 새 자금조달, 어떤 것은 후속 보도가 핵심이다.\n\n① *BlackRock × HPS post-deal 운영* — 2025.7 완결 후 fee margin, retention, 운용 합산 효율. ② *MBK 홈플러스 회생 결과* — 회수율과 한국 LP의 PEF outflow. ③ *Apollo×Athene Bermuda 재보험 NAIC 규제* — 2026년 NAIC 결정. ④ *Vista Outcomes-type NAV loan 재발 여부* — ILPA 가이드라인 준수율. ⑤ *KKR Global Atlantic 100% 통합 후 first stress* — Bermuda 재보험 risk-relief가 NAIC에서 어떻게 평가되는가. ⑥ *한국 K-BDC 도입 입법 진행* — 2025-2026 자본시장법 개정.",
+          "마지막으로 2026년 12개월간 봐야 할 거래 6개.\n\n어떤 것은 새 자금조달, 어떤 것은 후속 보도가 핵심임.\n\n① BlackRock × HPS post-deal 운영. 2025.7 완결 후 fee margin, retention, 운용 합산 효율.\n\n② MBK 홈플러스 회생 결과. 회수율과 한국 LP의 PEF outflow.\n\n③ Apollo×Athene Bermuda 재보험 NAIC 규제. 2026년 NAIC 결정.\n\n④ Vista Outcomes-type NAV loan 재발 여부. ILPA 가이드라인 준수율.\n\n⑤ KKR Global Atlantic 100% 통합 후 first stress. Bermuda 재보험 risk-relief가 NAIC에서 어떻게 평가되는가.\n\n⑥ 한국 K-BDC 도입 입법 진행. 2025-2026 자본시장법 개정.",
         bodyEn:
           "Six deals to watch over the next twelve months. Some are new financings, others are follow-up disclosures.\n\n(1) *BlackRock × HPS post-close performance* — fee margin, retention, integration efficiency after the July 2025 closing. (2) *MBK Homeplus reorganization outcome* — recovery rate and Korean LP outflows from PEFs. (3) *Apollo × Athene Bermuda reinsurance treatment* — the NAIC's 2026 ruling. (4) *Vista Outcomes-style NAV loans* — ILPA compliance rate. (5) *KKR Global Atlantic 100% integration first stress* — how NAIC treats the Bermuda reinsurance relief. (6) *Korea K-BDC introduction legislation* — 2025-2026 Capital Markets Act revisions.",
       },
@@ -511,7 +511,7 @@ export const SECTIONS_PART_B: NoteSection[] = [
           rows: [
             ["PC", "Private Credit", "비상장 사모대출 — 운용사가 직접 모집·실행"],
             ["BDC", "Business Development Company", "사업개발회사. 미국 1940 Act 기반 PC 비클"],
-            ["BSL", "Broadly Syndicated Loan", "광범위 신디케이트 대출. PC의 *공동구매* 비교 대상"],
+            ["BSL", "Broadly Syndicated Loan", "광범위 신디케이트 대출. PC의 공동구매 비교 대상"],
             ["LBO", "Leveraged Buyout", "차입매수. 대상 회사 자산·EBITDA를 담보로 인수자금 조달"],
             ["ABF", "Asset-Based Finance", "자산담보부 대출 — 자동차·항공기·BNPL·매출채권 등"],
             ["NAV", "Net Asset Value", "순자산가치. NAV financing은 PE 펀드 보유자산 담보 대출"],
@@ -572,7 +572,7 @@ export const SECTIONS_PART_B: NoteSection[] = [
             ["TAM", "Total Addressable Market", "Total addressable market"],
             ["TTM", "Trailing Twelve Months", "Standard 12-month rolling window for default rates"],
           ],
-          caption: "30개 용어는 본문에서 *적어도 한 번씩* 등장했다. *시리즈 cross-link*: ABF·spread 모델은 → ✓dollar-hegemony 시리즈의 보험사·연금 메커니즘과 연결, retail BDC 환매는 → ✓ai-capital-cycle 시리즈의 hyperscale capex financing과 연결.",
+          caption: "30개 용어는 본문에서 적어도 한 번씩 등장함. 시리즈 cross-link. ABF·spread 모델은 → ✓dollar-hegemony 시리즈의 보험사·연금 메커니즘과 연결, retail BDC 환매는 → ✓ai-capital-cycle 시리즈의 hyperscale capex financing과 연결.",
           captionEn: "Every term above appears at least once in the body. *Cross-series link*: ABF and the spread model connect to → ✓dollar-hegemony series (insurer-pension mechanics); retail BDC redemptions connect to → ✓ai-capital-cycle series (hyperscale capex financing).",
         },
       },
@@ -583,7 +583,7 @@ export const SECTIONS_PART_B: NoteSection[] = [
           heading: "이 노트의 thesis 한 줄",
           headingEn: "The Thesis of This Note in One Line",
           body:
-            "*17년 호황의 끝자락에 우리가 본 것은 — PC가 mainstream asset class로 들어선 바로 그 순간, 첫 cycle stress가 시작됐다는 사실이다.* MBK 홈플러스(한국)·Pluralsight debt-for-equity(미국 LBO)·Blue Owl OBDC II fire-sale(retail PC) 세 사건은 *trinity*다 — 같은 분기, 다른 axes, 같은 질문. 답은 5채널 인터커넥션(✓14)이 어떻게 작동하는지가 결정한다. *그래서 watch dashboard 7개를 매주 본다*.",
+            "17년 호황의 끝자락에 본 것은, PC가 mainstream asset class로 들어선 바로 그 순간 첫 cycle stress가 시작됐다는 사실임.\n\nMBK 홈플러스(한국)·Pluralsight debt-for-equity(미국 LBO)·Blue Owl OBDC II fire-sale(retail PC) 세 사건은 trinity임.\n\n같은 분기, 다른 axes, 같은 질문.\n\n답은 5채널 인터커넥션(✓14)이 어떻게 작동하는지가 결정함.\n\n그렇기에 watch dashboard 7개를 매주 보게 됨.",
           bodyEn:
             "*What we see at the end of a 17-year bull is this — the moment PC became a mainstream asset class is the same moment its first cycle stress began.* MBK Homeplus (Korea), the Pluralsight debt-for-equity (US LBO), and the Blue Owl OBDC II fire-sale (retail PC) form a *trinity*: same quarter, different axes, same question. The answer depends on how the five-channel interconnection (✓14) plays out. *Which is why the seven-indicator watch dashboard is checked weekly*.",
         },
