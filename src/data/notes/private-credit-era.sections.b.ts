@@ -274,7 +274,7 @@ export const SECTIONS_PART_B: NoteSection[] = [
       {
         type: "callout",
         callout: {
-          variant: "info",
+          variant: "insight",
           heading: "12-4. K-BDC와 개인투자자 접근로",
           headingEn: "12-4. K-BDC and Retail Access",
           body:

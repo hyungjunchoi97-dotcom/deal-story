@@ -1395,7 +1395,42 @@ function ScenarioCardsChart({ chart, lang }: { chart: NoteChartDef & { id: "scen
 }
 
 // ── Generic chart dispatcher ───────────────────────────────────────────────────
+// PC 노트 차트 11개 — 컴포넌트는 후속 작업, 일단 placeholder 표시
+const PC_CHART_IDS = new Set<string>([
+  "pc-aum-growth",
+  "bank-vs-pc-share",
+  "pc-asset-classes",
+  "abf-growth",
+  "apollo-athene-flow",
+  "insurer-balance-sheet",
+  "korea-acq-finance",
+  "korea-pc-markets",
+  "pc-default-rates",
+  "pc-contagion-map",
+  "watch-dashboard",
+]);
+
+function ChartPlaceholder({ chart, lang }: { chart: NoteChartDef; lang: Lang }) {
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  return (
+    <ChartCard title={title} caption={caption}>
+      <div className="flex items-center justify-center h-48 bg-gray-50 dark:bg-gray-800/40 rounded-lg border border-dashed border-gray-200 dark:border-gray-700">
+        <div className="text-center">
+          <p className="text-[11px] text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-2">
+            {lang === "en" ? "Chart in progress" : "차트 준비 중"}
+          </p>
+          <p className="text-[10px] font-mono text-gray-300 dark:text-gray-600">
+            {chart.id}
+          </p>
+        </div>
+      </div>
+    </ChartCard>
+  );
+}
+
 function NoteChart({ chart, lang }: { chart: NoteChartDef; lang: Lang }) {
+  if (PC_CHART_IDS.has(chart.id)) return <ChartPlaceholder chart={chart} lang={lang} />;
   if (chart.id === "pbr-comparison") return <PBRChart chart={chart} lang={lang} />;
   if (chart.id === "tax-rates") return <TaxRatesChart chart={chart} lang={lang} />;
   if (chart.id === "index-comparison") return <IndexComparisonChart chart={chart} lang={lang} />;
