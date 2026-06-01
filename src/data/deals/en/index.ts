@@ -103,6 +103,13 @@ import toshibaJipTakeprivate from "./toshiba-jip-takeprivate";
 import berkshireOxyAnadarko from "./berkshire-oxy-anadarko";
 import softbankVisionFundLpStructure from "./softbank-vision-fund-lp-structure";
 import sanofiGenzymeCvr from "./sanofi-genzyme-cvr";
+// New batch — Activism / Restructuring / LBO / M&A diversification (6 of 10 EN translations available; 4 KO-only pending)
+import ackmanValeantLoss from "./ackman-valeant-loss";
+import hybeSmKakaoTender from "./hybe-sm-kakao-tender";
+import hpHpeSplit from "./hp-hpe-split";
+import vivendiUmgSpin from "./vivendi-umg-spin";
+import hertzLboBankruptcy from "./hertz-lbo-bankruptcy";
+import tataJlr from "./tata-jlr";
 
 /**
  * English deal registry — ordered by closedAt descending
@@ -126,6 +133,7 @@ export const ALL_DEALS_EN: DealData[] = [
   microsoftActivision,     // 2023-10-13
   blackstoneKenedix,       // 2023-10-12
   jjKenvue,                // 2023-08-23 (restructuring)
+  hybeSmKakaoTender,       // 2023-03-26 (control — Korea's first competitive tender offer)
   zendeskPeBuyout,         // 2022-11-22
   elonMuskTwitter,         // 2022-10-27
   attWarnemediaDivestiture, // 2022-04-08 (restructuring)
@@ -135,6 +143,7 @@ export const ALL_DEALS_EN: DealData[] = [
   thirdPointShell,         // 2022-02-01 (activism)
   skhynixIntelNand,        // 2021-12-30
   ibmKyndryl,              // 2021-11-04 (restructuring)
+  vivendiUmgSpin,          // 2021-09-21 (restructuring — largest music industry IPO in history)
   salesforceSlack,         // 2021-07-21
   hanjinKcgi,              // 2021-06-30 (activism)
   aramcoOilPipelines,      // 2021-06-18 (ma — 25-year throughput-based lease-back)
@@ -162,11 +171,13 @@ export const ALL_DEALS_EN: DealData[] = [
   amazonWholeFoods,        // 2017-08-28
   janaWholeFoods,          // 2017-08-28 (activism)
   softbankVisionFundLpStructure, // 2017-05-20 (ma — $100B fund, preferred/common tranche)
+  ackmanValeantLoss,       // 2017-03-13 (activism — Pershing Square's $4B loss, conviction-trade textbook)
   kraftUnilever,           // 2017-02-19 (control, withdrawn)
   microsoftLinkedin,       // 2016-12-08
   abInBevSabmiller,        // 2016-10-10
   icahnApple,              // 2016-04-01 (activism)
   mbkHomeplus,             // 2015-11-30
+  hpHpeSplit,              // 2015-11-01 (restructuring — Meg Whitman split into HP Inc + HPE)
   elliottSamsung,          // 2015-09-01 (activism)
   ebayPaypalSpinoff,       // 2015-07-17
   trianDupont,             // 2015-05-13 (activism)
@@ -189,11 +200,13 @@ export const ALL_DEALS_EN: DealData[] = [
   threeGCapitalBurgerKing, // 2010-10-19
   bhpRioTinto,             // 2008-11-25 (control, withdrawn)
   iheartmediaClearChannel, // 2008-07-30 (LBO)
+  tataJlr,                 // 2008-06-02 (ma — India → UK luxury cross-border, post-2008 turnaround)
   jpmorganBearStearns,     // 2008-05-30 (financial crisis)
   apolloCaesars,           // 2008-01-28 (LBO)
   blackstoneHilton2007,    // 2007-10-24 (LBO)
   kkrTxuEnergyFuture,      // 2007-10-10 (LBO)
   kkrDollarGeneral,        // 2007-07-07 (LBO)
+  hertzLboBankruptcy,      // 2005-12-21 (LBO → accounting fraud → 2020 Chapter 11)
   googleYoutube,           // 2006-10-31
   disneyPixar,             // 2006-05-05
   icahnTimeWarner,         // 2006-03-01 (activism)

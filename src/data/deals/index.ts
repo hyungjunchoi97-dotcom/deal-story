@@ -102,6 +102,17 @@ import toshibaJipTakeprivate from "./toshiba-jip-takeprivate";
 import berkshireOxyAnadarko from "./berkshire-oxy-anadarko";
 import softbankVisionFundLpStructure from "./softbank-vision-fund-lp-structure";
 import sanofiGenzymeCvr from "./sanofi-genzyme-cvr";
+// 신규 추가 딜 — 행동주의/구조조정/LBO/M&A 다양화 시리즈
+import ackmanValeantLoss from "./ackman-valeant-loss";
+import hybeSmKakaoTender from "./hybe-sm-kakao-tender";
+import hpHpeSplit from "./hp-hpe-split";
+import vivendiUmgSpin from "./vivendi-umg-spin";
+import hertzLboBankruptcy from "./hertz-lbo-bankruptcy";
+import heinz3gKraftUnilever from "./heinz-3g-kraft-unilever";
+import hanwhaDsme from "./hanwha-dsme";
+import lenovoIbmThinkpad from "./lenovo-ibm-thinkpad";
+import tataJlr from "./tata-jlr";
+import attTmobileBlocked from "./att-tmobile-blocked";
 
 /**
  * 딜 레지스트리 — 새 딜 추가 시 import 후 배열에 추가
@@ -126,6 +137,8 @@ export const ALL_DEALS: DealData[] = [
   microsoftActivision,     // 2023-10-13
   blackstoneKenedix,       // 2023-10-12
   jjKenvue,                // 2023-08-23 (restructuring)
+  hanwhaDsme,              // 2023-05-23 (ma — 한국 방위/조선 재편, 신주발행 인수 구조)
+  hybeSmKakaoTender,       // 2023-03-26 (control — 한국 첫 경쟁적 공개매수)
   zendeskPeBuyout,         // 2022-11-22
   elonMuskTwitter,         // 2022-10-27
   attWarnemediaDivestiture, // 2022-04-08 (restructuring)
@@ -135,6 +148,7 @@ export const ALL_DEALS: DealData[] = [
   thirdPointShell,         // 2022-02-01 (activism — ESG 행동주의의 한계)
   skhynixIntelNand,        // 2021-12-30
   ibmKyndryl,              // 2021-11-04 (restructuring)
+  vivendiUmgSpin,          // 2021-09-21 (restructuring — 음악 산업 사상 최대 IPO)
   salesforceSlack,         // 2021-07-21
   hanjinKcgi,              // 2021-06-30 (activism)
   aramcoOilPipelines,      // 2021-06-18 (ma — 파이프라인 25년 throughput 임차백)
@@ -162,11 +176,14 @@ export const ALL_DEALS: DealData[] = [
   amazonWholeFoods,        // 2017-08-28
   janaWholeFoods,          // 2017-08-28 (activism — Amazon 매각 촉발)
   softbankVisionFundLpStructure, // 2017-05-20 (ma — $100B 펀드, 우선/보통 분할 구조)
+  ackmanValeantLoss,       // 2017-03-13 (activism — Pershing Square의 $4B 손실, 행동주의 실패 교과서)
+  heinz3gKraftUnilever,    // 2017-02-19 (ma — 3G+버핏 LBO → Kraft 합병 → Unilever 48시간 무산)
   kraftUnilever,           // 2017-02-19 (control, withdrawn)
   microsoftLinkedin,       // 2016-12-08
   abInBevSabmiller,        // 2016-10-10
   icahnApple,              // 2016-04-01 (activism)
   mbkHomeplus,             // 2015-11-30
+  hpHpeSplit,              // 2015-11-01 (restructuring — Meg Whitman 주도 양사 분할)
   elliottSamsung,          // 2015-09-01 (activism)
   ebayPaypalSpinoff,       // 2015-07-17
   trianDupont,             // 2015-05-13 (activism — proxy fight loss → $130B merger)
@@ -183,18 +200,22 @@ export const ALL_DEALS: DealData[] = [
   porscheVolkswagen,       // 2012-08-01 (control)
   thirdPointYahoo,         // 2012-07-16 (activism)
   pershingSquareCpRail,    // 2012-05-17 (activism)
+  attTmobileBlocked,       // 2011-12-19 (ma terminated — 사상 최대 reverse breakup fee 패키지)
   sanofiGenzymeCvr,        // 2011-04-08 (ma — CVR 발명의 원조 사례, 5-tranche milestone)
   jcrewIpTransfer,         // 2011-03-07 (LevFin Trap Door 케이스)
   airgasAirProducts,       // 2011-02-11 (control, withdrawn)
   g3CapitalBurgerKing,     // 2010-10-19 (LBO 교육 — ZBB + 재가맹점화)
   bhpRioTinto,             // 2008-11-25 (control, withdrawn)
-  apolloCaesars,           // 2008-01-28 (LevFin 코비넌트)
   iheartmediaClearChannel, // 2008-07-30 (LevFin Hung Deal)
+  tataJlr,                 // 2008-06-02 (ma — 인도 → 영국 럭셔리 cross-border, 회생 성공)
   jpmorganBearStearns,     // 2008-05-30 (금융위기)
+  apolloCaesars,           // 2008-01-28 (LevFin 코비넌트)
   blackstoneHilton2007,    // 2007-10-24 (LBO 교육 — CMBS + 오퍼레이션)
   kkrTxuEnergyFuture,      // 2007-10-10 (LBO 교육 — 역대 최대 PE 파산)
   kkrDollarGeneral,        // 2007-07-07 (LevFin LBO 성공 케이스)
+  hertzLboBankruptcy,      // 2005-12-21 (LBO → 분식회계 → 2020 파산, 15년 호러 스토리)
   kkrToysRUs,              // 2005-07-21 (LevFin 케이스)
+  lenovoIbmThinkpad,       // 2005-05-01 (ma — 중국 첫 글로벌 cross-border, CFIUS 템플릿)
   googleYoutube,           // 2006-10-31
   disneyPixar,             // 2006-05-05
   icahnTimeWarner,         // 2006-03-01 (activism)
