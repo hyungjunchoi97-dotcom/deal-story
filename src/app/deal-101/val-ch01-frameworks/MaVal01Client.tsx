@@ -108,7 +108,7 @@ export default function MaVal01Client({ lang }: { lang: Lang }) {
             <div className="flex-shrink-0 pt-1">
               <ShareButtons title={ko ? chapter.titleKo : chapter.titleEn} variant="top" lang={lang} />
             
-              <LikeButton slug={concept.slug} lang={lang} /></div>
+              <LikeButton slug={SLUG} lang={lang} /></div>
           </div>
         </section>
 
@@ -413,7 +413,7 @@ export default function MaVal01Client({ lang }: { lang: Lang }) {
           />
 
           
-          <LikeButton slug={concept.slug} lang={lang} />{/* Series prev/next */}
+          <LikeButton slug={SLUG} lang={lang} />{/* Series prev/next */}
           {(prev || next) && (
             <div className="mt-6">
               <SeriesNav
