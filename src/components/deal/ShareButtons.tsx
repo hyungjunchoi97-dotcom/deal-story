@@ -3,6 +3,7 @@
 import { useState, useCallback } from "react";
 import { SHARE_LABELS, type Lang } from "@/lib/i18n";
 import AuthorByline from "@/components/AuthorByline";
+import LikeButton from "@/components/LikeButton";
 
 interface ShareButtonsProps {
   title: string;
@@ -12,6 +13,8 @@ interface ShareButtonsProps {
   updatedAt?: string | Date;
   /** Reading minutes for the AuthorByline */
   readingMinutes?: number;
+  /** When provided, mid/bottom variants include a LikeButton reaction (separated from share buttons) */
+  likeSlug?: string;
 }
 
 export default function ShareButtons({
@@ -20,6 +23,7 @@ export default function ShareButtons({
   lang = "ko",
   updatedAt,
   readingMinutes,
+  likeSlug,
 }: ShareButtonsProps) {
   const t = SHARE_LABELS[lang];
   const [copied, setCopied] = useState(false);
@@ -121,9 +125,12 @@ export default function ShareButtons({
   if (variant === "mid") {
     return (
       <div className="my-10 py-5 border-y border-gray-100 dark:border-gray-800 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
-        <p className="text-[11px] sm:text-[12px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider flex-shrink-0">
-          {t.shareThisDeal}
-        </p>
+        <div className="flex items-center gap-3 flex-wrap">
+          <p className="text-[11px] sm:text-[12px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider flex-shrink-0">
+            {t.shareThisDeal}
+          </p>
+          {likeSlug && <LikeButton slug={likeSlug} lang={lang} />}
+        </div>
         <div className="flex items-center gap-2 flex-wrap">
           <button
             onClick={handleCopy}
@@ -182,6 +189,13 @@ export default function ShareButtons({
       <div className="rounded-2xl bg-gray-50 dark:bg-gray-800/40 border border-gray-200 dark:border-gray-700/60 p-6 text-center">
       <p className="text-sm font-bold text-gray-800 dark:text-gray-200 mb-1">{t.helpfulHeading}</p>
       <p className="text-[12px] text-gray-400 dark:text-gray-500 mb-5">{t.helpfulSub}</p>
+
+      {/* 반응 라인 — LikeButton (likeSlug 있을 때만) */}
+      {likeSlug && (
+        <div className="mb-5 flex justify-center">
+          <LikeButton slug={likeSlug} lang={lang} />
+        </div>
+      )}
 
       <div className="flex items-center justify-center gap-3 flex-wrap">
         <button

@@ -1960,8 +1960,10 @@ export default function NoteDetailClient({
               </span>
             </motion.div>
 
-            {/* Title + 우측 상단 공유 — 딜 페이지와 동일 패턴 */}
-            <div className="flex items-start justify-between gap-4">
+            {/* Title + 공유 토글
+                모바일: 세로 배치 — 제목·설명이 가로 풀폭, LikeButton+ShareButtons는 아래
+                sm 이상: 가로 배치 — 좌측 제목·설명, 우측 토글 */}
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
               <div className="flex-1 min-w-0">
                 <motion.h1
                   variants={fadeUp(0.1)}
@@ -1985,7 +1987,7 @@ export default function NoteDetailClient({
                 variants={fadeUp(0.2)}
                 initial="hidden"
                 animate="show"
-                className="flex-shrink-0 pt-1 flex items-center gap-2"
+                className="flex-shrink-0 sm:pt-1 flex items-center gap-2"
               >
                 <LikeButton slug={note.slug} lang={lang} />
                 <ShareButtons title={title} variant="top" lang={lang} />
@@ -2112,19 +2114,20 @@ export default function NoteDetailClient({
                   lang={lang}
                 />
                 {showMid && (
-                  <ShareButtons title={title} variant="mid" lang={lang} />
+                  <ShareButtons title={title} variant="mid" lang={lang} likeSlug={note.slug} />
                 )}
               </div>
             );
           })}
 
-          {/* BOTTOM — 본문 종료 시점에 풀 카드형 공유 + AuthorByline */}
+          {/* BOTTOM — 본문 종료 시점에 풀 카드형 공유 + AuthorByline + LikeButton */}
           <ShareButtons
             title={title}
             variant="bottom"
             lang={lang}
             updatedAt={note.date}
             readingMinutes={note.readingMinutes}
+            likeSlug={note.slug}
           />
 
           <References refs={note.references} lang={lang} />
