@@ -53,8 +53,8 @@ export const FDD_CHAPTERS: FddChapter[] = [
     titleEn: "Net Working Capital normalization — the most quantitative fight",
     taglineKo: "Closing NWC target, dollar-for-dollar 조정, 매도인의 working capital squeeze",
     taglineEn: "Closing NWC target, dollar-for-dollar adjustment, the seller's working-capital squeeze",
-    readingMinutes: 12,
-    status: "draft",
+    readingMinutes: 13,
+    status: "published",
   },
   {
     slug: "fdd-ch04-hidden-liabilities",

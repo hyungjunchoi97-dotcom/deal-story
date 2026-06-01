@@ -44,6 +44,7 @@ const KO_CONCEPT_CATALOG: ConceptItem[] = [
   // FDD 시리즈 — Big 4 Transaction Services 표준 워크플로우
   { slug: "fdd-ch01-overview",     term: "FDD 101 Ch.1 — FDD가 SPA 가격에 어떻게 박히는가", tagline: "Buy-side vs Sell-side(VDD) · Big 4 TS 표준 deliverable · SPA 조항 매핑 · 60일 작업 흐름",                                                                              category: "FDD 시리즈", published: true },
   { slug: "fdd-ch02-qoe",          term: "FDD 101 Ch.2 — Quality of Earnings (QoE) 실무", tagline: "Reported → Adjusted EBITDA bridge · 1회성 판단 quadrant · Run-rate 조정 · 매도인 6가지 trick과 FDD counter",                                                          category: "FDD 시리즈", published: true },
+  { slug: "fdd-ch03-nwc",          term: "FDD 101 Ch.3 — Net Working Capital Normalization", tagline: "Dollar-for-dollar 가격 조정 · NWC 구성 · 12개월 평균과 seasonality · Closing Accounts vs Locked-box · 매도인의 squeeze 패턴",                                       category: "FDD 시리즈", published: true },
 
   // M&A 시리즈 — 전과정 흐름 + 이해관계자 + 유명 뱅커 케이스
   { slug: "ma-ch01-overview",      term: "M&A 101 Ch.1 — 전과정 흐름 (6개월의 여정)", tagline: "M&A는 보기보다 단순한 흐름이다 — 9단계 타임라인 · 5개 주체 병렬 워크스트림 · 진짜 어려운 4지점",                                                  category: "M&A 시리즈", published: true  },
@@ -111,6 +112,7 @@ const EN_CONCEPT_CATALOG: ConceptItem[] = [
   // FDD Series — Big 4 Transaction Services standard workflow
   { slug: "fdd-ch01-overview",     term: "FDD 101 Ch.1 — How FDD findings land in the SPA price", tagline: "Buy-side vs sell-side (VDD) · Big 4 TS standard deliverables · mapping findings to SPA clauses · the 60-day workflow",                                                  category: "FDD Series", published: true },
   { slug: "fdd-ch02-qoe",          term: "FDD 101 Ch.2 — Quality of Earnings (QoE) in practice", tagline: "Reported → adjusted EBITDA bridge · one-time judgment quadrant · run-rate adjustments · six seller tricks with FDD counters",                                       category: "FDD Series", published: true },
+  { slug: "fdd-ch03-nwc",          term: "FDD 101 Ch.3 — Net Working Capital Normalization", tagline: "Dollar-for-dollar adjustment · NWC composition · 12-month average and seasonality · Closing Accounts vs Locked-box · the seller's squeeze pattern",                  category: "FDD Series", published: true },
 
   // M&A Series — lifecycle + stakeholders + banker case studies
   { slug: "ma-ch01-overview",      term: "M&A 101 Ch.1 — The Lifecycle (6-month journey)", tagline: "M&A is more linear than it looks — 9-stage timeline · 5 parallel workstreams · the 4 places where it actually gets hard",                                  category: "M&A Series", published: true },
