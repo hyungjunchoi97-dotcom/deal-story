@@ -73,8 +73,8 @@ export const FDD_CHAPTERS: FddChapter[] = [
     titleEn: "Case — the Hertz accounting restatement (2014-2015)",
     taglineKo: "PwC가 놓친 vehicle depreciation 가정과 $235M 5년치 재작성",
     taglineEn: "The vehicle depreciation assumption PwC missed and the $235M five-year restatement",
-    readingMinutes: 12,
-    status: "draft",
+    readingMinutes: 13,
+    status: "published",
   },
   {
     slug: "fdd-ch06-tesco-case",
