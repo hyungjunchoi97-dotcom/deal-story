@@ -20,14 +20,14 @@ const COUNTRIES_EN = [
 
 // ── 관심 분야 ──────────────────────────────────────────────────────────────────
 const INTERESTS_KO = [
-  "M&A", "IB · DCM", "IB · ECM", "Private Equity", "Venture Capital",
+  "M&A", "DCM", "ECM", "Private Equity", "Venture Capital",
   "Private Credit", "부동산 PF", "대체투자", "자산운용 (AM)",
   "헤지펀드", "PB · WM", "구조화금융", "Restructuring",
   "리서치 · 애널리스트", "컨설팅", "회계 · 회계법인", "기타",
 ];
 
 const INTERESTS_EN = [
-  "M&A", "IB · DCM", "IB · ECM", "Private Equity", "Venture Capital",
+  "M&A", "DCM", "ECM", "Private Equity", "Venture Capital",
   "Private Credit", "Real Estate PF", "Alternative Investments", "Asset Management",
   "Hedge Fund", "PB · Wealth Management", "Structured Finance", "Restructuring",
   "Research · Analyst", "Consulting", "Accounting", "Other",
