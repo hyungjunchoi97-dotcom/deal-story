@@ -791,6 +791,358 @@ function BuffettBody({ ko, story, accent, accentLight, accentDark }: {
   );
 }
 
+// ── ④ GOODWIN × RBS 2008 ──────────────────────────────────────────────────────
+
+// RBS share price (LSE close, indexed where peak = 600p, 2008-10-13 = bailout low)
+const rbsStockData = [
+  { date: "2000\n(NatWest)",    price: 165 },
+  { date: "2002",                price: 195 },
+  { date: "2004\n(Knighted)",   price: 280 },
+  { date: "2006",                price: 425 },
+  { date: "2007 Q1",             price: 540 },
+  { date: "2007 Q3\n(ABN bid)", price: 615 },
+  { date: "2008 Q1",             price: 415 },
+  { date: "2008 Q2\n(£12B RI)", price: 240 },
+  { date: "2008 Q3",             price: 150 },
+  { date: "2008-10\n(Bailout)", price: 65  },
+  { date: "2009 Q1\n(£24B loss)", price: 22 },
+];
+
+// Balance sheet vs equity ratio (illustrative; assets in £B, equity in £B)
+const rbsLeverageData = [
+  { year: "2000", assets: 320,  equity: 22 },
+  { year: "2002", assets: 412,  equity: 28 },
+  { year: "2004", assets: 588,  equity: 34 },
+  { year: "2006", assets: 871,  equity: 41 },
+  { year: "2007", assets: 1900, equity: 54 },
+  { year: "2008", assets: 2402, equity: 61 },
+];
+
+// Bailout waterfall — £B
+const rbsBailoutData = [
+  { phase: "2008-04\n£12B 권리주",      phaseEn: "Apr 2008\n£12B rights",    amount: 12,   color: "#fbbf24" },
+  { phase: "2008-10\n£20B 1차 구제",   phaseEn: "Oct 2008\n£20B bailout #1", amount: 20,   color: "#f97316" },
+  { phase: "2009-01\n£25.5B 2차 구제", phaseEn: "Jan 2009\n£25.5B bailout #2", amount: 25.5, color: "#dc2626" },
+  { phase: "2009-01\nAPS £282B (보증)", phaseEn: "Jan 2009\nAPS £282B (guarantee)", amount: 282, color: "#7c2d12" },
+];
+
+function GoodwinBody({ ko, story, accent, accentLight, accentDark }: {
+  ko: boolean; story: InvestorStory; accent: string; accentLight: string; accentDark: string;
+}) {
+  const acquisitions = ko
+    ? [
+        { year: "2000", target: "NatWest",         country: "🇬🇧 UK", price: "£21B",  note: "3배 큰 적대적 인수 — Fred the Shred 별명 탄생" },
+        { year: "2001", target: "Citizens Fin.",   country: "🇺🇸 US", price: "$2.1B", note: "New England 지역 retail bank" },
+        { year: "2004", target: "Charter One",     country: "🇺🇸 US", price: "$10.5B", note: "Midwest 확장" },
+        { year: "2005", target: "Bank of China",   country: "🇨🇳 CN", price: "$3.1B",  note: "10% 전략적 지분 (이후 매각)" },
+        { year: "2007", target: "ABN AMRO",        country: "🇳🇱 NL", price: "€27.2B", note: "★ 자멸의 인수 — 컨소시엄 €71B 중 RBS 몫" },
+      ]
+    : [
+        { year: "2000", target: "NatWest",         country: "🇬🇧 UK", price: "£21B",  note: "Hostile takeover of a bank 3× the size — origin of 'Fred the Shred'" },
+        { year: "2001", target: "Citizens Fin.",   country: "🇺🇸 US", price: "$2.1B", note: "New England regional retail bank" },
+        { year: "2004", target: "Charter One",     country: "🇺🇸 US", price: "$10.5B", note: "Midwest expansion" },
+        { year: "2005", target: "Bank of China",   country: "🇨🇳 CN", price: "$3.1B",  note: "10% strategic stake (later sold)" },
+        { year: "2007", target: "ABN AMRO",        country: "🇳🇱 NL", price: "€27.2B", note: "★ The fatal acquisition — RBS share of €71B consortium" },
+      ];
+
+  const fateEvents = [
+    {
+      date: ko ? "2007-10-17 (수)" : "Oct 17, 2007 (Wed)",
+      title: ko ? "ABN AMRO 인수 완료 — €71B 사상 최대" : "ABN AMRO closing — €71B, largest in history",
+      desc: ko
+        ? "BNP Paribas의 ABCP 펀드 환매 중단(8월)에도 컨소시엄은 입찰을 유지. 미국 서브프라임 균열 직후 종결."
+        : "Despite BNP Paribas's ABCP fund freeze in August, the consortium pressed on. Closing came just as the US subprime market cracked.",
+      severity: "warning",
+    },
+    {
+      date: ko ? "2008-04-22 (화)" : "Apr 22, 2008 (Tue)",
+      title: ko ? "£12B 권리주 — 영국 사상 최대" : "£12B rights issue — largest in UK history",
+      desc: ko
+        ? "발행가 200p. 발행 한 달 만에 주가가 권리주 가격 아래로. 자본 부족 인정 → 시장 신뢰 균열."
+        : "Issue price 200p. Within a month the share price slid below it. Acknowledging the capital gap cracked market confidence.",
+      severity: "warning",
+    },
+    {
+      date: ko ? "2008-10-07 (화)" : "Oct 7, 2008 (Tue)",
+      title: ko ? "Goodwin → Darling 재무장관 전화" : "Goodwin phones Chancellor Darling",
+      desc: ko
+        ? "'오늘 영업 종료까지 자금이 부족합니다.' Bank of England 비상 유동성 즉시 공급."
+        : "'We don't have enough cash to make it through the day.' Bank of England emergency liquidity was authorized within hours.",
+      severity: "danger",
+    },
+    {
+      date: ko ? "2008-10-13 (월)" : "Oct 13, 2008 (Mon)",
+      title: ko ? "£20B 1차 구제 — 정부 지분 58%" : "£20B bailout #1 — 58% government stake",
+      desc: ko
+        ? "보통주 £15B + 우선주 £5B. 같은 날 Lloyds-HBOS £17B 패키지와 합쳐 영국 사상 최대 구제 발표."
+        : "£15B common + £5B preference. Announced same day as the £17B Lloyds-HBOS package — the largest UK bank rescue ever.",
+      severity: "critical",
+    },
+    {
+      date: ko ? "2009-01-19 (월)" : "Jan 19, 2009 (Mon)",
+      title: ko ? "£24.1B 손실 + £25.5B 추가 구제 + APS" : "£24.1B loss + £25.5B bailout #2 + APS",
+      desc: ko
+        ? "영국 기업 사상 최대 손실. 정부 지분 58% → 84%. APS £282B 부실자산 보증 도입."
+        : "Largest loss in UK corporate history. Government stake 58% → 84%. APS launched, insuring £282B of risk assets.",
+      severity: "critical",
+    },
+    {
+      date: ko ? "2012-01-31 (화)" : "Jan 31, 2012 (Tue)",
+      title: ko ? "기사 작위 박탈" : "Knighthood revoked",
+      desc: ko
+        ? "Honours Forfeiture Committee 결정. 형사 처벌 없는 작위 박탈은 영국 금융사 사실상 유일."
+        : "Decision of the Honours Forfeiture Committee. Stripping a knighthood absent criminal conviction is virtually unprecedented in British financial history.",
+      severity: "critical",
+    },
+  ];
+
+  const sColors: Record<string, { dot: string; border: string; bg: string; text: string; badge: string }> = {
+    warning:  { dot: "bg-amber-400", border: "border-amber-200", bg: "bg-amber-50 dark:bg-amber-900/25", text: "text-amber-800 dark:text-amber-200", badge: "bg-amber-100 text-amber-700" },
+    danger:   { dot: "bg-rose-500",  border: "border-rose-200",  bg: "bg-rose-50 dark:bg-rose-900/25",   text: "text-rose-800 dark:text-rose-200",   badge: "bg-rose-100 text-rose-700" },
+    critical: { dot: "bg-red-700",   border: "border-red-300",   bg: "bg-red-50 dark:bg-red-900/30",     text: "text-red-800 dark:text-red-200",     badge: "bg-red-100 text-red-800" },
+  };
+
+  return (
+    <div className="space-y-16">
+      {/* ── 3-stat callout ── */}
+      <motion.div variants={fadeUp(0.05)} initial="hidden" whileInView="show" viewport={VP}>
+        <div className="grid grid-cols-3 divide-x rounded-2xl overflow-hidden border-2" style={{ borderColor: accentLight }}>
+          <div className="px-4 py-5 text-center" style={{ background: accentLight }}>
+            <p className="text-[10px] font-bold mb-1" style={{ color: accentDark }}>{ko ? "ABN AMRO 인수가" : "ABN AMRO Price"}</p>
+            <p className="text-3xl font-black" style={{ color: accent }}>€71B</p>
+            <p className="text-[11px] font-medium mt-1" style={{ color: accent }}>{ko ? "사상 최대 금융 M&A" : "Largest financial M&A ever"}</p>
+          </div>
+          <div className="px-4 py-5 text-center bg-rose-50 dark:bg-rose-900/20">
+            <p className="text-[10px] font-bold text-rose-600 mb-1">{ko ? "영국 정부 구제" : "UK Govt Bailout"}</p>
+            <p className="text-3xl font-black text-rose-600 dark:text-rose-400">£45.5B</p>
+            <p className="text-[11px] font-medium text-rose-500 mt-1">{ko ? "단일 회사 사상 최대" : "Largest single-firm rescue"}</p>
+          </div>
+          <div className="px-4 py-5 text-center bg-gray-100 dark:bg-gray-800">
+            <p className="text-[10px] font-bold text-gray-600 mb-1">{ko ? "작위 박탈" : "Knighthood"}</p>
+            <p className="text-3xl font-black text-gray-700 dark:text-gray-200">{ko ? "박탈" : "Stripped"}</p>
+            <p className="text-[11px] font-medium text-gray-500 mt-1">{ko ? "금융사 사실상 유일" : "Virtually unprecedented"}</p>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* ── Section 1: NatWest 인수 ── */}
+      <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
+        <SectionTitle accent={accent}>{ko ? story.sections[0].heading : story.sections[0].headingEn}</SectionTitle>
+        <BodyParagraphs accent={accent} paras={(ko ? story.sections[0].body : story.sections[0].bodyEn).split("\n\n")} />
+
+        {/* M&A timeline table */}
+        <motion.div variants={fadeUp(0.1)} className="mt-8">
+          <ChartCard
+            title={ko ? "Fred Goodwin 임기 주요 인수 (2000~2007)" : "Fred Goodwin's Major Acquisitions (2000–2007)"}
+            caption={ko ? "7년간 25건 이상의 인수. 표는 그중 결정적 5건 — 마지막 ABN AMRO가 자멸의 트리거." : "25+ acquisitions in seven years. The five decisive deals — the final ABN AMRO triggered self-destruction."}
+          >
+            <div className="overflow-x-auto">
+              <table className="w-full text-[12px]">
+                <thead>
+                  <tr className="border-b border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50">
+                    <th className="px-3 py-2.5 text-left font-bold text-gray-500">{ko ? "연도" : "Year"}</th>
+                    <th className="px-3 py-2.5 text-left font-bold text-gray-500">{ko ? "타겟" : "Target"}</th>
+                    <th className="px-3 py-2.5 text-center font-bold text-gray-500">{ko ? "지역" : "Region"}</th>
+                    <th className="px-3 py-2.5 text-right font-bold text-gray-500">{ko ? "인수가" : "Price"}</th>
+                    <th className="px-3 py-2.5 text-left font-bold text-gray-500">{ko ? "메모" : "Note"}</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100 dark:divide-gray-800">
+                  {acquisitions.map((row, i) => (
+                    <tr key={i} className={`hover:bg-gray-50/50 dark:hover:bg-gray-900/30 transition-colors ${i === acquisitions.length - 1 ? "bg-rose-50/40 dark:bg-rose-900/15" : ""}`}>
+                      <td className="px-3 py-2.5 font-mono font-semibold text-gray-700 dark:text-gray-300">{row.year}</td>
+                      <td className="px-3 py-2.5 font-semibold text-gray-800 dark:text-gray-200">{row.target}</td>
+                      <td className="px-3 py-2.5 text-center text-[11px]">{row.country}</td>
+                      <td className="px-3 py-2.5 text-right font-mono font-semibold" style={{ color: i === acquisitions.length - 1 ? "#dc2626" : accent }}>{row.price}</td>
+                      <td className="px-3 py-2.5 text-[11px] text-gray-500 dark:text-gray-400">{row.note}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </ChartCard>
+        </motion.div>
+
+        {/* RBS balance sheet expansion */}
+        <motion.div variants={fadeUp(0.15)} className="mt-6">
+          <ChartCard
+            title={ko ? "RBS 자산 vs 자기자본 (£B) — 임기 동안 6배 확장" : "RBS Assets vs Equity (£B) — 6× expansion during tenure"}
+            caption={ko ? "자산은 £320B → £1.9T (2000→2007)로 6배 성장. 자기자본은 같은 기간 2.5배 — 레버리지가 35× 수준으로." : "Assets grew from £320B to £1.9T (2000→2007) — 6×. Equity grew only 2.5× over the same period — leverage rose to roughly 35×."}
+          >
+            <ResponsiveContainer width="100%" height={220}>
+              <ComposedChart data={rbsLeverageData} margin={{ top: 8, right: 16, bottom: 4, left: 8 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+                <XAxis dataKey="year" tick={{ fontSize: 11, fill: "#9ca3af" }} axisLine={false} tickLine={false} />
+                <YAxis yAxisId="left" tick={{ fontSize: 10, fill: "#9ca3af" }} axisLine={false} tickLine={false}
+                  tickFormatter={(v) => `£${v}B`}
+                  domain={[0, 2600]}
+                />
+                <Tooltip
+                  formatter={(v, name) => [`£${v}B`, name === "assets" ? (ko ? "총자산" : "Total assets") : (ko ? "자기자본" : "Equity")]}
+                  contentStyle={{ fontSize: 11, borderRadius: 8, border: "1px solid #e5e7eb" }}
+                />
+                <Bar yAxisId="left" dataKey="assets" fill={accent} fillOpacity={0.18} radius={[4, 4, 0, 0]} name="assets" />
+                <Line yAxisId="left" type="monotone" dataKey="equity" stroke="#dc2626" strokeWidth={2.5} dot={{ fill: "#dc2626", r: 4 }} name="equity" />
+              </ComposedChart>
+            </ResponsiveContainer>
+          </ChartCard>
+        </motion.div>
+      </motion.section>
+
+      {/* ── Section 2: ABN AMRO ── */}
+      <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
+        <SectionTitle accent={accent}>{ko ? story.sections[1].heading : story.sections[1].headingEn}</SectionTitle>
+        <BodyParagraphs accent={accent} paras={(ko ? story.sections[1].body : story.sections[1].bodyEn).split("\n\n")} />
+
+        {/* Consortium structure visual */}
+        <motion.div variants={fadeUp(0.1)} className="mt-6">
+          <div className="rounded-2xl overflow-hidden border border-gray-200/60 dark:border-gray-700/60">
+            <div className="bg-gray-50 dark:bg-gray-800/60 px-5 py-3 border-b border-gray-200/60 dark:border-gray-700/60">
+              <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">
+                {ko ? "ABN AMRO 컨소시엄 분할 구조 (€71B)" : "ABN AMRO Consortium Split (€71B)"}
+              </p>
+            </div>
+            <div className="p-5">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div className="rounded-xl p-4 border-2" style={{ borderColor: accent, background: accentLight }}>
+                  <p className="text-[10px] font-bold uppercase tracking-wide mb-1" style={{ color: accentDark }}>
+                    🇬🇧 RBS
+                  </p>
+                  <p className="text-xl font-black" style={{ color: accent }}>€27.2B</p>
+                  <p className="text-[11px] mt-2 leading-snug" style={{ color: accentDark }}>
+                    {ko ? "글로벌 transaction banking + 아시아 + 투자은행 일부 (LaSalle은 BofA가 별도 인수)" : "Global transaction banking + Asia + parts of the investment bank (LaSalle went to BofA separately)"}
+                  </p>
+                </div>
+                <div className="rounded-xl p-4 border-2 border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-900/20">
+                  <p className="text-[10px] font-bold uppercase tracking-wide text-amber-700 dark:text-amber-400 mb-1">
+                    🇧🇪🇳🇱 Fortis
+                  </p>
+                  <p className="text-xl font-black text-amber-700 dark:text-amber-400">€24.0B</p>
+                  <p className="text-[11px] text-amber-700 dark:text-amber-400 mt-2 leading-snug">
+                    {ko ? "ABN의 네덜란드 retail. Fortis도 2008.09 사실상 파산, €11.2B 정부 구제 후 분할 매각." : "ABN's Dutch retail. Fortis itself effectively collapsed Sep 2008, was bailed out for €11.2B, and split up."}
+                  </p>
+                </div>
+                <div className="rounded-xl p-4 border-2 border-emerald-300 dark:border-emerald-700 bg-emerald-50 dark:bg-emerald-900/20">
+                  <p className="text-[10px] font-bold uppercase tracking-wide text-emerald-700 dark:text-emerald-400 mb-1">
+                    🇪🇸 Santander
+                  </p>
+                  <p className="text-xl font-black text-emerald-700 dark:text-emerald-400">€19.9B</p>
+                  <p className="text-[11px] text-emerald-700 dark:text-emerald-400 mt-2 leading-snug">
+                    {ko ? "ABN의 이탈리아·브라질(Banco Real). 사실상 컨소시엄 유일한 승자 — Banco Real 자체로 인수가 대부분 회수." : "ABN's Italy + Brazil (Banco Real). Effectively the only winner — Banco Real alone recouped most of the price."}
+                  </p>
+                </div>
+              </div>
+              <p className="text-[11px] text-gray-400 text-center mt-4 italic">
+                {ko ? "Barclays 입찰 €67B(전액 주식 교환) vs 컨소시엄 €71B(거의 전액 현금) — 가격으로 이겼고 자본으로 졌다." : "Barclays' €67B all-stock bid vs the consortium's €71B nearly all-cash bid — won on price, lost on capital."}
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      </motion.section>
+
+      {/* ── Section 3: GFC + 구제 ── */}
+      <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
+        <SectionTitle accent={accent}>{ko ? story.sections[2].heading : story.sections[2].headingEn}</SectionTitle>
+        <BodyParagraphs accent={accent} paras={(ko ? story.sections[2].body : story.sections[2].bodyEn).split("\n\n").slice(0, 3)} />
+
+        {/* RBS stock collapse chart */}
+        <motion.div variants={fadeUp(0.1)} className="mt-6">
+          <ChartCard
+            title={ko ? "RBS 주가 — Goodwin 임기 + 붕괴 (LSE close, pence)" : "RBS Share Price — Goodwin Tenure + Collapse (LSE close, pence)"}
+            caption={ko ? "2007년 Q3 ABN 입찰 발표 직후 615p 정점 → 2009년 1월 22p. 약 96% 붕괴." : "Peaked at 615p just after the ABN bid in Q3 2007 → 22p by January 2009. A ~96% collapse."}
+          >
+            <ResponsiveContainer width="100%" height={240}>
+              <AreaChart data={rbsStockData} margin={{ top: 8, right: 16, bottom: 4, left: 8 }}>
+                <defs>
+                  <linearGradient id="rbsGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor="#dc2626" stopOpacity={0.28} />
+                    <stop offset="95%" stopColor="#dc2626" stopOpacity={0.03} />
+                  </linearGradient>
+                </defs>
+                <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+                <XAxis dataKey="date" tick={{ fontSize: 9, fill: "#9ca3af" }} axisLine={false} tickLine={false} interval={0} />
+                <YAxis domain={[0, 700]} tick={{ fontSize: 10, fill: "#9ca3af" }} axisLine={false} tickLine={false}
+                  tickFormatter={(v) => `${v}p`}
+                />
+                <Tooltip
+                  formatter={(v) => [`${v}p`, ko ? "주가" : "Share price"]}
+                  contentStyle={{ fontSize: 11, borderRadius: 8, border: "1px solid #e5e7eb" }}
+                />
+                <ReferenceLine y={200} stroke="#f59e0b" strokeDasharray="4 4"
+                  label={{ value: ko ? "권리주 발행가 200p" : "Rights issue 200p", fill: "#f59e0b", fontSize: 9, position: "insideTopRight" }}
+                />
+                <Area type="monotone" dataKey="price" stroke="#dc2626" strokeWidth={2.5}
+                  fill="url(#rbsGrad)" dot={{ fill: "#dc2626", r: 3, strokeWidth: 0 }} activeDot={{ fill: "#dc2626", r: 5 }}
+                />
+              </AreaChart>
+            </ResponsiveContainer>
+          </ChartCard>
+        </motion.div>
+
+        {/* Timeline */}
+        <motion.div variants={fadeUp(0.15)} className="mt-6 space-y-3">
+          {fateEvents.map((ev, i) => {
+            const c = sColors[ev.severity];
+            return (
+              <motion.div key={i} variants={fadeUp(i * 0.06)}
+                className={`rounded-xl border p-4 ${c.bg} ${c.border}`}
+              >
+                <div className="flex items-start gap-3">
+                  <div className={`w-2.5 h-2.5 rounded-full flex-shrink-0 mt-1.5 ${c.dot}`} />
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 flex-wrap mb-1">
+                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${c.badge}`}>{ev.date}</span>
+                      <span className={`text-[13px] font-bold ${c.text}`}>{ev.title}</span>
+                    </div>
+                    <p className={`text-[12px] leading-relaxed ${c.text} opacity-90`}>{ev.desc}</p>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+
+        {/* Bailout breakdown chart */}
+        <motion.div variants={fadeUp(0.2)} className="mt-6">
+          <ChartCard
+            title={ko ? "영국 정부 구제 단계별 규모 (£B)" : "UK Government Bailout — Phase Breakdown (£B)"}
+            caption={ko ? "직접 자본 투입 £57.5B + APS £282B 보증. 단일 회사 단일 위기 사상 최대 규모." : "Direct capital £57.5B + £282B APS guarantee. The largest single-firm single-crisis intervention in history."}
+          >
+            <ResponsiveContainer width="100%" height={240}>
+              <BarChart data={rbsBailoutData} margin={{ top: 8, right: 16, bottom: 32, left: 8 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" vertical={false} />
+                <XAxis dataKey={ko ? "phase" : "phaseEn"} tick={{ fontSize: 9, fill: "#9ca3af" }} axisLine={false} tickLine={false} interval={0} />
+                <YAxis tick={{ fontSize: 10, fill: "#9ca3af" }} axisLine={false} tickLine={false}
+                  tickFormatter={(v) => `£${v}B`}
+                />
+                <Tooltip
+                  formatter={(v) => [`£${v}B`, ko ? "규모" : "Amount"]}
+                  contentStyle={{ fontSize: 11, borderRadius: 8, border: "1px solid #e5e7eb" }}
+                />
+                <Bar dataKey="amount" radius={[6, 6, 0, 0]}>
+                  {rbsBailoutData.map((entry, i) => (
+                    <Cell key={i} fill={entry.color} />
+                  ))}
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
+          </ChartCard>
+        </motion.div>
+
+        <div className="mt-4">
+          <BodyParagraphs accent={accent} paras={(ko ? story.sections[2].body : story.sections[2].bodyEn).split("\n\n").slice(3)} />
+        </div>
+      </motion.section>
+
+      {/* ── Section 4: 작위 박탈 ── */}
+      <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
+        <SectionTitle accent={accent}>{ko ? story.sections[3].heading : story.sections[3].headingEn}</SectionTitle>
+        <BodyParagraphs accent={accent} paras={(ko ? story.sections[3].body : story.sections[3].bodyEn).split("\n\n")} />
+      </motion.section>
+    </div>
+  );
+}
+
 // ── FAQ Accordion ─────────────────────────────────────────────────────────────
 
 function FaqAccordion({
@@ -907,6 +1259,8 @@ export default function StoriesClient({ story, lang }: { story: InvestorStory; l
         return <ArchegosBody {...p} />;
       case "buffett-japan-2020":
         return <BuffettBody {...p} />;
+      case "goodwin-rbs-2008":
+        return <GoodwinBody {...p} />;
       case "leeson-barings-1995":
         return <LeesonBody {...p} />;
       case "meriwether-ltcm-1998":
