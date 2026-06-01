@@ -478,7 +478,7 @@ export type ScenarioCard = {
   stockOutcomeEn?: string;
   reasoning: string;           // 한 문장 핵심 설명
   reasoningEn: string;
-  /* Bullish (수혜) / Neutral / Warning / Bearish (위험) — 카드 색상 결정 /
+  // Bullish (수혜) / Neutral / Warning / Bearish (위험), 카드 색상 결정
   sentiment: "bullish" | "neutral" | "warning" | "bearish";
 };
 
@@ -1094,7 +1094,7 @@ const dollarHegemony1: NoteData = {
   status: "published",
   series: "dollar-hegemony",
   seriesOrder: 1,
-  title: "달러 패권 ① — 왜 달러가 세계의 돈이 됐나",
+  title: "달러 패권 ①, 왜 달러가 세계의 돈이 됐나",
   titleEn: "Dollar Hegemony ① — How the Dollar Became the World's Money",
   description:
     "브레튼우즈(1944), 닉슨 쇼크(1971), 페트로달러(1974). 달러가 기축통화가 된 것은 미국의 경제력 때문이 아니라, 세 번의 결정적 설계 때문이었다.",
@@ -1153,7 +1153,7 @@ const dollarHegemony1: NoteData = {
             variant: "quote",
             heading: "과도한 특권 (Exorbitant Privilege)",
             headingEn: "Exorbitant Privilege",
-            body: "\"미국은 달러를 찍어내기만 하면 전 세계에서 실물을 조달할 수 있다. 다른 나라는 수출해서 달러를 벌어야 하는데.\" — 발레리 지스카르 데스탱, 1965년",
+            body: "\"미국은 달러를 찍어내기만 하면 전 세계에서 실물을 조달할 수 있다. 다른 나라는 수출해서 달러를 벌어야 하는데.\"\n\n발레리 지스카르 데스탱, 1965년",
             bodyEn:
               "\"The US can acquire real resources from the rest of the world simply by printing dollars. Everyone else has to export to earn them.\" — Valéry Giscard d'Estaing, 1965",
           },
@@ -1167,7 +1167,7 @@ const dollarHegemony1: NoteData = {
       blocks: [
         {
           type: "text",
-          body: "1944년 7월, 뉴햄프셔 브레튼우즈 호텔.\n\n44개국 730명의 대표가 전후 국제통화 체계를 설계했다.\n\n두 거인이 맞섰다.\n\n영국의 존 메이너드 케인즈는 국제 결제 전용 통화 '방코르(Bancor)'를 제안했다. 어느 한 나라 통화에도 종속되지 않는 중립적 국제통화였다.\n\n미국의 해리 덱스터 화이트는 달러를 기축통화로 하는 시스템을 주장했다.\n\n케인즈는 패했다.\n\n당시 미국은 전 세계 금 매장량의 2/3를 보유하고 있었다.\n\n협상 테이블에서 금을 가진 자가 규칙을 만든다.\n\n합의된 체계는 다음과 같다.\n\n- 달러만 금과 교환 (1온스 = $35 고정)\n- 다른 모든 통화는 달러에 연동\n- 미국이 세계의 '중앙은행' 역할",
+          body: "1944년 7월, 뉴햄프셔 브레튼우즈 호텔.\n\n44개국 730명의 대표가 전후 국제통화 체계를 설계했다.\n\n두 거인이 맞섰다.\n\n영국의 존 메이너드 케인즈는 국제 결제 전용 통화 '방코르(Bancor)'를 제안했다.\n\n어느 한 나라 통화에도 종속되지 않는 중립적 국제통화였다.\n\n미국의 해리 덱스터 화이트는 달러를 기축통화로 하는 시스템을 주장했다.\n\n케인즈는 패했다.\n\n당시 미국은 전 세계 금 매장량의 2/3를 보유하고 있었다.\n\n협상 테이블에서 금을 가진 자가 규칙을 만든다.\n\n합의된 체계는 다음과 같다.\n\n- 달러만 금과 교환 (1온스 = $35 고정)\n- 다른 모든 통화는 달러에 연동\n- 미국이 세계의 '중앙은행' 역할",
           bodyEn:
             "July 1944, Bretton Woods Hotel, New Hampshire. 730 delegates from 44 nations gathered to design the postwar international monetary order.\n\nTwo giants clashed. Britain's John Maynard Keynes proposed 'Bancor' — a neutral international currency not tied to any single nation. America's Harry Dexter White pushed for a dollar-centric system.\n\nKeynes lost. The US held two-thirds of the world's gold reserves at the time. In negotiations, whoever holds the gold makes the rules. The agreed system:\n\n- Only the dollar would be exchangeable for gold (fixed at $35/oz)\n- All other currencies would peg to the dollar\n- The US would serve as the world's 'central bank'",
         },
@@ -1201,7 +1201,7 @@ const dollarHegemony1: NoteData = {
             variant: "example",
             heading: "역설, 달러는 금 없이 더 강해졌다",
             headingEn: "The Paradox: The Dollar Grew Stronger Without Gold",
-            body: "닉슨 쇼크 이후 달러는 어떤 실물로도 뒷받침되지 않는 통화가 되었다.\n\n보통 이런 일이 생기면 통화는 붕괴한다.\n\n그런데 달러는 오히려 전 세계에 더 깊이 침투했다.\n\n이유는 간단하다. 대안이 없었다.\n\n그리고 3년 후, 새로운 뒷받침이 생겼다.",
+            body: "닉슨 쇼크 이후 달러는 어떤 실물로도 뒷받침되지 않는 통화가 되었다.\n\n보통 이런 일이 생기면 통화는 붕괴한다.\n\n그런데 달러는 오히려 전 세계에 더 깊이 침투했다.\n\n이유는 간단하다.\n\n대안이 없었다.\n\n그리고 3년 후, 새로운 뒷받침이 생겼다.",
             bodyEn:
               "After the Nixon Shock, the dollar became a currency backed by nothing tangible. Normally that's a death sentence for a currency. Yet the dollar only penetrated the global economy more deeply. The reason was simple — there was no alternative. And three years later, a new form of backing emerged.",
           },
@@ -1215,7 +1215,7 @@ const dollarHegemony1: NoteData = {
       blocks: [
         {
           type: "text",
-          body: "1973~74년 1차 오일쇼크.\n\nOPEC은 석유 금수 조치로 유가를 4배 올렸다.\n\n세계는 에너지 대란에 빠졌고, 미국은 기회를 봤다.\n\n헨리 키신저 국무장관과 윌리엄 사이먼 재무장관은 사우디아라비아와 비밀 협상에 들어갔다.\n\n1974년 6월 체결된 협약의 핵심은 다음과 같다.\n\n사우디아라비아가 미국에 주는 것.\n\n- OPEC을 설득해 모든 석유를 달러로만 결제\n- 석유 수출로 벌어들인 달러 잉여분을 미국 국채(Treasury)에 투자\n\n미국이 사우디아라비아에 주는 것.\n\n- 군사 안보 보장 및 무기 지원\n- 왕정 체제 보호\n\n이로써 달러는 새로운 뒷받침을 얻었다. 금(Gold) 대신 석유(Oil)였다.\n\n세계는 에너지를 사려면 달러가 필요해졌고, 달러를 얻으려면 미국 국채를 사야 했다.\n\n달러 수요와 미국 국채 수요가 구조적으로 묶였다.",
+          body: "1973~74년 1차 오일쇼크.\n\nOPEC은 석유 금수 조치로 유가를 4배 올렸다.\n\n세계는 에너지 대란에 빠졌고, 미국은 기회를 봤다.\n\n헨리 키신저 국무장관과 윌리엄 사이먼 재무장관은 사우디아라비아와 비밀 협상에 들어갔다.\n\n1974년 6월 체결된 협약의 핵심은 다음과 같다.\n\n사우디아라비아가 미국에 주는 것.\n\n- OPEC을 설득해 모든 석유를 달러로만 결제\n- 석유 수출로 벌어들인 달러 잉여분을 미국 국채(Treasury)에 투자\n\n미국이 사우디아라비아에 주는 것.\n\n- 군사 안보 보장 및 무기 지원\n- 왕정 체제 보호\n\n이로써 달러는 새로운 뒷받침을 얻었다.\n\n금(Gold) 대신 석유(Oil)였다.\n\n세계는 에너지를 사려면 달러가 필요해졌고, 달러를 얻으려면 미국 국채를 사야 했다.\n\n달러 수요와 미국 국채 수요가 구조적으로 묶였다.",
           bodyEn:
             "The 1973-74 oil shock. OPEC's oil embargo quadrupled oil prices. The world plunged into an energy crisis — and the US saw an opportunity.\n\nSecretary of State Henry Kissinger and Treasury Secretary William Simon entered secret negotiations with Saudi Arabia. The June 1974 accord had two sides:\n\nWhat Saudi Arabia gave the US:\n- Persuade OPEC to price all oil exclusively in dollars\n- Recycle surplus petrodollar earnings into US Treasury bonds\n\nWhat the US gave Saudi Arabia:\n- Military security guarantees and weapons\n- Protection for the monarchy\n\nThe dollar had found new backing. Gold was replaced by Oil. The world needed dollars to buy energy. To get dollars, you bought US Treasuries. Dollar demand and Treasury demand became structurally intertwined.",
         },
@@ -1500,7 +1500,7 @@ const dollarHegemony2: NoteData = {
   status: "published",
   series: "dollar-hegemony",
   seriesOrder: 2,
-  title: "달러 패권 ② — 배관을 이해하면 세계가 보인다",
+  title: "달러 패권 ②, 배관을 이해하면 세계가 보인다",
   titleEn: "Dollar Hegemony ② — Understanding the Plumbing",
   description:
     "레포시장, 연준 대차대조표, 재무부 TGA. 달러 패권은 지정학이 아닌 유동성 배관으로 유지된다. 2019년 레포 위기와 캐빈 워시 시대가 이 배관을 어떻게 바꾸는지 해부한다.",
@@ -1572,7 +1572,7 @@ const dollarHegemony2: NoteData = {
             variant: "insight",
             heading: "왜 국채가 담보인가, 달러 패권의 순환 논리",
             headingEn: "Why Treasuries Are Collateral — Dollar Hegemony's Circular Logic",
-            body: "달러가 기축통화이기 때문에 국채가 최고 담보가 된다. 국채가 최고 담보이기 때문에 전 세계가 국채를 보유하려 한다. 국채 수요가 구조적으로 높기 때문에 미국은 낮은 금리로 계속 차입할 수 있다. 그 차입이 다시 달러 공급을 유지한다. 이 순환이 깨지지 않는 한, 달러 패권은 자기 강화된다.",
+            body: "달러가 기축통화이기 때문에 국채가 최고 담보가 된다.\n\n국채가 최고 담보이기 때문에 전 세계가 국채를 보유하려 한다.\n\n국채 수요가 구조적으로 높기 때문에 미국은 낮은 금리로 계속 차입할 수 있다.\n\n그 차입이 다시 달러 공급을 유지한다.\n\n이 순환이 깨지지 않는 한, 달러 패권은 자기 강화된다.",
             bodyEn:
               "Because the dollar is the reserve currency, Treasuries become the premier collateral. Because Treasuries are premier collateral, everyone wants to hold them. Because demand is structurally high, the US borrows at low rates. That borrowing sustains dollar supply. As long as this loop holds, dollar hegemony self-reinforces.",
           },
@@ -1581,12 +1581,12 @@ const dollarHegemony2: NoteData = {
     },
     // ── 2 ──────────────────────────────────────────────────────────────────────
     {
-      heading: "연준 대차대조표 — 달러의 수도꼭지",
+      heading: "연준 대차대조표, 달러의 수도꼭지",
       headingEn: "The Fed Balance Sheet — The Dollar Faucet",
       blocks: [
         {
           type: "text",
-          body: "연준(Federal Reserve)은 달러를 찍어내는 기관이다. 그러나 연준이 달러를 공급하는 방식은 '찍어내기'보다 훨씬 복잡하다. 핵심은 대차대조표(balance sheet)다.\n\nQE(양적완화) 작동 방식:\n연준이 시중의 국채를 매입한다 → 매입 대금으로 은행에 지급준비금(bank reserves)을 지급한다 → 시중에 달러가 공급된다.\n\nQT(양적긴축) 작동 방식:\n연준이 보유 국채를 만기 시 재투자하지 않거나 매각한다 → 국채가 시장으로 돌아온다 → 은행 지급준비금이 줄어든다 → 시중 달러 유동성이 감소한다.\n\n2008년 금융위기 전, 연준 대차대조표는 약 $9,000억이었다. 2022년 정점에서는 $9조에 달했다. 단 14년 만에 10배 팽창했다.",
+          body: "연준(Federal Reserve)은 달러를 찍어내는 기관이다.\n\n다만, 연준이 달러를 공급하는 방식은 '찍어내기'보다 훨씬 복잡하다.\n\n핵심은 대차대조표(balance sheet)다.\n\nQE(양적완화) 작동 방식.\n\n연준이 시중의 국채를 매입한다 → 매입 대금으로 은행에 지급준비금(bank reserves)을 지급한다 → 시중에 달러가 공급된다.\n\nQT(양적긴축) 작동 방식.\n\n연준이 보유 국채를 만기 시 재투자하지 않거나 매각한다 → 국채가 시장으로 돌아온다 → 은행 지급준비금이 줄어든다 → 시중 달러 유동성이 감소한다.\n\n2008년 금융위기 전, 연준 대차대조표는 약 $9,000억이었다.\n\n2022년 정점에서는 약 $9조에 달했다.\n\n단 14년 만에 10배 팽창했다.",
           bodyEn:
             "The Federal Reserve is the institution that creates dollars. But the way it supplies dollars is far more complex than simply 'printing.' The key is the balance sheet.\n\nHow QE (Quantitative Easing) works:\nThe Fed buys Treasuries from the market → pays for them with bank reserves → dollars enter the economy.\n\nHow QT (Quantitative Tightening) works:\nThe Fed lets Treasuries mature without reinvesting, or actively sells → Treasuries return to the market → bank reserves shrink → dollar liquidity in the economy contracts.\n\nBefore the 2008 financial crisis, the Fed's balance sheet was approximately $900 billion. At its 2022 peak, it reached $9 trillion — a 10× expansion in just 14 years.",
         },
@@ -1631,9 +1631,9 @@ const dollarHegemony2: NoteData = {
           type: "callout",
           callout: {
             variant: "warning",
-            heading: "QE의 역설 — 국채를 사면 담보가 줄어든다",
+            heading: "QE의 역설, 국채를 사면 담보가 줄어든다",
             headingEn: "QE's Paradox — Buying Treasuries Reduces Collateral",
-            body: "연준이 QE로 국채를 사면 시중에 달러(지급준비금)는 늘어난다. 그런데 동시에 레포시장의 담보(국채)는 줄어든다. 유동성은 증가하지만 배관의 연료가 감소하는 아이러니. QT가 오히려 레포시장 담보를 늘린다는 역설이 여기서 나온다 — 단, 너무 빠르면 준비금 부족으로 위기가 생긴다.",
+            body: "연준이 QE로 국채를 사면 시중에 달러(지급준비금)는 늘어난다.\n\n그러나 동시에 레포시장의 담보(국채)는 줄어든다.\n\n유동성은 증가하지만 배관의 연료가 감소하는 아이러니다.\n\nQT가 오히려 레포시장 담보를 늘린다는 역설이 여기서 나온다.\n\n다만, 너무 빠르면 준비금 부족으로 위기가 생긴다.",
             bodyEn:
               "When the Fed buys Treasuries via QE, dollar reserves in the system increase. But simultaneously, repo market collateral (Treasuries) decreases. Liquidity rises but the fuel that runs the plumbing shrinks. This is where the paradox emerges: QT actually increases repo collateral — but if it goes too fast, reserve shortages trigger a crisis.",
           },
@@ -1642,12 +1642,12 @@ const dollarHegemony2: NoteData = {
     },
     // ── 3 ──────────────────────────────────────────────────────────────────────
     {
-      heading: "재무부 TGA — 아무도 말하지 않는 유동성 변수",
+      heading: "재무부 TGA, 아무도 말하지 않는 유동성 변수",
       headingEn: "The Treasury TGA — The Liquidity Variable Nobody Talks About",
       blocks: [
         {
           type: "text",
-          body: "달러 유동성을 움직이는 변수는 연준만이 아니다. 재무부 TGA(Treasury General Account)가 조용히 시장을 흔든다.\n\nTGA는 미국 재무부가 연준에 보유하는 당좌계좌다. 정부가 세금을 걷거나 국채를 발행하면 TGA로 들어오고, 정부가 지출하면 TGA에서 나간다. 단순해 보이지만, 이 계좌의 잔고 변화가 시중 유동성에 직접 영향을 미친다:\n\n- TGA 잔고 감소 → 정부 지출 증가 → 시중에 달러 공급 → 유동성 증가 (완화 효과)\n- TGA 잔고 증가 → 국채 발행 or 지출 축소 → 시중에서 달러 흡수 → 유동성 감소 (긴축 효과)",
+          body: "달러 유동성을 움직이는 변수는 연준만이 아니다.\n\n재무부 TGA(Treasury General Account)가 조용히 시장을 흔든다.\n\nTGA는 미국 재무부가 연준에 보유하는 당좌계좌다.\n\n정부가 세금을 걷거나 국채를 발행하면 TGA로 들어오고, 정부가 지출하면 TGA에서 나간다.\n\n단순해 보이지만, 이 계좌의 잔고 변화가 시중 유동성에 직접 영향을 미친다.\n\n- TGA 잔고 감소 → 정부 지출 증가 → 시중에 달러 공급 → 유동성 증가 (완화 효과)\n- TGA 잔고 증가 → 국채 발행 or 지출 축소 → 시중에서 달러 흡수 → 유동성 감소 (긴축 효과)",
           bodyEn:
             "The Fed isn't the only variable moving dollar liquidity. The Treasury General Account (TGA) quietly moves markets.\n\nThe TGA is the checking account the US Treasury holds at the Fed. Tax receipts and bond issuance flow in; government spending flows out. Simple in principle — but changes in this balance directly impact market liquidity:\n\n- TGA balance falls → government spending increases → dollars enter the economy → liquidity rises (easing effect)\n- TGA balance rises → bond issuance or spending cuts → dollars absorbed from economy → liquidity falls (tightening effect)",
         },
@@ -1660,10 +1660,10 @@ const dollarHegemony2: NoteData = {
             headers: ["단계", "상황", "TGA 변화", "시장 유동성", "금융시장 효과"],
             headersEn: ["Phase", "Situation", "TGA Change", "Market Liquidity", "Market Effect"],
             rows: [
-              ["①", "부채한도 도달 — 국채 발행 중단", "TGA 잔고 감소", "공급 증가", "완화적 (주가↑)"],
+              ["①", "부채한도 도달, 국채 발행 중단", "TGA 잔고 감소", "공급 증가", "완화적 (주가↑)"],
               ["②", "부채한도 협상 타결", "TGA 재충전 시작", "공급 감소", "긴축적 (주가↓ 가능)"],
               ["③", "국채 대규모 발행 (빚 갚기)", "TGA 급증", "대규모 흡수", "강한 긴축 충격"],
-              ["④", "정상화 — 정기 지출 재개", "TGA 점진 감소", "정상화", "중립"],
+              ["④", "정상화, 정기 지출 재개", "TGA 점진 감소", "정상화", "중립"],
             ],
             rowsEn: [
               ["①", "Debt ceiling hit — no new issuance", "TGA balance falls", "Supply increases", "Easing (equities ↑)"],
@@ -1681,12 +1681,12 @@ const dollarHegemony2: NoteData = {
     },
     // ── 4 ──────────────────────────────────────────────────────────────────────
     {
-      heading: "2019년 레포 위기 — 배관이 막힌 날",
+      heading: "2019년 레포 위기, 배관이 막힌 날",
       headingEn: "The 2019 Repo Crisis — The Day the Pipes Clogged",
       blocks: [
         {
           type: "text",
-          body: "2019년 9월 17일 화요일 오전. 미국 레포시장이 멈췄다.\n\n전날까지 연 2% 내외였던 레포금리가 오전 중 10%까지 치솟았다. 하룻밤 사이에 5배. 연준 기준금리 상단(2.25%)의 4배가 넘는 수준이었다. 세계 최대 단기 자금시장이 마비될 뻔한 순간이었다.",
+          body: "2019년 9월 17일 화요일 오전.\n\n미국 레포시장이 멈췄다.\n\n전날까지 연 2% 내외였던 레포금리가 오전 중 10%까지 치솟았다.\n\n하룻밤 사이에 5배다.\n\n연준 기준금리 상단(2.25%)의 4배가 넘는 수준이었다.\n\n세계 최대 단기 자금시장이 마비될 뻔한 순간이었다.",
           bodyEn:
             "Tuesday morning, September 17, 2019. The US repo market froze.\n\nOvernight repo rates that had been hovering around 2% surged to 10% during the morning session — five times higher than the prior day, more than four times the Fed's upper policy rate (2.25%). The world's largest short-term funding market nearly seized up.",
         },
@@ -1694,7 +1694,7 @@ const dollarHegemony2: NoteData = {
           type: "chart",
           chart: {
             id: "repo-crisis",
-            title: "2019년 레포금리 위기 — 하루 만에 10%로 폭등",
+            title: "2019년 레포금리 위기, 하루 만에 10%로 폭등",
             titleEn: "2019 Repo Crisis — Rates Surged to 10% in a Single Day",
             caption:
               "출처: Federal Reserve Bank of New York, SOFR 전환 이전 GCF Repo rate 기준. 2019년 9월 17~18일 레포금리가 연 10%까지 치솟았고, 연준이 즉각 overnight repo 운영에 나서 정상화했다.",
@@ -1716,7 +1716,7 @@ const dollarHegemony2: NoteData = {
         },
         {
           type: "text",
-          body: "원인은 두 가지가 동시에 겹쳤다:\n\n① 법인세 납부 마감일 — 대형 기업들이 세금을 내기 위해 은행에서 대규모로 현금을 인출. 은행 지급준비금 급감\n② 국채 신규 발행 결제일 — 대규모 국채 경매 결제로 시중 현금이 국채 대금으로 빠져나감\n\n두 이벤트가 겹치자 은행들의 지급준비금이 임계점 이하로 떨어졌다. 달러를 빌려줄 여유가 없어진 은행들이 레포시장에서 발을 빼자 금리가 폭등했다.\n\n연준은 다음날 즉각 $750억 규모 overnight repo 오퍼레이션을 실시했다. 이후 수개월간 레포시장에 계속 개입했고, 2019년 10월부터는 T-bill(단기 국채)을 매월 $600억씩 매입하기 시작했다. 파월 의장은 이것을 \"QE가 아니다(NOT QE)\"라고 불렀지만, 사실상 미니 QE였다.\n\n이 사건이 가르쳐준 교훈: QT에는 하드 플로어가 있다. 지급준비금이 일정 수준 이하로 떨어지면 배관이 막힌다. 연준은 이를 막기 위해 2021년 Standing Repo Facility(SRF)를 신설했다.",
+          body: "원인은 두 가지가 동시에 겹쳤다.\n\n① 법인세 납부 마감일. 대형 기업들이 세금을 내기 위해 은행에서 대규모로 현금을 인출했고, 은행 지급준비금이 급감했다.\n\n② 국채 신규 발행 결제일. 대규모 국채 경매 결제로 시중 현금이 국채 대금으로 빠져나갔다.\n\n두 이벤트가 겹치자 은행들의 지급준비금이 임계점 이하로 떨어졌다.\n\n달러를 빌려줄 여유가 없어진 은행들이 레포시장에서 발을 빼자 금리가 폭등했다.\n\n연준은 다음날 즉각 약 $750억 규모 overnight repo 오퍼레이션을 실시했다.\n\n이후 수개월간 레포시장에 계속 개입했고, 2019년 10월부터는 T-bill(단기 국채)을 매월 약 $600억씩 매입하기 시작했다.\n\n파월 의장은 이것을 \"QE가 아니다(NOT QE)\"라고 불렀지만, 사실상 미니 QE였다.\n\n이 사건이 가르쳐준 교훈은 분명하다.\n\nQT에는 하드 플로어가 있다.\n\n지급준비금이 일정 수준 이하로 떨어지면 배관이 막힌다.\n\n연준은 이를 막기 위해 2021년 Standing Repo Facility(SRF)를 신설했다.",
           bodyEn:
             "Two events collided simultaneously:\n\n① Corporate tax payment deadline — Large corporations drained cash from banks to pay taxes, rapidly depleting bank reserves\n② Treasury auction settlement — Large-scale Treasury issuance settlement absorbed cash from the system\n\nWhen the two hit together, bank reserves fell below the critical threshold. Banks unwilling to lend in repo pulled back — and rates exploded.\n\nThe Fed immediately launched a $75 billion overnight repo operation the next day, continuing interventions for months. In October 2019, it began purchasing $60 billion in T-bills monthly. Chair Powell called this \"NOT QE\" — but it was effectively a mini-QE.\n\nThe lesson: QT has a hard floor. When reserves fall below a certain level, the plumbing clogs. To prevent recurrence, the Fed established the Standing Repo Facility (SRF) in 2021.",
         },
@@ -1724,12 +1724,12 @@ const dollarHegemony2: NoteData = {
     },
     // ── 5 ──────────────────────────────────────────────────────────────────────
     {
-      heading: "달러 공급의 역설 — 빚이 많을수록 배관이 원활하다",
+      heading: "달러 공급의 역설, 빚이 많을수록 배관이 원활하다",
       headingEn: "The Dollar Supply Paradox — More Debt Means Better Plumbing",
       blocks: [
         {
           type: "text",
-          body: "이제 1편의 핵심 질문으로 돌아온다. 미국 국채가 $36조를 넘어도 왜 세계는 계속 사는가?\n\n배관의 논리로 보면 역설이 사라진다.\n\n미국이 국채를 더 발행하면 → 레포시장에 담보가 늘어난다 → 글로벌 단기 달러 조달이 원활해진다 → 달러 수요가 늘어난다 → 달러 패권이 강화된다. 부채 증가가 달러 패권을 약화시키는 것이 아니라, 오히려 강화하는 메커니즘이다.\n\n이것이 '트리핀 딜레마'를 배관 언어로 번역한 결과다. 미국은 기축통화국으로서 세계에 달러(=유동성)를 공급하기 위해 구조적으로 경상수지 적자와 재정적자를 낼 수밖에 없다. 달러를 공급하는 행위 자체가 미국의 부채 누적을 의미한다. 그리고 그 부채(국채)가 레포시장의 연료가 되어 다시 달러 수요를 창출한다.",
+          body: "이제 1편의 핵심 질문으로 돌아온다.\n\n미국 국채가 $36조를 넘어도 왜 세계는 계속 사는가.\n\n배관의 논리로 보면 역설이 사라진다.\n\n미국이 국채를 더 발행하면 → 레포시장에 담보가 늘어난다 → 글로벌 단기 달러 조달이 원활해진다 → 달러 수요가 늘어난다 → 달러 패권이 강화된다.\n\n부채 증가가 달러 패권을 약화시키는 것이 아니라, 오히려 강화하는 메커니즘이다.\n\n이것이 '트리핀 딜레마'를 배관 언어로 번역한 결과다.\n\n미국은 기축통화국으로서 세계에 달러(=유동성)를 공급하기 위해 구조적으로 경상수지 적자와 재정적자를 낼 수밖에 없다.\n\n달러를 공급하는 행위 자체가 미국의 부채 누적을 의미한다.\n\n그리고 그 부채(국채)가 레포시장의 연료가 되어 다시 달러 수요를 창출한다.",
           bodyEn:
             "Now we return to the core question from Part 1: why does the world keep buying US Treasuries even as the total exceeds $36 trillion?\n\nThrough the plumbing lens, the paradox dissolves.\n\nMore US debt issuance → more collateral in the repo market → smoother global short-term dollar funding → more dollar demand → stronger dollar hegemony. Growing debt doesn't weaken dollar hegemony — the mechanism actually reinforces it.\n\nThis is what the Triffin Dilemma looks like translated into plumbing language. As the reserve currency issuer, the US is structurally required to run current account and fiscal deficits to supply the world with dollars (= liquidity). The very act of supplying dollars means accumulating debt. And that debt (Treasuries) becomes the fuel for the repo market, regenerating dollar demand.",
         },
@@ -1737,7 +1737,7 @@ const dollarHegemony2: NoteData = {
           type: "callout",
           callout: {
             variant: "quote",
-            body: "달러 패권의 역설: 미국의 부채가 세계 금융 시스템의 연료다. 부채가 사라지면 배관도 멈춘다.",
+            body: "달러 패권의 역설.\n\n미국의 부채가 세계 금융 시스템의 연료다.\n\n부채가 사라지면 배관도 멈춘다.",
             bodyEn:
               "The dollar paradox: US debt is the fuel of the global financial system. If the debt disappeared, so would the plumbing.",
           },
@@ -1746,12 +1746,12 @@ const dollarHegemony2: NoteData = {
     },
     // ── 6 ──────────────────────────────────────────────────────────────────────
     {
-      heading: "캐빈 워시 — 배관공이 바뀐다",
+      heading: "캐빈 워시, 배관공이 바뀐다",
       headingEn: "Kevin Warsh — A New Plumber Takes Over",
       blocks: [
         {
           type: "text",
-          body: "2026년 연준의장 자리에 캐빈 워시(Kevin Warsh)가 지명됐다. 전 연준 이사(2006~2011), JP모건 투자은행 출신. 트럼프 대통령의 낙점이었다.\n\n워시가 중요한 이유는 그의 통화정책 철학이 파월과 근본적으로 다르기 때문이다.",
+          body: "2026년 연준의장 자리에 캐빈 워시(Kevin Warsh)가 지명됐다.\n\n전 연준 이사(2006~2011), JP모건 투자은행 출신이다.\n\n트럼프 대통령의 낙점이었다.\n\n워시가 중요한 이유는 그의 통화정책 철학이 파월과 근본적으로 다르기 때문이다.",
           bodyEn:
             "In 2026, Kevin Warsh was nominated as Fed Chair — a former Fed Governor (2006–2011) and JP Morgan investment banker. Trump's choice.\n\nWarsh matters because his monetary policy philosophy differs fundamentally from Powell's.",
         },
@@ -1781,7 +1781,7 @@ const dollarHegemony2: NoteData = {
               labelEn: "Tension with Trump",
               value: "금리 인하 압박 vs 인플레 억제",
               valueEn: "Rate-cut pressure vs. inflation control",
-              sub: "트럼프는 금리 인하를 원하지만, 워시는 인플레 재발 우려로 신중한 입장 — Fed 독립성 갈등 가능",
+              sub: "트럼프는 금리 인하를 원하지만, 워시는 인플레 재발 우려로 신중한 입장이다. Fed 독립성 갈등 가능성이 유력하다.",
               subEn: "Trump wants rate cuts; Warsh is cautious about inflation re-acceleration — potential Fed independence friction",
               color: "text-amber-600 dark:text-amber-400",
             },
@@ -1789,7 +1789,7 @@ const dollarHegemony2: NoteData = {
         },
         {
           type: "text",
-          body: "워시 체제가 달러 유동성에 미치는 직접 영향:\n\nQT 가속 → 시중 국채 공급 증가(레포 담보↑) + 은행 지급준비금 감소 → 단기 금리 상승 압력 → 글로벌 달러 유동성 긴축\n\n장기 금리 → 국채 공급 증가 + 인플레 우려로 장기 금리(10년물) 상승 가능 → 달러 강세 압력\n\n한 가지 아이러니가 있다. 공격적 QT가 은행 지급준비금을 너무 빨리 줄이면 — 또 다른 2019년 레포 위기가 올 수 있다. 워시는 이 리스크를 알고 있고, SRF(상설 레포 창구)가 백스톱이 되겠지만, 그 임계점이 어디인지는 실시간으로 테스트될 것이다.",
+          body: "워시 체제가 달러 유동성에 미치는 직접 영향은 두 갈래다.\n\n첫째, QT 가속이다.\n\n시중 국채 공급 증가(레포 담보↑) + 은행 지급준비금 감소 → 단기 금리 상승 압력 → 글로벌 달러 유동성 긴축으로 이어진다.\n\n둘째, 장기 금리 압력이다.\n\n국채 공급 증가와 인플레 우려로 장기 금리(10년물)가 상승할 가능성이 유력하고, 이는 달러 강세 압력으로 작용한다.\n\n다만, 한 가지 아이러니가 있다.\n\n공격적 QT가 은행 지급준비금을 너무 빨리 줄이면 또 다른 2019년 레포 위기가 올 수 있다.\n\n워시는 이 리스크를 알고 있고, SRF(상설 레포 창구)가 백스톱이 되겠지만, 그 임계점이 어디인지는 실시간으로 테스트될 문제이다.",
           bodyEn:
             "Warsh's direct impact on dollar liquidity:\n\nFaster QT → More Treasuries in market (more repo collateral) + shrinking bank reserves → upward pressure on short rates → global dollar liquidity tightening\n\nLong-term rates → Rising Treasury supply + inflation fears → higher 10-year yields possible → dollar strengthening pressure\n\nOne irony: if aggressive QT drains bank reserves too quickly — another 2019 repo crisis could emerge. Warsh knows this risk, and the SRF (Standing Repo Facility) provides a backstop — but where exactly the critical threshold lies will be tested in real time.",
         },
@@ -1797,12 +1797,12 @@ const dollarHegemony2: NoteData = {
     },
     // ── 7 ──────────────────────────────────────────────────────────────────────
     {
-      heading: "글로벌 투자자 시각 — 배관의 압력이 어디서 새는가",
+      heading: "글로벌 투자자 시각, 배관의 압력이 어디서 새는가",
       headingEn: "Global Investor Perspective — Where the Plumbing Pressure Leaks",
       blocks: [
         {
           type: "text",
-          body: "달러 유동성 배관이 조여들 때, 그 압력은 가장 약한 고리에서 새어나온다. 글로벌 금융시장에서 이 '약한 고리'는 신흥국 자산과 단기 달러 조달 시장이다.\n\n크로스커런시 베이시스 스왑(CCBS): 달러 패권 배관의 스트레스를 측정하는 가장 정밀한 지표 중 하나다. 비달러권 기관이 달러를 단기 조달할 때 치르는 '프리미엄'이다. 정상 시에는 0에 가깝지만, QT가 과속되거나 위기가 오면 급등한다. 2008년 금융위기 당시 엔화 CCBS는 -100bp에 달했다. 유로화도 -70bp까지 벌어졌다. 이 숫자가 커질수록 달러를 빌리는 비용이 기준금리보다 훨씬 높아진다.\n\n신흥국 자본 흐름: 연준이 QT를 진행하면 '위험 회피(risk-off)' 모드가 된다. 신흥국 주식·채권에서 자금이 빠져나와 미국 국채로 이동한다. 이것을 '달러 스마일(Dollar Smile)' 이론이라 부른다 — 미국 경제가 매우 좋아도, 아주 나빠도 달러가 강해진다. 신흥국 통화는 그 반대편에 있다.\n\n워시 체제의 글로벌 임팩트: 공격적 QT + 규칙 기반 정책은 시장 예측 가능성을 높이는 반면, 달러 유동성의 탄력성을 줄인다. 위기 시 연준이 '재량적으로' 개입하는 여지가 좁아지면, 신흥국은 더 빠르게, 더 깊이 달러 조달 위기에 노출될 수 있다. 그 전선에 가장 먼저 서 있는 나라들 — 스왑라인 없는 터키, 달러 외채 많은 아르헨티나, 그리고 제재받는 러시아 — 은 가장 먼저 배관의 균열을 느낀다.",
+          body: "달러 유동성 배관이 조여들 때, 그 압력은 가장 약한 고리에서 새어나온다.\n\n글로벌 금융시장에서 이 '약한 고리'는 신흥국 자산과 단기 달러 조달 시장이다.\n\n첫째, 크로스커런시 베이시스 스왑(CCBS).\n\n달러 패권 배관의 스트레스를 측정하는 가장 정밀한 지표 중 하나다.\n\n비달러권 기관이 달러를 단기 조달할 때 치르는 '프리미엄'이다.\n\n정상 시에는 0에 가깝지만, QT가 과속되거나 위기가 오면 급등한다.\n\n2008년 금융위기 당시 엔화 CCBS는 약 -100bp에 달했다.\n\n유로화도 약 -70bp까지 벌어졌다.\n\n이 숫자가 커질수록 달러를 빌리는 비용이 기준금리보다 훨씬 높아진다.\n\n둘째, 신흥국 자본 흐름이다.\n\n연준이 QT를 진행하면 '위험 회피(risk-off)' 모드가 된다.\n\n신흥국 주식, 채권에서 자금이 빠져나와 미국 국채로 이동한다.\n\n이것을 '달러 스마일(Dollar Smile)' 이론이라 부른다.\n\n미국 경제가 매우 좋아도, 아주 나빠도 달러가 강해진다는 의미이다.\n\n신흥국 통화는 그 반대편에 있다.\n\n셋째, 워시 체제의 글로벌 임팩트다.\n\n공격적 QT와 규칙 기반 정책은 시장 예측 가능성을 높이는 반면, 달러 유동성의 탄력성을 줄인다.\n\n따라서, 위기 시 연준이 '재량적으로' 개입하는 여지가 좁아지면, 신흥국은 더 빠르게, 더 깊이 달러 조달 위기에 노출될 가능성이 유력하다.\n\n그 전선에 가장 먼저 서 있는 나라들, 곧 스왑라인 없는 터키, 달러 외채 많은 아르헨티나, 그리고 제재받는 러시아가 가장 먼저 배관의 균열을 느낀다.",
           bodyEn:
             "When the dollar liquidity plumbing tightens, pressure leaks at the weakest link. In global financial markets, those weak links are emerging market assets and short-term dollar funding markets.\n\nCross-Currency Basis Swaps (CCBS): One of the most precise gauges of stress in dollar hegemony's plumbing — the 'premium' non-dollar institutions pay to borrow dollars short-term. Near zero in normal times; spikes during QT overshoot or crisis. During the 2008 financial crisis, the JPY CCBS reached -100bp. EUR hit -70bp. The wider this spread, the more dollar borrowing costs exceed the policy rate benchmark.\n\nEM capital flows: When the Fed runs QT, markets shift into risk-off mode — capital exits EM equities and bonds and flows into US Treasuries. This is what the 'Dollar Smile' theory describes: the dollar strengthens when the US economy is very strong and when it's very weak. Emerging market currencies sit on the other side of that smile.\n\nThe Warsh regime's global impact: Aggressive QT + rules-based policy increases market predictability but reduces dollar liquidity flexibility. If the Fed's room for 'discretionary' intervention narrows in a crisis, EMs face faster and deeper dollar funding stress. The countries first in line — Turkey without a swap line, Argentina with heavy dollar debt, Russia under sanctions — feel the plumbing crack earliest.",
         },
@@ -1810,9 +1810,9 @@ const dollarHegemony2: NoteData = {
           type: "callout",
           callout: {
             variant: "insight",
-            heading: "다음 편 예고 — 탈달러화는 가능한가",
+            heading: "다음 편 예고, 탈달러화는 가능한가",
             headingEn: "Next: Can Dedollarization Actually Happen?",
-            body: "배관이 이렇게 촘촘하게 짜여 있는데, 탈달러화는 실제로 진행되고 있는가? BRICS, 위안화, mBridge — 선언은 넘치지만 인프라의 현실은 냉혹하다. 3편에서 탈달러화의 실체를 해부한다.",
+            body: "배관이 이렇게 촘촘하게 짜여 있는데, 탈달러화는 실제로 진행되고 있는가.\n\nBRICS, 위안화, mBridge.\n\n선언은 넘치지만 인프라의 현실은 냉혹하다.\n\n3편에서 탈달러화의 실체를 해부한다.",
             bodyEn:
               "With plumbing this tightly woven, is dedollarization actually happening? BRICS, yuan, mBridge — declarations overflow but the infrastructure reality is sobering. Part 3 dissects the real state of dedollarization.",
           },
@@ -1851,7 +1851,7 @@ const dollarHegemony2: NoteData = {
       title: "Lombard Street: A Description of the Money Market",
       source: "Henry S. King & Co.",
       year: "1873",
-      note: "중앙은행 최후 대부자 원칙의 원전 — 레포 위기 이해의 이론적 기초",
+      note: "중앙은행 최후 대부자 원칙의 원전, 레포 위기 이해의 이론적 기초",
     },
     {
       id: 5,
@@ -1932,17 +1932,17 @@ const dollarHegemony3: NoteData = {
   title: "달러 패권 ③ — 탈달러화는 가능한가",
   titleEn: "Dollar Hegemony ③ — Can Dedollarization Actually Happen?",
   description:
-    "BRICS 선언, 위안화 국제화, mBridge — 탈달러화 주장은 넘쳐나지만 인프라의 현실은 냉혹하다. 선언과 실체 사이의 간극을 데이터로 해부한다.",
+    "BRICS 선언, 위안화 국제화, mBridge. 탈달러화 주장은 넘쳐나지만 인프라의 현실은 냉혹하다. 선언과 실체 사이의 간극을 데이터로 해부한다.",
   descriptionEn:
     "BRICS declarations, yuan internationalization, mBridge — dedollarization rhetoric overflows, but the infrastructure reality is sobering. We dissect the gap between declarations and substance with data.",
   date: "2026-05-28",
   readingMinutes: 18,
   keyPoints: [
-    "BRICS 2023 요하네스버그 선언 이후 탈달러화 선언이 급증했지만 — 실제 달러 외환보유고 비중 하락 속도는 연 0.5%p 미만이다",
-    "위안화 국제화의 결정적 장벽: 자본시장 폐쇄 — 중국이 자본계정을 개방하지 않는 한 위안화는 진정한 기축통화가 될 수 없다",
-    "mBridge는 CBDC 기반 다자 결제 플랫폼이지만 — 참여국 간 신뢰 구조와 법제도 차이가 확장의 결정적 장벽이다",
-    "달러 대안의 딜레마: 신뢰받는 통화가 되려면 자본시장을 열어야 하고, 자본시장을 열면 국내 금융 안정이 위협받는다",
-    "결론: 달러는 '쇠퇴'하는 게 아니라 '다극화' 중이다 — 하지만 대안 통화의 부상이 아닌 탈중앙화된 파편화다",
+    "BRICS 2023 요하네스버그 선언 이후 탈달러화 선언이 급증했지만, 실제 달러 외환보유고 비중 하락 속도는 연 약 0.5%p 미만이다",
+    "위안화 국제화의 결정적 장벽은 자본시장 폐쇄다. 중국이 자본계정을 개방하지 않는 한 위안화는 진정한 기축통화가 될 수 없다",
+    "mBridge는 CBDC 기반 다자 결제 플랫폼이다. 다만, 참여국 간 신뢰 구조와 법제도 차이가 확장의 결정적 장벽이다",
+    "달러 대안의 딜레마는 다음과 같다. 신뢰받는 통화가 되려면 자본시장을 열어야 하고, 자본시장을 열면 국내 금융 안정이 위협받는다",
+    "결론적으로 달러는 '쇠퇴'하는 게 아니라 '다극화' 중이다. 다만, 대안 통화의 부상이 아닌 탈중앙화된 파편화다",
   ],
   keyPointsEn: [
     "Post-BRICS 2023 Johannesburg Summit, dedollarization declarations surged — but actual dollar reserve share decline runs below 0.5pp per year",
@@ -1954,12 +1954,12 @@ const dollarHegemony3: NoteData = {
   sections: [
     // ── 1 ──────────────────────────────────────────────────────────────────────
     {
-      heading: "탈달러화 선언의 역사 — 항상 있었다",
+      heading: "탈달러화 선언의 역사, 항상 있었다",
       headingEn: "The History of Dedollarization Declarations — They Never Stop",
       blocks: [
         {
           type: "text",
-          body: "탈달러화는 새로운 이야기가 아니다.\n\n1960년대 드골의 달러 공격, 1970년대 페트로달러 체제 성립 이후의 OPEC 반발, 1997년 아시아 금융위기 이후의 IMF·달러 체제 비판, 2008년 금융위기 이후 중국의 SDR 강화 요구 — 수십 년간 탈달러화는 반복적으로 선언됐고, 반복적으로 실현되지 않았다.\n\n가장 최근의 파고는 두 가지 사건이 만들었다:\n\n① 2022년 러시아 제재: 러시아의 $3,000억 규모 외환보유고가 동결됐다. '달러 자산을 쌓아두면 미국이 빼앗을 수 있다'는 것이 현실로 증명됐다.\n\n② 2023년 BRICS 확대: 사우디아라비아, UAE, 이란, 이집트, 에티오피아, 아르헨티나(이후 철회)를 포함해 BRICS가 11개국으로 확대됐다. 요하네스버그 정상회담에서 공동 통화 논의가 공식 의제로 올랐다.",
+          body: "탈달러화는 새로운 이야기가 아니다.\n\n1960년대 드골의 달러 공격, 1970년대 페트로달러 체제 성립 이후의 OPEC 반발, 1997년 아시아 금융위기 이후의 IMF, 달러 체제 비판, 2008년 금융위기 이후 중국의 SDR 강화 요구가 이어졌다.\n\n수십 년간 탈달러화는 반복적으로 선언됐고, 반복적으로 실현되지 않았다.\n\n가장 최근의 파고는 두 가지 사건이 만들었다.\n\n첫째, 2022년 러시아 제재다.\n\n러시아의 약 $3,000억 규모 외환보유고가 동결됐다.\n\n'달러 자산을 쌓아두면 미국이 빼앗을 수 있다'는 것이 현실로 증명됐다.\n\n둘째, 2023년 BRICS 확대다.\n\n사우디아라비아, UAE, 이란, 이집트, 에티오피아, 아르헨티나(이후 철회)를 포함해 BRICS가 11개국으로 확대됐다.\n\n요하네스버그 정상회담에서 공동 통화 논의가 공식 의제로 올랐다.",
           bodyEn:
             "Dedollarization is not a new story.\n\nDe Gaulle's dollar attack in the 1960s, OPEC pushback after the petrodollar system took hold in the 1970s, post-1997 Asian Financial Crisis critiques of the IMF-dollar system, China's call for enhanced SDR use after the 2008 financial crisis — dedollarization has been declared repeatedly for decades, and repeatedly failed to materialize.\n\nThe most recent wave was triggered by two events:\n\n① 2022 Russia sanctions: Russia's ~$300 billion in FX reserves were frozen. The reality that 'the US can seize dollar assets you've stockpiled' was proved.\n\n② 2023 BRICS expansion: Saudi Arabia, UAE, Iran, Egypt, Ethiopia, and Argentina (subsequently withdrew) were admitted, expanding BRICS to 11 nations. The Johannesburg Summit formally put a common currency on the agenda.",
         },
@@ -1969,7 +1969,7 @@ const dollarHegemony3: NoteData = {
             variant: "warning",
             heading: "제재가 가르쳐 준 것",
             headingEn: "What Sanctions Taught the World",
-            body: "러시아 외환보유고 동결은 모든 중앙은행에 신호를 보냈다. '달러 자산을 쌓는 것이 언제나 안전하지는 않다.' 그러나 이것이 달러에서 도망치는 것을 의미하지는 않는다. 대안이 없기 때문이다. 실제로 일어난 것은 '금 매입 증가'와 '달러 자산의 관할권 다변화'였다 — 탈달러화가 아닌 탈집중화다.",
+            body: "러시아 외환보유고 동결은 모든 중앙은행에 신호를 보냈다.\n\n'달러 자산을 쌓는 것이 언제나 안전하지는 않다.'\n\n다만, 이것이 달러에서 도망치는 것을 의미하지는 않는다.\n\n대안이 없기 때문이다.\n\n실제로 일어난 것은 '금 매입 증가'와 '달러 자산의 관할권 다변화'였다.\n\n탈달러화가 아닌 탈집중화다.",
             bodyEn:
               "Russia's reserve freeze sent a signal to every central bank: 'holding dollar assets is not always safe.' But this does not mean fleeing the dollar — because there is no alternative. What actually happened was increased gold purchases and geographic diversification of dollar assets — de-concentration, not de-dollarization.",
           },
@@ -1978,7 +1978,7 @@ const dollarHegemony3: NoteData = {
     },
     // ── 2 ──────────────────────────────────────────────────────────────────────
     {
-      heading: "글로벌 준비통화 지형 — 실제 숫자",
+      heading: "글로벌 준비통화 지형, 실제 숫자",
       headingEn: "The Global Reserve Currency Landscape — The Real Numbers",
       blocks: [
         {
@@ -1994,7 +1994,7 @@ const dollarHegemony3: NoteData = {
             title: "글로벌 외환보유고 통화 구성 변화 (1999–2024, %)",
             titleEn: "Global FX Reserve Currency Composition (1999–2024, %)",
             caption:
-              "출처: IMF COFER (2024). 달러 비중 하락에도 불구하고 유로·위안화의 상승분이 미미함을 주목. 위안화는 2016년 SDR 편입 이후에도 3% 미만에 머물고 있다.",
+              "출처: IMF COFER (2024). 달러 비중 하락에도 불구하고 유로, 위안화의 상승분이 미미함을 주목. 위안화는 2016년 SDR 편입 이후에도 3% 미만에 머물고 있다.",
             captionEn:
               "Source: IMF COFER (2024). Note that despite the dollar share decline, gains by euro and yuan are modest. The yuan remains below 3% even after its 2016 SDR inclusion.",
             data: [
@@ -2009,7 +2009,7 @@ const dollarHegemony3: NoteData = {
         },
         {
           type: "text",
-          body: "25년간 달러 비중은 71%에서 58%로 13%포인트 하락했다. 그런데 그 공백을 메운 것이 무엇인지 보라.\n\n유로는 18%에서 20%로 불과 2%포인트 증가했다. 위안화는 0%에서 3%로 — 절대 수준은 여전히 미미하다. 실제로 달러의 빈자리를 채운 것은 특정 대안 통화가 아니라 '기타' 항목이다 — 캐나다 달러, 호주 달러, 한국 원화, 노르웨이 크로네 등 소규모 통화들로의 분산이다. 이것은 탈달러화가 아니라 다변화(diversification)다.",
+          body: "25년간 달러 비중은 71%에서 58%로 13%포인트 하락했다.\n\n다만, 그 공백을 메운 것이 무엇인지 보라.\n\n유로는 18%에서 20%로 불과 2%포인트 증가했다.\n\n위안화는 0%에서 3%로, 절대 수준은 여전히 미미하다.\n\n실제로 달러의 빈자리를 채운 것은 특정 대안 통화가 아니라 '기타' 항목이다.\n\n캐나다 달러, 호주 달러, 한국 원화, 노르웨이 크로네 등 소규모 통화들로의 분산이다.\n\n이것은 탈달러화가 아니라 다변화(diversification)다.",
           bodyEn:
             "Over 25 years, the dollar share fell 13 percentage points from 71% to 58%. But look at what filled that gap.\n\nThe euro gained just 2 percentage points, from 18% to 20%. The yuan went from 0% to 3% — still a minor absolute level. What actually filled the dollar's space was not a specific alternative currency but 'other' — diversification into smaller currencies like the Canadian dollar, Australian dollar, Korean won, and Norwegian krone. This is diversification, not dedollarization.",
         },
@@ -2017,12 +2017,12 @@ const dollarHegemony3: NoteData = {
     },
     // ── 3 ──────────────────────────────────────────────────────────────────────
     {
-      heading: "위안화의 결정적 장벽 — 자본시장 폐쇄",
+      heading: "위안화의 결정적 장벽, 자본시장 폐쇄",
       headingEn: "The Yuan's Decisive Barrier — Closed Capital Markets",
       blocks: [
         {
           type: "text",
-          body: "중국은 세계 2위 경제 대국이다. 무역 규모는 미국과 비슷하다. 2016년 SDR(특별인출권)에도 편입됐다. 그런데 왜 위안화는 3%에 머무는가?\n\n답은 하나다: 자본계정 폐쇄.\n\n달러가 기축통화인 이유 중 하나는 미국 금융시장이 완전 개방되어 있기 때문이다. 누구든 미국 국채를 살 수 있고, 팔 수 있고, 담보로 잡을 수 있다. 레포시장에서 밤새 달러를 빌릴 수 있다. 자본이 자유롭게 들어오고 나갈 수 있다.\n\n중국은 다르다. 위안화 표시 자산을 외국인이 자유롭게 사고팔기 어렵다. 자본 유출입에 제한이 있다. CIPS(중국 국제결제시스템)는 SWIFT의 대안으로 만들어졌지만 — 참여 금융기관 수와 거래 규모가 SWIFT의 수십 분의 1에 불과하다. 중국이 자본계정을 개방하지 않는 한, 위안화는 진정한 기축통화가 될 수 없다.",
+          body: "중국은 세계 2위 경제 대국이다.\n\n무역 규모는 미국과 비슷하다.\n\n2016년 SDR(특별인출권)에도 편입됐다.\n\n다만, 왜 위안화는 3%에 머무는가?\n\n답은 하나다. 자본계정 폐쇄다.\n\n달러가 기축통화인 이유 중 하나는 미국 금융시장이 완전 개방되어 있기 때문이다.\n\n누구든 미국 국채를 살 수 있고, 팔 수 있고, 담보로 잡을 수 있다.\n\n레포시장에서 밤새 달러를 빌릴 수 있다.\n\n자본이 자유롭게 들어오고 나갈 수 있다.\n\n중국은 다르다.\n\n위안화 표시 자산을 외국인이 자유롭게 사고팔기 어렵다.\n\n자본 유출입에 제한이 있다.\n\nCIPS(중국 국제결제시스템)는 SWIFT의 대안으로 만들어졌다.\n\n다만, 참여 금융기관 수와 거래 규모가 SWIFT의 수십 분의 1에 불과하다.\n\n중국이 자본계정을 개방하지 않는 한, 위안화는 진정한 기축통화가 될 수 없다.",
           bodyEn:
             "China is the world's second-largest economy. Its trade volume rivals the US. The yuan was added to the SDR basket in 2016. So why does the yuan sit at 3%?\n\nOne answer: a closed capital account.\n\nOne reason the dollar is the reserve currency is that US financial markets are fully open — anyone can buy, sell, or pledge US Treasuries as collateral, borrow dollars overnight in the repo market, and move capital freely in and out.\n\nChina is different. Foreign investors face significant restrictions on buying and selling renminbi-denominated assets. Capital flows are controlled. CIPS (Cross-Border Interbank Payment System) was built as a SWIFT alternative — but its participating institutions and transaction volumes are a fraction of SWIFT's. Until China opens its capital account, the yuan cannot become a true reserve currency.",
         },
@@ -2032,7 +2032,7 @@ const dollarHegemony3: NoteData = {
             variant: "insight",
             heading: "위안화의 딜레마",
             headingEn: "The Yuan's Dilemma",
-            body: "자본계정을 열면 기축통화에 한 발 다가선다. 그러나 자본계정을 열면 핫머니(hot money)가 자유롭게 들어오고 나가고, 환율 변동성이 커지며, 국내 금융 안정이 위협받는다. 중국 정부가 자본계정 개방을 꺼리는 이유다. 트리핀 딜레마의 중국판이다.",
+            body: "자본계정을 열면 기축통화에 한 발 다가선다.\n\n다만, 자본계정을 열면 핫머니(hot money)가 자유롭게 들어오고 나가고, 환율 변동성이 커지며, 국내 금융 안정이 위협받는다.\n\n중국 정부가 자본계정 개방을 꺼리는 이유다.\n\n트리핀 딜레마의 중국판이다.",
             bodyEn:
               "Opening the capital account brings the yuan one step closer to reserve currency status. But open capital accounts let hot money flow in and out freely, amplifying exchange rate volatility and threatening domestic financial stability. This is why Beijing resists opening. It's the Triffin Dilemma, Chinese edition.",
           },
@@ -2045,7 +2045,7 @@ const dollarHegemony3: NoteData = {
               labelEn: "CIPS vs SWIFT",
               value: "CIPS 일 평균 약 $700억 처리",
               valueEn: "CIPS processes ~$70B per day",
-              sub: "SWIFT 일 평균 $5조+ 대비 1% 수준. 참여 금융기관도 수백 곳 vs SWIFT 11,000곳+",
+              sub: "SWIFT 일 평균 약 $5조+ 대비 1% 수준. 참여 금융기관도 수백 곳, SWIFT 11,000곳+ 대비 미미하다",
               subEn: "vs SWIFT's $5T+ per day — roughly 1%. CIPS has hundreds of member institutions vs SWIFT's 11,000+",
               color: "text-red-600 dark:text-red-400",
             },
@@ -2054,7 +2054,7 @@ const dollarHegemony3: NoteData = {
               labelEn: "Yuan FX Transaction Share",
               value: "전체 FX 거래의 약 7%",
               valueEn: "~7% of global FX transactions",
-              sub: "달러 88%의 1/12 수준. 2013년 2.2%에서 성장했으나 기축통화와는 여전히 거리가 멀다",
+              sub: "달러 88%의 1/12 수준이다. 2013년 2.2%에서 성장했으나 기축통화와는 여전히 거리가 멀다",
               subEn: "1/12 of the dollar's 88%. Grew from 2.2% in 2013 but far from reserve currency scale",
               color: "text-amber-600 dark:text-amber-400",
             },
@@ -2063,7 +2063,7 @@ const dollarHegemony3: NoteData = {
               labelEn: "Yuan SDR Weight",
               value: "12.28% (2022 기준)",
               valueEn: "12.28% (as of 2022)",
-              sub: "달러(43.4%), 유로(29.3%) 다음으로 3위. 그러나 SDR 비중 ≠ 실제 사용량",
+              sub: "달러(43.4%), 유로(29.3%) 다음으로 3위다. 다만, SDR 비중과 실제 사용량은 다르다",
               subEn: "3rd after USD (43.4%) and EUR (29.3%). But SDR weight ≠ actual usage",
               color: "text-sky-600 dark:text-sky-400",
             },
@@ -2073,7 +2073,7 @@ const dollarHegemony3: NoteData = {
     },
     // ── 4 ──────────────────────────────────────────────────────────────────────
     {
-      heading: "mBridge — CBDC 다자 결제의 야심과 현실",
+      heading: "mBridge, CBDC 다자 결제의 야심과 현실",
       headingEn: "mBridge — The Ambition and Reality of CBDC Multilateral Payments",
       blocks: [
         {
