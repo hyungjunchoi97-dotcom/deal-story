@@ -75,9 +75,9 @@ const LABELS = {
     attack: "공격",
     defense: "방어",
     vs: "vs",
-    financialArsenal: "금융 무기 아스날",
-    attackWeapons: "공격 무기",
-    defenseWeapons: "방어 무기",
+    financialArsenal: "핵심 수단",
+    attackWeapons: "공격 수단",
+    defenseWeapons: "방어 수단",
     turningPoint: "결정적 순간",
     verdict: "최종 판정",
     winner: "승자",
@@ -96,9 +96,9 @@ const LABELS = {
     attack: "Attack",
     defense: "Defense",
     vs: "vs",
-    financialArsenal: "Financial Arsenal",
-    attackWeapons: "Offense Weapons",
-    defenseWeapons: "Defense Weapons",
+    financialArsenal: "Key Instruments",
+    attackWeapons: "Offense Playbook",
+    defenseWeapons: "Defense Playbook",
     turningPoint: "Turning Point",
     verdict: "Final Verdict",
     winner: "Winner",
@@ -312,7 +312,7 @@ function BattleTimeline({
   );
 }
 
-// ── 서브 컴포넌트: 금융 무기 아스날 ──────────────────────────────
+// ── 서브 컴포넌트: 핵심 수단 ────────────────────────────────────
 
 function FinancialArsenal({
   data,
@@ -328,7 +328,7 @@ function FinancialArsenal({
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-      {/* 공격 무기 */}
+      {/* 공격 수단 */}
       <div className="space-y-3">
         <h4 className={`text-sm font-bold flex items-center gap-2 ${SIDE.attack.header}`}>
           <span className="text-base">⚔️</span> {t.attackWeapons}
@@ -356,7 +356,7 @@ function FinancialArsenal({
         ))}
       </div>
 
-      {/* 방어 무기 */}
+      {/* 방어 수단 */}
       <div className="space-y-3">
         <h4 className={`text-sm font-bold flex items-center gap-2 ${SIDE.defense.header}`}>
           <span className="text-base">🛡️</span> {t.defenseWeapons}
@@ -628,7 +628,7 @@ export default function ControlBattleSection({ data, lang = "ko" }: Props) {
         <BattleTimeline data={data} t={t} />
       </div>
 
-      {/* 금융 무기 아스날 */}
+      {/* 핵심 수단 */}
       <div>
         <h3 className="text-base font-bold text-gray-900 dark:text-gray-50 mb-5 flex items-center gap-2">
           <span className="text-lg">🔩</span> {t.financialArsenal}
