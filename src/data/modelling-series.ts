@@ -76,7 +76,7 @@ export const MOD_CHAPTERS: ModChapter[] = [
     taglineKo: "Top-down vs bottom-up · 산업별 driver (SaaS · Retail · Manufacturing) · Cohort analysis · Scenario manager",
     taglineEn: "Top-down vs bottom-up, industry drivers (SaaS, retail, manufacturing), cohort analysis, scenario manager",
     readingMinutes: 13,
-    status: "draft",
+    status: "published",
   },
   {
     slug: "mod-ch06-msft-linkedin-case",
