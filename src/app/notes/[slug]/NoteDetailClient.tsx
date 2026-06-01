@@ -46,6 +46,19 @@ import type {
   QubitRacePoint,
   QuantumStockPoint,
   QuantumFundingBar,
+  // Private Credit note (11 charts)
+  PcAumPoint,
+  BankPcSharePoint,
+  PcAssetClassPoint,
+  AbfGrowthPoint,
+  InsurerPcBalancePoint,
+  KoreaAcqFinancePoint,
+  KoreaPcMarketPoint,
+  PcDefaultRatePoint,
+  ApolloAtheneStage,
+  ContagionNode,
+  ContagionChannel,
+  WatchIndicatorPoint,
 } from "@/data/notes";
 import { NOTE_CATEGORY_META, getSeriesNav } from "@/data/notes";
 import SeriesNav from "@/components/SeriesNav";
@@ -1395,21 +1408,496 @@ function ScenarioCardsChart({ chart, lang }: { chart: NoteChartDef & { id: "scen
 }
 
 // ── Generic chart dispatcher ───────────────────────────────────────────────────
-// PC 노트 차트 11개 — 컴포넌트는 후속 작업, 일단 placeholder 표시
-const PC_CHART_IDS = new Set<string>([
-  "pc-aum-growth",
-  "bank-vs-pc-share",
-  "pc-asset-classes",
-  "abf-growth",
-  "apollo-athene-flow",
-  "insurer-balance-sheet",
-  "korea-acq-finance",
-  "korea-pc-markets",
-  "pc-default-rates",
-  "pc-contagion-map",
-  "watch-dashboard",
-]);
+// ── Private Credit 차트 11개 ───────────────────────────────────────────────────
 
+// 1. PC AUM Growth — AreaChart (2008-2024 + annotations)
+function PcAumGrowthChart({ chart, lang }: { chart: NoteChartDef & { id: "pc-aum-growth" }; lang: Lang }) {
+  const data = chart.data as PcAumPoint[];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  const annotations = chart.annotations ?? [];
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={280}>
+        <ComposedChart data={data} margin={{ top: 30, right: 16, bottom: 0, left: -8 }}>
+          <defs>
+            <linearGradient id="pcAumFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#8b5cf6" stopOpacity={0.45} />
+              <stop offset="100%" stopColor="#8b5cf6" stopOpacity={0.02} />
+            </linearGradient>
+          </defs>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} />
+          <XAxis dataKey="year" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
+          <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `$${v}B`} />
+          <Tooltip
+            content={({ active, payload, label }) => {
+              if (!active || !payload?.length) return null;
+              const ann = annotations.find((a) => a.year === label);
+              const annLabel = ann ? (lang === "en" ? (ann.labelEn ?? ann.label) : ann.label) : null;
+              return (
+                <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl px-4 py-3 text-xs">
+                  <p className="font-semibold text-gray-600 dark:text-gray-300 mb-1">{label}</p>
+                  <p className="font-mono font-bold text-violet-600 dark:text-violet-400">${payload[0].value}B</p>
+                  {annLabel && <p className="text-amber-500 font-semibold mt-1">{annLabel}</p>}
+                </div>
+              );
+            }}
+          />
+          {annotations.map((ann) => (
+            <ReferenceLine key={ann.year} x={ann.year} stroke="#f59e0b" strokeDasharray="4 3" strokeWidth={1.5}
+              label={{ value: lang === "en" ? (ann.labelEn ?? ann.label) : ann.label, position: "top", fontSize: 9, fill: "#f59e0b" }} />
+          ))}
+          <Bar dataKey="aum" name={lang === "en" ? "PC AUM" : "PC 운용자산"} fill="url(#pcAumFill)" stroke="#8b5cf6" strokeWidth={2} radius={[3, 3, 0, 0]} />
+        </ComposedChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
+// 2. Bank vs PC Share — StackedArea (BSL vs PC % 추이)
+function BankVsPcShareChart({ chart, lang }: { chart: NoteChartDef & { id: "bank-vs-pc-share" }; lang: Lang }) {
+  const data = chart.data as BankPcSharePoint[];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={260}>
+        <BarChart data={data} margin={{ top: 30, right: 16, bottom: 0, left: -8 }} barSize={28}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} vertical={false} />
+          <XAxis dataKey="year" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
+          <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `${v}%`} domain={[0, 100]} />
+          <Tooltip
+            content={({ active, payload, label }) => {
+              if (!active || !payload?.length) return null;
+              return (
+                <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl px-4 py-3 text-xs space-y-1.5">
+                  <p className="font-semibold text-gray-600 dark:text-gray-300 mb-1">{label}</p>
+                  {[...payload].reverse().map((p) => (
+                    <div key={String(p.dataKey)} className="flex items-center justify-between gap-4">
+                      <span className="flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full" style={{ background: p.color as string }} />
+                        <span className="text-gray-500 dark:text-gray-400">{p.name}</span>
+                      </span>
+                      <span className="font-mono font-bold text-gray-800 dark:text-gray-100">{p.value}%</span>
+                    </div>
+                  ))}
+                </div>
+              );
+            }}
+          />
+          <Legend wrapperStyle={{ fontSize: 11, paddingTop: 12 }} />
+          <Bar dataKey="bsl" name={lang === "en" ? "BSL (Banks)" : "BSL (은행 신디케이트)"} stackId="a" fill="#0ea5e9" />
+          <Bar dataKey="pc" name={lang === "en" ? "Private Credit" : "Private Credit"} stackId="a" fill="#8b5cf6" radius={[3, 3, 0, 0]} />
+        </BarChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
+// 3. PC Asset Classes — Horizontal Bar (자산 클래스별 비중)
+function PcAssetClassesChart({ chart, lang }: { chart: NoteChartDef & { id: "pc-asset-classes" }; lang: Lang }) {
+  const raw = chart.data as PcAssetClassPoint[];
+  const data = raw.map((d, i) => ({
+    name: lang === "en" ? d.strategyEn : d.strategy,
+    share: d.share,
+    fill: ["#8b5cf6", "#0ea5e9", "#f59e0b", "#10b981", "#ef4444", "#ec4899", "#64748b", "#a78bfa"][i % 8],
+  }));
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={Math.max(260, data.length * 32)}>
+        <BarChart data={data} layout="vertical" margin={{ top: 8, right: 32, bottom: 0, left: 20 }}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} horizontal={false} />
+          <XAxis type="number" domain={[0, "dataMax + 5"]} tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `${v}%`} />
+          <YAxis type="category" dataKey="name" tick={{ fontSize: 11 }} tickLine={false} axisLine={false} width={150} />
+          <Tooltip cursor={{ fill: "rgba(0,0,0,0.04)" }} content={({ active, payload }) => {
+            if (!active || !payload?.length) return null;
+            const d = payload[0].payload as { name: string; share: number; fill: string };
+            return (
+              <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl px-4 py-3 text-xs">
+                <p className="font-bold text-gray-800 dark:text-gray-100">{d.name}</p>
+                <p style={{ color: d.fill }} className="font-mono text-sm mt-1">{d.share}%</p>
+              </div>
+            );
+          }} />
+          <Bar dataKey="share" radius={[0, 4, 4, 0]}>
+            {data.map((entry, i) => (<Cell key={i} fill={entry.fill} />))}
+          </Bar>
+        </BarChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
+// 4. ABF Growth — Line (projected dashed)
+function AbfGrowthChart({ chart, lang }: { chart: NoteChartDef & { id: "abf-growth" }; lang: Lang }) {
+  const data = chart.data as AbfGrowthPoint[];
+  const actualData = data.map((d) => ({ year: d.year, actual: d.projected ? null : d.market, projected: d.projected ? d.market : null }));
+  // continuity: 마지막 actual을 projected line의 시작점으로
+  const lastActualIdx = actualData.map((d) => d.actual != null).lastIndexOf(true);
+  if (lastActualIdx >= 0 && lastActualIdx < actualData.length - 1) {
+    actualData[lastActualIdx].projected = actualData[lastActualIdx].actual;
+  }
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={260}>
+        <LineChart data={actualData} margin={{ top: 30, right: 16, bottom: 0, left: -8 }}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} />
+          <XAxis dataKey="year" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
+          <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `$${v}T`} />
+          <Tooltip content={<ChartTooltip />} />
+          <Legend wrapperStyle={{ fontSize: 11, paddingTop: 12 }} />
+          <Line type="monotone" dataKey="actual" name={lang === "en" ? "Actual" : "실측"} stroke="#8b5cf6" strokeWidth={2.5} dot={{ r: 4 }} connectNulls />
+          <Line type="monotone" dataKey="projected" name={lang === "en" ? "Projected (Apollo outlook)" : "전망 (Apollo outlook)"} stroke="#f59e0b" strokeWidth={2} dot={{ r: 3 }} strokeDasharray="5 3" connectNulls />
+        </LineChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
+// 5. ★ Apollo×Athene Flow — SVG 6단계 다이어그램
+function ApolloAtheneFlowChart({ chart, lang }: { chart: NoteChartDef & { id: "apollo-athene-flow" }; lang: Lang }) {
+  const stages = chart.stages as ApolloAtheneStage[];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  const W = 480;
+  const BOX_H = 56;
+  const GAP = 36;  // box 간격
+  const H = stages.length * (BOX_H + GAP) + 20;
+  return (
+    <ChartCard title={title} caption={caption}>
+      <div className="bg-white dark:bg-gray-900/40 py-4 overflow-x-auto">
+        <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto max-w-2xl mx-auto block" style={{ maxHeight: 640 }}>
+          <defs>
+            <marker id="apolloArrow" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+              <polygon points="0 0, 8 3, 0 6" fill="#94a3b8" />
+            </marker>
+          </defs>
+          {stages.map((stage, i) => {
+            const y = 10 + i * (BOX_H + GAP);
+            const actor = lang === "en" ? stage.actorEn : stage.actor;
+            const detail = lang === "en" ? stage.detailEn : stage.detail;
+            const flow = lang === "en" ? stage.flowEn : stage.flow;
+            return (
+              <g key={i}>
+                {/* Box */}
+                <rect x={60} y={y} width={W - 120} height={BOX_H} rx={10}
+                  fill={stage.color} fillOpacity={0.12} stroke={stage.color} strokeWidth={1.5} />
+                {/* Step badge */}
+                <circle cx={42} cy={y + BOX_H / 2} r={14} fill={stage.color} />
+                <text x={42} y={y + BOX_H / 2 + 4} textAnchor="middle" fontSize={13} fontWeight={800} fill="white">
+                  {stage.step}
+                </text>
+                {/* Actor */}
+                <text x={75} y={y + 22} fontSize={13} fontWeight={700} fill={stage.color}>{actor}</text>
+                {/* Detail */}
+                <text x={75} y={y + 42} fontSize={10} fill="#64748b">{detail}</text>
+                {/* Arrow + flow label to next stage */}
+                {i < stages.length - 1 && (
+                  <g>
+                    <line x1={W / 2} y1={y + BOX_H + 2} x2={W / 2} y2={y + BOX_H + GAP - 4}
+                      stroke="#94a3b8" strokeWidth={1.8} markerEnd="url(#apolloArrow)" />
+                    <rect x={W / 2 - 70} y={y + BOX_H + GAP / 2 - 11} width={140} height={20} rx={4}
+                      fill="white" stroke="#e2e8f0" className="dark:fill-gray-800" />
+                    <text x={W / 2} y={y + BOX_H + GAP / 2 + 3} textAnchor="middle" fontSize={10} fontWeight={600} fill="#475569">
+                      {flow}
+                    </text>
+                  </g>
+                )}
+              </g>
+            );
+          })}
+        </svg>
+      </div>
+    </ChartCard>
+  );
+}
+
+// 6. Insurer Balance Sheet — Grouped Bar
+function InsurerBalanceSheetChart({ chart, lang }: { chart: NoteChartDef & { id: "insurer-balance-sheet" }; lang: Lang }) {
+  const data = chart.data as InsurerPcBalancePoint[];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={280}>
+        <BarChart data={data} margin={{ top: 30, right: 16, bottom: 0, left: -8 }} barSize={18}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} vertical={false} />
+          <XAxis dataKey="firm" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
+          <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `$${v}B`} />
+          <Tooltip
+            content={({ active, payload, label }) => {
+              if (!active || !payload?.length) return null;
+              return (
+                <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl px-4 py-3 text-xs space-y-1.5">
+                  <p className="font-semibold text-gray-600 dark:text-gray-300 mb-1">{label}</p>
+                  {payload.map((p) => (
+                    <div key={String(p.dataKey)} className="flex items-center justify-between gap-4">
+                      <span className="flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full" style={{ background: p.color as string }} />
+                        <span className="text-gray-500 dark:text-gray-400">{p.name}</span>
+                      </span>
+                      <span className="font-mono font-bold text-gray-800 dark:text-gray-100">${p.value}B</span>
+                    </div>
+                  ))}
+                </div>
+              );
+            }}
+          />
+          <Legend wrapperStyle={{ fontSize: 11, paddingTop: 12 }} />
+          <Bar dataKey="insurance" name={lang === "en" ? "Insurance GA" : "보험사 자산 (GA)"} fill="#0ea5e9" radius={[3, 3, 0, 0]} />
+          <Bar dataKey="pcAUM" name={lang === "en" ? "PC AUM" : "PC 운용자산"} fill="#8b5cf6" radius={[3, 3, 0, 0]} />
+        </BarChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
+// 7. Korea Acquisition Finance — Horizontal Bar
+function KoreaAcqFinanceChart({ chart, lang }: { chart: NoteChartDef & { id: "korea-acq-finance" }; lang: Lang }) {
+  const raw = chart.data as KoreaAcqFinancePoint[];
+  const data = raw.map((d) => ({ name: lang === "en" ? d.firmEn : d.firm, value: d.value, deals: d.deals }));
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={Math.max(240, data.length * 36)}>
+        <BarChart data={data} layout="vertical" margin={{ top: 8, right: 32, bottom: 0, left: 8 }}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} horizontal={false} />
+          <XAxis type="number" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `${v}조`} />
+          <YAxis type="category" dataKey="name" tick={{ fontSize: 11 }} tickLine={false} axisLine={false} width={110} />
+          <Tooltip cursor={{ fill: "rgba(0,0,0,0.04)" }} content={({ active, payload }) => {
+            if (!active || !payload?.length) return null;
+            const d = payload[0].payload as { name: string; value: number; deals: number };
+            return (
+              <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl px-4 py-3 text-xs">
+                <p className="font-bold text-gray-800 dark:text-gray-100">{d.name}</p>
+                <p className="font-mono text-sm mt-1 text-amber-600 dark:text-amber-400">₩{d.value}조</p>
+                <p className="text-[10px] text-gray-500 dark:text-gray-400 mt-0.5">{d.deals} {lang === "en" ? "deals" : "건"}</p>
+              </div>
+            );
+          }} />
+          <Bar dataKey="value" fill="#f59e0b" radius={[0, 4, 4, 0]} />
+        </BarChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
+// 8. Korea PC Markets — Multi-Area 3 stack
+function KoreaPcMarketsChart({ chart, lang }: { chart: NoteChartDef & { id: "korea-pc-markets" }; lang: Lang }) {
+  const data = chart.data as KoreaPcMarketPoint[];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={280}>
+        <BarChart data={data} margin={{ top: 30, right: 16, bottom: 0, left: -8 }} barSize={28}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} vertical={false} />
+          <XAxis dataKey="year" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
+          <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `${v}조`} />
+          <Tooltip
+            content={({ active, payload, label }) => {
+              if (!active || !payload?.length) return null;
+              return (
+                <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl px-4 py-3 text-xs space-y-1.5">
+                  <p className="font-semibold text-gray-600 dark:text-gray-300 mb-1">{label}</p>
+                  {[...payload].reverse().map((p) => (
+                    <div key={String(p.dataKey)} className="flex items-center justify-between gap-4">
+                      <span className="flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full" style={{ background: p.color as string }} />
+                        <span className="text-gray-500 dark:text-gray-400">{p.name}</span>
+                      </span>
+                      <span className="font-mono font-bold text-gray-800 dark:text-gray-100">₩{p.value}조</span>
+                    </div>
+                  ))}
+                </div>
+              );
+            }}
+          />
+          <Legend wrapperStyle={{ fontSize: 11, paddingTop: 12 }} />
+          <Bar dataKey="acqFin" name={lang === "en" ? "Acquisition Finance" : "인수금융"} stackId="a" fill="#f59e0b" />
+          <Bar dataKey="npl" name={lang === "en" ? "NPL" : "NPL"} stackId="a" fill="#ef4444" />
+          <Bar dataKey="pf" name={lang === "en" ? "Real Estate PF" : "부동산 PF"} stackId="a" fill="#0ea5e9" radius={[3, 3, 0, 0]} />
+        </BarChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
+// 9. PC Default Rates — Line (PC vs BSL, 역전 강조)
+function PcDefaultRatesChart({ chart, lang }: { chart: NoteChartDef & { id: "pc-default-rates" }; lang: Lang }) {
+  const data = chart.data as PcDefaultRatePoint[];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={260}>
+        <LineChart data={data} margin={{ top: 30, right: 16, bottom: 0, left: -8 }}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} />
+          <XAxis dataKey="period" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
+          <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `${v}%`} domain={[0, "dataMax + 1"]} />
+          <Tooltip content={<ChartTooltip />} />
+          <Legend wrapperStyle={{ fontSize: 11, paddingTop: 12 }} />
+          <ReferenceLine y={6} stroke="#ef4444" strokeDasharray="4 3" strokeWidth={1}
+            label={{ value: lang === "en" ? "Danger 6%" : "위험 6%", position: "right", fontSize: 9, fill: "#ef4444" }} />
+          <Line type="monotone" dataKey="directLending" name={lang === "en" ? "Direct Lending (PC)" : "Direct Lending (PC)"}
+            stroke="#8b5cf6" strokeWidth={2.5} dot={{ r: 4 }} />
+          <Line type="monotone" dataKey="bsl" name="BSL" stroke="#94a3b8" strokeWidth={2} dot={{ r: 3 }} strokeDasharray="5 3" />
+        </LineChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
+// 10. ★ PC Contagion Map — SVG 노드-엣지 (중앙 PC + 5채널)
+function PcContagionMapChart({ chart, lang }: { chart: NoteChartDef & { id: "pc-contagion-map" }; lang: Lang }) {
+  const center = chart.center as ContagionNode;
+  const channels = chart.channels as ContagionChannel[];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  const W = 760, H = 520;
+  const cx = W / 2, cy = H / 2;
+  const centerR = 64;
+  const RADIUS = 200;
+  const riskColor = { low: "#10b981", medium: "#f59e0b", high: "#ef4444" } as const;
+  const centerLabel = lang === "en" ? center.labelEn : center.label;
+
+  return (
+    <ChartCard title={title} caption={caption}>
+      <div className="bg-white dark:bg-gray-900/40 py-4 overflow-x-auto">
+        <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto max-w-3xl mx-auto block" style={{ maxHeight: 540 }}>
+          <defs>
+            <marker id="contagionArrow" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+              <polygon points="0 0, 8 3, 0 6" fill="#64748b" />
+            </marker>
+          </defs>
+
+          {/* Channel nodes + edges */}
+          {channels.map((ch, i) => {
+            const angle = (2 * Math.PI * i) / channels.length - Math.PI / 2;
+            const x = cx + Math.cos(angle) * RADIUS;
+            const y = cy + Math.sin(angle) * RADIUS;
+            const color = riskColor[ch.risk];
+            const ux = Math.cos(angle), uy = Math.sin(angle);
+            const x1 = cx + ux * centerR;
+            const y1 = cy + uy * centerR;
+            const x2 = x - ux * 56;
+            const y2 = y - uy * 56;
+            const label = lang === "en" ? ch.labelEn : ch.label;
+            const channelText = lang === "en" ? ch.channelEn : ch.channel;
+            return (
+              <g key={ch.id}>
+                {/* Edge */}
+                <line x1={x1} y1={y1} x2={x2} y2={y2} stroke={color} strokeWidth={2.2} markerEnd="url(#contagionArrow)" />
+                {/* Edge label */}
+                <rect x={(x1 + x2) / 2 - 56} y={(y1 + y2) / 2 - 10} width={112} height={20} rx={4}
+                  fill="white" stroke="#e2e8f0" className="dark:fill-gray-800" />
+                <text x={(x1 + x2) / 2} y={(y1 + y2) / 2 + 4} textAnchor="middle" fontSize={9} fill="#64748b">
+                  {channelText}
+                </text>
+                {/* Node */}
+                <circle cx={x} cy={y} r={52} fill={color} fillOpacity={0.15} stroke={color} strokeWidth={2} />
+                <text x={x} y={y - 4} textAnchor="middle" fontSize={12} fontWeight={700} fill={color}>{label}</text>
+                <text x={x} y={y + 12} textAnchor="middle" fontSize={9} fill="#64748b">
+                  {ch.risk === "high" ? (lang === "en" ? "high" : "고위험") : ch.risk === "medium" ? (lang === "en" ? "medium" : "주의") : (lang === "en" ? "low" : "낮음")}
+                </text>
+              </g>
+            );
+          })}
+
+          {/* Center node */}
+          <circle cx={cx} cy={cy} r={centerR} fill={center.color} fillOpacity={0.2} stroke={center.color} strokeWidth={3} />
+          <text x={cx} y={cy + 4} textAnchor="middle" fontSize={15} fontWeight={800} fill={center.color}>
+            {centerLabel}
+          </text>
+        </svg>
+      </div>
+    </ChartCard>
+  );
+}
+
+// 11. ★ Watch Dashboard — 정상/주의/위험 3색 cell 표
+function WatchDashboardChart({ chart, lang }: { chart: NoteChartDef & { id: "watch-dashboard" }; lang: Lang }) {
+  const data = chart.data as WatchIndicatorPoint[];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  const dangerCount = data.filter((d) => d.status === "danger").length;
+  const cautionCount = data.filter((d) => d.status === "caution").length;
+  const normalCount = data.filter((d) => d.status === "normal").length;
+  const statusBg = {
+    normal: "bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300",
+    caution: "bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300",
+    danger: "bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300",
+  } as const;
+  const statusLabel = {
+    normal: lang === "en" ? "Normal" : "정상",
+    caution: lang === "en" ? "Caution" : "주의",
+    danger: lang === "en" ? "Danger" : "위험",
+  } as const;
+
+  return (
+    <ChartCard title={title} caption={caption}>
+      <div className="overflow-x-auto rounded-xl border border-gray-200/70 dark:border-gray-700/60">
+        <table className="w-full text-sm">
+          <thead>
+            <tr className="bg-gray-50/80 dark:bg-gray-800/60 border-b border-gray-200/60 dark:border-gray-700/60">
+              <th className="text-left px-4 py-3 text-[11px] font-semibold text-gray-500 dark:text-gray-400">{lang === "en" ? "Indicator" : "지표"}</th>
+              <th className="text-center px-3 py-3 text-[11px] font-semibold text-gray-500 dark:text-gray-400">{lang === "en" ? "Current" : "현재"}</th>
+              <th className="text-center px-3 py-3 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">{lang === "en" ? "Normal" : "정상"}</th>
+              <th className="text-center px-3 py-3 text-[11px] font-semibold text-amber-600 dark:text-amber-400">{lang === "en" ? "Caution" : "주의"}</th>
+              <th className="text-center px-3 py-3 text-[11px] font-semibold text-red-600 dark:text-red-400">{lang === "en" ? "Danger" : "위험"}</th>
+              <th className="text-center px-3 py-3 text-[11px] font-semibold text-gray-500 dark:text-gray-400">{lang === "en" ? "Status" : "판정"}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.map((row, i) => (
+              <tr key={i} className="border-b border-gray-100 dark:border-gray-800/60 last:border-0">
+                <td className="px-4 py-3 text-[12px] font-medium text-gray-800 dark:text-gray-200">
+                  {lang === "en" ? row.indicatorEn : row.indicator}
+                </td>
+                <td className={`px-3 py-3 text-center text-[12px] font-mono font-bold ${statusBg[row.status]}`}>
+                  {row.current}
+                </td>
+                <td className="px-3 py-3 text-center text-[11px] font-mono text-gray-500 dark:text-gray-400">{row.normalRange}</td>
+                <td className="px-3 py-3 text-center text-[11px] font-mono text-gray-500 dark:text-gray-400">{row.cautionRange}</td>
+                <td className="px-3 py-3 text-center text-[11px] font-mono text-gray-500 dark:text-gray-400">{row.dangerRange}</td>
+                <td className="px-3 py-3 text-center">
+                  <span className={`inline-block px-2 py-0.5 rounded-full text-[10px] font-bold ${statusBg[row.status]}`}>
+                    {statusLabel[row.status]}
+                  </span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      {/* 종합 판정 */}
+      <div className="mt-4 px-4 py-3 rounded-xl bg-gray-50 dark:bg-gray-800/40 border border-gray-200/70 dark:border-gray-700/60 text-center">
+        <p className="text-[11px] text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-1">
+          {lang === "en" ? "Composite verdict" : "종합 판정"}
+        </p>
+        <p className="text-[13px] font-semibold text-gray-700 dark:text-gray-300">
+          <span className="text-red-600 dark:text-red-400">{dangerCount}</span> {lang === "en" ? "danger" : "위험"} ·{" "}
+          <span className="text-amber-600 dark:text-amber-400">{cautionCount}</span> {lang === "en" ? "caution" : "주의"} ·{" "}
+          <span className="text-emerald-600 dark:text-emerald-400">{normalCount}</span> {lang === "en" ? "normal" : "정상"}
+        </p>
+        <p className="text-[12px] text-gray-500 dark:text-gray-400 mt-1">
+          {dangerCount >= 3
+            ? (lang === "en" ? "→ \"PC stress is spreading\" signal" : "→ \"PC stress 확산\" 시그널")
+            : normalCount >= 5
+            ? (lang === "en" ? "→ \"Shakeout complete\" signal" : "→ \"Shakeout 완료\" 시그널")
+            : (lang === "en" ? "→ Mixed signals — keep monitoring weekly" : "→ 혼조 — 주간 모니터링 유지")}
+        </p>
+      </div>
+    </ChartCard>
+  );
+}
+
+// ── Fallback placeholder (for unregistered chart IDs) ─────────────────────────
 function ChartPlaceholder({ chart, lang }: { chart: NoteChartDef; lang: Lang }) {
   const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
   const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
@@ -1430,7 +1918,19 @@ function ChartPlaceholder({ chart, lang }: { chart: NoteChartDef; lang: Lang }) 
 }
 
 function NoteChart({ chart, lang }: { chart: NoteChartDef; lang: Lang }) {
-  if (PC_CHART_IDS.has(chart.id)) return <ChartPlaceholder chart={chart} lang={lang} />;
+  // Private Credit 11개 차트
+  if (chart.id === "pc-aum-growth") return <PcAumGrowthChart chart={chart} lang={lang} />;
+  if (chart.id === "bank-vs-pc-share") return <BankVsPcShareChart chart={chart} lang={lang} />;
+  if (chart.id === "pc-asset-classes") return <PcAssetClassesChart chart={chart} lang={lang} />;
+  if (chart.id === "abf-growth") return <AbfGrowthChart chart={chart} lang={lang} />;
+  if (chart.id === "apollo-athene-flow") return <ApolloAtheneFlowChart chart={chart} lang={lang} />;
+  if (chart.id === "insurer-balance-sheet") return <InsurerBalanceSheetChart chart={chart} lang={lang} />;
+  if (chart.id === "korea-acq-finance") return <KoreaAcqFinanceChart chart={chart} lang={lang} />;
+  if (chart.id === "korea-pc-markets") return <KoreaPcMarketsChart chart={chart} lang={lang} />;
+  if (chart.id === "pc-default-rates") return <PcDefaultRatesChart chart={chart} lang={lang} />;
+  if (chart.id === "pc-contagion-map") return <PcContagionMapChart chart={chart} lang={lang} />;
+  if (chart.id === "watch-dashboard") return <WatchDashboardChart chart={chart} lang={lang} />;
+  // 기존 차트들
   if (chart.id === "pbr-comparison") return <PBRChart chart={chart} lang={lang} />;
   if (chart.id === "tax-rates") return <TaxRatesChart chart={chart} lang={lang} />;
   if (chart.id === "index-comparison") return <IndexComparisonChart chart={chart} lang={lang} />;
