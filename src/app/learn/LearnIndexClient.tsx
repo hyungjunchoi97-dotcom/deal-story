@@ -49,6 +49,9 @@ const KO_CONCEPT_CATALOG: ConceptItem[] = [
   { slug: "fdd-ch05-hertz-case",   term: "FDD 101 Ch.5 — Case: Hertz 회계 분식 (2014-2015)", tagline: "$235M 5년치 재작성 · Vehicle depreciation 가정의 산업 갭 · long-term auditor PwC가 매년 놓친 신호 · FDD lens의 5가지 checkpoint",                                      category: "FDD 시리즈", published: true },
   { slug: "fdd-ch06-tesco-case",   term: "FDD 101 Ch.6 — Case: Tesco £263M Accounting Scandal (2014)", tagline: "Supplier rebate timing manipulation · 30년 long-tenure auditor PwC가 놓친 신호 · SFO DPA £129M · FDD lens의 5가지 checkpoint",                                category: "FDD 시리즈", published: true },
 
+  // Modelling 시리즈 — Excel workbook 아키텍처 (Valuation 시리즈와 cross-link)
+  { slug: "mod-ch01-standards",    term: "Modelling 101 Ch.1 — 모델의 표준 규칙", tagline: "Color coding · Sign convention · 10-sheet 표준 layout · Audit checks — IB·PE가 공유하는 4가지 알파벳",                                                                  category: "Modelling 시리즈", published: true },
+
   // M&A 시리즈 — 전과정 흐름 + 이해관계자 + 유명 뱅커 케이스
   { slug: "ma-ch01-overview",      term: "M&A 101 Ch.1 — 전과정 흐름 (6개월의 여정)", tagline: "M&A는 보기보다 단순한 흐름이다 — 9단계 타임라인 · 5개 주체 병렬 워크스트림 · 진짜 어려운 4지점",                                                  category: "M&A 시리즈", published: true  },
   { slug: "ma-ch02-stakeholders",  term: "M&A 101 Ch.2 — 이해관계자 도감 (누가 무엇을 하는가)", tagline: "한 딜에 평균 8개 firm — IB · 회계 FAS · 컨설팅 · 법무 · Lender + 클라이언트. Deliverable · 등장 시점 · IB와의 인터페이스 · risk",   category: "M&A 시리즈", published: true  },
@@ -119,6 +122,9 @@ const EN_CONCEPT_CATALOG: ConceptItem[] = [
   { slug: "fdd-ch04-hidden-liabilities", term: "FDD 101 Ch.4 — Hidden liabilities and off-balance-sheet items", tagline: "10 buckets (pension · tax · litigation · environmental · customer concentration etc.) · industry hot spots · basket/cap/escrow · R&W insurance",      category: "FDD Series", published: true },
   { slug: "fdd-ch05-hertz-case",   term: "FDD 101 Ch.5 — Case: the Hertz accounting restatement (2014-2015)", tagline: "$235M five-year restatement · industry gap in the depreciation assumption · signals PwC missed year after year · five FDD checkpoints",                category: "FDD Series", published: true },
   { slug: "fdd-ch06-tesco-case",   term: "FDD 101 Ch.6 — Case: Tesco's £263M accounting scandal (2014)", tagline: "Supplier rebate timing manipulation · signals 30-year long-tenure auditor PwC missed · SFO DPA of £129M · five FDD checkpoints",                          category: "FDD Series", published: true },
+
+  // Modelling Series — Excel workbook architecture (cross-linked with Valuation Series)
+  { slug: "mod-ch01-standards",    term: "Modelling 101 Ch.1 — Modeling standards", tagline: "Color coding · sign convention · 10-sheet standard layout · audit checks — the four rules every IB and PE shares",                                                  category: "Modelling Series", published: true },
 
   // M&A Series — lifecycle + stakeholders + banker case studies
   { slug: "ma-ch01-overview",      term: "M&A 101 Ch.1 — The Lifecycle (6-month journey)", tagline: "M&A is more linear than it looks — 9-stage timeline · 5 parallel workstreams · the 4 places where it actually gets hard",                                  category: "M&A Series", published: true },
