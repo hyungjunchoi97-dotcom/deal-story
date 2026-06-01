@@ -22,6 +22,7 @@ import LevFinSection from "@/components/deal/LevFinSection";
 import SyndicatedLoanSection from "@/components/deal/SyndicatedLoanSection";
 import { formatDealDate } from "@/lib/format";
 import type { DealData } from "@/lib/deal-data";
+import LikeButton from "@/components/LikeButton";
 
 const EN_CATEGORY_LABEL: Record<DealCategory, string> = {
   ma: "M&A",
@@ -249,13 +250,29 @@ export default function DealPageClient({
             <p className="mt-2 text-base text-gray-500 dark:text-gray-400 break-keep">{deal.subtitle}</p>
             <div className="mt-4 flex items-center justify-end border-t border-gray-100 dark:border-gray-800 pt-3">
               <ShareButtons title={deal.title} variant="top" lang={lang} />
-            </div>
+            
+              <LikeButton slug={deal.slug} lang={lang} /></div>
           </div>
 
           {/* ── 3. 배경 */}
+          {/* 각 단락이 [헤더] 패턴으로 시작하면 헤더를 별도 줄로 분리 렌더링.
+              헤더는 굵은 검은색·약간 큰 글자, 본문은 줄바꿈 후 회색 톤. */}
           <SectionTitle>{t.background}</SectionTitle>
-          <div className="space-y-4 text-[0.9375rem] text-gray-600 dark:text-gray-400 leading-relaxed">
-            {deal.background.map((para, i) => <p key={i}><HL text={para} /></p>)}
+          <div className="space-y-6 text-[0.9375rem] text-gray-600 dark:text-gray-400 leading-relaxed">
+            {deal.background.map((para, i) => {
+              const m = para.match(/^\[([^\]]+)\]\s*([\s\S]*)$/);
+              if (m) {
+                return (
+                  <div key={i} className="space-y-1.5">
+                    <p className="text-[0.9375rem] sm:text-base font-bold text-gray-900 dark:text-gray-100">
+                      {m[1]}
+                    </p>
+                    <p><HL text={m[2]} /></p>
+                  </div>
+                );
+              }
+              return <p key={i}><HL text={para} /></p>;
+            })}
           </div>
 
           {/* ── 4. 딜 요약 카드 */}
@@ -630,7 +647,8 @@ export default function DealPageClient({
           {/* ── 공유하기 (하단) */}
           <ShareButtons title={deal.title} variant="bottom" lang={lang} />
 
-          {/* ── 함께 읽으면 좋은 딜 */}
+          
+          <LikeButton slug={deal.slug} lang={lang} />{/* ── 함께 읽으면 좋은 딜 */}
           {relatedDeals.length > 0 && (
             <div className="mt-12 pt-8 border-t border-gray-100 dark:border-gray-800">
               <div className="relative mb-5">
