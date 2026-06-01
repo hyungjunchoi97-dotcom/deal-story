@@ -85,8 +85,8 @@ export const MOD_CHAPTERS: ModChapter[] = [
     titleEn: "Case · Microsoft × LinkedIn ($26.2B, 2016) — model walkthrough",
     taglineKo: "Strategic acquisition model의 sheet 구성과 cell 흐름을 sheet-by-sheet로",
     taglineEn: "Sheet structure and cell flow of a strategic-acquisition model, walked sheet by sheet",
-    readingMinutes: 13,
-    status: "draft",
+    readingMinutes: 14,
+    status: "published",
   },
 ];
 
