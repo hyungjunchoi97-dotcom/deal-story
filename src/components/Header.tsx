@@ -5,6 +5,7 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import DarkModeToggle from "./DarkModeToggle";
 import LanguageSwitcher from "./LanguageSwitcher";
+import AuthButton from "./AuthButton";
 import { detectLang, HEADER_NAV, HEADER_LABELS } from "@/lib/i18n";
 
 export default function Header() {
@@ -46,6 +47,8 @@ export default function Header() {
             <span className="w-px h-4 bg-gray-200 dark:bg-gray-700" aria-hidden />
             <LanguageSwitcher />
             <DarkModeToggle />
+            <span className="w-px h-4 bg-gray-200 dark:bg-gray-700" aria-hidden />
+            <AuthButton />
           </nav>
 
           {/* 모바일: 다크모드 + 햄버거 */}

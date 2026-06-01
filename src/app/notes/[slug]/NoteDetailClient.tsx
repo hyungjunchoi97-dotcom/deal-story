@@ -65,6 +65,7 @@ import SeriesNav from "@/components/SeriesNav";
 import ShareButtons from "@/components/deal/ShareButtons";
 import LikeButton from "@/components/LikeButton";
 import CommentSection from "@/components/CommentSection";
+import NewsletterCTA from "@/components/NewsletterCTA";
 
 // Dynamically load Mapbox component (no SSR — mapbox-gl touches window)
 const QuantumMap = dynamic(() => import("@/components/QuantumMap"), {
@@ -2693,6 +2694,7 @@ export default function NoteDetailClient({
           <div className="mt-8 flex justify-center">
             <LikeButton slug={note.slug} lang={lang} />
           </div>
+          <NewsletterCTA lang={lang} />
           <CommentSection slug={note.slug} lang={lang} />
 
           {/* Back link */}

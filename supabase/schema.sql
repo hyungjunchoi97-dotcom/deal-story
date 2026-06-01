@@ -103,6 +103,43 @@ alter table comment_likes enable row level security;
 create policy "Anyone can read comment_likes" on comment_likes for select using (true);
 create policy "Anyone can insert comment_likes" on comment_likes for insert with check (true);
 
+-- ── Profiles (온보딩 데이터) ───────────────────────────────────────────────────
+create table if not exists profiles (
+  id uuid primary key references auth.users(id) on delete cascade,
+  email text,
+  full_name text,
+  avatar_url text,
+  region text,
+  interests text[],
+  career_status text,
+  mba_consideration text,
+  onboarded boolean not null default false,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+alter table profiles enable row level security;
+create policy "Users can read own profile" on profiles for select using (auth.uid() = id);
+create policy "Users can insert own profile" on profiles for insert with check (auth.uid() = id);
+create policy "Users can update own profile" on profiles for update using (auth.uid() = id);
+
+-- ── Weekly Reports ─────────────────────────────────────────────────────────────
+create table if not exists weekly_reports (
+  id uuid primary key default gen_random_uuid(),
+  slug text not null unique,
+  title text not null,
+  title_en text,
+  preview text not null,
+  preview_en text,
+  content text not null,
+  content_en text,
+  published_at timestamptz,
+  is_published boolean not null default false,
+  created_at timestamptz not null default now()
+);
+alter table weekly_reports enable row level security;
+create policy "Anyone can read published reports preview" on weekly_reports for select using (is_published = true);
+create policy "Admin can do anything" on weekly_reports for all using (true);
+
 -- 샘플 데이터 (선택사항 — 필요 없으면 아래 insert 제거)
 insert into deal_posts (
   slug, title, excerpt, body_md,
