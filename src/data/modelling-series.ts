@@ -66,7 +66,7 @@ export const MOD_CHAPTERS: ModChapter[] = [
     taglineKo: "Cap structure setup · cash sweep · returns waterfall · IRR back-solver",
     taglineEn: "Cap structure setup, cash sweep, returns waterfall, IRR back-solver",
     readingMinutes: 13,
-    status: "draft",
+    status: "published",
   },
   {
     slug: "mod-ch05-operating",
