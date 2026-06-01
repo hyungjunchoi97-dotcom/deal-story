@@ -46,7 +46,7 @@ export const MOD_CHAPTERS: ModChapter[] = [
     taglineKo: "세 statement이 어떻게 연결되는지, BS가 안 맞을 때 디버깅, circular reference 처리",
     taglineEn: "How the three statements link, debugging an unbalanced BS, and handling circular references",
     readingMinutes: 13,
-    status: "draft",
+    status: "published",
   },
   {
     slug: "mod-ch03-dcf",

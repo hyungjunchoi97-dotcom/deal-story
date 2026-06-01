@@ -51,6 +51,7 @@ const KO_CONCEPT_CATALOG: ConceptItem[] = [
 
   // Modelling 시리즈 — Excel workbook 아키텍처 (Valuation 시리즈와 cross-link)
   { slug: "mod-ch01-standards",    term: "Modelling 101 Ch.1 — 모델의 표준 규칙", tagline: "Color coding · Sign convention · 10-sheet 표준 layout · Audit checks — IB·PE가 공유하는 4가지 알파벳",                                                                  category: "Modelling 시리즈", published: true },
+  { slug: "mod-ch02-three-statement", term: "Modelling 101 Ch.2 — 3-Statement Model 연결 mechanics", tagline: "IS · CFS · BS 6개 핵심 link · BS 디버깅 5가지 원인 · Interest × Debt × Cash circular reference · 통합 mini-sheet",                                       category: "Modelling 시리즈", published: true },
 
   // M&A 시리즈 — 전과정 흐름 + 이해관계자 + 유명 뱅커 케이스
   { slug: "ma-ch01-overview",      term: "M&A 101 Ch.1 — 전과정 흐름 (6개월의 여정)", tagline: "M&A는 보기보다 단순한 흐름이다 — 9단계 타임라인 · 5개 주체 병렬 워크스트림 · 진짜 어려운 4지점",                                                  category: "M&A 시리즈", published: true  },
@@ -125,6 +126,7 @@ const EN_CONCEPT_CATALOG: ConceptItem[] = [
 
   // Modelling Series — Excel workbook architecture (cross-linked with Valuation Series)
   { slug: "mod-ch01-standards",    term: "Modelling 101 Ch.1 — Modeling standards", tagline: "Color coding · sign convention · 10-sheet standard layout · audit checks — the four rules every IB and PE shares",                                                  category: "Modelling Series", published: true },
+  { slug: "mod-ch02-three-statement", term: "Modelling 101 Ch.2 — The 3-statement model, how IS / BS / CFS connect", tagline: "Six core links · five BS-debug causes · the interest × debt × cash circular reference · the integrated mini-sheet",                  category: "Modelling Series", published: true },
 
   // M&A Series — lifecycle + stakeholders + banker case studies
   { slug: "ma-ch01-overview",      term: "M&A 101 Ch.1 — The Lifecycle (6-month journey)", tagline: "M&A is more linear than it looks — 9-stage timeline · 5 parallel workstreams · the 4 places where it actually gets hard",                                  category: "M&A Series", published: true },
