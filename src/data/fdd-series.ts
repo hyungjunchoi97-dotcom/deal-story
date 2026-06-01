@@ -63,8 +63,8 @@ export const FDD_CHAPTERS: FddChapter[] = [
     titleEn: "Hidden liabilities and off-balance-sheet items",
     taglineKo: "미계상 의무, tax exposure, customer concentration, 산업별 hot spot",
     taglineEn: "Unrecorded obligations, tax exposure, customer concentration, industry hot spots",
-    readingMinutes: 12,
-    status: "draft",
+    readingMinutes: 13,
+    status: "published",
   },
   {
     slug: "fdd-ch05-hertz-case",
