@@ -520,9 +520,9 @@ export type NoteData = {
   keyPointsEn?: string[];
   sections: NoteSection[];
   references: NoteReference[];
-  /* 시리즈물 그룹핑. 같은 series ID를 가진 노트들은 인덱스에서 폴더로 묶인다. /
+  /* 시리즈물 그룹핑. 같은 series ID를 가진 노트들은 인덱스에서 폴더로 묶인다. */
   series?: NoteSeriesId;
-  /* 시리즈 내 순서 (1편, 2편, 3편 ...). seriesOrder 오름차순으로 정렬됨. /
+  /* 시리즈 내 순서 (1편, 2편, 3편 ...). seriesOrder 오름차순으로 정렬됨. */
   seriesOrder?: number;
 };
 
