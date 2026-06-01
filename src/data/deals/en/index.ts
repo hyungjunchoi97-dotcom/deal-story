@@ -92,6 +92,10 @@ import apolloCaesars from "./apollo-caesars";
 import iheartmediaClearChannel from "./iheartmedia-clear-channel";
 import jcrewIpTransfer from "./jcrew-ip-transfer";
 import sertaSimmonsUptier from "./serta-simmons-uptier";
+// New deals — Sophisticated structures
+import skSquare11stPutDefault from "./sk-square-11st-put-default";
+import aramcoOilPipelines from "./aramco-oil-pipelines";
+import bmsCelgeneCvr from "./bms-celgene-cvr";
 
 /**
  * English deal registry — ordered by closedAt descending
@@ -100,6 +104,7 @@ export const ALL_DEALS_EN: DealData[] = [
   mbkMakinoAltemira,       // 2026-05-11 (ma — Japan FEFTA + 19-day pivot)
   kkrSamsungSdsCb,         // 2026-04-30 (ma — Korea's largest single private CB)
   coucheTard7eleven,       // 2025-12-31 (control, ongoing)
+  skSquare11stPutDefault,  // 2025-10-29 (ma — First Korean PE-strategic JV put default)
   koreaZincMbk,            // 2025-03-28 (control)
   hanmiPharmaControl,      // 2024-12-31 (control, ongoing)
   trianDisney,             // 2024-04-03 (activism)
@@ -121,6 +126,7 @@ export const ALL_DEALS_EN: DealData[] = [
   ibmKyndryl,              // 2021-11-04 (restructuring)
   salesforceSlack,         // 2021-07-21
   hanjinKcgi,              // 2021-06-30 (activism)
+  aramcoOilPipelines,      // 2021-06-18 (ma — 25-year throughput-based lease-back)
   engineNo1Exxon,          // 2021-05-26 (activism)
   elliottAtt,              // 2021-05-17 (activism)
   lvmhTiffany,             // 2021-01-07
@@ -128,6 +134,7 @@ export const ALL_DEALS_EN: DealData[] = [
   sertaSimmonsUptier,      // 2020-06-22 (uptier exchange)
   danaherAcquisitions,     // multiple deals (latest: Cytiva 2020-03)
   elliottTwitter,          // 2020-03-09 (activism)
+  bmsCelgeneCvr,           // 2019-11-20 (ma — CVR 36-day delay wiped out $6.4B)
   thirdPointNestle,        // 2019-09-01 (activism)
   dowdupont,               // 2019-06-01 (restructuring)
   disneyFox,               // 2019-03-20

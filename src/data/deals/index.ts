@@ -91,6 +91,10 @@ import bcPartnersPetsmart from "./bc-partners-petsmart";
 import g3CapitalBurgerKing from "./3g-capital-burger-king";
 import starboardDardenOliveGarden from "./starboard-darden-olive-garden";
 import pershingSquareAllergan from "./pershing-square-allergan";
+// 신규 추가 딜 — 정교한 구조 시리즈
+import skSquare11stPutDefault from "./sk-square-11st-put-default";
+import aramcoOilPipelines from "./aramco-oil-pipelines";
+import bmsCelgeneCvr from "./bms-celgene-cvr";
 
 /**
  * 딜 레지스트리 — 새 딜 추가 시 import 후 배열에 추가
@@ -100,6 +104,7 @@ export const ALL_DEALS: DealData[] = [
   mbkMakinoAltemira,       // 2026-05-11 (ma — 일본 FEFTA + 19일 피벗)
   kkrSamsungSdsCb,         // 2026-04-30 (ma — 한국 단일 사모 CB 최대급)
   coucheTard7eleven,       // 2025-12-31 (control, 진행중)
+  skSquare11stPutDefault,  // 2025-10-29 (ma — 한국 PE-전략적 JV 풋옵션 디폴트 첫 케이스)
   koreaZincMbk,            // 2025-03-28 (control)
   hanmiPharmaControl,      // 2024-12-31 (control, 진행중)
   trianDisney,             // 2024-04-03 (activism)
@@ -121,6 +126,7 @@ export const ALL_DEALS: DealData[] = [
   ibmKyndryl,              // 2021-11-04 (restructuring)
   salesforceSlack,         // 2021-07-21
   hanjinKcgi,              // 2021-06-30 (activism)
+  aramcoOilPipelines,      // 2021-06-18 (ma — 파이프라인 25년 throughput 임차백)
   engineNo1Exxon,          // 2021-05-26 (activism)
   elliottAtt,              // 2021-05-17 (activism — AT&T $134B 인수 후처리, DirecTV+WarnerMedia 분리)
   lvmhTiffany,             // 2021-01-07
@@ -128,6 +134,7 @@ export const ALL_DEALS: DealData[] = [
   sertaSimmons,            // 2020-06-22 (LevFin 업티어 익스체인지)
   danaherAcquisitions,     // multiple deals (latest: Cytiva 2020-03)
   elliottTwitter,          // 2020-03-09 (activism — 겸직 CEO 압박, Dorsey 사임 도화선)
+  bmsCelgeneCvr,           // 2019-11-20 (ma — CVR 36일 지연으로 $6.4B 전액 무효)
   thirdPointNestle,        // 2019-09-01 (activism)
   dowdupont,               // 2019-06-01 (restructuring)
   disneyFox,               // 2019-03-20

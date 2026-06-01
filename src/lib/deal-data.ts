@@ -461,7 +461,7 @@ export interface BattleMove {
 /** 각 진영이 꺼내든 금융 무기 */
 export interface FinancialWeapon {
   name: string;           // e.g. "공개매수 (TOB)"
-  side: "attack" | "defense";
+  side: BattleSide;       // "attack" | "defense" | "neutral" (정부·법원 등 제3자 개입 케이스 포함)
   usedBy: string;
   description: string;
   effectiveness: WeaponEffectiveness;

@@ -78,6 +78,7 @@ const LABELS = {
     financialArsenal: "핵심 수단",
     attackWeapons: "공격 수단",
     defenseWeapons: "방어 수단",
+    neutralWeapons: "제3자 개입",
     turningPoint: "결정적 순간",
     verdict: "최종 판정",
     winner: "승자",
@@ -99,6 +100,7 @@ const LABELS = {
     financialArsenal: "Key Instruments",
     attackWeapons: "Offense Playbook",
     defenseWeapons: "Defense Playbook",
+    neutralWeapons: "Third-Party Intervention",
     turningPoint: "Turning Point",
     verdict: "Final Verdict",
     winner: "Winner",
@@ -325,9 +327,11 @@ function FinancialArsenal({
 }) {
   const attackWeapons = data.financialWeapons.filter((w) => w.side === "attack");
   const defenseWeapons = data.financialWeapons.filter((w) => w.side === "defense");
+  const neutralWeapons = data.financialWeapons.filter((w) => w.side === "neutral");
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="space-y-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       {/* 공격 수단 */}
       <div className="space-y-3">
         <h4 className={`text-sm font-bold flex items-center gap-2 ${SIDE.attack.header}`}>
@@ -383,6 +387,41 @@ function FinancialArsenal({
           </motion.div>
         ))}
       </div>
+      </div>
+
+      {/* 제3자 개입 (정부·법원 등) */}
+      {neutralWeapons.length > 0 && (
+        <div className="space-y-3">
+          <h4 className={`text-sm font-bold flex items-center gap-2 ${SIDE.neutral.header}`}>
+            <span className="text-base">⚖️</span> {t.neutralWeapons}
+          </h4>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {neutralWeapons.map((w, i) => (
+              <motion.div
+                key={i}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.5 }}
+                variants={fadeUp}
+                className={`rounded-xl border p-3.5 space-y-1.5 ${SIDE.neutral.bg} ${SIDE.neutral.border}`}
+              >
+                <div className="flex items-start justify-between gap-2">
+                  <span className="font-semibold text-sm text-gray-900 dark:text-gray-50">{w.name}</span>
+                  <span
+                    className={`text-[10px] font-semibold rounded-full px-2 py-0.5 shrink-0 ${EFFECTIVENESS[w.effectiveness].cls}`}
+                  >
+                    {EFFECTIVENESS[w.effectiveness][lang]}
+                  </span>
+                </div>
+                <p className="text-[11px] font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
+                  {w.usedBy}
+                </p>
+                <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed"><HL text={w.description} /></p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
