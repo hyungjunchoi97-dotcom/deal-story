@@ -83,8 +83,8 @@ export const FDD_CHAPTERS: FddChapter[] = [
     titleEn: "Case — Tesco's £263M accounting scandal (2014)",
     taglineKo: "공급업체 rebate 인식을 당겨 EBITDA를 부풀린 패턴과 audit·FDD가 놓친 신호",
     taglineEn: "Pulling supplier rebates forward to inflate EBITDA — the signals audit and FDD missed",
-    readingMinutes: 12,
-    status: "draft",
+    readingMinutes: 13,
+    status: "published",
   },
 ];
 
