@@ -95,6 +95,13 @@ import pershingSquareAllergan from "./pershing-square-allergan";
 import skSquare11stPutDefault from "./sk-square-11st-put-default";
 import aramcoOilPipelines from "./aramco-oil-pipelines";
 import bmsCelgeneCvr from "./bms-celgene-cvr";
+import nipponSteelUsSteel from "./nippon-steel-us-steel";
+import doosanRoboticsBobcatWithdrawn from "./doosan-robotics-bobcat-withdrawn";
+import harimHmmFailed from "./harim-hmm-failed";
+import toshibaJipTakeprivate from "./toshiba-jip-takeprivate";
+import berkshireOxyAnadarko from "./berkshire-oxy-anadarko";
+import softbankVisionFundLpStructure from "./softbank-vision-fund-lp-structure";
+import sanofiGenzymeCvr from "./sanofi-genzyme-cvr";
 
 /**
  * 딜 레지스트리 — 새 딜 추가 시 import 후 배열에 추가
@@ -105,11 +112,15 @@ export const ALL_DEALS: DealData[] = [
   kkrSamsungSdsCb,         // 2026-04-30 (ma — 한국 단일 사모 CB 최대급)
   coucheTard7eleven,       // 2025-12-31 (control, 진행중)
   skSquare11stPutDefault,  // 2025-10-29 (ma — 한국 PE-전략적 JV 풋옵션 디폴트 첫 케이스)
+  nipponSteelUsSteel,      // 2025-06-18 (ma — 미국 정부 golden share 부과 첫 사례)
   koreaZincMbk,            // 2025-03-28 (control)
   hanmiPharmaControl,      // 2024-12-31 (control, 진행중)
+  doosanRoboticsBobcatWithdrawn, // 2024-10-21 (control — 행동주의+NPS+FSS 트라이앵글 첫 차단)
   trianDisney,             // 2024-04-03 (activism)
   geBreakup,               // 2024-04-02 (restructuring)
   illuminaGrail,           // 2024 forced divestiture
+  harimHmmFailed,          // 2024-02-06 (ma — 한국 국책 매각, 영구채가 막은 케이스)
+  toshibaJipTakeprivate,   // 2023-12-20 (ma — 일본 도메스틱 컨소시엄 비상장화)
   adobeFigmaBlocked,       // 2023-12-18 (terminated)
   broadcomVmware,          // 2023-11-22
   microsoftActivision,     // 2023-10-13
@@ -136,6 +147,7 @@ export const ALL_DEALS: DealData[] = [
   elliottTwitter,          // 2020-03-09 (activism — 겸직 CEO 압박, Dorsey 사임 도화선)
   bmsCelgeneCvr,           // 2019-11-20 (ma — CVR 36일 지연으로 $6.4B 전액 무효)
   thirdPointNestle,        // 2019-09-01 (activism)
+  berkshireOxyAnadarko,    // 2019-08-08 (ma — $10B 영구 우선주 + 워런트 백기사 financing)
   dowdupont,               // 2019-06-01 (restructuring)
   disneyFox,               // 2019-03-20
   sapQualtrics,            // 2019-01-23
@@ -149,6 +161,7 @@ export const ALL_DEALS: DealData[] = [
   trianPg,                 // 2017-12-15 (activism)
   amazonWholeFoods,        // 2017-08-28
   janaWholeFoods,          // 2017-08-28 (activism — Amazon 매각 촉발)
+  softbankVisionFundLpStructure, // 2017-05-20 (ma — $100B 펀드, 우선/보통 분할 구조)
   kraftUnilever,           // 2017-02-19 (control, withdrawn)
   microsoftLinkedin,       // 2016-12-08
   abInBevSabmiller,        // 2016-10-10
@@ -170,6 +183,7 @@ export const ALL_DEALS: DealData[] = [
   porscheVolkswagen,       // 2012-08-01 (control)
   thirdPointYahoo,         // 2012-07-16 (activism)
   pershingSquareCpRail,    // 2012-05-17 (activism)
+  sanofiGenzymeCvr,        // 2011-04-08 (ma — CVR 발명의 원조 사례, 5-tranche milestone)
   jcrewIpTransfer,         // 2011-03-07 (LevFin Trap Door 케이스)
   airgasAirProducts,       // 2011-02-11 (control, withdrawn)
   g3CapitalBurgerKing,     // 2010-10-19 (LBO 교육 — ZBB + 재가맹점화)

@@ -96,6 +96,13 @@ import sertaSimmonsUptier from "./serta-simmons-uptier";
 import skSquare11stPutDefault from "./sk-square-11st-put-default";
 import aramcoOilPipelines from "./aramco-oil-pipelines";
 import bmsCelgeneCvr from "./bms-celgene-cvr";
+import nipponSteelUsSteel from "./nippon-steel-us-steel";
+import doosanRoboticsBobcatWithdrawn from "./doosan-robotics-bobcat-withdrawn";
+import harimHmmFailed from "./harim-hmm-failed";
+import toshibaJipTakeprivate from "./toshiba-jip-takeprivate";
+import berkshireOxyAnadarko from "./berkshire-oxy-anadarko";
+import softbankVisionFundLpStructure from "./softbank-vision-fund-lp-structure";
+import sanofiGenzymeCvr from "./sanofi-genzyme-cvr";
 
 /**
  * English deal registry — ordered by closedAt descending
@@ -105,11 +112,15 @@ export const ALL_DEALS_EN: DealData[] = [
   kkrSamsungSdsCb,         // 2026-04-30 (ma — Korea's largest single private CB)
   coucheTard7eleven,       // 2025-12-31 (control, ongoing)
   skSquare11stPutDefault,  // 2025-10-29 (ma — First Korean PE-strategic JV put default)
+  nipponSteelUsSteel,      // 2025-06-18 (ma — First US-government golden share on foreign acquisition)
   koreaZincMbk,            // 2025-03-28 (control)
   hanmiPharmaControl,      // 2024-12-31 (control, ongoing)
+  doosanRoboticsBobcatWithdrawn, // 2024-10-21 (control — Activist+NPS+FSS triangle blocks chaebol restructuring)
   trianDisney,             // 2024-04-03 (activism)
   geBreakup,               // 2024-04-02 (restructuring)
   illuminaGrail,           // 2024 forced divestiture
+  harimHmmFailed,          // 2024-02-06 (ma — Korean SOE sale blocked by perpetual CB)
+  toshibaJipTakeprivate,   // 2023-12-20 (ma — Japan domestic-consortium take-private)
   adobeFigmaBlocked,       // 2023-12-18 (terminated)
   broadcomVmware,          // 2023-11-22
   microsoftActivision,     // 2023-10-13
@@ -136,6 +147,7 @@ export const ALL_DEALS_EN: DealData[] = [
   elliottTwitter,          // 2020-03-09 (activism)
   bmsCelgeneCvr,           // 2019-11-20 (ma — CVR 36-day delay wiped out $6.4B)
   thirdPointNestle,        // 2019-09-01 (activism)
+  berkshireOxyAnadarko,    // 2019-08-08 (ma — $10B perpetual preferred + warrants white-knight financing)
   dowdupont,               // 2019-06-01 (restructuring)
   disneyFox,               // 2019-03-20
   sapQualtrics,            // 2019-01-23
@@ -149,6 +161,7 @@ export const ALL_DEALS_EN: DealData[] = [
   trianPg,                 // 2017-12-15 (activism)
   amazonWholeFoods,        // 2017-08-28
   janaWholeFoods,          // 2017-08-28 (activism)
+  softbankVisionFundLpStructure, // 2017-05-20 (ma — $100B fund, preferred/common tranche)
   kraftUnilever,           // 2017-02-19 (control, withdrawn)
   microsoftLinkedin,       // 2016-12-08
   abInBevSabmiller,        // 2016-10-10
@@ -170,6 +183,7 @@ export const ALL_DEALS_EN: DealData[] = [
   porscheVolkswagen,       // 2012-08-01 (control)
   thirdPointYahoo,         // 2012-07-16 (activism)
   pershingSquareCpRail,    // 2012-05-17 (activism)
+  sanofiGenzymeCvr,        // 2011-04-08 (ma — CVR invention, 5-tranche milestone)
   jcrewIpTransfer,         // 2011-03-07 (LBO, trap door)
   airgasAirProducts,       // 2011-02-11 (control, withdrawn)
   threeGCapitalBurgerKing, // 2010-10-19
