@@ -327,14 +327,14 @@ export default function DealPageClient({
 
           {/* ── 6. Industry Overview */}
           <SectionTitle>Industry Overview</SectionTitle>
-          <p className="text-[0.9375rem] text-gray-600 dark:text-gray-400 leading-relaxed mb-5">{deal.industryOverview.body}</p>
+          <p className="text-[0.9375rem] text-gray-600 dark:text-gray-400 leading-relaxed mb-5"><HL text={deal.industryOverview.body} /></p>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
             {deal.industryOverview.metrics.map((m) => (
               <MetricCard key={m.label} label={m.label} value={m.value} sub={m.sub} />
             ))}
           </div>
           {deal.industryOverview.subBody && (
-            <p className="text-[0.9375rem] text-gray-600 dark:text-gray-400 leading-relaxed mb-3">{deal.industryOverview.subBody}</p>
+            <p className="text-[0.9375rem] text-gray-600 dark:text-gray-400 leading-relaxed mb-3"><HL text={deal.industryOverview.subBody} /></p>
           )}
           {deal.industryOverview.players && deal.industryOverview.players.length > 0 && (
             <div className="rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/60 p-4">
@@ -355,7 +355,7 @@ export default function DealPageClient({
 
           {/* ── 7. Company Overview */}
           <SectionTitle>Company Overview: {deal.companyOverview.targetName}</SectionTitle>
-          <p className="text-[0.9375rem] text-gray-600 dark:text-gray-400 leading-relaxed mb-5">{deal.companyOverview.body}</p>
+          <p className="text-[0.9375rem] text-gray-600 dark:text-gray-400 leading-relaxed mb-5"><HL text={deal.companyOverview.body} /></p>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6">
             {deal.companyOverview.metrics.map((m) => (
               <MetricCard key={m.label} label={m.label} value={m.value} sub={m.sub} />
@@ -429,7 +429,7 @@ export default function DealPageClient({
 
           {/* ── 8. 딜 구조 */}
           <SectionTitle>{t.dealStructure}</SectionTitle>
-          <p className="text-[0.9375rem] text-gray-600 dark:text-gray-400 leading-relaxed mb-6">{deal.dealStructure.body}</p>
+          <p className="text-[0.9375rem] text-gray-600 dark:text-gray-400 leading-relaxed mb-6"><HL text={deal.dealStructure.body} /></p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-4">
             <OwnershipDiagram title={t.preDeal} nodes={deal.dealStructure.preOwnership.nodes} edges={deal.dealStructure.preOwnership.edges} delay={0} />
             <OwnershipDiagram title={t.postDeal} nodes={deal.dealStructure.postOwnership.nodes} edges={deal.dealStructure.postOwnership.edges} delay={0.2} />
@@ -448,7 +448,7 @@ export default function DealPageClient({
 
           {/* ── 자문사 */}
           <SectionTitle>{t.advisors}</SectionTitle>
-          <p className="text-[0.9375rem] text-gray-600 dark:text-gray-400 leading-relaxed mb-5">{deal.advisors.body}</p>
+          <p className="text-[0.9375rem] text-gray-600 dark:text-gray-400 leading-relaxed mb-5"><HL text={deal.advisors.body} /></p>
           <AdvisorsSection sides={deal.advisors.sides} lang={lang} />
           {deal.advisors.disclaimer && (
             <p className="text-[11px] text-gray-400 dark:text-gray-500 mt-4">{deal.advisors.disclaimer}</p>
@@ -509,7 +509,7 @@ export default function DealPageClient({
 
           {/* ── 10. Valuation */}
           <SectionTitle>Valuation</SectionTitle>
-          <p className="text-[0.9375rem] text-gray-600 dark:text-gray-400 leading-relaxed mb-5">{deal.valuation.body}</p>
+          <p className="text-[0.9375rem] text-gray-600 dark:text-gray-400 leading-relaxed mb-5"><HL text={deal.valuation.body} /></p>
           <div className="rounded-xl border border-gray-200 dark:border-gray-700/60 overflow-hidden mb-4">
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
@@ -596,7 +596,7 @@ export default function DealPageClient({
 
           {/* ── 12. 딜 사후 평가 */}
           <SectionTitle>{t.postDealAssessment} ({deal.postDealAssessment.asOfDate} {t.asOf})</SectionTitle>
-          <p className="text-[0.9375rem] text-gray-600 dark:text-gray-400 leading-relaxed mb-5">{deal.postDealAssessment.body}</p>
+          <p className="text-[0.9375rem] text-gray-600 dark:text-gray-400 leading-relaxed mb-5"><HL text={deal.postDealAssessment.body} /></p>
           <div className="flex items-center gap-3 mb-6">
             <motion.span
               className="inline-flex items-center gap-1.5 text-sm font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-full px-4 py-1.5"
@@ -606,7 +606,7 @@ export default function DealPageClient({
               transition={{ type: "spring", stiffness: 340, damping: 22, delay: 0.15 }}
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden={true}><polyline points="20 6 9 17 4 12"/></svg>
-              {t.overallVerdict} {deal.postDealAssessment.overallVerdict}
+              {t.overallVerdict} <HL text={deal.postDealAssessment.overallVerdict} />
             </motion.span>
             <span className="text-xs text-gray-400 dark:text-gray-500">{deal.postDealAssessment.asOfDate} {t.asOf}</span>
           </div>
