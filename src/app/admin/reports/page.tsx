@@ -22,7 +22,7 @@ export default async function AdminReportsPage({ searchParams }: Props) {
   return (
     <>
       <Header />
-      <AdminReportsClient initialReports={reports ?? []} />
+      <AdminReportsClient initialReports={reports ?? []} adminKey={ADMIN_KEY} />
     </>
   );
 }

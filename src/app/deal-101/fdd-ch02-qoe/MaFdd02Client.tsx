@@ -180,7 +180,7 @@ export default function MaFdd02Client({ lang }: { lang: Lang }) {
       return { top, height, connectorFrom: b.val };
     }
     let top: number;
-    let height: number = b.val;
+    const height: number = b.val;
     if (b.kind === "add") {
       top = runningTop;
       runningTop = runningTop + b.val;

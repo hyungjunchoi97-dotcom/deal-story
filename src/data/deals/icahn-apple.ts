@@ -61,7 +61,7 @@ const deal: DealData = {
       { name: "Apple Inc.", role: "대상 기업, 막대한 현금 보유, 팀 쿡 CEO" },
       { name: "Carl Icahn / Icahn Capital", role: "행동주의 투자자, $36억 지분, 자사주매입 요구" },
       { name: "Tim Cook", role: "Apple CEO, 아이칸 일부 요구 수용 협상" },
-      { name: "Vanguard·BlackRock 등", value: "대형 기관투자자, 중립적 입장에서 아이칸 논리 일부 지지" } as any,
+      { name: "Vanguard·BlackRock 등", role: "대형 기관투자자, 중립적 입장에서 아이칸 논리 일부 지지" },
       { name: "David Einhorn (Greenlight Capital)", role: "아이칸 이전 Apple 주주환원 요구한 행동주의 선례" },
     ],
   },

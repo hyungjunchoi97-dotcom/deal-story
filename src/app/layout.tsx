@@ -10,8 +10,9 @@ import "./globals.css";
 const BASE = SITE_URL;
 
 export const metadata: Metadata = {
-  title: { default: "Deal Story - 기업 딜 아카이브", template: "%s | Deal Story" },
-  description: "M&A, PE/VC 투자, IPO, 매각·분리까지. 기업의 딜 순간을 스토리로 아카이빙합니다.",
+  title: { default: "딜스토리(Dealstory): 자본시장과 투자은행 이야기", template: "%s | 딜스토리" },
+  description: "딜스토리 — 자본시장은 어떻게 움직이는가. M&A, PE/VC 투자, IPO, LBO까지. 실제 딜 사례로 배우는 투자은행·금융 이야기.",
+  keywords: ["딜스토리", "dealstory", "딜 스토리", "자본시장", "투자은행", "M&A", "PE", "IPO", "LBO", "금융"],
   metadataBase: new URL(BASE),
   authors: [{ name: AUTHOR.name, url: BASE }],
   creator: AUTHOR.name,
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
   // ── Open Graph ────────────────────────────────────────────
   openGraph: {
     type: "website",
-    siteName: "Deal Story",
+    siteName: "딜스토리(Dealstory)",
     // 기본 로케일 KO — EN 페이지는 각 page.tsx의 openGraph.locale에서 오버라이드
     locale: "ko_KR",
     alternateLocale: ["en_US"],
@@ -54,7 +55,8 @@ const SITE_JSONLD = {
     {
       "@type": "WebSite",
       "@id": `${BASE}/#website`,
-      name: "Deal Story",
+      name: "딜스토리(Dealstory)",
+      alternateName: ["딜스토리", "Dealstory", "Deal Story"],
       url: BASE,
       description:
         "M&A, PE/VC, IPO 딜 아카이브 — 실제 딜 사례로 배우는 금융 개념. Archive of landmark M&A, PE, and IPO deals explained in context.",
@@ -72,7 +74,8 @@ const SITE_JSONLD = {
     {
       "@type": "Organization",
       "@id": `${BASE}/#organization`,
-      name: "Deal Story",
+      name: "딜스토리(Dealstory)",
+      alternateName: ["딜스토리", "Dealstory", "Deal Story"],
       url: BASE,
       logo: {
         "@type": "ImageObject",

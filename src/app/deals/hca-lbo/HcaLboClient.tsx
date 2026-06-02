@@ -841,11 +841,11 @@ export default function HcaLboClient({ lang }: Props) {
                         <div>
                           <p className="text-gray-400 dark:text-gray-500">{ko ? "금리" : "Pricing"}</p>
                           <p className="font-semibold text-gray-700 dark:text-gray-300">
-                            {(t as any).pricing
-                              ? (t as any).pricing
-                              : ko
-                              ? (t as any).pricing_ko
-                              : (t as any).pricing_en}
+                            {(() => {
+                              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                              const tr = t as any;
+                              return tr.pricing ? tr.pricing : ko ? tr.pricing_ko : tr.pricing_en;
+                            })()}
                           </p>
                         </div>
                         <div>
