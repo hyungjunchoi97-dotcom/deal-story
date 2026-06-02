@@ -9,59 +9,78 @@ interface Props {
 
 const COPY = {
   ko: {
-    eyebrow: "회원 전용 혜택",
-    title: "로그인하면 더 많은 것을 볼 수 있습니다",
+    eyebrow: "매주 금요일 발송",
+    title: "딜스토리 Weekly Report를 받아보세요",
     benefits: [
       {
-        icon: "bookmark",
-        label: "스크랩",
-        desc: "관심 있는 글을 저장하고 마이페이지에서 언제든 다시 확인",
+        icon: "report",
+        label: "Weekly Report 전문",
+        desc: "IB 실무자 시각으로 쓴 이번 주 자본시장 심층 분석",
       },
       {
-        icon: "mail",
-        label: "Weekly Report",
-        desc: "매주 엄선된 딜 브리핑과 자본시장 분석 리포트 무료 수신",
+        icon: "globe",
+        label: "글로벌 M&A 동향",
+        desc: "북미 · 아시아 · 유럽 지역별 딜 흐름 요약",
+      },
+      {
+        icon: "list",
+        label: "이번 주 새 글 모아보기",
+        desc: "딜스토리에 새로 올라온 글을 한눈에 확인",
       },
     ],
-    cta: "Google로 무료 시작하기",
+    cta: "Google로 무료 구독하기",
     sub: "이메일·카드 없이 구글 계정으로 30초 가입",
   },
   en: {
-    eyebrow: "Member Benefits",
-    title: "Sign in to unlock more",
+    eyebrow: "Every Friday",
+    title: "Get the Deal Story Weekly Report",
     benefits: [
       {
-        icon: "bookmark",
-        label: "Save Articles",
-        desc: "Bookmark any article and access your saved list anytime",
+        icon: "report",
+        label: "Weekly Report",
+        desc: "In-depth capital markets analysis from an IB practitioner's perspective",
       },
       {
-        icon: "mail",
-        label: "Weekly Report",
-        desc: "Curated deal briefings and capital markets analysis, delivered weekly",
+        icon: "globe",
+        label: "Global M&A Pulse",
+        desc: "Deal flow summary across North America, Asia, and Europe",
+      },
+      {
+        icon: "list",
+        label: "New This Week",
+        desc: "All new articles published on Deal Story, curated in one place",
       },
     ],
-    cta: "Start free with Google",
+    cta: "Subscribe free with Google",
     sub: "No email or credit card — just your Google account",
   },
 };
 
 const ICONS = {
-  bookmark: (
+  report: (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+      <polyline points="14 2 14 8 20 8" />
+      <line x1="16" y1="13" x2="8" y2="13" />
+      <line x1="16" y1="17" x2="8" y2="17" />
+      <polyline points="10 9 9 9 8 9" />
     </svg>
   ),
-  mail: (
+  globe: (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-      <polyline points="22,6 12,13 2,6" />
+      <circle cx="12" cy="12" r="10" />
+      <line x1="2" y1="12" x2="22" y2="12" />
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
     </svg>
   ),
-  lock: (
+  list: (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+      <line x1="8" y1="6" x2="21" y2="6" />
+      <line x1="8" y1="12" x2="21" y2="12" />
+      <line x1="8" y1="18" x2="21" y2="18" />
+      <line x1="3" y1="6" x2="3.01" y2="6" />
+      <line x1="3" y1="12" x2="3.01" y2="12" />
+      <line x1="3" y1="18" x2="3.01" y2="18" />
     </svg>
   ),
 };
