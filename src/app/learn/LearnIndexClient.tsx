@@ -57,6 +57,9 @@ const KO_CONCEPT_CATALOG: ConceptItem[] = [
   { slug: "mod-ch05-operating",    term: "Modelling 101 Ch.5 — Operating Model: Driver-based Forecasting", tagline: "Top-down vs Bottom-up · 5 산업 driver 패턴 (SaaS·Retail·Manufacturing·Hospitality·Services) · SaaS cohort NRR · Scenario Manager로 Bear/Base/Bull toggle",  category: "Modelling 시리즈", published: true },
   { slug: "mod-ch06-msft-linkedin-case", term: "Modelling 101 Ch.6 — Case: Microsoft × LinkedIn ($26.2B, 2016)", tagline: "Strategic acquisition 7 sheets sheet-by-sheet · LinkedIn 4-segment build · Synergy 4-year phase-in · Accretion/Dilution · Football Field로 $196 premium 정당화",  category: "Modelling 시리즈", published: true },
 
+  // Fund 시리즈 — LP·GP·LPA·시장 구조 (capital flow 시점)
+  { slug: "fund-ch01-lp-overview", term: "Fund 101 Ch.1 — LP는 누구이고 왜 PE·VC에 돈을 맡기는가", tagline: "7가지 LP 타입 (Pension·Endowment·SWF·FoF·Insurance·Family Office·HNW) · Illiquidity premium · Yale Model vs NPS allocation · 글로벌 Top LP 카탈로그",  category: "Fund 시리즈", published: true },
+
   // M&A 시리즈 — 전과정 흐름 + 이해관계자 + 유명 뱅커 케이스
   { slug: "ma-ch01-overview",      term: "M&A 101 Ch.1 — 전과정 흐름 (6개월의 여정)", tagline: "M&A는 보기보다 단순한 흐름이다 — 9단계 타임라인 · 5개 주체 병렬 워크스트림 · 진짜 어려운 4지점",                                                  category: "M&A 시리즈", published: true  },
   { slug: "ma-ch02-stakeholders",  term: "M&A 101 Ch.2 — 이해관계자 도감 (누가 무엇을 하는가)", tagline: "한 딜에 평균 8개 firm — IB · 회계 FAS · 컨설팅 · 법무 · Lender + 클라이언트. Deliverable · 등장 시점 · IB와의 인터페이스 · risk",   category: "M&A 시리즈", published: true  },
@@ -135,6 +138,9 @@ const EN_CONCEPT_CATALOG: ConceptItem[] = [
   { slug: "mod-ch04-lbo",          term: "Modelling 101 Ch.4 — LBO Model", tagline: "Sources & Uses · debt schedule with cash sweep · returns waterfall (preferred → catch-up → 80/20) · Goal Seek for the 20% IRR max bid",                                        category: "Modelling Series", published: true },
   { slug: "mod-ch05-operating",    term: "Modelling 101 Ch.5 — Operating Model: Driver-based Forecasting", tagline: "Top-down vs bottom-up · five industry driver patterns (SaaS · retail · manufacturing · hospitality · services) · SaaS cohort NRR · Scenario Manager",  category: "Modelling Series", published: true },
   { slug: "mod-ch06-msft-linkedin-case", term: "Modelling 101 Ch.6 — Case: Microsoft × LinkedIn ($26.2B, 2016)", tagline: "Walking 7 strategic-acquisition sheets · LinkedIn 4-segment build · 4-year synergy phase-in · accretion/dilution · Football Field justifying the $196 premium",  category: "Modelling Series", published: true },
+
+  // Fund Series — LP, GP, LPA, market (capital-flow lens)
+  { slug: "fund-ch01-lp-overview", term: "Fund 101 Ch.1 — Who are LPs, and why do they commit to PE/VC", tagline: "Seven LP archetypes (pension, endowment, SWF, FoF, insurance, family office, HNW) · illiquidity premium · Yale Model vs NPS allocation · global top-LP catalog",  category: "Fund Series", published: true },
 
   // M&A Series — lifecycle + stakeholders + banker case studies
   { slug: "ma-ch01-overview",      term: "M&A 101 Ch.1 — The Lifecycle (6-month journey)", tagline: "M&A is more linear than it looks — 9-stage timeline · 5 parallel workstreams · the 4 places where it actually gets hard",                                  category: "M&A Series", published: true },
@@ -219,12 +225,12 @@ for (const c of ALL_MARKET101_CONCEPTS) {
 // ── 카테고리 순서 ─────────────────────────────────────────────────────────────
 // 새 구조: 프로덕트별 시리즈 (M&A · Valuation · FDD · Modelling · LBO) + 기존 글 모음 (기타)
 const KO_CATEGORIES = [
-  "M&A 시리즈", "Valuation 시리즈", "FDD 시리즈", "Modelling 시리즈", "LBO 시리즈",
+  "M&A 시리즈", "Valuation 시리즈", "FDD 시리즈", "Modelling 시리즈", "Fund 시리즈", "LBO 시리즈",
   "DCM", "ECM", "FIG", "소버린", "구조화", "LevFin", "신디케이티드론",
   "기타",
 ] as const;
 const EN_CATEGORIES = [
-  "M&A Series", "Valuation Series", "FDD Series", "Modelling Series", "LBO Series",
+  "M&A Series", "Valuation Series", "FDD Series", "Modelling Series", "Fund Series", "LBO Series",
   "DCM", "ECM", "FIG", "Sovereign", "Structured", "LevFin", "Syndicated Loans",
   "Other",
 ] as const;
@@ -236,7 +242,8 @@ const KO_CAT_META: Record<string, { letter: string; icon: string; desc: string; 
   "Valuation 시리즈": { letter: "B", icon: "📊", desc: "회사에 값을 매기는 3가지 방법 — DCF·Multiples·Asset-based 실무",   dot: "bg-blue-400",    badgeBg: "bg-blue-50 dark:bg-blue-900/30",    badgeFg: "text-blue-700 dark:text-blue-300" },
   "FDD 시리즈":       { letter: "C", icon: "🔍", desc: "재무 실사 — QoE·운전자본·잠재부채 검증 방법론",                    dot: "bg-violet-400",  badgeBg: "bg-violet-50 dark:bg-violet-900/30", badgeFg: "text-violet-700 dark:text-violet-300", comingSoon: true },
   "Modelling 시리즈": { letter: "D", icon: "📈", desc: "3-Statement·DCF·LBO 모델 구축 실전",                                dot: "bg-rose-400",    badgeBg: "bg-rose-50 dark:bg-rose-900/30",    badgeFg: "text-rose-700 dark:text-rose-300",    comingSoon: true },
-  "LBO 시리즈":       { letter: "E", icon: "💰", desc: "LBO 101 — 자본구조·리턴 분석·딜 프로세스 (4 챕터)",                  dot: "bg-indigo-400",  badgeBg: "bg-indigo-50 dark:bg-indigo-900/30", badgeFg: "text-indigo-700 dark:text-indigo-300" },
+  "Fund 시리즈":      { letter: "E", icon: "💸", desc: "LP·GP·LPA·시장 — capital flow 시점에서 본 PE/VC",                  dot: "bg-amber-400",   badgeBg: "bg-amber-50 dark:bg-amber-900/30",   badgeFg: "text-amber-700 dark:text-amber-300" },
+  "LBO 시리즈":       { letter: "F", icon: "💰", desc: "LBO 101 — 자본구조·리턴 분석·딜 프로세스 (4 챕터)",                  dot: "bg-indigo-400",  badgeBg: "bg-indigo-50 dark:bg-indigo-900/30", badgeFg: "text-indigo-700 dark:text-indigo-300" },
   "DCM":              { letter: "F", icon: "📊", desc: "Debt Capital Markets — 채권 발행, 신디케이션, 가격 결정",            dot: "bg-teal-400",    badgeBg: "bg-teal-50 dark:bg-teal-900/30",     badgeFg: "text-teal-700 dark:text-teal-300"     },
   "ECM":              { letter: "G", icon: "📈", desc: "Equity Capital Markets — IPO·유상증자·블록딜",                       dot: "bg-blue-400",    badgeBg: "bg-blue-50 dark:bg-blue-900/30",     badgeFg: "text-blue-700 dark:text-blue-300"     },
   "FIG":              { letter: "H", icon: "🏦", desc: "금융기관 — 은행 자본구조, AT1, CoCo, 베일인",                        dot: "bg-rose-400",    badgeBg: "bg-rose-50 dark:bg-rose-900/30",     badgeFg: "text-rose-700 dark:text-rose-300"     },
@@ -253,7 +260,8 @@ const EN_CAT_META: Record<string, { letter: string; icon: string; desc: string; 
   "Valuation Series": { letter: "B", icon: "📊", desc: "Three ways to value a business — DCF, multiples, asset-based in practice", dot: "bg-blue-400",    badgeBg: "bg-blue-50 dark:bg-blue-900/30",    badgeFg: "text-blue-700 dark:text-blue-300" },
   "FDD Series":       { letter: "C", icon: "🔍", desc: "Financial diligence — QoE, working capital, hidden liabilities",   dot: "bg-violet-400",  badgeBg: "bg-violet-50 dark:bg-violet-900/30", badgeFg: "text-violet-700 dark:text-violet-300", comingSoon: true },
   "Modelling Series": { letter: "D", icon: "📈", desc: "Building 3-Statement, DCF, and LBO models — hands-on",             dot: "bg-rose-400",    badgeBg: "bg-rose-50 dark:bg-rose-900/30",    badgeFg: "text-rose-700 dark:text-rose-300",    comingSoon: true },
-  "LBO Series":       { letter: "E", icon: "💰", desc: "LBO 101 — capital structure, returns, deal process (4 chapters)",   dot: "bg-indigo-400",  badgeBg: "bg-indigo-50 dark:bg-indigo-900/30", badgeFg: "text-indigo-700 dark:text-indigo-300" },
+  "Fund Series":      { letter: "E", icon: "💸", desc: "LP, GP, LPA, market — PE/VC seen from the capital-flow side",      dot: "bg-amber-400",   badgeBg: "bg-amber-50 dark:bg-amber-900/30",   badgeFg: "text-amber-700 dark:text-amber-300" },
+  "LBO Series":       { letter: "F", icon: "💰", desc: "LBO 101 — capital structure, returns, deal process (4 chapters)",   dot: "bg-indigo-400",  badgeBg: "bg-indigo-50 dark:bg-indigo-900/30", badgeFg: "text-indigo-700 dark:text-indigo-300" },
   "DCM":              { letter: "F", icon: "📊", desc: "Debt Capital Markets — bond issuance, syndication, pricing",         dot: "bg-teal-400",    badgeBg: "bg-teal-50 dark:bg-teal-900/30",     badgeFg: "text-teal-700 dark:text-teal-300"     },
   "ECM":              { letter: "G", icon: "📈", desc: "Equity Capital Markets — IPO, follow-on, block deals",                dot: "bg-blue-400",    badgeBg: "bg-blue-50 dark:bg-blue-900/30",     badgeFg: "text-blue-700 dark:text-blue-300"     },
   "FIG":              { letter: "H", icon: "🏦", desc: "Financial Institutions — bank capital, AT1, CoCo, bail-in",          dot: "bg-rose-400",    badgeBg: "bg-rose-50 dark:bg-rose-900/30",     badgeFg: "text-rose-700 dark:text-rose-300"     },
