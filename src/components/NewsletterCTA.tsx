@@ -22,11 +22,6 @@ const COPY = {
         label: "Weekly Report",
         desc: "매주 엄선된 딜 브리핑과 자본시장 분석 리포트 무료 수신",
       },
-      {
-        icon: "lock",
-        label: "회원 전용 콘텐츠",
-        desc: "IB 실무자들이 직접 쓴 고퀄리티 오리지널 리포트 열람",
-      },
     ],
     cta: "Google로 무료 시작하기",
     sub: "이메일·카드 없이 구글 계정으로 30초 가입",
@@ -44,11 +39,6 @@ const COPY = {
         icon: "mail",
         label: "Weekly Report",
         desc: "Curated deal briefings and capital markets analysis, delivered weekly",
-      },
-      {
-        icon: "lock",
-        label: "Members-Only Content",
-        desc: "High-quality original reports written by IB practitioners",
       },
     ],
     cta: "Start free with Google",
