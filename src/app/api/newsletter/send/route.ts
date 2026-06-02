@@ -27,8 +27,7 @@ export async function POST(req: NextRequest) {
     lang,           // 'ko' | 'en' | 'all'
     weekLabel,
     insightLine,
-    indices,
-    topSector,
+    marketPulse,    // [{ category, summary }]
     deals_ko,
     deals_en,
     reportTitle_ko,
@@ -70,8 +69,7 @@ export async function POST(req: NextRequest) {
             React.createElement(WeeklyReportKo, {
               weekLabel,
               insightLine,
-              indices,
-              topSector,
+              marketPulse,
               deals: deals_ko,
               reportTitle: reportTitle_ko,
               reportBody: reportBody_ko,
@@ -83,8 +81,7 @@ export async function POST(req: NextRequest) {
             React.createElement(WeeklyReportEn, {
               weekLabel,
               insightLine,
-              indices,
-              topSector,
+              marketPulse,
               deals: deals_en,
               reportTitle: reportTitle_en,
               reportBody: reportBody_en,

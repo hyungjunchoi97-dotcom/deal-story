@@ -1,23 +1,27 @@
 import * as React from "react";
-import type { MarketIndex, Deal } from "./WeeklyReportKo";
+import type { MarketPulseItem, Deal } from "./WeeklyReportKo";
 
 export interface WeeklyReportEnProps {
   weekLabel: string;
   insightLine: string;
-  indices: MarketIndex[];
-  topSector: string;
-  deals: Deal[];             // global x2
+  marketPulse: MarketPulseItem[];
+  deals: Deal[];        // global x2
   reportTitle: string;
   reportBody: string;
   reportLink: string;
   unsubscribeLink: string;
 }
 
+const CATEGORY_COLOR: Record<string, string> = {
+  "M&A": "#111",
+  "PE":  "#374151",
+  "VC":  "#6b7280",
+};
+
 export default function WeeklyReportEn({
   weekLabel,
   insightLine,
-  indices,
-  topSector,
+  marketPulse,
   deals,
   reportTitle,
   reportBody,
@@ -63,58 +67,75 @@ export default function WeeklyReportEn({
                     {/* Insight */}
                     <tr>
                       <td style={{ padding: "28px 36px", borderBottom: "1px solid #f0f0f0" }}>
-                        <p style={{ margin: 0, fontSize: 16, lineHeight: "1.6", color: "#111", fontWeight: 600, borderLeft: "3px solid #111", paddingLeft: 14 }}>
+                        <p style={{ margin: 0, fontSize: 15, lineHeight: "1.65", color: "#111", fontWeight: 600, borderLeft: "3px solid #111", paddingLeft: 14 }}>
                           {insightLine}
                         </p>
                       </td>
                     </tr>
 
-                    {/* Market Snapshot */}
+                    {/* Market Pulse */}
                     <tr>
                       <td style={{ padding: "28px 36px", borderBottom: "1px solid #f0f0f0" }}>
-                        <p style={{ margin: "0 0 16px", fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#999" }}>
-                          Market Snapshot
+                        <p style={{ margin: "0 0 18px", fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#999" }}>
+                          Market Pulse
                         </p>
                         <table width="100%" cellPadding={0} cellSpacing={0}>
                           <tbody>
-                            {indices.map((idx, i) => (
+                            {marketPulse.map((item, i) => (
                               <tr key={i}>
-                                <td style={{ padding: "7px 0", borderBottom: i < indices.length - 1 ? "1px solid #f5f5f5" : "none" }}>
-                                  <span style={{ fontSize: 13, color: "#444", fontWeight: 600 }}>{idx.name}</span>
-                                </td>
-                                <td align="right" style={{ padding: "7px 0", borderBottom: i < indices.length - 1 ? "1px solid #f5f5f5" : "none" }}>
-                                  <span style={{ fontSize: 13, color: "#111", fontWeight: 700, marginRight: 8 }}>{idx.value}</span>
-                                  <span style={{ fontSize: 12, color: idx.up ? "#ef4444" : "#3b82f6", fontWeight: 600 }}>{idx.change}</span>
+                                <td style={{ verticalAlign: "top", paddingBottom: i < marketPulse.length - 1 ? 16 : 0 }}>
+                                  <table width="100%" cellPadding={0} cellSpacing={0}>
+                                    <tbody>
+                                      <tr>
+                                        <td style={{ verticalAlign: "top", width: 40, paddingTop: 2 }}>
+                                          <span style={{
+                                            display: "inline-block",
+                                            fontSize: 10,
+                                            fontWeight: 700,
+                                            letterSpacing: "0.05em",
+                                            color: "#fff",
+                                            backgroundColor: CATEGORY_COLOR[item.category] ?? "#111",
+                                            padding: "2px 7px",
+                                            borderRadius: 4,
+                                            whiteSpace: "nowrap",
+                                          }}>
+                                            {item.category}
+                                          </span>
+                                        </td>
+                                        <td style={{ paddingLeft: 12, fontSize: 13, color: "#444", lineHeight: "1.75" }}>
+                                          {item.summary}
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                  {i < marketPulse.length - 1 && (
+                                    <div style={{ height: 1, backgroundColor: "#f5f5f5", marginTop: 16 }} />
+                                  )}
                                 </td>
                               </tr>
                             ))}
                           </tbody>
                         </table>
-                        {topSector && (
-                          <p style={{ margin: "14px 0 0", fontSize: 12, color: "#666", backgroundColor: "#f9f9f9", padding: "10px 12px", borderRadius: 6 }}>
-                            📌 {topSector}
-                          </p>
-                        )}
                       </td>
                     </tr>
 
-                    {/* Deals */}
+                    {/* Deal Watch */}
                     <tr>
                       <td style={{ padding: "28px 36px", borderBottom: "1px solid #f0f0f0" }}>
                         <p style={{ margin: "0 0 16px", fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#999" }}>
                           Deal Watch
                         </p>
                         {deals.map((deal, i) => (
-                          <table key={i} width="100%" cellPadding={0} cellSpacing={0} style={{ marginBottom: i < deals.length - 1 ? 16 : 0 }}>
+                          <table key={i} width="100%" cellPadding={0} cellSpacing={0} style={{ marginBottom: i < deals.length - 1 ? 12 : 0 }}>
                             <tbody>
                               <tr>
                                 <td style={{ backgroundColor: "#f9f9f9", borderRadius: 6, padding: "14px 16px" }}>
                                   <p style={{ margin: "0 0 4px", fontSize: 13, fontWeight: 700, color: "#111" }}>
-                                    {deal.link ? (
-                                      <a href={deal.link} style={{ color: "#111", textDecoration: "none" }}>{deal.title}</a>
-                                    ) : deal.title}
+                                    {deal.link
+                                      ? <a href={deal.link} style={{ color: "#111", textDecoration: "none" }}>{deal.title}</a>
+                                      : deal.title}
                                   </p>
-                                  <p style={{ margin: 0, fontSize: 12, color: "#666", lineHeight: "1.6" }}>{deal.summary}</p>
+                                  <p style={{ margin: 0, fontSize: 12, color: "#666", lineHeight: "1.65" }}>{deal.summary}</p>
                                 </td>
                               </tr>
                             </tbody>
