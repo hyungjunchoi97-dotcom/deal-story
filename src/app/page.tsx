@@ -2,7 +2,6 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import LandingSignupCTA from "@/components/LandingSignupCTA";
 
 export const metadata: Metadata = {
   title: "Deal Story — 자본시장과 투자은행의 안쪽",
@@ -46,9 +45,6 @@ export default function LandingPage() {
               </Link>
             </div>
           </div>
-
-          {/* Member benefits */}
-          <LandingSignupCTA lang="ko" />
 
         </div>
       </main>
