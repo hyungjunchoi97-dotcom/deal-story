@@ -1,7 +1,7 @@
 /**
  * ai-semi-value-chain-2026.ts
  *
- * Note: "AI 반도체 밸류체인 2026, 3대 병목과 한국이 박혀 있는 자리"
+ * Note: "AI 반도체 밸류체인 2026, 3대 병목과 한국의 현주소"
  * AI Semiconductor Value Chain 2026 — Three Bottlenecks and Korea's Position
  *
  * Sourced from src/data/research/ai-semi-value-chain-research.md.
@@ -16,7 +16,7 @@ export const aiSemiValueChain2026: NoteData = {
   slug: "ai-semi-value-chain-2026",
   category: "macro",
   status: "published",
-  title: "AI 반도체 밸류체인 2026, 3대 병목과 한국이 박혀 있는 자리",
+  title: "AI 반도체 밸류체인 2026, 3대 병목과 한국의 현주소",
   titleEn: "AI Semiconductor Value Chain 2026 — Three Bottlenecks and Korea's Position",
   description:
     "2026년 1분기 SK하이닉스 영업이익률 72%와 한미반도체 매출 -65.5%가 같은 분기에 일어났다. 같은 한국, 같은 산업, 같은 분기. AI 반도체 사이클은 HBM, CoWoS, EUV 3대 병목에서 가격과 우선순위가 결정된다. 글로벌 1조 달러 시장, 한국 소부장 30+사 매핑, 3대 알파(한미, 솔브레인, HPSP), 5채널 위험 신호까지 50분에 정리한다.",
