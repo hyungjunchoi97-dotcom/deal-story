@@ -72,8 +72,8 @@ const STRATEGIES = [
   {
     koName: "Venture Capital",
     enName: "Venture Capital",
-    koDesc: "Early-stage startup. Power law 분포 (1개가 fund 전체 캐리).",
-    enDesc: "Early-stage startups. Power-law returns (one winner = whole fund).",
+    koDesc: "Early-stage startup. Power law — 1개 winner가 fund 전체 caries. Sequoia가 1978년 Apple $150K 투자해서 fund 7배 회수.",
+    enDesc: "Early-stage startups. Power-law: one winner carries the whole fund. Sequoia's $150K Apple bet in 1978 returned 7× the fund.",
     risk: 8,
     expectedRet: "25%+ (top quartile)",
     liquidity: 1,
@@ -304,6 +304,58 @@ const REPRESENTATIVE_FIRMS = [
       "Oaktree", "Centerbridge", "Cerberus",
       "Anchorage", "Strategic Value Partners", "Elliott",
     ],
+  },
+];
+
+// 미국 VC firm 대표 portfolio — Power-law winner 사례
+const US_VC_PORTFOLIO = [
+  {
+    firm: "Sequoia Capital",
+    founded: 1972,
+    koWinners: "Apple ($150K, 1978, 7x fund) · Google (1999) · WhatsApp (1B return) · Stripe · Airbnb · Nvidia · YouTube",
+    enWinners: "Apple ($150K, 1978, 7× fund) · Google (1999) · WhatsApp ($1B return) · Stripe · Airbnb · Nvidia · YouTube",
+    koNote: "VC 역사상 가장 successful firm. Sand Hill Road의 \"왕\".",
+    enNote: "The most successful VC firm in history. The king of Sand Hill Road.",
+  },
+  {
+    firm: "Benchmark",
+    founded: 1995,
+    koWinners: "eBay (1997, 1,500x return) · Uber (Series A, \$9M → \$5B+) · Twitter · Instagram · Snap · Discord",
+    enWinners: "eBay (1997, 1,500× return) · Uber (Series A, $9M → $5B+) · Twitter · Instagram · Snap · Discord",
+    koNote: "Equal partnership (모든 partner 동일 carry). Fund size 작게 유지.",
+    enNote: "Equal partnership (every partner = same carry). Keeps fund size small.",
+  },
+  {
+    firm: "Andreessen Horowitz (a16z)",
+    founded: 2009,
+    koWinners: "Facebook (Series D) · Airbnb · Coinbase · GitHub · Slack · Lyft · Stripe · OpenAI (2023)",
+    enWinners: "Facebook (Series D) · Airbnb · Coinbase · GitHub · Slack · Lyft · Stripe · OpenAI (2023)",
+    koNote: "Modern VC의 표준 - founder-led + portfolio support 팀 대규모.",
+    enNote: "Modern VC blueprint — founder-led + heavy portfolio support team.",
+  },
+  {
+    firm: "Accel",
+    founded: 1983,
+    koWinners: "Facebook (\$12.7M Series A 2005, \$7B 회수) · Slack · Atlassian · Spotify · UiPath · Dropbox",
+    enWinners: "Facebook ($12.7M Series A 2005, $7B return) · Slack · Atlassian · Spotify · UiPath · Dropbox",
+    koNote: "Series A 전문. Facebook deal이 VC 역사상 single best Series A.",
+    enNote: "Series A specialist. The Facebook deal is the best single Series A in VC history.",
+  },
+  {
+    firm: "Founders Fund",
+    founded: 2005,
+    koWinners: "SpaceX · Stripe · Palantir · Anduril · Airbnb · Lyft · Spotify",
+    enWinners: "SpaceX · Stripe · Palantir · Anduril · Airbnb · Lyft · Spotify",
+    koNote: "Peter Thiel founded. \"Contrarian thinking\" 강조. Deep tech 비중 큼.",
+    enNote: "Founded by Peter Thiel. 'Contrarian thinking' ethos. Heavy in deep tech.",
+  },
+  {
+    firm: "Greylock",
+    founded: 1965,
+    koWinners: "LinkedIn (Series A 2004) · Facebook (Series B) · Airbnb · Workday · Dropbox · Discord",
+    enWinners: "LinkedIn (Series A 2004) · Facebook (Series B) · Airbnb · Workday · Dropbox · Discord",
+    koNote: "가장 오래된 VC 중 하나. Reid Hoffman partner.",
+    enNote: "One of the oldest VCs. Reid Hoffman is a partner.",
   },
 ];
 
@@ -624,6 +676,57 @@ export default function MaFund03Client({ lang }: { lang: Lang }) {
                 {ko
                   ? "한국 PE는 글로벌 mega-cap이 거의 진출하지 않은 mid-cap 영역에서 강함. 한국 VC는 모태펀드 + 자체 LP 조합으로 성장. 글로벌 firm의 Asia office (KKR Asia, Blackstone Asia, Sequoia Asia) 도 별도 ecosystem."
                   : "Korean PE leads mid-cap, an area global mega-caps barely enter. Korean VC grows on KVIC + own LPs. Global firm Asia offices (KKR Asia, Blackstone Asia, Sequoia Asia) form a separate ecosystem."}
+              </p>
+            </div>
+
+            <div className="text-[15px] text-gray-700 dark:text-gray-300 leading-[1.85] space-y-4 mt-7">
+              <p className="font-bold text-gray-900 dark:text-gray-100">{ko ? "미국 VC — 한 deal이 fund 전체를 carry 하는 power-law" : "US VC — power-law where one deal carries the whole fund"}</p>
+              <p>{ko
+                ? "PE Buyout과 VC가 가장 다른 점이 \"return 분포\" 예요. PE Buyout fund의 returns는 보통 정규분포에 가까워요 — 30개 portfolio company 중 15개가 평균을 만들고, 몇 개는 잘하고 몇 개는 망함. 그런데 VC는 정반대로 power-law 분포. 30개 중 1-2개가 fund 전체 returns의 80-90%를 만들고, 나머지는 거의 0에 가까운 결과예요."
+                : "The single biggest difference between PE Buyout and VC: return distribution. PE Buyout fund returns approximate a normal distribution — 15 of 30 portfolio companies sit around the mean, some out-perform, some fail. VC is the opposite — power-law. 1-2 of 30 generate 80-90% of fund returns; the rest deliver near-zero."}</p>
+              <p>{ko
+                ? "그래서 미국 VC의 representative deal들이 industry 역사책에 그대로 박혀 있어요. Sequoia가 1978년 Apple에 \"$150K\" 를 투자해서 펀드 전체의 7배를 회수. Accel이 2005년 Facebook Series A에 \"$12.7M\" 을 투자해서 \"$7B\" 를 회수. Benchmark이 1997년 eBay에 투자해서 1,500배. 이런 \"single winner\" 한 명이 fund 전체 IRR을 결정해요."
+                : "That's why US VC's representative deals are literally written into industry history. Sequoia put $150K into Apple in 1978 and returned 7× the fund. Accel put $12.7M into Facebook Series A in 2005 and got $7B back. Benchmark backed eBay in 1997 for a 1,500× return. One 'single winner' carries the entire fund IRR."}</p>
+              <p>{ko
+                ? "그래서 VC fund의 manager selection도 PE Buyout과 완전히 다릅니다. PE Buyout은 \"top quartile은 17%, median 12.5%\" 라는 distribution 안에서 선택. VC는 top 5% firm에 들어가지 않으면 LP 입장에서 사실상 의미 없어요. 그래서 Sequoia, Benchmark, Founders Fund, Greylock 같은 top-tier가 fundraising 할 때마다 oversubscribe 되고, 새 LP는 거의 못 들어가는 구조. \"Access\" 자체가 VC LP의 가장 중요한 metric이에요."
+                : "Manager selection in VC differs completely from PE Buyout. Buyout: choose within 'top quartile 17%, median 12.5%.' VC: getting into anything but the top 5% firms is effectively meaningless to the LP. That's why top-tier names — Sequoia, Benchmark, Founders Fund, Greylock — over-subscribe every fundraise, and new LPs can barely access. 'Access' itself is VC LP's most important metric."}</p>
+            </div>
+
+            {/* US VC representative portfolios */}
+            <div className="mt-7 border border-gray-200 dark:border-gray-700 rounded-lg p-5">
+              <p className="text-[10px] font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-1">
+                {ko ? "미국 VC top-tier — 대표 portfolio (power-law winners)" : "US VC top-tier — representative portfolios (power-law winners)"}
+              </p>
+              <p className="text-[11px] text-gray-500 dark:text-gray-400 mb-5 leading-relaxed">
+                {ko ? "각 firm을 정의한 home-run deal들. 한 deal이 fund 전체 return을 carry 한 사례." : "The home-run deals that defined each firm — single winners that carried the whole fund."}
+              </p>
+              <div className="space-y-3">
+                {US_VC_PORTFOLIO.map((p, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 6 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={VP}
+                    transition={{ duration: 0.45, delay: i * 0.07, ease: EASE }}
+                    className="rounded-lg p-4 border"
+                    style={{ borderColor: BLUE + "60", background: BLUE + "0d" }}
+                  >
+                    <div className="flex items-baseline justify-between mb-1.5">
+                      <span className="text-[13px] font-bold" style={{ color: BLUE }}>{p.firm}</span>
+                      <span className="text-[10px] font-mono text-gray-500 dark:text-gray-400">{ko ? "설립" : "Est."} {p.founded}</span>
+                    </div>
+                    <p className="text-[11.5px] text-gray-700 dark:text-gray-300 leading-snug mb-1.5">
+                      <span className="text-[9.5px] font-semibold uppercase tracking-wider mr-1.5" style={{ color: BLUE }}>{ko ? "대표 portfolio" : "Notable portfolio"}</span>
+                      {ko ? p.koWinners : p.enWinners}
+                    </p>
+                    <p className="text-[10.5px] text-gray-500 dark:text-gray-400 leading-snug italic">{ko ? p.koNote : p.enNote}</p>
+                  </motion.div>
+                ))}
+              </div>
+              <p className="mt-5 pt-4 border-t border-gray-200 dark:border-gray-700 text-[11px] text-gray-500 dark:text-gray-400 leading-relaxed">
+                {ko
+                  ? "이 6개 firm 외에 Lightspeed (Snap · Affirm), Index Ventures (Adyen · Roblox), Insight Partners (Twitter · Shopify), Bessemer (LinkedIn · Pinterest · Shopify) 등도 top-tier. 미국 VC 시장 전체 commit의 50%+ 가 top 20 firm에 집중."
+                  : "Beyond these six: Lightspeed (Snap · Affirm), Index Ventures (Adyen · Roblox), Insight Partners (Twitter · Shopify), Bessemer (LinkedIn · Pinterest · Shopify) round out the top tier. 50%+ of US VC commitments concentrate in the top-20 firms."}
               </p>
             </div>
 
