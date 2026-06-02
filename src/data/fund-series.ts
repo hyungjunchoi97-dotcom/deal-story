@@ -45,7 +45,7 @@ export const FUND_CHAPTERS: FundChapter[] = [
     taglineKo: "Commitment vs Drawdown · Capital Call · Management Fee · Carry · Hurdle · Side Letter",
     taglineEn: "Commitment vs drawdown, capital calls, management fee, carry, hurdle, side letters",
     readingMinutes: 14,
-    status: "draft",
+    status: "published",
   },
   {
     slug: "fund-ch03-fund-types",
