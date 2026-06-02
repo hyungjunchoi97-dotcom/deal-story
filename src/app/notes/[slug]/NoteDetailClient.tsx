@@ -1918,7 +1918,21 @@ function ChartPlaceholder({ chart, lang }: { chart: NoteChartDef; lang: Lang }) 
   );
 }
 
+// AI Semi Value Chain 2026 노트 차트 (실제 컴포넌트는 후속 작업, 일단 placeholder)
+const AI_SEMI_CHART_IDS = new Set<string>([
+  "semi-market-cycle",
+  "hbm-share-quarterly-semi",
+  "cowos-capacity",
+  "foundry-node-share",
+  "china-self-sufficiency",
+  "vc-roadmap",
+  "korea-sobujang-30",
+  "risk-channels-5",
+  "semi-watch-dashboard",
+]);
+
 function NoteChart({ chart, lang }: { chart: NoteChartDef; lang: Lang }) {
+  if (AI_SEMI_CHART_IDS.has(chart.id)) return <ChartPlaceholder chart={chart} lang={lang} />;
   // Private Credit 11개 차트
   if (chart.id === "pc-aum-growth") return <PcAumGrowthChart chart={chart} lang={lang} />;
   if (chart.id === "bank-vs-pc-share") return <BankVsPcShareChart chart={chart} lang={lang} />;

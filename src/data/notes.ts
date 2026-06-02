@@ -3,6 +3,7 @@
  * 카테고리: macro | strategy | market | essay | activism
  */
 import { privateCreditEra } from "./notes/private-credit-era";
+import { aiSemiValueChain2026 } from "./notes/ai-semi-value-chain-2026";
 
 // ── Categories ─────────────────────────────────────────────────────────────────
 
@@ -464,7 +465,17 @@ export type NoteChartDef =
   | { id: "pc-default-rates";    title: string; titleEn?: string; caption?: string; captionEn?: string; data: PcDefaultRatePoint[] }
   | { id: "apollo-athene-flow";  title: string; titleEn?: string; caption?: string; captionEn?: string; stages: ApolloAtheneStage[] }
   | { id: "pc-contagion-map";    title: string; titleEn?: string; caption?: string; captionEn?: string; center: ContagionNode; channels: ContagionChannel[] }
-  | { id: "watch-dashboard";     title: string; titleEn?: string; caption?: string; captionEn?: string; data: WatchIndicatorPoint[] };
+  | { id: "watch-dashboard";     title: string; titleEn?: string; caption?: string; captionEn?: string; data: WatchIndicatorPoint[] }
+  // AI Semi Value Chain 2026 노트 차트 (실제 컴포넌트는 후속 작업, 일단 placeholder)
+  | { id: "semi-market-cycle";        title: string; titleEn?: string; caption?: string; captionEn?: string; data: unknown[] }
+  | { id: "hbm-share-quarterly-semi"; title: string; titleEn?: string; caption?: string; captionEn?: string; data: unknown[] }
+  | { id: "cowos-capacity";           title: string; titleEn?: string; caption?: string; captionEn?: string; data: unknown[] }
+  | { id: "foundry-node-share";       title: string; titleEn?: string; caption?: string; captionEn?: string; data: unknown[] }
+  | { id: "china-self-sufficiency";   title: string; titleEn?: string; caption?: string; captionEn?: string; data: unknown[] }
+  | { id: "vc-roadmap";               title: string; titleEn?: string; caption?: string; captionEn?: string; data?: unknown[]; stages?: unknown[] }
+  | { id: "korea-sobujang-30";        title: string; titleEn?: string; caption?: string; captionEn?: string; data: unknown[] }
+  | { id: "risk-channels-5";          title: string; titleEn?: string; caption?: string; captionEn?: string; data: unknown[] }
+  | { id: "semi-watch-dashboard";     title: string; titleEn?: string; caption?: string; captionEn?: string; data: unknown[] };
 
 // ── Scenario Cards 데이터 타입 ─────────────────────────────────────────────
 export type ScenarioCard = {
@@ -6299,4 +6310,5 @@ export const ALL_NOTES: NoteData[] = [
   aiCycle1, aiCycle2, aiCycle3, aiCycle4, aiCycle5, aiCycle6, aiCycle7,
   quantumComputing,
   privateCreditEra,
+  aiSemiValueChain2026,
 ];
