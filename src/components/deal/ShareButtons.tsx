@@ -243,7 +243,6 @@ export default function ShareButtons({
         )}
       </div>
       </div>
-      </div>
 
       {/* 뉴스레터 / 로그인 CTA — 비로그인 유저에게만 표시 */}
       <NewsletterCTA lang={lang} />
