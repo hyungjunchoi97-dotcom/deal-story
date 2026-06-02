@@ -54,7 +54,7 @@ export async function POST(req: NextRequest) {
   for (let i = 0; i < subscribers.length; i += BATCH_SIZE) {
     const batch = subscribers.slice(i, i + BATCH_SIZE);
 
-    const emails = batch.map((sub) => {
+    const emails = await Promise.all(batch.map(async (sub) => {
       const isKo = sub.lang === "ko";
       const unsubLink = `https://${DOMAIN}/api/subscribe?email=${encodeURIComponent(sub.email)}&token=placeholder`;
 
@@ -84,7 +84,7 @@ export async function POST(req: NextRequest) {
         subject: `[Deal Story] ${weekLabel} Weekly Report`,
         html,
       };
-    });
+    }));
 
     try {
       await resend.batch.send(emails);
