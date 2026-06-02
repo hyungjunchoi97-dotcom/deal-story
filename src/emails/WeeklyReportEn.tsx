@@ -1,24 +1,23 @@
 import * as React from "react";
 
-export interface RegionalDeal {
+export interface RegionalItem {
   region: "North America" | "Asia" | "Europe";
   summary: string;
 }
 
-export interface Deal {
+export interface ContentItem {
   title: string;
-  summary: string;
-  link?: string;
+  url: string;
+  category?: string;
 }
 
 export interface WeeklyReportEnProps {
   weekLabel: string;
   insightLine: string;
-  regionalDeals: RegionalDeal[];
-  deals: Deal[];        // global x2
   reportTitle: string;
-  reportBody: string;
   reportLink: string;
+  regionalItems: RegionalItem[];
+  newContents: ContentItem[];
   unsubscribeLink: string;
 }
 
@@ -31,15 +30,12 @@ const REGION_COLOR: Record<string, string> = {
 export default function WeeklyReportEn({
   weekLabel,
   insightLine,
-  regionalDeals,
-  deals,
   reportTitle,
-  reportBody,
   reportLink,
+  regionalItems,
+  newContents,
   unsubscribeLink,
 }: WeeklyReportEnProps) {
-  const paragraphs = reportBody.split(/\n\n+/).filter(Boolean);
-
   return (
     <html lang="en">
       <head>
@@ -83,30 +79,48 @@ export default function WeeklyReportEn({
                       </td>
                     </tr>
 
+                    {/* Weekly Report */}
+                    <tr>
+                      <td style={{ padding: "28px 36px", borderBottom: "1px solid #f0f0f0" }}>
+                        <p style={{ margin: "0 0 10px", fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#999" }}>
+                          Weekly Report
+                        </p>
+                        <p style={{ margin: "0 0 14px", fontSize: 15, fontWeight: 700, color: "#111", lineHeight: "1.45" }}>
+                          <a href={reportLink} style={{ color: "#111", textDecoration: "none" }}>{reportTitle}</a>
+                        </p>
+                        <table cellPadding={0} cellSpacing={0}>
+                          <tbody>
+                            <tr>
+                              <td style={{ backgroundColor: "#111", borderRadius: 6, padding: "9px 18px" }}>
+                                <a href={reportLink} style={{ color: "#fff", fontSize: 12, fontWeight: 600, textDecoration: "none" }}>Read full report →</a>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+
                     {/* Global M&A Pulse */}
                     <tr>
                       <td style={{ padding: "28px 36px", borderBottom: "1px solid #f0f0f0" }}>
                         <p style={{ margin: "0 0 18px", fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#999" }}>
                           Global M&A Pulse
                         </p>
-                        {regionalDeals.map((item, i) => (
+                        {regionalItems.map((item, i) => (
                           <table key={i} width="100%" cellPadding={0} cellSpacing={0}>
                             <tbody>
                               <tr>
-                                <td style={{ paddingBottom: i < regionalDeals.length - 1 ? 16 : 0 }}>
+                                <td style={{ paddingBottom: i < regionalItems.length - 1 ? 16 : 0 }}>
                                   <table width="100%" cellPadding={0} cellSpacing={0}>
                                     <tbody>
                                       <tr>
                                         <td style={{ verticalAlign: "top", paddingTop: 2, whiteSpace: "nowrap", paddingRight: 12 }}>
                                           <span style={{
                                             display: "inline-block",
-                                            fontSize: 10,
-                                            fontWeight: 700,
-                                            letterSpacing: "0.04em",
+                                            fontSize: 10, fontWeight: 700, letterSpacing: "0.04em",
                                             color: "#fff",
                                             backgroundColor: REGION_COLOR[item.region] ?? "#111",
-                                            padding: "2px 8px",
-                                            borderRadius: 4,
+                                            padding: "2px 8px", borderRadius: 4,
                                           }}>
                                             {item.region}
                                           </span>
@@ -117,7 +131,7 @@ export default function WeeklyReportEn({
                                       </tr>
                                     </tbody>
                                   </table>
-                                  {i < regionalDeals.length - 1 && (
+                                  {i < regionalItems.length - 1 && (
                                     <div style={{ height: 1, backgroundColor: "#f0f0f0", margin: "16px 0 0" }} />
                                   )}
                                 </td>
@@ -128,54 +142,35 @@ export default function WeeklyReportEn({
                       </td>
                     </tr>
 
-                    {/* Deal Watch */}
-                    <tr>
-                      <td style={{ padding: "28px 36px", borderBottom: "1px solid #f0f0f0" }}>
-                        <p style={{ margin: "0 0 16px", fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#999" }}>
-                          Deal Watch
-                        </p>
-                        {deals.map((deal, i) => (
-                          <table key={i} width="100%" cellPadding={0} cellSpacing={0} style={{ marginBottom: i < deals.length - 1 ? 12 : 0 }}>
-                            <tbody>
-                              <tr>
-                                <td style={{ backgroundColor: "#f9f9f9", borderRadius: 6, padding: "14px 16px" }}>
-                                  <p style={{ margin: "0 0 4px", fontSize: 13, fontWeight: 700, color: "#111" }}>
-                                    {deal.link
-                                      ? <a href={deal.link} style={{ color: "#111", textDecoration: "none" }}>{deal.title}</a>
-                                      : deal.title}
-                                  </p>
-                                  <p style={{ margin: 0, fontSize: 12, color: "#666", lineHeight: "1.65" }}>{deal.summary}</p>
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        ))}
-                      </td>
-                    </tr>
-
-                    {/* Weekly Report */}
-                    <tr>
-                      <td style={{ padding: "28px 36px", borderBottom: "1px solid #f0f0f0" }}>
-                        <p style={{ margin: "0 0 16px", fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#999" }}>
-                          Weekly Report
-                        </p>
-                        <p style={{ margin: "0 0 16px", fontSize: 15, fontWeight: 700, color: "#111", lineHeight: "1.4" }}>
-                          {reportTitle}
-                        </p>
-                        {paragraphs.map((p, i) => (
-                          <p key={i} style={{ margin: "0 0 14px", fontSize: 13, color: "#444", lineHeight: "1.8" }}>{p}</p>
-                        ))}
-                        <table cellPadding={0} cellSpacing={0} style={{ marginTop: 8 }}>
-                          <tbody>
-                            <tr>
-                              <td style={{ backgroundColor: "#111", borderRadius: 6, padding: "10px 20px" }}>
-                                <a href={reportLink} style={{ color: "#fff", fontSize: 13, fontWeight: 600, textDecoration: "none" }}>Read full report →</a>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </td>
-                    </tr>
+                    {/* New This Week */}
+                    {newContents.length > 0 && (
+                      <tr>
+                        <td style={{ padding: "28px 36px", borderBottom: "1px solid #f0f0f0" }}>
+                          <p style={{ margin: "0 0 14px", fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#999" }}>
+                            New This Week
+                          </p>
+                          {newContents.map((item, i) => (
+                            <table key={i} width="100%" cellPadding={0} cellSpacing={0} style={{ marginBottom: i < newContents.length - 1 ? 10 : 0 }}>
+                              <tbody>
+                                <tr>
+                                  <td style={{ paddingRight: 8, fontSize: 12, color: "#ccc", verticalAlign: "middle" }}>→</td>
+                                  <td>
+                                    {item.category && (
+                                      <span style={{ fontSize: 10, color: "#999", marginRight: 6, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.04em" }}>
+                                        {item.category}
+                                      </span>
+                                    )}
+                                    <a href={item.url} style={{ fontSize: 13, color: "#111", textDecoration: "none", fontWeight: 500, lineHeight: "1.5" }}>
+                                      {item.title}
+                                    </a>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          ))}
+                        </td>
+                      </tr>
+                    )}
 
                     {/* Footer */}
                     <tr>

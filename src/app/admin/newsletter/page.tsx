@@ -2,65 +2,68 @@
 
 import { useState } from "react";
 
-interface RegionalDeal {
+interface RegionalItem {
   region: string;
   summary: string;
 }
 
-interface Deal {
+interface ContentItem {
   title: string;
-  summary: string;
-  link?: string;
+  url: string;
+  category: string;
 }
 
-const EMPTY_DEAL: Deal = { title: "", summary: "", link: "" };
-
-const KO_REGIONS: RegionalDeal[] = [
+const KO_REGIONS: RegionalItem[] = [
   { region: "북미",   summary: "" },
   { region: "아시아", summary: "" },
   { region: "유럽",   summary: "" },
 ];
-const EN_REGIONS: RegionalDeal[] = [
+const EN_REGIONS: RegionalItem[] = [
   { region: "North America", summary: "" },
   { region: "Asia",          summary: "" },
   { region: "Europe",        summary: "" },
 ];
 
 const REGION_BG: Record<string, string> = {
-  "북미":           "#111",
-  "아시아":         "#1d4ed8",
-  "유럽":           "#15803d",
-  "North America":  "#111",
-  "Asia":           "#1d4ed8",
-  "Europe":         "#15803d",
+  "북미": "#111", "아시아": "#1d4ed8", "유럽": "#15803d",
+  "North America": "#111", "Asia": "#1d4ed8", "Europe": "#15803d",
 };
 
+const EMPTY_CONTENT: ContentItem = { title: "", url: "", category: "" };
+
 export default function NewsletterComposePage() {
-  const [adminKey, setAdminKey]       = useState("");
-  const [weekLabel, setWeekLabel]     = useState("");
+  const [adminKey,    setAdminKey]    = useState("");
+  const [weekLabel,   setWeekLabel]   = useState("");
   const [insightLine, setInsightLine] = useState("");
 
-  const [regionsKo, setRegionsKo] = useState<RegionalDeal[]>(KO_REGIONS.map(r => ({ ...r })));
-  const [regionsEn, setRegionsEn] = useState<RegionalDeal[]>(EN_REGIONS.map(r => ({ ...r })));
+  // Weekly Report
+  const [reportTitle, setReportTitle] = useState("");
+  const [reportLink,  setReportLink]  = useState("");
 
-  const [dealsKo, setDealsKo] = useState<Deal[]>([{ ...EMPTY_DEAL }, { ...EMPTY_DEAL }]);
-  const [dealsEn, setDealsEn] = useState<Deal[]>([{ ...EMPTY_DEAL }, { ...EMPTY_DEAL }]);
+  // M&A 지역 동향
+  const [regionsKo, setRegionsKo] = useState<RegionalItem[]>(KO_REGIONS.map(r => ({ ...r })));
+  const [regionsEn, setRegionsEn] = useState<RegionalItem[]>(EN_REGIONS.map(r => ({ ...r })));
 
-  const [reportTitleKo, setReportTitleKo] = useState("");
-  const [reportTitleEn, setReportTitleEn] = useState("");
-  const [reportBodyKo,  setReportBodyKo]  = useState("");
-  const [reportBodyEn,  setReportBodyEn]  = useState("");
-  const [reportLink,    setReportLink]    = useState("");
+  // 신규 콘텐츠 리스트 (KO·EN 동일 URL 사용, 제목만 별도)
+  const [contents, setContents] = useState<ContentItem[]>([{ ...EMPTY_CONTENT }]);
 
   const [sending, setSending] = useState<"ko" | "en" | "all" | null>(null);
   const [result,  setResult]  = useState<string | null>(null);
 
-  function updateRegion(arr: RegionalDeal[], setArr: (v: RegionalDeal[]) => void, i: number, value: string) {
+  function updateRegion(arr: RegionalItem[], setArr: (v: RegionalItem[]) => void, i: number, value: string) {
     setArr(arr.map((item, idx) => idx === i ? { ...item, summary: value } : item));
   }
 
-  function updateDeal(arr: Deal[], setArr: (v: Deal[]) => void, i: number, field: keyof Deal, value: string) {
-    setArr(arr.map((item, idx) => idx === i ? { ...item, [field]: value } : item));
+  function updateContent(i: number, field: keyof ContentItem, value: string) {
+    setContents(prev => prev.map((item, idx) => idx === i ? { ...item, [field]: value } : item));
+  }
+
+  function addContent() {
+    setContents(prev => [...prev, { ...EMPTY_CONTENT }]);
+  }
+
+  function removeContent(i: number) {
+    setContents(prev => prev.filter((_, idx) => idx !== i));
   }
 
   async function send(lang: "ko" | "en" | "all") {
@@ -74,15 +77,11 @@ export default function NewsletterComposePage() {
           lang,
           weekLabel,
           insightLine,
+          reportTitle,
+          reportLink,
           regionalDeals_ko: regionsKo,
           regionalDeals_en: regionsEn,
-          deals_ko: dealsKo,
-          deals_en: dealsEn,
-          reportTitle_ko: reportTitleKo,
-          reportTitle_en: reportTitleEn,
-          reportBody_ko:  reportBodyKo,
-          reportBody_en:  reportBodyEn,
-          reportLink,
+          newContents: contents.filter(c => c.title && c.url),
         }),
       });
       const data = await res.json();
@@ -99,55 +98,13 @@ export default function NewsletterComposePage() {
   const labelCls   = "block text-xs font-semibold text-gray-500 mb-1 uppercase tracking-wide";
   const sectionCls = "bg-white rounded-xl border border-gray-200 p-6 space-y-4";
 
-  function RegionBlock({ regions, setRegions, placeholder }: {
-    regions: RegionalDeal[];
-    setRegions: (v: RegionalDeal[]) => void;
-    placeholder?: (r: string) => string;
-  }) {
-    return (
-      <div className="space-y-4">
-        {regions.map((item, i) => (
-          <div key={i}>
-            <label className="block mb-1.5">
-              <span
-                className="text-white text-[10px] font-bold px-2 py-0.5 rounded mr-2"
-                style={{ backgroundColor: REGION_BG[item.region] ?? "#111" }}
-              >
-                {item.region}
-              </span>
-              <span className="text-xs text-gray-400">이번 주 M&A 동향</span>
-            </label>
-            <textarea
-              value={item.summary}
-              onChange={e => updateRegion(regions, setRegions, i, e.target.value)}
-              className={inputCls + " resize-none"}
-              rows={3}
-              placeholder={placeholder?.(item.region) ?? ""}
-            />
-          </div>
-        ))}
-      </div>
-    );
-  }
-
-  const koPlaceholder = (r: string) => {
-    if (r === "북미")   return "예) 미국 테크 섹터 M&A가 다시 활발해지고 있다. 특히 AI 인프라 관련 기업 인수가..."
-    if (r === "아시아") return "예) 일본 PE 시장에서 대형 카브아웃 딜이 진행 중이다. 한국은 반도체..."
-    return "예) 유럽 에너지 전환 관련 M&A가 급증하고 있다. 독일·프랑스 중심으로..."
-  };
-  const enPlaceholder = (r: string) => {
-    if (r === "North America") return "e.g. Tech M&A is picking up again in the US, driven by AI infrastructure acquisitions..."
-    if (r === "Asia")          return "e.g. Large carve-out deals are underway in Japan's PE market. Korea's semiconductor..."
-    return "e.g. Energy-transition M&A is surging in Europe, led by Germany and France..."
-  };
-
   return (
     <div className="min-h-screen bg-gray-50 py-10 px-4">
       <div className="max-w-3xl mx-auto space-y-6">
 
         <div>
           <h1 className="text-2xl font-bold text-gray-900">Weekly Report 발송</h1>
-          <p className="text-sm text-gray-500 mt-1">각 섹션을 채우고 KO / EN / 전체 발송</p>
+          <p className="text-sm text-gray-500 mt-1">매주 금요일 발송</p>
         </div>
 
         {/* 어드민 키 */}
@@ -164,8 +121,21 @@ export default function NewsletterComposePage() {
             <input value={weekLabel} onChange={e => setWeekLabel(e.target.value)} className={inputCls} placeholder="2025년 6월 첫째 주 / Week of June 2, 2025" />
           </div>
           <div>
-            <label className={labelCls}>한 줄 인사이트 (KO·EN 공통)</label>
+            <label className={labelCls}>한 줄 인사이트</label>
             <input value={insightLine} onChange={e => setInsightLine(e.target.value)} className={inputCls} placeholder="이번 주를 관통하는 한 문장" />
+          </div>
+        </div>
+
+        {/* Weekly Report */}
+        <div className={sectionCls}>
+          <h2 className="text-sm font-bold text-gray-700">Weekly Report</h2>
+          <div>
+            <label className={labelCls}>제목</label>
+            <input value={reportTitle} onChange={e => setReportTitle(e.target.value)} className={inputCls} placeholder="이번 주 Weekly Report 제목" />
+          </div>
+          <div>
+            <label className={labelCls}>링크</label>
+            <input value={reportLink} onChange={e => setReportLink(e.target.value)} className={inputCls} placeholder="https://dealstory.kr/reports/2025-06-w1" />
           </div>
         </div>
 
@@ -173,63 +143,95 @@ export default function NewsletterComposePage() {
         <div className={sectionCls}>
           <h2 className="text-sm font-bold text-gray-700">글로벌 M&A 동향 — KO</h2>
           <p className="text-xs text-gray-400">북미 · 아시아(중국·홍콩·싱가포르·일본·한국) · 유럽 각 2~3줄</p>
-          <RegionBlock regions={regionsKo} setRegions={setRegionsKo} placeholder={koPlaceholder} />
+          {regionsKo.map((item, i) => (
+            <div key={i}>
+              <label className="block mb-1.5">
+                <span className="text-white text-[10px] font-bold px-2 py-0.5 rounded mr-2"
+                  style={{ backgroundColor: REGION_BG[item.region] ?? "#111" }}>
+                  {item.region}
+                </span>
+              </label>
+              <textarea
+                value={item.summary}
+                onChange={e => updateRegion(regionsKo, setRegionsKo, i, e.target.value)}
+                className={inputCls + " resize-none"} rows={3}
+                placeholder={
+                  item.region === "북미"   ? "예) 미국 테크 섹터 M&A가 다시 활발해지고 있다. AI 인프라 관련 인수가..." :
+                  item.region === "아시아" ? "예) 일본 PE 시장에서 대형 카브아웃 딜이 진행 중이다. 한국은 반도체..." :
+                                             "예) 유럽 에너지 전환 관련 M&A가 급증하고 있다. 독일·프랑스 중심으로..."
+                }
+              />
+            </div>
+          ))}
         </div>
 
         {/* Global M&A Pulse EN */}
         <div className={sectionCls}>
           <h2 className="text-sm font-bold text-gray-700">Global M&A Pulse — EN</h2>
           <p className="text-xs text-gray-400">North America · Asia · Europe, 2–3 sentences each</p>
-          <RegionBlock regions={regionsEn} setRegions={setRegionsEn} placeholder={enPlaceholder} />
-        </div>
-
-        {/* 딜 KO */}
-        <div className={sectionCls}>
-          <h2 className="text-sm font-bold text-gray-700">이번 주 딜 — KO (글로벌 1 + 국내 1)</h2>
-          {dealsKo.map((deal, i) => (
-            <div key={i} className="space-y-2 pb-4 border-b border-gray-100 last:border-0 last:pb-0">
-              <input value={deal.title} onChange={e => updateDeal(dealsKo, setDealsKo, i, "title", e.target.value)} className={inputCls} placeholder={i === 0 ? "글로벌 딜 제목" : "국내 딜 제목"} />
-              <textarea value={deal.summary} onChange={e => updateDeal(dealsKo, setDealsKo, i, "summary", e.target.value)} className={inputCls + " resize-none"} rows={2} placeholder="한 줄 요약" />
-              <input value={deal.link} onChange={e => updateDeal(dealsKo, setDealsKo, i, "link", e.target.value)} className={inputCls} placeholder="링크 (선택)" />
+          {regionsEn.map((item, i) => (
+            <div key={i}>
+              <label className="block mb-1.5">
+                <span className="text-white text-[10px] font-bold px-2 py-0.5 rounded mr-2"
+                  style={{ backgroundColor: REGION_BG[item.region] ?? "#111" }}>
+                  {item.region}
+                </span>
+              </label>
+              <textarea
+                value={item.summary}
+                onChange={e => updateRegion(regionsEn, setRegionsEn, i, e.target.value)}
+                className={inputCls + " resize-none"} rows={3}
+                placeholder={
+                  item.region === "North America" ? "e.g. US tech M&A is picking up again, driven by AI infrastructure..." :
+                  item.region === "Asia"           ? "e.g. Large carve-out deals underway in Japan. Korea's semiconductor sector..." :
+                                                    "e.g. Energy-transition M&A surging in Europe, led by Germany and France..."
+                }
+              />
             </div>
           ))}
         </div>
 
-        {/* Deal Watch EN */}
+        {/* 이번 주 신규 콘텐츠 */}
         <div className={sectionCls}>
-          <h2 className="text-sm font-bold text-gray-700">Deal Watch — EN (Global × 2)</h2>
-          {dealsEn.map((deal, i) => (
-            <div key={i} className="space-y-2 pb-4 border-b border-gray-100 last:border-0 last:pb-0">
-              <input value={deal.title} onChange={e => updateDeal(dealsEn, setDealsEn, i, "title", e.target.value)} className={inputCls} placeholder={`Deal ${i + 1} title`} />
-              <textarea value={deal.summary} onChange={e => updateDeal(dealsEn, setDealsEn, i, "summary", e.target.value)} className={inputCls + " resize-none"} rows={2} placeholder="One-line summary" />
-              <input value={deal.link} onChange={e => updateDeal(dealsEn, setDealsEn, i, "link", e.target.value)} className={inputCls} placeholder="Link (optional)" />
+          <div className="flex items-center justify-between">
+            <div>
+              <h2 className="text-sm font-bold text-gray-700">이번 주 새 글</h2>
+              <p className="text-xs text-gray-400 mt-0.5">이번 주 추가한 글 제목 + 링크를 입력하세요</p>
+            </div>
+            <button
+              onClick={addContent}
+              className="text-xs font-semibold text-gray-500 border border-gray-300 rounded-lg px-3 py-1.5 hover:border-gray-400"
+            >
+              + 글 추가
+            </button>
+          </div>
+          {contents.map((item, i) => (
+            <div key={i} className="flex gap-2 items-start">
+              <div className="flex-1 space-y-2">
+                <input
+                  value={item.category}
+                  onChange={e => updateContent(i, "category", e.target.value)}
+                  className={inputCls}
+                  placeholder="카테고리 (예: 딜 / 마켓 / 일화 / Notes)"
+                />
+                <input
+                  value={item.title}
+                  onChange={e => updateContent(i, "title", e.target.value)}
+                  className={inputCls}
+                  placeholder="글 제목"
+                />
+                <input
+                  value={item.url}
+                  onChange={e => updateContent(i, "url", e.target.value)}
+                  className={inputCls}
+                  placeholder="https://dealstory.kr/deals/..."
+                />
+              </div>
+              {contents.length > 1 && (
+                <button onClick={() => removeContent(i)} className="mt-1 text-gray-300 hover:text-red-400 text-lg font-light">×</button>
+              )}
             </div>
           ))}
-        </div>
-
-        {/* Weekly Report */}
-        <div className={sectionCls}>
-          <h2 className="text-sm font-bold text-gray-700">Weekly Report 본문</h2>
-          <div>
-            <label className={labelCls}>리포트 링크</label>
-            <input value={reportLink} onChange={e => setReportLink(e.target.value)} className={inputCls} placeholder="https://dealstory.kr/reports/2025-06-w1" />
-          </div>
-          <div>
-            <label className={labelCls}>제목 (KO)</label>
-            <input value={reportTitleKo} onChange={e => setReportTitleKo(e.target.value)} className={inputCls} />
-          </div>
-          <div>
-            <label className={labelCls}>본문 (KO) — 단락 구분: 빈 줄</label>
-            <textarea value={reportBodyKo} onChange={e => setReportBodyKo(e.target.value)} className={inputCls + " resize-y"} rows={8} />
-          </div>
-          <div>
-            <label className={labelCls}>Title (EN)</label>
-            <input value={reportTitleEn} onChange={e => setReportTitleEn(e.target.value)} className={inputCls} />
-          </div>
-          <div>
-            <label className={labelCls}>Body (EN)</label>
-            <textarea value={reportBodyEn} onChange={e => setReportBodyEn(e.target.value)} className={inputCls + " resize-y"} rows={8} />
-          </div>
         </div>
 
         {/* 발송 */}

@@ -24,19 +24,14 @@ export async function POST(req: NextRequest) {
 
   const body = await req.json();
   const {
-    lang,           // 'ko' | 'en' | 'all'
+    lang,               // 'ko' | 'en' | 'all'
     weekLabel,
     insightLine,
+    reportTitle,
+    reportLink,
     regionalDeals_ko,   // [{ region: "북미"|"아시아"|"유럽", summary }]
     regionalDeals_en,   // [{ region: "North America"|"Asia"|"Europe", summary }]
-    deals_ko,
-    deals_en,
-    reportTitle_ko,
-    reportTitle_en,
-    reportBody_ko,
-    reportBody_en,
-    reportLink,
-    issue_id,       // newsletter_issues.id (저장된 이슈)
+    newContents,        // [{ title, url, category }]
   } = body;
 
   // 구독자 조회
@@ -49,13 +44,12 @@ export async function POST(req: NextRequest) {
 
   const { data: subscribers, error } = await query;
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
-  if (!subscribers?.length) return NextResponse.json({ sent: 0 });
+  if (!subscribers?.length) return NextResponse.json({ sent: 0, total: 0 });
 
   const DOMAIN = "dealstory.kr";
   let sent = 0;
   const errors: string[] = [];
 
-  // 배치 발송 (Resend 무료 tier: 100건/batch)
   const BATCH_SIZE = 50;
 
   for (let i = 0; i < subscribers.length; i += BATCH_SIZE) {
@@ -70,11 +64,10 @@ export async function POST(req: NextRequest) {
             React.createElement(WeeklyReportKo, {
               weekLabel,
               insightLine,
-              regionalDeals: regionalDeals_ko,
-              deals: deals_ko,
-              reportTitle: reportTitle_ko,
-              reportBody: reportBody_ko,
+              reportTitle,
               reportLink,
+              regionalItems: regionalDeals_ko,
+              newContents: newContents ?? [],
               unsubscribeLink: unsubLink,
             })
           )
@@ -82,11 +75,10 @@ export async function POST(req: NextRequest) {
             React.createElement(WeeklyReportEn, {
               weekLabel,
               insightLine,
-              regionalDeals: regionalDeals_en,
-              deals: deals_en,
-              reportTitle: reportTitle_en,
-              reportBody: reportBody_en,
+              reportTitle,
               reportLink,
+              regionalItems: regionalDeals_en,
+              newContents: newContents ?? [],
               unsubscribeLink: unsubLink,
             })
           );
@@ -94,9 +86,7 @@ export async function POST(req: NextRequest) {
       return {
         from: `Deal Story <newsletter@${DOMAIN}>`,
         to: sub.email,
-        subject: isKo
-          ? `[Deal Story] ${weekLabel} Weekly Report`
-          : `[Deal Story] ${weekLabel} Weekly Report`,
+        subject: `[Deal Story] ${weekLabel} Weekly Report`,
         html,
       };
     });
@@ -107,14 +97,6 @@ export async function POST(req: NextRequest) {
     } catch (e: unknown) {
       errors.push(e instanceof Error ? e.message : String(e));
     }
-  }
-
-  // 발송 완료 시 issue sent_at 업데이트
-  if (issue_id && sent > 0) {
-    await supabase
-      .from("newsletter_issues")
-      .update({ sent_at: new Date().toISOString() })
-      .eq("id", issue_id);
   }
 
   return NextResponse.json({ sent, total: subscribers.length, errors });
