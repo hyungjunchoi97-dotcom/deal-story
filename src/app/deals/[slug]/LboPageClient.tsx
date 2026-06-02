@@ -317,7 +317,19 @@ export default function LboPageClient({
                     <XAxis dataKey="year" tick={{ fontSize: 11 }} />
                     <YAxis tick={{ fontSize: 11 }} domain={[0, 2.5]} />
                     <Tooltip content={<EbitdaTooltip />} />
-                    <ReferenceLine y={m.entryEbitdaBn} stroke={ACCENT} strokeDasharray="4 2" label={{ value: ko ? "진입 기준" : "Entry", position: "right", fontSize: 10, fill: ACCENT }} />
+                    <ReferenceLine
+                      y={m.entryEbitdaBn}
+                      stroke={ACCENT}
+                      strokeDasharray="6 4"
+                      strokeWidth={2}
+                      label={{
+                        value: ko ? `진입 기준 ${m.entryEbitdaBn}` : `Entry ${m.entryEbitdaBn}`,
+                        position: "insideTopLeft",
+                        fontSize: 10,
+                        fontWeight: 600,
+                        fill: ACCENT,
+                      }}
+                    />
                     <Bar dataKey="ebitda" radius={[4, 4, 0, 0]}>
                       {ebitdaData.map((entry, i) => (
                         <Cell
