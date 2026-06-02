@@ -1898,6 +1898,573 @@ function WatchDashboardChart({ chart, lang }: { chart: NoteChartDef & { id: "wat
   );
 }
 
+// ════════════════════════════════════════════════════════════════════════
+// AI Semi Value Chain 2026 — 9 charts
+// ════════════════════════════════════════════════════════════════════════
+
+// ── Local data types (typed casts for `unknown[]` chart payloads) ────────
+type SemiMarketCyclePoint = { year: number | string; total: number; aiCombined: number };
+type HbmSemiQuarterPoint = { quarter: string; skhynix: number; samsung: number; micron: number };
+type CowosCapacityPoint = { year: string; capacity: number; projected?: boolean };
+type FoundryNodePoint = { node: string; tsmc: number; samsung: number; intel: number; smic: number };
+type ChinaSelfSuffPoint = { year: number; total: number; dram: number; nand: number; logic: number };
+type VcRoadmapStage = {
+  id: string;
+  label: string;
+  labelEn: string;
+  companies: string;
+  companiesEn: string;
+  koreaExposure: "high" | "medium" | "low" | "none";
+};
+
+// 1. SemiMarketCycleChart — Combo Bar (total) + Line (aiCombined)
+function SemiMarketCycleChart({ chart, lang }: { chart: NoteChartDef & { id: "semi-market-cycle" }; lang: Lang }) {
+  const data = chart.data as SemiMarketCyclePoint[];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={280}>
+        <ComposedChart data={data} margin={{ top: 30, right: 16, bottom: 0, left: -8 }}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} />
+          <XAxis dataKey="year" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
+          <YAxis yAxisId="left" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `$${v}B`} />
+          <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `$${v}B`} />
+          <Tooltip content={<ChartTooltip />} />
+          <Legend wrapperStyle={{ fontSize: 11, paddingTop: 12 }} />
+          <Bar yAxisId="left" dataKey="total" name={lang === "en" ? "Global semi total" : "글로벌 반도체 매출"} fill="#0ea5e9" radius={[3, 3, 0, 0]} />
+          <Line yAxisId="right" type="monotone" dataKey="aiCombined" name={lang === "en" ? "AI chip combined" : "AI 칩 합산"} stroke="#8b5cf6" strokeWidth={2.8} dot={{ r: 4 }} />
+        </ComposedChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
+// 2. HbmShareQuarterlySemiChart — Stacked Bar (SK / Samsung / Micron, %)
+function HbmShareQuarterlySemiChart({ chart, lang }: { chart: NoteChartDef & { id: "hbm-share-quarterly-semi" }; lang: Lang }) {
+  const data = chart.data as HbmSemiQuarterPoint[];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={280}>
+        <BarChart data={data} margin={{ top: 30, right: 16, bottom: 0, left: -8 }} barSize={32}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} vertical={false} />
+          <XAxis dataKey="quarter" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
+          <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `${v}%`} domain={[0, 100]} />
+          <Tooltip
+            content={({ active, payload, label }) => {
+              if (!active || !payload?.length) return null;
+              return (
+                <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl px-4 py-3 text-xs space-y-1.5">
+                  <p className="font-semibold text-gray-600 dark:text-gray-300 mb-1">{label}</p>
+                  {[...payload].reverse().map((p) => (
+                    <div key={String(p.dataKey)} className="flex items-center justify-between gap-4">
+                      <span className="flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full" style={{ background: p.color as string }} />
+                        <span className="text-gray-500 dark:text-gray-400">{p.name}</span>
+                      </span>
+                      <span className="font-mono font-bold text-gray-800 dark:text-gray-100">{p.value}%</span>
+                    </div>
+                  ))}
+                </div>
+              );
+            }}
+          />
+          <Legend wrapperStyle={{ fontSize: 11, paddingTop: 12 }} />
+          <Bar dataKey="skhynix" stackId="a" name={lang === "en" ? "SK Hynix" : "SK하이닉스"} fill="#8b5cf6" />
+          <Bar dataKey="samsung" stackId="a" name={lang === "en" ? "Samsung" : "삼성"} fill="#0ea5e9" />
+          <Bar dataKey="micron" stackId="a" name={lang === "en" ? "Micron" : "마이크론"} fill="#10b981" radius={[3, 3, 0, 0]} />
+        </BarChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
+// 3. CowosCapacityChart — Bar with projected dashed cell
+function CowosCapacityChart({ chart, lang }: { chart: NoteChartDef & { id: "cowos-capacity" }; lang: Lang }) {
+  const data = chart.data as CowosCapacityPoint[];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={280}>
+        <BarChart data={data} margin={{ top: 30, right: 24, bottom: 0, left: 0 }} barSize={50}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} vertical={false} />
+          <XAxis dataKey="year" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
+          <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `${v}K`} />
+          <Tooltip
+            content={({ active, payload, label }) => {
+              if (!active || !payload?.length) return null;
+              const d = payload[0].payload as CowosCapacityPoint;
+              return (
+                <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl px-4 py-3 text-xs">
+                  <p className="font-semibold text-gray-600 dark:text-gray-300 mb-1">{label}</p>
+                  <p className="font-mono font-bold text-violet-600 dark:text-violet-400">{d.capacity}K wafer/mo</p>
+                  {d.projected && (
+                    <p className="text-[10px] text-amber-500 font-semibold mt-1">
+                      {lang === "en" ? "Projected" : "전망치"}
+                    </p>
+                  )}
+                </div>
+              );
+            }}
+          />
+          <Bar dataKey="capacity" name={lang === "en" ? "CoWoS capacity (K wafer/mo)" : "CoWoS 월 wafer (K)"} radius={[4, 4, 0, 0]}>
+            {data.map((entry, i) => (
+              <Cell
+                key={i}
+                fill={entry.projected ? "#fde68a" : "#8b5cf6"}
+                stroke={entry.projected ? "#f59e0b" : "#8b5cf6"}
+                strokeWidth={entry.projected ? 1.5 : 0}
+                strokeDasharray={entry.projected ? "4 3" : undefined}
+              />
+            ))}
+          </Bar>
+          <Legend wrapperStyle={{ fontSize: 11, paddingTop: 12 }} />
+        </BarChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
+// 4. FoundryNodeShareChart — Horizontal Stacked Bar (node × foundry)
+function FoundryNodeShareChart({ chart, lang }: { chart: NoteChartDef & { id: "foundry-node-share" }; lang: Lang }) {
+  const data = chart.data as FoundryNodePoint[];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={Math.max(240, data.length * 70)}>
+        <BarChart data={data} layout="vertical" margin={{ top: 8, right: 24, bottom: 0, left: 12 }} barSize={32}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} horizontal={false} />
+          <XAxis type="number" domain={[0, 100]} tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `${v}%`} />
+          <YAxis type="category" dataKey="node" tick={{ fontSize: 11 }} tickLine={false} axisLine={false} width={80} />
+          <Tooltip
+            content={({ active, payload, label }) => {
+              if (!active || !payload?.length) return null;
+              return (
+                <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl px-4 py-3 text-xs space-y-1.5">
+                  <p className="font-semibold text-gray-600 dark:text-gray-300 mb-1">{label}</p>
+                  {payload.filter((p) => (p.value as number) > 0).map((p) => (
+                    <div key={String(p.dataKey)} className="flex items-center justify-between gap-4">
+                      <span className="flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full" style={{ background: p.color as string }} />
+                        <span className="text-gray-500 dark:text-gray-400">{p.name}</span>
+                      </span>
+                      <span className="font-mono font-bold text-gray-800 dark:text-gray-100">{p.value}%</span>
+                    </div>
+                  ))}
+                </div>
+              );
+            }}
+          />
+          <Legend wrapperStyle={{ fontSize: 11, paddingTop: 12 }} />
+          <Bar dataKey="tsmc" stackId="a" name="TSMC" fill="#8b5cf6" />
+          <Bar dataKey="samsung" stackId="a" name={lang === "en" ? "Samsung" : "삼성"} fill="#0ea5e9" />
+          <Bar dataKey="intel" stackId="a" name="Intel" fill="#f59e0b" />
+          <Bar dataKey="smic" stackId="a" name="SMIC" fill="#ef4444" radius={[0, 4, 4, 0]} />
+        </BarChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
+// 5. ChinaSelfSufficiencyChart — Multi-Line (자급률 % 추이)
+function ChinaSelfSufficiencyChart({ chart, lang }: { chart: NoteChartDef & { id: "china-self-sufficiency" }; lang: Lang }) {
+  const data = chart.data as ChinaSelfSuffPoint[];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={280}>
+        <LineChart data={data} margin={{ top: 30, right: 16, bottom: 0, left: -8 }}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} />
+          <XAxis dataKey="year" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
+          <YAxis tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `${v}%`} domain={[0, 30]} />
+          <Tooltip content={<ChartTooltip />} />
+          <Legend wrapperStyle={{ fontSize: 11, paddingTop: 12 }} />
+          <ReferenceLine y={10} stroke="#94a3b8" strokeDasharray="4 3" strokeWidth={1}
+            label={{ value: lang === "en" ? "10% threshold" : "10% 임계점", position: "right", fontSize: 9, fill: "#94a3b8" }} />
+          <Line type="monotone" dataKey="total" name={lang === "en" ? "Total" : "전체"} stroke="#8b5cf6" strokeWidth={2.8} dot={{ r: 3.5 }} />
+          <Line type="monotone" dataKey="dram" name="DRAM" stroke="#0ea5e9" strokeWidth={2} dot={{ r: 3 }} />
+          <Line type="monotone" dataKey="nand" name="NAND" stroke="#10b981" strokeWidth={2} dot={{ r: 3 }} />
+          <Line type="monotone" dataKey="logic" name={lang === "en" ? "Logic" : "Logic"} stroke="#f59e0b" strokeWidth={2} dot={{ r: 3 }} strokeDasharray="5 3" />
+        </LineChart>
+      </ResponsiveContainer>
+    </ChartCard>
+  );
+}
+
+// 6. KoreaSobujang30Chart — Horizontal Bar (한국 소부장 30+사, tier별 색상)
+function KoreaSobujang30Chart({ chart, lang }: { chart: NoteChartDef & { id: "korea-sobujang-30" }; lang: Lang }) {
+  // research.md §8 & §12 기반 매출 데이터 (억원, 2025 또는 2026E)
+  // tier 1 (보라), tier 2 (파랑), tier 3 (회색), tier 4 (옅은 회색)
+  const TIER_COLOR: Record<1 | 2 | 3 | 4, string> = {
+    1: "#8b5cf6",
+    2: "#0ea5e9",
+    3: "#94a3b8",
+    4: "#cbd5e1",
+  };
+  const raw: Array<{ ko: string; en: string; revenue: number; tier: 1 | 2 | 3 | 4 }> = [
+    // Tier 1
+    { ko: "한미반도체", en: "Hami Semi",    revenue: 5478, tier: 1 },
+    { ko: "HPSP",       en: "HPSP",         revenue: 2341, tier: 1 },
+    // Tier 2
+    { ko: "동진쎄미켐", en: "Dongjin",     revenue: 14000, tier: 2 },
+    { ko: "심텍",       en: "Simmtech",     revenue: 13000, tier: 2 },
+    { ko: "솔브레인",   en: "Soulbrain",    revenue: 10000, tier: 2 },
+    { ko: "원익머트리얼즈", en: "Wonik Mat", revenue: 5800, tier: 2 },
+    { ko: "테크윙",     en: "Techwing",     revenue: 2800, tier: 2 },
+    { ko: "인텍플러스", en: "Intekplus",    revenue: 1200, tier: 2 },
+    { ko: "디엔에프",   en: "DNF",          revenue: 1200, tier: 2 },
+    // Tier 3
+    { ko: "SK실트론",   en: "SK Siltron",   revenue: 25000, tier: 3 },
+    { ko: "원익IPS",    en: "Wonik IPS",    revenue: 10000, tier: 3 },
+    { ko: "원익큐엔씨", en: "Wonik QnC",    revenue: 9436, tier: 3 },
+    { ko: "SK엔펄스",   en: "SK Enpulse",   revenue: 7500, tier: 3 },
+    { ko: "이엔에프",   en: "ENF Tech",     revenue: 4300, tier: 3 },
+    { ko: "하나머티",   en: "Hana Mat",     revenue: 4500, tier: 3 },
+    { ko: "주성엔지",   en: "Jusung Eng",   revenue: 4200, tier: 3 },
+    { ko: "후성",       en: "Hooseong",     revenue: 3800, tier: 3 },
+    { ko: "이오테크닉스", en: "EO Tech",    revenue: 3600, tier: 3 },
+    { ko: "고영",       en: "Koh Young",    revenue: 2800, tier: 3 },
+    { ko: "테스",       en: "TES",          revenue: 2500, tier: 3 },
+    { ko: "티씨케이",   en: "TCK",          revenue: 2400, tier: 3 },
+    { ko: "피에스케이", en: "PSK",          revenue: 2300, tier: 3 },
+    { ko: "예스티",     en: "YEST",         revenue: 1800, tier: 3 },
+    // Tier 4
+    { ko: "DI동일",     en: "DI Dongil",    revenue: 6089, tier: 4 },
+    { ko: "DMS",        en: "DMS",          revenue: 577,  tier: 4 },
+    { ko: "LB세미콘",   en: "LB Semicon",   revenue: 1343, tier: 4 },
+    { ko: "러셀",       en: "Russell",      revenue: 163,  tier: 4 },
+  ];
+  const data = raw
+    .slice()
+    .sort((a, b) => b.revenue - a.revenue)
+    .map((d) => ({
+      name: lang === "en" ? d.en : d.ko,
+      revenue: d.revenue,
+      tier: d.tier,
+      fill: TIER_COLOR[d.tier],
+    }));
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const baseCaption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  const sourceTag = lang === "en"
+    ? " · Source: company IR (2025 annual / 2026E). Estimates noted."
+    : " · 출처: 각 사 IR (2025년 연환산 또는 2026E). 일부 추정.";
+  return (
+    <ChartCard title={title} caption={(baseCaption ?? "") + sourceTag}>
+      <ResponsiveContainer width="100%" height={Math.max(260, data.length * 24)}>
+        <BarChart data={data} layout="vertical" margin={{ top: 8, right: 40, bottom: 0, left: 8 }}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} horizontal={false} />
+          <XAxis type="number" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `${(v / 1000).toFixed(0)}K`} />
+          <YAxis type="category" dataKey="name" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} width={92} />
+          <Tooltip cursor={{ fill: "rgba(0,0,0,0.04)" }} content={({ active, payload }) => {
+            if (!active || !payload?.length) return null;
+            const d = payload[0].payload as { name: string; revenue: number; tier: 1 | 2 | 3 | 4; fill: string };
+            return (
+              <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl px-4 py-3 text-xs">
+                <p className="font-bold text-gray-800 dark:text-gray-100">{d.name}</p>
+                <p style={{ color: d.fill }} className="font-mono text-sm mt-1">₩{d.revenue.toLocaleString()}억</p>
+                <p className="text-[10px] text-gray-400 mt-0.5">Tier {d.tier}</p>
+              </div>
+            );
+          }} />
+          <Bar dataKey="revenue" radius={[0, 4, 4, 0]}>
+            {data.map((entry, i) => (<Cell key={i} fill={entry.fill} />))}
+          </Bar>
+        </BarChart>
+      </ResponsiveContainer>
+      {/* Tier legend */}
+      <div className="flex flex-wrap gap-3 justify-center mt-3 text-[10px]">
+        {([1, 2, 3, 4] as const).map((t) => (
+          <span key={t} className="flex items-center gap-1.5">
+            <span className="w-2.5 h-2.5 rounded-sm" style={{ background: TIER_COLOR[t] }} />
+            <span className="text-gray-500 dark:text-gray-400">
+              Tier {t} {t === 1
+                ? (lang === "en" ? "(global leader)" : "(글로벌 강자)")
+                : t === 2
+                ? (lang === "en" ? "(direct beta)" : "(직접 베타)")
+                : t === 3
+                ? (lang === "en" ? "(indirect)" : "(간접)")
+                : (lang === "en" ? "(weak AI)" : "(약함)")}
+            </span>
+          </span>
+        ))}
+      </div>
+    </ChartCard>
+  );
+}
+
+// 7. SemiWatchDashboardChart — research.md §16.3, 7개 지표 (PC WatchDashboardChart 패턴 모방)
+function SemiWatchDashboardChart({ chart, lang }: { chart: NoteChartDef & { id: "semi-watch-dashboard" }; lang: Lang }) {
+  // research.md §16.3 7-indicator table 기반 — 컴포넌트 내장 데이터
+  type Indicator = {
+    indicator: string;
+    indicatorEn: string;
+    current: string;
+    normalRange: string;
+    cautionRange: string;
+    dangerRange: string;
+    status: "normal" | "caution" | "danger";
+  };
+  const data: Indicator[] = [
+    { indicator: "HBM TTM 매출 성장률",       indicatorEn: "HBM TTM revenue growth",      current: "+200%+", normalRange: "+50%+",  cautionRange: "+20~50%",   dangerRange: "<+20%",   status: "normal"  },
+    { indicator: "TSMC CoWoS capacity (월)",   indicatorEn: "TSMC CoWoS capacity (mo)",   current: "~80K",   normalRange: lang === "en" ? "Rising" : "증가", cautionRange: lang === "en" ? "Flat" : "정체", dangerRange: lang === "en" ? "Declining" : "감소", status: "normal" },
+    { indicator: "ASML EUV 분기 출하",         indicatorEn: "ASML EUV quarterly ships",    current: "~15",     normalRange: "15+",     cautionRange: "10-15",      dangerRange: "<10",      status: "normal"  },
+    { indicator: "한미반도체 매출 YoY",         indicatorEn: "Hami Semi revenue YoY",       current: "-65.5%", normalRange: "+30%+",   cautionRange: "-10~+30%",  dangerRange: "<-30%",   status: "danger"  },
+    { indicator: "SK하이닉스 영업이익률",      indicatorEn: "SK Hynix OPM",                current: "72%",    normalRange: "50%+",    cautionRange: "30-50%",    dangerRange: "<30%",    status: "normal"  },
+    { indicator: "NVIDIA DC 매출 QoQ",          indicatorEn: "NVIDIA DC QoQ",               current: "+20%+",  normalRange: "+10%+",   cautionRange: "0~+10%",    dangerRange: lang === "en" ? "Declining" : "감소", status: "normal"  },
+    { indicator: "DDR5 8Gb spot 가격",          indicatorEn: "DDR5 8Gb spot price",         current: "$3+",    normalRange: "$2-3",    cautionRange: "$1.5-2",    dangerRange: "<$1.5",    status: "caution" },
+  ];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  const dangerCount = data.filter((d) => d.status === "danger").length;
+  const cautionCount = data.filter((d) => d.status === "caution").length;
+  const normalCount = data.filter((d) => d.status === "normal").length;
+  const statusBg = {
+    normal: "bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300",
+    caution: "bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300",
+    danger: "bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300",
+  } as const;
+  const statusLabel = {
+    normal: lang === "en" ? "Normal" : "정상",
+    caution: lang === "en" ? "Caution" : "주의",
+    danger: lang === "en" ? "Danger" : "위험",
+  } as const;
+  return (
+    <ChartCard title={title} caption={caption}>
+      <div className="overflow-x-auto rounded-xl border border-gray-200/70 dark:border-gray-700/60">
+        <table className="w-full text-sm">
+          <thead>
+            <tr className="bg-gray-50/80 dark:bg-gray-800/60 border-b border-gray-200/60 dark:border-gray-700/60">
+              <th className="text-left px-4 py-3 text-[11px] font-semibold text-gray-500 dark:text-gray-400">{lang === "en" ? "Indicator" : "지표"}</th>
+              <th className="text-center px-3 py-3 text-[11px] font-semibold text-gray-500 dark:text-gray-400">{lang === "en" ? "Current" : "현재"}</th>
+              <th className="text-center px-3 py-3 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">{lang === "en" ? "Normal" : "정상"}</th>
+              <th className="text-center px-3 py-3 text-[11px] font-semibold text-amber-600 dark:text-amber-400">{lang === "en" ? "Caution" : "주의"}</th>
+              <th className="text-center px-3 py-3 text-[11px] font-semibold text-red-600 dark:text-red-400">{lang === "en" ? "Danger" : "위험"}</th>
+              <th className="text-center px-3 py-3 text-[11px] font-semibold text-gray-500 dark:text-gray-400">{lang === "en" ? "Status" : "판정"}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.map((row, i) => (
+              <tr key={i} className="border-b border-gray-100 dark:border-gray-800/60 last:border-0">
+                <td className="px-4 py-3 text-[12px] font-medium text-gray-800 dark:text-gray-200">
+                  {lang === "en" ? row.indicatorEn : row.indicator}
+                </td>
+                <td className={`px-3 py-3 text-center text-[12px] font-mono font-bold ${statusBg[row.status]}`}>
+                  {row.current}
+                </td>
+                <td className="px-3 py-3 text-center text-[11px] font-mono text-gray-500 dark:text-gray-400">{row.normalRange}</td>
+                <td className="px-3 py-3 text-center text-[11px] font-mono text-gray-500 dark:text-gray-400">{row.cautionRange}</td>
+                <td className="px-3 py-3 text-center text-[11px] font-mono text-gray-500 dark:text-gray-400">{row.dangerRange}</td>
+                <td className="px-3 py-3 text-center">
+                  <span className={`inline-block px-2 py-0.5 rounded-full text-[10px] font-bold ${statusBg[row.status]}`}>
+                    {statusLabel[row.status]}
+                  </span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div className="mt-4 px-4 py-3 rounded-xl bg-gray-50 dark:bg-gray-800/40 border border-gray-200/70 dark:border-gray-700/60 text-center">
+        <p className="text-[11px] text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-1">
+          {lang === "en" ? "Composite verdict" : "종합 판정"}
+        </p>
+        <p className="text-[13px] font-semibold text-gray-700 dark:text-gray-300">
+          <span className="text-red-600 dark:text-red-400">{dangerCount}</span> {lang === "en" ? "danger" : "위험"} ·{" "}
+          <span className="text-amber-600 dark:text-amber-400">{cautionCount}</span> {lang === "en" ? "caution" : "주의"} ·{" "}
+          <span className="text-emerald-600 dark:text-emerald-400">{normalCount}</span> {lang === "en" ? "normal" : "정상"}
+        </p>
+        <p className="text-[12px] text-gray-500 dark:text-gray-400 mt-1">
+          {dangerCount >= 3
+            ? (lang === "en" ? "→ \"Peak passed\" signal" : "→ \"정점 통과\" 시그널")
+            : normalCount >= 5
+            ? (lang === "en" ? "→ \"Late-cycle stability\" signal" : "→ \"사이클 후반 안정\" 시그널")
+            : (lang === "en" ? "→ Mixed — keep weekly watch" : "→ 혼조 — 주간 모니터링 유지")}
+        </p>
+      </div>
+    </ChartCard>
+  );
+}
+
+// 8. VcRoadmapChart — SVG 10단계 가로 박스 다이어그램
+function VcRoadmapChart({ chart, lang }: { chart: NoteChartDef & { id: "vc-roadmap" }; lang: Lang }) {
+  const stages = (chart.stages ?? []) as VcRoadmapStage[];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  // exposure → fill, stroke
+  const expColor: Record<VcRoadmapStage["koreaExposure"], { fill: string; stroke: string; text: string }> = {
+    high:   { fill: "#8b5cf6", stroke: "#7c3aed", text: "#ffffff" },
+    medium: { fill: "#0ea5e9", stroke: "#0284c7", text: "#ffffff" },
+    low:    { fill: "#cbd5e1", stroke: "#94a3b8", text: "#0f172a" },
+    none:   { fill: "#ffffff", stroke: "#cbd5e1", text: "#475569" },
+  };
+  const expLabel: Record<VcRoadmapStage["koreaExposure"], { ko: string; en: string }> = {
+    high: { ko: "높음", en: "high" },
+    medium: { ko: "중간", en: "medium" },
+    low: { ko: "낮음", en: "low" },
+    none: { ko: "없음", en: "none" },
+  };
+  // 10 stages 가로 박스 (2 rows × 5 cols) — viewBox 960x320
+  const COLS = 5;
+  const ROWS = Math.ceil(stages.length / COLS);
+  const W = 960;
+  const H = ROWS * 150 + 20;
+  const BOX_W = 170;
+  const BOX_H = 124;
+  const HGAP = (W - COLS * BOX_W) / (COLS + 1);
+  const VGAP = 20;
+  return (
+    <ChartCard title={title} caption={caption}>
+      <div className="bg-white dark:bg-gray-900/40 py-4 overflow-x-auto">
+        <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto max-w-5xl mx-auto block" style={{ maxHeight: 400 }}>
+          <defs>
+            <marker id="vcArrow" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+              <polygon points="0 0, 8 3, 0 6" fill="#94a3b8" />
+            </marker>
+          </defs>
+          {stages.map((stage, i) => {
+            const col = i % COLS;
+            const row = Math.floor(i / COLS);
+            const x = HGAP + col * (BOX_W + HGAP);
+            const y = 10 + row * (BOX_H + VGAP);
+            const c = expColor[stage.koreaExposure];
+            const label = lang === "en" ? stage.labelEn : stage.label;
+            const companies = lang === "en" ? stage.companiesEn : stage.companies;
+            const expL = lang === "en" ? expLabel[stage.koreaExposure].en : expLabel[stage.koreaExposure].ko;
+            // arrow to next stage (within same row only — visual chain)
+            const drawArrow = i < stages.length - 1 && col < COLS - 1;
+            const arrowX1 = x + BOX_W + 2;
+            const arrowX2 = x + BOX_W + HGAP - 4;
+            const arrowY = y + BOX_H / 2;
+            return (
+              <g key={stage.id}>
+                {drawArrow && (
+                  <line x1={arrowX1} y1={arrowY} x2={arrowX2} y2={arrowY} stroke="#94a3b8" strokeWidth={1.6} markerEnd="url(#vcArrow)" />
+                )}
+                <rect x={x} y={y} width={BOX_W} height={BOX_H} rx={10} fill={c.fill} stroke={c.stroke} strokeWidth={1.8} />
+                <text x={x + 12} y={y + 22} fontSize={12} fontWeight={800} fill={c.text}>
+                  {label}
+                </text>
+                <foreignObject x={x + 12} y={y + 30} width={BOX_W - 24} height={BOX_H - 56}>
+                  <div
+                    style={{ fontSize: 10, lineHeight: "1.35", color: c.text, opacity: 0.92 }}
+                  >
+                    {companies}
+                  </div>
+                </foreignObject>
+                <text x={x + BOX_W - 10} y={y + BOX_H - 10} textAnchor="end" fontSize={9} fontWeight={700} fill={c.text} opacity={0.85}>
+                  {lang === "en" ? `KR: ${expL}` : `한국: ${expL}`}
+                </text>
+              </g>
+            );
+          })}
+        </svg>
+      </div>
+      {/* Legend */}
+      <div className="flex flex-wrap gap-3 justify-center mt-3 text-[10px]">
+        {(["high", "medium", "low", "none"] as const).map((e) => (
+          <span key={e} className="flex items-center gap-1.5">
+            <span className="w-2.5 h-2.5 rounded-sm" style={{ background: expColor[e].fill, border: `1px solid ${expColor[e].stroke}` }} />
+            <span className="text-gray-500 dark:text-gray-400">
+              {lang === "en" ? `Korea ${expLabel[e].en}` : `한국 ${expLabel[e].ko}`}
+            </span>
+          </span>
+        ))}
+      </div>
+    </ChartCard>
+  );
+}
+
+// 9. RiskChannels5Chart — SVG 노드-엣지 (중심 + 5채널)
+function RiskChannels5Chart({ chart, lang }: { chart: NoteChartDef & { id: "risk-channels-5" }; lang: Lang }) {
+  // research.md §15 기반 — 컴포넌트 내장 데이터
+  type Channel = {
+    id: string;
+    label: string;
+    labelEn: string;
+    channel: string;
+    channelEn: string;
+    risk: "high" | "medium" | "low";
+  };
+  const center = {
+    label: "AI 반도체 사이클",
+    labelEn: "AI Semi Cycle",
+    color: "#8b5cf6",
+  };
+  const channels: Channel[] = [
+    { id: "memory",  label: "메모리 사이클",   labelEn: "Memory Cycle",       channel: "HBM 공급 과잉",         channelEn: "HBM oversupply",     risk: "high"   },
+    { id: "china",   label: "중국 굴기",       labelEn: "China Rise",         channel: "CXMT·YMTC 추격",       channelEn: "CXMT/YMTC catch-up", risk: "medium" },
+    { id: "tariff",  label: "관세·수출 통제",  labelEn: "Tariffs / Controls", channel: "미·중 정치 변수",       channelEn: "US-China politics",  risk: "medium" },
+    { id: "node",    label: "노드 비용",       labelEn: "Node Cost",          channel: "fab 진입 비용 폭증",   channelEn: "Fab entry cost",     risk: "low"    },
+    { id: "cowos",   label: "CoWoS 의존",      labelEn: "CoWoS Dependence",   channel: "대만 단일 의존",       channelEn: "Taiwan single dep.", risk: "low"    },
+  ];
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  const W = 760, H = 520;
+  const cx = W / 2, cy = H / 2;
+  const centerR = 64;
+  const RADIUS = 200;
+  const riskColor = { low: "#10b981", medium: "#f59e0b", high: "#ef4444" } as const;
+  const centerLabel = lang === "en" ? center.labelEn : center.label;
+
+  return (
+    <ChartCard title={title} caption={caption}>
+      <div className="bg-white dark:bg-gray-900/40 py-4 overflow-x-auto">
+        <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto max-w-3xl mx-auto block" style={{ maxHeight: 540 }}>
+          <defs>
+            <marker id="riskArrow" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+              <polygon points="0 0, 8 3, 0 6" fill="#64748b" />
+            </marker>
+          </defs>
+
+          {channels.map((ch, i) => {
+            const angle = (2 * Math.PI * i) / channels.length - Math.PI / 2;
+            const x = cx + Math.cos(angle) * RADIUS;
+            const y = cy + Math.sin(angle) * RADIUS;
+            const color = riskColor[ch.risk];
+            const ux = Math.cos(angle), uy = Math.sin(angle);
+            const x1 = cx + ux * centerR;
+            const y1 = cy + uy * centerR;
+            const x2 = x - ux * 56;
+            const y2 = y - uy * 56;
+            const label = lang === "en" ? ch.labelEn : ch.label;
+            const channelText = lang === "en" ? ch.channelEn : ch.channel;
+            const riskWord = ch.risk === "high"
+              ? (lang === "en" ? "high" : "고위험")
+              : ch.risk === "medium"
+              ? (lang === "en" ? "medium" : "주의")
+              : (lang === "en" ? "low" : "낮음");
+            return (
+              <g key={ch.id}>
+                <line x1={x1} y1={y1} x2={x2} y2={y2} stroke={color} strokeWidth={2.2} markerEnd="url(#riskArrow)" />
+                <rect x={(x1 + x2) / 2 - 60} y={(y1 + y2) / 2 - 10} width={120} height={20} rx={4}
+                  fill="white" stroke="#e2e8f0" className="dark:fill-gray-800" />
+                <text x={(x1 + x2) / 2} y={(y1 + y2) / 2 + 4} textAnchor="middle" fontSize={9} fill="#64748b">
+                  {channelText}
+                </text>
+                <circle cx={x} cy={y} r={52} fill={color} fillOpacity={0.15} stroke={color} strokeWidth={2} />
+                <text x={x} y={y - 4} textAnchor="middle" fontSize={12} fontWeight={700} fill={color}>{label}</text>
+                <text x={x} y={y + 12} textAnchor="middle" fontSize={9} fill="#64748b">
+                  {riskWord}
+                </text>
+              </g>
+            );
+          })}
+
+          <circle cx={cx} cy={cy} r={centerR} fill={center.color} fillOpacity={0.2} stroke={center.color} strokeWidth={3} />
+          <text x={cx} y={cy + 4} textAnchor="middle" fontSize={14} fontWeight={800} fill={center.color}>
+            {centerLabel}
+          </text>
+        </svg>
+      </div>
+    </ChartCard>
+  );
+}
+
 // ── Fallback placeholder (for unregistered chart IDs) ─────────────────────────
 function ChartPlaceholder({ chart, lang }: { chart: NoteChartDef; lang: Lang }) {
   const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
@@ -1932,6 +2499,17 @@ const AI_SEMI_CHART_IDS = new Set<string>([
 ]);
 
 function NoteChart({ chart, lang }: { chart: NoteChartDef; lang: Lang }) {
+  // AI Semi Value Chain 2026 노트 — 9개 실제 컴포넌트
+  if (chart.id === "semi-market-cycle")        return <SemiMarketCycleChart        chart={chart} lang={lang} />;
+  if (chart.id === "hbm-share-quarterly-semi") return <HbmShareQuarterlySemiChart  chart={chart} lang={lang} />;
+  if (chart.id === "cowos-capacity")           return <CowosCapacityChart          chart={chart} lang={lang} />;
+  if (chart.id === "foundry-node-share")       return <FoundryNodeShareChart       chart={chart} lang={lang} />;
+  if (chart.id === "china-self-sufficiency")   return <ChinaSelfSufficiencyChart   chart={chart} lang={lang} />;
+  if (chart.id === "vc-roadmap")               return <VcRoadmapChart              chart={chart} lang={lang} />;
+  if (chart.id === "korea-sobujang-30")        return <KoreaSobujang30Chart        chart={chart} lang={lang} />;
+  if (chart.id === "risk-channels-5")          return <RiskChannels5Chart          chart={chart} lang={lang} />;
+  if (chart.id === "semi-watch-dashboard")     return <SemiWatchDashboardChart     chart={chart} lang={lang} />;
+  // Fallback (unmapped AI Semi IDs only — kept for safety)
   if (AI_SEMI_CHART_IDS.has(chart.id)) return <ChartPlaceholder chart={chart} lang={lang} />;
   // Private Credit 11개 차트
   if (chart.id === "pc-aum-growth") return <PcAumGrowthChart chart={chart} lang={lang} />;
