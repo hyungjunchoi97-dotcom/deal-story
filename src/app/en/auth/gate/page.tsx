@@ -53,13 +53,13 @@ function GateContent() {
 
         <div className="text-left bg-gray-50 dark:bg-gray-800/60 rounded-xl border border-gray-100 dark:border-gray-700 p-5 mb-8 space-y-3">
           {[
-            { icon: "📖", text: "Unlimited access to all Learn content — M&A, Valuation, FDD, Modeling, and more" },
-            { icon: "📬", text: "Weekly Report every Friday — Global M&A pulse + new articles roundup" },
-            { icon: "🔖", text: "Bookmark articles and manage your reading list from your profile" },
-          ].map((item, i) => (
+            "Unlimited access to all Learn content — M&A, Valuation, FDD, Modeling, and more",
+            "Weekly Report every Friday — Global M&A pulse + new articles roundup",
+            "Bookmark articles and manage your reading list from your profile",
+          ].map((text, i) => (
             <div key={i} className="flex items-start gap-3">
-              <span className="text-base mt-0.5">{item.icon}</span>
-              <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{item.text}</p>
+              <span className="mt-1.5 w-1 h-1 rounded-full bg-gray-400 dark:bg-gray-500 flex-shrink-0" />
+              <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{text}</p>
             </div>
           ))}
         </div>

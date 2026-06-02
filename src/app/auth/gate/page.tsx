@@ -55,13 +55,13 @@ function GateContent() {
         {/* 혜택 리스트 */}
         <div className="text-left bg-gray-50 dark:bg-gray-800/60 rounded-xl border border-gray-100 dark:border-gray-700 p-5 mb-8 space-y-3">
           {[
-            { icon: "📖", text: "M&A · Valuation · FDD · 모델링 등 전체 Learn 콘텐츠 무제한 열람" },
-            { icon: "📬", text: "매주 금요일 Weekly Report — 글로벌 M&A 동향 + 신규 글 모아보기" },
-            { icon: "🔖", text: "스크랩 기능으로 관심 글 저장 및 마이페이지 관리" },
-          ].map((item, i) => (
+            "M&A · Valuation · FDD · 모델링 등 전체 Learn 콘텐츠 무제한 열람",
+            "매주 금요일 Weekly Report — 글로벌 M&A 동향 + 신규 글 모아보기",
+            "스크랩 기능으로 관심 글 저장 및 마이페이지 관리",
+          ].map((text, i) => (
             <div key={i} className="flex items-start gap-3">
-              <span className="text-base mt-0.5">{item.icon}</span>
-              <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{item.text}</p>
+              <span className="mt-1.5 w-1 h-1 rounded-full bg-gray-400 dark:bg-gray-500 flex-shrink-0" />
+              <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{text}</p>
             </div>
           ))}
         </div>
