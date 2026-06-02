@@ -26,6 +26,16 @@ export default function LikeButton({ slug, lang, title, titleEn, category }: Lik
   const [loggedIn, setLoggedIn] = useState<boolean | null>(null);
 
   const [mounted, setMounted] = useState(false);
+  const [inAppBrowser, setInAppBrowser] = useState(false);
+
+  useEffect(() => {
+    // 인앱 브라우저 감지 (Instagram, Facebook, Threads, KakaoTalk, LINE 등)
+    const ua = navigator.userAgent || "";
+    const isInApp =
+      /FBAN|FBAV|Instagram|Threads|KAKAOTALK|Line\/|NaverApp|DaumApp/i.test(ua) ||
+      (/iPhone|iPad|Android/i.test(ua) && !/Safari\/|Chrome\//i.test(ua));
+    setInAppBrowser(isInApp);
+  }, []);
 
   useEffect(() => {
     setMounted(true);
@@ -72,6 +82,15 @@ export default function LikeButton({ slug, lang, title, titleEn, category }: Lik
 
   const handleBookmark = useCallback(async () => {
     if (loggedIn === false) {
+      if (inAppBrowser) {
+        // 인앱 브라우저에서는 Google OAuth 실패 → 외부 브라우저로 유도
+        const currentUrl = window.location.href;
+        const msg = ko
+          ? `Google 로그인은 인앱 브라우저에서 지원되지 않습니다.\n\n아래 링크를 복사해서 Safari나 Chrome에서 열어주세요.\n\n${currentUrl}`
+          : `Google sign-in is not supported in in-app browsers.\n\nPlease copy the link and open it in Safari or Chrome.\n\n${currentUrl}`;
+        alert(msg);
+        return;
+      }
       const supabase = createPublicBrowserClient();
       await supabase.auth.signInWithOAuth({
         provider: "google",
@@ -98,7 +117,7 @@ export default function LikeButton({ slug, lang, title, titleEn, category }: Lik
       setBookmarked(!!d.bookmarked);
     } catch { /* silent */ }
     finally { setBookmarkLoading(false); }
-  }, [loggedIn, slug, title, titleEn, category]);
+  }, [loggedIn, inAppBrowser, ko, slug, title, titleEn, category]);
 
   if (!mounted) return null;
 

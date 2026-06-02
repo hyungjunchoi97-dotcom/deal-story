@@ -100,6 +100,18 @@ export default function LandingSignupCTA({ lang = "ko" }: Props) {
   }, []);
 
   async function handleLogin() {
+    const ua = navigator.userAgent || "";
+    const isInApp =
+      /FBAN|FBAV|Instagram|Threads|KAKAOTALK|Line\/|NaverApp|DaumApp/i.test(ua) ||
+      (/iPhone|iPad|Android/i.test(ua) && !/Safari\/|Chrome\//i.test(ua));
+    if (isInApp) {
+      const currentUrl = window.location.href;
+      const msg = ko
+        ? `Google 로그인은 인앱 브라우저에서 지원되지 않습니다.\n\nSafari나 Chrome에서 열어주세요.\n\n${currentUrl}`
+        : `Google sign-in is not supported in in-app browsers.\n\nPlease open in Safari or Chrome.\n\n${currentUrl}`;
+      alert(msg);
+      return;
+    }
     await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
