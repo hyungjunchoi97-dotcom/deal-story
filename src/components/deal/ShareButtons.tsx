@@ -4,6 +4,7 @@ import { useState, useCallback } from "react";
 import { SHARE_LABELS, type Lang } from "@/lib/i18n";
 import AuthorByline from "@/components/AuthorByline";
 import LikeButton from "@/components/LikeButton";
+import NewsletterCTA from "@/components/NewsletterCTA";
 
 interface ShareButtonsProps {
   title: string;
@@ -242,6 +243,10 @@ export default function ShareButtons({
         )}
       </div>
       </div>
+      </div>
+
+      {/* 뉴스레터 / 로그인 CTA — 비로그인 유저에게만 표시 */}
+      <NewsletterCTA lang={lang} />
     </div>
   );
 }
