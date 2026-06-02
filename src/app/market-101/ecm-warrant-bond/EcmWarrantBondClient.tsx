@@ -405,8 +405,8 @@ function WarrantPayoffChart({ ko }: { ko: boolean }) {
               />
               <Tooltip
                 contentStyle={{ fontSize: 11, borderRadius: 8, border: "1px solid #e5e7eb" }}
-                formatter={(v: number) => [v, ko ? "워런트 가치" : "Value"]}
-                labelFormatter={(l: number) => `${ko ? "주가" : "Price"}: ${l}`}
+                formatter={(v) => [Number(v ?? 0), ko ? "워런트 가치" : "Value"]}
+                labelFormatter={(l) => `${ko ? "주가" : "Price"}: ${l}`}
               />
               <ReferenceLine x={100} stroke="#f59e0b" strokeDasharray="4 2" label={{ value: ko ? "행사가" : "Strike", fontSize: 9, fill: "#f59e0b" }} />
               <Line
@@ -629,7 +629,7 @@ function RefixingChart({ ko }: { ko: boolean }) {
               />
               <Tooltip
                 contentStyle={{ fontSize: 11, borderRadius: 8, border: "1px solid #e5e7eb" }}
-                formatter={(v: number) => [`₩${v.toLocaleString()}`, ""]}
+                formatter={(v) => [`₩${Number(v ?? 0).toLocaleString()}`, ""]}
               />
               <ReferenceLine y={7000} stroke="#f59e0b" strokeDasharray="4 2" label={{ value: ko ? "1차 리픽싱" : "1st Refixing", fontSize: 9, fill: "#f59e0b" }} />
               <ReferenceLine y={5500} stroke="#ef4444" strokeDasharray="4 2" label={{ value: ko ? "2차 리픽싱" : "2nd Refixing", fontSize: 9, fill: "#ef4444" }} />
