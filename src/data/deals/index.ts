@@ -113,6 +113,22 @@ import hanwhaDsme from "./hanwha-dsme";
 import lenovoIbmThinkpad from "./lenovo-ibm-thinkpad";
 import tataJlr from "./tata-jlr";
 import attTmobileBlocked from "./att-tmobile-blocked";
+// 신규 추가 딜 — 메가/실패/한국 추가 시리즈
+import microsoftOpenaiStructured from "./microsoft-openai-structured";
+import apolloAtheneMerger from "./apollo-athene-merger";
+import ubsCreditSuisseRescue from "./ubs-credit-suisse-rescue";
+import capitalOneDiscover from "./capital-one-discover";
+import ciscoSplunk from "./cisco-splunk";
+import synopsysAnsys from "./synopsys-ansys";
+import bhpAngloAmericanHostile from "./bhp-anglo-american-hostile";
+import halliburtonBakerHughesBlocked from "./halliburton-baker-hughes-blocked";
+import energyTransferWilliamsFailed from "./energy-transfer-williams-failed";
+import alignKtGFinancialsActivism from "./align-kt-g-financials-activism";
+import emartStarbucksKorea from "./emart-starbucks-korea";
+import kakaobankKospiIpo from "./kakaobank-kospi-ipo";
+import geelyVolvoCars from "./geely-volvo-cars";
+import pifNewcastleUnited from "./pif-newcastle-united";
+import weworkBankruptcyNeumannBid from "./wework-bankruptcy-neumann-bid";
 
 /**
  * 딜 레지스트리 — 새 딜 추가 시 import 후 배열에 추가
@@ -123,13 +139,19 @@ export const ALL_DEALS: DealData[] = [
   kkrSamsungSdsCb,         // 2026-04-30 (ma — 한국 단일 사모 CB 최대급)
   coucheTard7eleven,       // 2025-12-31 (control, 진행중)
   skSquare11stPutDefault,  // 2025-10-29 (ma — 한국 PE-전략적 JV 풋옵션 디폴트 첫 케이스)
+  synopsysAnsys,           // 2025-07-17 (ma — EDA + multiphysics 통합)
   nipponSteelUsSteel,      // 2025-06-18 (ma — 미국 정부 golden share 부과 첫 사례)
+  capitalOneDiscover,      // 2025-05-18 (ma — 미국 결제 산업 30년 만 최대 통합)
   koreaZincMbk,            // 2025-03-28 (control)
   hanmiPharmaControl,      // 2024-12-31 (control, 진행중)
   doosanRoboticsBobcatWithdrawn, // 2024-10-21 (control — 행동주의+NPS+FSS 트라이앵글 첫 차단)
+  weworkBankruptcyNeumannBid, // 2024-06-11 (ma — SoftBank $14B 손실 + Neumann 재인수 시도)
+  bhpAngloAmericanHostile, // 2024-05-29 (control terminated — 4주 만의 적대적 무산, 구리 슈퍼사이클)
   trianDisney,             // 2024-04-03 (activism)
   geBreakup,               // 2024-04-02 (restructuring)
   illuminaGrail,           // 2024 forced divestiture
+  ciscoSplunk,             // 2024-03-18 (ma — Cisco 사상 최대, observability/security)
+  alignKtGFinancialsActivism, // 2024-02-26 (activism — 한국 dividend activism의 출발점)
   harimHmmFailed,          // 2024-02-06 (ma — 한국 국책 매각, 영구채가 막은 케이스)
   toshibaJipTakeprivate,   // 2023-12-20 (ma — 일본 도메스틱 컨소시엄 비상장화)
   adobeFigmaBlocked,       // 2023-12-18 (terminated)
@@ -137,8 +159,10 @@ export const ALL_DEALS: DealData[] = [
   microsoftActivision,     // 2023-10-13
   blackstoneKenedix,       // 2023-10-12
   jjKenvue,                // 2023-08-23 (restructuring)
+  ubsCreditSuisseRescue,   // 2023-06-12 (ma — Swiss 강제 합병, AT1 $17B wipeout)
   hanwhaDsme,              // 2023-05-23 (ma — 한국 방위/조선 재편, 신주발행 인수 구조)
   hybeSmKakaoTender,       // 2023-03-26 (control — 한국 첫 경쟁적 공개매수)
+  microsoftOpenaiStructured, // 2023-01-23 (ma — capped profit interest, 현대 AI 투자 구조)
   zendeskPeBuyout,         // 2022-11-22
   elonMuskTwitter,         // 2022-10-27
   attWarnemediaDivestiture, // 2022-04-08 (restructuring)
@@ -146,9 +170,13 @@ export const ALL_DEALS: DealData[] = [
   microsoftNuance,         // 2022-03-04
   nvidiaArm,               // terminated 2022-02-08
   thirdPointShell,         // 2022-02-01 (activism — ESG 행동주의의 한계)
+  apolloAtheneMerger,      // 2022-01-03 (ma — PE-보험 reverse merger)
   skhynixIntelNand,        // 2021-12-30
   ibmKyndryl,              // 2021-11-04 (restructuring)
+  emartStarbucksKorea,     // 2021-10-29 (ma — Starbucks 본사로부터 한국 67.5% 인수)
+  pifNewcastleUnited,      // 2021-10-07 (ma — 사우디 PIF의 EPL 진출, sovereign 분리 가이드)
   vivendiUmgSpin,          // 2021-09-21 (restructuring — 음악 산업 사상 최대 IPO)
+  kakaobankKospiIpo,       // 2021-08-06 (ma — KOSPI 첫 디지털은행 IPO)
   salesforceSlack,         // 2021-07-21
   hanjinKcgi,              // 2021-06-30 (activism)
   aramcoOilPipelines,      // 2021-06-18 (ma — 파이프라인 25년 throughput 임차백)
@@ -181,6 +209,8 @@ export const ALL_DEALS: DealData[] = [
   kraftUnilever,           // 2017-02-19 (control, withdrawn)
   microsoftLinkedin,       // 2016-12-08
   abInBevSabmiller,        // 2016-10-10
+  energyTransferWilliamsFailed, // 2016-06-29 (ma terminated — Delaware MAC clause case-law)
+  halliburtonBakerHughesBlocked, // 2016-05-01 (ma terminated — $3.5B reverse breakup fee 사상 최대)
   icahnApple,              // 2016-04-01 (activism)
   mbkHomeplus,             // 2015-11-30
   hpHpeSplit,              // 2015-11-01 (restructuring — Meg Whitman 주도 양사 분할)
@@ -205,6 +235,7 @@ export const ALL_DEALS: DealData[] = [
   jcrewIpTransfer,         // 2011-03-07 (LevFin Trap Door 케이스)
   airgasAirProducts,       // 2011-02-11 (control, withdrawn)
   g3CapitalBurgerKing,     // 2010-10-19 (LBO 교육 — ZBB + 재가맹점화)
+  geelyVolvoCars,          // 2010-08-02 (ma — 중국→스웨덴 cross-border, 14년 후 IPO)
   bhpRioTinto,             // 2008-11-25 (control, withdrawn)
   iheartmediaClearChannel, // 2008-07-30 (LevFin Hung Deal)
   tataJlr,                 // 2008-06-02 (ma — 인도 → 영국 럭셔리 cross-border, 회생 성공)

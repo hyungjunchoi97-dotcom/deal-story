@@ -110,6 +110,18 @@ import hpHpeSplit from "./hp-hpe-split";
 import vivendiUmgSpin from "./vivendi-umg-spin";
 import hertzLboBankruptcy from "./hertz-lbo-bankruptcy";
 import tataJlr from "./tata-jlr";
+// New batch — Mega/Failed/Korean additions (11 of 15 EN translations available)
+import microsoftOpenaiStructured from "./microsoft-openai-structured";
+import apolloAtheneMerger from "./apollo-athene-merger";
+import ubsCreditSuisseRescue from "./ubs-credit-suisse-rescue";
+import capitalOneDiscover from "./capital-one-discover";
+import ciscoSplunk from "./cisco-splunk";
+import synopsysAnsys from "./synopsys-ansys";
+import bhpAngloAmericanHostile from "./bhp-anglo-american-hostile";
+import halliburtonBakerHughesBlocked from "./halliburton-baker-hughes-blocked";
+import energyTransferWilliamsFailed from "./energy-transfer-williams-failed";
+import emartStarbucksKorea from "./emart-starbucks-korea";
+import kakaobankKospiIpo from "./kakaobank-kospi-ipo";
 
 /**
  * English deal registry — ordered by closedAt descending
@@ -119,13 +131,17 @@ export const ALL_DEALS_EN: DealData[] = [
   kkrSamsungSdsCb,         // 2026-04-30 (ma — Korea's largest single private CB)
   coucheTard7eleven,       // 2025-12-31 (control, ongoing)
   skSquare11stPutDefault,  // 2025-10-29 (ma — First Korean PE-strategic JV put default)
+  synopsysAnsys,           // 2025-07-17 (ma — EDA + multiphysics consolidation)
   nipponSteelUsSteel,      // 2025-06-18 (ma — First US-government golden share on foreign acquisition)
+  capitalOneDiscover,      // 2025-05-18 (ma — Largest US payments consolidation in 30 years)
   koreaZincMbk,            // 2025-03-28 (control)
   hanmiPharmaControl,      // 2024-12-31 (control, ongoing)
   doosanRoboticsBobcatWithdrawn, // 2024-10-21 (control — Activist+NPS+FSS triangle blocks chaebol restructuring)
+  bhpAngloAmericanHostile, // 2024-05-29 (control terminated — 4-week aborted hostile, copper supercycle)
   trianDisney,             // 2024-04-03 (activism)
   geBreakup,               // 2024-04-02 (restructuring)
   illuminaGrail,           // 2024 forced divestiture
+  ciscoSplunk,             // 2024-03-18 (ma — Cisco's largest acquisition ever)
   harimHmmFailed,          // 2024-02-06 (ma — Korean SOE sale blocked by perpetual CB)
   toshibaJipTakeprivate,   // 2023-12-20 (ma — Japan domestic-consortium take-private)
   adobeFigmaBlocked,       // 2023-12-18 (terminated)
@@ -133,7 +149,9 @@ export const ALL_DEALS_EN: DealData[] = [
   microsoftActivision,     // 2023-10-13
   blackstoneKenedix,       // 2023-10-12
   jjKenvue,                // 2023-08-23 (restructuring)
+  ubsCreditSuisseRescue,   // 2023-06-12 (ma — Swiss forced rescue, AT1 $17B wipeout)
   hybeSmKakaoTender,       // 2023-03-26 (control — Korea's first competitive tender offer)
+  microsoftOpenaiStructured, // 2023-01-23 (ma — capped profit interest, modern AI investment)
   zendeskPeBuyout,         // 2022-11-22
   elonMuskTwitter,         // 2022-10-27
   attWarnemediaDivestiture, // 2022-04-08 (restructuring)
@@ -141,9 +159,12 @@ export const ALL_DEALS_EN: DealData[] = [
   microsoftNuance,         // 2022-03-04
   nvidiaArm,               // terminated 2022-02-08
   thirdPointShell,         // 2022-02-01 (activism)
+  apolloAtheneMerger,      // 2022-01-03 (ma — PE-insurer reverse merger)
   skhynixIntelNand,        // 2021-12-30
   ibmKyndryl,              // 2021-11-04 (restructuring)
+  emartStarbucksKorea,     // 2021-10-29 (ma — Starbucks Korea 67.5% acquired from US parent)
   vivendiUmgSpin,          // 2021-09-21 (restructuring — largest music industry IPO in history)
+  kakaobankKospiIpo,       // 2021-08-06 (ma — KOSPI's first digital bank IPO)
   salesforceSlack,         // 2021-07-21
   hanjinKcgi,              // 2021-06-30 (activism)
   aramcoOilPipelines,      // 2021-06-18 (ma — 25-year throughput-based lease-back)
@@ -175,6 +196,8 @@ export const ALL_DEALS_EN: DealData[] = [
   kraftUnilever,           // 2017-02-19 (control, withdrawn)
   microsoftLinkedin,       // 2016-12-08
   abInBevSabmiller,        // 2016-10-10
+  energyTransferWilliamsFailed, // 2016-06-29 (ma terminated — Delaware MAC clause case-law)
+  halliburtonBakerHughesBlocked, // 2016-05-01 (ma terminated — largest reverse breakup fee ever)
   icahnApple,              // 2016-04-01 (activism)
   mbkHomeplus,             // 2015-11-30
   hpHpeSplit,              // 2015-11-01 (restructuring — Meg Whitman split into HP Inc + HPE)
