@@ -38,6 +38,7 @@ export default function WeeklyReportEn({
 }: WeeklyReportEnProps) {
   return (
     <html lang="en">
+      {/* eslint-disable-next-line @next/next/no-head-element */}
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

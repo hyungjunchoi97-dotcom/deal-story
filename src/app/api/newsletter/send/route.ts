@@ -5,11 +5,16 @@ import { render } from "@react-email/render";
 import WeeklyReportKo from "@/emails/WeeklyReportKo";
 import WeeklyReportEn from "@/emails/WeeklyReportEn";
 
-const resend = new Resend(process.env.RESEND_API_KEY!);
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+// 빌드 타임이 아닌 요청 타임에 초기화
+function getResend() {
+  return new Resend(process.env.RESEND_API_KEY!);
+}
+function getSupabase() {
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!
+  );
+}
 
 function checkAdminKey(req: NextRequest) {
   const key = req.headers.get("x-admin-key");
@@ -20,6 +25,9 @@ export async function POST(req: NextRequest) {
   if (!checkAdminKey(req)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
+
+  const resend = getResend();
+  const supabase = getSupabase();
 
   const body = await req.json();
   const {
