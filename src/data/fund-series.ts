@@ -75,7 +75,7 @@ export const FUND_CHAPTERS: FundChapter[] = [
     taglineKo: "Management Fee 누적 · Carry 계산 · Distribution Waterfall (American vs European) · DPI·TVPI·IRR",
     taglineEn: "Management fee accrual, carry math, distribution waterfall (American vs European), DPI/TVPI/IRR",
     readingMinutes: 13,
-    status: "draft",
+    status: "published",
   },
   {
     slug: "fund-ch06-market-players",
