@@ -47,8 +47,10 @@ export default function NewsletterComposePage() {
   // 신규 콘텐츠 리스트 (KO·EN 동일 URL 사용, 제목만 별도)
   const [contents, setContents] = useState<ContentItem[]>([{ ...EMPTY_CONTENT }]);
 
-  const [sending, setSending] = useState<"ko" | "en" | "all" | null>(null);
-  const [result,  setResult]  = useState<string | null>(null);
+  const [scheduledAt, setScheduledAt] = useState(""); // datetime-local value
+  const [savedId,     setSavedId]     = useState<string | null>(null);
+  const [sending,     setSending]     = useState<"ko" | "en" | "all" | "schedule" | null>(null);
+  const [result,      setResult]      = useState<string | null>(null);
 
   function updateRegion(arr: RegionalItem[], setArr: (v: RegionalItem[]) => void, i: number, value: string) {
     setArr(arr.map((item, idx) => idx === i ? { ...item, summary: value } : item));
@@ -66,6 +68,20 @@ export default function NewsletterComposePage() {
     setContents(prev => prev.filter((_, idx) => idx !== i));
   }
 
+  function getPayload(lang: string) {
+    return {
+      id: savedId,
+      lang,
+      weekLabel,
+      insightLine,
+      reportTitle,
+      reportLink,
+      regionalDeals_ko: regionsKo,
+      regionalDeals_en: regionsEn,
+      newContents: contents.filter(c => c.title && c.url),
+    };
+  }
+
   async function send(lang: "ko" | "en" | "all") {
     setSending(lang);
     setResult(null);
@@ -73,20 +89,37 @@ export default function NewsletterComposePage() {
       const res = await fetch("/api/newsletter/send", {
         method: "POST",
         headers: { "Content-Type": "application/json", "x-admin-key": adminKey },
-        body: JSON.stringify({
-          lang,
-          weekLabel,
-          insightLine,
-          reportTitle,
-          reportLink,
-          regionalDeals_ko: regionsKo,
-          regionalDeals_en: regionsEn,
-          newContents: contents.filter(c => c.title && c.url),
-        }),
+        body: JSON.stringify(getPayload(lang)),
       });
       const data = await res.json();
       if (!res.ok) setResult(`오류: ${data.error}`);
       else setResult(`발송 완료: ${data.sent}/${data.total}명`);
+    } catch {
+      setResult("네트워크 오류");
+    } finally {
+      setSending(null);
+    }
+  }
+
+  async function schedule() {
+    if (!scheduledAt) { setResult("예약 날짜/시간을 선택해주세요"); return; }
+    setSending("schedule");
+    setResult(null);
+    try {
+      // 로컬 datetime-local → UTC ISO string
+      const utc = new Date(scheduledAt).toISOString();
+      const res = await fetch("/api/newsletter/save", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "x-admin-key": adminKey },
+        body: JSON.stringify({ ...getPayload("all"), scheduledAt: utc }),
+      });
+      const data = await res.json();
+      if (!res.ok) setResult(`오류: ${data.error}`);
+      else {
+        setSavedId(data.id);
+        const localTime = new Date(scheduledAt).toLocaleString("ko-KR");
+        setResult(`예약 완료: ${localTime} 자동 발송`);
+      }
     } catch {
       setResult("네트워크 오류");
     } finally {
@@ -234,8 +267,36 @@ export default function NewsletterComposePage() {
           ))}
         </div>
 
-        {/* 발송 */}
+        {/* 예약 발송 */}
         <div className={sectionCls}>
+          <h2 className="text-sm font-bold text-gray-700">예약 발송</h2>
+          <p className="text-xs text-gray-400">날짜와 시간을 설정하면 자동으로 전체 발송됩니다 (매시간 체크)</p>
+          <div className="flex gap-3 items-end">
+            <div className="flex-1">
+              <label className={labelCls}>발송 일시</label>
+              <input
+                type="datetime-local"
+                value={scheduledAt}
+                onChange={e => setScheduledAt(e.target.value)}
+                className={inputCls}
+              />
+            </div>
+            <button
+              onClick={schedule}
+              disabled={!!sending}
+              className="px-6 py-2.5 rounded-lg bg-blue-600 text-white text-sm font-semibold hover:bg-blue-700 disabled:opacity-50 whitespace-nowrap"
+            >
+              {sending === "schedule" ? "저장 중..." : "예약 저장"}
+            </button>
+          </div>
+          {savedId && (
+            <p className="text-xs text-blue-500">이슈 ID: {savedId}</p>
+          )}
+        </div>
+
+        {/* 즉시 발송 */}
+        <div className={sectionCls}>
+          <h2 className="text-sm font-bold text-gray-700">즉시 발송</h2>
           {result && (
             <div className={`text-sm font-medium px-4 py-3 rounded-lg ${result.startsWith("오류") ? "bg-red-50 text-red-600" : "bg-green-50 text-green-700"}`}>
               {result}
@@ -244,11 +305,11 @@ export default function NewsletterComposePage() {
           <div className="flex gap-3 flex-wrap">
             <button onClick={() => send("ko")} disabled={!!sending}
               className="px-6 py-2.5 rounded-lg bg-gray-900 text-white text-sm font-semibold hover:bg-gray-700 disabled:opacity-50">
-              {sending === "ko" ? "발송 중..." : "🇰🇷 KO 발송"}
+              {sending === "ko" ? "발송 중..." : "KO 발송"}
             </button>
             <button onClick={() => send("en")} disabled={!!sending}
               className="px-6 py-2.5 rounded-lg bg-gray-900 text-white text-sm font-semibold hover:bg-gray-700 disabled:opacity-50">
-              {sending === "en" ? "Sending..." : "🌍 EN 발송"}
+              {sending === "en" ? "Sending..." : "EN 발송"}
             </button>
             <button onClick={() => send("all")} disabled={!!sending}
               className="px-6 py-2.5 rounded-lg bg-black text-white text-sm font-semibold hover:bg-gray-800 disabled:opacity-50">
