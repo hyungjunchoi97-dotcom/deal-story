@@ -85,7 +85,7 @@ export const FUND_CHAPTERS: FundChapter[] = [
     taglineKo: "Global $8T+ PE AUM · Top 10 US PE/VC · 한국 PE(MBK·IMM·STIC·Hahn 등) · 한국 VC · NPS·모태펀드 unique 구조",
     taglineEn: "Global $8T+ PE AUM · top 10 US PE/VC · Korean PE (MBK, IMM, STIC, Hahn, etc.) · Korean VC · NPS and the fund-of-funds structure",
     readingMinutes: 14,
-    status: "draft",
+    status: "published",
   },
 ];
 
