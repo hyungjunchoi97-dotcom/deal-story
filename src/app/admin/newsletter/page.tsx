@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 
-interface MarketPulseItem {
-  category: "M&A" | "PE" | "VC";
+interface RegionalDeal {
+  region: string;
   summary: string;
 }
 
@@ -15,25 +15,37 @@ interface Deal {
 
 const EMPTY_DEAL: Deal = { title: "", summary: "", link: "" };
 
-const DEFAULT_PULSE: MarketPulseItem[] = [
-  { category: "M&A", summary: "" },
-  { category: "PE",  summary: "" },
-  { category: "VC",  summary: "" },
+const KO_REGIONS: RegionalDeal[] = [
+  { region: "북미",   summary: "" },
+  { region: "아시아", summary: "" },
+  { region: "유럽",   summary: "" },
+];
+const EN_REGIONS: RegionalDeal[] = [
+  { region: "North America", summary: "" },
+  { region: "Asia",          summary: "" },
+  { region: "Europe",        summary: "" },
 ];
 
+const REGION_BG: Record<string, string> = {
+  "북미":           "#111",
+  "아시아":         "#1d4ed8",
+  "유럽":           "#15803d",
+  "North America":  "#111",
+  "Asia":           "#1d4ed8",
+  "Europe":         "#15803d",
+};
+
 export default function NewsletterComposePage() {
-  const [adminKey, setAdminKey]     = useState("");
-  const [weekLabel, setWeekLabel]   = useState("");
+  const [adminKey, setAdminKey]       = useState("");
+  const [weekLabel, setWeekLabel]     = useState("");
   const [insightLine, setInsightLine] = useState("");
 
-  // 마켓 펄스 (KO·EN 공통 — 나중에 필요하면 분리)
-  const [pulse, setPulse] = useState<MarketPulseItem[]>(DEFAULT_PULSE);
+  const [regionsKo, setRegionsKo] = useState<RegionalDeal[]>(KO_REGIONS.map(r => ({ ...r })));
+  const [regionsEn, setRegionsEn] = useState<RegionalDeal[]>(EN_REGIONS.map(r => ({ ...r })));
 
-  // 딜
   const [dealsKo, setDealsKo] = useState<Deal[]>([{ ...EMPTY_DEAL }, { ...EMPTY_DEAL }]);
   const [dealsEn, setDealsEn] = useState<Deal[]>([{ ...EMPTY_DEAL }, { ...EMPTY_DEAL }]);
 
-  // 리포트
   const [reportTitleKo, setReportTitleKo] = useState("");
   const [reportTitleEn, setReportTitleEn] = useState("");
   const [reportBodyKo,  setReportBodyKo]  = useState("");
@@ -43,14 +55,11 @@ export default function NewsletterComposePage() {
   const [sending, setSending] = useState<"ko" | "en" | "all" | null>(null);
   const [result,  setResult]  = useState<string | null>(null);
 
-  function updatePulse(i: number, value: string) {
-    setPulse(prev => prev.map((item, idx) => idx === i ? { ...item, summary: value } : item));
+  function updateRegion(arr: RegionalDeal[], setArr: (v: RegionalDeal[]) => void, i: number, value: string) {
+    setArr(arr.map((item, idx) => idx === i ? { ...item, summary: value } : item));
   }
 
-  function updateDeal(
-    arr: Deal[], setArr: (v: Deal[]) => void,
-    i: number, field: keyof Deal, value: string
-  ) {
+  function updateDeal(arr: Deal[], setArr: (v: Deal[]) => void, i: number, field: keyof Deal, value: string) {
     setArr(arr.map((item, idx) => idx === i ? { ...item, [field]: value } : item));
   }
 
@@ -65,7 +74,8 @@ export default function NewsletterComposePage() {
           lang,
           weekLabel,
           insightLine,
-          marketPulse: pulse,
+          regionalDeals_ko: regionsKo,
+          regionalDeals_en: regionsEn,
           deals_ko: dealsKo,
           deals_en: dealsEn,
           reportTitle_ko: reportTitleKo,
@@ -88,6 +98,48 @@ export default function NewsletterComposePage() {
   const inputCls   = "w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-gray-400";
   const labelCls   = "block text-xs font-semibold text-gray-500 mb-1 uppercase tracking-wide";
   const sectionCls = "bg-white rounded-xl border border-gray-200 p-6 space-y-4";
+
+  function RegionBlock({ regions, setRegions, placeholder }: {
+    regions: RegionalDeal[];
+    setRegions: (v: RegionalDeal[]) => void;
+    placeholder?: (r: string) => string;
+  }) {
+    return (
+      <div className="space-y-4">
+        {regions.map((item, i) => (
+          <div key={i}>
+            <label className="block mb-1.5">
+              <span
+                className="text-white text-[10px] font-bold px-2 py-0.5 rounded mr-2"
+                style={{ backgroundColor: REGION_BG[item.region] ?? "#111" }}
+              >
+                {item.region}
+              </span>
+              <span className="text-xs text-gray-400">이번 주 M&A 동향</span>
+            </label>
+            <textarea
+              value={item.summary}
+              onChange={e => updateRegion(regions, setRegions, i, e.target.value)}
+              className={inputCls + " resize-none"}
+              rows={3}
+              placeholder={placeholder?.(item.region) ?? ""}
+            />
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  const koPlaceholder = (r: string) => {
+    if (r === "북미")   return "예) 미국 테크 섹터 M&A가 다시 활발해지고 있다. 특히 AI 인프라 관련 기업 인수가..."
+    if (r === "아시아") return "예) 일본 PE 시장에서 대형 카브아웃 딜이 진행 중이다. 한국은 반도체..."
+    return "예) 유럽 에너지 전환 관련 M&A가 급증하고 있다. 독일·프랑스 중심으로..."
+  };
+  const enPlaceholder = (r: string) => {
+    if (r === "North America") return "e.g. Tech M&A is picking up again in the US, driven by AI infrastructure acquisitions..."
+    if (r === "Asia")          return "e.g. Large carve-out deals are underway in Japan's PE market. Korea's semiconductor..."
+    return "e.g. Energy-transition M&A is surging in Europe, led by Germany and France..."
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 py-10 px-4">
@@ -117,32 +169,18 @@ export default function NewsletterComposePage() {
           </div>
         </div>
 
-        {/* 마켓 펄스 */}
+        {/* 글로벌 M&A 동향 KO */}
         <div className={sectionCls}>
-          <h2 className="text-sm font-bold text-gray-700">마켓 펄스 — M&A · PE · VC</h2>
-          <p className="text-xs text-gray-400">KO·EN 공통으로 사용. 각 카테고리별 이번 주 동향 2~3줄</p>
-          {pulse.map((item, i) => (
-            <div key={i}>
-              <label className={labelCls}>
-                <span style={{ backgroundColor: i === 0 ? "#111" : i === 1 ? "#374151" : "#6b7280" }}
-                  className="text-white px-2 py-0.5 rounded text-[10px] mr-2">
-                  {item.category}
-                </span>
-                동향
-              </label>
-              <textarea
-                value={item.summary}
-                onChange={e => updatePulse(i, e.target.value)}
-                className={inputCls + " resize-none"}
-                rows={3}
-                placeholder={
-                  item.category === "M&A" ? "예) 글로벌 M&A 거래 규모가 3주 연속 증가했다. 특히 테크·헬스케어 섹터에서 대형 거래가 집중됐으며..."
-                  : item.category === "PE"  ? "예) 주요 PE 펀드들이 금리 안정화를 기반으로 바이아웃 검토를 재개했다. KKR, Blackstone이..."
-                  :                           "예) 국내 VC 신규 투자가 전주 대비 12% 감소했다. AI·바이오 섹터는 여전히 활발하며..."
-                }
-              />
-            </div>
-          ))}
+          <h2 className="text-sm font-bold text-gray-700">글로벌 M&A 동향 — KO</h2>
+          <p className="text-xs text-gray-400">북미 · 아시아(중국·홍콩·싱가포르·일본·한국) · 유럽 각 2~3줄</p>
+          <RegionBlock regions={regionsKo} setRegions={setRegionsKo} placeholder={koPlaceholder} />
+        </div>
+
+        {/* Global M&A Pulse EN */}
+        <div className={sectionCls}>
+          <h2 className="text-sm font-bold text-gray-700">Global M&A Pulse — EN</h2>
+          <p className="text-xs text-gray-400">North America · Asia · Europe, 2–3 sentences each</p>
+          <RegionBlock regions={regionsEn} setRegions={setRegionsEn} placeholder={enPlaceholder} />
         </div>
 
         {/* 딜 KO */}
@@ -157,7 +195,7 @@ export default function NewsletterComposePage() {
           ))}
         </div>
 
-        {/* 딜 EN */}
+        {/* Deal Watch EN */}
         <div className={sectionCls}>
           <h2 className="text-sm font-bold text-gray-700">Deal Watch — EN (Global × 2)</h2>
           {dealsEn.map((deal, i) => (

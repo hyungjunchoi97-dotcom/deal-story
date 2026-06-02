@@ -1,8 +1,8 @@
 import * as React from "react";
 
-export interface MarketPulseItem {
-  category: "M&A" | "PE" | "VC";
-  summary: string;  // 2~3줄 텍스트
+export interface RegionalDeal {
+  region: "북미" | "아시아" | "유럽";
+  summary: string;
 }
 
 export interface Deal {
@@ -14,24 +14,24 @@ export interface Deal {
 export interface WeeklyReportKoProps {
   weekLabel: string;
   insightLine: string;
-  marketPulse: MarketPulseItem[];   // M&A / PE / VC 동향
-  deals: Deal[];                    // 글로벌 1 + 국내 1
+  regionalDeals: RegionalDeal[];   // 북미 / 아시아 / 유럽
+  deals: Deal[];                   // 딜 카드 (글로벌 1 + 국내 1)
   reportTitle: string;
   reportBody: string;
   reportLink: string;
   unsubscribeLink: string;
 }
 
-const CATEGORY_COLOR: Record<string, string> = {
-  "M&A": "#111",
-  "PE":  "#374151",
-  "VC":  "#6b7280",
+const REGION_COLOR: Record<string, string> = {
+  "북미":  "#111",
+  "아시아": "#1d4ed8",
+  "유럽":  "#15803d",
 };
 
 export default function WeeklyReportKo({
   weekLabel,
   insightLine,
-  marketPulse,
+  regionalDeals,
   deals,
   reportTitle,
   reportBody,
@@ -83,49 +83,48 @@ export default function WeeklyReportKo({
                       </td>
                     </tr>
 
-                    {/* 마켓 펄스 */}
+                    {/* 글로벌 M&A 동향 */}
                     <tr>
                       <td style={{ padding: "28px 36px", borderBottom: "1px solid #f0f0f0" }}>
                         <p style={{ margin: "0 0 18px", fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#999" }}>
-                          마켓 펄스
+                          글로벌 M&A 동향
                         </p>
-                        <table width="100%" cellPadding={0} cellSpacing={0}>
-                          <tbody>
-                            {marketPulse.map((item, i) => (
-                              <tr key={i}>
-                                <td style={{ verticalAlign: "top", paddingBottom: i < marketPulse.length - 1 ? 16 : 0, paddingTop: i > 0 ? 0 : 0 }}>
+                        {regionalDeals.map((item, i) => (
+                          <table key={i} width="100%" cellPadding={0} cellSpacing={0} style={{ marginBottom: i < regionalDeals.length - 1 ? 0 : 0 }}>
+                            <tbody>
+                              <tr>
+                                <td style={{ paddingBottom: i < regionalDeals.length - 1 ? 16 : 0 }}>
                                   <table width="100%" cellPadding={0} cellSpacing={0}>
                                     <tbody>
                                       <tr>
-                                        <td style={{ verticalAlign: "top", width: 40, paddingTop: 2 }}>
+                                        <td style={{ verticalAlign: "top", paddingTop: 2, whiteSpace: "nowrap", paddingRight: 12 }}>
                                           <span style={{
                                             display: "inline-block",
                                             fontSize: 10,
                                             fontWeight: 700,
-                                            letterSpacing: "0.05em",
+                                            letterSpacing: "0.04em",
                                             color: "#fff",
-                                            backgroundColor: CATEGORY_COLOR[item.category] ?? "#111",
-                                            padding: "2px 7px",
+                                            backgroundColor: REGION_COLOR[item.region] ?? "#111",
+                                            padding: "2px 8px",
                                             borderRadius: 4,
-                                            whiteSpace: "nowrap",
                                           }}>
-                                            {item.category}
+                                            {item.region}
                                           </span>
                                         </td>
-                                        <td style={{ paddingLeft: 12, fontSize: 13, color: "#444", lineHeight: "1.75" }}>
+                                        <td style={{ fontSize: 13, color: "#444", lineHeight: "1.75" }}>
                                           {item.summary}
                                         </td>
                                       </tr>
                                     </tbody>
                                   </table>
-                                  {i < marketPulse.length - 1 && (
-                                    <div style={{ height: 1, backgroundColor: "#f5f5f5", marginTop: 16 }} />
+                                  {i < regionalDeals.length - 1 && (
+                                    <div style={{ height: 1, backgroundColor: "#f0f0f0", margin: "16px 0 0" }} />
                                   )}
                                 </td>
                               </tr>
-                            ))}
-                          </tbody>
-                        </table>
+                            </tbody>
+                          </table>
+                        ))}
                       </td>
                     </tr>
 
@@ -177,9 +176,6 @@ export default function WeeklyReportKo({
                         </table>
                       </td>
                     </tr>
-
-                    {/* 광고 슬롯 (나중에) */}
-                    {/* <tr><td>AD</td></tr> */}
 
                     {/* 푸터 */}
                     <tr>

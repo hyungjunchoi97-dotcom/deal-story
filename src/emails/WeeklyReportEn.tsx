@@ -1,10 +1,20 @@
 import * as React from "react";
-import type { MarketPulseItem, Deal } from "./WeeklyReportKo";
+
+export interface RegionalDeal {
+  region: "North America" | "Asia" | "Europe";
+  summary: string;
+}
+
+export interface Deal {
+  title: string;
+  summary: string;
+  link?: string;
+}
 
 export interface WeeklyReportEnProps {
   weekLabel: string;
   insightLine: string;
-  marketPulse: MarketPulseItem[];
+  regionalDeals: RegionalDeal[];
   deals: Deal[];        // global x2
   reportTitle: string;
   reportBody: string;
@@ -12,16 +22,16 @@ export interface WeeklyReportEnProps {
   unsubscribeLink: string;
 }
 
-const CATEGORY_COLOR: Record<string, string> = {
-  "M&A": "#111",
-  "PE":  "#374151",
-  "VC":  "#6b7280",
+const REGION_COLOR: Record<string, string> = {
+  "North America": "#111",
+  "Asia":          "#1d4ed8",
+  "Europe":        "#15803d",
 };
 
 export default function WeeklyReportEn({
   weekLabel,
   insightLine,
-  marketPulse,
+  regionalDeals,
   deals,
   reportTitle,
   reportBody,
@@ -73,49 +83,48 @@ export default function WeeklyReportEn({
                       </td>
                     </tr>
 
-                    {/* Market Pulse */}
+                    {/* Global M&A Pulse */}
                     <tr>
                       <td style={{ padding: "28px 36px", borderBottom: "1px solid #f0f0f0" }}>
                         <p style={{ margin: "0 0 18px", fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#999" }}>
-                          Market Pulse
+                          Global M&A Pulse
                         </p>
-                        <table width="100%" cellPadding={0} cellSpacing={0}>
-                          <tbody>
-                            {marketPulse.map((item, i) => (
-                              <tr key={i}>
-                                <td style={{ verticalAlign: "top", paddingBottom: i < marketPulse.length - 1 ? 16 : 0 }}>
+                        {regionalDeals.map((item, i) => (
+                          <table key={i} width="100%" cellPadding={0} cellSpacing={0}>
+                            <tbody>
+                              <tr>
+                                <td style={{ paddingBottom: i < regionalDeals.length - 1 ? 16 : 0 }}>
                                   <table width="100%" cellPadding={0} cellSpacing={0}>
                                     <tbody>
                                       <tr>
-                                        <td style={{ verticalAlign: "top", width: 40, paddingTop: 2 }}>
+                                        <td style={{ verticalAlign: "top", paddingTop: 2, whiteSpace: "nowrap", paddingRight: 12 }}>
                                           <span style={{
                                             display: "inline-block",
                                             fontSize: 10,
                                             fontWeight: 700,
-                                            letterSpacing: "0.05em",
+                                            letterSpacing: "0.04em",
                                             color: "#fff",
-                                            backgroundColor: CATEGORY_COLOR[item.category] ?? "#111",
-                                            padding: "2px 7px",
+                                            backgroundColor: REGION_COLOR[item.region] ?? "#111",
+                                            padding: "2px 8px",
                                             borderRadius: 4,
-                                            whiteSpace: "nowrap",
                                           }}>
-                                            {item.category}
+                                            {item.region}
                                           </span>
                                         </td>
-                                        <td style={{ paddingLeft: 12, fontSize: 13, color: "#444", lineHeight: "1.75" }}>
+                                        <td style={{ fontSize: 13, color: "#444", lineHeight: "1.75" }}>
                                           {item.summary}
                                         </td>
                                       </tr>
                                     </tbody>
                                   </table>
-                                  {i < marketPulse.length - 1 && (
-                                    <div style={{ height: 1, backgroundColor: "#f5f5f5", marginTop: 16 }} />
+                                  {i < regionalDeals.length - 1 && (
+                                    <div style={{ height: 1, backgroundColor: "#f0f0f0", margin: "16px 0 0" }} />
                                   )}
                                 </td>
                               </tr>
-                            ))}
-                          </tbody>
-                        </table>
+                            </tbody>
+                          </table>
+                        ))}
                       </td>
                     </tr>
 

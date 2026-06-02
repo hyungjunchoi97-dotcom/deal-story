@@ -27,7 +27,8 @@ export async function POST(req: NextRequest) {
     lang,           // 'ko' | 'en' | 'all'
     weekLabel,
     insightLine,
-    marketPulse,    // [{ category, summary }]
+    regionalDeals_ko,   // [{ region: "북미"|"아시아"|"유럽", summary }]
+    regionalDeals_en,   // [{ region: "North America"|"Asia"|"Europe", summary }]
     deals_ko,
     deals_en,
     reportTitle_ko,
@@ -69,7 +70,7 @@ export async function POST(req: NextRequest) {
             React.createElement(WeeklyReportKo, {
               weekLabel,
               insightLine,
-              marketPulse,
+              regionalDeals: regionalDeals_ko,
               deals: deals_ko,
               reportTitle: reportTitle_ko,
               reportBody: reportBody_ko,
@@ -81,7 +82,7 @@ export async function POST(req: NextRequest) {
             React.createElement(WeeklyReportEn, {
               weekLabel,
               insightLine,
-              marketPulse,
+              regionalDeals: regionalDeals_en,
               deals: deals_en,
               reportTitle: reportTitle_en,
               reportBody: reportBody_en,
