@@ -13,7 +13,10 @@ export async function GET(req: NextRequest) {
       .eq("slug", slug)
       .single();
 
-    return NextResponse.json({ slug, count: data?.count ?? 0, liked: false });
+    return NextResponse.json(
+      { slug, count: data?.count ?? 0, liked: false },
+      { headers: { "Cache-Control": "public, s-maxage=10, stale-while-revalidate=60" } }
+    );
   } catch {
     return NextResponse.json({ slug, count: 0, liked: false });
   }
@@ -25,21 +28,12 @@ export async function POST(req: NextRequest) {
     if (!slug) return NextResponse.json({ error: "slug required" }, { status: 400 });
 
     const supabase = createPublicClient();
-    const { data: existing } = await supabase
-      .from("page_likes")
-      .select("count")
-      .eq("slug", slug)
-      .single();
 
-    const newCount = (existing?.count ?? 0) + 1;
+    // atomic upsert — avoids read-then-write race condition
+    const { data, error } = await supabase.rpc("increment_page_like", { p_slug: slug });
+    if (error) throw error;
 
-    const { data } = await supabase
-      .from("page_likes")
-      .upsert({ slug, count: newCount }, { onConflict: "slug" })
-      .select("count")
-      .single();
-
-    return NextResponse.json({ slug, count: data?.count ?? newCount });
+    return NextResponse.json({ slug, count: data });
   } catch {
     return NextResponse.json({ error: "Internal error" }, { status: 500 });
   }

@@ -1481,7 +1481,7 @@ export default function StructuredCasesClient({ concept, lang }: Props) {
           <ShareButtons
             title={ko ? concept.title : (concept.titleEn ?? concept.title)}
             variant="mid"
-            lang={lang}
+            likeSlug={concept.slug} lang={lang}
           />
 
         </div>

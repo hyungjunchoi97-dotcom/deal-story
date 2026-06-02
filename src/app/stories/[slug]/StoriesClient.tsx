@@ -1443,7 +1443,7 @@ export default function StoriesClient({ story, lang }: { story: InvestorStory; l
 
         {/* ── Share — mid ── */}
         <div className="max-w-3xl mx-auto px-5">
-          <ShareButtons title={ko ? story.title : story.titleEn} variant="mid" lang={lang} />
+          <ShareButtons title={ko ? story.title : story.titleEn} variant="mid" likeSlug={story.slug} lang={lang} />
         </div>
 
         {/* ── Assessment ───────────────────────────────────────────────────── */}

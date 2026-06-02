@@ -24,11 +24,6 @@ export const runtime = "edge";
 
 const SIZE = { width: 1200, height: 630 } as const;
 
-// Pretendard Bold — Satori 가 안전하게 파싱하는 WOFF.
-// globals.css 에서 쓰는 variable 폰트와 동일 패밀리, weight 700 한 종만 로드.
-const FONT_URL =
-  "https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff/Pretendard-Bold.woff";
-
 // ── 카테고리 → OG 전용 HEX ─────────────────────────────────────
 // globals.css `@theme inline` 의 값과 동일.
 // (Tailwind 클래스는 ImageResponse 가 해석 못 하므로 별도 매핑이 필요)
@@ -53,14 +48,17 @@ const COLOR = {
   brand: "#0f172a",       // 브랜드 도트도 슬레이트로 통일
 } as const;
 
-// ── 폰트 1회 캐시 (Edge worker 인스턴스 단위) ───────────────────
+// ── 폰트 로드 — public/fonts/ 로컬 파일 사용 ────────────────────
+// CDN fetch 대신 번들 내 정적 파일을 읽어 Edge worker 콜드 스타트 지연 제거.
+// Edge runtime 에서 fetch("/_next/static/...") 또는 절대 URL 로 로컬 에셋 접근.
 type FontCache = { __pretendardBold?: Promise<ArrayBuffer | null> };
-async function loadFont(): Promise<ArrayBuffer | null> {
+async function loadFont(req: Request): Promise<ArrayBuffer | null> {
   const g = globalThis as FontCache;
   if (!g.__pretendardBold) {
     g.__pretendardBold = (async () => {
       try {
-        const res = await fetch(FONT_URL);
+        const base = new URL(req.url).origin;
+        const res = await fetch(`${base}/fonts/Pretendard-Bold.woff`);
         if (!res.ok) return null;
         return await res.arrayBuffer();
       } catch {
@@ -111,7 +109,7 @@ export async function GET(req: NextRequest) {
       : getOgDealBySlug(slug)
     : undefined;
 
-  const fontData = await loadFont();
+  const fontData = await loadFont(req);
   const fonts = fontData
     ? [
         {

@@ -402,7 +402,7 @@ export default function VerizonMegadealClient({ deal, lang }: { deal: MarketDeal
 
         {/* Share */}
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={VP} transition={{ duration: 0.5 }} className="mt-10 pt-8 border-t border-gray-200/60 dark:border-gray-700/60">
-          <ShareButtons title={ko ? deal.title : deal.titleEn} variant="mid" lang={lang} />
+          <ShareButtons title={ko ? deal.title : deal.titleEn} variant="mid" likeSlug={deal.slug} lang={lang} />
         </motion.div>
           {/* Series Nav — same-category prev/next */}
           {(() => {

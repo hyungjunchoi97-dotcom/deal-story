@@ -1056,7 +1056,7 @@ export default function EcmAbbExecutionClient({ concept, lang }: { concept: Mark
             <FailureBlock ko={ko} />
           </motion.section>
 
-          <ShareButtons title={pageTitle} variant="mid" lang={lang} />
+          <ShareButtons title={pageTitle} variant="mid" likeSlug={concept.slug} lang={lang} />
 
           {/* FAQ */}
           <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>

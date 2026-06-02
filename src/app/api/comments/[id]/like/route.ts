@@ -14,7 +14,6 @@ export async function POST(
 
     const supabase = createPublicClient();
 
-    // Check if already liked
     const { data: existing } = await supabase
       .from("comment_likes")
       .select("comment_id")
@@ -22,26 +21,21 @@ export async function POST(
       .eq("fingerprint", fingerprint)
       .single();
 
-    const { data: cur } = await supabase.from("comments").select("likes").eq("id", id).single();
-    const currentLikes = cur?.likes ?? 0;
-
     if (existing) {
-      // Unlike
+      // Unlike — delete like record, atomic decrement via RPC
       await supabase
         .from("comment_likes")
         .delete()
         .eq("comment_id", id)
         .eq("fingerprint", fingerprint);
 
-      const newLikes = Math.max(0, currentLikes - 1);
-      await supabase.from("comments").update({ likes: newLikes }).eq("id", id);
-      return NextResponse.json({ liked: false, count: newLikes });
+      const { data } = await supabase.rpc("decrement_comment_like", { p_comment_id: id });
+      return NextResponse.json({ liked: false, count: data ?? 0 });
     } else {
-      // Like
+      // Like — insert like record, atomic increment via RPC
       await supabase.from("comment_likes").insert({ comment_id: id, fingerprint });
-      const newLikes = currentLikes + 1;
-      await supabase.from("comments").update({ likes: newLikes }).eq("id", id);
-      return NextResponse.json({ liked: true, count: newLikes });
+      const { data } = await supabase.rpc("increment_comment_like", { p_comment_id: id });
+      return NextResponse.json({ liked: true, count: data ?? 0 });
     }
   } catch (e) {
     const msg = e instanceof Error ? e.message : "Internal error";

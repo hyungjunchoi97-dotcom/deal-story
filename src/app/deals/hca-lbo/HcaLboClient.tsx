@@ -1191,7 +1191,7 @@ export default function HcaLboClient({ lang }: Props) {
 
           {/* ── Share — mid ── */}
           <div className="flex justify-end -mt-8">
-            <ShareButtons title={title} variant="mid" lang={lang} />
+            <ShareButtons title={title} variant="mid" likeSlug={"hca-lbo"} lang={lang} />
           </div>
 
           {/* ══ Section 7: 2008 Stress + 2011 Exit ══════════════════════════ */}

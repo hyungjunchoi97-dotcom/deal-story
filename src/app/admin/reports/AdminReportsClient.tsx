@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { createPublicBrowserClient } from "@/lib/supabase/client";
 
 interface Report {
   id: string;
@@ -13,6 +12,7 @@ interface Report {
 
 interface Props {
   initialReports: Report[];
+  adminKey: string;
 }
 
 const EMPTY_FORM = {
@@ -26,12 +26,16 @@ const EMPTY_FORM = {
   is_published: false,
 };
 
-export default function AdminReportsClient({ initialReports }: Props) {
+export default function AdminReportsClient({ initialReports, adminKey }: Props) {
   const [reports, setReports] = useState<Report[]>(initialReports);
   const [form, setForm] = useState(EMPTY_FORM);
   const [saving, setSaving] = useState(false);
   const [msg, setMsg] = useState("");
-  const supabase = createPublicBrowserClient();
+
+  const adminHeaders = {
+    "Content-Type": "application/json",
+    "x-admin-key": adminKey,
+  };
 
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -48,28 +52,38 @@ export default function AdminReportsClient({ initialReports }: Props) {
     e.preventDefault();
     setSaving(true);
     setMsg("");
-    const { error } = await supabase.from("weekly_reports").insert({
-      ...form,
-      published_at: form.is_published ? new Date().toISOString() : null,
+
+    const res = await fetch("/api/admin/reports", {
+      method: "POST",
+      headers: adminHeaders,
+      body: JSON.stringify({
+        ...form,
+        published_at: form.is_published ? new Date().toISOString() : null,
+      }),
     });
-    if (error) {
-      setMsg(`오류: ${error.message}`);
+
+    if (!res.ok) {
+      const { error } = await res.json();
+      setMsg(`오류: ${error}`);
     } else {
       setMsg("저장 완료!");
       setForm(EMPTY_FORM);
-      const { data } = await supabase
-        .from("weekly_reports")
-        .select("id, slug, title, published_at, is_published")
-        .order("created_at", { ascending: false });
-      setReports(data ?? []);
+      const listRes = await fetch("/api/admin/reports", { headers: adminHeaders });
+      const { reports: updated } = await listRes.json();
+      setReports(updated ?? []);
     }
     setSaving(false);
   }
 
   async function handleDelete(id: string) {
     if (!confirm("삭제하시겠습니까?")) return;
-    await supabase.from("weekly_reports").delete().eq("id", id);
-    setReports((prev) => prev.filter((r) => r.id !== id));
+    const res = await fetch(`/api/admin/reports/${id}`, {
+      method: "DELETE",
+      headers: adminHeaders,
+    });
+    if (res.ok) {
+      setReports((prev) => prev.filter((r) => r.id !== id));
+    }
   }
 
   const fieldClass =
@@ -89,128 +103,52 @@ export default function AdminReportsClient({ initialReports }: Props) {
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-medium text-gray-500 mb-1">
-                slug *
-              </label>
-              <input
-                name="slug"
-                value={form.slug}
-                onChange={handleChange}
-                required
-                placeholder="weekly-2024-01"
-                className={fieldClass}
-              />
+              <label className="block text-xs font-medium text-gray-500 mb-1">slug *</label>
+              <input name="slug" value={form.slug} onChange={handleChange} required placeholder="weekly-2024-01" className={fieldClass} />
             </div>
             <div>
-              <label className="block text-xs font-medium text-gray-500 mb-1">
-                title *
-              </label>
-              <input
-                name="title"
-                value={form.title}
-                onChange={handleChange}
-                required
-                placeholder="제목"
-                className={fieldClass}
-              />
+              <label className="block text-xs font-medium text-gray-500 mb-1">title *</label>
+              <input name="title" value={form.title} onChange={handleChange} required placeholder="제목" className={fieldClass} />
             </div>
             <div>
-              <label className="block text-xs font-medium text-gray-500 mb-1">
-                title_en
-              </label>
-              <input
-                name="title_en"
-                value={form.title_en}
-                onChange={handleChange}
-                placeholder="English title"
-                className={fieldClass}
-              />
+              <label className="block text-xs font-medium text-gray-500 mb-1">title_en</label>
+              <input name="title_en" value={form.title_en} onChange={handleChange} placeholder="English title" className={fieldClass} />
             </div>
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-medium text-gray-500 mb-1">
-                preview *
-              </label>
-              <textarea
-                name="preview"
-                value={form.preview}
-                onChange={handleChange}
-                required
-                rows={3}
-                placeholder="비구독자에게 보여줄 도입부"
-                className={fieldClass}
-              />
+              <label className="block text-xs font-medium text-gray-500 mb-1">preview *</label>
+              <textarea name="preview" value={form.preview} onChange={handleChange} required rows={3} placeholder="비구독자에게 보여줄 도입부" className={fieldClass} />
             </div>
             <div>
-              <label className="block text-xs font-medium text-gray-500 mb-1">
-                preview_en
-              </label>
-              <textarea
-                name="preview_en"
-                value={form.preview_en}
-                onChange={handleChange}
-                rows={3}
-                placeholder="English preview"
-                className={fieldClass}
-              />
+              <label className="block text-xs font-medium text-gray-500 mb-1">preview_en</label>
+              <textarea name="preview_en" value={form.preview_en} onChange={handleChange} rows={3} placeholder="English preview" className={fieldClass} />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-medium text-gray-500 mb-1">
-              content * (마크다운)
-            </label>
-            <textarea
-              name="content"
-              value={form.content}
-              onChange={handleChange}
-              required
-              rows={10}
-              placeholder="구독자 전용 전체 내용 (마크다운)"
-              className={`${fieldClass} font-mono`}
-            />
+            <label className="block text-xs font-medium text-gray-500 mb-1">content * (마크다운)</label>
+            <textarea name="content" value={form.content} onChange={handleChange} required rows={10} placeholder="구독자 전용 전체 내용 (마크다운)" className={`${fieldClass} font-mono`} />
           </div>
 
           <div>
-            <label className="block text-xs font-medium text-gray-500 mb-1">
-              content_en (마크다운)
-            </label>
-            <textarea
-              name="content_en"
-              value={form.content_en}
-              onChange={handleChange}
-              rows={6}
-              placeholder="English full content (markdown)"
-              className={`${fieldClass} font-mono`}
-            />
+            <label className="block text-xs font-medium text-gray-500 mb-1">content_en (마크다운)</label>
+            <textarea name="content_en" value={form.content_en} onChange={handleChange} rows={6} placeholder="English full content (markdown)" className={`${fieldClass} font-mono`} />
           </div>
 
           <label className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 cursor-pointer">
-            <input
-              type="checkbox"
-              name="is_published"
-              checked={form.is_published}
-              onChange={handleChange}
-              className="rounded"
-            />
+            <input type="checkbox" name="is_published" checked={form.is_published} onChange={handleChange} className="rounded" />
             즉시 발행
           </label>
 
           {msg && (
-            <p
-              className={`text-sm ${msg.startsWith("오류") ? "text-red-500" : "text-green-600 dark:text-green-400"}`}
-            >
+            <p className={`text-sm ${msg.startsWith("오류") ? "text-red-500" : "text-green-600 dark:text-green-400"}`}>
               {msg}
             </p>
           )}
 
-          <button
-            type="submit"
-            disabled={saving}
-            className="px-5 py-2.5 rounded-xl bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 font-semibold text-sm hover:bg-gray-700 dark:hover:bg-gray-300 transition-colors disabled:opacity-60"
-          >
+          <button type="submit" disabled={saving} className="px-5 py-2.5 rounded-xl bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 font-semibold text-sm hover:bg-gray-700 dark:hover:bg-gray-300 transition-colors disabled:opacity-60">
             {saving ? "저장 중…" : "저장"}
           </button>
         </form>
@@ -222,33 +160,20 @@ export default function AdminReportsClient({ initialReports }: Props) {
           기존 리포트 ({reports.length})
         </h2>
         {reports.length === 0 ? (
-          <p className="text-gray-400 dark:text-gray-500 text-sm">
-            리포트가 없습니다.
-          </p>
+          <p className="text-gray-400 dark:text-gray-500 text-sm">리포트가 없습니다.</p>
         ) : (
           <div className="space-y-2">
             {reports.map((r) => (
-              <div
-                key={r.id}
-                className="flex items-center justify-between bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 px-4 py-3"
-              >
+              <div key={r.id} className="flex items-center justify-between bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 px-4 py-3">
                 <div>
-                  <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
-                    {r.title}
-                  </span>
+                  <span className="text-sm font-medium text-gray-900 dark:text-gray-100">{r.title}</span>
                   <span className="ml-3 text-xs text-gray-400">/{r.slug}</span>
-                  {r.is_published ? (
-                    <span className="ml-2 text-xs text-green-600 dark:text-green-400 font-medium">
-                      발행됨
-                    </span>
-                  ) : (
-                    <span className="ml-2 text-xs text-gray-400">초안</span>
-                  )}
+                  {r.is_published
+                    ? <span className="ml-2 text-xs text-green-600 dark:text-green-400 font-medium">발행됨</span>
+                    : <span className="ml-2 text-xs text-gray-400">초안</span>
+                  }
                 </div>
-                <button
-                  onClick={() => handleDelete(r.id)}
-                  className="text-xs text-red-500 hover:text-red-700 transition-colors"
-                >
+                <button onClick={() => handleDelete(r.id)} className="text-xs text-red-500 hover:text-red-700 transition-colors">
                   삭제
                 </button>
               </div>

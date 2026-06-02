@@ -1107,7 +1107,7 @@ export default function DcmRateBenchmarksClient({ concept, lang }: Props) {
         </motion.section>
 
         {/* ── Share MID ─────────────────────────────────────────────────────── */}
-        <ShareButtons title={title} variant="mid" lang={lang} />
+        <ShareButtons title={title} variant="mid" likeSlug={concept.slug} lang={lang} />
 
         {/* ═══════════════════════════════════════════════════════════════════ */}
         {/* Section 5: CCS                                                     */}

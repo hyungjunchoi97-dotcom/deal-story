@@ -557,7 +557,7 @@ export default function DealPageClient({
           )}
 
           {/* ── 공유하기 (중간) */}
-          <ShareButtons title={deal.title} variant="mid" lang={lang} />
+          <ShareButtons title={deal.title} variant="mid" likeSlug={deal.slug} lang={lang} />
 
           {/* ── 11. 딜 논리 */}
           <SectionTitle>{t.dealRationale}</SectionTitle>

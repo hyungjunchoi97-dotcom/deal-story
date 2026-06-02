@@ -1077,7 +1077,7 @@ export default function EcmBuybackClient({ concept, lang }: { concept: MarketCon
             </motion.div>
           </motion.section>
 
-          <ShareButtons title={ko ? concept.title : (concept.titleEn ?? concept.title)} variant="mid" lang={lang} />
+          <ShareButtons title={ko ? concept.title : (concept.titleEn ?? concept.title)} variant="mid" likeSlug={concept.slug} lang={lang} />
 
           {/* FAQ */}
           <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>

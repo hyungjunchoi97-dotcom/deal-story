@@ -1106,7 +1106,7 @@ export default function EcmIpoProcessClient({
         {/* Mid ShareButtons */}
         <section className="max-w-5xl mx-auto px-4 pb-10">
           <motion.div variants={fadeUp()} initial="hidden" whileInView="show" viewport={VP}>
-            <ShareButtons title={ko ? concept.title : concept.titleEn} variant="mid" lang={lang} />
+            <ShareButtons title={ko ? concept.title : concept.titleEn} variant="mid" likeSlug={concept.slug} lang={lang} />
           </motion.div>
         </section>
 

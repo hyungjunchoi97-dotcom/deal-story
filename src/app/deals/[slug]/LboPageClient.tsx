@@ -679,7 +679,7 @@ export default function LboPageClient({
           </motion.section>
 
           {/* Share MID */}
-          <ShareButtons title={title} variant="mid" lang={lang} />
+          <ShareButtons title={title} variant="mid" likeSlug={deal.slug} lang={lang} />
 
           {/* ═══════════════════════════════════════════════════════════════ */}
           {/* 8. POST-DEAL ASSESSMENT                                         */}

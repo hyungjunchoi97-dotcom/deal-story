@@ -874,7 +874,7 @@ export default function DcmInternationalMarketsClient({ concept, lang }: Props) 
 
 
         {/* ── Share — mid ── */}
-        <ShareButtons title={ko ? concept.title : (concept.titleEn ?? concept.title)} variant="mid" lang={lang} />
+        <ShareButtons title={ko ? concept.title : (concept.titleEn ?? concept.title)} variant="mid" likeSlug={concept.slug} lang={lang} />
 
 
         {/* ── FAQ ── */}

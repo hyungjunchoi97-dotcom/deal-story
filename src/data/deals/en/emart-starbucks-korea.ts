@@ -99,7 +99,7 @@ const deal: DealData = {
       { year: "FY2020", revenue: 19284, cogs: 12900, grossProfit: 6384, sga: 4740, operatingIncome: 1644, ebitda: 2450 },
       { year: "FY2021E", revenue: 23856, cogs: 15900, grossProfit: 7956, sga: 5800, operatingIncome: 2156, ebitda: 3050 },
     ],
-    financialsNote: "Figures in ₩ hundred-million (억 원). Source: FSS DART audit reports for Starbucks Coffee Korea. Fiscal year ends December. FY2021 is the preliminary estimate disclosed at deal announcement.",
+    financialsNote: "Figures in KRW hundred-million. Source: FSS DART audit reports for Starbucks Coffee Korea. Fiscal year ends December. FY2021 is the preliminary estimate disclosed at deal announcement.",
     financialsCurrency: "₩",
     financialsUnit: "100M",
   },

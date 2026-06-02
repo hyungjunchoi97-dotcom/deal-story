@@ -664,7 +664,7 @@ export default function AppleBondStrategyClient({ deal, lang }: { deal: MarketDe
           )}
 
           {/* Mid share buttons */}
-          <ShareButtons title={ko ? deal.title : deal.titleEn} variant="mid" lang={lang} />
+          <ShareButtons title={ko ? deal.title : deal.titleEn} variant="mid" likeSlug={deal.slug} lang={lang} />
 
           {/* FAQ */}
           <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>

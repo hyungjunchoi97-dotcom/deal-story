@@ -287,7 +287,7 @@ export default function MaVal03Client({ lang }: { lang: Lang }) {
           </motion.section>
 
           {/* Mid share */}
-          <ShareButtons title={ko ? chapter.titleKo : chapter.titleEn} variant="mid" lang={lang} />
+          <ShareButtons title={ko ? chapter.titleKo : chapter.titleEn} variant="mid" likeSlug={SLUG} lang={lang} />
 
           <hr className="border-gray-200 dark:border-gray-800 mb-14" />
 

@@ -277,7 +277,7 @@ export default function FormosaBondsClient({ deal, lang }: { deal: MarketDeal; l
               </div>
             </motion.section>
           )}
-          <ShareButtons title={ko ? deal.title : deal.titleEn} variant="mid" lang={lang} />
+          <ShareButtons title={ko ? deal.title : deal.titleEn} variant="mid" likeSlug={deal.slug} lang={lang} />
           {deal.faq && deal.faq.length > 0 && (
             <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
               <motion.h2 variants={fadeUp()} className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">{ko ? "자주 묻는 질문" : "Frequently Asked Questions"}</motion.h2>

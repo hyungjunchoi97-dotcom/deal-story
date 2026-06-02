@@ -1062,7 +1062,7 @@ export default function LboOverviewClient({ concept, lang }: Props) {
 
           {/* ══ Share — mid ══════════════════════════════════════════════════════ */}
           <div className="flex justify-end -mt-8">
-            <ShareButtons title={ko ? concept.title : (concept.titleEn ?? concept.title)} variant="mid" lang={lang} />
+            <ShareButtons title={ko ? concept.title : (concept.titleEn ?? concept.title)} variant="mid" likeSlug={concept.slug} lang={lang} />
           </div>
 
           {/* ══ Ch.5: LBO vs M&A 구조 비교 ══════════════════════════════════════ */}

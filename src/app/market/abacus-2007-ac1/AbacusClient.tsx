@@ -561,7 +561,7 @@ export default function AbacusClient({ deal, lang }: { deal: MarketDeal; lang: L
             </motion.section>
           )}
 
-          <ShareButtons title={ko ? deal.title : deal.titleEn} variant="mid" lang={lang} />
+          <ShareButtons title={ko ? deal.title : deal.titleEn} variant="mid" likeSlug={deal.slug} lang={lang} />
 
           {deal.faq && deal.faq.length > 0 && (
             <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>

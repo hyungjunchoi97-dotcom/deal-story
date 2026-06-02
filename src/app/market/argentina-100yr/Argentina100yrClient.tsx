@@ -687,7 +687,7 @@ export default function Argentina100yrClient({
           )}
 
           {/* ── Share mid ── */}
-          <ShareButtons title={ko ? deal.title : deal.titleEn} variant="mid" lang={lang} />
+          <ShareButtons title={ko ? deal.title : deal.titleEn} variant="mid" likeSlug={deal.slug} lang={lang} />
 
           {/* ── FAQ ── */}
           {deal.faq && deal.faq.length > 0 && (

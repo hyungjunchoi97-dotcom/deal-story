@@ -1047,7 +1047,7 @@ export default function EcmIpoBookbuildingClient({
           </motion.section>
 
           {/* Share — mid */}
-          <ShareButtons title={ko ? concept.title : (concept.titleEn ?? concept.title)} variant="mid" lang={lang} />
+          <ShareButtons title={ko ? concept.title : (concept.titleEn ?? concept.title)} variant="mid" likeSlug={concept.slug} lang={lang} />
 
           {/* ── FAQ ── */}
           <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
