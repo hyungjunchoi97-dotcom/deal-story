@@ -55,7 +55,7 @@ export const FUND_CHAPTERS: FundChapter[] = [
     taglineKo: "전략별 (Buyout · Growth · VC · Mezz · Distressed · Credit · RE · Infra) + 구조별 (Open vs Closed) + 공모 vs 사모",
     taglineEn: "By strategy (buyout, growth, VC, mezz, distressed, credit, RE, infra) × by structure (open vs closed) × public vs private",
     readingMinutes: 13,
-    status: "draft",
+    status: "published",
   },
   {
     slug: "fund-ch04-investment-lifecycle",
