@@ -3088,39 +3088,36 @@ export default function NoteDetailClient({
               </span>
             </motion.div>
 
-            {/* Title + 공유 토글
-                모바일: 세로 배치 — 제목·설명이 가로 풀폭, LikeButton+ShareButtons는 아래
-                sm 이상: 가로 배치 — 좌측 제목·설명, 우측 토글 */}
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-              <div className="flex-1 min-w-0">
-                <motion.h1
-                  variants={fadeUp(0.1)}
-                  initial="hidden"
-                  animate="show"
-                  className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100 leading-tight"
-                >
-                  {title}
-                </motion.h1>
+            {/* Title + 공유 토글 — 딜 페이지 패턴
+                항상 세로 배치: 제목 → 설명 → 토글(한 줄)
+                모바일·데스크탑 동일하게 제목·설명이 가로 풀폭, 토글은 그 아래 */}
+            <motion.h1
+              variants={fadeUp(0.1)}
+              initial="hidden"
+              animate="show"
+              className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100 leading-tight"
+            >
+              {title}
+            </motion.h1>
 
-                <motion.p
-                  variants={fadeUp(0.15)}
-                  initial="hidden"
-                  animate="show"
-                  className="mt-3 text-base text-gray-500 dark:text-gray-400 leading-relaxed max-w-xl"
-                >
-                  {description}
-                </motion.p>
-              </div>
-              <motion.div
-                variants={fadeUp(0.2)}
-                initial="hidden"
-                animate="show"
-                className="flex-shrink-0 sm:pt-1 flex items-center gap-2"
-              >
-                <LikeButton slug={note.slug} lang={lang} />
-                <ShareButtons title={title} variant="top" lang={lang} />
-              </motion.div>
-            </div>
+            <motion.p
+              variants={fadeUp(0.15)}
+              initial="hidden"
+              animate="show"
+              className="mt-3 text-base text-gray-500 dark:text-gray-400 leading-relaxed max-w-xl"
+            >
+              {description}
+            </motion.p>
+
+            <motion.div
+              variants={fadeUp(0.2)}
+              initial="hidden"
+              animate="show"
+              className="mt-5 flex items-center gap-2 flex-wrap"
+            >
+              <ShareButtons title={title} variant="top" lang={lang} />
+              <LikeButton slug={note.slug} lang={lang} />
+            </motion.div>
 
             {/* Meta */}
             <motion.div
