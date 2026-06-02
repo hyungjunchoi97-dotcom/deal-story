@@ -1,7 +1,9 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import LoginPrompt from "@/components/LoginPrompt";
 
 export const metadata: Metadata = {
   title: "Deal Story — 자본시장과 투자은행의 안쪽",
@@ -16,6 +18,7 @@ export const metadata: Metadata = {
 export default function LandingPage() {
   return (
     <>
+      <Suspense fallback={null}><LoginPrompt lang="ko" /></Suspense>
       <Header />
       <main className="flex-1 px-5 py-20 sm:py-24">
         <div className="max-w-3xl mx-auto w-full">

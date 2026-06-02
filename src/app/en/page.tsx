@@ -1,6 +1,8 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import Header from "@/components/Header";
+import LoginPrompt from "@/components/LoginPrompt";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
@@ -23,6 +25,7 @@ export const metadata: Metadata = {
 export default function LandingPageEn() {
   return (
     <>
+      <Suspense fallback={null}><LoginPrompt lang="en" /></Suspense>
       <Header />
       <main className="flex-1 px-5 py-20 sm:py-24">
         <div className="max-w-3xl mx-auto w-full">
