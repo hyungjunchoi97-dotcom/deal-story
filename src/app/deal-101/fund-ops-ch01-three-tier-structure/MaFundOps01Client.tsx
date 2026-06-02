@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import ShareButtons from "@/components/deal/ShareButtons";
-import LikeButton from "@/components/deal/LikeButton";
+import LikeButton from "@/components/LikeButton";
 import { getFundOpsSeriesNav, getFundOpsChapterBySlug } from "@/data/fund-ops-series";
 
 const ACCENT = "#7c3aed"; // violet-600 — Fund Ops series
@@ -499,7 +499,7 @@ export default function MaFundOps01Client({ lang }: { lang: "ko" | "en" }) {
 
         {/* Share top */}
         <div className="mb-10">
-          <ShareButtons slug={SLUG} lang={lang} title={title} variant="top" />
+          <ShareButtons lang={lang} title={title} variant="top" />
         </div>
 
         {/* Q1 2026 stats banner */}
@@ -697,7 +697,7 @@ export default function MaFundOps01Client({ lang }: { lang: "ko" | "en" }) {
 
         {/* Share mid */}
         <div className="my-16">
-          <ShareButtons slug={SLUG} lang={lang} title={title} variant="mid" />
+          <ShareButtons lang={lang} title={title} variant="mid" />
         </div>
 
         {/* ============ § 3. Middle Office ============ */}
@@ -961,7 +961,7 @@ export default function MaFundOps01Client({ lang }: { lang: "ko" | "en" }) {
 
         {/* Share bottom */}
         <div className="mb-10">
-          <ShareButtons slug={SLUG} lang={lang} title={title} variant="bottom" />
+          <ShareButtons lang={lang} title={title} variant="bottom" likeSlug={SLUG} />
         </div>
 
         {/* Like */}
