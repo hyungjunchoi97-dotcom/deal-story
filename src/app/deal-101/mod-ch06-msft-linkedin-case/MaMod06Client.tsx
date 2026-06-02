@@ -138,7 +138,7 @@ const SYNERGY_MAX = 1100;
 
 // Accretion / Dilution table
 // Per-share view; pro forma EPS vs standalone EPS
-type AccCell = "header" | "label" | "input" | "formula" | "result" | "positive" | "negative";
+type AccCell = "header" | "label" | "input" | "formula" | "result" | "positive" | "negative" | "link";
 const ACC_ROWS: Array<{ cells: Array<{ val: string; type: AccCell }> }> = [
   { cells: [
     { val: "$ in M (except EPS)",  type: "header" },
