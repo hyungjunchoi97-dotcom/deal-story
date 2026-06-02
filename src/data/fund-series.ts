@@ -65,7 +65,7 @@ export const FUND_CHAPTERS: FundChapter[] = [
     taglineKo: "Deal sourcing 50:1 · IC memo · Portfolio governance · Exit 결정 · 실무진 시점에서 본 lifecycle",
     taglineEn: "Deal sourcing 50:1, IC memos, portfolio governance, exit decisions — the lifecycle through the practitioner's lens",
     readingMinutes: 14,
-    status: "draft",
+    status: "published",
   },
   {
     slug: "fund-ch05-economics",
