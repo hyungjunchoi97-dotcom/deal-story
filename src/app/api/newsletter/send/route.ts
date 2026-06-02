@@ -1,8 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { createClient } from "@supabase/supabase-js";
-import { renderToStaticMarkup } from "react-dom/server";
-import * as React from "react";
+import { render } from "@react-email/render";
 import WeeklyReportKo from "@/emails/WeeklyReportKo";
 import WeeklyReportEn from "@/emails/WeeklyReportEn";
 
@@ -60,28 +59,24 @@ export async function POST(req: NextRequest) {
       const unsubLink = `https://${DOMAIN}/api/subscribe?email=${encodeURIComponent(sub.email)}&token=placeholder`;
 
       const html = isKo
-        ? renderToStaticMarkup(
-            React.createElement(WeeklyReportKo, {
-              weekLabel,
-              insightLine,
-              reportTitle,
-              reportLink,
-              regionalItems: regionalDeals_ko,
-              newContents: newContents ?? [],
-              unsubscribeLink: unsubLink,
-            })
-          )
-        : renderToStaticMarkup(
-            React.createElement(WeeklyReportEn, {
-              weekLabel,
-              insightLine,
-              reportTitle,
-              reportLink,
-              regionalItems: regionalDeals_en,
-              newContents: newContents ?? [],
-              unsubscribeLink: unsubLink,
-            })
-          );
+        ? await render(WeeklyReportKo({
+            weekLabel,
+            insightLine,
+            reportTitle,
+            reportLink,
+            regionalItems: regionalDeals_ko,
+            newContents: newContents ?? [],
+            unsubscribeLink: unsubLink,
+          }))
+        : await render(WeeklyReportEn({
+            weekLabel,
+            insightLine,
+            reportTitle,
+            reportLink,
+            regionalItems: regionalDeals_en,
+            newContents: newContents ?? [],
+            unsubscribeLink: unsubLink,
+          }));
 
       return {
         from: `Deal Story <newsletter@${DOMAIN}>`,
