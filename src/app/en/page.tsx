@@ -39,18 +39,12 @@ export default function LandingPageEn() {
             <p className="mt-6 sm:mt-8 text-[14px] sm:text-[15px] md:text-base text-gray-500 dark:text-gray-400 leading-relaxed max-w-xl mx-auto">
               How deals get done, how markets move, and the people inside them.
             </p>
-            <div className="mt-9 sm:mt-11 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <div className="mt-9 sm:mt-11 flex items-center justify-center">
               <Link
                 href="/en/deals"
                 className="inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 text-sm font-semibold hover:bg-gray-700 dark:hover:bg-white transition-colors"
               >
                 Browse Deals →
-              </Link>
-              <Link
-                href="/en/reports"
-                className="inline-flex items-center justify-center px-7 py-3.5 rounded-full border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 text-sm font-semibold hover:border-gray-500 dark:hover:border-gray-400 transition-colors"
-              >
-                Weekly Report
               </Link>
             </div>
           </div>

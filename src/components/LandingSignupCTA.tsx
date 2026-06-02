@@ -115,7 +115,7 @@ export default function LandingSignupCTA({ lang = "ko" }: Props) {
     await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: `${window.location.origin}/auth/callback?next=${ko ? "/reports" : "/en/reports"}`,
+        redirectTo: `${window.location.origin}/auth/callback?next=${ko ? "/deals" : "/en/deals"}`,
       },
     });
   }
@@ -130,7 +130,7 @@ export default function LandingSignupCTA({ lang = "ko" }: Props) {
         <p className="text-[13px] text-gray-500 dark:text-gray-400 mb-5">{t.loggedInDesc}</p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
           <Link
-            href={ko ? "/reports" : "/en/reports"}
+            href={ko ? "/deals" : "/en/deals"}
             className="px-5 py-2.5 rounded-xl bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 text-sm font-semibold hover:bg-gray-700 dark:hover:bg-gray-300 transition-colors"
           >
             {t.loggedInCta}
