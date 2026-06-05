@@ -548,6 +548,16 @@ export default function MaFdd06Client({ lang }: { lang: Lang }) {
             </div>
           </motion.section>
 
+          {/* 한 줄 정리 */}
+          <motion.section initial="hidden" whileInView="show" viewport={VP} variants={fadeUp()} className="mb-14">
+            <div className="rounded-lg p-5" style={{ background: `${ACCENT}0F`, border: `1px solid ${ACCENT}40` }}>
+              <p className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color: ACCENT }}>{ko ? "한 줄로 정리하면" : "In one line"}</p>
+              <p className="text-[15px] font-semibold text-gray-900 dark:text-gray-100 leading-relaxed">{ko
+                ? "Tesco의 대규모 이익 과대계상은 \"공급사 리베이트를 언제 인식하느냐\"라는 한 가지 회계 판단에서 터졌다. 디테일이 곧 리스크다."
+                : "Tesco's profit overstatement came down to one accounting judgment — when to recognize supplier rebates. The detail is the risk."}</p>
+            </div>
+          </motion.section>
+
           {/* Bottom share */}
           <ShareButtons
             title={ko ? chapter.titleKo : chapter.titleEn}

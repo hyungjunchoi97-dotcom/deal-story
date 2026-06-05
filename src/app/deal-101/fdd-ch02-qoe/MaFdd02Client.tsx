@@ -566,6 +566,16 @@ export default function MaFdd02Client({ lang }: { lang: Lang }) {
             </div>
           </motion.section>
 
+          {/* 한 줄 정리 */}
+          <motion.section initial="hidden" whileInView="show" viewport={VP} variants={fadeUp()} className="mb-14">
+            <div className="rounded-lg p-5" style={{ background: `${ACCENT}0F`, border: `1px solid ${ACCENT}40` }}>
+              <p className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color: ACCENT }}>{ko ? "한 줄로 정리하면" : "In one line"}</p>
+              <p className="text-[15px] font-semibold text-gray-900 dark:text-gray-100 leading-relaxed">{ko
+                ? "QoE의 목적은 보고된 EBITDA에서 일회성·비현금·숨은 항목을 걷어내고 \"진짜 반복되는 EBITDA\"를 찾는 것이다. 그 숫자가 가격의 출발점이다."
+                : "QoE strips one-offs, non-cash, and hidden items out of reported EBITDA to find the truly recurring number. That number is where the price starts."}</p>
+            </div>
+          </motion.section>
+
           {/* Next chapter */}
           <motion.section initial="hidden" whileInView="show" viewport={VP} variants={fadeUp()} className="mt-12 mb-10">
             <div className="border-l-2 pl-4 py-1" style={{ borderColor: ACCENT }}>

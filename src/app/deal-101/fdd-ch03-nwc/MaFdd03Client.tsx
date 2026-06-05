@@ -580,6 +580,16 @@ export default function MaFdd03Client({ lang }: { lang: Lang }) {
             </div>
           </motion.section>
 
+          {/* 한 줄 정리 */}
+          <motion.section initial="hidden" whileInView="show" viewport={VP} variants={fadeUp()} className="mb-14">
+            <div className="rounded-lg p-5" style={{ background: `${ACCENT}0F`, border: `1px solid ${ACCENT}40` }}>
+              <p className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color: ACCENT }}>{ko ? "한 줄로 정리하면" : "In one line"}</p>
+              <p className="text-[15px] font-semibold text-gray-900 dark:text-gray-100 leading-relaxed">{ko
+                ? "운전자본(NWC)은 \"얼마에 사느냐\"가 아니라 \"클로징 때 현금을 얼마 더 주고받느냐\"를 정한다. peg를 어디에 잡느냐로 큰 돈이 오간다."
+                : "Working capital doesn't set the headline price — it sets how much cash changes hands at closing. Where you set the peg moves real money."}</p>
+            </div>
+          </motion.section>
+
           {/* Next chapter */}
           <motion.section initial="hidden" whileInView="show" viewport={VP} variants={fadeUp()} className="mt-12 mb-10">
             <div className="border-l-2 pl-4 py-1" style={{ borderColor: ACCENT }}>

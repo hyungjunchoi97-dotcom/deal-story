@@ -539,6 +539,16 @@ export default function MaFdd01Client({ lang }: { lang: Lang }) {
             </div>
           </motion.section>
 
+          {/* 한 줄 정리 */}
+          <motion.section initial="hidden" whileInView="show" viewport={VP} variants={fadeUp()} className="mb-14">
+            <div className="rounded-lg p-5" style={{ background: `${ACCENT}0F`, border: `1px solid ${ACCENT}40` }}>
+              <p className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color: ACCENT }}>{ko ? "한 줄로 정리하면" : "In one line"}</p>
+              <p className="text-[15px] font-semibold text-gray-900 dark:text-gray-100 leading-relaxed">{ko
+                ? "FDD는 회계 감사가 아니라 \"이 회사 이익이 진짜이고 지속되는가\"를 사는 사람 눈으로 검증하는 작업이다."
+                : "FDD isn't an audit — it's verifying, through the buyer's eyes, whether the company's earnings are real and repeatable."}</p>
+            </div>
+          </motion.section>
+
           {/* Next chapter */}
           <motion.section initial="hidden" whileInView="show" viewport={VP} variants={fadeUp()} className="mt-12 mb-10">
             <div className="border-l-2 pl-4 py-1" style={{ borderColor: ACCENT }}>
