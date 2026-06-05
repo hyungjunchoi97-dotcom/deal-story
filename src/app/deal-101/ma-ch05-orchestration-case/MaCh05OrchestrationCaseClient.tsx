@@ -360,6 +360,16 @@ export default function MaCh05OrchestrationCaseClient({ lang }: { lang: Lang }) 
             </motion.div>
           </motion.section>
 
+          {/* 한 줄 정리 */}
+          <motion.section variants={fadeUp()} initial="hidden" whileInView="show" viewport={VP} className="mb-8">
+            <div className="rounded-2xl p-5 sm:p-6" style={{ border: `1px solid ${ACCENT}40`, background: `${ACCENT}0F` }}>
+              <p className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color: ACCENT }}>{ko ? "한 줄로 정리하면" : "In one line"}</p>
+              <p className="text-[15px] font-semibold text-gray-900 dark:text-gray-100 leading-relaxed">{ko
+                ? "딜은 가격만으로 되지 않는다. 누구에게 언제 무엇을 보여주고 경쟁 긴장을 어떻게 설계하느냐가 최종 가격을 만든다. 그게 IB의 오케스트레이션이다."
+                : "A deal isn't just price. Who you show what and when, and how you engineer competitive tension — that's what makes the final number. That's IB orchestration."}</p>
+            </div>
+          </motion.section>
+
           {/* Next chapter preview */}
           <motion.section variants={fadeUp()} initial="hidden" whileInView="show" viewport={VP}>
             <div className="rounded-2xl p-5 sm:p-6 border-2 border-dashed" style={{ borderColor: `${ACCENT}40`, background: `${ACCENT}08` }}>

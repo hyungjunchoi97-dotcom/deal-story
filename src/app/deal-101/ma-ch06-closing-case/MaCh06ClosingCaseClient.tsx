@@ -386,6 +386,16 @@ export default function MaCh06ClosingCaseClient({ lang }: { lang: Lang }) {
             </motion.div>
           </motion.section>
 
+          {/* 한 줄 정리 */}
+          <motion.section variants={fadeUp()} initial="hidden" whileInView="show" viewport={VP} className="mb-8">
+            <div className="rounded-2xl p-5 sm:p-6" style={{ border: `1px solid ${ACCENT}40`, background: `${ACCENT}0F` }}>
+              <p className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color: ACCENT }}>{ko ? "한 줄로 정리하면" : "In one line"}</p>
+              <p className="text-[15px] font-semibold text-gray-900 dark:text-gray-100 leading-relaxed">{ko
+                ? "사인은 끝이 아니라 시작이다. SPA 조건·표명보장·선행조건·규제 승인을 넘어야 진짜 클로징이다. 딜은 클로징되기 전까지 딜이 아니다."
+                : "Signing isn't the finish line — it's the start. You still have to clear the SPA terms, reps and warranties, conditions precedent, and regulatory approvals. A deal isn't a deal until it closes."}</p>
+            </div>
+          </motion.section>
+
           {/* Series wrap-up */}
           <motion.section variants={stagger} initial="hidden" whileInView="show" viewport={VP}>
             <motion.div variants={fadeUp()} className="rounded-2xl p-6 sm:p-8 border-2" style={{ borderColor: `${ACCENT}30`, background: `linear-gradient(135deg, ${ACCENT}08 0%, ${ACCENT}03 100%)` }}>

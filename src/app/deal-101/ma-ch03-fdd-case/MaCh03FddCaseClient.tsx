@@ -413,6 +413,16 @@ export default function MaCh03FddCaseClient({ lang }: { lang: Lang }) {
             </motion.div>
           </motion.section>
 
+          {/* 한 줄 정리 */}
+          <motion.section variants={fadeUp()} initial="hidden" whileInView="show" viewport={VP} className="mb-8">
+            <div className="rounded-2xl p-5 sm:p-6" style={{ border: `1px solid ${ACCENT}40`, background: `${ACCENT}0F` }}>
+              <p className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color: ACCENT }}>{ko ? "한 줄로 정리하면" : "In one line"}</p>
+              <p className="text-[15px] font-semibold text-gray-900 dark:text-gray-100 leading-relaxed">{ko
+                ? "FDD의 핵심은 \"장부상 이익\"이 아니라 \"진짜 반복되는 이익(QoE)\"을 찾아내는 것이다. 일회성·숨은 비용을 걷어내면 가격이 움직인다."
+                : "FDD is about finding the truly recurring earnings (QoE), not the reported profit. Strip out one-offs and hidden costs and the price moves."}</p>
+            </div>
+          </motion.section>
+
           {/* Next chapter preview */}
           <motion.section variants={fadeUp()} initial="hidden" whileInView="show" viewport={VP}>
             <div className="rounded-2xl p-5 sm:p-6 border-2 border-dashed" style={{ borderColor: `${ACCENT}40`, background: `${ACCENT}08` }}>

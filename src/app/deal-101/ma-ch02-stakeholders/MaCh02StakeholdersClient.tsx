@@ -560,6 +560,16 @@ export default function MaCh02StakeholdersClient({ lang }: { lang: Lang }) {
             </motion.div>
           </motion.section>
 
+          {/* 한 줄 정리 */}
+          <motion.section variants={fadeUp()} initial="hidden" whileInView="show" viewport={VP} className="mb-8">
+            <div className="rounded-2xl p-5 sm:p-6" style={{ border: `1px solid ${ACCENT}40`, background: `${ACCENT}0F` }}>
+              <p className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color: ACCENT }}>{ko ? "한 줄로 정리하면" : "In one line"}</p>
+              <p className="text-[15px] font-semibold text-gray-900 dark:text-gray-100 leading-relaxed">{ko
+                ? "M&A는 한 사람이 하는 게 아니라 IB·회계·법무·컨설팅·경영진·Board·인수자가 각자 fact를 만들고 협상하는 합주다. IB는 그 가운데서 흐름을 지휘한다."
+                : "An M&A deal isn't one person's work — IB, accountants, lawyers, consultants, management, the board, and the buyer each build facts and negotiate. IB conducts the orchestra."}</p>
+            </div>
+          </motion.section>
+
           {/* Next chapter preview */}
           <motion.section variants={fadeUp()} initial="hidden" whileInView="show" viewport={VP}>
             <div className="rounded-2xl p-5 sm:p-6 border-2 border-dashed" style={{ borderColor: `${ACCENT}40`, background: `${ACCENT}08` }}>

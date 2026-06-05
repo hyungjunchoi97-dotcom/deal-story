@@ -393,6 +393,16 @@ export default function MaCh01OverviewClient({ lang }: { lang: Lang }) {
             </motion.div>
           </motion.section>
 
+          {/* 한 줄 정리 */}
+          <motion.section variants={fadeUp()} initial="hidden" whileInView="show" viewport={VP} className="mb-8">
+            <div className="rounded-2xl p-5 sm:p-6" style={{ border: `1px solid ${ACCENT}40`, background: `${ACCENT}0F` }}>
+              <p className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color: ACCENT }}>{ko ? "한 줄로 정리하면" : "In one line"}</p>
+              <p className="text-[15px] font-semibold text-gray-900 dark:text-gray-100 leading-relaxed">{ko
+                ? "M&A는 9단계 프로세스지만 진짜 어려운 건 4군데에 몰려 있다. 나머지는 표준 양식이고, 딜의 성패는 그 4곳에서 갈린다."
+                : "M&A is a nine-step process, but the hard parts cluster in just four places. The rest is standard templates — deals are won or lost in those four."}</p>
+            </div>
+          </motion.section>
+
           {/* Next chapter preview */}
           <motion.section variants={fadeUp()} initial="hidden" whileInView="show" viewport={VP}>
             <div className="rounded-2xl p-5 sm:p-6 border-2 border-dashed" style={{ borderColor: `${ACCENT}40`, background: `${ACCENT}08` }}>

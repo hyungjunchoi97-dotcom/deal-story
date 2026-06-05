@@ -447,6 +447,16 @@ export default function MaCh04ValuationCaseClient({ lang }: { lang: Lang }) {
             </motion.div>
           </motion.section>
 
+          {/* 한 줄 정리 */}
+          <motion.section variants={fadeUp()} initial="hidden" whileInView="show" viewport={VP} className="mb-8">
+            <div className="rounded-2xl p-5 sm:p-6" style={{ border: `1px solid ${ACCENT}40`, background: `${ACCENT}0F` }}>
+              <p className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color: ACCENT }}>{ko ? "한 줄로 정리하면" : "In one line"}</p>
+              <p className="text-[15px] font-semibold text-gray-900 dark:text-gray-100 leading-relaxed">{ko
+                ? "M&A에서 valuation은 정답을 구하는 게 아니라 협상 테이블에서 방어할 수 있는 가격 범위를 만드는 것이다. 같은 회사도 buyer마다 다른 숫자가 나온다."
+                : "In M&A, valuation isn't finding the answer — it's building a range you can defend at the table. The same company yields a different number for each buyer."}</p>
+            </div>
+          </motion.section>
+
           {/* Next chapter preview */}
           <motion.section variants={fadeUp()} initial="hidden" whileInView="show" viewport={VP}>
             <div className="rounded-2xl p-5 sm:p-6 border-2 border-dashed" style={{ borderColor: `${ACCENT}40`, background: `${ACCENT}08` }}>
