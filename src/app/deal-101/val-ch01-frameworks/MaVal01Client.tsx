@@ -39,6 +39,42 @@ const USE_CASES = [
   { koCtx: "Fairness opinion",       enCtx: "Fairness opinion",               koMain: "4 method 모두 (board에 range 제시)", enMain: "All four (range presented to board)", koSub: "—",                    enSub: "—" },
 ];
 
+// 상황별 worked example — "왜 이 method를 보나"
+const CONTEXT_EXAMPLES = [
+  {
+    koCtx: "IPO 상장에서는",
+    enCtx: "In an IPO",
+    koQ: "\"상장된 비슷한 회사들이 PER·EV/EBITDA 몇 배에 거래되나?\"",
+    enQ: "\"What multiples (P/E, EV/EBITDA) do comparable listed peers trade at?\"",
+    koWhy: "결국 시장 투자자들이 사줄 가격이어야 하니까, peer가 거래되는 배수가 제일 중요해요.",
+    enWhy: "The price has to be one public investors will actually pay — so peer trading multiples matter most.",
+  },
+  {
+    koCtx: "M&A 매각에서는",
+    enCtx: "In an M&A sale",
+    koQ: "\"전략적 인수자가 시너지까지 반영하면 최대 얼마까지 낼 수 있나?\"",
+    enQ: "\"How high can a strategic buyer go once they price in synergies?\"",
+    koWhy: "시너지가 얹히기 때문에 IPO 때보다 더 높은 가격이 나오기도 합니다.",
+    enWhy: "Because synergies get added on top, the number can come out higher than the IPO price.",
+  },
+  {
+    koCtx: "PE 인수에서는",
+    enCtx: "In a PE buyout",
+    koQ: "\"이 가격에 사서 빚 끼고 5년 뒤 팔면 목표 수익률(IRR)이 나오나?\"",
+    enQ: "\"If I buy at this price with leverage and sell in 5 years, do I hit my target IRR?\"",
+    koWhy: "원하는 수익률에서 거꾸로 살 수 있는 가격을 계산해요. 이게 LBO reverse-math예요.",
+    enWhy: "You work backwards from the return you need to the price you can pay. That's LBO reverse-math.",
+  },
+  {
+    koCtx: "파산·구조조정에서는",
+    enCtx: "In a restructuring",
+    koQ: "\"계속 굴리는 게 나은가, 아니면 자산을 다 팔아치우는 게 나은가?\"",
+    enQ: "\"Is it worth more as a going concern, or broken up and sold for parts?\"",
+    koWhy: "이때는 미래 현금흐름(DCF)보다 자산을 팔았을 때 나오는 청산가치가 더 중요할 수 있어요.",
+    enWhy: "Here, liquidation value can matter more than future cash flow (DCF).",
+  },
+];
+
 // 3 method 비교 — input → output 구조
 const METHODS = [
   { koName: "DCF",                 enName: "DCF",                koInput: "미래 FCF + 할인율 (WACC)",       enInput: "Future FCF + discount rate (WACC)",   koOutput: "회사의 내재가치 (intrinsic value)",   enOutput: "Intrinsic value of the business" },
@@ -147,11 +183,14 @@ export default function MaVal01Client({ lang }: { lang: Lang }) {
             </h2>
             <div className="text-[15px] text-gray-700 dark:text-gray-300 leading-[1.85] space-y-4">
               <p>{ko
-                ? "회사 하나를 사거나 팔 때 가장 먼저 정해야 하는 게 가격이에요. 그런데 \"이 회사는 얼마짜리예요?\" 라는 질문에 한 가지 답이 있다고 생각하면 valuation을 잘못 배운 거예요. 같은 회사가 IPO 직전에는 한 가격, M&A 매각 협상에서는 다른 가격, 파산 직전에는 또 다른 가격으로 거래됩니다."
-                : "When you're buying or selling a business, the first thing you have to set is the price. But if you think 'how much is this company worth?' has a single answer, you've learned valuation wrong. The same company trades at one price right before IPO, another in an M&A negotiation, and yet another in bankruptcy."}</p>
+                ? "회사 하나를 사거나 팔 때 가장 먼저 정해야 하는 게 가격이에요. 그런데 \"이 회사 얼마짜리예요?\" 라는 질문에 딱 떨어지는 한 가지 답이 있다고 생각하면, valuation을 잘못 이해한 거예요."
+                : "When you're buying or selling a business, the first thing you have to set is the price. But if you think 'how much is this company worth?' has one clean answer, you've misunderstood valuation."}</p>
               <p>{ko
-                ? "가치는 절대값이 아니라 상황에 따라 달라집니다. Valuation은 \"정답을 구하는 작업\"이 아니라 \"이 상황에서 합리적인 가격 범위가 어디인가를 짜는 작업\"에 가까워요."
-                : "Value isn't an absolute number — it shifts with context. Valuation isn't 'finding the right answer.' It's 'building the defensible price range for this particular situation.'"}</p>
+                ? "같은 회사라도 보는 사람이 다르면 가격이 달라지거든요. IPO 직전이면 한 가격, M&A 매각 협상에서는 또 다른 가격, 파산 직전이면 완전히 다른 가격으로 거래됩니다. 회사 가치는 고정된 숫자가 아니라, 상황에 따라 움직이는 거예요."
+                : "The same company is worth different amounts to different people. One price right before an IPO, another in an M&A negotiation, a completely different one near bankruptcy. A company's value isn't a fixed number — it moves with the situation."}</p>
+              <p className="font-medium text-gray-900 dark:text-gray-100">{ko
+                ? "그래서 valuation은 \"정답을 맞히는 작업\"이 아니에요. \"이 상황에서 설득 가능한 가격 범위를 만들어내는 작업\"에 더 가깝습니다."
+                : "So valuation isn't about 'getting the right answer.' It's closer to 'building a price range you can defend in this particular situation.'"}</p>
             </div>
           </motion.section>
 
@@ -164,8 +203,8 @@ export default function MaVal01Client({ lang }: { lang: Lang }) {
             </h2>
             <div className="text-[15px] text-gray-700 dark:text-gray-300 leading-[1.85] space-y-5">
               <p>{ko
-                ? "실제로 IB·PE·헤지펀드 어디서나 쓰는 방법은 세 가지로 줄어듭니다."
-                : "Across IBs, PE, and hedge funds, the methods reduce to three."}</p>
+                ? "방법이 수십 가지일 것 같지만, 실제로 IB·PE·헤지펀드 어디서나 쓰는 건 딱 세 가지로 줄어들어요. 하나씩 볼게요."
+                : "It might seem like there are dozens of methods, but across IBs, PE, and hedge funds it really comes down to three. Let's take them one at a time."}</p>
 
               <div>
                 <p className="font-bold text-gray-900 dark:text-gray-100 mb-1">{ko ? "첫째, DCF (Discounted Cash Flow)." : "First, DCF (Discounted Cash Flow)."}</p>
@@ -217,8 +256,25 @@ export default function MaVal01Client({ lang }: { lang: Lang }) {
             </h2>
             <div className="text-[15px] text-gray-700 dark:text-gray-300 leading-[1.85] space-y-4 mb-6">
               <p>{ko
-                ? "같은 회사라도 어느 상황이냐에 따라 강조하는 method가 달라요. IPO에서는 시장 peer가 어떻게 거래되는지가 가장 중요하지만, 파산 직전 회사라면 자산을 매각했을 때 얼마 나오는지가 핵심이 됩니다."
-                : "The method you lead with depends on the situation. In an IPO, what matters most is how listed peers trade. For a company near bankruptcy, what matters is what the assets fetch in a sale."}</p>
+                ? "같은 회사인데 왜 가격이 달라질까요? 보는 사람의 \"목적\"이 다르기 때문이에요. 사는 사람이 머릿속으로 던지는 질문이 상황마다 다르거든요. 예를 들어:"
+                : "Why does the same company get different prices? Because the buyer's goal is different — and so is the question running through their head. For example:"}</p>
+            </div>
+
+            {/* 상황별 worked examples */}
+            <div className="space-y-4 mb-8">
+              {CONTEXT_EXAMPLES.map((c, i) => (
+                <div key={i} className="border-l-2 pl-4 py-0.5" style={{ borderColor: ACCENT }}>
+                  <p className="text-[14px] font-bold text-gray-900 dark:text-gray-100 mb-1">{ko ? c.koCtx : c.enCtx}</p>
+                  <p className="text-[14px] text-gray-700 dark:text-gray-300 leading-relaxed mb-1">{ko ? c.koQ : c.enQ}</p>
+                  <p className="text-[13px] text-gray-500 dark:text-gray-400 leading-relaxed">{ko ? c.koWhy : c.enWhy}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="text-[15px] text-gray-700 dark:text-gray-300 leading-[1.85] space-y-4 mb-6">
+              <p>{ko
+                ? "정리하면, 회사 가격은 \"누가 / 왜 / 언제 사는지\"에 따라 달라집니다. 그래서 실무에서도 상황마다 강조하는 방법(method)이 달라요. 아래 표가 그걸 한눈에 보여줍니다."
+                : "In short, a company's price depends on who's buying, why, and when. So practitioners lead with different methods depending on the situation. The table below maps that out."}</p>
             </div>
 
             <div className="overflow-x-auto">
@@ -255,11 +311,14 @@ export default function MaVal01Client({ lang }: { lang: Lang }) {
             </h2>
             <div className="text-[15px] text-gray-700 dark:text-gray-300 leading-[1.85] space-y-4">
               <p>{ko
-                ? "Valuation deck을 짤 때 거의 항상 3-4 method를 동시에 보여줍니다. 이걸 football field라고 부르는데, 각 method의 가격 range를 막대로 그려서 한 페이지에 올려놓는 형태예요."
-                : "When you put together a valuation deck, you almost always present 3-4 methods side by side. It's called a football field — each method's range plotted as a bar on a single page."}</p>
+                ? "그래서 실무에서는 DCF 하나만 믿지 않아요. Trading Comps, Transaction Comps, DCF, LBO를 같이 놓고 봅니다. 각 방법이 내놓는 가격 범위를 막대로 그려서 한 페이지에 올려놓는데, 이걸 football field라고 불러요."
+                : "That's why practitioners never trust DCF alone. They lay out trading comps, transaction comps, DCF, and LBO together — each method's range drawn as a bar on one page. It's called a football field."}</p>
               <p>{ko
-                ? "왜 그렇게 하냐면, 어느 한 method도 단독으로는 신뢰가 안 가서 그래요. DCF는 5년 뒤 매출 가정 하나로 결과가 30% 흔들리고, Comps는 peer를 누구로 정했냐에 따라 multiple이 2-3배 차이 나고, Asset-based는 going-concern 가치를 못 잡아요. 셋을 같이 보여주면서 \"여기가 overlap zone이니까 이 범위가 합리적이다\" 라고 정당화하는 게 표준 방식입니다."
-                : "Because no single method holds up alone. DCF can swing 30% on a five-year revenue assumption. Comps can move 2-3× on peer selection. Asset-based misses going-concern value. Showing all three lets you point to the overlap zone and argue 'this range is reasonable.'"}</p>
+                ? "왜 굳이 다 보여주냐면, 어느 한 방법도 혼자서는 못 믿거든요. DCF는 5년 뒤 매출 가정 하나만 바꿔도 결과가 30% 흔들리고, Comps는 peer를 누구로 고르냐에 따라 배수가 2~3배 차이 나고, Asset-based는 회사가 계속 굴러가는 가치를 못 잡아요. 그래서 여러 방법을 같이 펼쳐놓고, 서로 겹치는 구간을 찾습니다."
+                : "Why show all of them? Because none holds up on its own. DCF swings 30% on a single five-year revenue assumption. Comps move 2-3× depending on which peers you pick. Asset-based misses the value of a company that keeps running. So you spread them out and look for where they overlap."}</p>
+              <p>{ko
+                ? "예를 들어 네 방법이 이렇게 나왔다고 해볼게요. Trading Comps $850M~1,100M, Transaction Comps $1,000M~1,300M, DCF $950M~1,250M, LBO $800M~1,050M. 여기서 여러 방법이 공통으로 겹치는 구간이 $1,000M~1,050M이라면, 바로 그 구간을 \"가장 방어 가능한 가격 범위\"로 잡는 거예요. board나 buyer를 설득할 때 \"여러 방법이 다 여기서 만난다\"고 말할 수 있으니까요."
+                : "Say the four methods came out like this: trading comps $850-1,100M, transaction comps $1,000-1,300M, DCF $950-1,250M, LBO $800-1,050M. Where they all overlap — around $1,000-1,050M — becomes your 'most defensible range.' When you face the board or a buyer, you can say 'every method converges here.'"}</p>
             </div>
 
             {/* Football field mockup */}
@@ -337,17 +396,48 @@ export default function MaVal01Client({ lang }: { lang: Lang }) {
             </h2>
             <div className="text-[15px] text-gray-700 dark:text-gray-300 leading-[1.85] space-y-4">
               <p>{ko
-                ? "처음 배우는 사람이 자주 오해하는 부분이 있어요. WACC 공식을 외우고 DCF 모델을 정확하게 짜면 valuation을 잘하는 거라고 생각하는데, 사실은 그게 아니에요."
-                : "A common misconception when starting out — that valuation skill means memorizing the WACC formula and building DCF models correctly. It isn't."}</p>
+                ? "처음 배우는 사람이 자주 오해하는 게 있어요. \"WACC 공식 외우고 DCF 모델 정확하게 짜면 valuation 잘하는 거다\" 라고 생각하는데, 사실은 그게 아니에요."
+                : "Beginners often assume valuation skill means memorizing the WACC formula and building a flawless DCF. It doesn't."}</p>
               <p>{ko
-                ? "WACC은 거의 모든 IB가 비슷한 템플릿을 써요. 베타값 하나 뽑으면 나머지는 자동으로 채워집니다. DCF 모델 구조도 표준화되어 있어서 누가 짜도 비슷한 결과가 나와요."
-                : "Every IB uses a similar WACC template. Pull one beta, the rest auto-fills. The DCF model structure is standardized too, so whoever builds it ends up with roughly the same output."}</p>
+                ? "WACC은 거의 모든 IB가 비슷한 템플릿을 써요. 베타값 하나 뽑으면 나머지는 자동으로 채워집니다. DCF 모델 구조도 표준화돼 있어서 누가 짜도 비슷한 숫자가 나와요. 엑셀을 잘 다루는 건 기본 중의 기본일 뿐이에요."
+                : "Almost every IB uses the same WACC template. Pull one beta and the rest auto-fills. The DCF structure is standardized too, so anyone building it lands on a similar number. Being good at Excel is just table stakes."}</p>
+              <p className="font-medium text-gray-900 dark:text-gray-100">{ko
+                ? "진짜 valuation을 잘한다는 건, 숫자 자체보다 그 숫자를 \"방어하는 능력\"이에요. 구체적으로는:"
+                : "Real valuation skill is less about the number and more about defending it. Specifically:"}</p>
+
+              <ul className="space-y-2 pl-1">
+                {(ko
+                  ? [
+                      "왜 이 peer들을 골랐는지",
+                      "왜 이 매출 성장률을 가정했는지",
+                      "왜 이 multiple이 맞다고 보는지",
+                      "왜 이 가격 범위가 board나 buyer에게 설득 가능한지",
+                    ]
+                  : [
+                      "why you picked these peers",
+                      "why you assumed this revenue growth",
+                      "why this multiple is the right one",
+                      "why this range is defensible to the board or buyer",
+                    ]
+                ).map((t, i) => (
+                  <li key={i} className="flex gap-2.5 text-[15px] text-gray-700 dark:text-gray-300">
+                    <span className="mt-2 h-1.5 w-1.5 rounded-full flex-shrink-0" style={{ background: ACCENT }} />
+                    <span>{t}</span>
+                  </li>
+                ))}
+              </ul>
+
               <p>{ko
-                ? "진짜 잘하는 사람이 잘하는 건 다른 부분이에요. 5년 동안 이 회사 매출이 어떻게 변할지에 대한 가정을 얼마나 defensible하게 짜는지. Peer universe를 누구로 정해서 어떤 multiple을 적용할지. 그리고 그걸 board나 buyer에게 어떻게 설명할지."
-                : "Real skill lives somewhere else — how defensible your five-year revenue assumptions are, who you include in the peer universe, and how you explain it to the board or buyer."}</p>
-              <p>{ko
-                ? "다음 챕터부터는 그 실제 작업을 보여드릴게요. DCF가 실무에서 어떻게 굴러가는지 (Ch.2), Comps universe를 어떻게 만드는지 (Ch.3), 그걸 다 합쳐서 football field로 가는 과정 (Ch.4)."
-                : "The next chapters walk through that actual work. How DCF really runs in practice (Ch.2), how you build a comps universe (Ch.3), and how it all gets synthesized into a football field (Ch.4)."}</p>
+                ? "이걸 논리적으로 설명하고 방어할 수 있느냐. 그게 진짜 실력이에요. 다음 챕터부터 그 실제 작업을 하나씩 보여드릴게요. DCF가 실무에서 어떻게 굴러가는지(Ch.2), Comps universe를 어떻게 만드는지(Ch.3), 그걸 다 합쳐 football field로 가는 과정(Ch.4)까지."
+                : "Can you explain and defend all of that with logic? That's the real skill. The next chapters walk through the actual work — how DCF runs in practice (Ch.2), how you build a comps universe (Ch.3), and how it all comes together into a football field (Ch.4)."}</p>
+            </div>
+
+            {/* 한 줄 정리 */}
+            <div className="mt-7 rounded-lg p-5" style={{ background: `${ACCENT}0F`, border: `1px solid ${ACCENT}40` }}>
+              <p className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color: ACCENT }}>{ko ? "한 줄로 정리하면" : "In one line"}</p>
+              <p className="text-[15px] font-semibold text-gray-900 dark:text-gray-100 leading-relaxed">{ko
+                ? "Valuation은 회사의 절대가격을 계산하는 게 아니라, 거래 맥락에 맞는 합리적인 가격 범위를 설계하고 방어하는 작업이다."
+                : "Valuation isn't calculating a company's absolute price — it's designing and defending a reasonable price range that fits the deal context."}</p>
             </div>
 
             {/* 시간 배분 차트 */}
