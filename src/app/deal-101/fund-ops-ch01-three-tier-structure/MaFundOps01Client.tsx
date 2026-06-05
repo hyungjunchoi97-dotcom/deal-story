@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import ShareButtons from "@/components/deal/ShareButtons";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import LikeButton from "@/components/LikeButton";
 import { getFundOpsSeriesNav, getFundOpsChapterBySlug } from "@/data/fund-ops-series";
 
@@ -466,7 +468,9 @@ export default function MaFundOps01Client({ lang }: { lang: "ko" | "en" }) {
   const tagline = ko ? meta.taglineKo : meta.taglineEn;
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100">
+    <>
+      <Header />
+      <div className="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-12">
 
         {/* Breadcrumb */}
@@ -991,6 +995,8 @@ export default function MaFundOps01Client({ lang }: { lang: "ko" | "en" }) {
         </div>
 
       </div>
-    </div>
+      </div>
+      <Footer />
+    </>
   );
 }

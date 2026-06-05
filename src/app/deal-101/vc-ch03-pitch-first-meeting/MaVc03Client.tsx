@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import ShareButtons from "@/components/deal/ShareButtons";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import LikeButton from "@/components/LikeButton";
 import { getVcSeriesNav, getVcChapterBySlug } from "@/data/vc-series";
 
@@ -70,7 +72,9 @@ export default function MaVc03Client({ lang }: { lang: "ko" | "en" }) {
   const tagline = ko ? meta.taglineKo : meta.taglineEn;
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100">
+    <>
+      <Header />
+      <div className="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-xs text-gray-500 dark:text-gray-400 mb-6">
           <Link href={ko ? "/learn" : "/en/learn"} className="hover:underline">{ko ? "학습" : "Learn"}</Link>
@@ -182,6 +186,8 @@ export default function MaVc03Client({ lang }: { lang: "ko" | "en" }) {
           {nav.next ? (<Link href={ko ? `/deal-101/${nav.next.slug}` : `/en/deal-101/${nav.next.slug}`} className="block rounded-lg border border-gray-200 dark:border-gray-700 p-4 hover:border-gray-400 dark:hover:border-gray-500 transition text-right"><div className="text-xs text-gray-500 mb-1">{ko ? "다음 →" : "Next →"}</div><div className="text-sm font-semibold">Ch.{nav.next.ch} · {ko ? nav.next.titleKo : nav.next.titleEn}</div></Link>) : <div />}
         </div>
       </div>
-    </div>
+      </div>
+      <Footer />
+    </>
   );
 }
