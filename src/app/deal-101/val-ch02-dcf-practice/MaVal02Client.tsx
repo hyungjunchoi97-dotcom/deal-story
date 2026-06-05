@@ -509,6 +509,16 @@ export default function MaVal02Client({ lang }: { lang: Lang }) {
             </div>
           </motion.section>
 
+          {/* 한 줄 정리 */}
+          <motion.section initial="hidden" whileInView="show" viewport={VP} variants={fadeUp()} className="mb-14">
+            <div className="rounded-lg p-5" style={{ background: `${ACCENT}0F`, border: `1px solid ${ACCENT}40` }}>
+              <p className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color: ACCENT }}>{ko ? "한 줄로 정리하면" : "In one line"}</p>
+              <p className="text-[15px] font-semibold text-gray-900 dark:text-gray-100 leading-relaxed">{ko
+                ? "DCF는 정교한 계산이 아니라 방어 가능한 가정을 짜는 작업이다. 계산은 누가 해도 비슷하고, 결과는 매출 성장률과 마진 가정이 결정한다."
+                : "A DCF isn't precise math — it's defensible assumptions. The calc is the same for everyone; revenue growth and margins decide the answer."}</p>
+            </div>
+          </motion.section>
+
           {/* Next chapter */}
           <motion.section initial="hidden" whileInView="show" viewport={VP} variants={fadeUp()} className="mt-12 mb-10">
             <div className="border-l-2 pl-4 py-1" style={{ borderColor: ACCENT }}>

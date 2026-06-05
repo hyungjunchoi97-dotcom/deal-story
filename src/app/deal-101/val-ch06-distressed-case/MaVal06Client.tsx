@@ -547,6 +547,16 @@ export default function MaVal06Client({ lang }: { lang: Lang }) {
             </div>
           </motion.section>
 
+          {/* 한 줄 정리 */}
+          <motion.section initial="hidden" whileInView="show" viewport={VP} variants={fadeUp()} className="mb-14">
+            <div className="rounded-lg p-5" style={{ background: `${ACCENT}0F`, border: `1px solid ${ACCENT}40` }}>
+              <p className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color: ACCENT }}>{ko ? "한 줄로 정리하면" : "In one line"}</p>
+              <p className="text-[15px] font-semibold text-gray-900 dark:text-gray-100 leading-relaxed">{ko
+                ? "파산에서의 가치는 \"계속 굴렸을 때(going-concern)\"와 \"분해해서 팔았을 때(liquidation)\" 두 숫자의 싸움이다. 더 큰 쪽이 회사의 운명을 정한다."
+                : "In bankruptcy, value is a fight between going-concern and liquidation. The larger number decides the company's fate."}</p>
+            </div>
+          </motion.section>
+
           {/* Bottom share */}
           <ShareButtons
             title={ko ? chapter.titleKo : chapter.titleEn}

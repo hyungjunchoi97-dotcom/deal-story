@@ -505,6 +505,16 @@ export default function MaVal03Client({ lang }: { lang: Lang }) {
             </div>
           </motion.section>
 
+          {/* 한 줄 정리 */}
+          <motion.section initial="hidden" whileInView="show" viewport={VP} variants={fadeUp()} className="mb-14">
+            <div className="rounded-lg p-5" style={{ background: `${ACCENT}0F`, border: `1px solid ${ACCENT}40` }}>
+              <p className="text-[10px] font-bold uppercase tracking-widest mb-2" style={{ color: ACCENT }}>{ko ? "한 줄로 정리하면" : "In one line"}</p>
+              <p className="text-[15px] font-semibold text-gray-900 dark:text-gray-100 leading-relaxed">{ko
+                ? "Comps는 멀티플을 베끼는 게 아니라 \"왜 이 회사들을 peer로 골랐나\"를 방어하는 작업이다. peer를 누구로 잡느냐가 valuation의 절반이다."
+                : "Comps isn't copying multiples — it's defending why these companies are the peers. Who you pick is half the valuation."}</p>
+            </div>
+          </motion.section>
+
           {/* Next chapter */}
           <motion.section initial="hidden" whileInView="show" viewport={VP} variants={fadeUp()} className="mt-12 mb-10">
             <div className="border-l-2 pl-4 py-1" style={{ borderColor: ACCENT }}>
