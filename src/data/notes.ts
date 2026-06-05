@@ -6305,10 +6305,12 @@ const quantumComputing: NoteData = {
 };
 
 export const ALL_NOTES: NoteData[] = [
-  koreaDiscount,
-  dollarHegemony1, dollarHegemony2, dollarHegemony3, dollarHegemony4,
-  aiCycle1, aiCycle2, aiCycle3, aiCycle4, aiCycle5, aiCycle6, aiCycle7,
-  quantumComputing,
-  privateCreditEra,
-  aiSemiValueChain2026,
+  // ── 전체 노트 일시 hide — 노트 페이지 새로 시작 ──
+  // 모든 노트 객체와 import는 유지. 주석만 풀면 즉시 복귀 가능.
+  // koreaDiscount,
+  // dollarHegemony1, dollarHegemony2, dollarHegemony3, dollarHegemony4,
+  // aiCycle1, aiCycle2, aiCycle3, aiCycle4, aiCycle5, aiCycle6, aiCycle7,
+  // quantumComputing,
+  // privateCreditEra,
+  // aiSemiValueChain2026,
 ];
