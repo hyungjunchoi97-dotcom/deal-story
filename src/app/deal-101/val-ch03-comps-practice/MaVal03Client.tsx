@@ -298,10 +298,10 @@ export default function MaVal03Client({ lang }: { lang: Lang }) {
             </h2>
             <div className="text-[15px] text-gray-700 dark:text-gray-300 leading-[1.85] space-y-4">
               <p>{ko
-                ? "Transaction Comps는 \"최근 5년 안에 비슷한 회사가 실제로 얼마에 팔렸나\"를 보는 작업이에요. Trading이 시장의 minority stake 가격이라면, Transaction은 100% 인수 가격, 즉 control premium이 포함된 가격이에요."
+                ? "Transaction Comps는 \"최근 5년 안에 비슷한 회사가 실제로 얼마에 팔렸나\"를 보는 작업이에요. Trading이 시장의 minority stake 가격이라면, Transaction은 100% 인수 가격, 즉 control 프리미엄이 포함된 가격이에요."
                 : "Transaction comps looks at 'what did similar companies actually sell for in the past five years?' If trading is the price of a minority stake, transactions are 100% acquisition prices — control premium included."}</p>
               <p>{ko
-                ? "Control premium이 왜 붙냐면, 회사를 통째로 사면 의사결정권을 가져가는 거니까요. 이사진을 갈고, 전략을 바꾸고, 자산을 매각할 수 있는 권리. 시장에서 한 주씩 사는 minority 투자자한테는 없는 권리고, 그래서 인수자는 보통 시장가 대비 15-30% 더 내고 회사를 가져갑니다."
+                ? "Control 프리미엄이 왜 붙냐면, 회사를 통째로 사면 의사결정권을 가져가는 거니까요. 이사진을 갈고, 전략을 바꾸고, 자산을 매각할 수 있는 권리. 시장에서 한 주씩 사는 minority 투자자한테는 없는 권리고, 그래서 인수자는 보통 시장가 대비 15-30% 더 내고 회사를 가져갑니다."
                 : "Control premium exists because buying the whole company means decision rights — replacing the board, changing strategy, selling assets. Minority shareholders buying one share at a time don't get those, so acquirers typically pay 15-30% above market for control."}</p>
               <p>{ko
                 ? "그래서 Transaction Comps의 EV/EBITDA가 Trading Comps보다 항상 더 높게 나옵니다. 같은 산업의 같은 시점이어도 Transaction이 +15-30% 위에 자리잡는 게 정상이에요. M&A 협상에서 buyer가 \"우리는 Trading 멀티플 기준으로 내겠다\"고 하면 seller는 \"Transaction 멀티플 기준이 맞다\"고 받아치는 게 표준 공방입니다."
@@ -341,7 +341,7 @@ export default function MaVal03Client({ lang }: { lang: Lang }) {
               </div>
               <p className="mt-4 text-[11px] text-gray-500 dark:text-gray-400 leading-relaxed">
                 {ko
-                  ? "EV/EBITDA: Trading 12.5x → Transaction 15.2x. 차이 2.7x가 control premium의 가격이에요. EBITDA $135M 기준으로 환산하면 약 $365M 차이."
+                  ? "EV/EBITDA: Trading 12.5x → Transaction 15.2x. 차이 2.7x가 control 프리미엄의 가격이에요. EBITDA $135M 기준으로 환산하면 약 $365M 차이."
                   : "EV/EBITDA: 12.5x trading → 15.2x transactions. The 2.7x gap is the price of control. On $135M of EBITDA, that's roughly $365M of EV difference."}
               </p>
             </div>

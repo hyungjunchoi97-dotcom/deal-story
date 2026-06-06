@@ -36,7 +36,7 @@ const DCF_BLOCKS = [
     enGroup: "Input (assumptions)",
     items: [
       { ko: "Revenue 성장률 (5Y)", en: "Revenue growth (5Y)" },
-      { ko: "EBIT margin 추이",        en: "EBIT margin trajectory" },
+      { ko: "EBIT 마진 추이",        en: "EBIT margin trajectory" },
       { ko: "Tax rate (effective)",   en: "Tax rate (effective)" },
       { ko: "CAPEX % of revenue",     en: "CAPEX % of revenue" },
       { ko: "NWC % of revenue",        en: "NWC % of revenue" },
@@ -117,7 +117,7 @@ const SCENARIOS = [
   {
     koName: "Base",
     enName: "Base",
-    koDesc: "management guidance 중간값",
+    koDesc: "매니지먼트 가이던스 중간값",
     enDesc: "Midpoint of management guidance",
     rev: "+8%",
     margin: "Flat",
@@ -262,13 +262,13 @@ export default function MaVal02Client({ lang }: { lang: Lang }) {
                 ? "DCF에서 가장 많은 시간을 쓰는 부분이 매출 가정이에요. 5년 동안 이 회사가 매출을 얼마나 키울 거냐. 한 줄로 정해야 하는데, 그 한 줄로 EV가 30% 흔들립니다."
                 : "Revenue assumptions take the most time in a DCF. How much will this company grow over five years? One line — and that one line moves EV by 30%."}</p>
               <p>{ko
-                ? "가정을 짜는 방식은 보통 세 갈래로 나뉩니다. Management guidance를 받아서 그대로 쓰는 경우, equity research 컨센서스를 참고하는 경우, 그리고 자체적으로 bottom-up 모델을 짜는 경우. 실무에서는 세 가지를 같이 봅니다. Guidance가 너무 공격적이면 research로 깎고, research가 다 부정적이면 management 시나리오를 따로 만들어요."
+                ? "가정을 짜는 방식은 보통 세 갈래로 나뉩니다. 매니지먼트 가이던스를 받아서 그대로 쓰는 경우, 에쿼티 리서치 컨센서스를 참고하는 경우, 그리고 자체적으로 바텀업 모델을 짜는 경우. 실무에서는 세 가지를 같이 봅니다. 가이던스가 너무 공격적이면 리서치로 깎고, 리서치가 다 부정적이면 매니지먼트 시나리오를 따로 만들어요."
                 : "Three approaches usually show up. Take management guidance and use it as-is, lean on equity research consensus, or build a bottom-up model yourself. In practice, all three sit side by side. If guidance is too aggressive, you trim it with research. If research is uniformly bearish, you build a separate management case."}</p>
               <p>{ko
-                ? "Bottom-up은 회사 매출을 driver 단위로 쪼개는 방식이에요. SaaS면 ARPU × 고객 수, 소매면 매장 수 × 매장당 매출, 제조면 단가 × 수량. 이 driver들을 각각 5년 추정하면 매출이 나옵니다. Top-down 보다 시간은 더 들지만, board에 가져갔을 때 \"왜 이렇게 잡았냐\"는 질문을 받았을 때 답할 수 있어요."
+                ? "바텀업은 회사 매출을 driver 단위로 쪼개는 방식이에요. SaaS면 ARPU × 고객 수, 소매면 매장 수 × 매장당 매출, 제조면 단가 × 수량. 이 driver들을 각각 5년 추정하면 매출이 나옵니다. 탑다운 보다 시간은 더 들지만, board에 가져갔을 때 \"왜 이렇게 잡았냐\"는 질문을 받았을 때 답할 수 있어요."
                 : "Bottom-up breaks revenue into drivers. For SaaS, ARPU × customers. For retail, stores × revenue per store. For manufacturing, price × volume. Project each driver for five years and revenue falls out. It takes longer than top-down, but when the board asks 'why this number,' you have an answer."}</p>
               <p>{ko
-                ? "Margin 추이도 같이 정합니다. 회사가 지금 EBIT margin 12% 인데 규모의 경제로 15%까지 갈 거라고 보면 5년 동안 어떻게 점진적으로 올릴지를 모델에 박아 넣어요. 마진 100bps가 EV로는 보통 8-10% 정도 차이를 만듭니다."
+                ? "마진 추이도 같이 정합니다. 회사가 지금 EBIT margin 12% 인데 규모의 경제로 15%까지 갈 거라고 보면 5년 동안 어떻게 점진적으로 올릴지를 모델에 박아 넣어요. 마진 100bps가 EV로는 보통 8-10% 정도 차이를 만듭니다."
                 : "Margin trajectory gets set alongside. If a company is at 12% EBIT margin today and you believe scale takes it to 15%, you model how that ramps over five years. 100 bps of margin typically moves EV 8-10%."}</p>
             </div>
           </motion.section>
@@ -432,7 +432,7 @@ export default function MaVal02Client({ lang }: { lang: Lang }) {
                 ? "기본 접근은 \"% of revenue\"예요. 과거 4-5년 동안 CAPEX가 매출의 몇 % 였는지, NWC가 매출의 몇 % 수준이었는지를 평균 내서 그걸 미래에 그대로 끌고 갑니다. 안정된 회사면 이 방식이 가장 무난해요."
                 : "The default is '% of revenue.' Look at the past 4-5 years — what CAPEX was as a % of revenue, what NWC was as a % of revenue — average it, then carry it forward. Works fine for stable businesses."}</p>
               <p>{ko
-                ? "변형이 들어가는 건 회사가 투자 사이클에 있을 때예요. 새 공장을 짓고 있으면 CAPEX % 가 평소보다 2-3배 뛰었다가 5년 뒤에는 정상화되는 식으로 곡선을 그려야 합니다. 이런 정보는 보통 management 가이던스나 IR 자료에서 나와요."
+                ? "변형이 들어가는 건 회사가 투자 사이클에 있을 때예요. 새 공장을 짓고 있으면 CAPEX % 가 평소보다 2-3배 뛰었다가 5년 뒤에는 정상화되는 식으로 곡선을 그려야 합니다. 이런 정보는 보통 매니지먼트 가이던스나 IR 자료에서 나와요."
                 : "It changes when the company is in an investment cycle. Building a new plant means CAPEX % spikes 2-3× for a few years, then normalizes. You draw that curve based on management guidance or IR disclosures."}</p>
               <p>{ko
                 ? "D&A와 CAPEX는 장기적으로 비슷한 수준으로 수렴해야 해요. 5년 후에 D&A가 매출의 5%인데 CAPEX가 매출의 2%면 회사가 자산을 안 충당하고 있다는 거고, 그건 지속 가능한 모델이 아닙니다. 모델 짜다 보면 이 둘이 안 맞아서 가정을 다시 손봐야 하는 경우가 자주 생겨요."
@@ -455,7 +455,7 @@ export default function MaVal02Client({ lang }: { lang: Lang }) {
                 ? "Board나 buyer에게 DCF 결과를 가져갈 때 \"EV $990M\" 한 줄로 끝내는 경우는 없습니다. 거의 항상 Bear / Base / Bull 세 시나리오로 가져가요."
                 : "You never bring back 'EV is $990M' as a single line. It's almost always presented as bear / base / bull."}</p>
               <p>{ko
-                ? "Base는 가장 defensible한 시나리오예요. Management guidance 중간값, 과거 평균에 근접한 마진, 컨센서스 성장률. Bear는 \"이 가정들이 한 단계씩 나빠지면\" 케이스. 매출 성장률 −400bps, 마진 압축 150bps, terminal growth 1.5%. Bull은 반대 방향이고요."
+                ? "Base는 가장 defensible한 시나리오예요. 매니지먼트 가이던스 중간값, 과거 평균에 근접한 마진, 컨센서스 성장률. Bear는 \"이 가정들이 한 단계씩 나빠지면\" 케이스. 매출 성장률 −400bps, 마진 압축 150bps, terminal growth 1.5%. Bull은 반대 방향이고요."
                 : "Base is the most defensible — midpoint of management guidance, margins near historical average, consensus growth. Bear is 'each of these assumptions steps down a notch.' Revenue growth −400 bps, margin compression of 150 bps, terminal growth 1.5%. Bull is the mirror."}</p>
               <p>{ko
                 ? "세 시나리오를 같이 보여주는 이유는 board에서 던지는 질문이 \"이거 맞아?\" 가 아니라 \"틀리면 어디까지 틀려?\" 이기 때문이에요. Base만 가져가면 다음 미팅에서 다시 만들어야 하지만, Bear/Base/Bull로 가져가면 그 자리에서 의사결정이 가능해집니다."
@@ -528,7 +528,7 @@ export default function MaVal02Client({ lang }: { lang: Lang }) {
               </p>
               <p className="text-[12px] text-gray-500 dark:text-gray-400 mt-1 leading-relaxed">
                 {ko
-                  ? "Capital IQ로 peer universe를 어떻게 만드는지, 어떤 회사를 넣고 어떤 회사를 빼는지, control premium은 어디서 가져오는지. Comps 작업의 실제 흐름."
+                  ? "Capital IQ로 peer universe를 어떻게 만드는지, 어떤 회사를 넣고 어떤 회사를 빼는지, control 프리미엄은 어디서 가져오는지. Comps 작업의 실제 흐름."
                   : "How a peer universe gets built in Capital IQ, which companies make the cut and which don't, where control premium comes from. The real workflow of comps."}
               </p>
             </div>

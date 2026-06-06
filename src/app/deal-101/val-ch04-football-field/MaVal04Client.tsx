@@ -559,7 +559,7 @@ export default function MaVal04Client({ lang }: { lang: Lang }) {
             <div className="text-[15px] text-gray-700 dark:text-gray-300 leading-[1.85] space-y-4 mt-7">
               <p className="font-bold text-gray-900 dark:text-gray-100">{ko ? "왜 이렇게 갈리는가" : "Why it splits this way"}</p>
               <p>{ko
-                ? "IPO에서는 시장의 peer들이 매일 가격을 매기는 \"오늘 시점의 멀티플\"이 가장 신뢰받습니다. Transaction은 control premium이 들어가 있어서 IPO 가격을 산정하기엔 너무 비싼 참고치예요. M&A sell-side는 반대로 control premium이 포함된 transaction이 적절한 기준점이 됩니다. 회사를 통째로 넘기는 상황이니까요."
+                ? "IPO에서는 시장의 peer들이 매일 가격을 매기는 \"오늘 시점의 멀티플\"이 가장 신뢰받습니다. Transaction은 control 프리미엄이 들어가 있어서 IPO 가격을 산정하기엔 너무 비싼 참고치예요. M&A sell-side는 반대로 control 프리미엄이 포함된 transaction이 적절한 기준점이 됩니다. 회사를 통째로 넘기는 상황이니까요."
                 : "In an IPO, what gets trusted most is the 'today's multiple' that market peers price daily. Transactions sit too high — they include control premium, which doesn't belong in an IPO. M&A sell-side flips it: transactions with their control premium become the right anchor, because you're selling 100% control."}</p>
               <p>{ko
                 ? "M&A buy-side가 DCF를 메인으로 잡는 이유는, 인수자 입장에선 \"이 회사가 우리한테 얼마짜리냐\"를 숫자로 풀어야 하기 때문이에요. 시너지까지 반영한 DCF가 그 답이 되고, LBO reverse-math는 \"PE 인수자가 들어오면 얼마까지 낼 수 있나\"를 옆에서 같이 보면서 입찰 경쟁을 견제하는 역할을 합니다."
