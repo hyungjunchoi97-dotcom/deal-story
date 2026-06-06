@@ -70,7 +70,7 @@ const REVIEW_AREAS = [
     color: "emerald",
     items: [
       { label: "노동조합 계약 및 단체협약", desc: "CBA(단체협약)의 주요 조건과 만료 일정. 인수 후 임금 협상·파업 리스크. 노조의 Change of Control에 대한 권리가 있는가." },
-      { label: "핵심 임직원 계약", desc: "핵심 경영진·엔지니어의 경쟁 금지(Non-Compete)·비밀 유지(NDA) 계약 유효성. 인수 후 이탈할 경우 사업에 미치는 영향. 스톡옵션 加速 조항(Accelerated Vesting) 존재 여부." },
+      { label: "핵심 임직원 계약", desc: "핵심 경영진·엔지니어의 경쟁 금지(Non-Compete)·비밀 유지(NDA) 계약 유효성. 인수 후 이탈할 경우 사업에 미치는 영향. 스톡옵션 가속 조항(Accelerated Vesting) 존재 여부." },
       { label: "미지급 급여·퇴직금 부채", desc: "장기 근속자에 대한 미지급 퇴직금, 잔여 연차, 성과급 미지급 금액. 인수 후 일시에 지급해야 할 잠재 부채. 특히 구조조정 예상 시 중요." },
     ],
   },
