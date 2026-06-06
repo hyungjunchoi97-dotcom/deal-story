@@ -4,6 +4,7 @@
  */
 import { privateCreditEra } from "./notes/private-credit-era";
 import { aiSemiValueChain2026 } from "./notes/ai-semi-value-chain-2026";
+import { chipCrash20260605 } from "./notes/chip-crash-2026-06-05";
 
 // ── Categories ─────────────────────────────────────────────────────────────────
 
@@ -426,6 +427,16 @@ export type WatchIndicatorPoint = {
   sourceEn?: string;
 };
 
+// 데일리 블로그(market 카테고리)용 범용 막대 차트. 데이터만 갈아끼우면 재사용.
+export type DailyBarPoint = {
+  label: string;
+  labelEn?: string;
+  value: number;
+  highlight?: boolean;     // 강조할 막대 (보라색)
+  note?: string;           // 막대 위 작은 주석 (예: "예상 17.2 하회")
+  noteEn?: string;
+};
+
 export type NoteChartDef =
   | { id: "pbr-comparison";    title: string; titleEn?: string; caption?: string; captionEn?: string; data: PBRPoint[] }
   | { id: "tax-rates";         title: string; titleEn?: string; caption?: string; captionEn?: string; data: TaxRateBar[] }
@@ -475,7 +486,9 @@ export type NoteChartDef =
   | { id: "vc-roadmap";               title: string; titleEn?: string; caption?: string; captionEn?: string; data?: unknown[]; stages?: unknown[] }
   | { id: "korea-sobujang-30";        title: string; titleEn?: string; caption?: string; captionEn?: string; data: unknown[] }
   | { id: "risk-channels-5";          title: string; titleEn?: string; caption?: string; captionEn?: string; data: unknown[] }
-  | { id: "semi-watch-dashboard";     title: string; titleEn?: string; caption?: string; captionEn?: string; data: unknown[] };
+  | { id: "semi-watch-dashboard";     title: string; titleEn?: string; caption?: string; captionEn?: string; data: unknown[] }
+  // 데일리 블로그 범용 막대 차트 (단위 라벨 옵션)
+  | { id: "daily-bar";                title: string; titleEn?: string; caption?: string; captionEn?: string; unit?: string; data: DailyBarPoint[] };
 
 // ── Scenario Cards 데이터 타입 ─────────────────────────────────────────────
 export type ScenarioCard = {
@@ -6305,8 +6318,9 @@ const quantumComputing: NoteData = {
 };
 
 export const ALL_NOTES: NoteData[] = [
-  // ── 전체 노트 일시 hide — 노트 페이지 새로 시작 ──
-  // 모든 노트 객체와 import는 유지. 주석만 풀면 즉시 복귀 가능.
+  // ── 데일리 블로그 (market 카테고리) ──
+  chipCrash20260605,
+  // ── 기존 deep 노트 일시 hide. 주석만 풀면 즉시 복귀 ──
   // koreaDiscount,
   // dollarHegemony1, dollarHegemony2, dollarHegemony3, dollarHegemony4,
   // aiCycle1, aiCycle2, aiCycle3, aiCycle4, aiCycle5, aiCycle6, aiCycle7,

@@ -46,6 +46,7 @@ import type {
   QubitRacePoint,
   QuantumStockPoint,
   QuantumFundingBar,
+  DailyBarPoint,
   // Private Credit note (11 charts)
   PcAumPoint,
   BankPcSharePoint,
@@ -2465,6 +2466,63 @@ function RiskChannels5Chart({ chart, lang }: { chart: NoteChartDef & { id: "risk
   );
 }
 
+// ── Daily blog 범용 막대 차트 ───────────────────────────────────────────────
+function DailyBarChart({ chart, lang }: { chart: NoteChartDef & { id: "daily-bar" }; lang: Lang }) {
+  const raw = chart.data as DailyBarPoint[];
+  const unit = (chart as { unit?: string }).unit ?? "";
+  const data = raw.map((d) => ({
+    name: lang === "en" ? (d.labelEn ?? d.label) : d.label,
+    value: d.value,
+    fill: d.highlight ? "#8b5cf6" : "#cbd5e1",
+    note: lang === "en" ? (d.noteEn ?? d.note) : d.note,
+  }));
+  const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
+  const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  return (
+    <ChartCard title={title} caption={caption}>
+      <ResponsiveContainer width="100%" height={Math.max(200, data.length * 54)}>
+        <BarChart data={data} layout="vertical" margin={{ top: 8, right: 96, bottom: 0, left: 8 }}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} horizontal={false} />
+          <XAxis type="number" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `${v}${unit ? "" : ""}`} />
+          <YAxis type="category" dataKey="name" tick={{ fontSize: 12 }} tickLine={false} axisLine={false} width={110} />
+          <Tooltip
+            cursor={{ fill: "rgba(0,0,0,0.04)" }}
+            content={({ active, payload }) => {
+              if (!active || !payload?.length) return null;
+              const d = payload[0].payload as { name: string; value: number; note?: string };
+              return (
+                <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl px-4 py-3 text-xs">
+                  <p className="font-bold text-gray-800 dark:text-gray-100">{d.name}</p>
+                  <p className="font-mono text-sm mt-1 text-violet-600 dark:text-violet-400">{d.value}{unit ? ` ${unit}` : ""}</p>
+                  {d.note && <p className="text-[10px] text-gray-500 dark:text-gray-400 mt-0.5">{d.note}</p>}
+                </div>
+              );
+            }}
+          />
+          <Bar dataKey="value" radius={[0, 4, 4, 0]} isAnimationActive={false}
+            label={{
+              position: "right",
+              fontSize: 11,
+              fill: "#64748b",
+              formatter: ((v: number) => `${v}${unit ? ` ${unit}` : ""}`) as never,
+            }}>
+            {data.map((entry, i) => (<Cell key={i} fill={entry.fill} />))}
+          </Bar>
+        </BarChart>
+      </ResponsiveContainer>
+      {data.some((d) => d.note) && (
+        <div className="px-5 pb-3 flex flex-wrap gap-x-4 gap-y-1">
+          {data.filter((d) => d.note).map((d, i) => (
+            <span key={i} className="text-[10px] text-gray-400 dark:text-gray-500">
+              {d.name}: {d.note}
+            </span>
+          ))}
+        </div>
+      )}
+    </ChartCard>
+  );
+}
+
 // ── Fallback placeholder (for unregistered chart IDs) ─────────────────────────
 function ChartPlaceholder({ chart, lang }: { chart: NoteChartDef; lang: Lang }) {
   const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
@@ -2499,6 +2557,8 @@ const AI_SEMI_CHART_IDS = new Set<string>([
 ]);
 
 function NoteChart({ chart, lang }: { chart: NoteChartDef; lang: Lang }) {
+  // 데일리 블로그 범용 막대 차트
+  if (chart.id === "daily-bar") return <DailyBarChart chart={chart} lang={lang} />;
   // AI Semi Value Chain 2026 노트 — 9개 실제 컴포넌트
   if (chart.id === "semi-market-cycle")        return <SemiMarketCycleChart        chart={chart} lang={lang} />;
   if (chart.id === "hbm-share-quarterly-semi") return <HbmShareQuarterlySemiChart  chart={chart} lang={lang} />;
