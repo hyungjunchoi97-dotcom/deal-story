@@ -2470,6 +2470,7 @@ function RiskChannels5Chart({ chart, lang }: { chart: NoteChartDef & { id: "risk
 function DailyBarChart({ chart, lang }: { chart: NoteChartDef & { id: "daily-bar" }; lang: Lang }) {
   const raw = chart.data as DailyBarPoint[];
   const unit = (chart as { unit?: string }).unit ?? "";
+  const refLine = (chart as { refLine?: { value: number; label: string; labelEn?: string } }).refLine;
   const data = raw.map((d) => ({
     name: lang === "en" ? (d.labelEn ?? d.label) : d.label,
     value: d.value,
@@ -2478,13 +2479,14 @@ function DailyBarChart({ chart, lang }: { chart: NoteChartDef & { id: "daily-bar
   }));
   const title = lang === "en" ? (chart.titleEn ?? chart.title) : chart.title;
   const caption = lang === "en" ? (chart.captionEn ?? chart.caption) : chart.caption;
+  const refLabel = refLine ? (lang === "en" ? (refLine.labelEn ?? refLine.label) : refLine.label) : "";
   return (
     <ChartCard title={title} caption={caption}>
-      <ResponsiveContainer width="100%" height={Math.max(200, data.length * 54)}>
-        <BarChart data={data} layout="vertical" margin={{ top: 8, right: 96, bottom: 0, left: 8 }}>
+      <ResponsiveContainer width="100%" height={Math.max(210, data.length * 56 + 20)}>
+        <BarChart data={data} layout="vertical" margin={{ top: 24, right: 110, bottom: 0, left: 8 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeOpacity={0.5} horizontal={false} />
-          <XAxis type="number" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} tickFormatter={(v) => `${v}${unit ? "" : ""}`} />
-          <YAxis type="category" dataKey="name" tick={{ fontSize: 12 }} tickLine={false} axisLine={false} width={110} />
+          <XAxis type="number" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
+          <YAxis type="category" dataKey="name" tick={{ fontSize: 12 }} tickLine={false} axisLine={false} width={120} />
           <Tooltip
             cursor={{ fill: "rgba(0,0,0,0.04)" }}
             content={({ active, payload }) => {
@@ -2499,11 +2501,16 @@ function DailyBarChart({ chart, lang }: { chart: NoteChartDef & { id: "daily-bar
               );
             }}
           />
+          {refLine && (
+            <ReferenceLine x={refLine.value} stroke="#ef4444" strokeDasharray="5 3" strokeWidth={1.5}
+              label={{ value: `${refLabel} ${refLine.value}${unit ? unit : ""}`, position: "top", fontSize: 10, fill: "#ef4444", fontWeight: 600 }} />
+          )}
           <Bar dataKey="value" radius={[0, 4, 4, 0]} isAnimationActive={false}
             label={{
               position: "right",
-              fontSize: 11,
-              fill: "#64748b",
+              fontSize: 12,
+              fontWeight: 700,
+              fill: "#475569",
               formatter: ((v: number) => `${v}${unit ? ` ${unit}` : ""}`) as never,
             }}>
             {data.map((entry, i) => (<Cell key={i} fill={entry.fill} />))}
@@ -2511,10 +2518,11 @@ function DailyBarChart({ chart, lang }: { chart: NoteChartDef & { id: "daily-bar
         </BarChart>
       </ResponsiveContainer>
       {data.some((d) => d.note) && (
-        <div className="px-5 pb-3 flex flex-wrap gap-x-4 gap-y-1">
+        <div className="px-5 pb-3 flex flex-col gap-1">
           {data.filter((d) => d.note).map((d, i) => (
-            <span key={i} className="text-[10px] text-gray-400 dark:text-gray-500">
-              {d.name}: {d.note}
+            <span key={i} className="text-[11px] text-gray-500 dark:text-gray-400 flex items-start gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-violet-500 mt-1 shrink-0" />
+              <span><span className="font-semibold text-gray-700 dark:text-gray-300">{d.name}</span> {d.note}</span>
             </span>
           ))}
         </div>

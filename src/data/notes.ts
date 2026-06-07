@@ -5,6 +5,7 @@
 import { privateCreditEra } from "./notes/private-credit-era";
 import { aiSemiValueChain2026 } from "./notes/ai-semi-value-chain-2026";
 import { chipCrash20260605 } from "./notes/chip-crash-2026-06-05";
+import { bubble1996Or2000 } from "./notes/bubble-1996-or-2000";
 
 // ── Categories ─────────────────────────────────────────────────────────────────
 
@@ -487,8 +488,8 @@ export type NoteChartDef =
   | { id: "korea-sobujang-30";        title: string; titleEn?: string; caption?: string; captionEn?: string; data: unknown[] }
   | { id: "risk-channels-5";          title: string; titleEn?: string; caption?: string; captionEn?: string; data: unknown[] }
   | { id: "semi-watch-dashboard";     title: string; titleEn?: string; caption?: string; captionEn?: string; data: unknown[] }
-  // 데일리 블로그 범용 막대 차트 (단위 라벨 옵션)
-  | { id: "daily-bar";                title: string; titleEn?: string; caption?: string; captionEn?: string; unit?: string; data: DailyBarPoint[] };
+  // 데일리 블로그 범용 막대 차트 (단위 라벨 + 참고선 옵션)
+  | { id: "daily-bar";                title: string; titleEn?: string; caption?: string; captionEn?: string; unit?: string; refLine?: { value: number; label: string; labelEn?: string }; data: DailyBarPoint[] };
 
 // ── Scenario Cards 데이터 타입 ─────────────────────────────────────────────
 export type ScenarioCard = {
@@ -6319,6 +6320,7 @@ const quantumComputing: NoteData = {
 
 export const ALL_NOTES: NoteData[] = [
   // ── 데일리 블로그 (market 카테고리) ──
+  bubble1996Or2000,
   chipCrash20260605,
   // ── 기존 deep 노트 일시 hide. 주석만 풀면 즉시 복귀 ──
   // koreaDiscount,
