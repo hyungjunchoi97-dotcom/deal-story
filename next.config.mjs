@@ -24,6 +24,12 @@ const nextConfig = {
       { source: "/en/market-101/lbo-capital-structure", destination: "/en/deal-101/lbo-capital-structure", permanent: true },
       { source: "/en/market-101/lbo-returns",           destination: "/en/deal-101/lbo-returns",           permanent: true },
       { source: "/en/market-101/lbo-deal-process",      destination: "/en/deal-101/lbo-deal-process",      permanent: true },
+      // ── 마켓·일화 카테고리 폐기 → 딜 페이지로 통합 (2026-06-02) ─────────
+      // 인덱스 페이지는 /deals로 합치고, 개별 글 URL은 그대로 유지(SEO 보존)
+      { source: "/market",        destination: "/deals",        permanent: true },
+      { source: "/stories",       destination: "/deals",        permanent: true },
+      { source: "/en/market",     destination: "/en/deals",     permanent: true },
+      { source: "/en/stories",    destination: "/en/deals",     permanent: true },
     ];
   },
 };

@@ -30,15 +30,11 @@ export interface NavItem {
 export const HEADER_NAV: Record<Lang, NavItem[]> = {
   ko: [
     { href: "/deals",          label: "딜"      },
-    { href: "/market",         label: "마켓"    },
-    { href: "/stories",        label: "일화"    },
     { href: "/learn",          label: "Learn"   },
     { href: "/notes",          label: "Notes"   },
   ],
   en: [
     { href: "/en/deals",              label: "Deals"      },
-    { href: "/en/market",             label: "Market"     },
-    { href: "/en/stories",            label: "Stories"    },
     { href: "/en/learn",              label: "Learn"      },
     { href: "/en/notes",              label: "Notes"      },
   ],
