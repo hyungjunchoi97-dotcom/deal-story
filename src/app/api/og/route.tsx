@@ -102,6 +102,9 @@ export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const slug = searchParams.get("slug") ?? undefined;
   const lang: Lang = searchParams.get("lang") === "en" ? "en" : "ko";
+  // 노트(Notes)용 범용 OG — 자유 텍스트 제목/키커를 받아 제목 기반 카드 생성.
+  const ogTitle = searchParams.get("title") ?? undefined;
+  const ogKicker = searchParams.get("kicker") ?? undefined;
 
   const deal: OgDeal | undefined = slug
     ? lang === "en"
@@ -126,6 +129,89 @@ export async function GET(req: NextRequest) {
     : "system-ui, -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif";
 
   const siteHost = getSiteHost();
+
+  // ── 노트 OG (title 파라미터 있고 deal 아님) ───────────────────
+  //  글 제목을 헤드라인으로 쓰는 에디토리얼 카드. 카테고리는 키커.
+  if (!deal && ogTitle) {
+    const kicker = ogKicker ?? (lang === "en" ? "Notes" : "노트");
+    const hSize = headlineSize(ogTitle, lang);
+    return new ImageResponse(
+      (
+        <div
+          style={{
+            width: "100%",
+            height: "100%",
+            display: "flex",
+            flexDirection: "column",
+            padding: "72px 88px",
+            background: COLOR.bg,
+            fontFamily,
+          }}
+        >
+          {/* 상단 — 브랜드 룰 + 카테고리 키커 */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              paddingBottom: 20,
+              borderBottom: `1px solid ${COLOR.divider}`,
+              fontSize: 22,
+              color: COLOR.textMuted,
+              letterSpacing: "0.04em",
+              textTransform: "uppercase",
+              fontWeight: 700,
+            }}
+          >
+            <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+              <div style={{ width: 8, height: 8, borderRadius: 9999, background: COLOR.amber, display: "flex" }} />
+              <span>Deal Story</span>
+            </div>
+            <span>{kicker}</span>
+          </div>
+
+          {/* 중앙 — 글 제목 */}
+          <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center" }}>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                width: "100%",
+                fontSize: hSize,
+                fontWeight: 700,
+                color: COLOR.textStrong,
+                letterSpacing: "-0.03em",
+                lineHeight: 1.14,
+                wordBreak: "keep-all",
+              }}
+            >
+              {ogTitle}
+            </div>
+          </div>
+
+          {/* 하단 — 워터마크 */}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              paddingTop: 20,
+              borderTop: `1px solid ${COLOR.divider}`,
+              fontSize: 22,
+              color: COLOR.textMuted,
+              letterSpacing: "0.04em",
+              textTransform: "uppercase",
+              fontWeight: 700,
+            }}
+          >
+            <span>{lang === "en" ? "Read the note" : "노트 읽기"}</span>
+            <span style={{ color: COLOR.textStrong }}>{siteHost}</span>
+          </div>
+        </div>
+      ),
+      { ...SIZE, fonts },
+    );
+  }
 
   // ── 사이트 기본 OG (slug 없거나 못 찾음) ──────────────────────
   //  에디토리얼 매거진 커버 스타일: 얇은 상단 룰 + 큰 디스플레이 워드마크 +

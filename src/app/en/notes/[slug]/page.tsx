@@ -3,7 +3,7 @@
  */
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ALL_NOTES, getNoteBySlug } from "@/data/notes";
+import { ALL_NOTES, getNoteBySlug, NOTE_CATEGORY_META } from "@/data/notes";
 import { SITE_URL } from "@/lib/site";
 import NoteDetailClient from "@/app/notes/[slug]/NoteDetailClient";
 
@@ -24,6 +24,8 @@ export async function generateMetadata({
 
   const title = note.titleEn ?? note.title;
   const description = note.descriptionEn ?? note.description;
+  const kicker = NOTE_CATEGORY_META[note.category]?.labelEn ?? "Notes";
+  const ogUrl = `/api/og?lang=en&title=${encodeURIComponent(title)}&kicker=${encodeURIComponent(kicker)}`;
 
   return {
     title: `${title} | Notes | Deal Story`,
@@ -34,11 +36,11 @@ export async function generateMetadata({
       type: "article",
       locale: "en_US",
       alternateLocale: ["ko_KR"],
-      images: [{ url: "/api/og?lang=en", width: 1200, height: 630 }],
+      images: [{ url: ogUrl, width: 1200, height: 630 }],
     },
     twitter: {
       card: "summary_large_image",
-      images: ["/api/og?lang=en"],
+      images: [ogUrl],
     },
     alternates: {
       canonical: `/en/notes/${note.slug}`,
