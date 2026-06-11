@@ -122,6 +122,17 @@ import halliburtonBakerHughesBlocked from "./halliburton-baker-hughes-blocked";
 import energyTransferWilliamsFailed from "./energy-transfer-williams-failed";
 import emartStarbucksKorea from "./emart-starbucks-korea";
 import kakaobankKospiIpo from "./kakaobank-kospi-ipo";
+// New batch — Activism 10-deal series
+import icahnHerbalifeCounter from "./icahn-herbalife-counter";
+import trianGeLoss from "./trian-ge-loss";
+import bluebellDanoneCeo from "./bluebell-danone-ceo";
+import threeActivistsSalesforce from "./three-activists-salesforce";
+import politanMasimoFounderOuster from "./politan-masimo-founder-ouster";
+import ancoraNorfolkSouthern from "./ancora-norfolk-southern";
+import sabaClosedEndFunds from "./saba-closed-end-funds";
+import valueact3dSevenI from "./valueact-3d-seven-i";
+import murakamiCosmoEnergy from "./murakami-cosmo-energy";
+import mustYoungPoong from "./must-young-poong";
 
 /**
  * English deal registry — ordered by closedAt descending
@@ -130,6 +141,9 @@ export const ALL_DEALS_EN: DealData[] = [
   mbkMakinoAltemira,       // 2026-05-11 (ma — Japan FEFTA + 19-day pivot)
   kkrSamsungSdsCb,         // 2026-04-30 (ma — Korea's largest single private CB)
   coucheTard7eleven,       // 2025-12-31 (control, ongoing)
+  sabaClosedEndFunds,      // 2025-12-31 (activism — 50+ CEFs systematic campaign)
+  valueact3dSevenI,        // 2025-12-31 (activism — ValueAct+3D+Couche-Tard pressure, Bain MBO)
+  mustYoungPoong,          // 2025-12-31 (activism — Must Asset vs Young Poong, Korea Zinc-linked)
   skSquare11stPutDefault,  // 2025-10-29 (ma — First Korean PE-strategic JV put default)
   synopsysAnsys,           // 2025-07-17 (ma — EDA + multiphysics consolidation)
   nipponSteelUsSteel,      // 2025-06-18 (ma — First US-government golden share on foreign acquisition)
@@ -137,7 +151,9 @@ export const ALL_DEALS_EN: DealData[] = [
   koreaZincMbk,            // 2025-03-28 (control)
   hanmiPharmaControl,      // 2024-12-31 (control, ongoing)
   doosanRoboticsBobcatWithdrawn, // 2024-10-21 (control — Activist+NPS+FSS triangle blocks chaebol restructuring)
+  politanMasimoFounderOuster, // 2024-09-20 (activism — Founder-CEO Joe Kiani ousted via proxy)
   bhpAngloAmericanHostile, // 2024-05-29 (control terminated — 4-week aborted hostile, copper supercycle)
+  ancoraNorfolkSouthern,   // 2024-05-09 (activism — Post-East Palestine disaster activism)
   trianDisney,             // 2024-04-03 (activism)
   geBreakup,               // 2024-04-02 (restructuring)
   illuminaGrail,           // 2024 forced divestiture
@@ -145,11 +161,13 @@ export const ALL_DEALS_EN: DealData[] = [
   harimHmmFailed,          // 2024-02-06 (ma — Korean SOE sale blocked by perpetual CB)
   toshibaJipTakeprivate,   // 2023-12-20 (ma — Japan domestic-consortium take-private)
   adobeFigmaBlocked,       // 2023-12-18 (terminated)
+  murakamiCosmoEnergy,     // 2023-12-01 (activism — Murakami hostile TOB attempt, Iwatani white knight ending)
   broadcomVmware,          // 2023-11-22
   microsoftActivision,     // 2023-10-13
   blackstoneKenedix,       // 2023-10-12
   jjKenvue,                // 2023-08-23 (restructuring)
   ubsCreditSuisseRescue,   // 2023-06-12 (ma — Swiss forced rescue, AT1 $17B wipeout)
+  threeActivistsSalesforce, // 2023-03-27 (activism — Elliott+ValueAct+Starboard+Inclusive+Third Point 5-activist pile-on)
   hybeSmKakaoTender,       // 2023-03-26 (control — Korea's first competitive tender offer)
   microsoftOpenaiStructured, // 2023-01-23 (ma — capped profit interest, modern AI investment)
   zendeskPeBuyout,         // 2022-11-22
@@ -170,8 +188,10 @@ export const ALL_DEALS_EN: DealData[] = [
   aramcoOilPipelines,      // 2021-06-18 (ma — 25-year throughput-based lease-back)
   engineNo1Exxon,          // 2021-05-26 (activism)
   elliottAtt,              // 2021-05-17 (activism)
+  bluebellDanoneCeo,       // 2021-03-14 (activism — $20M stake ousts Faber CEO, smallest-stake mega-cap activist victory)
   lvmhTiffany,             // 2021-01-07
   siemensBreakup,          // 2020-09-28 (restructuring)
+  trianGeLoss,             // 2020-08-05 (activism — Trian's $4B loss, biggest activist conviction failure)
   sertaSimmonsUptier,      // 2020-06-22 (uptier exchange)
   danaherAcquisitions,     // multiple deals (latest: Cytiva 2020-03)
   elliottTwitter,          // 2020-03-09 (activism)
@@ -188,6 +208,7 @@ export const ALL_DEALS_EN: DealData[] = [
   microsoftGithub,         // 2018-06-04
   salesforceMulesoft,      // 2018-05-01
   pershingSquareHerbalife, // 2018-03-01 (activism, short)
+  icahnHerbalifeCounter,   // 2018-02-28 (activism — Icahn counter-activism to Ackman's short)
   trianPg,                 // 2017-12-15 (activism)
   amazonWholeFoods,        // 2017-08-28
   janaWholeFoods,          // 2017-08-28 (activism)

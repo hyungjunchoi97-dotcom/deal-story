@@ -129,6 +129,17 @@ import kakaobankKospiIpo from "./kakaobank-kospi-ipo";
 import geelyVolvoCars from "./geely-volvo-cars";
 import pifNewcastleUnited from "./pif-newcastle-united";
 import weworkBankruptcyNeumannBid from "./wework-bankruptcy-neumann-bid";
+// 신규 추가 딜 — 행동주의 10선 시리즈
+import icahnHerbalifeCounter from "./icahn-herbalife-counter";
+import trianGeLoss from "./trian-ge-loss";
+import bluebellDanoneCeo from "./bluebell-danone-ceo";
+import threeActivistsSalesforce from "./three-activists-salesforce";
+import politanMasimoFounderOuster from "./politan-masimo-founder-ouster";
+import ancoraNorfolkSouthern from "./ancora-norfolk-southern";
+import sabaClosedEndFunds from "./saba-closed-end-funds";
+import valueact3dSevenI from "./valueact-3d-seven-i";
+import murakamiCosmoEnergy from "./murakami-cosmo-energy";
+import mustYoungPoong from "./must-young-poong";
 
 /**
  * 딜 레지스트리 — 새 딜 추가 시 import 후 배열에 추가
@@ -138,6 +149,9 @@ export const ALL_DEALS: DealData[] = [
   mbkMakinoAltemira,       // 2026-05-11 (ma — 일본 FEFTA + 19일 피벗)
   kkrSamsungSdsCb,         // 2026-04-30 (ma — 한국 단일 사모 CB 최대급)
   coucheTard7eleven,       // 2025-12-31 (control, 진행중)
+  sabaClosedEndFunds,      // 2025-12-31 (activism — 폐쇄형 펀드 50+개 동시 캠페인, Boaz Weinstein)
+  valueact3dSevenI,        // 2025-12-31 (activism — ValueAct+3D+Couche-Tard 동시 압박, Bain MBO)
+  mustYoungPoong,          // 2025-12-31 (activism — 머스트 × 영풍, Korea Zinc 분쟁 연계)
   skSquare11stPutDefault,  // 2025-10-29 (ma — 한국 PE-전략적 JV 풋옵션 디폴트 첫 케이스)
   synopsysAnsys,           // 2025-07-17 (ma — EDA + multiphysics 통합)
   nipponSteelUsSteel,      // 2025-06-18 (ma — 미국 정부 golden share 부과 첫 사례)
@@ -145,8 +159,10 @@ export const ALL_DEALS: DealData[] = [
   koreaZincMbk,            // 2025-03-28 (control)
   hanmiPharmaControl,      // 2024-12-31 (control, 진행중)
   doosanRoboticsBobcatWithdrawn, // 2024-10-21 (control — 행동주의+NPS+FSS 트라이앵글 첫 차단)
+  politanMasimoFounderOuster, // 2024-09-20 (activism — 창업자 CEO Joe Kiani 축출)
   weworkBankruptcyNeumannBid, // 2024-06-11 (ma — SoftBank $14B 손실 + Neumann 재인수 시도)
   bhpAngloAmericanHostile, // 2024-05-29 (control terminated — 4주 만의 적대적 무산, 구리 슈퍼사이클)
+  ancoraNorfolkSouthern,   // 2024-05-09 (activism — East Palestine 사고 후 재난 활동주의)
   trianDisney,             // 2024-04-03 (activism)
   geBreakup,               // 2024-04-02 (restructuring)
   illuminaGrail,           // 2024 forced divestiture
@@ -155,12 +171,14 @@ export const ALL_DEALS: DealData[] = [
   harimHmmFailed,          // 2024-02-06 (ma — 한국 국책 매각, 영구채가 막은 케이스)
   toshibaJipTakeprivate,   // 2023-12-20 (ma — 일본 도메스틱 컨소시엄 비상장화)
   adobeFigmaBlocked,       // 2023-12-18 (terminated)
+  murakamiCosmoEnergy,     // 2023-12-01 (activism — Murakami 적대적 TOB 시도, Iwatani 백기사 결말)
   broadcomVmware,          // 2023-11-22
   microsoftActivision,     // 2023-10-13
   blackstoneKenedix,       // 2023-10-12
   jjKenvue,                // 2023-08-23 (restructuring)
   ubsCreditSuisseRescue,   // 2023-06-12 (ma — Swiss 강제 합병, AT1 $17B wipeout)
   hanwhaDsme,              // 2023-05-23 (ma — 한국 방위/조선 재편, 신주발행 인수 구조)
+  threeActivistsSalesforce, // 2023-03-27 (activism — Elliott+ValueAct+Starboard+Inclusive+Third Point 5중 압박)
   hybeSmKakaoTender,       // 2023-03-26 (control — 한국 첫 경쟁적 공개매수)
   microsoftOpenaiStructured, // 2023-01-23 (ma — capped profit interest, 현대 AI 투자 구조)
   zendeskPeBuyout,         // 2022-11-22
@@ -182,8 +200,10 @@ export const ALL_DEALS: DealData[] = [
   aramcoOilPipelines,      // 2021-06-18 (ma — 파이프라인 25년 throughput 임차백)
   engineNo1Exxon,          // 2021-05-26 (activism)
   elliottAtt,              // 2021-05-17 (activism — AT&T $134B 인수 후처리, DirecTV+WarnerMedia 분리)
+  bluebellDanoneCeo,       // 2021-03-14 (activism — $20M 지분으로 Faber CEO 축출, 소액 활동주의 정점)
   lvmhTiffany,             // 2021-01-07
   siemensBreakup,          // 2020-09-28 (restructuring)
+  trianGeLoss,             // 2020-08-05 (activism — Trian의 $4B 손실, 활동주의 실패 메가)
   sertaSimmons,            // 2020-06-22 (LevFin 업티어 익스체인지)
   danaherAcquisitions,     // multiple deals (latest: Cytiva 2020-03)
   elliottTwitter,          // 2020-03-09 (activism — 겸직 CEO 압박, Dorsey 사임 도화선)
@@ -200,6 +220,7 @@ export const ALL_DEALS: DealData[] = [
   microsoftGithub,         // 2018-06-04
   salesforceMulesoft,      // 2018-05-01
   pershingSquareHerbalife, // 2018-03-01 (activism — Ackman vs Icahn, 역대 최장 공매도 대결)
+  icahnHerbalifeCounter,   // 2018-02-28 (activism — Ackman 반대편의 Icahn 카운터-활동주의)
   trianPg,                 // 2017-12-15 (activism)
   amazonWholeFoods,        // 2017-08-28
   janaWholeFoods,          // 2017-08-28 (activism — Amazon 매각 촉발)
